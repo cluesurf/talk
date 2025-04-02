@@ -5,10 +5,6 @@
 <br/>
 <br/>
 
-<p align='center'>
-  <img src='https://github.com/cluesurf/talk/blob/make/view/moon.svg?raw=true' height='222'>
-</p>
-
 <h3 align='center'>
   @cluesurf/talk
 </h3>
