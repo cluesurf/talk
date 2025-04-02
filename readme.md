@@ -9,7 +9,7 @@
   @cluesurf/talk
 </h3>
 <p align='center'>
-  A Cross-Cultural Romanization Scheme
+  A Phonetic Paradigm
 </p>
 
 <br/>
@@ -22,7 +22,8 @@
 natural language features, enough so that you can write every language
 using the same Latin-oriented system and be close enough to a realistic
 pronunciation, including nasalized vowels, tense consonants, clicks, and
-tones, amongst other things.
+tones, amongst other things. A cross-cultural romanization scheme
+basically!
 
 There are two forms:
 
