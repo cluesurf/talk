@@ -4,6 +4,11 @@
 <br/>
 <br/>
 <br/>
+<br/>
+
+<p align='center'>
+  <img src='https://github.com/cluesurf/talk.js/blob/make/view/star.svg?raw=true' height='192'>
+</p>
 
 <h3 align='center'>
   @cluesurf/talk
