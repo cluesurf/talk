@@ -7,14 +7,14 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/cluesurf/talk/blob/make/view/star3.svg?raw=true' height='192'>
+  <img src='https://github.com/cluesurf/talk/blob/make/view/star.svg?raw=true' height='192'>
 </p>
 
 <h3 align='center'>
   @cluesurf/talk
 </h3>
 <p align='center'>
-  A Phonetic Paradigm
+  A Phonetic Encoding
 </p>
 
 <br/>
