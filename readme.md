@@ -150,92 +150,94 @@ combined in standard ways.
 _Note: GitHub markdown doesn't really render the diacritics that nicely,
 some are misaligned. We will have a font to remedy this for websites._
 
-| IPA | ascii | simplified |
-| :-- | :---- | :--------- |
-| ʰ   | h~    | ɦ          |
-| m   | m     | m          |
-| ɳ   | N     | ṇ          |
-| n   | n     | n          |
-| ŋ   | q     | ṅ          |
-|     | G~    | g̃          |
-| ʁ   | G     | ġ          |
-| ɠ   | g?    | g̀          |
-| g   | g     | g          |
-| ʔ   | '     | '          |
-| ʕ   | Q     | q̇          |
-| ɗ   | d?    | d̖          |
-| dʼ  | d!    | d̗          |
-| ǂ   | d\*   | d̬          |
-| d̚   | d.    | ḏ          |
-| ɖ   | D     | ḍ          |
-| dˤ  | dQ~   | d̰          |
-| d   | d     | d          |
-| ɓ   | b?    | b̖          |
-| bʼ  | b!    | b̗          |
-| b   | b     | b          |
-| pʼ  | p!    | ṕ          |
-| ʘ   | p\*   | p̂          |
-| p̚   | p.    | t̄          |
-| p͈   | p@    | x̌          |
-| p   | p     | p          |
-| ʈʼ  | T!    | ṭ̗          |
-| ʈ   | T     | ṭ          |
-| tʼ  | t!    | t̗          |
-| ǀ   | t\*   | t̬          |
-| tˤ  | tQ~   | t̰          |
-| t͈   | t@    | ṱ          |
-| t̚   | t.    | ṯ          |
-| t   | t     | t          |
-| kʼ  | k!    | k̗          |
-| k̚   | k.    | ḵ          |
-| ǃ   | k\*   | k̬          |
-| qʼ  | K!    | ḳ̗          |
-| q   | K     | ḳ          |
-| k   | k     | k          |
-| χʼ  | H!    | ḥ̗          |
-| χ   | H     | ḥ          |
-|     | h!    | ħ          |
-| h   | h     | h          |
-| ʐ   | J     | ȷ̈          |
-| ʒʼ  | j!    | j́          |
-| ʒ   | j     | j          |
-| ɬʼ  | S!    | ṣ́          |
-| sʼ  | s!    | ś          |
-| ɬ   | S     | ṣ          |
-| sˤ  | sQ~   | s̰          |
-| s͈   | s@    | s̭          |
-| s   | s     | s          |
-| ɸ   | F     | f̣          |
-| fʼ  | f!    | f̗          |
-| f   | f     | f          |
-| ʋ   | V     | ṿ          |
-| v   | v     | v          |
-| zʼ  | z!    | ź          |
-| zˤ  | zQ~   | z̰          |
-| z   | z     | z          |
-| ɮʼ  | Z!    | ẓ́          |
-| ɮ   | Z     | ẓ          |
-| ðˤ  | CQ~   | c̣̃          |
-| ð   | C     | c̣          |
-| θˤ  | cQ~   | c̃          |
-| θ   | c     | c          |
-| ɭ   | L     | ḷ          |
-| ǁ   | l\*   | l̬          |
-| lˤ  | lQ~   | l̰          |
-| l   | l     | l          |
-| ɽ   | R     | ṛ          |
-| r   | r     | ṙ          |
-| ʃʼ  | x!    | x́          |
-| ʂʼ  | X!    | x̣́          |
-| ʂ   | X     | x̣          |
-| ʃ͈   | x@    | x̭          |
-| ʃ   | x     | x          |
-| ɰ   | W     | ẇ          |
-| wʼ  | w!    | ẃ          |
-| ʷ   | w~    | ẉ          |
-| w   | w     | w          |
-| ʲ   | y~    | ẏ          |
-| j   | y     | y          |
+| IPA | ascii | simplified                      |
+| :-- | :---- | :------------------------------ |
+| ʰ   | h~    | ɦ (or macron when on consonant) |
+| m   | m     | m                               |
+| ɳ   | N     | ṇ                               |
+| n   | n     | n                               |
+| ŋ   | q     | ṅ                               |
+|     | G~    | g̃                               |
+| ʁ   | G     | ġ                               |
+| ɠ   | g?    | g̀                               |
+| g   | g     | g                               |
+| ʔ   | '     | '                               |
+| ʕ   | Q     | q̇                               |
+| dʰ  | dh~   | ḏ                               |
+| ɗ   | d?    | d̖                               |
+| dʼ  | d!    | d̗                               |
+| ǂ   | d\*   | d̬                               |
+| d̚   | d.    | d̤                               |
+| ɖ   | D     | ḍ                               |
+| dˤ  | dQ~   | d̰                               |
+| d   | d     | d                               |
+| ɓ   | b?    | b̖                               |
+| bʼ  | b!    | b̗                               |
+| b   | b     | b                               |
+| pʼ  | p!    | ṕ                               |
+| ʘ   | p\*   | p̂                               |
+| p̚   | p.    | p̈                               |
+| p͈   | p@    | p̌                               |
+| p   | p     | p                               |
+| ʈʼ  | T!    | ṭ̗                               |
+| ʈ   | T     | ṭ                               |
+| tʼ  | t!    | t̗                               |
+| ǀ   | t\*   | t̬                               |
+| tˤ  | tQ~   | t̰                               |
+| tʰ  | th~   | ṯ                               |
+| t͈   | t@    | ṱ                               |
+| t̚   | t.    | t̤                               |
+| t   | t     | t                               |
+| kʼ  | k!    | k̗                               |
+| k̚   | k.    | ḵ                               |
+| ǃ   | k\*   | k̬                               |
+| qʼ  | K!    | ḳ̗                               |
+| q   | K     | ḳ                               |
+| k   | k     | k                               |
+| χʼ  | H!    | ḥ̗                               |
+| χ   | H     | ḥ                               |
+|     | h!    | ħ                               |
+| h   | h     | h                               |
+| ʐ   | J     | ȷ̈                               |
+| ʒʼ  | j!    | j́                               |
+| ʒ   | j     | j                               |
+| ɬʼ  | S!    | ṣ́                               |
+| sʼ  | s!    | ś                               |
+| ɬ   | S     | ṣ                               |
+| sˤ  | sQ~   | s̰                               |
+| s͈   | s@    | s̭                               |
+| s   | s     | s                               |
+| ɸ   | F     | f̣                               |
+| fʼ  | f!    | f̗                               |
+| f   | f     | f                               |
+| ʋ   | V     | ṿ                               |
+| v   | v     | v                               |
+| zʼ  | z!    | ź                               |
+| zˤ  | zQ~   | z̰                               |
+| z   | z     | z                               |
+| ɮʼ  | Z!    | ẓ́                               |
+| ɮ   | Z     | ẓ                               |
+| ðˤ  | CQ~   | c̣̃                               |
+| ð   | C     | c̣                               |
+| θˤ  | cQ~   | c̃                               |
+| θ   | c     | c                               |
+| ɭ   | L     | ḷ                               |
+| ǁ   | l\*   | l̬                               |
+| lˤ  | lQ~   | l̰                               |
+| l   | l     | l                               |
+| ɽ   | R     | ṛ                               |
+| r   | r     | ṙ                               |
+| ʃʼ  | x!    | x́                               |
+| ʂʼ  | X!    | x̣́                               |
+| ʂ   | X     | x̣                               |
+| ʃ͈   | x@    | x̭                               |
+| ʃ   | x     | x                               |
+| ɰ   | W     | ẇ                               |
+| wʼ  | w!    | ẃ                               |
+| ʷ   | w~    | ẉ                               |
+| w   | w     | w                               |
+| ʲ   | y~    | ẏ                               |
+| j   | y     | y                               |
 
 ### Vowels
 
@@ -256,8 +258,8 @@ These are all the combos for the letter `a`, same applies to all vowels.
 | a˩   | a--   | ȁ          |
 | a˧˥  | a/    | ą́          |
 | a˩˥  | a//   | ą̋          |
-| a˥˧  | a\    | ą̀          |
-| a˥˩  | a\\   | ą̏          |
+| a˥˧  | a\\   | ą̀          |
+| a˥˩  | a\\\\ | ą̏          |
 | a˩˥˩ | a/\   | â          |
 | a˥˩˥ | a\\/  | ǎ          |
 
@@ -448,9 +450,11 @@ MIT
 
 ## ClueSurf
 
-This is being developed by the folks at [ClueSurf](https://clue.surf), a
-California-based project for helping humanity master information and
-computation. Find us on [Twitter](https://twitter.com/cluesurf),
-[LinkedIn](https://www.linkedin.com/company/cluesurf), and
-[Facebook](https://www.facebook.com/cluesurf). Check out our other
-[GitHub projects](https://github.com/cluesurf) as well!
+Made by [ClueSurf](https://clue.surf), meditating on the universe ¤.
+Follow the work on [YouTube](https://youtube.com/@cluesurf),
+[X](https://x.com/cluesurf),
+[Instagram](https://instagram.com/cluesurf),
+[Substack](https://cluesurf.substack.com),
+[Facebook](https://facebook.com/cluesurf), and
+[LinkedIn](https://linkedin.com/company/cluesurf), and browse more of
+our open-source work here on [GitHub](https://github.com/cluesurf).
