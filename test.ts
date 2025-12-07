@@ -159,7 +159,9 @@ function parse(word: string) {
     .join('')
   const wordWithoutSpaces = word.replace(/ /g, '')
   if (syllableLetters !== wordWithoutSpaces) {
-    console.log(`  ERROR: Letters missing! Input: "${word}", Output: "${syllableLetters}"`)
+    console.log(`  ERROR: Letters missing!`)
+    console.log(`    Input (no spaces): "${wordWithoutSpaces}"`)
+    console.log(`    Output:            "${syllableLetters}"`)
   }
   console.log(
     '  clusters:',

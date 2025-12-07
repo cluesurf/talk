@@ -90,10 +90,7 @@ export function buildAndSaveClusters(): Clusters {
 
   // Add clusters to each category
   addToCategory(clusters.consonants, processClusters(consonants))
-  addToCategory(
-    clusters.endConsonants,
-    processClusters(endConsonants),
-  )
+  addToCategory(clusters.endConsonants, processClusters(endConsonants))
   addToCategory(
     clusters.fullConsonants,
     processClusters(fullConsonants),

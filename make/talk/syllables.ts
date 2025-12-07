@@ -31,6 +31,12 @@ export default function chunk(clusters: Cluster[]) {
         while (i < clusters.length) {
           const next = clusters[i]!
 
+          // Skip punctuation (spaces, etc)
+          if (next.form === ClusterKey.PUNCTUATION) {
+            i++
+            continue
+          }
+
           // If next is a vowel, stop - it starts a new syllable
           if (next.form === ClusterKey.VOWEL) {
             break
@@ -95,6 +101,12 @@ export default function chunk(clusters: Cluster[]) {
         ) {
           const next = clusters[i]!
           
+          // Skip punctuation (spaces, etc)
+          if (next.form === ClusterKey.PUNCTUATION) {
+            i++
+            continue
+          }
+          
           // Don't add START_CONSONANT to current syllable if we already have consonants
           if (next.form === ClusterKey.START_CONSONANT && syllable.clusters.length > 1) {
             break
@@ -148,6 +160,12 @@ export default function chunk(clusters: Cluster[]) {
           // Look for trailing consonants
           while (i < clusters.length) {
             const next = clusters[i]!
+
+            // Skip punctuation (spaces, etc)
+            if (next.form === ClusterKey.PUNCTUATION) {
+              i++
+              continue
+            }
 
             if (next.form === ClusterKey.VOWEL) {
               break
