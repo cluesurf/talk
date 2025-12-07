@@ -2,8 +2,10 @@ import makeTalk from './make/talk'
 import makeTalkToIpa from './make/talk/ipa'
 import makeIpaToTalk from './make/ipa/talk'
 import makeIpaToXSampa from './make/ipa/xsampa'
-import cluster, { chunk as chunkRaw } from './make/talk/clusters'
-import syllabify from './make/talk/syllables'
+import syllabify, {
+  cluster,
+  chunkClusters as chunkRaw,
+} from './make/talk/syllables'
 // import simplifyPhonetics from './make/talk/simplify'
 
 // talk('txando^', 'txandȯ')
@@ -138,20 +140,17 @@ parse('KantQ~u_r')
 parse('mawrid')
 parse('fOla^sOfirmja')
 
-
 function parse(word: string) {
   console.log(word)
   const clusters = cluster(word)
   const syllables = syllabify(clusters)
-  
+
   // Build syllable text, just join syllables with dashes
   const syllableText = syllables
-    .map(syllable =>
-      syllable.clusters.map(({ text }) => text).join(''),
-    )
+    .map(syllable => syllable.clusters.map(({ text }) => text).join(''))
     .join(' - ')
   console.log('  syllables:', syllableText)
-  
+
   // Check if all letters are preserved
   const syllableLetters = syllables
     .flatMap(s => s.clusters)
