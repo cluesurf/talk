@@ -1,5 +1,5 @@
-import talk from '~/make/talk'
+import talk from '~/make'
 
-export * from '~/make/talk'
+export * from '~/make'
 
 export default talk

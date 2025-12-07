@@ -1,6 +1,6 @@
 import CLUSTERS_JSON from './clusters.json'
 
-export interface Clusters {
+export type Clusters = {
   consonants: Record<string, string>
   endConsonants: Record<string, string>
   fullConsonants: Record<string, string>

@@ -1595,13 +1595,17 @@ function normalizeRhymeSimilarities(
   for (const [source, targets] of Object.entries(mappings)) {
     for (const [target, score] of Object.entries(targets)) {
       // Set forward mapping
-      normalized[source] ??= {}
-      normalized[source][target] = score
+      if (!normalized[source]) {
+        normalized[source] = {}
+      }
+      normalized[source]![target] = score
 
       // Set reverse mapping (symmetry)
-      normalized[target] ??= {}
+      if (!normalized[target]) {
+        normalized[target] = {}
+      }
       // Only set if not already defined (prefer explicit definitions)
-      normalized[target][source] ??= score
+      normalized[target]![source] ??= score
     }
   }
 
@@ -1609,8 +1613,10 @@ function normalizeRhymeSimilarities(
   for (const source of ALL_CONSONANTS) {
     for (const target of ALL_CONSONANTS) {
       // Self-similarity is always 1, otherwise default to 0
-      normalized[source] ??= {}
-      normalized[source][target] ??= source === target ? 1 : 0
+      if (!normalized[source]) {
+        normalized[source] = {}
+      }
+      normalized[source]![target] ??= source === target ? 1 : 0
     }
   }
 

@@ -1,4 +1,4 @@
-import make from '~/index.js'
+import talk from '.'
 
 export enum Simplify {
   VowelNone = 2,
@@ -27,7 +27,7 @@ const MAX =
   Simplify.DurationYes *
   Simplify.AspirationYes
 
-export interface SimplifyType {
+export type SimplifyType = {
   vowel: 'none' | 'one' | 'basic' | 'all'
   consonant: 'all' | 'simplified'
   tone: 'yes' | 'no'
@@ -35,21 +35,29 @@ export interface SimplifyType {
   aspiration: 'yes' | 'no'
 }
 
-export interface ViewType {
+export type ViewType = {
   text: string
   code: string
   mass: number
   load: Record<string, string>
 }
 
-const VOWEL: SimplifyType['vowel'][] = ['none', 'one', 'basic', 'all']
-const CONSONANT: SimplifyType['consonant'][] = ['all', 'simplified']
-const TONE: SimplifyType['tone'][] = ['yes', 'no']
-const DURATION: SimplifyType['duration'][] = ['yes', 'no']
-const ASPIRATION: SimplifyType['aspiration'][] = ['yes', 'no']
+const VOWEL: Array<SimplifyType['vowel']> = [
+  'none',
+  'one',
+  'basic',
+  'all',
+]
+const CONSONANT: Array<SimplifyType['consonant']> = [
+  'all',
+  'simplified',
+]
+const TONE: Array<SimplifyType['tone']> = ['yes', 'no']
+const DURATION: Array<SimplifyType['duration']> = ['yes', 'no']
+const ASPIRATION: Array<SimplifyType['aspiration']> = ['yes', 'no']
 
 export default function simplifyPhonetics(text: string) {
-  const holdBase: Record<string, ViewType[]> = {}
+  const holdBase: Record<string, Array<ViewType>> = {}
 
   text = text.replace(/=(.)/g, '')
 
@@ -74,7 +82,7 @@ export default function simplifyPhonetics(text: string) {
     })
   })
 
-  const holdHead: ViewType[] = []
+  const holdHead: Array<ViewType> = []
   const codeList: Record<string, boolean> = {}
   for (const line in holdBase) {
     const list = holdBase[line]
@@ -170,7 +178,7 @@ export function simplifyPhoneticsCase(
     }
   }
 
-  view.code = make.machine(view.text)
+  view.code = talk.machine(view.text)
 
   return view
 }

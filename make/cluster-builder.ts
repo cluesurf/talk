@@ -1,4 +1,3 @@
-import uniq from 'lodash/uniq'
 import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
@@ -31,7 +30,9 @@ const HANGUL_END = 0xd7a3
 
 function getNextGlyph() {
   if (HANGUL_CODE > HANGUL_END) {
-    throw new Error(`Exceeded available Hangul code points (max: ${HANGUL_END})`)
+    throw new Error(
+      `Exceeded available Hangul code points (max: ${HANGUL_END})`,
+    )
   }
   return String.fromCodePoint(HANGUL_CODE++)
 }
@@ -55,7 +56,14 @@ function loadExistingClustersNested(): Clusters {
 
   // Find the highest code point across all categories
   let maxCode = HANGUL_CODE - 1
-  for (const category of Object.values(clusters)) {
+  const categories: Array<Record<string, string>> = [
+    clusters.consonants,
+    clusters.endConsonants,
+    clusters.fullConsonants,
+    clusters.startConsonants,
+    clusters.vowels,
+  ]
+  for (const category of categories) {
     for (const glyph of Object.values(category)) {
       const code = glyph.codePointAt(0)
       if (code !== undefined && code > maxCode) {
@@ -71,7 +79,7 @@ function loadExistingClustersNested(): Clusters {
 }
 
 // Process clusters - keep those with colons as they indicate optional splits
-function processClusters(items: string[]): string[] {
+function processClusters(items: Array<string>): Array<string> {
   return items
 }
 
@@ -83,7 +91,7 @@ export function buildAndSaveClusters(): Clusters {
   // Helper to add clusters to a category without overwriting
   function addToCategory(
     category: Record<string, string>,
-    items: string[],
+    items: Array<string>,
   ): void {
     for (const item of items) {
       if (!(item in category)) {
@@ -95,7 +103,7 @@ export function buildAndSaveClusters(): Clusters {
   // Helper to clean up removed clusters from a category
   function cleanupCategory(
     category: Record<string, string>,
-    validItems: string[],
+    validItems: Array<string>,
   ): void {
     const validSet = new Set(validItems)
     for (const key in category) {
@@ -107,9 +115,18 @@ export function buildAndSaveClusters(): Clusters {
 
   // Clean up removed clusters first
   cleanupCategory(clusters.consonants, processClusters(consonants))
-  cleanupCategory(clusters.endConsonants, processClusters(endConsonants))
-  cleanupCategory(clusters.fullConsonants, processClusters(fullConsonants))
-  cleanupCategory(clusters.startConsonants, processClusters(startConsonants))
+  cleanupCategory(
+    clusters.endConsonants,
+    processClusters(endConsonants),
+  )
+  cleanupCategory(
+    clusters.fullConsonants,
+    processClusters(fullConsonants),
+  )
+  cleanupCategory(
+    clusters.startConsonants,
+    processClusters(startConsonants),
+  )
   cleanupCategory(clusters.vowels, processClusters(vowels))
 
   // Add clusters to each category

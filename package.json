@@ -1,5 +1,5 @@
 {
-  "version": "1.6.0",
+  "version": "1.6.10",
   "name": "@cluesurf/talk",
   "main": "./host/index.js",
   "type": "module",
@@ -18,7 +18,7 @@
     "x-sampa-ipa": "^0.0.3"
   },
   "scripts": {
-    "make": "rm -rf host && tsup",
+    "make": "rm -rf host && tsup --no-dts && tsc --emitDeclarationOnly --declaration --outDir host --skipLibCheck",
     "scan": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
     "lint": "eslint --ext .ts ./make",
     "lint:fix": "npm run lint -- --fix",

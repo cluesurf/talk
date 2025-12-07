@@ -1,4 +1,5 @@
 import st from '@lancejpollard/script-tree'
+import { m } from './constants'
 
 // https://en.wikipedia.org/wiki/Hangul_Syllables
 // LAST used is U+CF82, so can continue from there.
@@ -6,55 +7,26 @@ import st from '@lancejpollard/script-tree'
 const HANGUL_START = 0xac00
 // const HANGUL_END = 0xd7a3
 const HANGUL_ALLOWED_END_FOR_BASE_TONES = 0xcfff
+
 let HANGUL_CODE = HANGUL_START
 
-const m = {
-  u: {
-    grave: '\u0300',
-    acute: '\u0301',
-    dacute: '\u030B',
-    dgrave: '\u030F',
-    up: '\u0302',
-    down: '\u030C',
-    dot: '\u0307',
-    ddot: '\u0308',
-    ring: '\u030A',
-    tilde: '\u0303',
-    macron: '\u0304',
-    hook: '\u0309',
-  },
-  d: {
-    grave: '\u0316',
-    acute: '\u0317',
-    ring: '\u0325',
-    dot: '\u0323',
-    ddot: '\u0324',
-    down: '\u032C',
-    tilde: '\u0330',
-    macron: '\u0331',
-    cedilla: '\u0327',
-    up: '\u032D',
-    hook: '\u0328',
-  },
-}
-
 const D: Record<string, string> = {
-  '--': m.u.dgrave,
-  '-': m.u.grave,
-  '++': m.u.dacute,
-  '+': m.u.acute,
+  '--': m.u.dgrave!,
+  '-': m.u.grave!,
+  '++': m.u.dacute!,
+  '+': m.u.acute!,
   '//': `${m.d.hook}${m.u.dacute}`, // rising 2 (vietnamese ngã)
   '/': `${m.d.hook}${m.u.acute}`, // rising (vietnamese sắc)
-  '\\/': m.u.down, // falling rising (vietnamese hỏi)
-  '/\\': m.u.up, // rising falling
+  '\\/': m.u.down!, // falling rising (vietnamese hỏi)
+  '/\\': m.u.up!, // rising falling
   '\\\\': `${m.d.hook}${m.u.dgrave}`, // falling 2 (vietnamese nặng)
   '\\': `${m.d.hook}${m.u.grave}`, // falling (vietnamese huyền)
-  '^': m.u.dot, // accent/stress mark
-  $: m.d.ddot,
-  '&': m.d.tilde,
-  _: m.u.macron, // long vowel
-  '@': m.d.grave, // non-syllabic
-  '!': m.d.macron, // short vowel
+  '^': m.u.dot!, // accent/stress mark
+  $: m.d.ddot!,
+  '&': m.d.tilde!,
+  _: m.u.macron!, // long vowel
+  '@': m.d.grave!, // non-syllabic
+  '!': m.d.macron!, // short vowel
   '': '',
 }
 

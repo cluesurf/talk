@@ -1,9 +1,9 @@
 import chalk from 'chalk'
-import makeTalk from './make/talk'
-import makeTalkToIpa from './make/talk/ipa'
-import makeIpaToTalk from './make/ipa/talk'
-import makeIpaToXSampa from './make/ipa/xsampa'
-import chunk from './make/talk/syllables'
+// import makeTalk from './talk'
+// import makeTalkToIpa from './talk/ipa'
+// import makeIpaToTalk from './ipa'
+// import makeIpaToXSampa from './ipa/xsampa'
+import chunk from '~/make/syllables'
 // import simplifyPhonetics from './make/talk/simplify'
 
 // talk('txando^', 'txandȯ')
