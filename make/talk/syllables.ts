@@ -809,6 +809,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
           syllable.clusters.push(next)
           i++
 
+
           // If we just added ' and have at least one other consonant, this could be a complete syllable
           if (next.text === "'") {
             // If we have other consonants and the last one before ' was a START_CONSONANT,
