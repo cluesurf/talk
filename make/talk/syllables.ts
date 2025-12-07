@@ -234,11 +234,11 @@ BASE_VOWEL_GLYPHS.forEach(g => {
   })
 })
 
-const fullConsonants = Object.keys(CLUSTERS.fullConsonants)
-const consonants = Object.keys(CLUSTERS.consonants)
-const startConsonants = Object.keys(CLUSTERS.startConsonants)
-const endConsonants = Object.keys(CLUSTERS.endConsonants)
-const vowels = Object.keys(CLUSTERS.vowels)
+const fullConsonants = Object.keys(CLUSTERS.fullConsonants).sort((a, b) => b.length - a.length)
+const consonants = Object.keys(CLUSTERS.consonants).sort((a, b) => b.length - a.length)
+const startConsonants = Object.keys(CLUSTERS.startConsonants).sort((a, b) => b.length - a.length)
+const endConsonants = Object.keys(CLUSTERS.endConsonants).sort((a, b) => b.length - a.length)
+const vowels = Object.keys(CLUSTERS.vowels).sort((a, b) => b.length - a.length)
 
 enum ClusterType {
   FULL_CONSONANT = 0,
@@ -339,6 +339,8 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       continue
     }
 
+    // First check for standalone full consonants (high priority)
+    j = 0
     while (j < fullConsonants.length) {
       const x = fullConsonants[j++]!
       // Handle colon notation - remove colons for matching
@@ -347,38 +349,55 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       const chunkStr = chunk.map(x => x.value).join('')
       
       if (chunkStr === y) {
-        // Check if this is a colon pattern and if we should use it
-        if (x.includes(':')) {
-          // Look ahead to see what follows
-          const nextChunkIndex = i + y.length
-          if (nextChunkIndex < chunks.length) {
-            const nextChunk = chunks[nextChunkIndex]
-            // Only split if next is a vowel
-            if (nextChunk?.type !== 'vowel') {
-              // Check if splitting would allow a better match
-              // For example, 'l:d followed by j could be 'l + dj (start consonant)
-              const colonParts = x.split(':')
-              if (colonParts.length === 2) {
-                const rightPart = colonParts[1]!
-                // Check if rightPart + next would form a known cluster
-                const potentialCluster = rightPart + nextChunk?.value
-                let wouldFormBetterCluster = false
-                
-                // Check if it would form a start consonant
-                for (const sc of startConsonants) {
-                  if (sc.replace(/:/g, '') === potentialCluster) {
-                    wouldFormBetterCluster = true
-                    break
+        // Only match standalone consonants (single characters or glottal + consonant)
+        // Skip dense clusters like 'gm', 'kn', etc.
+        const isDenseCluster = y.length >= 2 && !y.startsWith("'") && !/^[lrwy]$/.test(y)
+        
+        if (!isDenseCluster) {
+          // Check if this is a colon pattern and if we should use it
+          if (x.includes(':')) {
+            // Look ahead to see what follows
+            const nextChunkIndex = i + y.length
+            if (nextChunkIndex < chunks.length) {
+              const nextChunk = chunks[nextChunkIndex]
+              // Only split if next is a vowel
+              if (nextChunk?.type !== 'vowel') {
+                // Check if splitting would allow a better match
+                // For example, 'l:d followed by j could be 'l + dj (start consonant)
+                const colonParts = x.split(':')
+                if (colonParts.length === 2) {
+                  const rightPart = colonParts[1]!
+                  // Check if rightPart + next would form a known cluster
+                  const potentialCluster = rightPart + nextChunk?.value
+                  let wouldFormBetterCluster = false
+                  
+                  // Check if it would form a start consonant
+                  for (const sc of startConsonants) {
+                    if (sc.replace(/:/g, '') === potentialCluster) {
+                      wouldFormBetterCluster = true
+                      break
+                    }
+                  }
+                  
+                  if (wouldFormBetterCluster) {
+                    // Skip this match to allow splitting
+                    continue
                   }
                 }
                 
-                if (wouldFormBetterCluster) {
-                  // Skip this match to allow splitting
-                  continue
-                }
+                // Don't split - treat as full consonant
+                span.push({
+                  chunk,
+                  match: x,
+                  form: ClusterType.FULL_CONSONANT,
+                })
+                i += y.length
+                break
               }
-              
-              // Don't split - treat as full consonant
+              // If next is vowel, skip this full consonant match
+              // to allow potential splitting later
+            } else {
+              // At end of word, don't split
               span.push({
                 chunk,
                 match: x,
@@ -387,10 +406,8 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
               i += y.length
               break
             }
-            // If next is vowel, skip this full consonant match
-            // to allow potential splitting later
           } else {
-            // At end of word, don't split
+            // No colon, normal match
             span.push({
               chunk,
               match: x,
@@ -399,15 +416,6 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
             i += y.length
             break
           }
-        } else {
-          // No colon, normal match
-          span.push({
-            chunk,
-            match: x,
-            form: ClusterType.FULL_CONSONANT,
-          })
-          i += y.length
-          break
         }
       }
     }
@@ -448,6 +456,29 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
     }
 
     let matched = false
+    
+    // Check if any dense full consonant would match before trying end consonants
+    let longerDenseMatch: { chunk: any[], match: string, length: number } | null = null
+    for (const fc of fullConsonants) {
+      const fcNormalized = fc.replace(/:/g, '')
+      const isDenseCluster = fcNormalized.length >= 2 && !fcNormalized.startsWith("'") && !/^[lrwy]$/.test(fcNormalized)
+      if (isDenseCluster) {
+        const fcChunk = chunks.slice(i, i + fcNormalized.length)
+        const fcChunkStr = fcChunk.map(x => x.value).join('')
+        if (fcChunkStr === fcNormalized) {
+          if (!longerDenseMatch || fcNormalized.length > longerDenseMatch.length) {
+            longerDenseMatch = {
+              chunk: fcChunk,
+              match: fc,
+              length: fcNormalized.length
+            }
+          }
+        }
+      }
+    }
+    
+    // Check end consonants but prefer longer dense matches
+    let endConsonantMatch: { chunk: any[], match: string, length: number } | null = null
     j = 0
     while (j < endConsonants.length) {
       const x = endConsonants[j++]!
@@ -455,11 +486,53 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       const chunk = chunks.slice(i, i + y.length)
       const chunkStr = chunk.map(x => x.value).join('')
       if (chunkStr === y) {
-        span.push({ chunk, match: x, form: ClusterType.END_CONSONANT })
-        i += y.length
-        matched = true
-        break
+        if (!endConsonantMatch || y.length > endConsonantMatch.length) {
+          endConsonantMatch = {
+            chunk,
+            match: x,
+            length: y.length
+          }
+        }
       }
+    }
+    
+    // Choose the longer match
+    if (longerDenseMatch && endConsonantMatch) {
+      if (longerDenseMatch.length > endConsonantMatch.length) {
+        // Use dense full consonant
+        span.push({
+          chunk: longerDenseMatch.chunk,
+          match: longerDenseMatch.match,
+          form: ClusterType.FULL_CONSONANT,
+        })
+        i += longerDenseMatch.length
+        matched = true
+      } else {
+        // Use end consonant
+        span.push({
+          chunk: endConsonantMatch.chunk,
+          match: endConsonantMatch.match,
+          form: ClusterType.END_CONSONANT,
+        })
+        i += endConsonantMatch.length
+        matched = true
+      }
+    } else if (longerDenseMatch) {
+      span.push({
+        chunk: longerDenseMatch.chunk,
+        match: longerDenseMatch.match,
+        form: ClusterType.FULL_CONSONANT,
+      })
+      i += longerDenseMatch.length
+      matched = true
+    } else if (endConsonantMatch) {
+      span.push({
+        chunk: endConsonantMatch.chunk,
+        match: endConsonantMatch.match,
+        form: ClusterType.END_CONSONANT,
+      })
+      i += endConsonantMatch.length
+      matched = true
     }
 
     if (!matched && span.length === 0) {
@@ -477,6 +550,33 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       }
     }
 
+
+    // If no matches found yet, try dense consonant clusters as fallback
+    if (span.length === 0) {
+      j = 0
+      while (j < fullConsonants.length) {
+        const x = fullConsonants[j++]!
+        // Handle colon notation - remove colons for matching
+        const y = x.replace(/:/g, '')
+        const chunk = chunks.slice(i, i + y.length)
+        const chunkStr = chunk.map(x => x.value).join('')
+        
+        if (chunkStr === y) {
+          // Only match dense clusters (skip what we already tried above)
+          const isDenseCluster = y.length >= 2 && !y.startsWith("'") && !/^[lrwy]$/.test(y)
+          
+          if (isDenseCluster) {
+            span.push({
+              chunk,
+              match: x,
+              form: ClusterType.FULL_CONSONANT,
+            })
+            i += y.length
+            break
+          }
+        }
+      }
+    }
 
     if (span.length) {
       list.push([...span])
