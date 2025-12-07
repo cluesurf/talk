@@ -66,9 +66,9 @@ function loadExistingClustersNested(): Clusters {
   return clusters
 }
 
-// Filter out clusters that contain ':' (end+start combinations like 'd:dj')
-function filterPureClusters(items: string[]): string[] {
-  return items.filter(item => !item.includes(':'))
+// Process clusters - keep those with colons as they indicate optional splits
+function processClusters(items: string[]): string[] {
+  return items
 }
 
 // Build clusters map and save to JSON
@@ -88,21 +88,21 @@ export function buildAndSaveClusters(): Clusters {
     }
   }
 
-  // Add clusters to each category (filtering out end+start combinations)
-  addToCategory(clusters.consonants, filterPureClusters(consonants))
+  // Add clusters to each category
+  addToCategory(clusters.consonants, processClusters(consonants))
   addToCategory(
     clusters.endConsonants,
-    filterPureClusters(endConsonants),
+    processClusters(endConsonants),
   )
   addToCategory(
     clusters.fullConsonants,
-    filterPureClusters(fullConsonants),
+    processClusters(fullConsonants),
   )
   addToCategory(
     clusters.startConsonants,
-    filterPureClusters(startConsonants),
+    processClusters(startConsonants),
   )
-  addToCategory(clusters.vowels, filterPureClusters(vowels))
+  addToCategory(clusters.vowels, processClusters(vowels))
 
   // Sort keys in each category by length (descending) then alphabetically
   const sortedClusters: Clusters = {

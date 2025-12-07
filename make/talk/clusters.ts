@@ -441,6 +441,60 @@ export function group(chunks: Mark[]) {
     }
   }
 
+  // First pass: split clusters with colons when appropriate
+  i = 0
+  while (i < list.length) {
+    const node = list[i]!
+    
+    for (let j = 0; j < node.length; j++) {
+      const span = node[j]!
+      
+      // Check if this span has a colon (can be split)
+      if (/:/.exec(span.match)) {
+        // Check if there's a following span
+        const nextSpan = node[j + 1] || (list[i + 1] && list[i + 1][0])
+        
+        // Split if:
+        // 1. This is an END_CONSONANT followed by a vowel
+        // 2. Or other conditions where splitting makes sense
+        if (span.form === ClusterType.END_CONSONANT && 
+            nextSpan && nextSpan.form === ClusterType.VOWEL) {
+          
+          
+          const [leftPart, rightPart] = span.match.split(':')
+          
+          // Find where to split the chunks
+          const left: Mark[] = []
+          const right: Mark[] = []
+          
+          let k = 0
+          let text = ''
+          let array = left
+          while (k < span.chunk.length) {
+            const mark = span.chunk[k]!
+            text += mark.value
+            array.push(mark)
+            if (text === leftPart && !right.length) {
+              array = right
+            }
+            k++
+          }
+          
+          if (right.length) {
+            // Replace the original span with two new spans
+            node.splice(j, 1, 
+              { ...span, chunk: left, match: leftPart, form: ClusterType.END_CONSONANT },
+              { ...span, chunk: right, match: rightPart, form: ClusterType.CONSONANT }
+            )
+            j++ // Skip the newly inserted span
+          }
+        }
+      }
+    }
+    i++
+  }
+  
+  // Second pass: handle adjacent spans (original logic)
   i = 0
   while (i < list.length) {
     const last = list[i - 1]

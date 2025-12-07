@@ -29,60 +29,28 @@ export default function chunk(clusters: Cluster[]) {
             break
           }
 
-          // Check if we have an END_CONSONANT that might need splitting
+          // Check if we have an END_CONSONANT
           if (next.form === ClusterKey.END_CONSONANT) {
-            // Check if this END_CONSONANT contains both ending and starting parts
-            // e.g., "ntQ~" where "n" ends the syllable and "tQ~" starts the next
-            const endText = next.text
-            
-            // Common pattern: single consonant + consonant cluster with modifier
-            // e.g., ntQ~ -> n + tQ~
-            if (endText.length > 2 && /^[^aeiouAEIOU][^aeiouAEIOU]/.test(endText)) {
-              // Split after first consonant
-              const firstConsonant = endText[0]!
-              const rest = endText.slice(1)
-              
-              // Add first consonant to current syllable
-              syllable.clusters.push({
-                ...next,
-                text: firstConsonant,
-              })
-              
-              // Check if there's a following vowel - if so, the rest starts new syllable
-              const afterEnd = clusters[i + 1]
-              if (afterEnd && afterEnd.form === ClusterKey.VOWEL) {
-                // Insert the remaining consonant cluster before continuing
-                clusters.splice(i + 1, 0, {
-                  ...next,
-                  form: ClusterKey.START_CONSONANT,
-                  text: rest,
-                })
-              }
-              i++
+            syllable.clusters.push(next)
+            i++
+            const afterEnd = clusters[i]
+            if (
+              afterEnd &&
+              (afterEnd.form === ClusterKey.START_CONSONANT ||
+                (afterEnd.form === ClusterKey.CONSONANT &&
+                  clusters[i + 1]?.form === ClusterKey.VOWEL))
+            ) {
+              // Break here - START_CONSONANT or CONSONANT+VOWEL begins new syllable
               break
-            } else {
-              // Regular END_CONSONANT handling
-              syllable.clusters.push(next)
-              i++
-              const afterEnd = clusters[i]
-              if (afterEnd && 
-                  (afterEnd.form === ClusterKey.START_CONSONANT || 
-                   (afterEnd.form === ClusterKey.CONSONANT && clusters[i + 1]?.form === ClusterKey.VOWEL))) {
-                // Break here - START_CONSONANT or CONSONANT+VOWEL begins new syllable
-                break
-              }
-              continue
             }
+            continue
           }
 
           // Check if this consonant should be part of this syllable or the next
           const nextNext = clusters[i + 1]
           if (nextNext && nextNext.form === ClusterKey.VOWEL) {
             // If there's a vowel after this consonant, check if we should split
-            if (
-              next.form === ClusterKey.END_CONSONANT ||
-              next.form === ClusterKey.FULL_CONSONANT
-            ) {
+            if (next.form === ClusterKey.FULL_CONSONANT) {
               // These typically end syllables
               syllable.clusters.push(next)
               i++
@@ -142,57 +110,26 @@ export default function chunk(clusters: Cluster[]) {
               break
             }
 
-            // Check if we have an END_CONSONANT that might need splitting
+            // Check if we have an END_CONSONANT
             if (next.form === ClusterKey.END_CONSONANT) {
-              // Check if this END_CONSONANT contains both ending and starting parts
-              const endText = next.text
-              
-              // Common pattern: single consonant + consonant cluster with modifier
-              // e.g., ntQ~ -> n + tQ~
-              if (endText.length > 2 && /^[^aeiouAEIOU][^aeiouAEIOU]/.test(endText)) {
-                // Split after first consonant
-                const firstConsonant = endText[0]!
-                const rest = endText.slice(1)
-                
-                // Add first consonant to current syllable
-                syllable.clusters.push({
-                  ...next,
-                  text: firstConsonant,
-                })
-                
-                // Check if there's a following vowel - if so, the rest starts new syllable
-                const afterEnd = clusters[i + 1]
-                if (afterEnd && afterEnd.form === ClusterKey.VOWEL) {
-                  // Insert the remaining consonant cluster before continuing
-                  clusters.splice(i + 1, 0, {
-                    ...next,
-                    form: ClusterKey.START_CONSONANT,
-                    text: rest,
-                  })
-                }
-                i++
+              syllable.clusters.push(next)
+              i++
+              const afterEnd = clusters[i]
+              if (
+                afterEnd &&
+                (afterEnd.form === ClusterKey.START_CONSONANT ||
+                  (afterEnd.form === ClusterKey.CONSONANT &&
+                    clusters[i + 1]?.form === ClusterKey.VOWEL))
+              ) {
+                // Break here - START_CONSONANT or CONSONANT+VOWEL begins new syllable
                 break
-              } else {
-                // Regular END_CONSONANT handling
-                syllable.clusters.push(next)
-                i++
-                const afterEnd = clusters[i]
-                if (afterEnd && 
-                    (afterEnd.form === ClusterKey.START_CONSONANT || 
-                     (afterEnd.form === ClusterKey.CONSONANT && clusters[i + 1]?.form === ClusterKey.VOWEL))) {
-                  // Break here - START_CONSONANT or CONSONANT+VOWEL begins new syllable
-                  break
-                }
-                continue
               }
+              continue
             }
 
             const nextNext = clusters[i + 1]
             if (nextNext && nextNext.form === ClusterKey.VOWEL) {
-              if (
-                next.form === ClusterKey.END_CONSONANT ||
-                next.form === ClusterKey.FULL_CONSONANT
-              ) {
+              if (next.form === ClusterKey.FULL_CONSONANT) {
                 syllable.clusters.push(next)
                 i++
               } else if (next.form === ClusterKey.START_CONSONANT) {

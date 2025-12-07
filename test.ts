@@ -2,8 +2,8 @@ import makeTalk from './make/talk'
 import makeTalkToIpa from './make/talk/ipa'
 import makeIpaToTalk from './make/ipa/talk'
 import makeIpaToXSampa from './make/ipa/xsampa'
-import cluster from './make/talk/clusters'
-import chunk from './make/talk/syllables'
+import cluster, { chunk as chunkRaw } from './make/talk/clusters'
+import syllabify from './make/talk/syllables'
 // import simplifyPhonetics from './make/talk/simplify'
 
 // talk('txando^', 'txandȯ')
@@ -133,18 +133,29 @@ parse('ske^ytbou$dIq')
 console.log(makeTalkToIpa('Ci_'))
 
 parse('KantQ~u_r')
+parse('mawrid')
+parse('fOla^sOfirmja')
+
 
 function parse(word: string) {
   console.log(word)
   const clusters = cluster(word)
-  console.log(
-    '  syllables:',
-    chunk(clusters)
-      .map(syllable =>
-        syllable.clusters.map(({ text }) => text).join(''),
-      )
-      .join(' - '),
-  )
+  const syllables = syllabify(clusters)
+  const syllableText = syllables
+    .map(syllable =>
+      syllable.clusters.map(({ text }) => text).join(''),
+    )
+    .join(' - ')
+  console.log('  syllables:', syllableText)
+  
+  // Check if all letters are preserved
+  const syllableLetters = syllables
+    .flatMap(s => s.clusters)
+    .map(c => c.text)
+    .join('')
+  if (syllableLetters !== word) {
+    console.log(`  ERROR: Letters missing! Input: "${word}", Output: "${syllableLetters}"`)
+  }
   console.log(
     '  clusters:',
     clusters.map(({ text }) => text).join(' - '),

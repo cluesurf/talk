@@ -116,12 +116,12 @@ gz
 gs
 gj
 gC
-hr
-hl
-hw
-hy
-hm
-hn
+h:r
+h:l
+h:w
+h:y
+h:m
+h:n
 jr
 jl
 jm
@@ -449,6 +449,7 @@ ${bEnd('rm')}
 ${bEnd('lm')}
 lf:'
 l:f
+lfsz
 lfs
 lfs:t
 lfs:k
@@ -599,9 +600,12 @@ sn:j
 sn:d
 njd
 njt
+nj
 mjd
 mjt
+mj
 nxt
+nx
 mxt
 sn:t
 lb
@@ -611,7 +615,6 @@ ln
 lp
 ls
 lv
-mj
 ms
 mv
 mx
