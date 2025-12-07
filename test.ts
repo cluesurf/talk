@@ -163,7 +163,7 @@ parse('djrawl', 'djrawl')
 parse('twstqknmplzstk', 'twst - qk - nmp - lz - stk')
 parse('twstxqkzlnkmplzstk', 'twstx - qkz - ln - kmp - lz - stk')
 parse('strwbryndjmpl', 'strwb - rynd - jm - pl')
-parse('sgnfkntlyqgmdnzl', 'sg - nf - knt - lyq - gm - dn - zl')
+parse('sgnfkntlyqgmdnzl', 'sg - nf - knt - lyq - gmd - nz - l')
 
 function parse(word: string, expectedSyllables?: string) {
   // Check if there are any errors first
