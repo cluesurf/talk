@@ -1,5 +1,5 @@
-import make from '~/make/talk/index.js'
+import talk from '~/make/talk'
 
-export * from '~/make/talk/index.js'
+export * from '~/make/talk'
 
-export default make
+export default talk

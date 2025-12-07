@@ -272,27 +272,27 @@ export const GLYPHS = [
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
 const tree = st.fork(GLYPHS)
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-const make = (text: string): string => st.form(text, tree)
+const talk = (text: string): string => st.form(text, tree)
 
-make.inputs = (text: string): string[] =>
+talk.inputs = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.i)
 
-make.readableOutput = (text: string): string[] =>
+talk.readableOutput = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.o)
 
-make.readable = (text: string): string =>
-  make.readableOutput(text).join('')
+talk.readable = (text: string): string =>
+  talk.readableOutput(text).join('')
 
-make.machineOutputs = (text: string): string[] =>
+talk.machineOutputs = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.x)
 
-make.machine = (text: string): string =>
-  make.machineOutputs(text).join('')
+talk.machine = (text: string): string =>
+  talk.machineOutputs(text).join('')
 
-export default make
+export default talk
 
 function getNextGlyph() {
   return String.fromCodePoint(HANGUL_CODE++)
