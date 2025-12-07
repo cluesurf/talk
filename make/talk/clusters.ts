@@ -269,6 +269,7 @@ export enum ClusterKey {
   START_CONSONANT = 'start-consonant',
   END_CONSONANT = 'end-consonant',
   VOWEL = 'vowel',
+  PUNCTUATION = 'punctuation',
 }
 
 const CLUSTER_KEY: ClusterKey[] = [
@@ -277,6 +278,7 @@ const CLUSTER_KEY: ClusterKey[] = [
   ClusterKey.START_CONSONANT,
   ClusterKey.END_CONSONANT,
   ClusterKey.VOWEL,
+  ClusterKey.PUNCTUATION,
 ]
 
 export interface Cluster {
@@ -538,8 +540,15 @@ export function group(chunks: Mark[]) {
 
   const clusters: Cluster[] = list
     .flat()
-    .filter(span => span.form !== ClusterType.PUNCTUATION)
     .map(span => {
+      if (span.form === ClusterType.PUNCTUATION) {
+        return {
+          form: 'punctuation' as ClusterKey,
+          text: span.chunk.map(serialize).join(''),
+          code: span.match,
+        }
+      }
+      
       const cluster = CLUSTER_MAP[span.form]!
 
       return {

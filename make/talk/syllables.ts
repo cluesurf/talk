@@ -10,6 +10,13 @@ export default function chunk(clusters: Cluster[]) {
 
   while (i < clusters.length) {
     const cluster = clusters[i]!
+    
+    // Skip punctuation (spaces, etc) - they don't belong in syllables
+    if (cluster.form === ClusterKey.PUNCTUATION) {
+      i++
+      continue
+    }
+    
     let syllable: Syllable = {
       clusters: [],
     }
