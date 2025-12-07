@@ -632,7 +632,18 @@ s:j
 )
 
 export const fullConsonants = uniq(
-  `'l
+  `'ls
+'lp
+'lz
+'ln
+'lm
+'lt
+'ld
+'lc
+'lC
+'lv
+'lf
+'l
 txm
 txn
 txq

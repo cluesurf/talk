@@ -143,6 +143,8 @@ function parse(word: string) {
   console.log(word)
   const clusters = cluster(word)
   const syllables = syllabify(clusters)
+  
+  // Build syllable text, just join syllables with dashes
   const syllableText = syllables
     .map(syllable =>
       syllable.clusters.map(({ text }) => text).join(''),
@@ -155,7 +157,8 @@ function parse(word: string) {
     .flatMap(s => s.clusters)
     .map(c => c.text)
     .join('')
-  if (syllableLetters !== word) {
+  const wordWithoutSpaces = word.replace(/ /g, '')
+  if (syllableLetters !== wordWithoutSpaces) {
     console.log(`  ERROR: Letters missing! Input: "${word}", Output: "${syllableLetters}"`)
   }
   console.log(
