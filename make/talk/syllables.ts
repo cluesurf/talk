@@ -361,14 +361,15 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
     j = 0
     while (j < startConsonants.length) {
       const x = startConsonants[j++]!
-      const chunk = chunks.slice(i, i + x.length)
-      if (chunk.map(x => x.value).join('') === x) {
+      const y = x.replace(/:/g, '')
+      const chunk = chunks.slice(i, i + y.length)
+      if (chunk.map(x => x.value).join('') === y) {
         span.push({
           chunk,
           match: x,
           form: ClusterType.START_CONSONANT,
         })
-        i += x.length
+        i += y.length
         break
       }
     }
