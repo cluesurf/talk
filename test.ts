@@ -132,7 +132,6 @@ parse('ske^ytbou$dIq')
 
 console.log(makeTalkToIpa('Ci_'))
 
-console.log('\\n--- Testing KantQ~u_r ---')
 parse('KantQ~u_r')
 
 function parse(word: string) {
@@ -150,36 +149,30 @@ function parse(word: string) {
     '  clusters:',
     clusters.map(({ text }) => text).join(' - '),
   )
-  if (word === 'KantQ~u_r') {
-    console.log('  cluster details:')
-    clusters.forEach(c => {
-      console.log(`    ${c.text} (${c.form})`)
-    })
-  }
   // console.log(
   //   makeTalkToIpa(word),
   //   parseProsody(word).map(makeTalkToIpa).join('-'),
   // )
 }
 
-function talk(a: string, b: string) {
-  const o = makeTalk(a)
-  // console.log(o)
-  o.split('').forEach((x, i) => {
-    if (x !== b[i]) {
-      throw new Error(`${o} with ${x} != ${b[i]}`)
-    }
-  })
-}
+// function talk(a: string, b: string) {
+//   const o = makeTalk(a)
+//   // console.log(o)
+//   o.split('').forEach((x, i) => {
+//     if (x !== b[i]) {
+//       throw new Error(`${o} with ${x} != ${b[i]}`)
+//     }
+//   })
+// }
 
-function ipaToTalk(a: string, b: string) {
-  const o = makeIpaToTalk(a)
-  const x = makeIpaToXSampa(a)
-  // console.log(o, x)
-  console.log(a, x)
-  o.split('').forEach((x, i) => {
-    if (x !== b[i]) {
-      throw new Error(`${o} with ${x} != ${b[i]}`)
-    }
-  })
-}
+// function ipaToTalk(a: string, b: string) {
+//   const o = makeIpaToTalk(a)
+//   const x = makeIpaToXSampa(a)
+//   // console.log(o, x)
+//   console.log(a, x)
+//   o.split('').forEach((x, i) => {
+//     if (x !== b[i]) {
+//       throw new Error(`${o} with ${x} != ${b[i]}`)
+//     }
+//   })
+// }
