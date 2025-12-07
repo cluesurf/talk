@@ -1182,63 +1182,9 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
       }
 
       case ClusterKey.END_CONSONANT: {
-        // Standalone end consonant - usually attaches to previous syllable
-        // but if starting fresh, create its own syllable
+        // END_CONSONANT always ends a syllable - never add following consonants
         syllable.clusters.push(cluster)
         i++
-        
-        // Look for following single consonants that could join this syllable
-        while (i < clusters.length) {
-          const next = clusters[i]!
-          
-          // Skip punctuation
-          if (next.form === ClusterKey.PUNCTUATION) {
-            i++
-            continue
-          }
-          
-          // If we hit a vowel, stop
-          if (next.form === ClusterKey.VOWEL) {
-            break
-          }
-          
-          // If we hit another cluster type that's not a single consonant, stop
-          if (next.form !== ClusterKey.CONSONANT) {
-            break
-          }
-          
-          // Check if this is the last cluster or if non-consonants follow
-          let shouldAddConsonant = false
-          if (i === clusters.length - 1) {
-            // This is the last cluster, add it
-            shouldAddConsonant = true
-          } else {
-            // Look ahead to see what follows
-            let hasMoreConsonantsOnly = true
-            for (let j = i + 1; j < clusters.length; j++) {
-              const future = clusters[j]
-              if (!future || future.form === ClusterKey.PUNCTUATION) continue
-              if (future.form === ClusterKey.VOWEL || 
-                  future.form === ClusterKey.START_CONSONANT ||
-                  future.form === ClusterKey.FULL_CONSONANT) {
-                hasMoreConsonantsOnly = false
-                break
-              }
-            }
-            
-            // If only single consonants follow, add this one
-            if (hasMoreConsonantsOnly) {
-              shouldAddConsonant = true
-            }
-          }
-          
-          if (shouldAddConsonant) {
-            syllable.clusters.push(next)
-            i++
-          } else {
-            break
-          }
-        }
         break
       }
     }

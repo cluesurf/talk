@@ -19,6 +19,7 @@ const __dirname = path.dirname(__filename)
 const CLUSTERS_PATH = path.join(__dirname, 'clusters.json')
 
 let HANGUL_CODE = 53248
+const HANGUL_END = 0xd7a3
 
 // console.log(combos)
 
@@ -29,6 +30,9 @@ let HANGUL_CODE = 53248
 // console.log(`total: ${total}`)
 
 function getNextGlyph() {
+  if (HANGUL_CODE > HANGUL_END) {
+    throw new Error(`Exceeded available Hangul code points (max: ${HANGUL_END})`)
+  }
   return String.fromCodePoint(HANGUL_CODE++)
 }
 
@@ -61,7 +65,7 @@ function loadExistingClustersNested(): Clusters {
   }
 
   // Set HANGUL_CODE to continue after the last used code
-  HANGUL_CODE = maxCode + 1
+  HANGUL_CODE = Math.min(maxCode + 1, HANGUL_END)
 
   return clusters
 }
@@ -87,6 +91,26 @@ export function buildAndSaveClusters(): Clusters {
       }
     }
   }
+
+  // Helper to clean up removed clusters from a category
+  function cleanupCategory(
+    category: Record<string, string>,
+    validItems: string[],
+  ): void {
+    const validSet = new Set(validItems)
+    for (const key in category) {
+      if (!validSet.has(key)) {
+        delete category[key]
+      }
+    }
+  }
+
+  // Clean up removed clusters first
+  cleanupCategory(clusters.consonants, processClusters(consonants))
+  cleanupCategory(clusters.endConsonants, processClusters(endConsonants))
+  cleanupCategory(clusters.fullConsonants, processClusters(fullConsonants))
+  cleanupCategory(clusters.startConsonants, processClusters(startConsonants))
+  cleanupCategory(clusters.vowels, processClusters(vowels))
 
   // Add clusters to each category
   addToCategory(clusters.consonants, processClusters(consonants))
