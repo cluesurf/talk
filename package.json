@@ -1,7 +1,8 @@
 {
   "version": "1.5.16",
   "name": "@cluesurf/talk",
-  "main": "index.js",
+  "main": "./index.ts",
+  "type": "module",
   "license": "MIT",
   "dependencies": {
     "@lancejpollard/script-tree": "^1.1.4",

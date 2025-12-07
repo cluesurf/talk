@@ -1,8 +1,9 @@
-import makeTalk from '~/make/talk/index.js'
-import makeTalkToIpa from '~/make/talk/ipa.js'
-import makeIpaToTalk from '~/make/ipa/talk.js'
-import makeIpaToXSampa from '~/make/ipa/xsampa.js'
-import cluster from '~/make/talk/clusters'
+import makeTalk from './make/talk'
+import makeTalkToIpa from './make/talk/ipa'
+import makeIpaToTalk from './make/ipa/talk'
+import makeIpaToXSampa from './make/ipa/xsampa'
+import cluster from './make/talk/clusters'
+import chunk from './make/talk/syllables'
 // import simplifyPhonetics from './make/talk/simplify'
 
 // talk('txando^', 'txandȯ')
@@ -131,14 +132,30 @@ parse('ske^ytbou$dIq')
 
 console.log(makeTalkToIpa('Ci_'))
 
+console.log('\\n--- Testing KantQ~u_r ---')
+parse('KantQ~u_r')
+
 function parse(word: string) {
   console.log(word)
+  const clusters = cluster(word)
   console.log(
-    ' ',
-    cluster(word)
-      .map(({ text }) => text)
+    '  syllables:',
+    chunk(clusters)
+      .map(syllable =>
+        syllable.clusters.map(({ text }) => text).join(''),
+      )
       .join(' - '),
   )
+  console.log(
+    '  clusters:',
+    clusters.map(({ text }) => text).join(' - '),
+  )
+  if (word === 'KantQ~u_r') {
+    console.log('  cluster details:')
+    clusters.forEach(c => {
+      console.log(`    ${c.text} (${c.form})`)
+    })
+  }
   // console.log(
   //   makeTalkToIpa(word),
   //   parseProsody(word).map(makeTalkToIpa).join('-'),

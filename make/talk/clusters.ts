@@ -263,7 +263,24 @@ const CLUSTER_MAP = [
   CLUSTERS.vowels,
 ]
 
+export enum ClusterKey {
+  FULL_CONSONANT = 'full-consonant',
+  CONSONANT = 'consonant',
+  START_CONSONANT = 'start-consonant',
+  END_CONSONANT = 'end-consonant',
+  VOWEL = 'vowel',
+}
+
+const CLUSTER_KEY: ClusterKey[] = [
+  ClusterKey.FULL_CONSONANT,
+  ClusterKey.CONSONANT,
+  ClusterKey.START_CONSONANT,
+  ClusterKey.END_CONSONANT,
+  ClusterKey.VOWEL,
+]
+
 export interface Cluster {
+  form: ClusterKey
   text: string
   code: string
 }
@@ -472,6 +489,7 @@ export function group(chunks: Mark[]) {
       const cluster = CLUSTER_MAP[span.form]!
 
       return {
+        form: CLUSTER_KEY[span.form],
         text: span.chunk.map(serialize).join(''),
         code: cluster[span.match]!,
       }
