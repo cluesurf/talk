@@ -1,3 +1,4 @@
+import CLUSTERS_JSON from './clusters.json'
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import merge from 'lodash/merge'
 
@@ -10,7 +11,16 @@ import {
   TONE_MARKS,
   VARIANT_MARKS,
 } from '.'
-import CLUSTERS from './clusters'
+
+export interface Clusters {
+  consonants: Record<string, string>
+  endConsonants: Record<string, string>
+  fullConsonants: Record<string, string>
+  startConsonants: Record<string, string>
+  vowels: Record<string, string>
+}
+
+export const CLUSTERS = CLUSTERS_JSON as Clusters
 
 interface Mark {
   aspiration?: boolean
@@ -258,7 +268,7 @@ export interface Cluster {
   code: string
 }
 
-export default function make(string: string) {
+export default function cluster(string: string) {
   return group(chunk(string))
 }
 
@@ -556,8 +566,8 @@ export function serialize(mark: Mark) {
   if (mark.tense) {
     text.push(`@`)
   }
-  if (mark.voicelessness) {
-  }
+  // if (mark.voicelessness) {
+  // }
 
   return text.join('')
 }

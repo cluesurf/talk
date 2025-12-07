@@ -27,7 +27,7 @@ const MAX =
   Simplify.DurationYes *
   Simplify.AspirationYes
 
-export type SimplifyType = {
+export interface SimplifyType {
   vowel: 'none' | 'one' | 'basic' | 'all'
   consonant: 'all' | 'simplified'
   tone: 'yes' | 'no'
@@ -35,29 +35,21 @@ export type SimplifyType = {
   aspiration: 'yes' | 'no'
 }
 
-export type ViewType = {
+export interface ViewType {
   text: string
   code: string
   mass: number
   load: Record<string, string>
 }
 
-const VOWEL: Array<SimplifyType['vowel']> = [
-  'none',
-  'one',
-  'basic',
-  'all',
-]
-const CONSONANT: Array<SimplifyType['consonant']> = [
-  'all',
-  'simplified',
-]
-const TONE: Array<SimplifyType['tone']> = ['yes', 'no']
-const DURATION: Array<SimplifyType['duration']> = ['yes', 'no']
-const ASPIRATION: Array<SimplifyType['aspiration']> = ['yes', 'no']
+const VOWEL: SimplifyType['vowel'][] = ['none', 'one', 'basic', 'all']
+const CONSONANT: SimplifyType['consonant'][] = ['all', 'simplified']
+const TONE: SimplifyType['tone'][] = ['yes', 'no']
+const DURATION: SimplifyType['duration'][] = ['yes', 'no']
+const ASPIRATION: SimplifyType['aspiration'][] = ['yes', 'no']
 
 export default function simplifyPhonetics(text: string) {
-  const holdBase: Record<string, Array<ViewType>> = {}
+  const holdBase: Record<string, ViewType[]> = {}
 
   text = text.replace(/=(.)/g, '')
 
@@ -82,7 +74,7 @@ export default function simplifyPhonetics(text: string) {
     })
   })
 
-  const holdHead: Array<ViewType> = []
+  const holdHead: ViewType[] = []
   const codeList: Record<string, boolean> = {}
   for (const line in holdBase) {
     const list = holdBase[line]

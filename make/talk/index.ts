@@ -5,7 +5,8 @@ import st from '@lancejpollard/script-tree'
 
 const HANGUL_START = 0xac00
 // const HANGUL_END = 0xd7a3
-let X = HANGUL_START
+// const HANGUL_ALLOWED_END_FOR_BASE_TONES = 0xcfff
+let HANGUL_CODE = HANGUL_START
 
 const m = {
   u: {
@@ -70,7 +71,7 @@ const G: Record<string, string> = {
   u: `u`,
 }
 
-export type Take = {
+export interface Take {
   i: string
   x: string
   o: string
@@ -78,7 +79,7 @@ export type Take = {
   o2?: string
 }
 
-export const VOWELS: Array<Take> = []
+export const VOWELS: Take[] = []
 
 export const BASE_VOWEL_GLYPHS = [
   'I',
@@ -119,7 +120,7 @@ BASE_VOWEL_GLYPHS.forEach(g => {
           VARIANT_MARKS.forEach(v => {
             TONE_MARKS.forEach(t => {
               const i = `${g}${v}${n}${s}${t}${l}${a}`
-              const x = g.match(/i/i) && a === '^' ? 'ï' : G[g]
+              const x = /i/i.exec(g) && a === '^' ? 'ï' : G[g]
               const y = x === 'ï' ? '' : D[a]
               const x2 = v === '$' && x === 'u' ? 'r' : x
               const v2 = v === '$' && g === 'u' ? '' : `${D[v]}`
@@ -168,7 +169,7 @@ export const NUMERALS = [
 ]
 
 export const CONSONANTS = [
-  { i: '@', x: '켐', o: `@` },
+  // { i: '@', x: '켐', o: `@` },
   { i: 'h~', x: '켑', o: `ɦ` },
   { i: 'm', x: '켒', o: `m` },
   { i: 'N', x: '켓', o: `n${m.d.dot}` },
@@ -273,18 +274,18 @@ const tree = st.fork(GLYPHS)
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
 const make = (text: string): string => st.form(text, tree)
 
-make.inputs = (text: string): Array<string> =>
+make.inputs = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.i)
 
-make.readableOutput = (text: string): Array<string> =>
+make.readableOutput = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.o)
 
 make.readable = (text: string): string =>
   make.readableOutput(text).join('')
 
-make.machineOutputs = (text: string): Array<string> =>
+make.machineOutputs = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.x)
 
@@ -294,5 +295,9 @@ make.machine = (text: string): string =>
 export default make
 
 function getNextGlyph() {
-  return String.fromCodePoint(X++)
+  return String.fromCodePoint(HANGUL_CODE++)
 }
+
+// `HANGUL_CODE` ends at 삠, last time I checked on 2025/12/06
+
+// console.log(VOWELS.length) => 5280

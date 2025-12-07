@@ -2,8 +2,8 @@ import makeTalk from '~/make/talk/index.js'
 import makeTalkToIpa from '~/make/talk/ipa.js'
 import makeIpaToTalk from '~/make/ipa/talk.js'
 import makeIpaToXSampa from '~/make/ipa/xsampa.js'
-import parseProsody from '~/make/talk/prosody.js'
-import simplifyPhonetics from './make/talk/simplify'
+import cluster from '~/make/talk/clusters'
+// import simplifyPhonetics from './make/talk/simplify'
 
 // talk('txando^', 'txandȯ')
 // talk('surdjyo^', 'suṙdjyȯ')
@@ -133,7 +133,12 @@ console.log(makeTalkToIpa('Ci_'))
 
 function parse(word: string) {
   console.log(word)
-  console.log(' ', parseProsody(word).join(' - '))
+  console.log(
+    ' ',
+    cluster(word)
+      .map(({ text }) => text)
+      .join(' - '),
+  )
   // console.log(
   //   makeTalkToIpa(word),
   //   parseProsody(word).map(makeTalkToIpa).join('-'),

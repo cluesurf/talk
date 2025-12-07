@@ -3,7 +3,7 @@ import { m } from '~/make/constants'
 // TODO: this only works for tune lang so far.
 export default function make(text: string) {
   const parts = [...text]
-  const out: Array<string> = []
+  const out: string[] = []
   let i = 0
   while (i < parts.length) {
     const part = parts[i++]
@@ -340,7 +340,7 @@ export default function make(text: string) {
       }
 
       if (next?.startsWith('-')) {
-        text.slice(i).match(/^(\-+)/)
+        ;/^(\-+)/.exec(text.slice(i))
         const size = RegExp.$1.length
         i += size
 
@@ -350,7 +350,7 @@ export default function make(text: string) {
           out.push('˩')
         }
       } else if (next?.startsWith('+')) {
-        text.slice(i).match(/^(\++)/)
+        ;/^(\++)/.exec(text.slice(i))
         const size = RegExp.$1.length
         i += size
 
