@@ -149,12 +149,6 @@ function parse(word: string) {
     '  clusters:',
     clusters.map(({ text }) => text).join(' - '),
   )
-  if (word === 'ske^ytbou$dIq' || word === 'KantQ~u_r' || word === "'lQi_'da_tu") {
-    console.log('  cluster details:')
-    clusters.forEach(c => {
-      console.log(`    ${c.text} (${c.form})`)
-    })
-  }
   // console.log(
   //   makeTalkToIpa(word),
   //   parseProsody(word).map(makeTalkToIpa).join('-'),
