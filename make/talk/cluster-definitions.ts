@@ -205,7 +205,6 @@ ts
 tz
 tz:w
 tz:y
-tl
 tw
 tx
 tj
@@ -563,6 +562,9 @@ vs:t
 zs:t
 z:t
 
+t:l
+t:r
+
 ${consonantSuffix('y', ':')}
 ${consonantSuffix('h', ':')}
 ${consonantSuffix('w', ':')}
@@ -618,12 +620,6 @@ ${gEnd('rg')}
 r:g
 ${gEnd('lg')}
 l:g
-${gEnd('mg')}
-m:g
-${gEnd('ng')}
-n:g
-${gEnd('qg')}
-q:g
 
 ${kEnd('k')}
 ${kEnd('rk')}
@@ -835,11 +831,6 @@ export const fullConsonants = uniq(
 'l:v
 'l:f
 'l
-
-gm
-km
-kn
-kd
 
 ${glottalFull("'")}
 txm
