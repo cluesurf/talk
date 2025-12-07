@@ -136,6 +136,9 @@ console.log(makeTalkToIpa('Ci_'))
 parse('KantQ~u_r')
 parse('mawrid')
 parse('fOla^sOfirmja')
+parse('paieia')
+parse('txhaqkz')
+parse('djrawl')
 
 function parse(word: string) {
   console.log(word)
