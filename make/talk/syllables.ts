@@ -281,11 +281,11 @@ export interface Cluster {
   code: string
 }
 
-export function cluster(string: string) {
-  return groupClusters(chunkClusters(string))
-}
+// For backward compatibility
+export const chunkClusters = parseMarks
 
-export function chunkClusters(string: string) {
+// Step 1: Parse string into marks (basic tokens)
+export function parseMarks(string: string) {
   let x = string
   const chunks: Mark[] = []
   let i = 0
@@ -317,7 +317,8 @@ export function chunkClusters(string: string) {
   return chunks
 }
 
-export function groupClusters(chunks: Mark[]) {
+// Step 2: Group marks into clusters
+export function groupMarksIntoClusters(chunks: Mark[]) {
   const list: Span[][] = []
 
   let i = 0
@@ -373,21 +374,6 @@ export function groupClusters(chunks: Mark[]) {
     }
 
     j = 0
-    while (j < consonants.length) {
-      const x = consonants[j++]!
-      const chunk = chunks.slice(i, i + x.length)
-      if (chunk.map(x => x.value).join('') === x) {
-        if (span.length) {
-          list.push([...span])
-        }
-        span.length = 0
-        span.push({ chunk, match: x, form: ClusterType.CONSONANT })
-        i += x.length
-        break
-      }
-    }
-
-    j = 0
     while (j < vowels.length) {
       const x = vowels[j++]!
       const y = x.replace(/\$/g, '')
@@ -403,9 +389,10 @@ export function groupClusters(chunks: Mark[]) {
     j = 0
     while (j < endConsonants.length) {
       const x = endConsonants[j++]!
-      const y = x.replace(':', '')
+      const y = x.replace(/:/g, '')
       const chunk = chunks.slice(i, i + y.length)
-      if (chunk.map(x => x.value).join('') === y) {
+      const chunkStr = chunk.map(x => x.value).join('')
+      if (chunkStr === y) {
         span.push({ chunk, match: x, form: ClusterType.END_CONSONANT })
         i += y.length
         matched = true
@@ -413,18 +400,23 @@ export function groupClusters(chunks: Mark[]) {
       }
     }
 
-    if (!matched && i === chunks.length - 1) {
+    if (!matched) {
       j = 0
       while (j < consonants.length) {
         const x = consonants[j++]!
         const chunk = chunks.slice(i, i + x.length)
         if (chunk.map(x => x.value).join('') === x) {
+          if (span.length) {
+            list.push([...span])
+          }
+          span.length = 0
           span.push({ chunk, match: x, form: ClusterType.CONSONANT })
           i += x.length
           break
         }
       }
     }
+
 
     if (span.length) {
       list.push([...span])
@@ -515,8 +507,8 @@ export function groupClusters(chunks: Mark[]) {
     const lastSpan = last[last.length - 1]!
     const nodeSpan = node[0]!
 
-    // can split
-    if (/:/.exec(lastSpan.match)) {
+    // can split - but only if followed by vowel
+    if (/:/.exec(lastSpan.match) && nodeSpan.form === ClusterType.VOWEL) {
       // const nodeSpanText = nodeSpan.chunk[0]!.value!
 
       const left: Mark[] = []
@@ -658,7 +650,27 @@ export function serialize(mark: Mark) {
   return text.join('')
 }
 
-export default function chunk(clusters: Cluster[]) {
+// Main function that orchestrates the whole process
+export default function chunk(string: string) {
+  // Step 1: Parse string into marks
+  const marks = parseMarks(string)
+  
+  // Step 2: Group marks into clusters
+  const clusters = groupMarksIntoClusters(marks)
+  
+  // Step 3: Group clusters into syllables
+  const syllables = groupClustersIntoSyllables(clusters)
+  
+  return { syllables, clusters }
+}
+
+// Backward compatibility
+export function cluster(string: string) {
+  return chunk(string).clusters
+}
+
+// Step 3: Group clusters into syllables
+export function groupClustersIntoSyllables(clusters: Cluster[]) {
   let i = 0
   const syllables: Syllable[] = []
 

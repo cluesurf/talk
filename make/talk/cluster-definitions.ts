@@ -358,6 +358,46 @@ ${prefix}:C
 ${prefix}C:z
 ${prefix}C:j`
 
+const glottalEnd = (prefix: string = "'") => `${prefix}b
+${prefix}c
+${prefix}C
+${prefix}d
+${prefix}f
+${prefix}g
+${prefix}h
+${prefix}j
+${prefix}k
+${prefix}l
+${prefix}m
+${prefix}n
+${prefix}p
+${prefix}q
+${prefix}r
+${prefix}s
+${prefix}t
+${prefix}v
+${prefix}w
+${prefix}x
+${prefix}y
+${prefix}z
+${prefix}B
+${prefix}D
+${prefix}F
+${prefix}H
+${prefix}J
+${prefix}K
+${prefix}L
+${prefix}N
+${prefix}R
+${prefix}S
+${prefix}T
+${prefix}V
+${prefix}X
+${prefix}Z
+${prefix}dj
+${prefix}dx
+${prefix}tx`
+
 export const consonants = `b
 c
 C
@@ -457,6 +497,8 @@ lfs:z
 f:s
 fs:z
 
+${glottalEnd("'")}
+
 ${mEnd('m')}
 ${mEnd('rm')}
 ${mEnd('n')}
@@ -532,6 +574,43 @@ V:V
 W:W
 X:X
 Y:Y
+Z:Z
+c:c
+C:C
+d:d
+f:f
+g:g
+h:h
+j:j
+k:k
+l:l
+m:m
+n:n
+p:p
+q:q
+r:r
+s:s
+t:t
+v:v
+w:w
+x:x
+y:y
+z:z
+G:G
+Q:Q
+B:B
+D:D
+F:F
+H:H
+J:J
+K:K
+L:L
+N:N
+R:R
+S:S
+T:T
+V:V
+X:X
 Z:Z
 
 l:kt
@@ -632,17 +711,19 @@ s:j
 )
 
 export const fullConsonants = uniq(
-  `'ls
-'lp
-'lz
-'ln
-'lm
-'lt
-'ld
-'lc
-'lC
-'lv
-'lf
+  `'l:s
+'l:p
+'l:z
+'l:n
+'l:m
+'l:t
+'l:d
+'l:dj
+'l:x
+'l:c
+'l:C
+'l:v
+'l:f
 'l
 txm
 txn

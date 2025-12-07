@@ -2,10 +2,7 @@ import makeTalk from './make/talk'
 import makeTalkToIpa from './make/talk/ipa'
 import makeIpaToTalk from './make/ipa/talk'
 import makeIpaToXSampa from './make/ipa/xsampa'
-import syllabify, {
-  cluster,
-  chunkClusters as chunkRaw,
-} from './make/talk/syllables'
+import chunk from './make/talk/syllables'
 // import simplifyPhonetics from './make/talk/simplify'
 
 // talk('txando^', 'txandȯ')
@@ -142,8 +139,7 @@ parse('fOla^sOfirmja')
 
 function parse(word: string) {
   console.log(word)
-  const clusters = cluster(word)
-  const syllables = syllabify(clusters)
+  const { syllables, clusters } = chunk(word)
 
   // Build syllable text, just join syllables with dashes
   const syllableText = syllables
