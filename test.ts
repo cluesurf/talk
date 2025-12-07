@@ -161,7 +161,7 @@ parse('djrawl', 'djrawl')
 
 // consonant clusters only
 parse('twstqknmplzstk', 'twst - qk - nmp - lz - stk')
-parse('twstxqkzlnkmplzstk', 'twstx - qkz - ln - kmp - lz - stk')
+parse('twstxqkzlnkmplzstk', 'twstx - qkz - ln - km - plzst - k')
 parse('strwbryndjmpl', 'strwb - rynd - jm - pl')
 parse('sgnfkntlyqgmdnzl', 'sg - nf - knt - lyq - gm - dn - zl')
 
