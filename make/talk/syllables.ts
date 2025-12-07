@@ -104,9 +104,15 @@ export default function chunk(clusters: Cluster[]) {
         break
       }
 
-      case ClusterKey.CONSONANT:
-      case ClusterKey.START_CONSONANT:
       case ClusterKey.FULL_CONSONANT: {
+        // FULL_CONSONANT is a complete syllable by itself
+        syllable.clusters.push(cluster)
+        i++
+        break
+      }
+
+      case ClusterKey.CONSONANT:
+      case ClusterKey.START_CONSONANT: {
         // Start syllable with consonant(s)
         syllable.clusters.push(cluster)
         i++
