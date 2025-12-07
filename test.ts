@@ -1,3 +1,4 @@
+import chalk from 'chalk'
 import makeTalk from './make/talk'
 import makeTalkToIpa from './make/talk/ipa'
 import makeIpaToTalk from './make/ipa/talk'
@@ -70,49 +71,67 @@ import chunk from './make/talk/syllables'
 // ipaToTalk('ɔ̂ːi̯.on', 'o$_i@on')
 // ipaToTalk('kuɾl', 'kurl')
 
-parse('ayu$ve^ydU')
-parse('kUba^llU')
-parse('fOla^sOfi')
-parse('fOla^sOfirmja')
-parse("'lKadami")
-parse("'ldjaryu")
-parse("'lttazalludju")
-parse("'l'alw'hh~i")
-parse('sUfI^stUkeItEdanjdxwa')
-parse('AmplIfaydrai')
-parse('briqketzwaqlOmptzwa')
+parse('ayu$ve^ydU', 'a - yu$ - ve^y - dU')
+parse('kUba^llU', 'kU - ba^l - lU')
+parse('fOla^sOfi', 'fO - la^ - sO - fi')
+parse('fOla^sOfirmja', 'fO - la^ - sO - firm - ja')
+parse("'lKadami", "'l - Ka - da - mi")
+parse("'ldjaryu", "'l - djar - yu")
+parse("'lttazalludju", "'l - t - ta - zal - lu - dju")
+parse("'l'alw'hh~i", "'l - 'alw - 'hh~ - i")
+parse(
+  'sUfI^stUkeItEdanjdxwa',
+  'sU - fI^s - tU - keI - tE - danjd - xwa',
+)
+parse('AmplIfaydrai', 'Amp - lI - fayd - rai')
+parse('briqketzwaqlOmptzwa', 'briq - ketz - wa - qlOmpt - zwa')
 // parse('AmplIfaydz')
-parse('A&_^mplIfaydzoltxahasntayCwa')
-parse("'lddarr'dj'ti")
+parse(
+  'A&_^mplIfaydzoltxahasntayCwa',
+  'A&_^mp - lI - fayd - zol - txa - hasn - tayC - wa',
+)
+parse("'lddarr'dj'ti", "'l - d - darr - 'dj - 't - i")
 
-parse("'lK'Qida_ti")
+parse("'lK'Qida_ti", "'l - K - 'Qi - da_ - ti")
 
-parse("'lGu_lfu")
-parse("galf'u")
-parse("galf'u'")
-parse("galf'u'l")
-parse('gaialfsz')
-parse('gaiaoilfst')
-parse('greIdAotxs')
-parse('prvst')
-parse("'uHtQ~ubu_tQ~")
-parse(['ka', 'hru_', 'dQ~a', "w'", 'i', 'yy'].join(''))
-parse(['ka', 'hru_', 'manz', 'i', 'li', 'yy'].join(''))
-parse(['la', 'djd', 'ja'].join(''))
-parse(['ko_ns', 'arv', 'a_', 'tu', 'wa_r'].join(''))
-parse(['marc', 'i', 'ya'].join(''))
-parse(['ma', 'sQ~', 'sQ~a_sQ~'].join(''))
-parse(['mu', 'dj', 'rim'].join(''))
-parse(['ma', 'Hh~al', 'li', 'yy'].join(''))
-parse('kIt~a_^b')
-parse(['Ku', 'sQ~', 'ru', 'mill'].join(''))
-parse(['Ka', 'sQ~', 'riy', 'ya'].join(''))
-parse(['KantQ~', 'u_r'].join(''))
-parse(['Qidj', 'rim'].join(''))
-parse(['ma', 'wrid'].join(''))
-parse("'lssamaka_tu 'lbuhh~ayri_a_tu")
-parse(`'lliK'hh~u`)
-parse(`'lQi_'da_tu`)
+parse("'lGu_lfu", "'l - Gu_l - fu")
+parse("galf'u", "galf - 'u")
+parse("galf'u'", "galf - 'u'")
+parse("galf'u'l", "galf - 'u - 'l")
+parse('gaialfsz', 'gai - alfsz')
+parse('gaiaoilfst', 'gai - ao - ilfst')
+parse('greIdAotxs', 'greI - dAotxs')
+parse('prvst', 'prvst')
+parse("'uHtQ~ubu_tQ~", "'uH - tQ~u - bu_tQ~")
+parse(
+  ['ka', 'hru_', 'dQ~a', "w'", 'i', 'yy'].join(''),
+  "ka - hru_ - dQ~aw - 'iyy",
+)
+parse(
+  ['ka', 'hru_', 'manz', 'i', 'li', 'yy'].join(''),
+  'ka - hru_ - man - zi - liyy',
+)
+parse(['la', 'djd', 'ja'].join(''), 'ladj - dja')
+parse(
+  ['ko_ns', 'arv', 'a_', 'tu', 'wa_r'].join(''),
+  'ko_n - sar - va_ - tu - wa_r',
+)
+parse(['marc', 'i', 'ya'].join(''), 'mar - ci - ya')
+parse(['ma', 'sQ~', 'sQ~a_sQ~'].join(''), 'masQ~ - sQ~a_sQ~')
+parse(['mu', 'dj', 'rim'].join(''), 'mu - djrim')
+parse(['ma', 'Hh~al', 'li', 'yy'].join(''), 'ma - Hh~al - liyy')
+parse('kIt~a_^b', 'kI - t~a_^b')
+parse(['Ku', 'sQ~', 'ru', 'mill'].join(''), 'Ku - sQ~ru - mill')
+parse(['Ka', 'sQ~', 'riy', 'ya'].join(''), 'Ka - sQ~riy - ya')
+parse(['KantQ~', 'u_r'].join(''), 'Kan - tQ~u_r')
+parse(['Qidj', 'rim'].join(''), 'Qi - djrim')
+parse(['ma', 'wrid'].join(''), 'maw - rid')
+parse(
+  "'lssamaka_tu 'lbuhh~ayri_a_tu",
+  "'l - s - sa - ma - ka_ - tu - 'l - bu - hh~ay - ri_ - a_ - tu",
+)
+parse(`'lliK'hh~u`, `'l - liK - 'hh~ - u`)
+parse(`'lQi_'da_tu`, `'l - Qi_ - 'd - a_ - tu`)
 
 // console.log('hello', makeTalk.machine('hello'))
 
@@ -124,66 +143,100 @@ parse(`'lQi_'da_tu`)
 // )
 
 // console.log(simplifyPhonetics(`Kad~Q~a_^'`))
-parse('u$U^nIq')
-parse('bu$U^nIq')
-parse('bou$U^nIq')
-parse('sa^kOu$')
-parse('xakiu$U')
-parse('ske^ytbou$dIq')
+parse('u$U^nIq', 'u$U^ - nIq')
+parse('bu$U^nIq', 'bu$U^ - nIq')
+parse('bou$U^nIq', 'bou$ - U^ - nIq')
+parse('sa^kOu$', 'sa^ - kOu$')
+parse('xakiu$U', 'xa - kiu$ - U')
+parse('ske^ytbou$dIq', 'ske^yt - bou$ - dIq')
 
-console.log(makeTalkToIpa('Ci_'))
+// console.log('\n' + makeTalkToIpa('Ci_'))
 
-parse('KantQ~u_r')
-parse('mawrid')
-parse('fOla^sOfirmja')
-parse('paieia')
-parse('txhaqkz')
-parse('djrawl')
+parse('KantQ~u_r', 'Kan - tQ~u_r')
+parse('mawrid', 'maw - rid')
+parse('fOla^sOfirmja', 'fO - la^ - sO - firm - ja')
+parse('paieia', 'pai - ei - a')
+parse('txhaqkz', 'txhaqkz')
+parse('djrawl', 'djrawl')
 
 // consonant clusters only
 parse('twstqknmplzstk', 'twst - qk - nmp - lz - stk')
-parse('twstxqkzlnkmplzstk')
+parse('twstxqkzlnkmplzstk', 'twstx - qkz - ln - kmp - lz - stk')
 parse('strwbryndjmpl', 'strwb - rynd - jm - pl')
 parse('sgnfkntlyqgmdnzl', 'sg - nf - knt - lyq - gm - dn - zl')
 
 function parse(word: string, expectedSyllables?: string) {
-  console.log(word)
+  // Check if there are any errors first
   const { syllables, clusters } = chunk(word)
 
-  // Build syllable text, just join syllables with dashes
+  // Build syllable text
   const syllableText = syllables
     .map(syllable => syllable.clusters.map(({ text }) => text).join(''))
     .join(' - ')
-  console.log('  syllables:', syllableText)
-  
-  // Check if syllables match expected pattern
-  if (expectedSyllables) {
-    if (syllableText !== expectedSyllables) {
-      console.log(`  WARNING: Syllables don't match expected pattern!`)
-      console.log(`    Expected: "${expectedSyllables}"`)
-      console.log(`    Actual:   "${syllableText}"`)
-    }
-  }
 
-  // Check if all letters are preserved
+  // Check for errors
   const syllableLetters = syllables
     .flatMap(s => s.clusters)
     .map(c => c.text)
     .join('')
   const wordWithoutSpaces = word.replace(/ /g, '')
-  if (syllableLetters !== wordWithoutSpaces) {
-    console.log(`  ERROR: Letters missing!`)
-    console.log(`    Input (no spaces): "${wordWithoutSpaces}"`)
-    console.log(`    Output:            "${syllableLetters}"`)
+  const hasLetterError = syllableLetters !== wordWithoutSpaces
+  const hasSyllableError =
+    expectedSyllables && syllableText !== expectedSyllables
+
+  // Print word (bold red if error, bold white otherwise)
+  if (hasLetterError) {
+    console.log(chalk.bold.red(word), chalk.yellow('(letter mismatch)'))
+  } else if (hasSyllableError) {
+    console.log(
+      chalk.bold.red(word),
+      chalk.yellow('(syllable mismatch)'),
+    )
+  } else {
+    console.log(chalk.green(word))
   }
+
+  // Print syllables
   console.log(
-    '  clusters:',
-    clusters.map(({ text }) => text).join(' - '),
+    `  ${chalk.gray('syllables:')}  ${syllables
+      .map((syllable, i) => {
+        const text = syllable.clusters.map(({ text }) => text).join('')
+        const color = hasSyllableError ? chalk.red : chalk
+        if (i > 0) {
+          return `- ${color(text)}`
+        }
+        return color(text)
+      })
+      .join(' ')}`,
   )
-  // console.log(
-  //   makeTalkToIpa(word),
-  //   parseProsody(word).map(makeTalkToIpa).join('-'),
-  // )
+
+  if (hasSyllableError) {
+    console.log(
+      `    ${chalk.gray('desired:')}  ${expectedSyllables
+        .split(' - ')
+        .map((text, i) => {
+          const color = chalk.cyan
+          if (i > 0) {
+            return `- ${color(text)}`
+          }
+          return color(text)
+        })
+        .join(' ')}`,
+    )
+  }
+
+  // Print clusters
+  console.log(
+    `   ${chalk.gray('clusters:')}  ${clusters
+      .map((cluster, i) => {
+        const color = hasLetterError ? chalk.red : chalk
+        if (i > 0) {
+          return `- ${color(cluster.text)}`
+        }
+        return color(cluster.text)
+      })
+      .join(' ')}`,
+  )
 }
 
 // function talk(a: string, b: string) {
