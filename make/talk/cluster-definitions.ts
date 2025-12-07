@@ -26,47 +26,47 @@ const noDuplicateSounds = (s: string) => {
   }
 }
 
-const consonantSuffix = (suffix: string) => `b${suffix}
-c${suffix}
-C${suffix}
-d${suffix}
-f${suffix}
-g${suffix}
-h${suffix}
-j${suffix}
-k${suffix}
-l${suffix}
-m${suffix}
-n${suffix}
-p${suffix}
-q${suffix}
-r${suffix}
-s${suffix}
-t${suffix}
-v${suffix}
-w${suffix}
-x${suffix}
-y${suffix}
-z${suffix}
-G${suffix}
-Q${suffix}
-B${suffix}
-D${suffix}
-F${suffix}
-H${suffix}
-J${suffix}
-K${suffix}
-L${suffix}
-N${suffix}
-R${suffix}
-S${suffix}
-T${suffix}
-V${suffix}
-X${suffix}
-Z${suffix}
-dj${suffix}
-dx${suffix}
-tx${suffix}`
+const consonantSuffix = (suffix: string, colon = '') => `b${suffix}
+c${colon}${suffix}
+C${colon}${suffix}
+d${colon}${suffix}
+f${colon}${suffix}
+g${colon}${suffix}
+h${colon}${suffix}
+j${colon}${suffix}
+k${colon}${suffix}
+l${colon}${suffix}
+m${colon}${suffix}
+n${colon}${suffix}
+p${colon}${suffix}
+q${colon}${suffix}
+r${colon}${suffix}
+s${colon}${suffix}
+t${colon}${suffix}
+v${colon}${suffix}
+w${colon}${suffix}
+x${colon}${suffix}
+y${colon}${suffix}
+z${colon}${suffix}
+G${colon}${suffix}
+Q${colon}${suffix}
+B${colon}${suffix}
+D${colon}${suffix}
+F${colon}${suffix}
+H${colon}${suffix}
+J${colon}${suffix}
+K${colon}${suffix}
+L${colon}${suffix}
+N${colon}${suffix}
+R${colon}${suffix}
+S${colon}${suffix}
+T${colon}${suffix}
+V${colon}${suffix}
+X${colon}${suffix}
+Z${colon}${suffix}
+dj${colon}${suffix}
+dx${colon}${suffix}
+tx${colon}${suffix}`
 
 const sStart = (prefix = 's') => `${prefix}br
 ${prefix}b:w
@@ -558,9 +558,9 @@ s:tx
 xk:z
 x:k
 
-${consonantSuffix('y')}
-${consonantSuffix('h')}
-${consonantSuffix('w')}
+${consonantSuffix('y', ':')}
+${consonantSuffix('h', ':')}
+${consonantSuffix('w', ':')}
 
 ${bEnd('b')}
 ${bEnd('p')}
@@ -582,31 +582,43 @@ s:t
 s:k
 s:p
 
-lf:'
 l:f
 lfs:z
 lf:s
 lfs:t
 lfs:k
 lfs:z
+lfs:p
+lfs:b
+lfs:d
+lfs:g
 f:s
 fs:z
 
 ${mEnd('m')}
 ${mEnd('rm')}
+r:m
 ${mEnd('n')}
 ${mEnd('rn')}
+r:n
 ${mEnd('r')}
 ${mEnd('l')}
 ${mEnd('lm')}
+l:m
 ${mEnd('ln')}
+l:n
 
 ${gEnd('g')}
 ${gEnd('rg')}
+r:g
 ${gEnd('lg')}
+l:g
 ${gEnd('mg')}
+m:g
 ${gEnd('ng')}
+n:g
 ${gEnd('qg')}
+q:g
 
 ${kEnd('k')}
 ${kEnd('rk')}
