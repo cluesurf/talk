@@ -5,7 +5,7 @@ import st from '@lancejpollard/script-tree'
 
 const HANGUL_START = 0xac00
 // const HANGUL_END = 0xd7a3
-// const HANGUL_ALLOWED_END_FOR_BASE_TONES = 0xcfff
+const HANGUL_ALLOWED_END_FOR_BASE_TONES = 0xcfff
 let HANGUL_CODE = HANGUL_START
 
 const m = {
@@ -295,6 +295,11 @@ talk.machine = (text: string): string =>
 export default talk
 
 function getNextGlyph() {
+  if (HANGUL_CODE > HANGUL_ALLOWED_END_FOR_BASE_TONES) {
+    throw new Error(
+      `Exceeded available Hangul code points for base tones (max: ${HANGUL_ALLOWED_END_FOR_BASE_TONES})`,
+    )
+  }
   return String.fromCodePoint(HANGUL_CODE++)
 }
 
