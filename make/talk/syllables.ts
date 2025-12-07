@@ -774,10 +774,11 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             continue
           }
 
-          // Don't add START_CONSONANT to current syllable if we already have consonants
+          // Don't add START_CONSONANT to current syllable if we already have any clusters
+          // This ensures each START_CONSONANT begins its own syllable in consonant sequences
           if (
             next.form === ClusterKey.START_CONSONANT &&
-            syllable.clusters.length > 1
+            syllable.clusters.length > 0
           ) {
             break
           }
