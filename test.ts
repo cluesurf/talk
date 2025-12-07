@@ -139,6 +139,7 @@ parse('fOla^sOfirmja')
 parse('paieia')
 parse('txhaqkz')
 parse('djrawl')
+parse('twstqknmplzstk')
 
 function parse(word: string) {
   console.log(word)

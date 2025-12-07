@@ -782,6 +782,29 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             break
           }
 
+          // For consonant-only sequences, check if we should end the syllable
+          // when we encounter an END_CONSONANT
+          if (next.form === ClusterKey.END_CONSONANT) {
+            // Add the END_CONSONANT
+            syllable.clusters.push(next)
+            i++
+            
+            // Look ahead to see if a vowel is coming
+            let hasUpcomingVowel = false
+            for (let j = i; j < clusters.length && j < i + 3; j++) {
+              if (clusters[j]?.form === ClusterKey.VOWEL) {
+                hasUpcomingVowel = true
+                break
+              }
+            }
+            
+            // If no vowel is coming soon, end the syllable after END_CONSONANT
+            if (!hasUpcomingVowel && syllable.clusters.length >= 2) {
+              break
+            }
+            continue
+          }
+
           syllable.clusters.push(next)
           i++
 
@@ -877,6 +900,35 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
               }
               syllable.clusters.push(next)
               i++
+            }
+          }
+        } else {
+          // No vowel found - we have a consonant-only syllable
+          // The consonants we've collected so far form a syllabic unit
+          // Check if we should end this syllable based on what's next
+          
+          // If we have a reasonable consonant cluster, end the syllable when:
+          // 1. We hit an END_CONSONANT
+          // 2. We already have a START_CONSONANT and hit another START_CONSONANT
+          // 3. We hit a FULL_CONSONANT (those always start their own syllable)
+          
+          if (syllable.clusters.length > 0) {
+            const lastCluster = syllable.clusters[syllable.clusters.length - 1]!
+            
+            // If the last cluster is an END_CONSONANT, this syllable is complete
+            if (lastCluster.form === ClusterKey.END_CONSONANT) {
+              // Syllable is complete with consonants only
+            } 
+            // If we have at least 2 consonants and see patterns suggesting syllable end
+            else if (syllable.clusters.length >= 2) {
+              // Look ahead to see if we should end here
+              if (i < clusters.length) {
+                const next = clusters[i]!
+                if (next.form === ClusterKey.START_CONSONANT || 
+                    next.form === ClusterKey.FULL_CONSONANT) {
+                  // Next cluster starts a new syllable
+                }
+              }
             }
           }
         }
