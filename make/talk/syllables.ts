@@ -10,7 +10,7 @@ export default function chunk(clusters: Cluster[]) {
 
   while (i < clusters.length) {
     const cluster = clusters[i]!
-    const syllable: Syllable = {
+    let syllable: Syllable = {
       clusters: [],
     }
 
@@ -90,6 +90,39 @@ export default function chunk(clusters: Cluster[]) {
           
           syllable.clusters.push(next)
           i++
+          
+          // If we just added ' and have at least one other consonant, this could be a complete syllable
+          if (next.text === "'") {
+            // If we have other consonants and the last one before ' was a START_CONSONANT,
+            // then the START_CONSONANT + ' should be its own syllable
+            if (syllable.clusters.length >= 2) {
+              const prevCluster = syllable.clusters[syllable.clusters.length - 2]
+              if (prevCluster && prevCluster.form === ClusterKey.START_CONSONANT) {
+                // Remove the ' we just added
+                syllable.clusters.pop()
+                i--
+                // Remove the START_CONSONANT 
+                const startConsonant = syllable.clusters.pop()!
+                // If we still have clusters, keep them as a syllable
+                if (syllable.clusters.length > 0) {
+                  syllables.push(syllable)
+                }
+                // Start new syllable with the START_CONSONANT
+                syllables.push({
+                  clusters: [startConsonant, next]
+                })
+                i++
+                // Start fresh for next syllable
+                syllable = { clusters: [] }
+                break
+              }
+            }
+            
+            // Otherwise, check if next cluster is a consonant (not vowel) to complete this syllable
+            if (syllable.clusters.length > 1 && i < clusters.length && clusters[i]!.form !== ClusterKey.VOWEL) {
+              break
+            }
+          }
         }
 
         // Add the vowel if found
