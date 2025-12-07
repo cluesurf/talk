@@ -341,15 +341,74 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
 
     while (j < fullConsonants.length) {
       const x = fullConsonants[j++]!
-      const chunk = chunks.slice(i, i + x.length)
-      if (chunk.map(x => x.value).join('') === x) {
-        span.push({
-          chunk,
-          match: x,
-          form: ClusterType.FULL_CONSONANT,
-        })
-        i += x.length
-        break
+      // Handle colon notation - remove colons for matching
+      const y = x.replace(/:/g, '')
+      const chunk = chunks.slice(i, i + y.length)
+      const chunkStr = chunk.map(x => x.value).join('')
+      
+      if (chunkStr === y) {
+        // Check if this is a colon pattern and if we should use it
+        if (x.includes(':')) {
+          // Look ahead to see what follows
+          const nextChunkIndex = i + y.length
+          if (nextChunkIndex < chunks.length) {
+            const nextChunk = chunks[nextChunkIndex]
+            // Only split if next is a vowel
+            if (nextChunk?.type !== 'vowel') {
+              // Check if splitting would allow a better match
+              // For example, 'l:d followed by j could be 'l + dj (start consonant)
+              const colonParts = x.split(':')
+              if (colonParts.length === 2) {
+                const rightPart = colonParts[1]!
+                // Check if rightPart + next would form a known cluster
+                const potentialCluster = rightPart + nextChunk?.value
+                let wouldFormBetterCluster = false
+                
+                // Check if it would form a start consonant
+                for (const sc of startConsonants) {
+                  if (sc.replace(/:/g, '') === potentialCluster) {
+                    wouldFormBetterCluster = true
+                    break
+                  }
+                }
+                
+                if (wouldFormBetterCluster) {
+                  // Skip this match to allow splitting
+                  continue
+                }
+              }
+              
+              // Don't split - treat as full consonant
+              span.push({
+                chunk,
+                match: x,
+                form: ClusterType.FULL_CONSONANT,
+              })
+              i += y.length
+              break
+            }
+            // If next is vowel, skip this full consonant match
+            // to allow potential splitting later
+          } else {
+            // At end of word, don't split
+            span.push({
+              chunk,
+              match: x,
+              form: ClusterType.FULL_CONSONANT,
+            })
+            i += y.length
+            break
+          }
+        } else {
+          // No colon, normal match
+          span.push({
+            chunk,
+            match: x,
+            form: ClusterType.FULL_CONSONANT,
+          })
+          i += y.length
+          break
+        }
       }
     }
 

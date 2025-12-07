@@ -77,7 +77,7 @@ parse('fOla^sOfi', 'fO - la^ - sO - fi')
 parse('fOla^sOfirmja', 'fO - la^ - sO - firm - ja')
 parse("'lKadami", "'l - Ka - da - mi")
 parse("'ldjaryu", "'l - djar - yu")
-parse("'lttazalludju", "'l - t - ta - zal - lu - dju")
+parse("'lttazalludju", "'lt - ta - zal - lu - dju")
 parse("'l'alw'hh~i", "'l - 'alw - 'hh~ - i")
 parse(
   'sUfI^stUkeItEdanjdxwa',
@@ -90,7 +90,7 @@ parse(
   'A&_^mplIfaydzoltxahasntayCwa',
   'A&_^mp - lI - fayd - zol - txa - hasn - tayC - wa',
 )
-parse("'lddarr'dj'ti", "'l - d - darr - 'dj - 't - i")
+parse("'lddarr'dj'ti", "'ld - darr - 'dj - 't - i")
 
 parse("'lK'Qida_ti", "'l - K - 'Qi - da_ - ti")
 
@@ -128,7 +128,7 @@ parse(['Qidj', 'rim'].join(''), 'Qi - djrim')
 parse(['ma', 'wrid'].join(''), 'maw - rid')
 parse(
   "'lssamaka_tu 'lbuhh~ayri_a_tu",
-  "'l - s - sa - ma - ka_ - tu - 'l - bu - hh~ay - ri_ - a_ - tu",
+  "'ls - sa - ma - ka_ - tu - 'l - bu - hh~ay - ri_ - a_ - tu",
 )
 parse(`'lliK'hh~u`, `'l - liK - 'hh~ - u`)
 parse(`'lQi_'da_tu`, `'l - Qi_ - 'd - a_ - tu`)

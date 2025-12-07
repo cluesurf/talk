@@ -16,3 +16,4 @@
   The user will manage all changes to cluster definitions (consonants, vowels, 
   startConsonants, endConsonants, fullConsonants). Do not modify these lists.
 - **NEVER run `pnpm cluster`!** The user will handle cluster rebuilding when needed.
+- **NEVER modify cluster-definitions.ts!** The user will handle any cluster definition changes.
