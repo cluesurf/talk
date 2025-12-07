@@ -541,6 +541,9 @@ w:C
 w:c
 w:l
 tx:s
+s:tx
+xk:z
+x:k
 ${bEnd('b')}
 ${bEnd('p')}
 ${bEnd('rb')}

@@ -139,7 +139,10 @@ parse('fOla^sOfirmja')
 parse('paieia')
 parse('txhaqkz')
 parse('djrawl')
+
+// consonant clusters only
 parse('twstqknmplzstk')
+parse('twstxqkzlnkmplzstk')
 
 function parse(word: string) {
   console.log(word)
