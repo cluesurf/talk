@@ -77,6 +77,7 @@ ${prefix}j
 
 export const startConsonants = uniq(
   `u$
+'
 bl
 bj
 bz
@@ -358,7 +359,7 @@ ${prefix}:C
 ${prefix}C:z
 ${prefix}C:j`
 
-const glottalEnd = (prefix: string = "'") => `${prefix}b
+const glottalFull = (prefix: string = "'") => `${prefix}b
 ${prefix}c
 ${prefix}C
 ${prefix}d
@@ -422,7 +423,6 @@ y
 z
 G
 Q
-'
 B
 D
 F
@@ -496,8 +496,6 @@ lfs:k
 lfs:z
 f:s
 fs:z
-
-${glottalEnd("'")}
 
 ${mEnd('m')}
 ${mEnd('rm')}
@@ -725,6 +723,7 @@ export const fullConsonants = uniq(
 'l:v
 'l:f
 'l
+${glottalFull("'")}
 txm
 txn
 txq

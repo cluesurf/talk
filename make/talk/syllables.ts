@@ -716,14 +716,14 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             break
           }
 
+
           // Check if this consonant should be part of this syllable or the next
           const nextNext = clusters[i + 1]
           if (nextNext && nextNext.form === ClusterKey.VOWEL) {
             // If there's a vowel after this consonant, check if we should split
             if (next.form === ClusterKey.FULL_CONSONANT) {
-              // These typically end syllables
-              syllable.clusters.push(next)
-              i++
+              // FULL_CONSONANT always starts its own syllable
+              break
             } else if (next.form === ClusterKey.START_CONSONANT) {
               // These typically start new syllables
               break
@@ -848,6 +848,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
               break
             }
 
+
             // Check if we have an END_CONSONANT
             if (next.form === ClusterKey.END_CONSONANT) {
               syllable.clusters.push(next)
@@ -859,8 +860,8 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             const nextNext = clusters[i + 1]
             if (nextNext && nextNext.form === ClusterKey.VOWEL) {
               if (next.form === ClusterKey.FULL_CONSONANT) {
-                syllable.clusters.push(next)
-                i++
+                // FULL_CONSONANT always starts its own syllable
+                break
               } else if (next.form === ClusterKey.START_CONSONANT) {
                 break
               } else {
