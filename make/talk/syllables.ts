@@ -363,7 +363,14 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       const x = startConsonants[j++]!
       const y = x.replace(/:/g, '')
       const chunk = chunks.slice(i, i + y.length)
-      if (chunk.map(x => x.value).join('') === y) {
+      const chunkStr = chunk.map(x => x.value).join('')
+      
+      // Debug: Check if we're at 'p' and looking for 'pl'
+      if (chunks[i]?.value === 'p' && y === 'pl') {
+        console.log('DEBUG: Checking pl:', { y, chunkStr, match: chunkStr === y })
+      }
+      
+      if (chunkStr === y) {
         span.push({
           chunk,
           match: x,

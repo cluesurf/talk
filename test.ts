@@ -143,6 +143,7 @@ parse('djrawl')
 // consonant clusters only
 parse('twstqknmplzstk')
 parse('twstxqkzlnkmplzstk')
+parse('strwbryndjmpl')
 
 function parse(word: string) {
   console.log(word)
