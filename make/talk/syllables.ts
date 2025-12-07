@@ -33,17 +33,8 @@ export default function chunk(clusters: Cluster[]) {
           if (next.form === ClusterKey.END_CONSONANT) {
             syllable.clusters.push(next)
             i++
-            const afterEnd = clusters[i]
-            if (
-              afterEnd &&
-              (afterEnd.form === ClusterKey.START_CONSONANT ||
-                (afterEnd.form === ClusterKey.CONSONANT &&
-                  clusters[i + 1]?.form === ClusterKey.VOWEL))
-            ) {
-              // Break here - START_CONSONANT or CONSONANT+VOWEL begins new syllable
-              break
-            }
-            continue
+            // Usually END_CONSONANT ends the syllable
+            break
           }
 
           // Check if this consonant should be part of this syllable or the next
@@ -90,7 +81,14 @@ export default function chunk(clusters: Cluster[]) {
           i < clusters.length &&
           clusters[i]!.form !== ClusterKey.VOWEL
         ) {
-          syllable.clusters.push(clusters[i]!)
+          const next = clusters[i]!
+          
+          // Don't add START_CONSONANT to current syllable if we already have consonants
+          if (next.form === ClusterKey.START_CONSONANT && syllable.clusters.length > 1) {
+            break
+          }
+          
+          syllable.clusters.push(next)
           i++
         }
 
@@ -114,17 +112,8 @@ export default function chunk(clusters: Cluster[]) {
             if (next.form === ClusterKey.END_CONSONANT) {
               syllable.clusters.push(next)
               i++
-              const afterEnd = clusters[i]
-              if (
-                afterEnd &&
-                (afterEnd.form === ClusterKey.START_CONSONANT ||
-                  (afterEnd.form === ClusterKey.CONSONANT &&
-                    clusters[i + 1]?.form === ClusterKey.VOWEL))
-              ) {
-                // Break here - START_CONSONANT or CONSONANT+VOWEL begins new syllable
-                break
-              }
-              continue
+              // Usually END_CONSONANT ends the syllable
+              break
             }
 
             const nextNext = clusters[i + 1]

@@ -85,7 +85,18 @@ parse('briqketzwaqlOmptzwa')
 // parse('AmplIfaydz')
 parse('A&_^mplIfaydzoltxahasntayCwa')
 parse("'lddarr'dj'ti")
+
 parse("'lK'Qida_ti")
+
+// Debug this case
+{
+  const word = "'lK'Qida_ti"
+  const clusters = cluster(word)
+  console.log(`\nDEBUG ${word} clusters:`)
+  clusters.forEach((c, i) => {
+    console.log(`  [${i}] "${c.text}" (${c.form})`)
+  })
+}
 parse("'lGu_lfu")
 parse("galf'u")
 parse("galf'u'")

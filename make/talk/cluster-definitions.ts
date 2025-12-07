@@ -608,20 +608,22 @@ nxt
 nx
 mxt
 sn:t
-lb
-lf
-lm
-ln
-lp
-ls
-lv
-ms
-mv
-mx
-mz
-rb
-rf
-sj
+l:b
+l:d
+l:g
+l:f
+l:m
+l:n
+l:p
+l:s
+l:v
+m:s
+m:v
+m:x
+m:z
+r:b
+r:f
+s:j
 `
     .trim()
     .split(/\n+/)
@@ -630,11 +632,7 @@ sj
 )
 
 export const fullConsonants = uniq(
-  `'ls
-'lz
-'lm
-'ln
-'l
+  `'l
 txm
 txn
 txq
