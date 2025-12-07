@@ -144,6 +144,7 @@ parse('djrawl')
 parse('twstqknmplzstk')
 parse('twstxqkzlnkmplzstk')
 parse('strwbryndjmpl')
+parse('sgnfkntlyqgmdnzl')
 
 function parse(word: string) {
   console.log(word)

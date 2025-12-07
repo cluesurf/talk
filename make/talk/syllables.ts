@@ -365,11 +365,6 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       const chunk = chunks.slice(i, i + y.length)
       const chunkStr = chunk.map(x => x.value).join('')
       
-      // Debug: Check if we're at 'p' and looking for 'pl'
-      if (chunks[i]?.value === 'p' && y === 'pl') {
-        console.log('DEBUG: Checking pl:', { y, chunkStr, match: chunkStr === y })
-      }
-      
       if (chunkStr === y) {
         span.push({
           chunk,
@@ -408,16 +403,14 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       }
     }
 
-    if (!matched) {
+    if (!matched && span.length === 0) {
+      // Only process single consonants if we don't have content in span
+      // This ensures we complete the current span before starting a new one
       j = 0
       while (j < consonants.length) {
         const x = consonants[j++]!
         const chunk = chunks.slice(i, i + x.length)
         if (chunk.map(x => x.value).join('') === x) {
-          if (span.length) {
-            list.push([...span])
-          }
-          span.length = 0
           span.push({ chunk, match: x, form: ClusterType.CONSONANT })
           i += x.length
           break
