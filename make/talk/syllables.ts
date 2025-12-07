@@ -823,6 +823,77 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
           syllable.clusters.push(next)
           i++
 
+          // Special handling for START_CONSONANT + single consonant pattern
+          // If we have a START_CONSONANT followed by a single consonant, 
+          // check if we should break based on what follows
+          if (
+            syllable.clusters.length >= 2 &&
+            syllable.clusters[0]!.form === ClusterKey.START_CONSONANT &&
+            syllable.clusters[syllable.clusters.length - 1]!.form === ClusterKey.CONSONANT
+          ) {
+            // Look ahead to see what's coming
+            if (i < clusters.length) {
+              const upcomingCluster = clusters[i]!
+              
+              // If we see another consonant cluster coming and no vowel nearby,
+              // we should break here to start a new syllable
+              if (
+                upcomingCluster.form !== ClusterKey.VOWEL &&
+                upcomingCluster.form !== ClusterKey.PUNCTUATION
+              ) {
+                // Check if there's a pattern suggesting we should break
+                // For example: ly + q followed by more consonants
+                let shouldBreak = false
+                
+                // If we have exactly START_CONSONANT + single consonant,
+                // and more consonants follow, break here
+                if (syllable.clusters.length === 2) {
+                  // Look further ahead to see if we have multiple consonants coming
+                  let consonantCount = 0
+                  for (let j = i; j < clusters.length && j < i + 4; j++) {
+                    const future = clusters[j]
+                    if (!future || future.form === ClusterKey.PUNCTUATION) continue
+                    if (future.form === ClusterKey.VOWEL) break
+                    consonantCount++
+                  }
+                  
+                  // If we have 2+ more consonants coming, break here
+                  if (consonantCount >= 2) {
+                    shouldBreak = true
+                  }
+                }
+                
+                if (shouldBreak) {
+                  break
+                }
+              }
+            }
+          }
+
+          // Also handle case where we're accumulating too many single consonants
+          // If current syllable has START_CONSONANT + 2 single consonants, break
+          if (syllable.clusters.length >= 3) {
+            let singleConsonantCount = 0
+            let hasStartConsonant = false
+            
+            for (const c of syllable.clusters) {
+              if (c.form === ClusterKey.START_CONSONANT) {
+                hasStartConsonant = true
+              } else if (c.form === ClusterKey.CONSONANT) {
+                singleConsonantCount++
+              }
+            }
+            
+            // If we have START_CONSONANT + 2 single consonants already,
+            // don't add more - break here
+            if (hasStartConsonant && singleConsonantCount >= 2) {
+              // Put back the consonant we just added
+              syllable.clusters.pop()
+              i--
+              break
+            }
+          }
+
 
           // If we just added ' and have at least one other consonant, this could be a complete syllable
           if (next.text === "'") {
@@ -956,6 +1027,59 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
         // but if starting fresh, create its own syllable
         syllable.clusters.push(cluster)
         i++
+        
+        // Look for following single consonants that could join this syllable
+        while (i < clusters.length) {
+          const next = clusters[i]!
+          
+          // Skip punctuation
+          if (next.form === ClusterKey.PUNCTUATION) {
+            i++
+            continue
+          }
+          
+          // If we hit a vowel, stop
+          if (next.form === ClusterKey.VOWEL) {
+            break
+          }
+          
+          // If we hit another cluster type that's not a single consonant, stop
+          if (next.form !== ClusterKey.CONSONANT) {
+            break
+          }
+          
+          // Check if this is the last cluster or if non-consonants follow
+          let shouldAddConsonant = false
+          if (i === clusters.length - 1) {
+            // This is the last cluster, add it
+            shouldAddConsonant = true
+          } else {
+            // Look ahead to see what follows
+            let hasMoreConsonantsOnly = true
+            for (let j = i + 1; j < clusters.length; j++) {
+              const future = clusters[j]
+              if (!future || future.form === ClusterKey.PUNCTUATION) continue
+              if (future.form === ClusterKey.VOWEL || 
+                  future.form === ClusterKey.START_CONSONANT ||
+                  future.form === ClusterKey.FULL_CONSONANT) {
+                hasMoreConsonantsOnly = false
+                break
+              }
+            }
+            
+            // If only single consonants follow, add this one
+            if (hasMoreConsonantsOnly) {
+              shouldAddConsonant = true
+            }
+          }
+          
+          if (shouldAddConsonant) {
+            syllable.clusters.push(next)
+            i++
+          } else {
+            break
+          }
+        }
         break
       }
     }

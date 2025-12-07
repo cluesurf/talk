@@ -141,12 +141,12 @@ parse('txhaqkz')
 parse('djrawl')
 
 // consonant clusters only
-parse('twstqknmplzstk')
+parse('twstqknmplzstk', 'twst - qk - nmp - lz - stk')
 parse('twstxqkzlnkmplzstk')
-parse('strwbryndjmpl')
-parse('sgnfkntlyqgmdnzl')
+parse('strwbryndjmpl', 'strwb - rynd - jm - pl')
+parse('sgnfkntlyqgmdnzl', 'sg - nf - knt - lyq - gm - dn - zl')
 
-function parse(word: string) {
+function parse(word: string, expectedSyllables?: string) {
   console.log(word)
   const { syllables, clusters } = chunk(word)
 
@@ -155,6 +155,15 @@ function parse(word: string) {
     .map(syllable => syllable.clusters.map(({ text }) => text).join(''))
     .join(' - ')
   console.log('  syllables:', syllableText)
+  
+  // Check if syllables match expected pattern
+  if (expectedSyllables) {
+    if (syllableText !== expectedSyllables) {
+      console.log(`  WARNING: Syllables don't match expected pattern!`)
+      console.log(`    Expected: "${expectedSyllables}"`)
+      console.log(`    Actual:   "${syllableText}"`)
+    }
+  }
 
   // Check if all letters are preserved
   const syllableLetters = syllables
