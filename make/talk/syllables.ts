@@ -63,6 +63,11 @@ export default function chunk(clusters: Cluster[]) {
             }
           } else {
             // No vowel follows, so this consonant ends the syllable
+            // But first check if it's a FULL_CONSONANT - those should start their own syllable
+            if (next.form === ClusterKey.FULL_CONSONANT) {
+              // FULL_CONSONANT starts its own syllable, don't add to current
+              break
+            }
             syllable.clusters.push(next)
             i++
           }
@@ -168,6 +173,11 @@ export default function chunk(clusters: Cluster[]) {
                 break
               }
             } else {
+              // Check if it's a FULL_CONSONANT - those should start their own syllable
+              if (next.form === ClusterKey.FULL_CONSONANT) {
+                // FULL_CONSONANT starts its own syllable, don't add to current
+                break
+              }
               syllable.clusters.push(next)
               i++
             }
