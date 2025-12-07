@@ -783,10 +783,24 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             break
           }
 
-          // For consonant-only sequences, check if we should end the syllable
-          // when we encounter an END_CONSONANT
+          // For consonant-only sequences, handle END_CONSONANT specially
           if (next.form === ClusterKey.END_CONSONANT) {
-            // Add the END_CONSONANT
+            // Check if we should start a new syllable with this END_CONSONANT
+            // If we already have only single consonants, break before END_CONSONANT
+            let hasOnlySingleConsonants = true
+            for (const cluster of syllable.clusters) {
+              if (cluster.form !== ClusterKey.CONSONANT) {
+                hasOnlySingleConsonants = false
+                break
+              }
+            }
+            
+            if (hasOnlySingleConsonants && syllable.clusters.length >= 2) {
+              // Break before END_CONSONANT to let it start its own syllable
+              break
+            }
+            
+            // Otherwise add the END_CONSONANT
             syllable.clusters.push(next)
             i++
             
@@ -799,8 +813,8 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
               }
             }
             
-            // If no vowel is coming soon, end the syllable after END_CONSONANT
-            if (!hasUpcomingVowel && syllable.clusters.length >= 2) {
+            // Always break after END_CONSONANT in consonant-only sequences
+            if (!hasUpcomingVowel) {
               break
             }
             continue

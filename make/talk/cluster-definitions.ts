@@ -26,7 +26,7 @@ const noDuplicateSounds = (s: string) => {
   }
 }
 
-const hSuffixStart = (suffix = 'h') => `b${suffix}
+const consonantSuffix = (suffix: string) => `b${suffix}
 c${suffix}
 C${suffix}
 d${suffix}
@@ -255,7 +255,8 @@ snw
 sm
 smw
 sw
-${hSuffixStart()}
+${consonantSuffix('h')}
+${consonantSuffix('y')}
 ${sStart('s')}
 ${sStart('z')}
 ${sStart('x')}
@@ -556,6 +557,11 @@ tx:s
 s:tx
 xk:z
 x:k
+
+${consonantSuffix('y')}
+${consonantSuffix('h')}
+${consonantSuffix('w')}
+
 ${bEnd('b')}
 ${bEnd('p')}
 ${bEnd('rb')}
