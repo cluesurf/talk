@@ -11,7 +11,7 @@ const STRESSES = ['standard', 'stress']
 
 NASALS.forEach(nose => {
   STRESSES.forEach(kick => {
-    const keys: Array<string> = []
+    const keys: string[] = []
     if (nose === 'nasal') {
       keys.push(`&`)
     }

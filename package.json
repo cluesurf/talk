@@ -1,21 +1,30 @@
 {
-  "version": "1.5.16",
+  "version": "1.6.0",
   "name": "@cluesurf/talk",
-  "main": "./index.ts",
+  "main": "./host/index.js",
   "type": "module",
   "license": "MIT",
+  "exports": {
+    ".": "./host/index.js",
+    "./*": "./host/make/*.js",
+    "./*/*": "./host/make/*/*.js"
+  },
+  "files": [
+    "host"
+  ],
   "dependencies": {
     "@lancejpollard/script-tree": "^1.1.4",
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "x-sampa-ipa": "^0.0.3"
   },
   "scripts": {
-    "make": "rm -rf host && tsc && tsc-alias && cp package.json host/package.json",
+    "make": "rm -rf host && tsup",
     "scan": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
     "lint": "eslint --ext .ts ./make",
     "lint:fix": "npm run lint -- --fix",
     "test": "NODE_NO_WARNINGS=1 npx tsx test.ts",
     "cluster": "NODE_NO_WARNINGS=1 npx tsx make/talk/cluster-builder.ts",
-    "host": "pnpm make && cd host && npm publish --access=public"
+    "host": "pnpm make && npm publish --access=public"
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^4.0.0",
@@ -41,6 +50,7 @@
     "prettier": "^2.8.1",
     "ts-node": "^10.9.1",
     "tsc-alias": "^1.8.2",
+    "tsup": "^8.5.1",
     "tsx": "^3.12.7",
     "typescript": "^4.9.4"
   }
