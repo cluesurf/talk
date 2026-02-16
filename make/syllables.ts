@@ -13,11 +13,13 @@ import {
   VARIANT_MARKS,
 } from '.'
 
-export type Syllable = {
-  clusters: Array<Cluster>
+export interface Syllable {
+  clusters: Cluster[]
+  /** Primary stress marker - true if this syllable contains the primary stress */
+  emphasis?: boolean
 }
 
-type Mark = {
+interface Mark {
   aspiration?: boolean
   click?: boolean
   dentalization?: boolean
@@ -29,7 +31,7 @@ type Mark = {
   palatalization?: boolean
   pharyngealization?: boolean
   stop?: boolean
-  stress?: boolean
+  emphasis?: boolean
   tense?: boolean
   tone?:
     | 'extra high'
@@ -50,10 +52,12 @@ type Mark = {
   form?: 'wall' | 'flow' | 'turn'
 }
 
-type Span = {
+interface Span {
   form: ClusterType
-  chunk: Array<Mark>
+  chunk: Mark[]
   match: string
+  /** Primary stress marker - true if any mark in the chunk has emphasis */
+  emphasis?: boolean
 }
 
 const MARK: Record<string, Mark> = {
@@ -202,7 +206,7 @@ const EXTRA_FEATURES: Record<string, Mark> = {
   '.': { stop: true },
   '!': { truncation: true },
   _: { elongation: true },
-  '^': { stress: true },
+  '^': { emphasis: true },
   '?': { implosion: true },
   '*': { click: true },
   '~': { dentalization: true },
@@ -277,7 +281,7 @@ export enum ClusterKey {
   PUNCTUATION = 'punctuation',
 }
 
-const CLUSTER_KEY: Array<ClusterKey> = [
+const CLUSTER_KEY: ClusterKey[] = [
   ClusterKey.FULL_CONSONANT,
   ClusterKey.CONSONANT,
   ClusterKey.START_CONSONANT,
@@ -286,10 +290,12 @@ const CLUSTER_KEY: Array<ClusterKey> = [
   ClusterKey.PUNCTUATION,
 ]
 
-export type Cluster = {
+export interface Cluster {
   form: ClusterKey
   text: string
   code: string
+  /** Primary stress marker - true if this cluster carries the primary stress */
+  emphasis?: boolean
 }
 
 // For backward compatibility
@@ -298,7 +304,7 @@ export const chunkClusters = parseMarks
 // Step 1: Parse string into marks (basic tokens)
 export function parseMarks(string: string) {
   let x = string
-  const chunks: Array<Mark> = []
+  const chunks: Mark[] = []
   let i = 0
   while (x.length) {
     let matched = false
@@ -329,12 +335,12 @@ export function parseMarks(string: string) {
 }
 
 // Step 2: Group marks into clusters
-export function groupMarksIntoClusters(chunks: Array<Mark>) {
-  const list: Array<Array<Span>> = []
+export function groupMarksIntoClusters(chunks: Mark[]) {
+  const list: Span[][] = []
 
   let i = 0
   while (i < chunks.length) {
-    const span: Array<Span> = []
+    const span: Span[] = []
     let j = 0
 
     const chunk = chunks[i]!
@@ -471,7 +477,7 @@ export function groupMarksIntoClusters(chunks: Array<Mark>) {
 
     // Check if any dense full consonant would match before trying end consonants
     let longerDenseMatch: {
-      chunk: Array<any>
+      chunk: any[]
       match: string
       length: number
     } | null = null
@@ -501,7 +507,7 @@ export function groupMarksIntoClusters(chunks: Array<Mark>) {
 
     // Check end consonants but prefer longer dense matches
     let endConsonantMatch: {
-      chunk: Array<any>
+      chunk: any[]
       match: string
       length: number
     } | null = null
@@ -626,7 +632,7 @@ export function groupMarksIntoClusters(chunks: Array<Mark>) {
       // Check if this span has a colon (can be split)
       if (/:/.exec(span.match)) {
         // Check if there's a following span
-        const nextSpan = node[j + 1] || (list[i + 1] && list[i + 1]![0])
+        const nextSpan = node[j + 1] || list[i + 1]?.[0]
 
         // Split if:
         // 1. This is an END_CONSONANT followed by a vowel
@@ -639,8 +645,8 @@ export function groupMarksIntoClusters(chunks: Array<Mark>) {
           const [leftPart, rightPart] = span.match.split(':')
 
           // Find where to split the chunks
-          const left: Array<Mark> = []
-          const right: Array<Mark> = []
+          const left: Mark[] = []
+          const right: Mark[] = []
 
           let k = 0
           let text = ''
@@ -700,8 +706,8 @@ export function groupMarksIntoClusters(chunks: Array<Mark>) {
     ) {
       // const nodeSpanText = nodeSpan.chunk[0]!.value!
 
-      const left: Array<Mark> = []
-      const right: Array<Mark> = []
+      const left: Mark[] = []
+      const right: Mark[] = []
 
       const [a] = lastSpan.match.split(':')
 
@@ -726,30 +732,41 @@ export function groupMarksIntoClusters(chunks: Array<Mark>) {
     }
   }
 
-  const clusters: Array<Cluster> = list.flat().map(span => {
+  const clusters: Cluster[] = list.flat().map(span => {
+    // Check if any mark in the chunk has emphasis
+    const hasEmphasis = span.chunk.some(mark => mark.emphasis === true)
+
     if (span.form === ClusterType.PUNCTUATION) {
-      return {
+      const result: Cluster = {
         form: 'punctuation' as ClusterKey,
         text: span.chunk.map(serialize).join(''),
         code: span.match,
       }
+      if (hasEmphasis) {
+        result.emphasis = true
+      }
+      return result
     }
 
     const cluster = CLUSTER_MAP[span.form]!
     const form = CLUSTER_KEY[span.form]!
 
-    return {
+    const result: Cluster = {
       form,
       text: span.chunk.map(serialize).join(''),
       code: cluster[span.match]!,
     }
+    if (hasEmphasis) {
+      result.emphasis = true
+    }
+    return result
   })
 
   return clusters
 }
 
 export function serialize(mark: Mark) {
-  const text: Array<string> = []
+  const text: string[] = []
   if (mark.value) {
     text.push(mark.value)
   }
@@ -807,7 +824,7 @@ export function serialize(mark: Mark) {
   if (mark.truncation) {
     text.push('!')
   }
-  if (mark.stress) {
+  if (mark.emphasis) {
     text.push(`^`)
   }
   if (mark.dentalization) {
@@ -851,7 +868,7 @@ export default function chunk(string: string) {
   // Step 3: Group clusters into syllables
   const syllables = groupClustersIntoSyllables(clusters)
 
-  return { syllables, clusters }
+  return { marks, syllables, clusters }
 }
 
 // Backward compatibility
@@ -860,9 +877,9 @@ export function cluster(string: string) {
 }
 
 // Step 3: Group clusters into syllables
-export function groupClustersIntoSyllables(clusters: Array<Cluster>) {
+export function groupClustersIntoSyllables(clusters: Cluster[]) {
   let i = 0
-  const syllables: Array<Syllable> = []
+  const syllables: Syllable[] = []
 
   while (i < clusters.length) {
     const cluster = clusters[i]!
@@ -1115,12 +1132,23 @@ export function groupClustersIntoSyllables(clusters: Array<Cluster>) {
                 const startConsonant = syllable.clusters.pop()!
                 // If we still have clusters, keep them as a syllable
                 if (syllable.clusters.length > 0) {
+                  // Check if any cluster has emphasis
+                  if (
+                    syllable.clusters.some(c => c.emphasis === true)
+                  ) {
+                    syllable.emphasis = true
+                  }
                   syllables.push(syllable)
                 }
                 // Start new syllable with the START_CONSONANT
-                syllables.push({
+                const newSyllable: Syllable = {
                   clusters: [startConsonant, next],
-                })
+                }
+                // Check if either cluster has emphasis
+                if (startConsonant.emphasis || next.emphasis) {
+                  newSyllable.emphasis = true
+                }
+                syllables.push(newSyllable)
                 i++
                 // Start fresh for next syllable
                 syllable = { clusters: [] }
@@ -1235,6 +1263,10 @@ export function groupClustersIntoSyllables(clusters: Array<Cluster>) {
     }
 
     if (syllable.clusters.length > 0) {
+      // Check if any cluster in the syllable has emphasis
+      if (syllable.clusters.some(c => c.emphasis === true)) {
+        syllable.emphasis = true
+      }
       syllables.push(syllable)
     }
   }
