@@ -43,7 +43,7 @@ const G: Record<string, string> = {
   u: `u`,
 }
 
-export type Take = {
+export interface Take {
   i: string
   x: string
   o: string
@@ -51,7 +51,7 @@ export type Take = {
   o2?: string
 }
 
-export const VOWELS: Array<Take> = []
+export const VOWELS: Take[] = []
 
 export const BASE_VOWEL_GLYPHS = [
   'I',
@@ -246,18 +246,18 @@ const tree = st.fork(GLYPHS)
 // eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
 const talk = (text: string): string => st.form(text, tree)
 
-talk.inputs = (text: string): Array<string> =>
+talk.inputs = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.i)
 
-talk.readableOutput = (text: string): Array<string> =>
+talk.readableOutput = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.o)
 
 talk.readable = (text: string): string =>
   talk.readableOutput(text).join('')
 
-talk.machineOutputs = (text: string): Array<string> =>
+talk.machineOutputs = (text: string): string[] =>
   // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
   st.list(text, tree).map((x: any) => x.x)
 

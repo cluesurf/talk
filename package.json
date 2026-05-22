@@ -1,5 +1,5 @@
 {
-  "version": "1.7.4",
+  "version": "1.7.6",
   "name": "@cluesurf/talk",
   "main": "./host/index.js",
   "license": "MIT",
@@ -60,6 +60,7 @@
     "tsc-alias": "1.8.16",
     "tsup": "^8.5.1",
     "tsx": "4.21.0",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "vitest": "^4.1.0"
   }
 }
