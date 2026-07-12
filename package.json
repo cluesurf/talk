@@ -30,7 +30,10 @@
     "scan": "concurrently --kill-others \"tsc -w\" \"tsc-alias -w\"",
     "lint": "eslint --ext .ts ./make",
     "lint:fix": "npm run lint -- --fix",
-    "test": "NODE_NO_WARNINGS=1 npx tsx test.ts",
+    "test": "NODE_NO_WARNINGS=1 vitest run",
+    "test:watch": "NODE_NO_WARNINGS=1 vitest",
+    "mappings": "NODE_NO_WARNINGS=1 npx tsx test/build-mappings.ts",
+    "machine-gaps": "NODE_NO_WARNINGS=1 npx tsx test/build-machine-gaps.ts",
     "cluster": "NODE_NO_WARNINGS=1 npx tsx make/talk/cluster-builder.ts",
     "host": "pnpm make && npm publish --access=public"
   },
