@@ -46,5 +46,5 @@ export const IPA_PATTERN = new RegExp(
 )
 
 export function escape(text: string) {
-  return text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')
+  return text.replace(/[-/\\^$*+?.()|[\]{}]/g, '\\$&')
 }

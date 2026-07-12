@@ -662,7 +662,7 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       // Check if this span has a colon (can be split)
       if (/:/.exec(span.match)) {
         // Check if there's a following span
-        const nextSpan = node[j + 1] || list[i + 1]?.[0]
+        const nextSpan = node[j + 1] ?? list[i + 1]?.[0]
 
         // Split if:
         // 1. This is an END_CONSONANT followed by a vowel

@@ -800,6 +800,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         case '˦':
         case '˧':
         case '˨':
+
         case '˩': {
           const part = parts[i++]
 
@@ -813,6 +814,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
 
           break
         }
+
         case 'ˀ':
           if (result.last.consonant?.value !== "'") {
             addConsonant("'")

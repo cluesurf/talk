@@ -15,7 +15,6 @@ import {
 } from '~/test/helper'
 
 describe('every phoneme is accounted for', () => {
-  const mappings = loadMappings()
   const missing = new Set(loadMissing())
 
   it('every consonant is either mapped or in missing.csv', () => {

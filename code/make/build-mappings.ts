@@ -62,7 +62,7 @@ function parseCsv<T extends Record<string, string>>(path: string): T[] {
 function tryTalk(ipa: string): string | null {
   try {
     return makeIpaToTalk(ipa, { tones: false })
-  } catch (error) {
+  } catch {
     return null
   }
 }
