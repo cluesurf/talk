@@ -45,27 +45,28 @@ the gist of it.
 
 ## Examples
 
-The `hangul` column is the machine encoding: `talk.machine(...)` packs
-each sound into a single Hangul code point (base plus all its modifiers),
-so a whole word becomes a compact, one-code-point-per-sound string.
+The `machine` column is the machine encoding: `talk.machine(...)` packs
+each sound into a single Hangul code point (base plus all its
+modifiers), so a whole word becomes a compact, one-code-point-per-sound
+string.
 
-| ascii | simplified | hangul |
-| :-- | :-- | :-- |
-| txando^ | txandȯ | 켶콣뱿켔켤붇 |
-| surdjyo^ | suṙdjyȯ | 콉삟콞켤콃콩붇 |
-| HEth\~Ah | ḥẹtɦạh | 켾뀟퀢눯콀 |
-| siqk | siṅk | 콉롟켕켼 |
-| txya@+a-a++u | txyá̖àa̋u | 켶콣콩뱌뱶뱷삟 |
+| ascii           | simplified   | machine                  |
+| :-------------- | :----------- | :----------------------- |
+| txando^         | txandȯ       | 켶콣뱿켔켤붇             |
+| surdjyo^        | suṙdjyȯ      | 콉삟콞켤콃콩붇           |
+| HEth\~Ah        | ḥẹtɦạh       | 켾뀟퀢눯콀               |
+| siqk            | siṅk         | 콉롟켕켼                 |
+| txya@+a-a++u    | txyá̖àa̋u      | 켶콣콩뱌뱶뱷삟           |
 | hwpo$kUi^mUno$s | hwpo̤kụïmụno̤s | 콀콧켬뺄켼뙏띗켒뙏켔뺄콉 |
-| sinho^rEsi | sinhȯṙẹsi | 콉롟켔콀붇콞뀟콉롟 |
-| batO\_'aH | batọ̄'aḥ | 켧뱿켶뎏켚뱿켾 |
-| aiyuQaK | aiyuq̇aḳ | 뱿롟콩삟켛뱿켻 |
-| s'oQya&te | s'oq̇ya̰te | 콉켚뺏켛콩뱩켶멯 |
-| t!arEba | t̗aṙẹba | 켱뱿콞뀟켧뱿 |
-| txhaK!EnEba | txhaḳ̗ẹnẹba | 켶콣콀뱿켺뀟켔뀟켧뱿 |
-| txh\~im | txɦim | 켶큪롟켒 |
-| txy\~h\~im | txẏɦim | 켶큤켑롟켒 |
-| mh!im | mħim | 쾒롟켒 |
+| sinho^rEsi      | sinhȯṙẹsi    | 콉롟켔콀붇콞뀟콉롟       |
+| batO\_'aH       | batọ̄'aḥ      | 켧뱿켶뎏켚뱿켾           |
+| aiyuQaK         | aiyuq̇aḳ      | 뱿롟콩삟켛뱿켻           |
+| s'oQya&te       | s'oq̇ya̰te     | 콉켚뺏켛콩뱩켶멯         |
+| t!arEba         | t̗aṙẹba       | 켱뱿콞뀟켧뱿             |
+| txhaK!EnEba     | txhaḳ̗ẹnẹba   | 켶콣콀뱿켺뀟켔뀟켧뱿     |
+| txh\~im         | txɦim        | 켶큪롟켒                 |
+| txy\~h\~im      | txẏɦim       | 켶큤켑롟켒               |
+| mh!im           | mħim         | 쾒롟켒                   |
 
 ## Why not IPA or XSampa?
 
@@ -160,196 +161,196 @@ Hangul code point.
 _Note: GitHub markdown doesn't really render the diacritics that nicely,
 some are misaligned. We will have a font to remedy this for websites._
 
-| IPA | ascii | simplified | hangul |
-| :-- | :-- | :-- | :-- |
-| m̥ | mh! | mħ | 쾒 |
-| m | m | m | 켒 |
-| ɱ̊ | m\~h! | mħ | 쾓 |
-| ɱ | m\~ | m | 쾆 |
-| n̼ | n | n | 켔 |
-| n̪̊ | n\~h! | nħ | 쾣 |
-| n̪ | n\~ | n | 쾃 |
-| n̥ | nh! | nħ | 쾢 |
-| n | n | n | 켔 |
-| n̠̊ | nh! | nħ | 쾢 |
-| n̠ | n | n | 켔 |
-| ɳ̊ | Nh! | ṇħ | 쾲 |
-| ɳ | N | ṇ | 켓 |
-| ɲ̊ | ny\~h! | nẏħ | 쾥 |
-| ɲ | ny\~ | nẏ | 쾤 |
-| ŋ̊ | qh! | ṅħ | 쿃 |
-| ŋ | q | ṅ | 켕 |
-| ɴ̥ | qh! | ṅħ | 쿃 |
-| ɴ | q | ṅ | 켕 |
-| p | p | p | 켬 |
-| b | b | b | 켧 |
-| p̪ | p\~ | p | 쾅 |
-| b̪ | b\~ | b | 쾄 |
-| t̼ | t | t | 켶 |
-| d̼ | d | d | 켤 |
-| t̪ | t\~ | t | 켮 |
-| d̪ | d\~ | d | 켝 |
-| t | t | t | 켶 |
-| d | d | d | 켤 |
-| ʈ | T | ṭ | 켰 |
-| ɖ | D | ḍ | 켢 |
-| c | ky\~ | kẏ | 쿧 |
-| ɟ | gy\~ | gẏ | 쿗 |
-| k | k | k | 켼 |
-| ɡ | g | g | 켙 |
-| q | K | ḳ | 켻 |
-| ɢ | g | g | 켙 |
-| ʔ | ' | ' | 켚 |
-| s̪ | s\~ | s | 쾇 |
-| z̪ | z\~ | z | 쾈 |
-| s | s | s | 콉 |
-| z | z | z | 콑 |
-| ʃ | x | x | 콣 |
-| ʒ | j | j | 콃 |
-| ʂ | X | x̣ | 콡 |
-| ʐ | J | ȷ̈ | 콁 |
-| ɕ | xy\~ | xẏ | 큤 |
-| ʑ | jy\~ | jẏ | 큳 |
-| ɸ | F | f̣ | 콊 |
-| β | V | ṿ | 콍 |
-| f | f | f | 콌 |
-| v | v | v | 콎 |
-| θ̼ | c | c | 콗 |
-| ð̼ | C | c̣ | 콕 |
-| θ | c | c | 콗 |
-| ð | C | c̣ | 콕 |
-| θ̠ | c | c | 콗 |
-| ð̠ | C | c̣ | 콕 |
-| ɹ̠˔ | u$ | r | 삔 |
-| ɻ˔ | u$ | r | 삔 |
-| ç | hy\~ | hẏ | 탣 |
-| ʝ | y | y | 콩 |
-| x | H | ḥ | 켾 |
-| ɣ | G | ġ | 켗 |
-| χ | H | ḥ | 켾 |
-| ʁ | G | ġ | 켗 |
-| ħ | Hh\~ | ḥɦ | 탹 |
-| ʕ | Q | q̇ | 켛 |
-| h | h | h | 콀 |
-| ɦ | hh\~ | hɦ | 탩 |
-| β̞ | V | ṿ | 콍 |
-| ʋ | V | ṿ | 콍 |
-| ð̞ | C | c̣ | 콕 |
-| ɹ | u$ | r | 삔 |
-| ɹ̠ | u$ | r | 삔 |
-| ɻ | u$ | r | 삔 |
-| j | y | y | 콩 |
-| ɰ | W | ẇ | 콤 |
-| ⱱ̟ | V | ṿ | 콍 |
-| ⱱ | V | ṿ | 콍 |
-| ɾ̥ | rh! | ṙħ | 턠 |
-| ɾ | r | ṙ | 콞 |
-| ɽ̊ | Rh! | ṛħ | 터 |
-| ɽ | R | ṛ | 콜 |
-| ɢ̆ | g | g | 켙 |
-| ʙ̥ | bbh! | bbħ | 툗 |
-| ʙ | bb | bb | 툖 |
-| r̥ | rh! | ṙħ | 턠 |
-| r | r | ṙ | 콞 |
-| r̠ | r | ṙ | 콞 |
-| ɽ̊r̥ | Rh!rh! | ṛħṙħ | 퉊 |
-| ɽr | Rr | ṛṙ | 툸 |
-| ʀ̥ | GGh! | ġġħ | 툩 |
-| ʀ | GG | ġġ | 툨 |
-| ɬ̪ | S\~ | ṣ | 쾊 |
-| ɬ | S | ṣ | 콆 |
-| ɮ | Z | ẓ | 콓 |
-| ʎ̝ | ly\~ | lẏ | 턂 |
-| l̪ | l\~ | l | 쾉 |
-| l̥ | lh! | lħ | 턀 |
-| l | l | l | 콛 |
-| l̠ | l | l | 콛 |
-| ɭ̊ | Lh! | ḷħ | 턏 |
-| ɭ | L | ḷ | 콘 |
-| ʎ̥ | ly\~h! | lẏħ | 턃 |
-| ʎ | ly\~ | lẏ | 턂 |
-| ɺ̥ | lh! | lħ | 턀 |
-| ɺ | l | l | 콛 |
-| ʍ | wh! | wħ | 텁 |
-| w | w | w | 콧 |
-| ɥ | yw\~ | yẉ | 텔 |
-| ɧ | H | ḥ | 켾 |
-| ɫ | lG\~ | lg̃ | 턆 |
-| ɓ | b? | b̖ | 켥 |
-| ɗ | d? | d̖ | 켞 |
-| ʄ | g?y\~ | g̀ẏ | 툈 |
-| ɠ | g? | g̀ | 켘 |
-| ʛ | g? | g̀ | 켘 |
-| ɓ̥ | b?h! | b̖ħ | 퇣 |
-| ɗ̥ | t? | t̖ | 쾋 |
-| ʄ̥ | g?y\~h! | g̀ẏħ | 툉 |
-| ɠ̊ | g?h! | g̀ħ | 툅 |
-| ʛ̥ | g?h! | g̀ħ | 툅 |
-| pʼ | p! | ṕ | 켨 |
-| tʼ | t! | t̗ | 켱 |
-| ʈʼ | T! | ṭ̗ | 켯 |
-| cʼ | ky\~! | kẏ̗ | 쾎 |
-| kʼ | k! | k̗ | 켷 |
-| qʼ | K! | ḳ̗ | 켺 |
-| fʼ | f! | f̗ | 콋 |
-| sʼ | s! | ś | 콅 |
-| ʂʼ | X! | x̣́ | 콠 |
-| ɕʼ | xy\~! | xẏ́ | 쾏 |
-| xʼ | H! | ḥ̗ | 켽 |
-| χʼ | H! | ḥ̗ | 켽 |
-| ɸʼ | F! | f̣́ | 쾍 |
-| θʼ | c! | ć | 쾌 |
-| ʃʼ | x! | x́ | 콟 |
-| ʄ̊ | g?y\~h! | g̀ẏħ | 툉 |
-| ɬʼ | S! | ṣ́ | 콄 |
-| ʘ | p\* | p̂ | 켩 |
-| ǀ | t\* | t̬ | 켲 |
-| ǃ | k\* | k̬ | 켹 |
-| 𝼊 | c\* | c̬ | 쾐 |
-| ǂ | d\* | d̬ | 켠 |
-| ʞ | K\* | ḳ̬ | 쾑 |
-| ǁ | l\* | l̬ | 콙 |
+| IPA | ascii   | simplified | maching |
+| :-- | :------ | :--------- | :------ |
+| m̥   | mh!     | mħ         | 쾒      |
+| m   | m       | m          | 켒      |
+| ɱ̊   | m\~h!   | mħ         | 쾓      |
+| ɱ   | m\~     | m          | 쾆      |
+| n̼   | n       | n          | 켔      |
+| n̪̊   | n\~h!   | nħ         | 쾣      |
+| n̪   | n\~     | n          | 쾃      |
+| n̥   | nh!     | nħ         | 쾢      |
+| n   | n       | n          | 켔      |
+| n̠̊   | nh!     | nħ         | 쾢      |
+| n̠   | n       | n          | 켔      |
+| ɳ̊   | Nh!     | ṇħ         | 쾲      |
+| ɳ   | N       | ṇ          | 켓      |
+| ɲ̊   | ny\~h!  | nẏħ        | 쾥      |
+| ɲ   | ny\~    | nẏ         | 쾤      |
+| ŋ̊   | qh!     | ṅħ         | 쿃      |
+| ŋ   | q       | ṅ          | 켕      |
+| ɴ̥   | qh!     | ṅħ         | 쿃      |
+| ɴ   | q       | ṅ          | 켕      |
+| p   | p       | p          | 켬      |
+| b   | b       | b          | 켧      |
+| p̪   | p\~     | p          | 쾅      |
+| b̪   | b\~     | b          | 쾄      |
+| t̼   | t       | t          | 켶      |
+| d̼   | d       | d          | 켤      |
+| t̪   | t\~     | t          | 켮      |
+| d̪   | d\~     | d          | 켝      |
+| t   | t       | t          | 켶      |
+| d   | d       | d          | 켤      |
+| ʈ   | T       | ṭ          | 켰      |
+| ɖ   | D       | ḍ          | 켢      |
+| c   | ky\~    | kẏ         | 쿧      |
+| ɟ   | gy\~    | gẏ         | 쿗      |
+| k   | k       | k          | 켼      |
+| ɡ   | g       | g          | 켙      |
+| q   | K       | ḳ          | 켻      |
+| ɢ   | g       | g          | 켙      |
+| ʔ   | '       | '          | 켚      |
+| s̪   | s\~     | s          | 쾇      |
+| z̪   | z\~     | z          | 쾈      |
+| s   | s       | s          | 콉      |
+| z   | z       | z          | 콑      |
+| ʃ   | x       | x          | 콣      |
+| ʒ   | j       | j          | 콃      |
+| ʂ   | X       | x̣          | 콡      |
+| ʐ   | J       | ȷ̈          | 콁      |
+| ɕ   | xy\~    | xẏ         | 큤      |
+| ʑ   | jy\~    | jẏ         | 큳      |
+| ɸ   | F       | f̣          | 콊      |
+| β   | V       | ṿ          | 콍      |
+| f   | f       | f          | 콌      |
+| v   | v       | v          | 콎      |
+| θ̼   | c       | c          | 콗      |
+| ð̼   | C       | c̣          | 콕      |
+| θ   | c       | c          | 콗      |
+| ð   | C       | c̣          | 콕      |
+| θ̠   | c       | c          | 콗      |
+| ð̠   | C       | c̣          | 콕      |
+| ɹ̠˔  | u$      | r          | 삔      |
+| ɻ˔  | u$      | r          | 삔      |
+| ç   | hy\~    | hẏ         | 탣      |
+| ʝ   | y       | y          | 콩      |
+| x   | H       | ḥ          | 켾      |
+| ɣ   | G       | ġ          | 켗      |
+| χ   | H       | ḥ          | 켾      |
+| ʁ   | G       | ġ          | 켗      |
+| ħ   | Hh\~    | ḥɦ         | 탹      |
+| ʕ   | Q       | q̇          | 켛      |
+| h   | h       | h          | 콀      |
+| ɦ   | hh\~    | hɦ         | 탩      |
+| β̞   | V       | ṿ          | 콍      |
+| ʋ   | V       | ṿ          | 콍      |
+| ð̞   | C       | c̣          | 콕      |
+| ɹ   | u$      | r          | 삔      |
+| ɹ̠   | u$      | r          | 삔      |
+| ɻ   | u$      | r          | 삔      |
+| j   | y       | y          | 콩      |
+| ɰ   | W       | ẇ          | 콤      |
+| ⱱ̟   | V       | ṿ          | 콍      |
+| ⱱ   | V       | ṿ          | 콍      |
+| ɾ̥   | rh!     | ṙħ         | 턠      |
+| ɾ   | r       | ṙ          | 콞      |
+| ɽ̊   | Rh!     | ṛħ         | 터      |
+| ɽ   | R       | ṛ          | 콜      |
+| ɢ̆   | g       | g          | 켙      |
+| ʙ̥   | bbh!    | bbħ        | 툗      |
+| ʙ   | bb      | bb         | 툖      |
+| r̥   | rh!     | ṙħ         | 턠      |
+| r   | r       | ṙ          | 콞      |
+| r̠   | r       | ṙ          | 콞      |
+| ɽ̊r̥  | Rh!rh!  | ṛħṙħ       | 퉊      |
+| ɽr  | Rr      | ṛṙ         | 툸      |
+| ʀ̥   | GGh!    | ġġħ        | 툩      |
+| ʀ   | GG      | ġġ         | 툨      |
+| ɬ̪   | S\~     | ṣ          | 쾊      |
+| ɬ   | S       | ṣ          | 콆      |
+| ɮ   | Z       | ẓ          | 콓      |
+| ʎ̝   | ly\~    | lẏ         | 턂      |
+| l̪   | l\~     | l          | 쾉      |
+| l̥   | lh!     | lħ         | 턀      |
+| l   | l       | l          | 콛      |
+| l̠   | l       | l          | 콛      |
+| ɭ̊   | Lh!     | ḷħ         | 턏      |
+| ɭ   | L       | ḷ          | 콘      |
+| ʎ̥   | ly\~h!  | lẏħ        | 턃      |
+| ʎ   | ly\~    | lẏ         | 턂      |
+| ɺ̥   | lh!     | lħ         | 턀      |
+| ɺ   | l       | l          | 콛      |
+| ʍ   | wh!     | wħ         | 텁      |
+| w   | w       | w          | 콧      |
+| ɥ   | yw\~    | yẉ         | 텔      |
+| ɧ   | H       | ḥ          | 켾      |
+| ɫ   | lG\~    | lg̃         | 턆      |
+| ɓ   | b?      | b̖          | 켥      |
+| ɗ   | d?      | d̖          | 켞      |
+| ʄ   | g?y\~   | g̀ẏ         | 툈      |
+| ɠ   | g?      | g̀          | 켘      |
+| ʛ   | g?      | g̀          | 켘      |
+| ɓ̥   | b?h!    | b̖ħ         | 퇣      |
+| ɗ̥   | t?      | t̖          | 쾋      |
+| ʄ̥   | g?y\~h! | g̀ẏħ        | 툉      |
+| ɠ̊   | g?h!    | g̀ħ         | 툅      |
+| ʛ̥   | g?h!    | g̀ħ         | 툅      |
+| pʼ  | p!      | ṕ          | 켨      |
+| tʼ  | t!      | t̗          | 켱      |
+| ʈʼ  | T!      | ṭ̗          | 켯      |
+| cʼ  | ky\~!   | kẏ̗         | 쾎      |
+| kʼ  | k!      | k̗          | 켷      |
+| qʼ  | K!      | ḳ̗          | 켺      |
+| fʼ  | f!      | f̗          | 콋      |
+| sʼ  | s!      | ś          | 콅      |
+| ʂʼ  | X!      | x̣́          | 콠      |
+| ɕʼ  | xy\~!   | xẏ́         | 쾏      |
+| xʼ  | H!      | ḥ̗          | 켽      |
+| χʼ  | H!      | ḥ̗          | 켽      |
+| ɸʼ  | F!      | f̣́          | 쾍      |
+| θʼ  | c!      | ć          | 쾌      |
+| ʃʼ  | x!      | x́          | 콟      |
+| ʄ̊   | g?y\~h! | g̀ẏħ        | 툉      |
+| ɬʼ  | S!      | ṣ́          | 콄      |
+| ʘ   | p\*     | p̂          | 켩      |
+| ǀ   | t\*     | t̬          | 켲      |
+| ǃ   | k\*     | k̬          | 켹      |
+| 𝼊   | c\*     | c̬          | 쾐      |
+| ǂ   | d\*     | d̬          | 켠      |
+| ʞ   | K\*     | ḳ̬          | 쾑      |
+| ǁ   | l\*     | l̬          | 콙      |
 
 ### Vowels
 
 This is the full set of IPA vowels we map. Every vowel, with any tone,
 length, stress, or nasalization, is a single Hangul code point.
 
-| IPA | ascii | simplified | hangul |
-| :-- | :-- | :-- | :-- |
-| i | i | i | 롟 |
-| y | i$ | i̤ | 롔 |
-| ɨ | i$ | i̤ | 롔 |
-| ʉ | u | u | 삟 |
-| ɯ | O | ọ | 됿 |
-| u | u | u | 삟 |
-| ɪ | I | ị | 긏 |
-| ʏ | i$ | i̤ | 롔 |
-| ʊ | O | ọ | 됿 |
-| e | e | e | 멯 |
-| ø | a$ | a̤ | 뱴 |
-| ɘ | I | ị | 긏 |
-| ɵ | O | ọ | 됿 |
-| ɤ | O | ọ | 됿 |
-| o | o | o | 뺏 |
-| e̞ | e | e | 멯 |
-| ø̞ | a$ | a̤ | 뱴 |
-| ə | U | ụ | 뙏 |
-| ɤ̞ | O | ọ | 됿 |
-| o̞ | o | o | 뺏 |
-| ɛ | E | ẹ | 뀟 |
-| œ | e$ | e̤ | 멤 |
-| ɜ | O | ọ | 됿 |
-| ɞ | U | ụ | 뙏 |
-| ʌ | U | ụ | 뙏 |
-| ɔ | o$ | o̤ | 뺄 |
-| æ | A | ạ | 눯 |
-| ɐ | a | a | 뱿 |
-| a | a | a | 뱿 |
-| ɶ | e$ | e̤ | 멤 |
-| ä | a | a | 뱿 |
-| ɑ | a | a | 뱿 |
-| ɒ | a | a | 뱿 |
+| IPA | ascii | simplified | machine |
+| :-- | :---- | :--------- | :------ |
+| i   | i     | i          | 롟      |
+| y   | i$    | i̤          | 롔      |
+| ɨ   | i$    | i̤          | 롔      |
+| ʉ   | u     | u          | 삟      |
+| ɯ   | O     | ọ          | 됿      |
+| u   | u     | u          | 삟      |
+| ɪ   | I     | ị          | 긏      |
+| ʏ   | i$    | i̤          | 롔      |
+| ʊ   | O     | ọ          | 됿      |
+| e   | e     | e          | 멯      |
+| ø   | a$    | a̤          | 뱴      |
+| ɘ   | I     | ị          | 긏      |
+| ɵ   | O     | ọ          | 됿      |
+| ɤ   | O     | ọ          | 됿      |
+| o   | o     | o          | 뺏      |
+| e̞   | e     | e          | 멯      |
+| ø̞   | a$    | a̤          | 뱴      |
+| ə   | U     | ụ          | 뙏      |
+| ɤ̞   | O     | ọ          | 됿      |
+| o̞   | o     | o          | 뺏      |
+| ɛ   | E     | ẹ          | 뀟      |
+| œ   | e$    | e̤          | 멤      |
+| ɜ   | O     | ọ          | 됿      |
+| ɞ   | U     | ụ          | 뙏      |
+| ʌ   | U     | ụ          | 뙏      |
+| ɔ   | o$    | o̤          | 뺄      |
+| æ   | A     | ạ          | 눯      |
+| ɐ   | a     | a          | 뱿      |
+| a   | a     | a          | 뱿      |
+| ɶ   | e$    | e̤          | 멤      |
+| ä   | a     | a          | 뱿      |
+| ɑ   | a     | a          | 뱿      |
+| ɒ   | a     | a          | 뱿      |
 
 Every vowel takes the same modifier set (stress, length, nasal, tone,
 etc.). Here are all the combos for the letter `a`, and the same pattern
@@ -387,52 +388,51 @@ grouped by `type` below. The `state` column says whether Talk maps the
 diacritic to a phonetic feature, or ignores it, and `talk` is the
 resulting Talk affix when it is mapped.
 
-| symbol | type | meaning | state | talk |
-| :-- | :-- | :-- | :-- | :-- |
-| ◌ʰ | secondary articulation | aspirated | mapped | h\~ |
-| ◌ʷ | secondary articulation | labialized | mapped | w\~ |
-| ◌ʲ | secondary articulation | palatalized | mapped | y\~ |
-| ◌ˠ | secondary articulation | velarized | mapped | G\~ |
-| ◌ˤ | secondary articulation | pharyngealized | mapped | Q\~ |
-| ◌ⁿ | secondary articulation | nasal release | mapped | n |
-| ◌̥ | phonation | voiceless | mapped | h! |
-| ◌̬ | phonation | voiced | mapped |   |
-| ◌̤ | phonation | breathy voice | ignored |   |
-| ◌̰ | phonation | creaky voice | ignored |   |
-| ◌̹ | phonation | more rounded | ignored |   |
-| ◌̜ | phonation | less rounded | ignored |   |
-| ◌̟ | relative articulation | advanced | ignored |   |
-| ◌̠ | relative articulation | retracted | ignored |   |
-| ◌̈ | relative articulation | centralized | ignored |   |
-| ◌̽ | relative articulation | mid-centralized | ignored |   |
-| ◌̝ | relative articulation | raised | ignored |   |
-| ◌̞ | relative articulation | lowered | ignored |   |
-| ◌̘ | tongue root | advanced tongue root | ignored |   |
-| ◌̙ | tongue root | retracted tongue root | ignored |   |
-| ◌̪ | articulation | dental | mapped | \~ |
-| ◌̺ | articulation | apical | ignored |   |
-| ◌̻ | articulation | laminal | ignored |   |
-| ◌̃ | nasality | nasalized | mapped | & |
-| ◌̩ | syllabicity | syllabic | ignored |   |
-| ◌̯ | syllabicity | non-syllabic | ignored |   |
-| ◌ː | length | long | mapped | \_ |
-| ◌ˑ | length | half-long | ignored |   |
-| ◌̆ | length | extra-short | ignored |   |
-| ◌̚ | release | no audible release | mapped | . |
-| ◌ʼ | airstream | ejective | mapped | ! |
-| ◌ˈ | stress | primary stress | mapped | ^ |
-| ◌ˌ | stress | secondary stress | ignored |   |
-| ◌˥ | tone | extra high | mapped | ++ |
-| ◌˦ | tone | high | mapped | + |
-| ◌˧ | tone | mid | mapped |   |
-| ◌˨ | tone | low | mapped | - |
-| ◌˩ | tone | extra low | mapped | -- |
-| ◌‖ | prosody | major phrase break | ignored |   |
-| ◌↗ | prosody | global rise | ignored |   |
-| ◌↘ | prosody | global fall | ignored |   |
+| symbol | type                   | meaning               | state   | talk |
+| :----- | :--------------------- | :-------------------- | :------ | :--- |
+| ◌ʰ     | secondary articulation | aspirated             | mapped  | h\~  |
+| ◌ʷ     | secondary articulation | labialized            | mapped  | w\~  |
+| ◌ʲ     | secondary articulation | palatalized           | mapped  | y\~  |
+| ◌ˠ     | secondary articulation | velarized             | mapped  | G\~  |
+| ◌ˤ     | secondary articulation | pharyngealized        | mapped  | Q\~  |
+| ◌ⁿ     | secondary articulation | nasal release         | mapped  | n    |
+| ◌̥      | phonation              | voiceless             | mapped  | h!   |
+| ◌̬      | phonation              | voiced                | mapped  |      |
+| ◌̤      | phonation              | breathy voice         | ignored |      |
+| ◌̰      | phonation              | creaky voice          | ignored |      |
+| ◌̹      | phonation              | more rounded          | ignored |      |
+| ◌̜      | phonation              | less rounded          | ignored |      |
+| ◌̟      | relative articulation  | advanced              | ignored |      |
+| ◌̠      | relative articulation  | retracted             | ignored |      |
+| ◌̈      | relative articulation  | centralized           | ignored |      |
+| ◌̽      | relative articulation  | mid-centralized       | ignored |      |
+| ◌̝      | relative articulation  | raised                | ignored |      |
+| ◌̞      | relative articulation  | lowered               | ignored |      |
+| ◌̘      | tongue root            | advanced tongue root  | ignored |      |
+| ◌̙      | tongue root            | retracted tongue root | ignored |      |
+| ◌̪      | articulation           | dental                | mapped  | \~   |
+| ◌̺      | articulation           | apical                | ignored |      |
+| ◌̻      | articulation           | laminal               | ignored |      |
+| ◌̃      | nasality               | nasalized             | mapped  | &    |
+| ◌̩      | syllabicity            | syllabic              | ignored |      |
+| ◌̯      | syllabicity            | non-syllabic          | ignored |      |
+| ◌ː     | length                 | long                  | mapped  | \_   |
+| ◌ˑ     | length                 | half-long             | ignored |      |
+| ◌̆      | length                 | extra-short           | ignored |      |
+| ◌̚      | release                | no audible release    | mapped  | .    |
+| ◌ʼ     | airstream              | ejective              | mapped  | !    |
+| ◌ˈ     | stress                 | primary stress        | mapped  | ^    |
+| ◌ˌ     | stress                 | secondary stress      | ignored |      |
+| ◌˥     | tone                   | extra high            | mapped  | ++   |
+| ◌˦     | tone                   | high                  | mapped  | +    |
+| ◌˧     | tone                   | mid                   | mapped  |      |
+| ◌˨     | tone                   | low                   | mapped  | -    |
+| ◌˩     | tone                   | extra low             | mapped  | --   |
+| ◌‖     | prosody                | major phrase break    | ignored |      |
+| ◌↗     | prosody                | global rise           | ignored |      |
+| ◌↘     | prosody                | global fall           | ignored |      |
 
-The full list is also in
-[`test/diacritics.csv`](test/diacritics.csv).
+The full list is also in [`test/diacritics.csv`](test/diacritics.csv).
 
 **On the ignored ones.** IPA itself is not perfectly exact. Real speech
 has far more subtle variation than any discrete character set can
@@ -470,8 +470,8 @@ _See the `test/` folder for the up-to-date test suite._
 
 ## Syllables and Pronunciation
 
-You can convert IPA to Talk, tokenize Talk into sounds, split a word into
-syllables, and pack it into the Hangul machine encoding.
+You can convert IPA to Talk, tokenize Talk into sounds, split a word
+into syllables, and pack it into the Hangul machine encoding.
 
 ```ts
 import talk, {
