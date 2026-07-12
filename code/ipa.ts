@@ -800,7 +800,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         case '˦':
         case '˧':
         case '˨':
-        case '˩':
+        case '˩': {
           const part = parts[i++]
 
           if (part) {
@@ -812,6 +812,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
           }
 
           break
+        }
         case 'ˀ':
           if (result.last.consonant?.value !== "'") {
             addConsonant("'")
@@ -1048,7 +1049,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         result.last.vowel.syllabic = false
         break
       default:
-        throw new Error(`Error with type: ${type}`)
+        throw new Error(`Error with type: ${String(type)}`)
     }
   }
 
@@ -1082,7 +1083,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
     result.last.consonant = letter
   }
 
-  function replaceLastConsonantIfMatch(x: string, match: string) {
+  function replaceLastConsonantIfMatch(x: string, _match: string) {
     if (result.last.consonant?.value === x) {
       const letter: Consonant = { type: 'consonant', value: x }
 
@@ -1187,6 +1188,7 @@ function serialize(result: Make) {
             throw new Error('glottallization handler missing')
           }
 
+          break
         default:
       }
 
@@ -1585,7 +1587,7 @@ export function makeTalkToIpa(text: string) {
       }
 
       if (next?.startsWith('-')) {
-        ;/^(\-+)/.exec(text.slice(i))
+        ;/^(-+)/.exec(text.slice(i))
 
         const size = RegExp.$1.length
 

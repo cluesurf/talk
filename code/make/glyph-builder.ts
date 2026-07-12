@@ -130,7 +130,7 @@ for (const row of rows) {
       mod =>
         mod.manners.includes(row.manner) &&
         (!mod.voicings || mod.voicings.includes(row.voicing)) &&
-        (!mod.notPlaces || !mod.notPlaces.includes(row.place)),
+        (!mod.notPlaces?.includes(row.place)),
     ).map(mod => mod.ipa),
   ]
   const voicelessMarks =

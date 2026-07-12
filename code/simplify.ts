@@ -1,31 +1,25 @@
 import talk from '.'
 
-export enum Simplify {
-  VowelNone = 2,
-  VowelOne = 5,
-  VowelBasic = 6,
-  VowelAll = 8,
+// Per-dimension weights (several share a value on purpose, so this is a
+// const map rather than an enum).
+export const Simplify = {
+  VowelNone: 2,
+  VowelOne: 5,
+  VowelBasic: 6,
+  VowelAll: 8,
 
-  ConsonantSimplified = 2,
-  ConsonantAll = 4,
+  ConsonantSimplified: 2,
+  ConsonantAll: 4,
 
-  ToneNo = 2,
-  ToneYes = 3,
+  ToneNo: 2,
+  ToneYes: 3,
 
-  DurationNo = 2,
-  DurationYes = 3,
+  DurationNo: 2,
+  DurationYes: 3,
 
-  AspirationNo = 2,
-  AspirationYes = 3,
-}
-
-const MAX =
-  1 *
-  Simplify.VowelAll *
-  Simplify.ConsonantAll *
-  Simplify.ToneYes *
-  Simplify.DurationYes *
-  Simplify.AspirationYes
+  AspirationNo: 2,
+  AspirationYes: 3,
+} as const
 
 export type SimplifyType = {
   vowel: 'none' | 'one' | 'basic' | 'all'
@@ -229,7 +223,7 @@ function moveToYesAspirationText(view: ViewType) {
 }
 
 function moveToNoToneText(view: ViewType) {
-  const text = view.text.replace(/[\-\+]+/g, '')
+  const text = view.text.replace(/[-+]+/g, '')
 
   view.load.tone = 'no'
 
@@ -247,7 +241,7 @@ function moveToYesToneText(view: ViewType) {
 function moveToNoVowelText(view: ViewType) {
   const text = view.text
     .replace(/u\$/g, 'ð') // this isn't a vowel, it's the English r.
-    .replace(/[aeiou][\$\^&_\+\-\!@]*/gi, '')
+    .replace(/[aeiou][$^&_+\-!@]*/gi, '')
     .replace(/ð/g, 'u$')
 
   view.load.vowel = 'none'
@@ -262,7 +256,7 @@ function moveToOneVowelText(view: ViewType) {
   const text = view.text
     .replace(/u\$/g, 'ð')
     .replace(/([aeiou])\$/gi, (_, $1) => `${$1}`)
-    .replace(/[aeiou][\^&_\+\-\!@]*/gi, 'a')
+    .replace(/[aeiou][\^&_+\-!@]*/gi, 'a')
     .replace(/ð/g, 'u$')
     .replace(/a+/g, 'a')
 
@@ -278,7 +272,7 @@ function moveToBasicVowelText(view: ViewType) {
   const text = view.text
     .replace(/u\$/g, 'ð')
     .replace(/([aeiou])\$/gi, (_, $1) => `${$1}`)
-    .replace(/([aeiou])[\^&_\+\-\!@]*/gi, (_, $1: string) =>
+    .replace(/([aeiou])[\^&_+\-!@]*/gi, (_, $1: string) =>
       $1.toLowerCase(),
     )
     .replace(/a+/g, 'a')
@@ -319,11 +313,11 @@ function moveToSimplifiedConsonantText(view: ViewType) {
     .replace(/w~/g, 'w')
     .replace(/t~/g, 't')
     .replace(/d~/g, 'd')
-    .replace(/b[\?\!@]?/gi, 'p')
-    .replace(/p[\?\!\*\.@]?/gi, 'p')
-    .replace(/t[\?\!\*\.@]?/gi, 't')
-    .replace(/d[\?\!\*@]?/gi, 't')
-    .replace(/s[\?\!\*@]?/gi, 's')
+    .replace(/b[?!@]?/gi, 'p')
+    .replace(/p[?!*.@]?/gi, 'p')
+    .replace(/t[?!*.@]?/gi, 't')
+    .replace(/d[?!*@]?/gi, 't')
+    .replace(/s[?!*@]?/gi, 's')
     .replace(/j/gi, 'x')
     .replace(/v/gi, 'f')
     .replace(/z/gi, 's')

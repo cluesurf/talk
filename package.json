@@ -26,8 +26,10 @@
   "prettier": "@cluesurf/wash/flow.json",
   "pnpm": {
     "onlyBuiltDependencies": [
-      "esbuild",
       "unrs-resolver"
+    ],
+    "ignoredBuiltDependencies": [
+      "esbuild"
     ]
   },
   "dependencies": {
