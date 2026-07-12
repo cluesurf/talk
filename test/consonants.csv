@@ -38,35 +38,6 @@ q,Uvular,Plosive,voiceless
 ɢ,Uvular,Plosive,voiced
 ʡ,Pharyngeal/epiglottal,Plosive,voiceless
 ʔ,Glottal,Plosive,voiced
-t̪s̪,Dental,Sibilant affricate,voiceless
-d̪z̪,Dental,Sibilant affricate,voiced
-ts,Alveolar,Sibilant affricate,voiceless
-dz,Alveolar,Sibilant affricate,voiced
-t̠ʃ,Postalveolar,Sibilant affricate,voiceless
-d̠ʒ,Postalveolar,Sibilant affricate,voiced
-tʂ,Retroflex,Sibilant affricate,voiceless
-dʐ,Retroflex,Sibilant affricate,voiced
-tɕ,palatal,Sibilant affricate,voiceless
-dʑ,palatal,Sibilant affricate,voiced
-pɸ,Bilabial,Non-sibilant affricate,voiceless
-bβ,Bilabial,Non-sibilant affricate,voiced
-p̪f,Labiodental,Non-sibilant affricate,voiceless
-b̪v,Labiodental,Non-sibilant affricate,voiced
-t̪θ,Dental,Non-sibilant affricate,voiceless
-d̪ð,Dental,Non-sibilant affricate,voiced
-tɹ̝̊,Alveolar,Non-sibilant affricate,voiceless
-dɹ̝,Alveolar,Non-sibilant affricate,voiced
-t̠ɹ̠̊˔,Postalveolar,Non-sibilant affricate,voiceless
-d̠ɹ̠˔,Postalveolar,Non-sibilant affricate,voiced
-cç,palatal,Non-sibilant affricate,voiceless
-ɟʝ,palatal,Non-sibilant affricate,voiced
-kx,Velar,Non-sibilant affricate,voiceless
-ɡɣ,Velar,Non-sibilant affricate,voiced
-qχ,Uvular,Non-sibilant affricate,voiceless
-ɢʁ,Uvular,Non-sibilant affricate,voiced
-ʡʜ,Pharyngeal/epiglottal,Non-sibilant affricate,voiceless
-ʡʢ,Pharyngeal/epiglottal,Non-sibilant affricate,voiceless
-ʔh,Glottal,Non-sibilant affricate,voiceless
 s̪,Dental,Sibilant fricative,voiceless
 z̪,Dental,Sibilant fricative,voiced
 s,Alveolar,Sibilant fricative,voiceless
@@ -129,14 +100,6 @@ r̠,Postalveolar,Trill,voiced
 ʀ,Uvular,Trill,voiced
 ʜ,Pharyngeal/epiglottal,Trill,voiceless
 ʢ,Pharyngeal/epiglottal,Trill,voiced
-tɬ,Alveolar,Lateral affricate,voiceless
-dɮ,Alveolar,Lateral affricate,voiced
-tꞎ,Retroflex,Lateral affricate,voiceless
-d𝼅,Retroflex,Lateral affricate,voiced
-c𝼆,palatal,Lateral affricate,voiceless
-ɟʎ̝,palatal,Lateral affricate,voiced
-k𝼄,Velar,Lateral affricate,voiceless
-ɡʟ̝,Velar,Lateral affricate,voiced
 ɬ̪,Dental,Lateral fricative,voiceless
 ɬ,Alveolar,Lateral fricative,voiceless
 ɮ,Alveolar,Lateral fricative,voiced
@@ -163,18 +126,11 @@ l̠,Postalveolar,Lateral approximant,voiced
 𝼈,Retroflex,Lateral tap/flap,voiced
 ʎ̮,palatal,Lateral tap/flap,voiced
 ʟ̆,Velar,Lateral tap/flap,voiced
-t͡p,,Plosive,voiceless
-k͡p,,Plosive,voiceless
-ɡ͡b,,Plosive,voiced
-q͡p,,,voiceless
-ŋ͡m,,Nasal,voiced
 ʍ,,Fricative/approximant,voiceless
 w,,Fricative/approximant,voiced
 ɥ,,Fricative/approximant,voiced
 ɧ,,,voiceless
 ɫ,,,voiced
-ɠ̊͜ɓ̥,,Implosive,voiceless
-ɠ͡ɓ,,Implosive,voiced
 ɓ,,Voiced,voiced
 ɗ,,Voiced,voiced
 ᶑ,,Voiced,voiced
@@ -202,22 +158,6 @@ xʼ,,Fricative,voiceless
 ɸʼ,,,voiceless
 θʼ,,,voiceless
 ʃʼ,,,voiceless
-t̪θʼ,,Affricate,voiceless
-tsʼ,,Affricate,voiceless
-ʈʂʼ,,Affricate,voiceless
-t̠ʃʼ,,Affricate,voiceless
-kxʼ,,Affricate,voiceless
-qχʼ,,Affricate,voiceless
-ɬʼ,,Lateral,voiceless
-tɬʼ,,Lateral,voiceless
-c𝼆ʼ,,Lateral,voiceless
-k𝼄ʼ,,Lateral,voiceless
-kʘ,,Click,voiceless
-kǀ,,Click,voiceless
-kǃ,,Click,voiceless
-kǁ,,Click,voiceless
-k𝼊,,Click,voiceless
-kǂ,,Click,voiceless
 𝼈̊,Retroflex,Lateral tap/flap,voiceless
 ɓ,BL,Voiced,voiced
 ɗ,A,Voiced,voiced
@@ -237,14 +177,6 @@ tʼ,A,Stop,voiceless
 cʼ,P,Stop,voiceless
 kʼ,V,Stop,voiceless
 qʼ,U,Stop,voiceless
-p̪fʼ,LD,Affricate,voiceless
-t̪θʼ,D,Affricate,voiceless
-tsʼ,A,Affricate,voiceless
-t̠ʃʼ,PA,Affricate,voiceless
-tʂʼ,RF,Affricate,voiceless
-tɕʼ,P,Affricate,voiceless
-kxʼ,V,Affricate,voiceless
-qχʼ,U,Affricate,voiceless
 ɸʼ,BL,Fricative,voiceless
 fʼ,LD,Fricative,voiceless
 θʼ,D,Fricative,voiceless
@@ -254,27 +186,11 @@ sʼ,A,Fricative,voiceless
 ɕʼ,P,Fricative,voiceless
 xʼ,V,Fricative,voiceless
 χʼ,U,Fricative,voiceless
-tɬʼ,A,Lateral affricate,voiceless
-c𝼆ʼ,P,Lateral affricate,voiceless
-k𝼄ʼ,V,Lateral affricate,voiceless
-q𝼄ʼ,U,Lateral affricate,voiceless
 ɬʼ,A,Lateral fricative,voiceless
-kʘqʘ,BL,Tenuis,voiceless
-kǀqǀ,D,Tenuis,voiceless
-kǃqǃ,A,Tenuis,voiceless
-k𝼊q𝼊,RF,Tenuis,voiceless
-kǂqǂ,P,Tenuis,voiceless
-ɡʘɢʘ,BL,Voiced,voiced
-ɡǀɢǀ,D,Voiced,voiced
-ɡǃɢǃ,A,Voiced,voiced
-ɡ𝼊ɢ𝼊,RF,Voiced,voiced
-ɡǂɢǂ,P,Voiced,voiced
-ŋʘɴʘ,BL,Nasal,voiced
-ŋǀɴǀ,D,Nasal,voiced
-ŋǃɴǃ,A,Nasal,voiced
-ŋ𝼊ɴ𝼊,RF,Nasal,voiced
-ŋǂɴǂ,P,Nasal,voiced
+ʘ,BL,Tenuis,voiceless
+ǀ,D,Tenuis,voiceless
+ǃ,A,Tenuis,voiceless
+𝼊,RF,Tenuis,voiceless
+ǂ,P,Tenuis,voiceless
 ʞ,V,Nasal,voiced
-kǁqǁ,A,Tenuis lateral,voiceless
-ɡǁɢǁ,A,Voiced lateral,voiced
-ŋǁɴǁ,A,Nasal lateral,voiced
+ǁ,A,Tenuis lateral,voiceless
