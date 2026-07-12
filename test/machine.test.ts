@@ -7,17 +7,14 @@
 //   - total       (every Talk letter `makeIpaToTalk` can produce has
 //                  a glyph).
 //
-// Injectivity holds today. Totality does NOT: a set of suffix-only
-// feature marks (`~` dental, `@` tense, `!` ejection, `?` implosion,
-// `Q~` pharyngealization, `.` stop) has no precomposed glyph on most
-// bases, so those combos throw. That gap is pinned in
-// `machine-gaps.csv` so it stays visible and cannot silently grow.
+// Both hold today: every mapped phone (and its modifier combos) encodes
+// to a unique Hangul string. The `no gaps` test below asserts totality
+// directly. `test/build-machine-gaps.ts` is an optional diagnostic that
+// dumps any gaps to `machine-gaps.csv` while new phones are being added.
 
-import { readFileSync } from 'node:fs'
-import { resolve } from 'node:path'
 import { describe, expect, it } from 'vitest'
 import { GLYPHS } from '~/make'
-import { allCombos, comboTalk, machine, TEST_DIR } from '~/test/helper'
+import { allCombos, comboTalk, machine } from '~/test/helper'
 
 describe('glyph table integrity', () => {
   it('every glyph has a unique Talk key `i`', () => {
