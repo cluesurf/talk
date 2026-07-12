@@ -6,6 +6,7 @@ describe('tokenize', () => {
 
   it('parses a single consonant', () => {
     const tokens = tokenize('t')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -16,6 +17,7 @@ describe('tokenize', () => {
 
   it('parses a variant consonant', () => {
     const tokens = tokenize('D')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -26,6 +28,7 @@ describe('tokenize', () => {
 
   it('parses glottal stop', () => {
     const tokens = tokenize("'")
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -37,6 +40,7 @@ describe('tokenize', () => {
 
   it('parses ejective consonant', () => {
     const tokens = tokenize('t!')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -47,6 +51,7 @@ describe('tokenize', () => {
 
   it('parses implosive consonant', () => {
     const tokens = tokenize('b?')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -57,6 +62,7 @@ describe('tokenize', () => {
 
   it('parses aspirated consonant', () => {
     const tokens = tokenize('th~')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -67,6 +73,7 @@ describe('tokenize', () => {
 
   it('parses palatalized consonant', () => {
     const tokens = tokenize('ny~')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -77,6 +84,7 @@ describe('tokenize', () => {
 
   it('parses labialized consonant', () => {
     const tokens = tokenize('kw~')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -87,6 +95,7 @@ describe('tokenize', () => {
 
   it('parses velarized consonant', () => {
     const tokens = tokenize('lG~')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -97,6 +106,7 @@ describe('tokenize', () => {
 
   it('parses pharyngealized consonant', () => {
     const tokens = tokenize('dQ~')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -107,6 +117,7 @@ describe('tokenize', () => {
 
   it('parses tense consonant', () => {
     const tokens = tokenize('s@')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -117,6 +128,7 @@ describe('tokenize', () => {
 
   it('parses stop consonant', () => {
     const tokens = tokenize('t.')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -127,6 +139,7 @@ describe('tokenize', () => {
 
   it('parses click consonant', () => {
     const tokens = tokenize('k*')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
@@ -139,6 +152,7 @@ describe('tokenize', () => {
 
   it('parses a single vowel', () => {
     const tokens = tokenize('a')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -149,6 +163,7 @@ describe('tokenize', () => {
 
   it('parses a variant vowel', () => {
     const tokens = tokenize('A')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -161,6 +176,7 @@ describe('tokenize', () => {
 
   it('parses stressed vowel', () => {
     const tokens = tokenize('a^')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -171,6 +187,7 @@ describe('tokenize', () => {
 
   it('parses long vowel', () => {
     const tokens = tokenize('a_')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -181,6 +198,7 @@ describe('tokenize', () => {
 
   it('parses short vowel', () => {
     const tokens = tokenize('a!')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -191,6 +209,7 @@ describe('tokenize', () => {
 
   it('parses nasal vowel', () => {
     const tokens = tokenize('a&')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -201,6 +220,7 @@ describe('tokenize', () => {
 
   it('parses non-syllabic vowel', () => {
     const tokens = tokenize('i@')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -211,6 +231,7 @@ describe('tokenize', () => {
 
   it('parses rounded vowel', () => {
     const tokens = tokenize('i$')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -223,12 +244,14 @@ describe('tokenize', () => {
 
   it('parses high tone', () => {
     const tokens = tokenize('a+')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'high' })
   })
 
   it('parses extra high tone', () => {
     const tokens = tokenize('a++')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -238,12 +261,14 @@ describe('tokenize', () => {
 
   it('parses low tone', () => {
     const tokens = tokenize('a-')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'low' })
   })
 
   it('parses extra low tone', () => {
     const tokens = tokenize('a--')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -253,24 +278,28 @@ describe('tokenize', () => {
 
   it('parses rising tone', () => {
     const tokens = tokenize('a/')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'rising' })
   })
 
   it('parses falling tone', () => {
     const tokens = tokenize('a\\')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'falling' })
   })
 
   it('parses rising-2 tone', () => {
     const tokens = tokenize('a//')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'rising-2' })
   })
 
   it('parses falling-2 tone', () => {
     const tokens = tokenize('a\\\\')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -280,6 +309,7 @@ describe('tokenize', () => {
 
   it('parses falling-rising tone', () => {
     const tokens = tokenize('a\\/')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -289,6 +319,7 @@ describe('tokenize', () => {
 
   it('parses rising-falling tone', () => {
     const tokens = tokenize('a/\\')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -300,6 +331,7 @@ describe('tokenize', () => {
 
   it('parses vowel with multiple flags', () => {
     const tokens = tokenize('a&^_+')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -315,6 +347,7 @@ describe('tokenize', () => {
 
   it('parses CVC sequence', () => {
     const tokens = tokenize('tak')
+
     expect(tokens).toHaveLength(3)
     expect(tokens[0]).toMatchObject({ form: 'consonant', text: 't' })
     expect(tokens[1]).toMatchObject({ form: 'vowel', text: 'a' })
@@ -323,12 +356,14 @@ describe('tokenize', () => {
 
   it('parses complex sequence with flags', () => {
     const tokens = tokenize('t!a++nDh~')
+
     expect(tokens).toHaveLength(4)
     expect(tokens[0]).toMatchObject({
       form: 'consonant',
       text: 't',
       ejective: true,
     })
+
     expect(tokens[1]).toMatchObject({
       form: 'vowel',
       text: 'a',
@@ -345,6 +380,7 @@ describe('tokenize', () => {
 
   it('parses words with spaces', () => {
     const tokens = tokenize('ma na')
+
     expect(tokens).toHaveLength(5)
     expect(tokens[0]).toMatchObject({ form: 'consonant', text: 'm' })
     expect(tokens[1]).toMatchObject({ form: 'vowel', text: 'a' })
@@ -357,18 +393,21 @@ describe('tokenize', () => {
 
   it('parses symbol escape', () => {
     const tokens = tokenize('=.')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'symbol', text: '.' })
   })
 
   it('parses numeral', () => {
     const tokens = tokenize('3')
+
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'numeral', text: '3' })
   })
 
   it('parses mixed content', () => {
     const tokens = tokenize('ma=.3')
+
     expect(tokens).toHaveLength(4)
     expect(tokens[0]).toMatchObject({ form: 'consonant', text: 'm' })
     expect(tokens[1]).toMatchObject({ form: 'vowel', text: 'a' })
@@ -384,6 +423,7 @@ describe('tokenize', () => {
 
   it('parses all five vowels', () => {
     const tokens = tokenize('ieaou')
+
     expect(tokens).toHaveLength(5)
     expect(tokens.map(t => (t as any).text)).toEqual([
       'i',
@@ -396,6 +436,7 @@ describe('tokenize', () => {
 
   it('does not confuse consonant n~ as modifier on previous', () => {
     const tokens = tokenize('mn')
+
     expect(tokens).toHaveLength(2)
     expect(tokens[0]).toMatchObject({ form: 'consonant', text: 'm' })
     expect(tokens[1]).toMatchObject({ form: 'consonant', text: 'n' })

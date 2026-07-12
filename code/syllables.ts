@@ -13,13 +13,13 @@ import {
   VARIANT_MARKS,
 } from '.'
 
-export interface Syllable {
+export type Syllable = {
   clusters: Cluster[]
   /** Primary stress marker - true if this syllable contains the primary stress */
   emphasis?: boolean
 }
 
-interface Mark {
+type Mark = {
   aspiration?: boolean
   click?: boolean
   dentalization?: boolean
@@ -52,7 +52,7 @@ interface Mark {
   form?: 'wall' | 'flow' | 'turn'
 }
 
-interface Span {
+type Span = {
   form: ClusterType
   chunk: Mark[]
   match: string
@@ -290,7 +290,7 @@ const CLUSTER_KEY: ClusterKey[] = [
   ClusterKey.PUNCTUATION,
 ]
 
-export interface Cluster {
+export type Cluster = {
   form: ClusterKey
   text: string
   code: string
@@ -304,13 +304,18 @@ export const chunkClusters = parseMarks
 // Step 1: Parse string into marks (basic tokens)
 export function parseMarks(string: string) {
   let x = string
+
   const chunks: Mark[] = []
+
   let i = 0
+
   while (x.length) {
     let matched = false
+
     symbol: for (const key in MARK) {
       if (x.startsWith(key)) {
         const val = MARK[key]
+
         if (val?.type) {
           chunks.push({ ...val })
         } else {
@@ -320,17 +325,21 @@ export function parseMarks(string: string) {
             ...val,
           }
         }
+
         x = x.slice(key.length)
         i += key.length
         matched = true
         break symbol
       }
     }
+
     if (!matched) {
       console.error(string, string.slice(i))
+
       throw new Error('Invalid characters found')
     }
   }
+
   return chunks
 }
 
@@ -339,8 +348,10 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
   const list: Span[][] = []
 
   let i = 0
+
   while (i < chunks.length) {
     const span: Span[] = []
+
     let j = 0
 
     const chunk = chunks[i]!
@@ -358,6 +369,7 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
 
     // First check for standalone full consonants (high priority)
     j = 0
+
     while (j < fullConsonants.length) {
       const x = fullConsonants[j++]!
       // Handle colon notation - remove colons for matching
@@ -376,17 +388,21 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
           if (x.includes(':')) {
             // Look ahead to see what follows
             const nextChunkIndex = i + y.length
+
             if (nextChunkIndex < chunks.length) {
               const nextChunk = chunks[nextChunkIndex]
+
               // Only split if next is a vowel
               if (nextChunk?.type !== 'vowel') {
                 // Check if splitting would allow a better match
                 // For example, 'l:d followed by j could be 'l + dj (start consonant)
                 const colonParts = x.split(':')
+
                 if (colonParts.length === 2) {
                   const rightPart = colonParts[1]!
                   // Check if rightPart + next would form a known cluster
                   const potentialCluster = rightPart + nextChunk?.value
+
                   let wouldFormBetterCluster = false
 
                   // Check if it would form a start consonant
@@ -444,6 +460,7 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
     }
 
     j = 0
+
     while (j < startConsonants.length) {
       const x = startConsonants[j++]!
       const y = x.replace(/:/g, '')
@@ -462,10 +479,12 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
     }
 
     j = 0
+
     while (j < vowels.length) {
       const x = vowels[j++]!
       const y = x.replace(/\$/g, '')
       const chunk = chunks.slice(i, i + y.length)
+
       if (chunk.map(x => x.value).join('') === x) {
         span.push({ chunk, match: x, form: ClusterType.VOWEL })
         i += y.length
@@ -481,15 +500,18 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       match: string
       length: number
     } | null = null
+
     for (const fc of fullConsonants) {
       const fcNormalized = fc.replace(/:/g, '')
       const isDenseCluster =
         fcNormalized.length >= 2 &&
         !fcNormalized.startsWith("'") &&
         !/^[lrwy]$/.test(fcNormalized)
+
       if (isDenseCluster) {
         const fcChunk = chunks.slice(i, i + fcNormalized.length)
         const fcChunkStr = fcChunk.map(x => x.value).join('')
+
         if (fcChunkStr === fcNormalized) {
           if (
             !longerDenseMatch ||
@@ -511,12 +533,15 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       match: string
       length: number
     } | null = null
+
     j = 0
+
     while (j < endConsonants.length) {
       const x = endConsonants[j++]!
       const y = x.replace(/:/g, '')
       const chunk = chunks.slice(i, i + y.length)
       const chunkStr = chunk.map(x => x.value).join('')
+
       if (chunkStr === y) {
         if (!endConsonantMatch || y.length > endConsonantMatch.length) {
           endConsonantMatch = {
@@ -571,9 +596,11 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       // Only process single consonants if we don't have content in span
       // This ensures we complete the current span before starting a new one
       j = 0
+
       while (j < consonants.length) {
         const x = consonants[j++]!
         const chunk = chunks.slice(i, i + x.length)
+
         if (chunk.map(x => x.value).join('') === x) {
           span.push({ chunk, match: x, form: ClusterType.CONSONANT })
           i += x.length
@@ -585,6 +612,7 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
     // If no matches found yet, try dense consonant clusters as fallback
     if (span.length === 0) {
       j = 0
+
       while (j < fullConsonants.length) {
         const x = fullConsonants[j++]!
         // Handle colon notation - remove colons for matching
@@ -617,12 +645,14 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
         .slice(i)
         .map(x => x.value)
         .join('')
+
       throw new Error(`No match found for ${text}`)
     }
   }
 
   // First pass: split clusters with colons when appropriate
   i = 0
+
   while (i < list.length) {
     const node = list[i]!
 
@@ -639,8 +669,7 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
         // 2. Or other conditions where splitting makes sense
         if (
           span.form === ClusterType.END_CONSONANT &&
-          nextSpan &&
-          nextSpan.form === ClusterType.VOWEL
+          nextSpan?.form === ClusterType.VOWEL
         ) {
           const [leftPart, rightPart] = span.match.split(':')
 
@@ -651,13 +680,17 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
           let k = 0
           let text = ''
           let array = left
+
           while (k < span.chunk.length) {
             const mark = span.chunk[k]!
+
             text += mark.value
             array.push(mark)
+
             if (text === leftPart && !right.length) {
               array = right
             }
+
             k++
           }
 
@@ -684,14 +717,17 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
         }
       }
     }
+
     i++
   }
 
   // Second pass: handle adjacent spans (original logic)
   i = 0
+
   while (i < list.length) {
     const last = list[i - 1]
     const node = list[i++]!
+
     if (!last) {
       continue
     }
@@ -714,13 +750,17 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       let j = 0
       let text = ''
       let array = left
+
       while (j < lastSpan.chunk.length) {
         const mark = lastSpan.chunk[j]!
+
         text += mark.value
         array.push(mark)
+
         if (text === a && !right.length) {
           array = right
         }
+
         j++
       }
 
@@ -742,9 +782,11 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
         text: span.chunk.map(serialize).join(''),
         code: span.match,
       }
+
       if (hasEmphasis) {
         result.emphasis = true
       }
+
       return result
     }
 
@@ -756,9 +798,11 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
       text: span.chunk.map(serialize).join(''),
       code: cluster[span.match]!,
     }
+
     if (hasEmphasis) {
       result.emphasis = true
     }
+
     return result
   })
 
@@ -767,23 +811,29 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
 
 export function serialize(mark: Mark) {
   const text: string[] = []
+
   if (mark.value) {
     text.push(mark.value)
   }
+
   if (mark.click) {
     text.push(`*`)
   }
+
   // if (mark.dentalization) {
   // }
   if (mark.ejection) {
     text.push(`!`)
   }
+
   if (mark.implosion) {
     text.push(`?`)
   }
+
   if (mark.nasalization) {
     text.push(`&`)
   }
+
   if (mark.tone) {
     switch (mark.tone) {
       case 'extra high':
@@ -818,36 +868,47 @@ export function serialize(mark: Mark) {
         break
     }
   }
+
   if (mark.elongation) {
     text.push(`_`)
   }
+
   if (mark.truncation) {
     text.push('!')
   }
+
   if (mark.emphasis) {
     text.push(`^`)
   }
+
   if (mark.dentalization) {
     text.push(`~`)
   }
+
   if (mark.pharyngealization) {
     text.push(`Q~`)
   }
+
   if (mark.velarization) {
     text.push(`G~`)
   }
+
   if (mark.palatalization) {
     text.push(`y~`)
   }
+
   if (mark.labialization) {
     text.push(`w~`)
   }
+
   if (mark.aspiration) {
     text.push(`h~`)
   }
+
   if (mark.stop) {
     text.push(`.`)
   }
+
   if (mark.tense) {
     text.push(`@`)
   }
@@ -879,6 +940,7 @@ export function cluster(string: string) {
 // Step 3: Group clusters into syllables
 export function groupClustersIntoSyllables(clusters: Cluster[]) {
   let i = 0
+
   const syllables: Syllable[] = []
 
   while (i < clusters.length) {
@@ -925,7 +987,8 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
 
           // Check if this consonant should be part of this syllable or the next
           const nextNext = clusters[i + 1]
-          if (nextNext && nextNext.form === ClusterKey.VOWEL) {
+
+          if (nextNext?.form === ClusterKey.VOWEL) {
             // If there's a vowel after this consonant, check if we should split
             if (next.form === ClusterKey.FULL_CONSONANT) {
               // FULL_CONSONANT always starts its own syllable
@@ -946,10 +1009,12 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
               // FULL_CONSONANT starts its own syllable, don't add to current
               break
             }
+
             syllable.clusters.push(next)
             i++
           }
         }
+
         break
       }
 
@@ -961,6 +1026,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
       }
 
       case ClusterKey.CONSONANT:
+
       case ClusterKey.START_CONSONANT: {
         // Start syllable with consonant(s)
         syllable.clusters.push(cluster)
@@ -993,6 +1059,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             // Check if we should start a new syllable with this END_CONSONANT
             // If we already have only single consonants, break before END_CONSONANT
             let hasOnlySingleConsonants = true
+
             for (const cluster of syllable.clusters) {
               if (cluster.form !== ClusterKey.CONSONANT) {
                 hasOnlySingleConsonants = false
@@ -1014,6 +1081,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
 
             // Look ahead to see if a vowel is coming
             let hasUpcomingVowel = false
+
             for (let j = i; j < clusters.length && j < i + 3; j++) {
               if (clusters[j]?.form === ClusterKey.VOWEL) {
                 hasUpcomingVowel = true
@@ -1025,6 +1093,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             if (!hasUpcomingVowel) {
               break
             }
+
             continue
           }
 
@@ -1059,21 +1128,25 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
                 if (syllable.clusters.length === 2) {
                   // Look further ahead to see if we have multiple consonants coming
                   let consonantCount = 0
+
                   for (
                     let j = i;
                     j < clusters.length && j < i + 4;
                     j++
                   ) {
                     const future = clusters[j]
+
                     if (
                       !future ||
                       future.form === ClusterKey.PUNCTUATION
                     ) {
                       continue
                     }
+
                     if (future.form === ClusterKey.VOWEL) {
                       break
                     }
+
                     consonantCount++
                   }
 
@@ -1121,15 +1194,17 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             if (syllable.clusters.length >= 2) {
               const prevCluster =
                 syllable.clusters[syllable.clusters.length - 2]
+
               if (
-                prevCluster &&
-                prevCluster.form === ClusterKey.START_CONSONANT
+                prevCluster?.form === ClusterKey.START_CONSONANT
               ) {
                 // Remove the ' we just added
                 syllable.clusters.pop()
                 i--
+
                 // Remove the START_CONSONANT
                 const startConsonant = syllable.clusters.pop()!
+
                 // If we still have clusters, keep them as a syllable
                 if (syllable.clusters.length > 0) {
                   // Check if any cluster has emphasis
@@ -1138,16 +1213,20 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
                   ) {
                     syllable.emphasis = true
                   }
+
                   syllables.push(syllable)
                 }
+
                 // Start new syllable with the START_CONSONANT
                 const newSyllable: Syllable = {
                   clusters: [startConsonant, next],
                 }
+
                 // Check if either cluster has emphasis
                 if (startConsonant.emphasis || next.emphasis) {
                   newSyllable.emphasis = true
                 }
+
                 syllables.push(newSyllable)
                 i++
                 // Start fresh for next syllable
@@ -1198,7 +1277,8 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             }
 
             const nextNext = clusters[i + 1]
-            if (nextNext && nextNext.form === ClusterKey.VOWEL) {
+
+            if (nextNext?.form === ClusterKey.VOWEL) {
               if (next.form === ClusterKey.FULL_CONSONANT) {
                 // FULL_CONSONANT always starts its own syllable
                 break
@@ -1214,6 +1294,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
                 // FULL_CONSONANT starts its own syllable, don't add to current
                 break
               }
+
               syllable.clusters.push(next)
               i++
             }
@@ -1241,6 +1322,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
               // Look ahead to see if we should end here
               if (i < clusters.length) {
                 const next = clusters[i]!
+
                 if (
                   next.form === ClusterKey.START_CONSONANT ||
                   next.form === ClusterKey.FULL_CONSONANT
@@ -1251,6 +1333,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             }
           }
         }
+
         break
       }
 
@@ -1267,6 +1350,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
       if (syllable.clusters.some(c => c.emphasis === true)) {
         syllable.emphasis = true
       }
+
       syllables.push(syllable)
     }
   }

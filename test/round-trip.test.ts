@@ -35,33 +35,42 @@ describe('Talk -> IPA -> Talk is the identity', () => {
 
   it('every canonical Talk letter round-trips (except known gaps)', () => {
     const broken: string[] = []
+
     for (const talkText of talkLetters) {
       if (KNOWN_ROUND_TRIP_GAPS.has(talkText)) {
         continue
       }
+
       const ipa = talkToIpa(talkText)
+
       if (ipa == null) {
         broken.push(`${talkText} -> IPA threw`)
         continue
       }
+
       const back = ipaToTalk(ipa)
+
       if (back !== talkText) {
         broken.push(`${talkText} -> ${ipa} -> ${back}`)
       }
     }
+
     expect(broken).toEqual([])
   })
 
   it('the known round-trip gaps really do still fail', () => {
     // If one starts passing, drop it from the allowlist above.
     const stillBroken: string[] = []
+
     for (const talkText of KNOWN_ROUND_TRIP_GAPS) {
       const ipa = talkToIpa(talkText)
       const back = ipa == null ? null : ipaToTalk(ipa)
+
       if (ipa != null && back === talkText) {
         stillBroken.push(talkText)
       }
     }
+
     expect(stillBroken).toEqual([])
   })
 })

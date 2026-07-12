@@ -11,14 +11,18 @@ const STRESSES = ['standard', 'stress']
 
 NASALS.forEach(nose => {
   STRESSES.forEach(kick => {
-    const keys: Array<string> = []
+    const keys: string[] = []
+
     if (nose === 'nasal') {
       keys.push(`&`)
     }
+
     if (kick === 'stress') {
       keys.push('^')
     }
+
     const key = keys.join('')
+
     merge(VOWELS, {
       [`i${key}`]: vowel({
         room: 'closed',

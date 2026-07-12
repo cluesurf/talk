@@ -1,5 +1,8 @@
 import st from '@lancejpollard/script-tree'
 import { m } from './constants'
+// Precomputed by `code/glyph-builder.ts` (`pnpm glyphs`): every valid
+// modified consonant sound, so no `makeIpaToTalk` runs at load.
+import CONSONANT_INPUTS from './data/consonants.json'
 
 // https://en.wikipedia.org/wiki/Hangul_Syllables
 // LAST used is U+CF82, so can continue from there.
@@ -43,7 +46,7 @@ const G: Record<string, string> = {
   u: `u`,
 }
 
-export interface Take {
+export type Take = {
   i: string
   x: string
   o: string
@@ -100,6 +103,7 @@ BASE_VOWEL_GLYPHS.forEach(g => {
                 l === '!'
                   ? `${x2}${y}${D[l]}${D[n]}${D[s]}${D[t]}${v2}`
                   : `${x2}${D[l]}${D[n]}${D[s]}${D[t]}${v2}${y}`
+
               VOWELS.push({ i, x: getNextGlyph(), o })
             })
           })
@@ -253,34 +257,18 @@ export const CONSONANTS = [
   { i: 'K*', x: '쾑', o: `k${m.d.dot}${m.d.down}` }, // ʞ velar click
 ]
 
-// Every consonant modifier (aspiration, palatalization, dental,
-// voiceless, ...) should collapse onto its base as a SINGLE glyph, so
-// `machine()` emits one Hangul code point per sound. Rather than hand
-// listing each combination, generate them: take each base letter above,
-// apply the modifier suffixes `makeIpaToTalk` can emit, and assign the
-// next free Hangul code point. The readable form is composed from the
-// base plus modifier glyphs, so it stacks the same diacritics.
-
-// The atomic base letters (single sounds), including the doubled
-// trills, in the spirit of `BASE_VOWEL_GLYPHS`.
-const CONSONANT_BASE_INPUTS = [
-  'm', 'n', 'N', 'q', 'g', 'k', 'b', 'p', 'd', 't', 'T', 'D',
-  's', 'z', 'x', 'j', 'X', 'J', 'f', 'v', 'c', 'C', 'h', 'H',
-  'l', 'L', 'r', 'R', 'w', 'y', 'G', 'Q', "'", 'W', 'F', 'V',
-  'Z', 'S', 'b?', 'd?', 'g?', 'bb', 'GG', 'Rr',
-]
-
-// Modifier-suffix combinations `makeIpaToTalk` can emit (empty = the
-// bare base, then singles and the common voiceless stacks). Applied to
-// every base, so any modified consonant collapses onto one glyph.
-const CONSONANT_MODIFIER_INPUTS = [
-  '', 'h!', '~', '~h!', 'y~', 'y~h!', 'w~', 'w~h!', 'G~', 'G~h!',
-  'h~', 'h~h!', 'Q~', 'Q~h!', '!', '?', '@', '.',
-]
+// Every consonant, however modified, collapses onto its base as a SINGLE
+// glyph, so `machine()` emits one Hangul code point per sound. The set of
+// valid modified sounds is generated in `glyph-builder.ts` (every base run
+// through `makeIpaToTalk` with each modifier-diacritic combination), so
+// nothing is listed by hand and no junk combination (`b??`, ...) can
+// appear. Here we just assign each a free Hangul code point and a
+// readable composed from its base and modifier diacritics.
 
 // Next free Hangul code point after the hand-assigned consonant block.
 let CONSONANT_CODE =
   Math.max(...CONSONANTS.map(glyph => glyph.x.codePointAt(0)!)) + 1
+
 const USED_CODES = new Set(
   [...VOWELS, ...CONSONANTS, ...SYMBOLS, ...NUMERALS].map(glyph =>
     glyph.x.codePointAt(0),
@@ -291,9 +279,12 @@ function getNextConsonantGlyph() {
   while (USED_CODES.has(CONSONANT_CODE)) {
     CONSONANT_CODE++
   }
+
   const glyph = String.fromCodePoint(CONSONANT_CODE)
+
   USED_CODES.add(CONSONANT_CODE)
   CONSONANT_CODE++
+
   return glyph
 }
 
@@ -303,12 +294,14 @@ function getNextConsonantGlyph() {
 const READABLE_BY_INPUT = new Map(
   CONSONANTS.map(glyph => [glyph.i, glyph.o]),
 )
+
 READABLE_BY_INPUT.set('Q~', `${m.d.tilde}`)
 READABLE_BY_INPUT.set('~', '')
 READABLE_BY_INPUT.set('@', `${m.d.up}`)
 READABLE_BY_INPUT.set('!', `${m.d.acute}`)
 READABLE_BY_INPUT.set('?', `${m.d.grave}`)
 READABLE_BY_INPUT.set('.', `${m.d.macron}`)
+
 const INPUTS_LONGEST_FIRST = [...READABLE_BY_INPUT.keys()].sort(
   (a, b) => b.length - a.length,
 )
@@ -316,6 +309,7 @@ const INPUTS_LONGEST_FIRST = [...READABLE_BY_INPUT.keys()].sort(
 function composeConsonantReadable(input: string) {
   let out = ''
   let i = 0
+
   outer: while (i < input.length) {
     for (const key of INPUTS_LONGEST_FIRST) {
       if (key && input.startsWith(key, i)) {
@@ -324,22 +318,27 @@ function composeConsonantReadable(input: string) {
         continue outer
       }
     }
+
     // Should not happen: every generated input is base + known modifiers.
     return input
   }
+
   return out
 }
 
-// Trills whose voiceless form voices each element (ɽ̊r̥ -> Rh!rh!) do
-// not fit base + suffix, so they are listed as extras.
-const CONSONANT_EXTRA_INPUTS = ['Rh!rh!']
-
-const CONSONANT_SEEN = new Set(CONSONANTS.map(glyph => glyph.i))
+// Seed with every existing glyph key so a listed sound that is already a
+// base (or a vowel) is skipped rather than duplicated.
+const CONSONANT_SEEN = new Set(
+  [...VOWELS, ...CONSONANTS, ...SYMBOLS, ...NUMERALS].map(
+    glyph => glyph.i,
+  ),
+)
 
 function addGeneratedConsonant(input: string) {
   if (CONSONANT_SEEN.has(input)) {
     return
   }
+
   CONSONANT_SEEN.add(input)
   CONSONANTS.push({
     i: input,
@@ -348,13 +347,7 @@ function addGeneratedConsonant(input: string) {
   })
 }
 
-for (const base of CONSONANT_BASE_INPUTS) {
-  for (const modifier of CONSONANT_MODIFIER_INPUTS) {
-    addGeneratedConsonant(base + modifier)
-  }
-}
-
-for (const input of CONSONANT_EXTRA_INPUTS) {
+for (const input of CONSONANT_INPUTS) {
   addGeneratedConsonant(input)
 }
 
@@ -396,9 +389,12 @@ function getNextGlyph() {
       `Exceeded available Hangul code points for base tones (max: ${HANGUL_ALLOWED_END_FOR_BASE_TONES})`,
     )
   }
+
   return String.fromCodePoint(HANGUL_CODE++)
 }
 
-// `HANGUL_CODE` ends at 삠, last time I checked on 2025/12/06
+// `HANGUL_CODE` (the vowel counter) ends at 삟 (U+C09F). The generated
+// consonant block then runs to U+DE63, for 9203 glyphs total. Last
+// checked 2026/07/12.
 
 // console.log(VOWELS.length) => 5280

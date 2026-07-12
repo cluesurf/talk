@@ -2,9 +2,11 @@ import uniq from 'lodash/uniq'
 
 export const sortLength = (a: string, b: string) => {
   const diff = b.length - a.length
+
   if (!diff) {
     return a.localeCompare(b)
   }
+
   return diff
 }
 
@@ -14,12 +16,15 @@ const noDuplicateSounds = (s: string) => {
   }
 
   let i = 0
+
   while (i < s.length) {
     const a = s[i++]!
     const b = s[i]
+
     if (!b) {
       return true
     }
+
     if (a === b) {
       return false
     }
@@ -439,7 +444,7 @@ ${prefix}:C
 ${prefix}C:z
 ${prefix}C:j`
 
-const glottalFull = (prefix: string = "'") => `${prefix}b
+const glottalFull = (prefix = "'") => `${prefix}b
 ${prefix}c
 ${prefix}C
 ${prefix}d

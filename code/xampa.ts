@@ -8,8 +8,10 @@ export function makeXSampaToIpa(text: string) {
     if (!xs) {
       return ''
     }
+
     const i = XSAMPA[xs]!
     const x = TABLE[i]!.IPA
+
     return x
   })
 }

@@ -1598,14 +1598,16 @@ function normalizeRhymeSimilarities(
       if (!normalized[source]) {
         normalized[source] = {}
       }
-      normalized[source]![target] = score
+
+      normalized[source][target] = score
 
       // Set reverse mapping (symmetry)
       if (!normalized[target]) {
         normalized[target] = {}
       }
+
       // Only set if not already defined (prefer explicit definitions)
-      normalized[target]![source] ??= score
+      normalized[target][source] ??= score
     }
   }
 
@@ -1616,7 +1618,8 @@ function normalizeRhymeSimilarities(
       if (!normalized[source]) {
         normalized[source] = {}
       }
-      normalized[source]![target] ??= source === target ? 1 : 0
+
+      normalized[source][target] ??= source === target ? 1 : 0
     }
   }
 

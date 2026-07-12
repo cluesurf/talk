@@ -8,11 +8,11 @@ export type MarkInfo = {
   IPA: string
 }
 
-const TABLE: Array<MarkInfo> = [
-  ...(lowercase as Array<MarkInfo>),
-  ...(capital as Array<MarkInfo>),
-  ...(other as Array<MarkInfo>),
-  ...(diacritics as Array<MarkInfo>),
+const TABLE: MarkInfo[] = [
+  ...(lowercase as MarkInfo[]),
+  ...(capital as MarkInfo[]),
+  ...(other as MarkInfo[]),
+  ...(diacritics as MarkInfo[]),
 ]
 
 export default TABLE
@@ -22,7 +22,7 @@ export const IPA: Record<string, number> = {}
 
 for (const [i, e] of TABLE.entries()) {
   XSAMPA[e['X-SAMPA']] = i
-  IPA[e['IPA']] = i
+  IPA[e.IPA] = i
 }
 
 export const XSAMPA_PATTERN = new RegExp(

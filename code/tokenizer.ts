@@ -143,8 +143,9 @@ const TWO_CHAR_TONES = new Set(['++', '--', '//', '\\\\', '/\\', '\\/'])
 
 // ─── Tokenizer ──────────────────────────────────────────
 
-export function tokenize(input: string): Array<Token> {
-  const tokens: Array<Token> = []
+export function tokenize(input: string): Token[] {
+  const tokens: Token[] = []
+
   let i = 0
 
   while (i < input.length) {
@@ -198,6 +199,7 @@ export function tokenize(input: string): Array<Token> {
     if (ch && (BASE_CONSONANTS.has(ch) || VARIANT_CONSONANTS.has(ch))) {
       const isVariant = VARIANT_CONSONANTS.has(ch)
       const baseLetter = ch
+
       i++
 
       const token: ConsonantToken = {
@@ -262,6 +264,7 @@ export function tokenize(input: string): Array<Token> {
     if (ch && (BASE_VOWELS.has(ch) || VARIANT_VOWELS.has(ch))) {
       const isVariant = VARIANT_VOWELS.has(ch)
       const baseLetter = ch
+
       i++
 
       const token: VowelToken = {
@@ -277,6 +280,7 @@ export function tokenize(input: string): Array<Token> {
         /** Check two-char tones first. */
         if (i + 1 < input.length) {
           const twoChar = input[i]! + input[i + 1]!
+
           if (TWO_CHAR_TONES.has(twoChar)) {
             token.tone = TONE_MAP[twoChar]
             i += 2
@@ -340,9 +344,11 @@ export function serializeToken(token: Token): string {
   if (token.form === 'space') {
     return ' '
   }
+
   if (token.form === 'symbol') {
     return `=${token.text}`
   }
+
   if (token.form === 'numeral') {
     return token.text
   }
@@ -350,30 +356,48 @@ export function serializeToken(token: Token): string {
   const parts: string[] = [token.text]
 
   if (token.form === 'consonant') {
-    if (token.click) parts.push('*')
-    if (token.ejective) parts.push('!')
-    if (token.implosive) parts.push('?')
-    if (token.dental) parts.push('~')
-    if (token.pharyngealized) parts.push('Q~')
-    if (token.velarized) parts.push('G~')
-    if (token.palatalized) parts.push('y~')
-    if (token.labialized) parts.push('w~')
-    if (token.aspirated) parts.push('h~')
-    if (token.stop) parts.push('.')
-    if (token.tense) parts.push('@')
+    if (token.click) {parts.push('*')}
+
+    if (token.ejective) {parts.push('!')}
+
+    if (token.implosive) {parts.push('?')}
+
+    if (token.dental) {parts.push('~')}
+
+    if (token.pharyngealized) {parts.push('Q~')}
+
+    if (token.velarized) {parts.push('G~')}
+
+    if (token.palatalized) {parts.push('y~')}
+
+    if (token.labialized) {parts.push('w~')}
+
+    if (token.aspirated) {parts.push('h~')}
+
+    if (token.stop) {parts.push('.')}
+
+    if (token.tense) {parts.push('@')}
+
     return parts.join('')
   }
 
   // vowel
-  if (token.rounded) parts.push('$')
-  if (token.nasal) parts.push('&')
-  if (token.long) parts.push('_')
-  if (token.short) parts.push('!')
-  if (token.nonsyllabic) parts.push('@')
-  if (token.stressed) parts.push('^')
+  if (token.rounded) {parts.push('$')}
+
+  if (token.nasal) {parts.push('&')}
+
+  if (token.long) {parts.push('_')}
+
+  if (token.short) {parts.push('!')}
+
+  if (token.nonsyllabic) {parts.push('@')}
+
+  if (token.stressed) {parts.push('^')}
+
   if (token.tone) {
     parts.push(serializeTone(token.tone))
   }
+
   return parts.join('')
 }
 
@@ -414,8 +438,10 @@ export function serializeTone(tone: Tone): string {
  */
 export function serialize(tokens: Token[]): string {
   let out = ''
+
   for (const token of tokens) {
     out += serializeToken(token)
   }
+
   return out
 }

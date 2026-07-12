@@ -1,28 +1,23 @@
 {
   "compilerOptions": {
-    "module": "ESNext",
     "target": "ES2022",
-    "lib": ["es2020", "dom"],
-    "outDir": "host",
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": true,
-    "moduleResolution": "node",
-    "strictNullChecks": true,
+    "lib": ["ES2022", "DOM"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
     "strict": true,
-    "esModuleInterop": true,
-    "noUncheckedIndexedAccess": true,
-    "baseUrl": ".",
-    "allowJs": false,
-    "noErrorTruncation": true,
-    "resolveJsonModule": true,
-    "types": ["node"],
-    "typeRoots": ["node_modules/@types"],
     "noImplicitAny": false,
+    "noUncheckedIndexedAccess": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "declaration": true,
+    "sourceMap": true,
+    "outDir": "host",
+    "noErrorTruncation": true,
     "paths": {
       "~/*": ["./*"]
     }
   },
-  "include": ["*.ts", "**/*.ts", "*.d.ts"],
-  "exclude": ["node_modules", "host", "tmp", "test"]
+  "include": ["index.ts", "code", "test", "*.config.ts", "*.d.ts"],
+  "exclude": ["node_modules", "host", "tmp"]
 }

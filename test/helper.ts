@@ -31,13 +31,16 @@ export function parseCsv<T extends Record<string, string>>(
   const text = readFileSync(resolve(TEST_DIR, file), 'utf8').trim()
   const lines = text.split(/\r?\n/)
   const header = lines[0]!.split(',')
+
   return lines.slice(1).map(line => {
     // The CSVs here have no quoted commas.
     const cells = line.split(',')
     const row: Record<string, string> = {}
+
     header.forEach((col, i) => {
       row[col] = cells[i] ?? ''
     })
+
     return row as T
   })
 }
@@ -64,6 +67,7 @@ export function loadMissing(): string[] {
     resolve(TEST_DIR, 'missing.csv'),
     'utf8',
   ).trim()
+
   return text
     .split(/\r?\n/)
     .slice(1)
@@ -75,11 +79,11 @@ export function loadMissing(): string[] {
 // secondary articulations, these apply to ANY vowel and are always
 // phonetically meaningful, so cross-producing them is legitimate.
 // Tone marks need `tones: true` in the conversion; the rest do not.
-export const VOWEL_MODIFIERS: Array<{
+export const VOWEL_MODIFIERS: {
   ipa: string
   feature: string
   tones: boolean
-}> = [
+}[] = [
   { ipa: '̃', feature: 'nasalization', tones: false },
   { ipa: 'ː', feature: 'long', tones: false },
   { ipa: '̆', feature: 'short', tones: false },
@@ -117,6 +121,7 @@ export function consonantCombos(rows = loadConsonants()): Combo[] {
 // are universally valid.
 export function vowelCombos(rows = loadVowels()): Combo[] {
   const out: Combo[] = []
+
   for (const row of rows) {
     out.push({
       ipa: row.symbol,
@@ -124,6 +129,7 @@ export function vowelCombos(rows = loadVowels()): Combo[] {
       feature: 'base',
       tones: false,
     })
+
     for (const mod of VOWEL_MODIFIERS) {
       out.push({
         ipa:
@@ -136,6 +142,7 @@ export function vowelCombos(rows = loadVowels()): Combo[] {
       })
     }
   }
+
   return out
 }
 

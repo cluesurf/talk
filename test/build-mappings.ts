@@ -45,13 +45,16 @@ function parseCsv<T extends Record<string, string>>(path: string): T[] {
   const text = readFileSync(path, 'utf8').trim()
   const lines = text.split(/\r?\n/)
   const header = lines[0]!.split(',')
+
   return lines.slice(1).map(line => {
     // Naive split — CSVs here have no quoted commas.
     const cells = line.split(',')
     const row: Record<string, string> = {}
+
     header.forEach((col, i) => {
       row[col] = cells[i] ?? ''
     })
+
     return row as T
   })
 }
@@ -75,17 +78,20 @@ const missing: { kind: 'consonant' | 'vowel'; ipa: string }[] = []
 
 for (const row of consonantRows) {
   const talk = tryTalk(row.symbol)
-  if (talk) consonants[row.symbol] = talk
-  else missing.push({ kind: 'consonant', ipa: row.symbol })
+
+  if (talk) {consonants[row.symbol] = talk}
+  else {missing.push({ kind: 'consonant', ipa: row.symbol })}
 }
 
 for (const row of vowelRows) {
   const talk = tryTalk(row.symbol)
-  if (talk) vowels[row.symbol] = talk
-  else missing.push({ kind: 'vowel', ipa: row.symbol })
+
+  if (talk) {vowels[row.symbol] = talk}
+  else {missing.push({ kind: 'vowel', ipa: row.symbol })}
 }
 
 const outPath = resolve(HERE, 'mappings.json')
+
 writeFileSync(outPath, JSON.stringify({ consonants, vowels }, null, 2))
 
 // CSV of IPA chars that have no Talk equivalent yet — for
@@ -93,15 +99,18 @@ writeFileSync(outPath, JSON.stringify({ consonants, vowels }, null, 2))
 const missingPath = resolve(HERE, 'missing.csv')
 const missingCsv =
   ['ipa,talk', ...missing.map(m => `${m.ipa},`)].join('\n') + '\n'
+
 writeFileSync(missingPath, missingCsv)
 
 console.log(`[build-mappings] wrote ${outPath}`)
 console.log(
   `  consonants: ${Object.keys(consonants).length}/${consonantRows.length}`,
 )
+
 console.log(
   `  vowels:     ${Object.keys(vowels).length}/${vowelRows.length}`,
 )
+
 console.log(
   `[build-mappings] wrote ${missingPath} (${missing.length} unmapped)`,
 )

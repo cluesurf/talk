@@ -7,7 +7,7 @@ import { describe, expect, it } from 'vitest'
 import chunk from '~/code/syllables'
 
 // [word, expected syllables joined with ' - ']
-const CASES: Array<[string, string]> = [
+const CASES: [string, string][] = [
   ['ayu$ve^ydU', 'a - yu$ - ve^y - dU'],
   ['kUba^llU', 'kU - ba^l - lU'],
   ['fOla^sOfi', 'fO - la^ - sO - fi'],
@@ -73,6 +73,7 @@ const CASES: Array<[string, string]> = [
 
 function syllableText(word: string): string {
   const { syllables } = chunk(word)
+
   return syllables
     .map(s => s.clusters.map(({ text }) => text).join(''))
     .join(' - ')
@@ -80,6 +81,7 @@ function syllableText(word: string): string {
 
 function letters(word: string): string {
   const { syllables } = chunk(word)
+
   return syllables
     .flatMap(s => s.clusters)
     .map(c => c.text)

@@ -23,12 +23,12 @@ export type Feature =
 export type Make = {
   last: {
     consonant: Consonant | null
-    consonants: Array<Consonant>
+    consonants: Consonant[]
     out: Vowel | Consonant | Punctuation | null
     vowel: Vowel | null
-    vowels: Array<Vowel>
+    vowels: Vowel[]
   }
-  out: Array<Array<Vowel | Consonant | Punctuation>>
+  out: (Vowel | Consonant | Punctuation)[][]
   pendingStress?: boolean
 }
 
@@ -87,9 +87,12 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
   }
 
   const parts = [...ipa]
+
   let i = 0
+
   while (i < parts.length) {
     const part = parts[i++]
+
     switch (part) {
       case ' ':
         addPunctuation(' ')
@@ -451,6 +454,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         if (result.last.consonant?.value !== "'") {
           addConsonant("'")
         }
+
         break
       case 'ʕ':
         addConsonant('Q')
@@ -462,6 +466,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         if (result.last.consonant?.value !== "'") {
           addConsonant("'")
         }
+
         break
       case 'ɫ':
         addConsonant('l')
@@ -787,7 +792,8 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
   }
 
   function captureAllTones(first: string) {
-    const tones: Array<string> = [TONE[first] as string]
+    const tones: string[] = [TONE[first]!]
+
     while (true) {
       switch (parts[i]) {
         case '˥':
@@ -796,21 +802,26 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         case '˨':
         case '˩':
           const part = parts[i++]
+
           if (part) {
             const tone = TONE[part]
+
             if (tones[tones.length - 1] !== tone && tone) {
               tones.push(tone)
             }
           }
+
           break
         case 'ˀ':
           if (result.last.consonant?.value !== "'") {
             addConsonant("'")
           }
+
           i++
           break
         default:
           addTones(tones)
+
           return
       }
     }
@@ -818,30 +829,33 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
 
   return serialize(result)
 
-  function addTones(tones: Array<string>) {
+  function addTones(tones: string[]) {
     if (!options.tones) {
       return
     }
 
     const vowels = result.last.vowels
+
     let i = 0
 
     while (i < vowels.length - 1 && tones.length) {
       const tone = tones.shift()
       const vowel = vowels[i]
+
       assert(vowel, 'vowel')
       vowel.tone = tone
       i++
     }
 
     const lastVowel = vowels[vowels.length - 1]
+
     assert(lastVowel, 'lastVowel')
 
     if (tones.length) {
       lastVowel.tone = tones.shift()
     }
 
-    const newVowels: Array<Vowel> = new Array(tones.length)
+    const newVowels: Vowel[] = new Array(tones.length)
       .fill(0)
       .map((x, i) => ({
         tone: tones[i],
@@ -851,6 +865,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
 
     if (newVowels.length && lastVowel.long) {
       const newLastVowel = newVowels[newVowels.length - 1]
+
       assert(newLastVowel, 'newLastVowel')
       newLastVowel.long = true
       lastVowel.long = false
@@ -858,7 +873,9 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
 
     if (newVowels.length) {
       result.last.vowels.push(...newVowels)
+
       const newVowel = newVowels[newVowels.length - 1]
+
       assert(newVowel, 'newVowel')
       result.last.vowel = result.last.out = newVowel
     }
@@ -871,6 +888,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
       delete result.pendingStress
       letter.stress = true
     }
+
     // we added consonants after the last vowels, now we are adding vowels again.
     if (result.last.vowels.length && result.last.consonants.length) {
       result.last.vowels = []
@@ -900,9 +918,12 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
           assert(result.last.consonant, 'implosion:last-consonant')
           result.last.consonant.implosion = true
         }
+
         break
+
       case 'voiceless': {
         assert(result.last.consonant, 'voiceless:last-consonant')
+
         switch (result.last.consonant.value) {
           case 'b':
             result.last.consonant.value = 'p'
@@ -917,19 +938,23 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
             result.last.consonant.voice = false
             break
         }
+
         break
       }
+
       case 'aspiration':
         if (result.last.consonant) {
           assert(result.last.consonant, 'aspiration:last-consonant')
           result.last.consonant.aspiration = true
         }
+
         break
       case 'dental':
         if (result.last.consonant) {
           assert(result.last.consonant, 'dental:last-consonant')
           result.last.consonant.dental = true
         }
+
         break
       case 'pharyngealization':
         if (result.last.consonant) {
@@ -939,24 +964,28 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
           )
           result.last.consonant.pharyngealization = true
         }
+
         break
       case 'palatalization':
         if (result.last.consonant) {
           assert(result.last.consonant, 'palatalization:last-consonant')
           result.last.consonant.palatalization = true
         }
+
         break
       case 'glottalization':
         if (result.last.consonant) {
           assert(result.last.consonant, 'glottalization:last-consonant')
           result.last.consonant.glottalization = true
         }
+
         break
       case 'velarization':
         if (result.last.consonant) {
           assert(result.last.consonant, 'velarization:last-consonant')
           result.last.consonant.velarization = true
         }
+
         break
       case 'nasalization':
         assert(result.last.vowel, 'nasalization:last-vowel')
@@ -967,39 +996,48 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
           assert(result.last.consonant, 'labialization:last-consonant')
           result.last.consonant.labialization = true
         }
+
         break
       case 'ejection':
         if (result.last.consonant) {
           assert(result.last.consonant, 'ejection:last-consonant')
           result.last.consonant.ejection = true
         }
+
         break
       case 'stop':
         if (result.last.consonant) {
           assert(result.last.consonant, 'stop:last-consonant')
           result.last.consonant.stop = true
         }
+
         break
       case 'tense':
         if (result.last.consonant) {
           assert(result.last.consonant, 'tense:last-consonant')
-          if (result.last.consonant.value.match('x')) {
+
+          if (/x/.exec(result.last.consonant.value)) {
           }
+
           const second =
             result.last.consonants[result.last.consonants.length - 2]
-          if (second && second.value.match(/[ptk]/)) {
+
+          if (second?.value.match(/[ptk]/)) {
             second.tense = true
             break
           }
 
           result.last.consonant.tense = true
         }
+
         break
       case 'long':
         assert(result.last.out, 'long:last')
+
         if (result.last.out.type !== 'punctuation') {
           result.last.out.long = true
         }
+
         break
       case 'short':
         assert(result.last.vowel, 'short:last-vowel')
@@ -1028,7 +1066,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
 
   function addConsonant(x: string) {
     const letter: Consonant = { type: 'consonant', value: x }
-    const consonantSet: Array<Consonant> = result.last.consonants.length
+    const consonantSet: Consonant[] = result.last.consonants.length
       ? result.last.consonants
       : []
 
@@ -1047,6 +1085,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
   function replaceLastConsonantIfMatch(x: string, match: string) {
     if (result.last.consonant?.value === x) {
       const letter: Consonant = { type: 'consonant', value: x }
+
       result.last.consonants[result.last.consonants.length - 1] = letter
       result.last.out = letter
       result.last.consonant = letter
@@ -1061,74 +1100,96 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
 }
 
 function serialize(result: Make) {
-  const out: Array<string> = []
+  const out: string[] = []
 
   result.out.forEach(array => {
     array.forEach(node => {
-      const link: Array<string> = [node.value]
+      const link: string[] = [node.value]
+
       switch (node.type) {
         case 'vowel':
           if (node.nasalization) {
             link.push('&')
           }
+
           if (node.tone) {
             link.push(node.tone)
           }
+
           if (node.syllabic === false) {
             link.push('@')
           }
+
           if (node.short) {
             link.push('!')
           }
+
           if (node.long) {
             link.push('_')
           }
+
           if (node.stress) {
             link.push('^')
           }
+
           break
+
         case 'consonant':
           if (node.tense) {
             link.push('@')
           }
+
           if (node.dental) {
             link.push('~')
           }
+
           if (node.pharyngealization) {
             link.push('Q~')
           }
+
           if (node.palatalization) {
             link.push('y~')
           }
+
           if (node.velarization) {
             link.push('G~')
           }
+
           if (node.labialization) {
             link.push('w~')
           }
+
           if (node.aspiration) {
             link.push('h~')
           }
+
           if (node.ejection) {
             link.push('!')
           }
+
           if (node.implosion) {
             link.push('?')
           }
+
           if (node.voice === false) {
             link.push('h!')
           }
+
           if (node.stop) {
             link.push('.')
           }
+
           if (node.long) {
             link.push(...link.slice())
           }
+
           if (node.glottalization) {
             throw new Error('glottallization handler missing')
           }
+
         default:
       }
+
       out.push(link.join(''))
     })
   })
@@ -1139,13 +1200,14 @@ function serialize(result: Make) {
 // TODO: this only works for tune lang so far.
 export function makeTalkToIpa(text: string) {
   const parts = [...text]
-  const out: Array<string> = []
+  const out: string[] = []
 
   let i = 0
 
   while (i < parts.length) {
     const part = parts[i++]
     const next = parts[i]
+
     switch (part) {
       case '-':
         if (next === '-') {
@@ -1154,6 +1216,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('˨')
         }
+
         break
       case '+':
         if (next === '+') {
@@ -1162,6 +1225,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('˦')
         }
+
         break
       case '/':
         if (next === '/') {
@@ -1173,6 +1237,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('˧˥')
         }
+
         break
       case '\\':
         if (next === '\\') {
@@ -1184,6 +1249,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('˥˧')
         }
+
         break
       case '^':
         out[out.length - 1] = `ˈ${out[out.length - 1]}`
@@ -1191,16 +1257,20 @@ export function makeTalkToIpa(text: string) {
       case '&':
         out[out.length - 1] = `${out[out.length - 1]}${m.d.tilde}`
         break
+
       case '!': {
         const last = out[out.length - 1]
+
         if (last === 'h') {
           out.pop()
           out[out.length - 1] = `${out[out.length - 1]}${m.d.ring}`
         } else {
           out.push('ʼ')
         }
+
         break
       }
+
       case 'a':
         if (next === '$') {
           i++
@@ -1211,6 +1281,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('a')
         }
+
         captureAllTones()
         break
       case 'A':
@@ -1224,6 +1295,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('b')
         }
+
         break
       case 'c':
         if (next === '*') {
@@ -1232,6 +1304,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('θ')
         }
+
         break
       case 'C':
         if (next === '~') {
@@ -1241,6 +1314,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('ð')
         }
+
         break
       case 'd':
         if (next === '?') {
@@ -1253,6 +1327,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('d')
         }
+
         break
       case 'D':
         out.push('ɖ')
@@ -1279,6 +1354,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('ʁ')
         }
+
         break
       case "'":
         out.push('ʔ')
@@ -1302,6 +1378,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('ʕ')
         }
+
         break
       case 'S':
         out.push('ɬ')
@@ -1320,6 +1397,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('e')
         }
+
         captureAllTones()
         break
       case 'f':
@@ -1332,6 +1410,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('g')
         }
+
         break
       case 'h':
         if (next === '~') {
@@ -1340,6 +1419,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('h')
         }
+
         break
       case 'H':
         out.push('χ')
@@ -1355,6 +1435,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('i')
         }
+
         captureAllTones()
         break
       case 'j':
@@ -1367,6 +1448,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('k')
         }
+
         break
       case 'K':
         if (next === '*') {
@@ -1375,6 +1457,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('q')
         }
+
         break
       case 'l':
         if (next === '*') {
@@ -1383,6 +1466,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('l')
         }
+
         break
       case 'm':
         out.push('m')
@@ -1401,6 +1485,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('o')
         }
+
         captureAllTones()
         break
       case 'p':
@@ -1410,6 +1495,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('p')
         }
+
         break
       case 'F':
         out.push('ɸ')
@@ -1439,6 +1525,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('t')
         }
+
         break
       case 'U':
         out.push('ə')
@@ -1451,6 +1538,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('u')
         }
+
         captureAllTones()
         break
       case 'v':
@@ -1463,6 +1551,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('w')
         }
+
         break
       case 'x':
         out.push('ʃ')
@@ -1474,6 +1563,7 @@ export function makeTalkToIpa(text: string) {
         } else {
           out.push('j')
         }
+
         break
       case 'z':
         out.push('z')
@@ -1487,6 +1577,7 @@ export function makeTalkToIpa(text: string) {
 
     function captureAllTones() {
       let next = parts[i]
+
       if (next?.startsWith('&')) {
         out[out.length - 1] = `${out[out.length - 1]}${m.d.tilde}`
         i++
@@ -1495,7 +1586,9 @@ export function makeTalkToIpa(text: string) {
 
       if (next?.startsWith('-')) {
         ;/^(\-+)/.exec(text.slice(i))
+
         const size = RegExp.$1.length
+
         i += size
 
         if (size === 1) {
@@ -1505,7 +1598,9 @@ export function makeTalkToIpa(text: string) {
         }
       } else if (next?.startsWith('+')) {
         ;/^(\++)/.exec(text.slice(i))
+
         const size = RegExp.$1.length
+
         i += size
 
         if (size === 1) {
@@ -1516,6 +1611,7 @@ export function makeTalkToIpa(text: string) {
       }
     }
   }
+
   return out.join('')
 }
 
@@ -1524,8 +1620,10 @@ export function makeIpaToXSampa(text: string) {
     if (!ipa) {
       return ''
     }
+
     const i = IPA[ipa]!
     const x = TABLE[i]!['X-SAMPA']
+
     return x
   })
 }

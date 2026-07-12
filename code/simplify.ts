@@ -42,22 +42,22 @@ export type ViewType = {
   load: Record<string, string>
 }
 
-const VOWEL: Array<SimplifyType['vowel']> = [
+const VOWEL: SimplifyType['vowel'][] = [
   'none',
   'one',
   'basic',
   'all',
 ]
-const CONSONANT: Array<SimplifyType['consonant']> = [
+const CONSONANT: SimplifyType['consonant'][] = [
   'all',
   'simplified',
 ]
-const TONE: Array<SimplifyType['tone']> = ['yes', 'no']
-const DURATION: Array<SimplifyType['duration']> = ['yes', 'no']
-const ASPIRATION: Array<SimplifyType['aspiration']> = ['yes', 'no']
+const TONE: SimplifyType['tone'][] = ['yes', 'no']
+const DURATION: SimplifyType['duration'][] = ['yes', 'no']
+const ASPIRATION: SimplifyType['aspiration'][] = ['yes', 'no']
 
 export default function simplifyPhonetics(text: string) {
-  const holdBase: Record<string, Array<ViewType>> = {}
+  const holdBase: Record<string, ViewType[]> = {}
 
   text = text.replace(/=(.)/g, '')
 
@@ -75,6 +75,7 @@ export default function simplifyPhonetics(text: string) {
             })
 
             const list = (holdBase[view.text] ??= [])
+
             list.push(view)
           })
         })
@@ -82,15 +83,20 @@ export default function simplifyPhonetics(text: string) {
     })
   })
 
-  const holdHead: Array<ViewType> = []
+  const holdHead: ViewType[] = []
   const codeList: Record<string, boolean> = {}
+
   for (const line in holdBase) {
     const list = holdBase[line]
+
     list?.sort((a, b) => b.mass - a.mass)
+
     const head = list?.[0]
+
     if (head && !codeList[head.code] && head.code) {
       holdHead.push(head)
     }
+
     if (head) {
       codeList[head.code] = true
     }
@@ -120,6 +126,7 @@ export function simplifyPhoneticsCase(
       moveToSimplifiedConsonantText(view)
       break
     }
+
     case 'all': {
       moveToAllConsonantText(view)
       break
@@ -131,14 +138,17 @@ export function simplifyPhoneticsCase(
       moveToNoVowelText(view)
       break
     }
+
     case 'one': {
       moveToOneVowelText(view)
       break
     }
+
     case 'basic': {
       moveToBasicVowelText(view)
       break
     }
+
     case 'all': {
       moveToAllVowelText(view)
       break
@@ -150,6 +160,7 @@ export function simplifyPhoneticsCase(
       moveToNoToneText(view)
       break
     }
+
     case 'yes': {
       moveToYesToneText(view)
       break
@@ -161,6 +172,7 @@ export function simplifyPhoneticsCase(
       moveToNoAspirationText(view)
       break
     }
+
     case 'yes': {
       moveToYesAspirationText(view)
       break
@@ -172,6 +184,7 @@ export function simplifyPhoneticsCase(
       moveToNoDurationText(view)
       break
     }
+
     case 'yes': {
       moveToYesDurationText(view)
       break
@@ -185,7 +198,9 @@ export function simplifyPhoneticsCase(
 
 function moveToNoDurationText(view: ViewType) {
   const text = view.text.replace(/_/g, '')
+
   view.load.duration = 'no'
+
   if (text !== view.text) {
     view.mass *= Simplify.DurationNo
     view.text = text
@@ -199,6 +214,7 @@ function moveToYesDurationText(view: ViewType) {
 
 function moveToNoAspirationText(view: ViewType) {
   const text = view.text.replace(/h~/g, '')
+
   view.load.aspiration = 'no'
 
   if (text !== view.text) {
@@ -214,7 +230,9 @@ function moveToYesAspirationText(view: ViewType) {
 
 function moveToNoToneText(view: ViewType) {
   const text = view.text.replace(/[\-\+]+/g, '')
+
   view.load.tone = 'no'
+
   if (text !== view.text) {
     view.mass *= Simplify.ToneNo
     view.text = text
@@ -231,6 +249,7 @@ function moveToNoVowelText(view: ViewType) {
     .replace(/u\$/g, 'ð') // this isn't a vowel, it's the English r.
     .replace(/[aeiou][\$\^&_\+\-\!@]*/gi, '')
     .replace(/ð/g, 'u$')
+
   view.load.vowel = 'none'
 
   if (text !== view.text) {
@@ -246,6 +265,7 @@ function moveToOneVowelText(view: ViewType) {
     .replace(/[aeiou][\^&_\+\-\!@]*/gi, 'a')
     .replace(/ð/g, 'u$')
     .replace(/a+/g, 'a')
+
   view.load.vowel = 'one'
 
   if (text !== view.text) {
@@ -275,6 +295,7 @@ function moveToBasicVowelText(view: ViewType) {
     .replace(/ou/g, 'u')
     .replace(/oi/g, 'i')
     .replace(/ð/g, 'u$')
+
   view.load.vowel = 'basic'
 
   if (text !== view.text) {
@@ -308,6 +329,7 @@ function moveToSimplifiedConsonantText(view: ViewType) {
     .replace(/z/gi, 's')
     .replace(/d/gi, 't')
     .replace(/g/gi, 'k')
+
   view.load.consonant = 'simplified'
 
   if (text !== view.text) {
@@ -331,8 +353,10 @@ function normalizeMass(
       'Minimum value must be less than the maximum value.',
     )
   }
+
   if (value < min || value > max) {
     throw new Error('Value must be within the range of min and max.')
   }
+
   return parseFloat(((value - min) / (max - min)).toFixed(4))
 }

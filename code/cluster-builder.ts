@@ -18,6 +18,7 @@ const __dirname = path.dirname(__filename)
 const CLUSTERS_PATH = path.join(__dirname, 'clusters.json')
 
 let HANGUL_CODE = 53248
+
 const HANGUL_END = 0xd7a3
 
 // console.log(combos)
@@ -34,6 +35,7 @@ function getNextGlyph() {
       `Exceeded available Hangul code points (max: ${HANGUL_END})`,
     )
   }
+
   return String.fromCodePoint(HANGUL_CODE++)
 }
 
@@ -56,16 +58,19 @@ function loadExistingClustersNested(): Clusters {
 
   // Find the highest code point across all categories
   let maxCode = HANGUL_CODE - 1
-  const categories: Array<Record<string, string>> = [
+
+  const categories: Record<string, string>[] = [
     clusters.consonants,
     clusters.endConsonants,
     clusters.fullConsonants,
     clusters.startConsonants,
     clusters.vowels,
   ]
+
   for (const category of categories) {
     for (const glyph of Object.values(category)) {
       const code = glyph.codePointAt(0)
+
       if (code !== undefined && code > maxCode) {
         maxCode = code
       }
@@ -79,7 +84,7 @@ function loadExistingClustersNested(): Clusters {
 }
 
 // Process clusters - keep those with colons as they indicate optional splits
-function processClusters(items: Array<string>): Array<string> {
+function processClusters(items: string[]): string[] {
   return items
 }
 
@@ -91,7 +96,7 @@ export function buildAndSaveClusters(): Clusters {
   // Helper to add clusters to a category without overwriting
   function addToCategory(
     category: Record<string, string>,
-    items: Array<string>,
+    items: string[],
   ): void {
     for (const item of items) {
       if (!(item in category)) {
@@ -103,9 +108,10 @@ export function buildAndSaveClusters(): Clusters {
   // Helper to clean up removed clusters from a category
   function cleanupCategory(
     category: Record<string, string>,
-    validItems: Array<string>,
+    validItems: string[],
   ): void {
     const validSet = new Set(validItems)
+
     for (const key in category) {
       if (!validSet.has(key)) {
         delete category[key]
@@ -119,10 +125,12 @@ export function buildAndSaveClusters(): Clusters {
     clusters.endConsonants,
     processClusters(endConsonants),
   )
+
   cleanupCategory(
     clusters.fullConsonants,
     processClusters(fullConsonants),
   )
+
   cleanupCategory(
     clusters.startConsonants,
     processClusters(startConsonants),
@@ -136,6 +144,7 @@ export function buildAndSaveClusters(): Clusters {
     clusters.fullConsonants,
     processClusters(fullConsonants),
   )
+
   addToCategory(
     clusters.startConsonants,
     processClusters(startConsonants),
@@ -188,12 +197,15 @@ export function buildAndSaveClusters(): Clusters {
   console.log(
     `  consonants: ${Object.keys(clusters.consonants).length}`,
   )
+
   console.log(
     `  endConsonants: ${Object.keys(clusters.endConsonants).length}`,
   )
+
   console.log(
     `  fullConsonants: ${Object.keys(clusters.fullConsonants).length}`,
   )
+
   console.log(
     `  startConsonants: ${
       Object.keys(clusters.startConsonants).length

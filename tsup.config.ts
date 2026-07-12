@@ -1,7 +1,7 @@
 import { defineConfig } from 'tsup'
 
 export default defineConfig({
-  entry: ['index.ts', 'make/**/*.ts'],
+  entry: ['index.ts', 'code/**/*.ts'],
   // Emit both ESM and CJS. ESM consumers (`import talk from '@cluesurf/talk'`)
   // need a real module so the default export is the talk object itself; a
   // CJS-only build makes Node's interop bind the default import to the whole

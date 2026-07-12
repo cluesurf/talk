@@ -1,8 +1,8 @@
 export type PhoneticConfig = {
-  vowels: Array<string>
+  vowels: string[]
   consonants: {
-    start: Array<string>
-    end: Array<string>
+    start: string[]
+    end: string[]
   }
   rules: {
     allow_starting_vowels: boolean
@@ -19,7 +19,7 @@ export type PhoneticConfig = {
 export type Word = {
   text: string
   talk: string
-  syllables: Array<string>
+  syllables: string[]
 }
 
 export type SyllableCount =
@@ -33,11 +33,13 @@ const DEFAULT_START_CONSONANT_PROBABILITY = 0.3
 const DEFAULT_END_CONSONANT_PROBABILITY = 0.5
 
 // Function to check if a string ends with a vowel from the given vowels array
-function endsWithVowel(str: string, vowels: Array<string>): boolean {
+function endsWithVowel(str: string, vowels: string[]): boolean {
   if (str.length === 0) {
     return false
   }
+
   const lastChar = str.charAt(str.length - 1)
+
   return vowels.includes(lastChar)
 }
 
@@ -53,7 +55,7 @@ function generateSyllable(
   const { vowels, consonants, rules } = config
   const { isFirstSyllable, isLastSyllable, previousSyllable } = options
 
-  let syllable: Array<string> = []
+  const syllable: string[] = []
 
   // Check if previous syllable ends with a vowel
   const prevEndsWithVowel =
@@ -143,6 +145,7 @@ function applyOutputTransformations(
     outputTransforms,
   )) {
     const regex = new RegExp(pattern, 'g')
+
     result = result.replace(regex, replacement)
   }
 
@@ -154,7 +157,7 @@ export function generateWord(
   syllableCount: number,
   config: PhoneticConfig,
 ): Word {
-  const syllables: Array<string> = []
+  const syllables: string[] = []
 
   for (let i = 0; i < syllableCount; i++) {
     // Determine syllable position
@@ -174,6 +177,7 @@ export function generateWord(
 
   // Join syllables and apply rewrites
   const talk = syllables.join('')
+
   let text = applyRewrites(talk, config.rewrites)
 
   text = applyOutputTransformations(text, config.output)
@@ -186,13 +190,14 @@ function generateWords(
   count: number,
   syllableSpec: SyllableCount,
   config: PhoneticConfig,
-): Array<Word> {
+): Word[] {
   const checks = new Set<string>()
-  const words: Array<Word> = []
+  const words: Word[] = []
 
   while (words.length < count) {
     // Determine syllable count for this word
     let syllableCount: number
+
     if (typeof syllableSpec === 'number') {
       syllableCount = syllableSpec
     } else {
@@ -218,6 +223,6 @@ function generateWords(
 export default generateWords
 
 // Helper function to get a random element from an array
-function getRandomElement<T>(array: Array<T>): T {
+function getRandomElement<T>(array: T[]): T {
   return array[Math.floor(Math.random() * array.length)]!
 }
