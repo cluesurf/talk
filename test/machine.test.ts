@@ -89,38 +89,19 @@ describe('machine encoding is injective', () => {
 })
 
 describe('machine encoding coverage', () => {
-  // The documented snapshot of combos that cannot be encoded.
-  function loadGapSnapshot(): string[] {
-    const text = readFileSync(
-      resolve(TEST_DIR, 'machine-gaps.csv'),
-      'utf8',
-    ).trim()
-    return text.split(/\r?\n/).slice(1)
-  }
-
-  function liveGaps(): string[] {
-    const seen = new Set<string>()
+  it('every mapped phone and modifier combo encodes to Hangul', () => {
+    // No snapshot needed: this fails loudly, listing any phone whose
+    // Talk form has no glyph, so a new gap can never slip in silently.
+    const gaps: string[] = []
     for (const combo of allCombos()) {
       const talkText = comboTalk(combo)
       if (talkText == null) {
         continue
       }
       if (machine(talkText) == null) {
-        seen.add(`${combo.ipa},${talkText},${combo.feature}`)
+        gaps.push(`${combo.ipa} -> ${talkText}`)
       }
     }
-    return [...seen]
-  }
-
-  it('the live gap set exactly matches machine-gaps.csv', () => {
-    // Regenerate with `tsx test/build-machine-gaps.ts` after adding
-    // glyphs. This fails loudly if the hole grows OR shrinks.
-    expect(liveGaps().sort()).toEqual(loadGapSnapshot().sort())
-  })
-
-  it('no NEW machine gap is undocumented', () => {
-    const documented = new Set(loadGapSnapshot())
-    const undocumented = liveGaps().filter(row => !documented.has(row))
-    expect(undocumented).toEqual([])
+    expect(gaps).toEqual([])
   })
 })
