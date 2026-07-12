@@ -1,0 +1,8094 @@
+[
+  {
+    "talk": "mh!",
+    "machine": "가"
+  },
+  {
+    "talk": "mh!y~",
+    "machine": "각"
+  },
+  {
+    "talk": "m",
+    "machine": "갂"
+  },
+  {
+    "talk": "my~",
+    "machine": "갃"
+  },
+  {
+    "talk": "my~h!",
+    "machine": "간"
+  },
+  {
+    "talk": "m~h!",
+    "machine": "갅"
+  },
+  {
+    "talk": "m~h!y~",
+    "machine": "갆"
+  },
+  {
+    "talk": "m~",
+    "machine": "갇"
+  },
+  {
+    "talk": "m~y~",
+    "machine": "갈"
+  },
+  {
+    "talk": "m~y~h!",
+    "machine": "갉"
+  },
+  {
+    "talk": "n",
+    "machine": "갊"
+  },
+  {
+    "talk": "nh!",
+    "machine": "갋"
+  },
+  {
+    "talk": "nw~",
+    "machine": "갌"
+  },
+  {
+    "talk": "nw~h!",
+    "machine": "갍"
+  },
+  {
+    "talk": "ny~",
+    "machine": "갎"
+  },
+  {
+    "talk": "ny~h!",
+    "machine": "갏"
+  },
+  {
+    "talk": "ny~w~",
+    "machine": "감"
+  },
+  {
+    "talk": "ny~w~h!",
+    "machine": "갑"
+  },
+  {
+    "talk": "n~h!",
+    "machine": "값"
+  },
+  {
+    "talk": "n~h!w~",
+    "machine": "갓"
+  },
+  {
+    "talk": "n~h!y~",
+    "machine": "갔"
+  },
+  {
+    "talk": "n~h!y~w~",
+    "machine": "강"
+  },
+  {
+    "talk": "n~h!G~",
+    "machine": "갖"
+  },
+  {
+    "talk": "n~h!G~w~",
+    "machine": "갗"
+  },
+  {
+    "talk": "n~h!Q~",
+    "machine": "갘"
+  },
+  {
+    "talk": "n~h!Q~w~",
+    "machine": "같"
+  },
+  {
+    "talk": "n~h!~",
+    "machine": "갚"
+  },
+  {
+    "talk": "n~h!~w~",
+    "machine": "갛"
+  },
+  {
+    "talk": "n~h!~y~",
+    "machine": "개"
+  },
+  {
+    "talk": "n~h!~y~w~",
+    "machine": "객"
+  },
+  {
+    "talk": "n~h!~G~",
+    "machine": "갞"
+  },
+  {
+    "talk": "n~h!~G~w~",
+    "machine": "갟"
+  },
+  {
+    "talk": "n~h!~Q~",
+    "machine": "갠"
+  },
+  {
+    "talk": "n~h!~Q~w~",
+    "machine": "갡"
+  },
+  {
+    "talk": "n~",
+    "machine": "갢"
+  },
+  {
+    "talk": "n~w~",
+    "machine": "갣"
+  },
+  {
+    "talk": "n~w~h!",
+    "machine": "갤"
+  },
+  {
+    "talk": "n~y~",
+    "machine": "갥"
+  },
+  {
+    "talk": "n~y~h!",
+    "machine": "갦"
+  },
+  {
+    "talk": "n~y~w~",
+    "machine": "갧"
+  },
+  {
+    "talk": "n~y~w~h!",
+    "machine": "갨"
+  },
+  {
+    "talk": "n~G~",
+    "machine": "갩"
+  },
+  {
+    "talk": "n~G~h!",
+    "machine": "갪"
+  },
+  {
+    "talk": "n~G~w~",
+    "machine": "갫"
+  },
+  {
+    "talk": "n~G~w~h!",
+    "machine": "갬"
+  },
+  {
+    "talk": "n~Q~",
+    "machine": "갭"
+  },
+  {
+    "talk": "n~Q~h!",
+    "machine": "갮"
+  },
+  {
+    "talk": "n~Q~w~",
+    "machine": "갯"
+  },
+  {
+    "talk": "n~Q~w~h!",
+    "machine": "갰"
+  },
+  {
+    "talk": "n~~",
+    "machine": "갱"
+  },
+  {
+    "talk": "n~~h!",
+    "machine": "갲"
+  },
+  {
+    "talk": "n~~w~",
+    "machine": "갳"
+  },
+  {
+    "talk": "n~~w~h!",
+    "machine": "갴"
+  },
+  {
+    "talk": "n~~y~",
+    "machine": "갵"
+  },
+  {
+    "talk": "n~~y~h!",
+    "machine": "갶"
+  },
+  {
+    "talk": "n~~y~w~",
+    "machine": "갷"
+  },
+  {
+    "talk": "n~~y~w~h!",
+    "machine": "갸"
+  },
+  {
+    "talk": "n~~G~",
+    "machine": "갹"
+  },
+  {
+    "talk": "n~~G~h!",
+    "machine": "갺"
+  },
+  {
+    "talk": "n~~G~w~",
+    "machine": "갻"
+  },
+  {
+    "talk": "n~~G~w~h!",
+    "machine": "갼"
+  },
+  {
+    "talk": "n~~Q~",
+    "machine": "갽"
+  },
+  {
+    "talk": "n~~Q~h!",
+    "machine": "갾"
+  },
+  {
+    "talk": "n~~Q~w~",
+    "machine": "갿"
+  },
+  {
+    "talk": "n~~Q~w~h!",
+    "machine": "걀"
+  },
+  {
+    "talk": "nh!w~",
+    "machine": "걁"
+  },
+  {
+    "talk": "nh!y~",
+    "machine": "걂"
+  },
+  {
+    "talk": "nh!y~w~",
+    "machine": "걃"
+  },
+  {
+    "talk": "nh!G~",
+    "machine": "걄"
+  },
+  {
+    "talk": "nh!G~w~",
+    "machine": "걅"
+  },
+  {
+    "talk": "nh!Q~",
+    "machine": "걆"
+  },
+  {
+    "talk": "nh!Q~w~",
+    "machine": "걇"
+  },
+  {
+    "talk": "nh!~",
+    "machine": "걈"
+  },
+  {
+    "talk": "nh!~w~",
+    "machine": "걉"
+  },
+  {
+    "talk": "nh!~y~",
+    "machine": "걊"
+  },
+  {
+    "talk": "nh!~y~w~",
+    "machine": "걋"
+  },
+  {
+    "talk": "nh!~G~",
+    "machine": "걌"
+  },
+  {
+    "talk": "nh!~G~w~",
+    "machine": "걍"
+  },
+  {
+    "talk": "nh!~Q~",
+    "machine": "걎"
+  },
+  {
+    "talk": "nh!~Q~w~",
+    "machine": "걏"
+  },
+  {
+    "talk": "nG~",
+    "machine": "걐"
+  },
+  {
+    "talk": "nG~h!",
+    "machine": "걑"
+  },
+  {
+    "talk": "nG~w~",
+    "machine": "걒"
+  },
+  {
+    "talk": "nG~w~h!",
+    "machine": "걓"
+  },
+  {
+    "talk": "nQ~",
+    "machine": "걔"
+  },
+  {
+    "talk": "nQ~h!",
+    "machine": "걕"
+  },
+  {
+    "talk": "nQ~w~",
+    "machine": "걖"
+  },
+  {
+    "talk": "nQ~w~h!",
+    "machine": "걗"
+  },
+  {
+    "talk": "Nh!",
+    "machine": "걘"
+  },
+  {
+    "talk": "Nh!w~",
+    "machine": "걙"
+  },
+  {
+    "talk": "Nh!y~",
+    "machine": "걚"
+  },
+  {
+    "talk": "Nh!y~w~",
+    "machine": "걛"
+  },
+  {
+    "talk": "N",
+    "machine": "걜"
+  },
+  {
+    "talk": "Nw~",
+    "machine": "걝"
+  },
+  {
+    "talk": "Nw~h!",
+    "machine": "걞"
+  },
+  {
+    "talk": "Ny~",
+    "machine": "걟"
+  },
+  {
+    "talk": "Ny~h!",
+    "machine": "걠"
+  },
+  {
+    "talk": "Ny~w~",
+    "machine": "걡"
+  },
+  {
+    "talk": "Ny~w~h!",
+    "machine": "걢"
+  },
+  {
+    "talk": "ny~h!w~",
+    "machine": "걣"
+  },
+  {
+    "talk": "qh!",
+    "machine": "걤"
+  },
+  {
+    "talk": "qh!w~",
+    "machine": "걥"
+  },
+  {
+    "talk": "qh!y~",
+    "machine": "걦"
+  },
+  {
+    "talk": "qh!y~w~",
+    "machine": "걧"
+  },
+  {
+    "talk": "q",
+    "machine": "걨"
+  },
+  {
+    "talk": "qw~",
+    "machine": "걩"
+  },
+  {
+    "talk": "qw~h!",
+    "machine": "걪"
+  },
+  {
+    "talk": "qy~",
+    "machine": "걫"
+  },
+  {
+    "talk": "qy~h!",
+    "machine": "걬"
+  },
+  {
+    "talk": "qy~w~",
+    "machine": "걭"
+  },
+  {
+    "talk": "qy~w~h!",
+    "machine": "걮"
+  },
+  {
+    "talk": "p",
+    "machine": "걯"
+  },
+  {
+    "talk": "ph~",
+    "machine": "거"
+  },
+  {
+    "talk": "p!",
+    "machine": "걱"
+  },
+  {
+    "talk": "py~",
+    "machine": "걲"
+  },
+  {
+    "talk": "py~h~",
+    "machine": "걳"
+  },
+  {
+    "talk": "py~!",
+    "machine": "건"
+  },
+  {
+    "talk": "b",
+    "machine": "걵"
+  },
+  {
+    "talk": "bh~",
+    "machine": "걶"
+  },
+  {
+    "talk": "by~",
+    "machine": "걷"
+  },
+  {
+    "talk": "by~h~",
+    "machine": "걸"
+  },
+  {
+    "talk": "p~",
+    "machine": "걹"
+  },
+  {
+    "talk": "p~h~",
+    "machine": "걺"
+  },
+  {
+    "talk": "p~!",
+    "machine": "걻"
+  },
+  {
+    "talk": "p~y~",
+    "machine": "걼"
+  },
+  {
+    "talk": "p~y~h~",
+    "machine": "걽"
+  },
+  {
+    "talk": "p~y~!",
+    "machine": "걾"
+  },
+  {
+    "talk": "b~",
+    "machine": "걿"
+  },
+  {
+    "talk": "b~h~",
+    "machine": "검"
+  },
+  {
+    "talk": "b~y~",
+    "machine": "겁"
+  },
+  {
+    "talk": "b~y~h~",
+    "machine": "겂"
+  },
+  {
+    "talk": "t",
+    "machine": "것"
+  },
+  {
+    "talk": "th~",
+    "machine": "겄"
+  },
+  {
+    "talk": "t!",
+    "machine": "겅"
+  },
+  {
+    "talk": "tw~",
+    "machine": "겆"
+  },
+  {
+    "talk": "tw~h~",
+    "machine": "겇"
+  },
+  {
+    "talk": "tw~!",
+    "machine": "겈"
+  },
+  {
+    "talk": "ty~",
+    "machine": "겉"
+  },
+  {
+    "talk": "ty~h~",
+    "machine": "겊"
+  },
+  {
+    "talk": "ty~!",
+    "machine": "겋"
+  },
+  {
+    "talk": "ty~w~",
+    "machine": "게"
+  },
+  {
+    "talk": "ty~w~h~",
+    "machine": "겍"
+  },
+  {
+    "talk": "ty~w~!",
+    "machine": "겎"
+  },
+  {
+    "talk": "d",
+    "machine": "겏"
+  },
+  {
+    "talk": "dh~",
+    "machine": "겐"
+  },
+  {
+    "talk": "dw~",
+    "machine": "겑"
+  },
+  {
+    "talk": "dw~h~",
+    "machine": "겒"
+  },
+  {
+    "talk": "dy~",
+    "machine": "겓"
+  },
+  {
+    "talk": "dy~h~",
+    "machine": "겔"
+  },
+  {
+    "talk": "dy~w~",
+    "machine": "겕"
+  },
+  {
+    "talk": "dy~w~h~",
+    "machine": "겖"
+  },
+  {
+    "talk": "t~",
+    "machine": "겗"
+  },
+  {
+    "talk": "t~h~",
+    "machine": "겘"
+  },
+  {
+    "talk": "t~!",
+    "machine": "겙"
+  },
+  {
+    "talk": "t~w~",
+    "machine": "겚"
+  },
+  {
+    "talk": "t~w~h~",
+    "machine": "겛"
+  },
+  {
+    "talk": "t~w~!",
+    "machine": "겜"
+  },
+  {
+    "talk": "t~y~",
+    "machine": "겝"
+  },
+  {
+    "talk": "t~y~h~",
+    "machine": "겞"
+  },
+  {
+    "talk": "t~y~!",
+    "machine": "겟"
+  },
+  {
+    "talk": "t~y~w~",
+    "machine": "겠"
+  },
+  {
+    "talk": "t~y~w~h~",
+    "machine": "겡"
+  },
+  {
+    "talk": "t~y~w~!",
+    "machine": "겢"
+  },
+  {
+    "talk": "t~G~",
+    "machine": "겣"
+  },
+  {
+    "talk": "t~G~h~",
+    "machine": "겤"
+  },
+  {
+    "talk": "t~G~!",
+    "machine": "겥"
+  },
+  {
+    "talk": "t~G~w~",
+    "machine": "겦"
+  },
+  {
+    "talk": "t~G~w~h~",
+    "machine": "겧"
+  },
+  {
+    "talk": "t~G~w~!",
+    "machine": "겨"
+  },
+  {
+    "talk": "t~Q~",
+    "machine": "격"
+  },
+  {
+    "talk": "t~Q~h~",
+    "machine": "겪"
+  },
+  {
+    "talk": "t~Q~!",
+    "machine": "겫"
+  },
+  {
+    "talk": "t~Q~w~",
+    "machine": "견"
+  },
+  {
+    "talk": "t~Q~w~h~",
+    "machine": "겭"
+  },
+  {
+    "talk": "t~Q~w~!",
+    "machine": "겮"
+  },
+  {
+    "talk": "t~~",
+    "machine": "겯"
+  },
+  {
+    "talk": "t~~h~",
+    "machine": "결"
+  },
+  {
+    "talk": "t~~!",
+    "machine": "겱"
+  },
+  {
+    "talk": "t~~w~",
+    "machine": "겲"
+  },
+  {
+    "talk": "t~~w~h~",
+    "machine": "겳"
+  },
+  {
+    "talk": "t~~w~!",
+    "machine": "겴"
+  },
+  {
+    "talk": "t~~y~",
+    "machine": "겵"
+  },
+  {
+    "talk": "t~~y~h~",
+    "machine": "겶"
+  },
+  {
+    "talk": "t~~y~!",
+    "machine": "겷"
+  },
+  {
+    "talk": "t~~y~w~",
+    "machine": "겸"
+  },
+  {
+    "talk": "t~~y~w~h~",
+    "machine": "겹"
+  },
+  {
+    "talk": "t~~y~w~!",
+    "machine": "겺"
+  },
+  {
+    "talk": "t~~G~",
+    "machine": "겻"
+  },
+  {
+    "talk": "t~~G~h~",
+    "machine": "겼"
+  },
+  {
+    "talk": "t~~G~!",
+    "machine": "경"
+  },
+  {
+    "talk": "t~~G~w~",
+    "machine": "겾"
+  },
+  {
+    "talk": "t~~G~w~h~",
+    "machine": "겿"
+  },
+  {
+    "talk": "t~~G~w~!",
+    "machine": "곀"
+  },
+  {
+    "talk": "t~~Q~",
+    "machine": "곁"
+  },
+  {
+    "talk": "t~~Q~h~",
+    "machine": "곂"
+  },
+  {
+    "talk": "t~~Q~!",
+    "machine": "곃"
+  },
+  {
+    "talk": "t~~Q~w~",
+    "machine": "계"
+  },
+  {
+    "talk": "t~~Q~w~h~",
+    "machine": "곅"
+  },
+  {
+    "talk": "t~~Q~w~!",
+    "machine": "곆"
+  },
+  {
+    "talk": "d~",
+    "machine": "곇"
+  },
+  {
+    "talk": "d~h~",
+    "machine": "곈"
+  },
+  {
+    "talk": "d~w~",
+    "machine": "곉"
+  },
+  {
+    "talk": "d~w~h~",
+    "machine": "곊"
+  },
+  {
+    "talk": "d~y~",
+    "machine": "곋"
+  },
+  {
+    "talk": "d~y~h~",
+    "machine": "곌"
+  },
+  {
+    "talk": "d~y~w~",
+    "machine": "곍"
+  },
+  {
+    "talk": "d~y~w~h~",
+    "machine": "곎"
+  },
+  {
+    "talk": "d~G~",
+    "machine": "곏"
+  },
+  {
+    "talk": "d~G~h~",
+    "machine": "곐"
+  },
+  {
+    "talk": "d~G~w~",
+    "machine": "곑"
+  },
+  {
+    "talk": "d~G~w~h~",
+    "machine": "곒"
+  },
+  {
+    "talk": "d~Q~",
+    "machine": "곓"
+  },
+  {
+    "talk": "d~Q~h~",
+    "machine": "곔"
+  },
+  {
+    "talk": "d~Q~w~",
+    "machine": "곕"
+  },
+  {
+    "talk": "d~Q~w~h~",
+    "machine": "곖"
+  },
+  {
+    "talk": "d~~",
+    "machine": "곗"
+  },
+  {
+    "talk": "d~~h~",
+    "machine": "곘"
+  },
+  {
+    "talk": "d~~w~",
+    "machine": "곙"
+  },
+  {
+    "talk": "d~~w~h~",
+    "machine": "곚"
+  },
+  {
+    "talk": "d~~y~",
+    "machine": "곛"
+  },
+  {
+    "talk": "d~~y~h~",
+    "machine": "곜"
+  },
+  {
+    "talk": "d~~y~w~",
+    "machine": "곝"
+  },
+  {
+    "talk": "d~~y~w~h~",
+    "machine": "곞"
+  },
+  {
+    "talk": "d~~G~",
+    "machine": "곟"
+  },
+  {
+    "talk": "d~~G~h~",
+    "machine": "고"
+  },
+  {
+    "talk": "d~~G~w~",
+    "machine": "곡"
+  },
+  {
+    "talk": "d~~G~w~h~",
+    "machine": "곢"
+  },
+  {
+    "talk": "d~~Q~",
+    "machine": "곣"
+  },
+  {
+    "talk": "d~~Q~h~",
+    "machine": "곤"
+  },
+  {
+    "talk": "d~~Q~w~",
+    "machine": "곥"
+  },
+  {
+    "talk": "d~~Q~w~h~",
+    "machine": "곦"
+  },
+  {
+    "talk": "tG~",
+    "machine": "곧"
+  },
+  {
+    "talk": "tG~h~",
+    "machine": "골"
+  },
+  {
+    "talk": "tG~!",
+    "machine": "곩"
+  },
+  {
+    "talk": "tG~w~",
+    "machine": "곪"
+  },
+  {
+    "talk": "tG~w~h~",
+    "machine": "곫"
+  },
+  {
+    "talk": "tG~w~!",
+    "machine": "곬"
+  },
+  {
+    "talk": "tQ~",
+    "machine": "곭"
+  },
+  {
+    "talk": "tQ~h~",
+    "machine": "곮"
+  },
+  {
+    "talk": "tQ~!",
+    "machine": "곯"
+  },
+  {
+    "talk": "tQ~w~",
+    "machine": "곰"
+  },
+  {
+    "talk": "tQ~w~h~",
+    "machine": "곱"
+  },
+  {
+    "talk": "tQ~w~!",
+    "machine": "곲"
+  },
+  {
+    "talk": "dG~",
+    "machine": "곳"
+  },
+  {
+    "talk": "dG~h~",
+    "machine": "곴"
+  },
+  {
+    "talk": "dG~w~",
+    "machine": "공"
+  },
+  {
+    "talk": "dG~w~h~",
+    "machine": "곶"
+  },
+  {
+    "talk": "dQ~",
+    "machine": "곷"
+  },
+  {
+    "talk": "dQ~h~",
+    "machine": "곸"
+  },
+  {
+    "talk": "dQ~w~",
+    "machine": "곹"
+  },
+  {
+    "talk": "dQ~w~h~",
+    "machine": "곺"
+  },
+  {
+    "talk": "T",
+    "machine": "곻"
+  },
+  {
+    "talk": "Th~",
+    "machine": "과"
+  },
+  {
+    "talk": "T!",
+    "machine": "곽"
+  },
+  {
+    "talk": "Tw~",
+    "machine": "곾"
+  },
+  {
+    "talk": "Tw~h~",
+    "machine": "곿"
+  },
+  {
+    "talk": "Tw~!",
+    "machine": "관"
+  },
+  {
+    "talk": "Ty~",
+    "machine": "괁"
+  },
+  {
+    "talk": "Ty~h~",
+    "machine": "괂"
+  },
+  {
+    "talk": "Ty~!",
+    "machine": "괃"
+  },
+  {
+    "talk": "Ty~w~",
+    "machine": "괄"
+  },
+  {
+    "talk": "Ty~w~h~",
+    "machine": "괅"
+  },
+  {
+    "talk": "Ty~w~!",
+    "machine": "괆"
+  },
+  {
+    "talk": "D",
+    "machine": "괇"
+  },
+  {
+    "talk": "Dh~",
+    "machine": "괈"
+  },
+  {
+    "talk": "Dw~",
+    "machine": "괉"
+  },
+  {
+    "talk": "Dw~h~",
+    "machine": "괊"
+  },
+  {
+    "talk": "Dy~",
+    "machine": "괋"
+  },
+  {
+    "talk": "Dy~h~",
+    "machine": "괌"
+  },
+  {
+    "talk": "Dy~w~",
+    "machine": "괍"
+  },
+  {
+    "talk": "Dy~w~h~",
+    "machine": "괎"
+  },
+  {
+    "talk": "ky~",
+    "machine": "괏"
+  },
+  {
+    "talk": "ky~h~",
+    "machine": "괐"
+  },
+  {
+    "talk": "ky~!",
+    "machine": "광"
+  },
+  {
+    "talk": "ky~w~",
+    "machine": "괒"
+  },
+  {
+    "talk": "ky~w~h~",
+    "machine": "괓"
+  },
+  {
+    "talk": "ky~w~!",
+    "machine": "괔"
+  },
+  {
+    "talk": "gy~",
+    "machine": "괕"
+  },
+  {
+    "talk": "gy~h~",
+    "machine": "괖"
+  },
+  {
+    "talk": "gy~w~",
+    "machine": "괗"
+  },
+  {
+    "talk": "gy~w~h~",
+    "machine": "괘"
+  },
+  {
+    "talk": "k",
+    "machine": "괙"
+  },
+  {
+    "talk": "kh~",
+    "machine": "괚"
+  },
+  {
+    "talk": "k!",
+    "machine": "괛"
+  },
+  {
+    "talk": "kw~",
+    "machine": "괜"
+  },
+  {
+    "talk": "kw~h~",
+    "machine": "괝"
+  },
+  {
+    "talk": "kw~!",
+    "machine": "괞"
+  },
+  {
+    "talk": "g",
+    "machine": "괟"
+  },
+  {
+    "talk": "gh~",
+    "machine": "괠"
+  },
+  {
+    "talk": "gw~",
+    "machine": "괡"
+  },
+  {
+    "talk": "gw~h~",
+    "machine": "괢"
+  },
+  {
+    "talk": "K",
+    "machine": "괣"
+  },
+  {
+    "talk": "Kh~",
+    "machine": "괤"
+  },
+  {
+    "talk": "K!",
+    "machine": "괥"
+  },
+  {
+    "talk": "Kw~",
+    "machine": "괦"
+  },
+  {
+    "talk": "Kw~h~",
+    "machine": "괧"
+  },
+  {
+    "talk": "Kw~!",
+    "machine": "괨"
+  },
+  {
+    "talk": "Ky~",
+    "machine": "괩"
+  },
+  {
+    "talk": "Ky~h~",
+    "machine": "괪"
+  },
+  {
+    "talk": "Ky~!",
+    "machine": "괫"
+  },
+  {
+    "talk": "Ky~w~",
+    "machine": "괬"
+  },
+  {
+    "talk": "Ky~w~h~",
+    "machine": "괭"
+  },
+  {
+    "talk": "Ky~w~!",
+    "machine": "괮"
+  },
+  {
+    "talk": "Q",
+    "machine": "괯"
+  },
+  {
+    "talk": "Qh~",
+    "machine": "괰"
+  },
+  {
+    "talk": "Q!",
+    "machine": "괱"
+  },
+  {
+    "talk": "'",
+    "machine": "괲"
+  },
+  {
+    "talk": "s~",
+    "machine": "괳"
+  },
+  {
+    "talk": "s~!",
+    "machine": "괴"
+  },
+  {
+    "talk": "s~w~",
+    "machine": "괵"
+  },
+  {
+    "talk": "s~w~!",
+    "machine": "괶"
+  },
+  {
+    "talk": "s~y~",
+    "machine": "괷"
+  },
+  {
+    "talk": "s~y~!",
+    "machine": "괸"
+  },
+  {
+    "talk": "s~y~w~",
+    "machine": "괹"
+  },
+  {
+    "talk": "s~y~w~!",
+    "machine": "괺"
+  },
+  {
+    "talk": "s~G~",
+    "machine": "괻"
+  },
+  {
+    "talk": "s~G~!",
+    "machine": "괼"
+  },
+  {
+    "talk": "s~G~w~",
+    "machine": "괽"
+  },
+  {
+    "talk": "s~G~w~!",
+    "machine": "괾"
+  },
+  {
+    "talk": "s~Q~",
+    "machine": "괿"
+  },
+  {
+    "talk": "s~Q~!",
+    "machine": "굀"
+  },
+  {
+    "talk": "s~Q~w~",
+    "machine": "굁"
+  },
+  {
+    "talk": "s~Q~w~!",
+    "machine": "굂"
+  },
+  {
+    "talk": "s~~",
+    "machine": "굃"
+  },
+  {
+    "talk": "s~~!",
+    "machine": "굄"
+  },
+  {
+    "talk": "s~~w~",
+    "machine": "굅"
+  },
+  {
+    "talk": "s~~w~!",
+    "machine": "굆"
+  },
+  {
+    "talk": "s~~y~",
+    "machine": "굇"
+  },
+  {
+    "talk": "s~~y~!",
+    "machine": "굈"
+  },
+  {
+    "talk": "s~~y~w~",
+    "machine": "굉"
+  },
+  {
+    "talk": "s~~y~w~!",
+    "machine": "굊"
+  },
+  {
+    "talk": "s~~G~",
+    "machine": "굋"
+  },
+  {
+    "talk": "s~~G~!",
+    "machine": "굌"
+  },
+  {
+    "talk": "s~~G~w~",
+    "machine": "굍"
+  },
+  {
+    "talk": "s~~G~w~!",
+    "machine": "굎"
+  },
+  {
+    "talk": "s~~Q~",
+    "machine": "굏"
+  },
+  {
+    "talk": "s~~Q~!",
+    "machine": "교"
+  },
+  {
+    "talk": "s~~Q~w~",
+    "machine": "굑"
+  },
+  {
+    "talk": "s~~Q~w~!",
+    "machine": "굒"
+  },
+  {
+    "talk": "z~",
+    "machine": "굓"
+  },
+  {
+    "talk": "z~w~",
+    "machine": "굔"
+  },
+  {
+    "talk": "z~y~",
+    "machine": "굕"
+  },
+  {
+    "talk": "z~y~w~",
+    "machine": "굖"
+  },
+  {
+    "talk": "z~G~",
+    "machine": "굗"
+  },
+  {
+    "talk": "z~G~w~",
+    "machine": "굘"
+  },
+  {
+    "talk": "z~Q~",
+    "machine": "굙"
+  },
+  {
+    "talk": "z~Q~w~",
+    "machine": "굚"
+  },
+  {
+    "talk": "z~~",
+    "machine": "굛"
+  },
+  {
+    "talk": "z~~w~",
+    "machine": "굜"
+  },
+  {
+    "talk": "z~~y~",
+    "machine": "굝"
+  },
+  {
+    "talk": "z~~y~w~",
+    "machine": "굞"
+  },
+  {
+    "talk": "z~~G~",
+    "machine": "굟"
+  },
+  {
+    "talk": "z~~G~w~",
+    "machine": "굠"
+  },
+  {
+    "talk": "z~~Q~",
+    "machine": "굡"
+  },
+  {
+    "talk": "z~~Q~w~",
+    "machine": "굢"
+  },
+  {
+    "talk": "s",
+    "machine": "굣"
+  },
+  {
+    "talk": "s!",
+    "machine": "굤"
+  },
+  {
+    "talk": "sw~",
+    "machine": "굥"
+  },
+  {
+    "talk": "sw~!",
+    "machine": "굦"
+  },
+  {
+    "talk": "sy~",
+    "machine": "굧"
+  },
+  {
+    "talk": "sy~!",
+    "machine": "굨"
+  },
+  {
+    "talk": "sy~w~",
+    "machine": "굩"
+  },
+  {
+    "talk": "sy~w~!",
+    "machine": "굪"
+  },
+  {
+    "talk": "sG~",
+    "machine": "굫"
+  },
+  {
+    "talk": "sG~!",
+    "machine": "구"
+  },
+  {
+    "talk": "sG~w~",
+    "machine": "국"
+  },
+  {
+    "talk": "sG~w~!",
+    "machine": "굮"
+  },
+  {
+    "talk": "sQ~",
+    "machine": "굯"
+  },
+  {
+    "talk": "sQ~!",
+    "machine": "군"
+  },
+  {
+    "talk": "sQ~w~",
+    "machine": "굱"
+  },
+  {
+    "talk": "sQ~w~!",
+    "machine": "굲"
+  },
+  {
+    "talk": "z",
+    "machine": "굳"
+  },
+  {
+    "talk": "zw~",
+    "machine": "굴"
+  },
+  {
+    "talk": "zy~",
+    "machine": "굵"
+  },
+  {
+    "talk": "zy~w~",
+    "machine": "굶"
+  },
+  {
+    "talk": "zG~",
+    "machine": "굷"
+  },
+  {
+    "talk": "zG~w~",
+    "machine": "굸"
+  },
+  {
+    "talk": "zQ~",
+    "machine": "굹"
+  },
+  {
+    "talk": "zQ~w~",
+    "machine": "굺"
+  },
+  {
+    "talk": "x",
+    "machine": "굻"
+  },
+  {
+    "talk": "x!",
+    "machine": "굼"
+  },
+  {
+    "talk": "xw~",
+    "machine": "굽"
+  },
+  {
+    "talk": "xw~!",
+    "machine": "굾"
+  },
+  {
+    "talk": "xy~",
+    "machine": "굿"
+  },
+  {
+    "talk": "xy~!",
+    "machine": "궀"
+  },
+  {
+    "talk": "xy~w~",
+    "machine": "궁"
+  },
+  {
+    "talk": "xy~w~!",
+    "machine": "궂"
+  },
+  {
+    "talk": "j",
+    "machine": "궃"
+  },
+  {
+    "talk": "jw~",
+    "machine": "궄"
+  },
+  {
+    "talk": "jy~",
+    "machine": "궅"
+  },
+  {
+    "talk": "jy~w~",
+    "machine": "궆"
+  },
+  {
+    "talk": "X",
+    "machine": "궇"
+  },
+  {
+    "talk": "X!",
+    "machine": "궈"
+  },
+  {
+    "talk": "Xw~",
+    "machine": "궉"
+  },
+  {
+    "talk": "Xw~!",
+    "machine": "궊"
+  },
+  {
+    "talk": "Xy~",
+    "machine": "궋"
+  },
+  {
+    "talk": "Xy~!",
+    "machine": "권"
+  },
+  {
+    "talk": "Xy~w~",
+    "machine": "궍"
+  },
+  {
+    "talk": "Xy~w~!",
+    "machine": "궎"
+  },
+  {
+    "talk": "J",
+    "machine": "궏"
+  },
+  {
+    "talk": "Jw~",
+    "machine": "궐"
+  },
+  {
+    "talk": "Jy~",
+    "machine": "궑"
+  },
+  {
+    "talk": "Jy~w~",
+    "machine": "궒"
+  },
+  {
+    "talk": "F",
+    "machine": "궓"
+  },
+  {
+    "talk": "F!",
+    "machine": "궔"
+  },
+  {
+    "talk": "Fy~",
+    "machine": "궕"
+  },
+  {
+    "talk": "Fy~!",
+    "machine": "궖"
+  },
+  {
+    "talk": "V",
+    "machine": "궗"
+  },
+  {
+    "talk": "Vy~",
+    "machine": "궘"
+  },
+  {
+    "talk": "f",
+    "machine": "궙"
+  },
+  {
+    "talk": "f!",
+    "machine": "궚"
+  },
+  {
+    "talk": "fy~",
+    "machine": "궛"
+  },
+  {
+    "talk": "fy~!",
+    "machine": "궜"
+  },
+  {
+    "talk": "v",
+    "machine": "궝"
+  },
+  {
+    "talk": "vy~",
+    "machine": "궞"
+  },
+  {
+    "talk": "c",
+    "machine": "궟"
+  },
+  {
+    "talk": "c!",
+    "machine": "궠"
+  },
+  {
+    "talk": "cw~",
+    "machine": "궡"
+  },
+  {
+    "talk": "cw~!",
+    "machine": "궢"
+  },
+  {
+    "talk": "cy~",
+    "machine": "궣"
+  },
+  {
+    "talk": "cy~!",
+    "machine": "궤"
+  },
+  {
+    "talk": "cy~w~",
+    "machine": "궥"
+  },
+  {
+    "talk": "cy~w~!",
+    "machine": "궦"
+  },
+  {
+    "talk": "C",
+    "machine": "궧"
+  },
+  {
+    "talk": "Cw~",
+    "machine": "궨"
+  },
+  {
+    "talk": "Cy~",
+    "machine": "궩"
+  },
+  {
+    "talk": "Cy~w~",
+    "machine": "궪"
+  },
+  {
+    "talk": "cG~",
+    "machine": "궫"
+  },
+  {
+    "talk": "cG~!",
+    "machine": "궬"
+  },
+  {
+    "talk": "cG~w~",
+    "machine": "궭"
+  },
+  {
+    "talk": "cG~w~!",
+    "machine": "궮"
+  },
+  {
+    "talk": "cQ~",
+    "machine": "궯"
+  },
+  {
+    "talk": "cQ~!",
+    "machine": "궰"
+  },
+  {
+    "talk": "cQ~w~",
+    "machine": "궱"
+  },
+  {
+    "talk": "cQ~w~!",
+    "machine": "궲"
+  },
+  {
+    "talk": "c~",
+    "machine": "궳"
+  },
+  {
+    "talk": "c~!",
+    "machine": "궴"
+  },
+  {
+    "talk": "c~w~",
+    "machine": "궵"
+  },
+  {
+    "talk": "c~w~!",
+    "machine": "궶"
+  },
+  {
+    "talk": "c~y~",
+    "machine": "궷"
+  },
+  {
+    "talk": "c~y~!",
+    "machine": "궸"
+  },
+  {
+    "talk": "c~y~w~",
+    "machine": "궹"
+  },
+  {
+    "talk": "c~y~w~!",
+    "machine": "궺"
+  },
+  {
+    "talk": "c~G~",
+    "machine": "궻"
+  },
+  {
+    "talk": "c~G~!",
+    "machine": "궼"
+  },
+  {
+    "talk": "c~G~w~",
+    "machine": "궽"
+  },
+  {
+    "talk": "c~G~w~!",
+    "machine": "궾"
+  },
+  {
+    "talk": "c~Q~",
+    "machine": "궿"
+  },
+  {
+    "talk": "c~Q~!",
+    "machine": "귀"
+  },
+  {
+    "talk": "c~Q~w~",
+    "machine": "귁"
+  },
+  {
+    "talk": "c~Q~w~!",
+    "machine": "귂"
+  },
+  {
+    "talk": "CG~",
+    "machine": "귃"
+  },
+  {
+    "talk": "CG~w~",
+    "machine": "귄"
+  },
+  {
+    "talk": "CQ~",
+    "machine": "귅"
+  },
+  {
+    "talk": "CQ~w~",
+    "machine": "귆"
+  },
+  {
+    "talk": "C~",
+    "machine": "귇"
+  },
+  {
+    "talk": "C~w~",
+    "machine": "귈"
+  },
+  {
+    "talk": "C~y~",
+    "machine": "귉"
+  },
+  {
+    "talk": "C~y~w~",
+    "machine": "귊"
+  },
+  {
+    "talk": "C~G~",
+    "machine": "귋"
+  },
+  {
+    "talk": "C~G~w~",
+    "machine": "귌"
+  },
+  {
+    "talk": "C~Q~",
+    "machine": "귍"
+  },
+  {
+    "talk": "C~Q~w~",
+    "machine": "귎"
+  },
+  {
+    "talk": "u$",
+    "machine": "귏"
+  },
+  {
+    "talk": "u$w~",
+    "machine": "귐"
+  },
+  {
+    "talk": "u$y~",
+    "machine": "귑"
+  },
+  {
+    "talk": "u$y~w~",
+    "machine": "귒"
+  },
+  {
+    "talk": "hy~",
+    "machine": "귓"
+  },
+  {
+    "talk": "hy~!",
+    "machine": "귔"
+  },
+  {
+    "talk": "hy~w~",
+    "machine": "귕"
+  },
+  {
+    "talk": "hy~w~!",
+    "machine": "귖"
+  },
+  {
+    "talk": "y",
+    "machine": "귗"
+  },
+  {
+    "talk": "yw~",
+    "machine": "귘"
+  },
+  {
+    "talk": "H",
+    "machine": "귙"
+  },
+  {
+    "talk": "H!",
+    "machine": "귚"
+  },
+  {
+    "talk": "Hw~",
+    "machine": "귛"
+  },
+  {
+    "talk": "Hw~!",
+    "machine": "규"
+  },
+  {
+    "talk": "Hy~",
+    "machine": "귝"
+  },
+  {
+    "talk": "Hy~!",
+    "machine": "귞"
+  },
+  {
+    "talk": "Hy~w~",
+    "machine": "귟"
+  },
+  {
+    "talk": "Hy~w~!",
+    "machine": "균"
+  },
+  {
+    "talk": "G",
+    "machine": "귡"
+  },
+  {
+    "talk": "Gw~",
+    "machine": "귢"
+  },
+  {
+    "talk": "Gy~",
+    "machine": "귣"
+  },
+  {
+    "talk": "Gy~w~",
+    "machine": "귤"
+  },
+  {
+    "talk": "Hh~",
+    "machine": "귥"
+  },
+  {
+    "talk": "Hh~!",
+    "machine": "귦"
+  },
+  {
+    "talk": "h",
+    "machine": "귧"
+  },
+  {
+    "talk": "hh~",
+    "machine": "귨"
+  },
+  {
+    "talk": "Vh!",
+    "machine": "귩"
+  },
+  {
+    "talk": "Vy~h!",
+    "machine": "귪"
+  },
+  {
+    "talk": "Ch!",
+    "machine": "귫"
+  },
+  {
+    "talk": "Cw~h!",
+    "machine": "귬"
+  },
+  {
+    "talk": "Cy~h!",
+    "machine": "귭"
+  },
+  {
+    "talk": "Cy~w~h!",
+    "machine": "귮"
+  },
+  {
+    "talk": "CG~h!",
+    "machine": "귯"
+  },
+  {
+    "talk": "CG~w~h!",
+    "machine": "귰"
+  },
+  {
+    "talk": "CQ~h!",
+    "machine": "귱"
+  },
+  {
+    "talk": "CQ~w~h!",
+    "machine": "귲"
+  },
+  {
+    "talk": "C~h!",
+    "machine": "귳"
+  },
+  {
+    "talk": "C~w~h!",
+    "machine": "귴"
+  },
+  {
+    "talk": "C~y~h!",
+    "machine": "귵"
+  },
+  {
+    "talk": "C~y~w~h!",
+    "machine": "귶"
+  },
+  {
+    "talk": "C~G~h!",
+    "machine": "귷"
+  },
+  {
+    "talk": "C~G~w~h!",
+    "machine": "그"
+  },
+  {
+    "talk": "C~Q~h!",
+    "machine": "극"
+  },
+  {
+    "talk": "C~Q~w~h!",
+    "machine": "귺"
+  },
+  {
+    "talk": "u$h!",
+    "machine": "귻"
+  },
+  {
+    "talk": "u$w~h!",
+    "machine": "근"
+  },
+  {
+    "talk": "u$y~h!",
+    "machine": "귽"
+  },
+  {
+    "talk": "u$y~w~h!",
+    "machine": "귾"
+  },
+  {
+    "talk": "u$G~",
+    "machine": "귿"
+  },
+  {
+    "talk": "u$G~h!",
+    "machine": "글"
+  },
+  {
+    "talk": "u$G~w~",
+    "machine": "긁"
+  },
+  {
+    "talk": "u$G~w~h!",
+    "machine": "긂"
+  },
+  {
+    "talk": "u$Q~",
+    "machine": "긃"
+  },
+  {
+    "talk": "u$Q~h!",
+    "machine": "긄"
+  },
+  {
+    "talk": "u$Q~w~",
+    "machine": "긅"
+  },
+  {
+    "talk": "u$Q~w~h!",
+    "machine": "긆"
+  },
+  {
+    "talk": "u$~",
+    "machine": "긇"
+  },
+  {
+    "talk": "u$~h!",
+    "machine": "금"
+  },
+  {
+    "talk": "u$~w~",
+    "machine": "급"
+  },
+  {
+    "talk": "u$~w~h!",
+    "machine": "긊"
+  },
+  {
+    "talk": "u$~y~",
+    "machine": "긋"
+  },
+  {
+    "talk": "u$~y~h!",
+    "machine": "긌"
+  },
+  {
+    "talk": "u$~y~w~",
+    "machine": "긍"
+  },
+  {
+    "talk": "u$~y~w~h!",
+    "machine": "긎"
+  },
+  {
+    "talk": "u$~G~",
+    "machine": "긏"
+  },
+  {
+    "talk": "u$~G~h!",
+    "machine": "긐"
+  },
+  {
+    "talk": "u$~G~w~",
+    "machine": "긑"
+  },
+  {
+    "talk": "u$~G~w~h!",
+    "machine": "긒"
+  },
+  {
+    "talk": "u$~Q~",
+    "machine": "긓"
+  },
+  {
+    "talk": "u$~Q~h!",
+    "machine": "긔"
+  },
+  {
+    "talk": "u$~Q~w~",
+    "machine": "긕"
+  },
+  {
+    "talk": "u$~Q~w~h!",
+    "machine": "긖"
+  },
+  {
+    "talk": "yh!",
+    "machine": "긗"
+  },
+  {
+    "talk": "yw~h!",
+    "machine": "긘"
+  },
+  {
+    "talk": "W",
+    "machine": "긙"
+  },
+  {
+    "talk": "Wh!",
+    "machine": "긚"
+  },
+  {
+    "talk": "Ww~",
+    "machine": "긛"
+  },
+  {
+    "talk": "Ww~h!",
+    "machine": "긜"
+  },
+  {
+    "talk": "Wy~",
+    "machine": "긝"
+  },
+  {
+    "talk": "Wy~h!",
+    "machine": "긞"
+  },
+  {
+    "talk": "Wy~w~",
+    "machine": "긟"
+  },
+  {
+    "talk": "Wy~w~h!",
+    "machine": "긠"
+  },
+  {
+    "talk": "hh!",
+    "machine": "긡"
+  },
+  {
+    "talk": "rh!",
+    "machine": "긢"
+  },
+  {
+    "talk": "rh!w~",
+    "machine": "긣"
+  },
+  {
+    "talk": "rh!y~",
+    "machine": "긤"
+  },
+  {
+    "talk": "rh!y~w~",
+    "machine": "긥"
+  },
+  {
+    "talk": "rh!G~",
+    "machine": "긦"
+  },
+  {
+    "talk": "rh!G~w~",
+    "machine": "긧"
+  },
+  {
+    "talk": "rh!Q~",
+    "machine": "긨"
+  },
+  {
+    "talk": "rh!Q~w~",
+    "machine": "긩"
+  },
+  {
+    "talk": "rh!~",
+    "machine": "긪"
+  },
+  {
+    "talk": "rh!~w~",
+    "machine": "긫"
+  },
+  {
+    "talk": "rh!~y~",
+    "machine": "긬"
+  },
+  {
+    "talk": "rh!~y~w~",
+    "machine": "긭"
+  },
+  {
+    "talk": "rh!~G~",
+    "machine": "긮"
+  },
+  {
+    "talk": "rh!~G~w~",
+    "machine": "긯"
+  },
+  {
+    "talk": "rh!~Q~",
+    "machine": "기"
+  },
+  {
+    "talk": "rh!~Q~w~",
+    "machine": "긱"
+  },
+  {
+    "talk": "r",
+    "machine": "긲"
+  },
+  {
+    "talk": "rw~",
+    "machine": "긳"
+  },
+  {
+    "talk": "rw~h!",
+    "machine": "긴"
+  },
+  {
+    "talk": "ry~",
+    "machine": "긵"
+  },
+  {
+    "talk": "ry~h!",
+    "machine": "긶"
+  },
+  {
+    "talk": "ry~w~",
+    "machine": "긷"
+  },
+  {
+    "talk": "ry~w~h!",
+    "machine": "길"
+  },
+  {
+    "talk": "rG~",
+    "machine": "긹"
+  },
+  {
+    "talk": "rG~h!",
+    "machine": "긺"
+  },
+  {
+    "talk": "rG~w~",
+    "machine": "긻"
+  },
+  {
+    "talk": "rG~w~h!",
+    "machine": "긼"
+  },
+  {
+    "talk": "rQ~",
+    "machine": "긽"
+  },
+  {
+    "talk": "rQ~h!",
+    "machine": "긾"
+  },
+  {
+    "talk": "rQ~w~",
+    "machine": "긿"
+  },
+  {
+    "talk": "rQ~w~h!",
+    "machine": "김"
+  },
+  {
+    "talk": "r~",
+    "machine": "깁"
+  },
+  {
+    "talk": "r~h!",
+    "machine": "깂"
+  },
+  {
+    "talk": "r~w~",
+    "machine": "깃"
+  },
+  {
+    "talk": "r~w~h!",
+    "machine": "깄"
+  },
+  {
+    "talk": "r~y~",
+    "machine": "깅"
+  },
+  {
+    "talk": "r~y~h!",
+    "machine": "깆"
+  },
+  {
+    "talk": "r~y~w~",
+    "machine": "깇"
+  },
+  {
+    "talk": "r~y~w~h!",
+    "machine": "깈"
+  },
+  {
+    "talk": "r~G~",
+    "machine": "깉"
+  },
+  {
+    "talk": "r~G~h!",
+    "machine": "깊"
+  },
+  {
+    "talk": "r~G~w~",
+    "machine": "깋"
+  },
+  {
+    "talk": "r~G~w~h!",
+    "machine": "까"
+  },
+  {
+    "talk": "r~Q~",
+    "machine": "깍"
+  },
+  {
+    "talk": "r~Q~h!",
+    "machine": "깎"
+  },
+  {
+    "talk": "r~Q~w~",
+    "machine": "깏"
+  },
+  {
+    "talk": "r~Q~w~h!",
+    "machine": "깐"
+  },
+  {
+    "talk": "Rh!",
+    "machine": "깑"
+  },
+  {
+    "talk": "Rh!w~",
+    "machine": "깒"
+  },
+  {
+    "talk": "Rh!y~",
+    "machine": "깓"
+  },
+  {
+    "talk": "Rh!y~w~",
+    "machine": "깔"
+  },
+  {
+    "talk": "R",
+    "machine": "깕"
+  },
+  {
+    "talk": "Rw~",
+    "machine": "깖"
+  },
+  {
+    "talk": "Rw~h!",
+    "machine": "깗"
+  },
+  {
+    "talk": "Ry~",
+    "machine": "깘"
+  },
+  {
+    "talk": "Ry~h!",
+    "machine": "깙"
+  },
+  {
+    "talk": "Ry~w~",
+    "machine": "깚"
+  },
+  {
+    "talk": "Ry~w~h!",
+    "machine": "깛"
+  },
+  {
+    "talk": "gh!",
+    "machine": "깜"
+  },
+  {
+    "talk": "gw~h!",
+    "machine": "깝"
+  },
+  {
+    "talk": "gy~h!",
+    "machine": "깞"
+  },
+  {
+    "talk": "gy~w~h!",
+    "machine": "깟"
+  },
+  {
+    "talk": "bbh!",
+    "machine": "깠"
+  },
+  {
+    "talk": "bbh!y~",
+    "machine": "깡"
+  },
+  {
+    "talk": "bb",
+    "machine": "깢"
+  },
+  {
+    "talk": "bby~",
+    "machine": "깣"
+  },
+  {
+    "talk": "bby~h!",
+    "machine": "깤"
+  },
+  {
+    "talk": "Rh!rh!",
+    "machine": "깥"
+  },
+  {
+    "talk": "Rh!rh!w~",
+    "machine": "깦"
+  },
+  {
+    "talk": "Rh!rh!y~",
+    "machine": "깧"
+  },
+  {
+    "talk": "Rh!rh!y~w~",
+    "machine": "깨"
+  },
+  {
+    "talk": "Rr",
+    "machine": "깩"
+  },
+  {
+    "talk": "Rrh!",
+    "machine": "깪"
+  },
+  {
+    "talk": "Rrw~",
+    "machine": "깫"
+  },
+  {
+    "talk": "Rrw~h!",
+    "machine": "깬"
+  },
+  {
+    "talk": "Rry~",
+    "machine": "깭"
+  },
+  {
+    "talk": "Rry~h!",
+    "machine": "깮"
+  },
+  {
+    "talk": "Rry~w~",
+    "machine": "깯"
+  },
+  {
+    "talk": "Rry~w~h!",
+    "machine": "깰"
+  },
+  {
+    "talk": "GGh!",
+    "machine": "깱"
+  },
+  {
+    "talk": "GGh!w~",
+    "machine": "깲"
+  },
+  {
+    "talk": "GGh!y~",
+    "machine": "깳"
+  },
+  {
+    "talk": "GGh!y~w~",
+    "machine": "깴"
+  },
+  {
+    "talk": "GG",
+    "machine": "깵"
+  },
+  {
+    "talk": "GGw~",
+    "machine": "깶"
+  },
+  {
+    "talk": "GGw~h!",
+    "machine": "깷"
+  },
+  {
+    "talk": "GGy~",
+    "machine": "깸"
+  },
+  {
+    "talk": "GGy~h!",
+    "machine": "깹"
+  },
+  {
+    "talk": "GGy~w~",
+    "machine": "깺"
+  },
+  {
+    "talk": "GGy~w~h!",
+    "machine": "깻"
+  },
+  {
+    "talk": "Qh!",
+    "machine": "깼"
+  },
+  {
+    "talk": "S~",
+    "machine": "깽"
+  },
+  {
+    "talk": "S~!",
+    "machine": "깾"
+  },
+  {
+    "talk": "S~w~",
+    "machine": "깿"
+  },
+  {
+    "talk": "S~w~!",
+    "machine": "꺀"
+  },
+  {
+    "talk": "S~y~",
+    "machine": "꺁"
+  },
+  {
+    "talk": "S~y~!",
+    "machine": "꺂"
+  },
+  {
+    "talk": "S~y~w~",
+    "machine": "꺃"
+  },
+  {
+    "talk": "S~y~w~!",
+    "machine": "꺄"
+  },
+  {
+    "talk": "S~G~",
+    "machine": "꺅"
+  },
+  {
+    "talk": "S~G~!",
+    "machine": "꺆"
+  },
+  {
+    "talk": "S~G~w~",
+    "machine": "꺇"
+  },
+  {
+    "talk": "S~G~w~!",
+    "machine": "꺈"
+  },
+  {
+    "talk": "S~Q~",
+    "machine": "꺉"
+  },
+  {
+    "talk": "S~Q~!",
+    "machine": "꺊"
+  },
+  {
+    "talk": "S~Q~w~",
+    "machine": "꺋"
+  },
+  {
+    "talk": "S~Q~w~!",
+    "machine": "꺌"
+  },
+  {
+    "talk": "S~~",
+    "machine": "꺍"
+  },
+  {
+    "talk": "S~~!",
+    "machine": "꺎"
+  },
+  {
+    "talk": "S~~w~",
+    "machine": "꺏"
+  },
+  {
+    "talk": "S~~w~!",
+    "machine": "꺐"
+  },
+  {
+    "talk": "S~~y~",
+    "machine": "꺑"
+  },
+  {
+    "talk": "S~~y~!",
+    "machine": "꺒"
+  },
+  {
+    "talk": "S~~y~w~",
+    "machine": "꺓"
+  },
+  {
+    "talk": "S~~y~w~!",
+    "machine": "꺔"
+  },
+  {
+    "talk": "S~~G~",
+    "machine": "꺕"
+  },
+  {
+    "talk": "S~~G~!",
+    "machine": "꺖"
+  },
+  {
+    "talk": "S~~G~w~",
+    "machine": "꺗"
+  },
+  {
+    "talk": "S~~G~w~!",
+    "machine": "꺘"
+  },
+  {
+    "talk": "S~~Q~",
+    "machine": "꺙"
+  },
+  {
+    "talk": "S~~Q~!",
+    "machine": "꺚"
+  },
+  {
+    "talk": "S~~Q~w~",
+    "machine": "꺛"
+  },
+  {
+    "talk": "S~~Q~w~!",
+    "machine": "꺜"
+  },
+  {
+    "talk": "S",
+    "machine": "꺝"
+  },
+  {
+    "talk": "S!",
+    "machine": "꺞"
+  },
+  {
+    "talk": "Sw~",
+    "machine": "꺟"
+  },
+  {
+    "talk": "Sw~!",
+    "machine": "꺠"
+  },
+  {
+    "talk": "Sy~",
+    "machine": "꺡"
+  },
+  {
+    "talk": "Sy~!",
+    "machine": "꺢"
+  },
+  {
+    "talk": "Sy~w~",
+    "machine": "꺣"
+  },
+  {
+    "talk": "Sy~w~!",
+    "machine": "꺤"
+  },
+  {
+    "talk": "SG~",
+    "machine": "꺥"
+  },
+  {
+    "talk": "SG~!",
+    "machine": "꺦"
+  },
+  {
+    "talk": "SG~w~",
+    "machine": "꺧"
+  },
+  {
+    "talk": "SG~w~!",
+    "machine": "꺨"
+  },
+  {
+    "talk": "SQ~",
+    "machine": "꺩"
+  },
+  {
+    "talk": "SQ~!",
+    "machine": "꺪"
+  },
+  {
+    "talk": "SQ~w~",
+    "machine": "꺫"
+  },
+  {
+    "talk": "SQ~w~!",
+    "machine": "꺬"
+  },
+  {
+    "talk": "Z",
+    "machine": "꺭"
+  },
+  {
+    "talk": "Zw~",
+    "machine": "꺮"
+  },
+  {
+    "talk": "Zy~",
+    "machine": "꺯"
+  },
+  {
+    "talk": "Zy~w~",
+    "machine": "꺰"
+  },
+  {
+    "talk": "ZG~",
+    "machine": "꺱"
+  },
+  {
+    "talk": "ZG~w~",
+    "machine": "꺲"
+  },
+  {
+    "talk": "ZQ~",
+    "machine": "꺳"
+  },
+  {
+    "talk": "ZQ~w~",
+    "machine": "꺴"
+  },
+  {
+    "talk": "Z~",
+    "machine": "꺵"
+  },
+  {
+    "talk": "Z~w~",
+    "machine": "꺶"
+  },
+  {
+    "talk": "Z~y~",
+    "machine": "꺷"
+  },
+  {
+    "talk": "Z~y~w~",
+    "machine": "꺸"
+  },
+  {
+    "talk": "Z~G~",
+    "machine": "꺹"
+  },
+  {
+    "talk": "Z~G~w~",
+    "machine": "꺺"
+  },
+  {
+    "talk": "Z~Q~",
+    "machine": "꺻"
+  },
+  {
+    "talk": "Z~Q~w~",
+    "machine": "꺼"
+  },
+  {
+    "talk": "ly~",
+    "machine": "꺽"
+  },
+  {
+    "talk": "ly~w~",
+    "machine": "꺾"
+  },
+  {
+    "talk": "l~",
+    "machine": "꺿"
+  },
+  {
+    "talk": "l~h!",
+    "machine": "껀"
+  },
+  {
+    "talk": "l~w~",
+    "machine": "껁"
+  },
+  {
+    "talk": "l~w~h!",
+    "machine": "껂"
+  },
+  {
+    "talk": "l~y~",
+    "machine": "껃"
+  },
+  {
+    "talk": "l~y~h!",
+    "machine": "껄"
+  },
+  {
+    "talk": "l~y~w~",
+    "machine": "껅"
+  },
+  {
+    "talk": "l~y~w~h!",
+    "machine": "껆"
+  },
+  {
+    "talk": "l~G~",
+    "machine": "껇"
+  },
+  {
+    "talk": "l~G~h!",
+    "machine": "껈"
+  },
+  {
+    "talk": "l~G~w~",
+    "machine": "껉"
+  },
+  {
+    "talk": "l~G~w~h!",
+    "machine": "껊"
+  },
+  {
+    "talk": "l~Q~",
+    "machine": "껋"
+  },
+  {
+    "talk": "l~Q~h!",
+    "machine": "껌"
+  },
+  {
+    "talk": "l~Q~w~",
+    "machine": "껍"
+  },
+  {
+    "talk": "l~Q~w~h!",
+    "machine": "껎"
+  },
+  {
+    "talk": "l~~",
+    "machine": "껏"
+  },
+  {
+    "talk": "l~~h!",
+    "machine": "껐"
+  },
+  {
+    "talk": "l~~w~",
+    "machine": "껑"
+  },
+  {
+    "talk": "l~~w~h!",
+    "machine": "껒"
+  },
+  {
+    "talk": "l~~y~",
+    "machine": "껓"
+  },
+  {
+    "talk": "l~~y~h!",
+    "machine": "껔"
+  },
+  {
+    "talk": "l~~y~w~",
+    "machine": "껕"
+  },
+  {
+    "talk": "l~~y~w~h!",
+    "machine": "껖"
+  },
+  {
+    "talk": "l~~G~",
+    "machine": "껗"
+  },
+  {
+    "talk": "l~~G~h!",
+    "machine": "께"
+  },
+  {
+    "talk": "l~~G~w~",
+    "machine": "껙"
+  },
+  {
+    "talk": "l~~G~w~h!",
+    "machine": "껚"
+  },
+  {
+    "talk": "l~~Q~",
+    "machine": "껛"
+  },
+  {
+    "talk": "l~~Q~h!",
+    "machine": "껜"
+  },
+  {
+    "talk": "l~~Q~w~",
+    "machine": "껝"
+  },
+  {
+    "talk": "l~~Q~w~h!",
+    "machine": "껞"
+  },
+  {
+    "talk": "lh!",
+    "machine": "껟"
+  },
+  {
+    "talk": "lh!w~",
+    "machine": "껠"
+  },
+  {
+    "talk": "lh!y~",
+    "machine": "껡"
+  },
+  {
+    "talk": "lh!y~w~",
+    "machine": "껢"
+  },
+  {
+    "talk": "lh!G~",
+    "machine": "껣"
+  },
+  {
+    "talk": "lh!G~w~",
+    "machine": "껤"
+  },
+  {
+    "talk": "lh!Q~",
+    "machine": "껥"
+  },
+  {
+    "talk": "lh!Q~w~",
+    "machine": "껦"
+  },
+  {
+    "talk": "lh!~",
+    "machine": "껧"
+  },
+  {
+    "talk": "lh!~w~",
+    "machine": "껨"
+  },
+  {
+    "talk": "lh!~y~",
+    "machine": "껩"
+  },
+  {
+    "talk": "lh!~y~w~",
+    "machine": "껪"
+  },
+  {
+    "talk": "lh!~G~",
+    "machine": "껫"
+  },
+  {
+    "talk": "lh!~G~w~",
+    "machine": "껬"
+  },
+  {
+    "talk": "lh!~Q~",
+    "machine": "껭"
+  },
+  {
+    "talk": "lh!~Q~w~",
+    "machine": "껮"
+  },
+  {
+    "talk": "l",
+    "machine": "껯"
+  },
+  {
+    "talk": "lw~",
+    "machine": "껰"
+  },
+  {
+    "talk": "lw~h!",
+    "machine": "껱"
+  },
+  {
+    "talk": "ly~h!",
+    "machine": "껲"
+  },
+  {
+    "talk": "ly~w~h!",
+    "machine": "껳"
+  },
+  {
+    "talk": "lG~",
+    "machine": "껴"
+  },
+  {
+    "talk": "lG~h!",
+    "machine": "껵"
+  },
+  {
+    "talk": "lG~w~",
+    "machine": "껶"
+  },
+  {
+    "talk": "lG~w~h!",
+    "machine": "껷"
+  },
+  {
+    "talk": "lQ~",
+    "machine": "껸"
+  },
+  {
+    "talk": "lQ~h!",
+    "machine": "껹"
+  },
+  {
+    "talk": "lQ~w~",
+    "machine": "껺"
+  },
+  {
+    "talk": "lQ~w~h!",
+    "machine": "껻"
+  },
+  {
+    "talk": "Lh!",
+    "machine": "껼"
+  },
+  {
+    "talk": "Lh!w~",
+    "machine": "껽"
+  },
+  {
+    "talk": "Lh!y~",
+    "machine": "껾"
+  },
+  {
+    "talk": "Lh!y~w~",
+    "machine": "껿"
+  },
+  {
+    "talk": "L",
+    "machine": "꼀"
+  },
+  {
+    "talk": "Lw~",
+    "machine": "꼁"
+  },
+  {
+    "talk": "Lw~h!",
+    "machine": "꼂"
+  },
+  {
+    "talk": "Ly~",
+    "machine": "꼃"
+  },
+  {
+    "talk": "Ly~h!",
+    "machine": "꼄"
+  },
+  {
+    "talk": "Ly~w~",
+    "machine": "꼅"
+  },
+  {
+    "talk": "Ly~w~h!",
+    "machine": "꼆"
+  },
+  {
+    "talk": "ly~h!w~",
+    "machine": "꼇"
+  },
+  {
+    "talk": "wh!",
+    "machine": "꼈"
+  },
+  {
+    "talk": "wh!w~",
+    "machine": "꼉"
+  },
+  {
+    "talk": "wh!y~",
+    "machine": "꼊"
+  },
+  {
+    "talk": "wh!y~w~",
+    "machine": "꼋"
+  },
+  {
+    "talk": "w",
+    "machine": "꼌"
+  },
+  {
+    "talk": "ww~",
+    "machine": "꼍"
+  },
+  {
+    "talk": "ww~h!",
+    "machine": "꼎"
+  },
+  {
+    "talk": "wy~",
+    "machine": "꼏"
+  },
+  {
+    "talk": "wy~h!",
+    "machine": "꼐"
+  },
+  {
+    "talk": "wy~w~",
+    "machine": "꼑"
+  },
+  {
+    "talk": "wy~w~h!",
+    "machine": "꼒"
+  },
+  {
+    "talk": "yw~w~",
+    "machine": "꼓"
+  },
+  {
+    "talk": "yw~w~h!",
+    "machine": "꼔"
+  },
+  {
+    "talk": "yw~y~",
+    "machine": "꼕"
+  },
+  {
+    "talk": "yw~y~h!",
+    "machine": "꼖"
+  },
+  {
+    "talk": "yw~y~w~",
+    "machine": "꼗"
+  },
+  {
+    "talk": "yw~y~w~h!",
+    "machine": "꼘"
+  },
+  {
+    "talk": "lG~y~",
+    "machine": "꼙"
+  },
+  {
+    "talk": "lG~y~w~",
+    "machine": "꼚"
+  },
+  {
+    "talk": "b?",
+    "machine": "꼛"
+  },
+  {
+    "talk": "b?w~",
+    "machine": "꼜"
+  },
+  {
+    "talk": "b?y~",
+    "machine": "꼝"
+  },
+  {
+    "talk": "b?y~w~",
+    "machine": "꼞"
+  },
+  {
+    "talk": "d?",
+    "machine": "꼟"
+  },
+  {
+    "talk": "d?w~",
+    "machine": "꼠"
+  },
+  {
+    "talk": "d?y~",
+    "machine": "꼡"
+  },
+  {
+    "talk": "d?y~w~",
+    "machine": "꼢"
+  },
+  {
+    "talk": "g?y~",
+    "machine": "꼣"
+  },
+  {
+    "talk": "g?y~w~",
+    "machine": "꼤"
+  },
+  {
+    "talk": "g?y~y~",
+    "machine": "꼥"
+  },
+  {
+    "talk": "g?y~y~w~",
+    "machine": "꼦"
+  },
+  {
+    "talk": "g?",
+    "machine": "꼧"
+  },
+  {
+    "talk": "g?w~",
+    "machine": "꼨"
+  },
+  {
+    "talk": "b?h!",
+    "machine": "꼩"
+  },
+  {
+    "talk": "b?h!w~",
+    "machine": "꼪"
+  },
+  {
+    "talk": "b?h!y~",
+    "machine": "꼫"
+  },
+  {
+    "talk": "b?h!y~w~",
+    "machine": "꼬"
+  },
+  {
+    "talk": "t?",
+    "machine": "꼭"
+  },
+  {
+    "talk": "t?w~",
+    "machine": "꼮"
+  },
+  {
+    "talk": "t?y~",
+    "machine": "꼯"
+  },
+  {
+    "talk": "t?y~w~",
+    "machine": "꼰"
+  },
+  {
+    "talk": "g?y~h!",
+    "machine": "꼱"
+  },
+  {
+    "talk": "g?y~h!w~",
+    "machine": "꼲"
+  },
+  {
+    "talk": "g?y~h!y~",
+    "machine": "꼳"
+  },
+  {
+    "talk": "g?y~h!y~w~",
+    "machine": "꼴"
+  },
+  {
+    "talk": "g?h!",
+    "machine": "꼵"
+  },
+  {
+    "talk": "g?h!w~",
+    "machine": "꼶"
+  },
+  {
+    "talk": "g?h!y~",
+    "machine": "꼷"
+  },
+  {
+    "talk": "g?h!y~w~",
+    "machine": "꼸"
+  },
+  {
+    "talk": "p!w~",
+    "machine": "꼹"
+  },
+  {
+    "talk": "p!y~",
+    "machine": "꼺"
+  },
+  {
+    "talk": "p!y~w~",
+    "machine": "꼻"
+  },
+  {
+    "talk": "t!w~",
+    "machine": "꼼"
+  },
+  {
+    "talk": "t!y~",
+    "machine": "꼽"
+  },
+  {
+    "talk": "t!y~w~",
+    "machine": "꼾"
+  },
+  {
+    "talk": "T!w~",
+    "machine": "꼿"
+  },
+  {
+    "talk": "T!y~",
+    "machine": "꽀"
+  },
+  {
+    "talk": "T!y~w~",
+    "machine": "꽁"
+  },
+  {
+    "talk": "ky~!w~",
+    "machine": "꽂"
+  },
+  {
+    "talk": "ky~!y~",
+    "machine": "꽃"
+  },
+  {
+    "talk": "ky~!y~w~",
+    "machine": "꽄"
+  },
+  {
+    "talk": "k!w~",
+    "machine": "꽅"
+  },
+  {
+    "talk": "k!y~",
+    "machine": "꽆"
+  },
+  {
+    "talk": "k!y~w~",
+    "machine": "꽇"
+  },
+  {
+    "talk": "K!w~",
+    "machine": "꽈"
+  },
+  {
+    "talk": "K!y~",
+    "machine": "꽉"
+  },
+  {
+    "talk": "K!y~w~",
+    "machine": "꽊"
+  },
+  {
+    "talk": "f!!",
+    "machine": "꽋"
+  },
+  {
+    "talk": "f!w~",
+    "machine": "꽌"
+  },
+  {
+    "talk": "f!w~!",
+    "machine": "꽍"
+  },
+  {
+    "talk": "f!y~",
+    "machine": "꽎"
+  },
+  {
+    "talk": "f!y~!",
+    "machine": "꽏"
+  },
+  {
+    "talk": "f!y~w~",
+    "machine": "꽐"
+  },
+  {
+    "talk": "f!y~w~!",
+    "machine": "꽑"
+  },
+  {
+    "talk": "s!!",
+    "machine": "꽒"
+  },
+  {
+    "talk": "s!w~",
+    "machine": "꽓"
+  },
+  {
+    "talk": "s!w~!",
+    "machine": "꽔"
+  },
+  {
+    "talk": "s!y~",
+    "machine": "꽕"
+  },
+  {
+    "talk": "s!y~!",
+    "machine": "꽖"
+  },
+  {
+    "talk": "s!y~w~",
+    "machine": "꽗"
+  },
+  {
+    "talk": "s!y~w~!",
+    "machine": "꽘"
+  },
+  {
+    "talk": "X!!",
+    "machine": "꽙"
+  },
+  {
+    "talk": "X!w~",
+    "machine": "꽚"
+  },
+  {
+    "talk": "X!w~!",
+    "machine": "꽛"
+  },
+  {
+    "talk": "X!y~",
+    "machine": "꽜"
+  },
+  {
+    "talk": "X!y~!",
+    "machine": "꽝"
+  },
+  {
+    "talk": "X!y~w~",
+    "machine": "꽞"
+  },
+  {
+    "talk": "X!y~w~!",
+    "machine": "꽟"
+  },
+  {
+    "talk": "xy~!!",
+    "machine": "꽠"
+  },
+  {
+    "talk": "xy~!w~",
+    "machine": "꽡"
+  },
+  {
+    "talk": "xy~!w~!",
+    "machine": "꽢"
+  },
+  {
+    "talk": "xy~!y~",
+    "machine": "꽣"
+  },
+  {
+    "talk": "xy~!y~!",
+    "machine": "꽤"
+  },
+  {
+    "talk": "xy~!y~w~",
+    "machine": "꽥"
+  },
+  {
+    "talk": "xy~!y~w~!",
+    "machine": "꽦"
+  },
+  {
+    "talk": "H!!",
+    "machine": "꽧"
+  },
+  {
+    "talk": "H!w~",
+    "machine": "꽨"
+  },
+  {
+    "talk": "H!w~!",
+    "machine": "꽩"
+  },
+  {
+    "talk": "H!y~",
+    "machine": "꽪"
+  },
+  {
+    "talk": "H!y~!",
+    "machine": "꽫"
+  },
+  {
+    "talk": "H!y~w~",
+    "machine": "꽬"
+  },
+  {
+    "talk": "H!y~w~!",
+    "machine": "꽭"
+  },
+  {
+    "talk": "F!w~",
+    "machine": "꽮"
+  },
+  {
+    "talk": "F!y~",
+    "machine": "꽯"
+  },
+  {
+    "talk": "F!y~w~",
+    "machine": "꽰"
+  },
+  {
+    "talk": "c!w~",
+    "machine": "꽱"
+  },
+  {
+    "talk": "c!y~",
+    "machine": "꽲"
+  },
+  {
+    "talk": "c!y~w~",
+    "machine": "꽳"
+  },
+  {
+    "talk": "x!w~",
+    "machine": "꽴"
+  },
+  {
+    "talk": "x!y~",
+    "machine": "꽵"
+  },
+  {
+    "talk": "x!y~w~",
+    "machine": "꽶"
+  },
+  {
+    "talk": "i",
+    "machine": "꽷"
+  },
+  {
+    "talk": "i^",
+    "machine": "꽸"
+  },
+  {
+    "talk": "i_",
+    "machine": "꽹"
+  },
+  {
+    "talk": "i_^",
+    "machine": "꽺"
+  },
+  {
+    "talk": "i--",
+    "machine": "꽻"
+  },
+  {
+    "talk": "i--^",
+    "machine": "꽼"
+  },
+  {
+    "talk": "i--_",
+    "machine": "꽽"
+  },
+  {
+    "talk": "i--_^",
+    "machine": "꽾"
+  },
+  {
+    "talk": "i-",
+    "machine": "꽿"
+  },
+  {
+    "talk": "i-^",
+    "machine": "꾀"
+  },
+  {
+    "talk": "i-_",
+    "machine": "꾁"
+  },
+  {
+    "talk": "i-_^",
+    "machine": "꾂"
+  },
+  {
+    "talk": "i+",
+    "machine": "꾃"
+  },
+  {
+    "talk": "i+^",
+    "machine": "꾄"
+  },
+  {
+    "talk": "i+_",
+    "machine": "꾅"
+  },
+  {
+    "talk": "i+_^",
+    "machine": "꾆"
+  },
+  {
+    "talk": "i++",
+    "machine": "꾇"
+  },
+  {
+    "talk": "i++^",
+    "machine": "꾈"
+  },
+  {
+    "talk": "i++_",
+    "machine": "꾉"
+  },
+  {
+    "talk": "i++_^",
+    "machine": "꾊"
+  },
+  {
+    "talk": "i@",
+    "machine": "꾋"
+  },
+  {
+    "talk": "i@^",
+    "machine": "꾌"
+  },
+  {
+    "talk": "i@_",
+    "machine": "꾍"
+  },
+  {
+    "talk": "i@_^",
+    "machine": "꾎"
+  },
+  {
+    "talk": "i@--",
+    "machine": "꾏"
+  },
+  {
+    "talk": "i@--^",
+    "machine": "꾐"
+  },
+  {
+    "talk": "i@--_",
+    "machine": "꾑"
+  },
+  {
+    "talk": "i@--_^",
+    "machine": "꾒"
+  },
+  {
+    "talk": "i@-",
+    "machine": "꾓"
+  },
+  {
+    "talk": "i@-^",
+    "machine": "꾔"
+  },
+  {
+    "talk": "i@-_",
+    "machine": "꾕"
+  },
+  {
+    "talk": "i@-_^",
+    "machine": "꾖"
+  },
+  {
+    "talk": "i@+",
+    "machine": "꾗"
+  },
+  {
+    "talk": "i@+^",
+    "machine": "꾘"
+  },
+  {
+    "talk": "i@+_",
+    "machine": "꾙"
+  },
+  {
+    "talk": "i@+_^",
+    "machine": "꾚"
+  },
+  {
+    "talk": "i@++",
+    "machine": "꾛"
+  },
+  {
+    "talk": "i@++^",
+    "machine": "꾜"
+  },
+  {
+    "talk": "i@++_",
+    "machine": "꾝"
+  },
+  {
+    "talk": "i@++_^",
+    "machine": "꾞"
+  },
+  {
+    "talk": "i&",
+    "machine": "꾟"
+  },
+  {
+    "talk": "i&^",
+    "machine": "꾠"
+  },
+  {
+    "talk": "i&_",
+    "machine": "꾡"
+  },
+  {
+    "talk": "i&_^",
+    "machine": "꾢"
+  },
+  {
+    "talk": "i&--",
+    "machine": "꾣"
+  },
+  {
+    "talk": "i&--^",
+    "machine": "꾤"
+  },
+  {
+    "talk": "i&--_",
+    "machine": "꾥"
+  },
+  {
+    "talk": "i&--_^",
+    "machine": "꾦"
+  },
+  {
+    "talk": "i&-",
+    "machine": "꾧"
+  },
+  {
+    "talk": "i&-^",
+    "machine": "꾨"
+  },
+  {
+    "talk": "i&-_",
+    "machine": "꾩"
+  },
+  {
+    "talk": "i&-_^",
+    "machine": "꾪"
+  },
+  {
+    "talk": "i&+",
+    "machine": "꾫"
+  },
+  {
+    "talk": "i&+^",
+    "machine": "꾬"
+  },
+  {
+    "talk": "i&+_",
+    "machine": "꾭"
+  },
+  {
+    "talk": "i&+_^",
+    "machine": "꾮"
+  },
+  {
+    "talk": "i&++",
+    "machine": "꾯"
+  },
+  {
+    "talk": "i&++^",
+    "machine": "꾰"
+  },
+  {
+    "talk": "i&++_",
+    "machine": "꾱"
+  },
+  {
+    "talk": "i&++_^",
+    "machine": "꾲"
+  },
+  {
+    "talk": "i&@",
+    "machine": "꾳"
+  },
+  {
+    "talk": "i&@^",
+    "machine": "꾴"
+  },
+  {
+    "talk": "i&@_",
+    "machine": "꾵"
+  },
+  {
+    "talk": "i&@_^",
+    "machine": "꾶"
+  },
+  {
+    "talk": "i&@--",
+    "machine": "꾷"
+  },
+  {
+    "talk": "i&@--^",
+    "machine": "꾸"
+  },
+  {
+    "talk": "i&@--_",
+    "machine": "꾹"
+  },
+  {
+    "talk": "i&@--_^",
+    "machine": "꾺"
+  },
+  {
+    "talk": "i&@-",
+    "machine": "꾻"
+  },
+  {
+    "talk": "i&@-^",
+    "machine": "꾼"
+  },
+  {
+    "talk": "i&@-_",
+    "machine": "꾽"
+  },
+  {
+    "talk": "i&@-_^",
+    "machine": "꾾"
+  },
+  {
+    "talk": "i&@+",
+    "machine": "꾿"
+  },
+  {
+    "talk": "i&@+^",
+    "machine": "꿀"
+  },
+  {
+    "talk": "i&@+_",
+    "machine": "꿁"
+  },
+  {
+    "talk": "i&@+_^",
+    "machine": "꿂"
+  },
+  {
+    "talk": "i&@++",
+    "machine": "꿃"
+  },
+  {
+    "talk": "i&@++^",
+    "machine": "꿄"
+  },
+  {
+    "talk": "i&@++_",
+    "machine": "꿅"
+  },
+  {
+    "talk": "i&@++_^",
+    "machine": "꿆"
+  },
+  {
+    "talk": "i$",
+    "machine": "꿇"
+  },
+  {
+    "talk": "i$^",
+    "machine": "꿈"
+  },
+  {
+    "talk": "i$_",
+    "machine": "꿉"
+  },
+  {
+    "talk": "i$_^",
+    "machine": "꿊"
+  },
+  {
+    "talk": "i$--",
+    "machine": "꿋"
+  },
+  {
+    "talk": "i$--^",
+    "machine": "꿌"
+  },
+  {
+    "talk": "i$--_",
+    "machine": "꿍"
+  },
+  {
+    "talk": "i$--_^",
+    "machine": "꿎"
+  },
+  {
+    "talk": "i$-",
+    "machine": "꿏"
+  },
+  {
+    "talk": "i$-^",
+    "machine": "꿐"
+  },
+  {
+    "talk": "i$-_",
+    "machine": "꿑"
+  },
+  {
+    "talk": "i$-_^",
+    "machine": "꿒"
+  },
+  {
+    "talk": "i$+",
+    "machine": "꿓"
+  },
+  {
+    "talk": "i$+^",
+    "machine": "꿔"
+  },
+  {
+    "talk": "i$+_",
+    "machine": "꿕"
+  },
+  {
+    "talk": "i$+_^",
+    "machine": "꿖"
+  },
+  {
+    "talk": "i$++",
+    "machine": "꿗"
+  },
+  {
+    "talk": "i$++^",
+    "machine": "꿘"
+  },
+  {
+    "talk": "i$++_",
+    "machine": "꿙"
+  },
+  {
+    "talk": "i$++_^",
+    "machine": "꿚"
+  },
+  {
+    "talk": "i$@",
+    "machine": "꿛"
+  },
+  {
+    "talk": "i$@^",
+    "machine": "꿜"
+  },
+  {
+    "talk": "i$@_",
+    "machine": "꿝"
+  },
+  {
+    "talk": "i$@_^",
+    "machine": "꿞"
+  },
+  {
+    "talk": "i$@--",
+    "machine": "꿟"
+  },
+  {
+    "talk": "i$@--^",
+    "machine": "꿠"
+  },
+  {
+    "talk": "i$@--_",
+    "machine": "꿡"
+  },
+  {
+    "talk": "i$@--_^",
+    "machine": "꿢"
+  },
+  {
+    "talk": "i$@-",
+    "machine": "꿣"
+  },
+  {
+    "talk": "i$@-^",
+    "machine": "꿤"
+  },
+  {
+    "talk": "i$@-_",
+    "machine": "꿥"
+  },
+  {
+    "talk": "i$@-_^",
+    "machine": "꿦"
+  },
+  {
+    "talk": "i$@+",
+    "machine": "꿧"
+  },
+  {
+    "talk": "i$@+^",
+    "machine": "꿨"
+  },
+  {
+    "talk": "i$@+_",
+    "machine": "꿩"
+  },
+  {
+    "talk": "i$@+_^",
+    "machine": "꿪"
+  },
+  {
+    "talk": "i$@++",
+    "machine": "꿫"
+  },
+  {
+    "talk": "i$@++^",
+    "machine": "꿬"
+  },
+  {
+    "talk": "i$@++_",
+    "machine": "꿭"
+  },
+  {
+    "talk": "i$@++_^",
+    "machine": "꿮"
+  },
+  {
+    "talk": "i$&",
+    "machine": "꿯"
+  },
+  {
+    "talk": "i$&^",
+    "machine": "꿰"
+  },
+  {
+    "talk": "i$&_",
+    "machine": "꿱"
+  },
+  {
+    "talk": "i$&_^",
+    "machine": "꿲"
+  },
+  {
+    "talk": "i$&--",
+    "machine": "꿳"
+  },
+  {
+    "talk": "i$&--^",
+    "machine": "꿴"
+  },
+  {
+    "talk": "i$&--_",
+    "machine": "꿵"
+  },
+  {
+    "talk": "i$&--_^",
+    "machine": "꿶"
+  },
+  {
+    "talk": "i$&-",
+    "machine": "꿷"
+  },
+  {
+    "talk": "i$&-^",
+    "machine": "꿸"
+  },
+  {
+    "talk": "i$&-_",
+    "machine": "꿹"
+  },
+  {
+    "talk": "i$&-_^",
+    "machine": "꿺"
+  },
+  {
+    "talk": "i$&+",
+    "machine": "꿻"
+  },
+  {
+    "talk": "i$&+^",
+    "machine": "꿼"
+  },
+  {
+    "talk": "i$&+_",
+    "machine": "꿽"
+  },
+  {
+    "talk": "i$&+_^",
+    "machine": "꿾"
+  },
+  {
+    "talk": "i$&++",
+    "machine": "꿿"
+  },
+  {
+    "talk": "i$&++^",
+    "machine": "뀀"
+  },
+  {
+    "talk": "i$&++_",
+    "machine": "뀁"
+  },
+  {
+    "talk": "i$&++_^",
+    "machine": "뀂"
+  },
+  {
+    "talk": "i$&@",
+    "machine": "뀃"
+  },
+  {
+    "talk": "i$&@^",
+    "machine": "뀄"
+  },
+  {
+    "talk": "i$&@_",
+    "machine": "뀅"
+  },
+  {
+    "talk": "i$&@_^",
+    "machine": "뀆"
+  },
+  {
+    "talk": "i$&@--",
+    "machine": "뀇"
+  },
+  {
+    "talk": "i$&@--^",
+    "machine": "뀈"
+  },
+  {
+    "talk": "i$&@--_",
+    "machine": "뀉"
+  },
+  {
+    "talk": "i$&@--_^",
+    "machine": "뀊"
+  },
+  {
+    "talk": "i$&@-",
+    "machine": "뀋"
+  },
+  {
+    "talk": "i$&@-^",
+    "machine": "뀌"
+  },
+  {
+    "talk": "i$&@-_",
+    "machine": "뀍"
+  },
+  {
+    "talk": "i$&@-_^",
+    "machine": "뀎"
+  },
+  {
+    "talk": "i$&@+",
+    "machine": "뀏"
+  },
+  {
+    "talk": "i$&@+^",
+    "machine": "뀐"
+  },
+  {
+    "talk": "i$&@+_",
+    "machine": "뀑"
+  },
+  {
+    "talk": "i$&@+_^",
+    "machine": "뀒"
+  },
+  {
+    "talk": "i$&@++",
+    "machine": "뀓"
+  },
+  {
+    "talk": "i$&@++^",
+    "machine": "뀔"
+  },
+  {
+    "talk": "i$&@++_",
+    "machine": "뀕"
+  },
+  {
+    "talk": "i$&@++_^",
+    "machine": "뀖"
+  },
+  {
+    "talk": "u",
+    "machine": "뀗"
+  },
+  {
+    "talk": "u^",
+    "machine": "뀘"
+  },
+  {
+    "talk": "u_",
+    "machine": "뀙"
+  },
+  {
+    "talk": "u_^",
+    "machine": "뀚"
+  },
+  {
+    "talk": "u--",
+    "machine": "뀛"
+  },
+  {
+    "talk": "u--^",
+    "machine": "뀜"
+  },
+  {
+    "talk": "u--_",
+    "machine": "뀝"
+  },
+  {
+    "talk": "u--_^",
+    "machine": "뀞"
+  },
+  {
+    "talk": "u-",
+    "machine": "뀟"
+  },
+  {
+    "talk": "u-^",
+    "machine": "뀠"
+  },
+  {
+    "talk": "u-_",
+    "machine": "뀡"
+  },
+  {
+    "talk": "u-_^",
+    "machine": "뀢"
+  },
+  {
+    "talk": "u+",
+    "machine": "뀣"
+  },
+  {
+    "talk": "u+^",
+    "machine": "뀤"
+  },
+  {
+    "talk": "u+_",
+    "machine": "뀥"
+  },
+  {
+    "talk": "u+_^",
+    "machine": "뀦"
+  },
+  {
+    "talk": "u++",
+    "machine": "뀧"
+  },
+  {
+    "talk": "u++^",
+    "machine": "뀨"
+  },
+  {
+    "talk": "u++_",
+    "machine": "뀩"
+  },
+  {
+    "talk": "u++_^",
+    "machine": "뀪"
+  },
+  {
+    "talk": "u@",
+    "machine": "뀫"
+  },
+  {
+    "talk": "u@^",
+    "machine": "뀬"
+  },
+  {
+    "talk": "u@_",
+    "machine": "뀭"
+  },
+  {
+    "talk": "u@_^",
+    "machine": "뀮"
+  },
+  {
+    "talk": "u@--",
+    "machine": "뀯"
+  },
+  {
+    "talk": "u@--^",
+    "machine": "뀰"
+  },
+  {
+    "talk": "u@--_",
+    "machine": "뀱"
+  },
+  {
+    "talk": "u@--_^",
+    "machine": "뀲"
+  },
+  {
+    "talk": "u@-",
+    "machine": "뀳"
+  },
+  {
+    "talk": "u@-^",
+    "machine": "뀴"
+  },
+  {
+    "talk": "u@-_",
+    "machine": "뀵"
+  },
+  {
+    "talk": "u@-_^",
+    "machine": "뀶"
+  },
+  {
+    "talk": "u@+",
+    "machine": "뀷"
+  },
+  {
+    "talk": "u@+^",
+    "machine": "뀸"
+  },
+  {
+    "talk": "u@+_",
+    "machine": "뀹"
+  },
+  {
+    "talk": "u@+_^",
+    "machine": "뀺"
+  },
+  {
+    "talk": "u@++",
+    "machine": "뀻"
+  },
+  {
+    "talk": "u@++^",
+    "machine": "뀼"
+  },
+  {
+    "talk": "u@++_",
+    "machine": "뀽"
+  },
+  {
+    "talk": "u@++_^",
+    "machine": "뀾"
+  },
+  {
+    "talk": "u&",
+    "machine": "뀿"
+  },
+  {
+    "talk": "u&^",
+    "machine": "끀"
+  },
+  {
+    "talk": "u&_",
+    "machine": "끁"
+  },
+  {
+    "talk": "u&_^",
+    "machine": "끂"
+  },
+  {
+    "talk": "u&--",
+    "machine": "끃"
+  },
+  {
+    "talk": "u&--^",
+    "machine": "끄"
+  },
+  {
+    "talk": "u&--_",
+    "machine": "끅"
+  },
+  {
+    "talk": "u&--_^",
+    "machine": "끆"
+  },
+  {
+    "talk": "u&-",
+    "machine": "끇"
+  },
+  {
+    "talk": "u&-^",
+    "machine": "끈"
+  },
+  {
+    "talk": "u&-_",
+    "machine": "끉"
+  },
+  {
+    "talk": "u&-_^",
+    "machine": "끊"
+  },
+  {
+    "talk": "u&+",
+    "machine": "끋"
+  },
+  {
+    "talk": "u&+^",
+    "machine": "끌"
+  },
+  {
+    "talk": "u&+_",
+    "machine": "끍"
+  },
+  {
+    "talk": "u&+_^",
+    "machine": "끎"
+  },
+  {
+    "talk": "u&++",
+    "machine": "끏"
+  },
+  {
+    "talk": "u&++^",
+    "machine": "끐"
+  },
+  {
+    "talk": "u&++_",
+    "machine": "끑"
+  },
+  {
+    "talk": "u&++_^",
+    "machine": "끒"
+  },
+  {
+    "talk": "u&@",
+    "machine": "끓"
+  },
+  {
+    "talk": "u&@^",
+    "machine": "끔"
+  },
+  {
+    "talk": "u&@_",
+    "machine": "끕"
+  },
+  {
+    "talk": "u&@_^",
+    "machine": "끖"
+  },
+  {
+    "talk": "u&@--",
+    "machine": "끗"
+  },
+  {
+    "talk": "u&@--^",
+    "machine": "끘"
+  },
+  {
+    "talk": "u&@--_",
+    "machine": "끙"
+  },
+  {
+    "talk": "u&@--_^",
+    "machine": "끚"
+  },
+  {
+    "talk": "u&@-",
+    "machine": "끛"
+  },
+  {
+    "talk": "u&@-^",
+    "machine": "끜"
+  },
+  {
+    "talk": "u&@-_",
+    "machine": "끝"
+  },
+  {
+    "talk": "u&@-_^",
+    "machine": "끞"
+  },
+  {
+    "talk": "u&@+",
+    "machine": "끟"
+  },
+  {
+    "talk": "u&@+^",
+    "machine": "끠"
+  },
+  {
+    "talk": "u&@+_",
+    "machine": "끡"
+  },
+  {
+    "talk": "u&@+_^",
+    "machine": "끢"
+  },
+  {
+    "talk": "u&@++",
+    "machine": "끣"
+  },
+  {
+    "talk": "u&@++^",
+    "machine": "끤"
+  },
+  {
+    "talk": "u&@++_",
+    "machine": "끥"
+  },
+  {
+    "talk": "u&@++_^",
+    "machine": "끦"
+  },
+  {
+    "talk": "O",
+    "machine": "끧"
+  },
+  {
+    "talk": "O^",
+    "machine": "끨"
+  },
+  {
+    "talk": "O_",
+    "machine": "끩"
+  },
+  {
+    "talk": "O_^",
+    "machine": "끪"
+  },
+  {
+    "talk": "O--",
+    "machine": "끫"
+  },
+  {
+    "talk": "O--^",
+    "machine": "끬"
+  },
+  {
+    "talk": "O--_",
+    "machine": "끭"
+  },
+  {
+    "talk": "O--_^",
+    "machine": "끮"
+  },
+  {
+    "talk": "O-",
+    "machine": "끯"
+  },
+  {
+    "talk": "O-^",
+    "machine": "끰"
+  },
+  {
+    "talk": "O-_",
+    "machine": "끱"
+  },
+  {
+    "talk": "O-_^",
+    "machine": "끲"
+  },
+  {
+    "talk": "O+",
+    "machine": "끳"
+  },
+  {
+    "talk": "O+^",
+    "machine": "끴"
+  },
+  {
+    "talk": "O+_",
+    "machine": "끵"
+  },
+  {
+    "talk": "O+_^",
+    "machine": "끶"
+  },
+  {
+    "talk": "O++",
+    "machine": "끷"
+  },
+  {
+    "talk": "O++^",
+    "machine": "끸"
+  },
+  {
+    "talk": "O++_",
+    "machine": "끹"
+  },
+  {
+    "talk": "O++_^",
+    "machine": "끺"
+  },
+  {
+    "talk": "O@",
+    "machine": "끻"
+  },
+  {
+    "talk": "O@^",
+    "machine": "끼"
+  },
+  {
+    "talk": "O@_",
+    "machine": "끽"
+  },
+  {
+    "talk": "O@_^",
+    "machine": "끾"
+  },
+  {
+    "talk": "O@--",
+    "machine": "끿"
+  },
+  {
+    "talk": "O@--^",
+    "machine": "낀"
+  },
+  {
+    "talk": "O@--_",
+    "machine": "낁"
+  },
+  {
+    "talk": "O@--_^",
+    "machine": "낂"
+  },
+  {
+    "talk": "O@-",
+    "machine": "낃"
+  },
+  {
+    "talk": "O@-^",
+    "machine": "낄"
+  },
+  {
+    "talk": "O@-_",
+    "machine": "낅"
+  },
+  {
+    "talk": "O@-_^",
+    "machine": "낆"
+  },
+  {
+    "talk": "O@+",
+    "machine": "낇"
+  },
+  {
+    "talk": "O@+^",
+    "machine": "낈"
+  },
+  {
+    "talk": "O@+_",
+    "machine": "낉"
+  },
+  {
+    "talk": "O@+_^",
+    "machine": "낊"
+  },
+  {
+    "talk": "O@++",
+    "machine": "낋"
+  },
+  {
+    "talk": "O@++^",
+    "machine": "낌"
+  },
+  {
+    "talk": "O@++_",
+    "machine": "낍"
+  },
+  {
+    "talk": "O@++_^",
+    "machine": "낎"
+  },
+  {
+    "talk": "O&",
+    "machine": "낏"
+  },
+  {
+    "talk": "O&^",
+    "machine": "낐"
+  },
+  {
+    "talk": "O&_",
+    "machine": "낑"
+  },
+  {
+    "talk": "O&_^",
+    "machine": "낒"
+  },
+  {
+    "talk": "O&--",
+    "machine": "낓"
+  },
+  {
+    "talk": "O&--^",
+    "machine": "낔"
+  },
+  {
+    "talk": "O&--_",
+    "machine": "낕"
+  },
+  {
+    "talk": "O&--_^",
+    "machine": "낖"
+  },
+  {
+    "talk": "O&-",
+    "machine": "낗"
+  },
+  {
+    "talk": "O&-^",
+    "machine": "나"
+  },
+  {
+    "talk": "O&-_",
+    "machine": "낙"
+  },
+  {
+    "talk": "O&-_^",
+    "machine": "낚"
+  },
+  {
+    "talk": "O&+",
+    "machine": "낛"
+  },
+  {
+    "talk": "O&+^",
+    "machine": "난"
+  },
+  {
+    "talk": "O&+_",
+    "machine": "낝"
+  },
+  {
+    "talk": "O&+_^",
+    "machine": "낞"
+  },
+  {
+    "talk": "O&++",
+    "machine": "낟"
+  },
+  {
+    "talk": "O&++^",
+    "machine": "날"
+  },
+  {
+    "talk": "O&++_",
+    "machine": "낡"
+  },
+  {
+    "talk": "O&++_^",
+    "machine": "낢"
+  },
+  {
+    "talk": "O&@",
+    "machine": "낣"
+  },
+  {
+    "talk": "O&@^",
+    "machine": "낤"
+  },
+  {
+    "talk": "O&@_",
+    "machine": "낥"
+  },
+  {
+    "talk": "O&@_^",
+    "machine": "낦"
+  },
+  {
+    "talk": "O&@--",
+    "machine": "낧"
+  },
+  {
+    "talk": "O&@--^",
+    "machine": "남"
+  },
+  {
+    "talk": "O&@--_",
+    "machine": "납"
+  },
+  {
+    "talk": "O&@--_^",
+    "machine": "낪"
+  },
+  {
+    "talk": "O&@-",
+    "machine": "낫"
+  },
+  {
+    "talk": "O&@-^",
+    "machine": "났"
+  },
+  {
+    "talk": "O&@-_",
+    "machine": "낭"
+  },
+  {
+    "talk": "O&@-_^",
+    "machine": "낮"
+  },
+  {
+    "talk": "O&@+",
+    "machine": "낯"
+  },
+  {
+    "talk": "O&@+^",
+    "machine": "낰"
+  },
+  {
+    "talk": "O&@+_",
+    "machine": "낱"
+  },
+  {
+    "talk": "O&@+_^",
+    "machine": "낲"
+  },
+  {
+    "talk": "O&@++",
+    "machine": "낳"
+  },
+  {
+    "talk": "O&@++^",
+    "machine": "내"
+  },
+  {
+    "talk": "O&@++_",
+    "machine": "낵"
+  },
+  {
+    "talk": "O&@++_^",
+    "machine": "낶"
+  },
+  {
+    "talk": "I",
+    "machine": "낷"
+  },
+  {
+    "talk": "I^",
+    "machine": "낸"
+  },
+  {
+    "talk": "I_",
+    "machine": "낹"
+  },
+  {
+    "talk": "I_^",
+    "machine": "낺"
+  },
+  {
+    "talk": "I--",
+    "machine": "낻"
+  },
+  {
+    "talk": "I--^",
+    "machine": "낼"
+  },
+  {
+    "talk": "I--_",
+    "machine": "낽"
+  },
+  {
+    "talk": "I--_^",
+    "machine": "낾"
+  },
+  {
+    "talk": "I-",
+    "machine": "낿"
+  },
+  {
+    "talk": "I-^",
+    "machine": "냀"
+  },
+  {
+    "talk": "I-_",
+    "machine": "냁"
+  },
+  {
+    "talk": "I-_^",
+    "machine": "냂"
+  },
+  {
+    "talk": "I+",
+    "machine": "냃"
+  },
+  {
+    "talk": "I+^",
+    "machine": "냄"
+  },
+  {
+    "talk": "I+_",
+    "machine": "냅"
+  },
+  {
+    "talk": "I+_^",
+    "machine": "냆"
+  },
+  {
+    "talk": "I++",
+    "machine": "냇"
+  },
+  {
+    "talk": "I++^",
+    "machine": "냈"
+  },
+  {
+    "talk": "I++_",
+    "machine": "냉"
+  },
+  {
+    "talk": "I++_^",
+    "machine": "냊"
+  },
+  {
+    "talk": "I@",
+    "machine": "냋"
+  },
+  {
+    "talk": "I@^",
+    "machine": "냌"
+  },
+  {
+    "talk": "I@_",
+    "machine": "냍"
+  },
+  {
+    "talk": "I@_^",
+    "machine": "냎"
+  },
+  {
+    "talk": "I@--",
+    "machine": "냏"
+  },
+  {
+    "talk": "I@--^",
+    "machine": "냐"
+  },
+  {
+    "talk": "I@--_",
+    "machine": "냑"
+  },
+  {
+    "talk": "I@--_^",
+    "machine": "냒"
+  },
+  {
+    "talk": "I@-",
+    "machine": "냓"
+  },
+  {
+    "talk": "I@-^",
+    "machine": "냔"
+  },
+  {
+    "talk": "I@-_",
+    "machine": "냕"
+  },
+  {
+    "talk": "I@-_^",
+    "machine": "냖"
+  },
+  {
+    "talk": "I@+",
+    "machine": "냗"
+  },
+  {
+    "talk": "I@+^",
+    "machine": "냘"
+  },
+  {
+    "talk": "I@+_",
+    "machine": "냙"
+  },
+  {
+    "talk": "I@+_^",
+    "machine": "냚"
+  },
+  {
+    "talk": "I@++",
+    "machine": "냛"
+  },
+  {
+    "talk": "I@++^",
+    "machine": "냜"
+  },
+  {
+    "talk": "I@++_",
+    "machine": "냝"
+  },
+  {
+    "talk": "I@++_^",
+    "machine": "냞"
+  },
+  {
+    "talk": "I&",
+    "machine": "냟"
+  },
+  {
+    "talk": "I&^",
+    "machine": "냠"
+  },
+  {
+    "talk": "I&_",
+    "machine": "냡"
+  },
+  {
+    "talk": "I&_^",
+    "machine": "냢"
+  },
+  {
+    "talk": "I&--",
+    "machine": "냣"
+  },
+  {
+    "talk": "I&--^",
+    "machine": "냤"
+  },
+  {
+    "talk": "I&--_",
+    "machine": "냥"
+  },
+  {
+    "talk": "I&--_^",
+    "machine": "냦"
+  },
+  {
+    "talk": "I&-",
+    "machine": "냧"
+  },
+  {
+    "talk": "I&-^",
+    "machine": "냨"
+  },
+  {
+    "talk": "I&-_",
+    "machine": "냩"
+  },
+  {
+    "talk": "I&-_^",
+    "machine": "냪"
+  },
+  {
+    "talk": "I&+",
+    "machine": "냫"
+  },
+  {
+    "talk": "I&+^",
+    "machine": "냬"
+  },
+  {
+    "talk": "I&+_",
+    "machine": "냭"
+  },
+  {
+    "talk": "I&+_^",
+    "machine": "냮"
+  },
+  {
+    "talk": "I&++",
+    "machine": "냯"
+  },
+  {
+    "talk": "I&++^",
+    "machine": "냰"
+  },
+  {
+    "talk": "I&++_",
+    "machine": "냱"
+  },
+  {
+    "talk": "I&++_^",
+    "machine": "냲"
+  },
+  {
+    "talk": "I&@",
+    "machine": "냳"
+  },
+  {
+    "talk": "I&@^",
+    "machine": "냴"
+  },
+  {
+    "talk": "I&@_",
+    "machine": "냵"
+  },
+  {
+    "talk": "I&@_^",
+    "machine": "냶"
+  },
+  {
+    "talk": "I&@--",
+    "machine": "냷"
+  },
+  {
+    "talk": "I&@--^",
+    "machine": "냸"
+  },
+  {
+    "talk": "I&@--_",
+    "machine": "냹"
+  },
+  {
+    "talk": "I&@--_^",
+    "machine": "냺"
+  },
+  {
+    "talk": "I&@-",
+    "machine": "냻"
+  },
+  {
+    "talk": "I&@-^",
+    "machine": "냼"
+  },
+  {
+    "talk": "I&@-_",
+    "machine": "냽"
+  },
+  {
+    "talk": "I&@-_^",
+    "machine": "냾"
+  },
+  {
+    "talk": "I&@+",
+    "machine": "냿"
+  },
+  {
+    "talk": "I&@+^",
+    "machine": "넀"
+  },
+  {
+    "talk": "I&@+_",
+    "machine": "넁"
+  },
+  {
+    "talk": "I&@+_^",
+    "machine": "넂"
+  },
+  {
+    "talk": "I&@++",
+    "machine": "넃"
+  },
+  {
+    "talk": "I&@++^",
+    "machine": "넄"
+  },
+  {
+    "talk": "I&@++_",
+    "machine": "넅"
+  },
+  {
+    "talk": "I&@++_^",
+    "machine": "넆"
+  },
+  {
+    "talk": "e",
+    "machine": "넇"
+  },
+  {
+    "talk": "e^",
+    "machine": "너"
+  },
+  {
+    "talk": "e_",
+    "machine": "넉"
+  },
+  {
+    "talk": "e_^",
+    "machine": "넊"
+  },
+  {
+    "talk": "e--",
+    "machine": "넋"
+  },
+  {
+    "talk": "e--^",
+    "machine": "넌"
+  },
+  {
+    "talk": "e--_",
+    "machine": "넍"
+  },
+  {
+    "talk": "e--_^",
+    "machine": "넎"
+  },
+  {
+    "talk": "e-",
+    "machine": "넏"
+  },
+  {
+    "talk": "e-^",
+    "machine": "널"
+  },
+  {
+    "talk": "e-_",
+    "machine": "넑"
+  },
+  {
+    "talk": "e-_^",
+    "machine": "넒"
+  },
+  {
+    "talk": "e+",
+    "machine": "넓"
+  },
+  {
+    "talk": "e+^",
+    "machine": "넔"
+  },
+  {
+    "talk": "e+_",
+    "machine": "넕"
+  },
+  {
+    "talk": "e+_^",
+    "machine": "넖"
+  },
+  {
+    "talk": "e++",
+    "machine": "넗"
+  },
+  {
+    "talk": "e++^",
+    "machine": "넘"
+  },
+  {
+    "talk": "e++_",
+    "machine": "넙"
+  },
+  {
+    "talk": "e++_^",
+    "machine": "넚"
+  },
+  {
+    "talk": "e@",
+    "machine": "넛"
+  },
+  {
+    "talk": "e@^",
+    "machine": "넜"
+  },
+  {
+    "talk": "e@_",
+    "machine": "넝"
+  },
+  {
+    "talk": "e@_^",
+    "machine": "넞"
+  },
+  {
+    "talk": "e@--",
+    "machine": "넟"
+  },
+  {
+    "talk": "e@--^",
+    "machine": "넠"
+  },
+  {
+    "talk": "e@--_",
+    "machine": "넡"
+  },
+  {
+    "talk": "e@--_^",
+    "machine": "넢"
+  },
+  {
+    "talk": "e@-",
+    "machine": "넣"
+  },
+  {
+    "talk": "e@-^",
+    "machine": "네"
+  },
+  {
+    "talk": "e@-_",
+    "machine": "넥"
+  },
+  {
+    "talk": "e@-_^",
+    "machine": "넦"
+  },
+  {
+    "talk": "e@+",
+    "machine": "넧"
+  },
+  {
+    "talk": "e@+^",
+    "machine": "넨"
+  },
+  {
+    "talk": "e@+_",
+    "machine": "넩"
+  },
+  {
+    "talk": "e@+_^",
+    "machine": "넪"
+  },
+  {
+    "talk": "e@++",
+    "machine": "넫"
+  },
+  {
+    "talk": "e@++^",
+    "machine": "넬"
+  },
+  {
+    "talk": "e@++_",
+    "machine": "넭"
+  },
+  {
+    "talk": "e@++_^",
+    "machine": "넮"
+  },
+  {
+    "talk": "e&",
+    "machine": "넯"
+  },
+  {
+    "talk": "e&^",
+    "machine": "넰"
+  },
+  {
+    "talk": "e&_",
+    "machine": "넱"
+  },
+  {
+    "talk": "e&_^",
+    "machine": "넲"
+  },
+  {
+    "talk": "e&--",
+    "machine": "넳"
+  },
+  {
+    "talk": "e&--^",
+    "machine": "넴"
+  },
+  {
+    "talk": "e&--_",
+    "machine": "넵"
+  },
+  {
+    "talk": "e&--_^",
+    "machine": "넶"
+  },
+  {
+    "talk": "e&-",
+    "machine": "넷"
+  },
+  {
+    "talk": "e&-^",
+    "machine": "넸"
+  },
+  {
+    "talk": "e&-_",
+    "machine": "넹"
+  },
+  {
+    "talk": "e&-_^",
+    "machine": "넺"
+  },
+  {
+    "talk": "e&+",
+    "machine": "넻"
+  },
+  {
+    "talk": "e&+^",
+    "machine": "넼"
+  },
+  {
+    "talk": "e&+_",
+    "machine": "넽"
+  },
+  {
+    "talk": "e&+_^",
+    "machine": "넾"
+  },
+  {
+    "talk": "e&++",
+    "machine": "넿"
+  },
+  {
+    "talk": "e&++^",
+    "machine": "녀"
+  },
+  {
+    "talk": "e&++_",
+    "machine": "녁"
+  },
+  {
+    "talk": "e&++_^",
+    "machine": "녂"
+  },
+  {
+    "talk": "e&@",
+    "machine": "녃"
+  },
+  {
+    "talk": "e&@^",
+    "machine": "년"
+  },
+  {
+    "talk": "e&@_",
+    "machine": "녅"
+  },
+  {
+    "talk": "e&@_^",
+    "machine": "녆"
+  },
+  {
+    "talk": "e&@--",
+    "machine": "녇"
+  },
+  {
+    "talk": "e&@--^",
+    "machine": "녈"
+  },
+  {
+    "talk": "e&@--_",
+    "machine": "녉"
+  },
+  {
+    "talk": "e&@--_^",
+    "machine": "녊"
+  },
+  {
+    "talk": "e&@-",
+    "machine": "녋"
+  },
+  {
+    "talk": "e&@-^",
+    "machine": "녌"
+  },
+  {
+    "talk": "e&@-_",
+    "machine": "녍"
+  },
+  {
+    "talk": "e&@-_^",
+    "machine": "녎"
+  },
+  {
+    "talk": "e&@+",
+    "machine": "녏"
+  },
+  {
+    "talk": "e&@+^",
+    "machine": "념"
+  },
+  {
+    "talk": "e&@+_",
+    "machine": "녑"
+  },
+  {
+    "talk": "e&@+_^",
+    "machine": "녒"
+  },
+  {
+    "talk": "e&@++",
+    "machine": "녓"
+  },
+  {
+    "talk": "e&@++^",
+    "machine": "녔"
+  },
+  {
+    "talk": "e&@++_",
+    "machine": "녕"
+  },
+  {
+    "talk": "e&@++_^",
+    "machine": "녖"
+  },
+  {
+    "talk": "a$",
+    "machine": "녗"
+  },
+  {
+    "talk": "a$^",
+    "machine": "녘"
+  },
+  {
+    "talk": "a$_",
+    "machine": "녙"
+  },
+  {
+    "talk": "a$_^",
+    "machine": "녚"
+  },
+  {
+    "talk": "a$--",
+    "machine": "녛"
+  },
+  {
+    "talk": "a$--^",
+    "machine": "녜"
+  },
+  {
+    "talk": "a$--_",
+    "machine": "녝"
+  },
+  {
+    "talk": "a$--_^",
+    "machine": "녞"
+  },
+  {
+    "talk": "a$-",
+    "machine": "녟"
+  },
+  {
+    "talk": "a$-^",
+    "machine": "녠"
+  },
+  {
+    "talk": "a$-_",
+    "machine": "녡"
+  },
+  {
+    "talk": "a$-_^",
+    "machine": "녢"
+  },
+  {
+    "talk": "a$+",
+    "machine": "녣"
+  },
+  {
+    "talk": "a$+^",
+    "machine": "녤"
+  },
+  {
+    "talk": "a$+_",
+    "machine": "녥"
+  },
+  {
+    "talk": "a$+_^",
+    "machine": "녦"
+  },
+  {
+    "talk": "a$++",
+    "machine": "녧"
+  },
+  {
+    "talk": "a$++^",
+    "machine": "녨"
+  },
+  {
+    "talk": "a$++_",
+    "machine": "녩"
+  },
+  {
+    "talk": "a$++_^",
+    "machine": "녪"
+  },
+  {
+    "talk": "a$@",
+    "machine": "녫"
+  },
+  {
+    "talk": "a$@^",
+    "machine": "녬"
+  },
+  {
+    "talk": "a$@_",
+    "machine": "녭"
+  },
+  {
+    "talk": "a$@_^",
+    "machine": "녮"
+  },
+  {
+    "talk": "a$@--",
+    "machine": "녯"
+  },
+  {
+    "talk": "a$@--^",
+    "machine": "녰"
+  },
+  {
+    "talk": "a$@--_",
+    "machine": "녱"
+  },
+  {
+    "talk": "a$@--_^",
+    "machine": "녲"
+  },
+  {
+    "talk": "a$@-",
+    "machine": "녳"
+  },
+  {
+    "talk": "a$@-^",
+    "machine": "녴"
+  },
+  {
+    "talk": "a$@-_",
+    "machine": "녵"
+  },
+  {
+    "talk": "a$@-_^",
+    "machine": "녶"
+  },
+  {
+    "talk": "a$@+",
+    "machine": "녷"
+  },
+  {
+    "talk": "a$@+^",
+    "machine": "노"
+  },
+  {
+    "talk": "a$@+_",
+    "machine": "녹"
+  },
+  {
+    "talk": "a$@+_^",
+    "machine": "녺"
+  },
+  {
+    "talk": "a$@++",
+    "machine": "녻"
+  },
+  {
+    "talk": "a$@++^",
+    "machine": "논"
+  },
+  {
+    "talk": "a$@++_",
+    "machine": "녽"
+  },
+  {
+    "talk": "a$@++_^",
+    "machine": "녾"
+  },
+  {
+    "talk": "a$&",
+    "machine": "녿"
+  },
+  {
+    "talk": "a$&^",
+    "machine": "놀"
+  },
+  {
+    "talk": "a$&_",
+    "machine": "놁"
+  },
+  {
+    "talk": "a$&_^",
+    "machine": "놂"
+  },
+  {
+    "talk": "a$&--",
+    "machine": "놃"
+  },
+  {
+    "talk": "a$&--^",
+    "machine": "놄"
+  },
+  {
+    "talk": "a$&--_",
+    "machine": "놅"
+  },
+  {
+    "talk": "a$&--_^",
+    "machine": "놆"
+  },
+  {
+    "talk": "a$&-",
+    "machine": "놇"
+  },
+  {
+    "talk": "a$&-^",
+    "machine": "놈"
+  },
+  {
+    "talk": "a$&-_",
+    "machine": "놉"
+  },
+  {
+    "talk": "a$&-_^",
+    "machine": "놊"
+  },
+  {
+    "talk": "a$&+",
+    "machine": "놋"
+  },
+  {
+    "talk": "a$&+^",
+    "machine": "놌"
+  },
+  {
+    "talk": "a$&+_",
+    "machine": "농"
+  },
+  {
+    "talk": "a$&+_^",
+    "machine": "놎"
+  },
+  {
+    "talk": "a$&++",
+    "machine": "놏"
+  },
+  {
+    "talk": "a$&++^",
+    "machine": "놐"
+  },
+  {
+    "talk": "a$&++_",
+    "machine": "놑"
+  },
+  {
+    "talk": "a$&++_^",
+    "machine": "높"
+  },
+  {
+    "talk": "a$&@",
+    "machine": "놓"
+  },
+  {
+    "talk": "a$&@^",
+    "machine": "놔"
+  },
+  {
+    "talk": "a$&@_",
+    "machine": "놕"
+  },
+  {
+    "talk": "a$&@_^",
+    "machine": "놖"
+  },
+  {
+    "talk": "a$&@--",
+    "machine": "놗"
+  },
+  {
+    "talk": "a$&@--^",
+    "machine": "놘"
+  },
+  {
+    "talk": "a$&@--_",
+    "machine": "놙"
+  },
+  {
+    "talk": "a$&@--_^",
+    "machine": "놚"
+  },
+  {
+    "talk": "a$&@-",
+    "machine": "놛"
+  },
+  {
+    "talk": "a$&@-^",
+    "machine": "놜"
+  },
+  {
+    "talk": "a$&@-_",
+    "machine": "놝"
+  },
+  {
+    "talk": "a$&@-_^",
+    "machine": "놞"
+  },
+  {
+    "talk": "a$&@+",
+    "machine": "놟"
+  },
+  {
+    "talk": "a$&@+^",
+    "machine": "놠"
+  },
+  {
+    "talk": "a$&@+_",
+    "machine": "놡"
+  },
+  {
+    "talk": "a$&@+_^",
+    "machine": "놢"
+  },
+  {
+    "talk": "a$&@++",
+    "machine": "놣"
+  },
+  {
+    "talk": "a$&@++^",
+    "machine": "놤"
+  },
+  {
+    "talk": "a$&@++_",
+    "machine": "놥"
+  },
+  {
+    "talk": "a$&@++_^",
+    "machine": "놦"
+  },
+  {
+    "talk": "o",
+    "machine": "놧"
+  },
+  {
+    "talk": "o^",
+    "machine": "놨"
+  },
+  {
+    "talk": "o_",
+    "machine": "놩"
+  },
+  {
+    "talk": "o_^",
+    "machine": "놪"
+  },
+  {
+    "talk": "o--",
+    "machine": "놫"
+  },
+  {
+    "talk": "o--^",
+    "machine": "놬"
+  },
+  {
+    "talk": "o--_",
+    "machine": "놭"
+  },
+  {
+    "talk": "o--_^",
+    "machine": "놮"
+  },
+  {
+    "talk": "o-",
+    "machine": "놯"
+  },
+  {
+    "talk": "o-^",
+    "machine": "놰"
+  },
+  {
+    "talk": "o-_",
+    "machine": "놱"
+  },
+  {
+    "talk": "o-_^",
+    "machine": "놲"
+  },
+  {
+    "talk": "o+",
+    "machine": "놳"
+  },
+  {
+    "talk": "o+^",
+    "machine": "놴"
+  },
+  {
+    "talk": "o+_",
+    "machine": "놵"
+  },
+  {
+    "talk": "o+_^",
+    "machine": "놶"
+  },
+  {
+    "talk": "o++",
+    "machine": "놷"
+  },
+  {
+    "talk": "o++^",
+    "machine": "놸"
+  },
+  {
+    "talk": "o++_",
+    "machine": "놹"
+  },
+  {
+    "talk": "o++_^",
+    "machine": "놺"
+  },
+  {
+    "talk": "o@",
+    "machine": "놻"
+  },
+  {
+    "talk": "o@^",
+    "machine": "놼"
+  },
+  {
+    "talk": "o@_",
+    "machine": "놽"
+  },
+  {
+    "talk": "o@_^",
+    "machine": "놾"
+  },
+  {
+    "talk": "o@--",
+    "machine": "놿"
+  },
+  {
+    "talk": "o@--^",
+    "machine": "뇀"
+  },
+  {
+    "talk": "o@--_",
+    "machine": "뇁"
+  },
+  {
+    "talk": "o@--_^",
+    "machine": "뇂"
+  },
+  {
+    "talk": "o@-",
+    "machine": "뇃"
+  },
+  {
+    "talk": "o@-^",
+    "machine": "뇄"
+  },
+  {
+    "talk": "o@-_",
+    "machine": "뇅"
+  },
+  {
+    "talk": "o@-_^",
+    "machine": "뇆"
+  },
+  {
+    "talk": "o@+",
+    "machine": "뇇"
+  },
+  {
+    "talk": "o@+^",
+    "machine": "뇈"
+  },
+  {
+    "talk": "o@+_",
+    "machine": "뇉"
+  },
+  {
+    "talk": "o@+_^",
+    "machine": "뇊"
+  },
+  {
+    "talk": "o@++",
+    "machine": "뇋"
+  },
+  {
+    "talk": "o@++^",
+    "machine": "뇌"
+  },
+  {
+    "talk": "o@++_",
+    "machine": "뇍"
+  },
+  {
+    "talk": "o@++_^",
+    "machine": "뇎"
+  },
+  {
+    "talk": "o&",
+    "machine": "뇏"
+  },
+  {
+    "talk": "o&^",
+    "machine": "뇐"
+  },
+  {
+    "talk": "o&_",
+    "machine": "뇑"
+  },
+  {
+    "talk": "o&_^",
+    "machine": "뇒"
+  },
+  {
+    "talk": "o&--",
+    "machine": "뇓"
+  },
+  {
+    "talk": "o&--^",
+    "machine": "뇔"
+  },
+  {
+    "talk": "o&--_",
+    "machine": "뇕"
+  },
+  {
+    "talk": "o&--_^",
+    "machine": "뇖"
+  },
+  {
+    "talk": "o&-",
+    "machine": "뇗"
+  },
+  {
+    "talk": "o&-^",
+    "machine": "뇘"
+  },
+  {
+    "talk": "o&-_",
+    "machine": "뇙"
+  },
+  {
+    "talk": "o&-_^",
+    "machine": "뇚"
+  },
+  {
+    "talk": "o&+",
+    "machine": "뇛"
+  },
+  {
+    "talk": "o&+^",
+    "machine": "뇜"
+  },
+  {
+    "talk": "o&+_",
+    "machine": "뇝"
+  },
+  {
+    "talk": "o&+_^",
+    "machine": "뇞"
+  },
+  {
+    "talk": "o&++",
+    "machine": "뇟"
+  },
+  {
+    "talk": "o&++^",
+    "machine": "뇠"
+  },
+  {
+    "talk": "o&++_",
+    "machine": "뇡"
+  },
+  {
+    "talk": "o&++_^",
+    "machine": "뇢"
+  },
+  {
+    "talk": "o&@",
+    "machine": "뇣"
+  },
+  {
+    "talk": "o&@^",
+    "machine": "뇤"
+  },
+  {
+    "talk": "o&@_",
+    "machine": "뇥"
+  },
+  {
+    "talk": "o&@_^",
+    "machine": "뇦"
+  },
+  {
+    "talk": "o&@--",
+    "machine": "뇧"
+  },
+  {
+    "talk": "o&@--^",
+    "machine": "뇨"
+  },
+  {
+    "talk": "o&@--_",
+    "machine": "뇩"
+  },
+  {
+    "talk": "o&@--_^",
+    "machine": "뇪"
+  },
+  {
+    "talk": "o&@-",
+    "machine": "뇫"
+  },
+  {
+    "talk": "o&@-^",
+    "machine": "뇬"
+  },
+  {
+    "talk": "o&@-_",
+    "machine": "뇭"
+  },
+  {
+    "talk": "o&@-_^",
+    "machine": "뇮"
+  },
+  {
+    "talk": "o&@+",
+    "machine": "뇯"
+  },
+  {
+    "talk": "o&@+^",
+    "machine": "뇰"
+  },
+  {
+    "talk": "o&@+_",
+    "machine": "뇱"
+  },
+  {
+    "talk": "o&@+_^",
+    "machine": "뇲"
+  },
+  {
+    "talk": "o&@++",
+    "machine": "뇳"
+  },
+  {
+    "talk": "o&@++^",
+    "machine": "뇴"
+  },
+  {
+    "talk": "o&@++_",
+    "machine": "뇵"
+  },
+  {
+    "talk": "o&@++_^",
+    "machine": "뇶"
+  },
+  {
+    "talk": "U",
+    "machine": "뇷"
+  },
+  {
+    "talk": "U^",
+    "machine": "뇸"
+  },
+  {
+    "talk": "U_",
+    "machine": "뇹"
+  },
+  {
+    "talk": "U_^",
+    "machine": "뇺"
+  },
+  {
+    "talk": "U--",
+    "machine": "뇻"
+  },
+  {
+    "talk": "U--^",
+    "machine": "뇼"
+  },
+  {
+    "talk": "U--_",
+    "machine": "뇽"
+  },
+  {
+    "talk": "U--_^",
+    "machine": "뇾"
+  },
+  {
+    "talk": "U-",
+    "machine": "뇿"
+  },
+  {
+    "talk": "U-^",
+    "machine": "눀"
+  },
+  {
+    "talk": "U-_",
+    "machine": "눁"
+  },
+  {
+    "talk": "U-_^",
+    "machine": "눂"
+  },
+  {
+    "talk": "U+",
+    "machine": "눃"
+  },
+  {
+    "talk": "U+^",
+    "machine": "누"
+  },
+  {
+    "talk": "U+_",
+    "machine": "눅"
+  },
+  {
+    "talk": "U+_^",
+    "machine": "눆"
+  },
+  {
+    "talk": "U++",
+    "machine": "눇"
+  },
+  {
+    "talk": "U++^",
+    "machine": "눈"
+  },
+  {
+    "talk": "U++_",
+    "machine": "눉"
+  },
+  {
+    "talk": "U++_^",
+    "machine": "눊"
+  },
+  {
+    "talk": "U@",
+    "machine": "눋"
+  },
+  {
+    "talk": "U@^",
+    "machine": "눌"
+  },
+  {
+    "talk": "U@_",
+    "machine": "눍"
+  },
+  {
+    "talk": "U@_^",
+    "machine": "눎"
+  },
+  {
+    "talk": "U@--",
+    "machine": "눏"
+  },
+  {
+    "talk": "U@--^",
+    "machine": "눐"
+  },
+  {
+    "talk": "U@--_",
+    "machine": "눑"
+  },
+  {
+    "talk": "U@--_^",
+    "machine": "눒"
+  },
+  {
+    "talk": "U@-",
+    "machine": "눓"
+  },
+  {
+    "talk": "U@-^",
+    "machine": "눔"
+  },
+  {
+    "talk": "U@-_",
+    "machine": "눕"
+  },
+  {
+    "talk": "U@-_^",
+    "machine": "눖"
+  },
+  {
+    "talk": "U@+",
+    "machine": "눗"
+  },
+  {
+    "talk": "U@+^",
+    "machine": "눘"
+  },
+  {
+    "talk": "U@+_",
+    "machine": "눙"
+  },
+  {
+    "talk": "U@+_^",
+    "machine": "눚"
+  },
+  {
+    "talk": "U@++",
+    "machine": "눛"
+  },
+  {
+    "talk": "U@++^",
+    "machine": "눜"
+  },
+  {
+    "talk": "U@++_",
+    "machine": "눝"
+  },
+  {
+    "talk": "U@++_^",
+    "machine": "눞"
+  },
+  {
+    "talk": "U&",
+    "machine": "눟"
+  },
+  {
+    "talk": "U&^",
+    "machine": "눠"
+  },
+  {
+    "talk": "U&_",
+    "machine": "눡"
+  },
+  {
+    "talk": "U&_^",
+    "machine": "눢"
+  },
+  {
+    "talk": "U&--",
+    "machine": "눣"
+  },
+  {
+    "talk": "U&--^",
+    "machine": "눤"
+  },
+  {
+    "talk": "U&--_",
+    "machine": "눥"
+  },
+  {
+    "talk": "U&--_^",
+    "machine": "눦"
+  },
+  {
+    "talk": "U&-",
+    "machine": "눧"
+  },
+  {
+    "talk": "U&-^",
+    "machine": "눨"
+  },
+  {
+    "talk": "U&-_",
+    "machine": "눩"
+  },
+  {
+    "talk": "U&-_^",
+    "machine": "눪"
+  },
+  {
+    "talk": "U&+",
+    "machine": "눫"
+  },
+  {
+    "talk": "U&+^",
+    "machine": "눬"
+  },
+  {
+    "talk": "U&+_",
+    "machine": "눭"
+  },
+  {
+    "talk": "U&+_^",
+    "machine": "눮"
+  },
+  {
+    "talk": "U&++",
+    "machine": "눯"
+  },
+  {
+    "talk": "U&++^",
+    "machine": "눰"
+  },
+  {
+    "talk": "U&++_",
+    "machine": "눱"
+  },
+  {
+    "talk": "U&++_^",
+    "machine": "눲"
+  },
+  {
+    "talk": "U&@",
+    "machine": "눳"
+  },
+  {
+    "talk": "U&@^",
+    "machine": "눴"
+  },
+  {
+    "talk": "U&@_",
+    "machine": "눵"
+  },
+  {
+    "talk": "U&@_^",
+    "machine": "눶"
+  },
+  {
+    "talk": "U&@--",
+    "machine": "눷"
+  },
+  {
+    "talk": "U&@--^",
+    "machine": "눸"
+  },
+  {
+    "talk": "U&@--_",
+    "machine": "눹"
+  },
+  {
+    "talk": "U&@--_^",
+    "machine": "눺"
+  },
+  {
+    "talk": "U&@-",
+    "machine": "눻"
+  },
+  {
+    "talk": "U&@-^",
+    "machine": "눼"
+  },
+  {
+    "talk": "U&@-_",
+    "machine": "눽"
+  },
+  {
+    "talk": "U&@-_^",
+    "machine": "눾"
+  },
+  {
+    "talk": "U&@+",
+    "machine": "눿"
+  },
+  {
+    "talk": "U&@+^",
+    "machine": "뉀"
+  },
+  {
+    "talk": "U&@+_",
+    "machine": "뉁"
+  },
+  {
+    "talk": "U&@+_^",
+    "machine": "뉂"
+  },
+  {
+    "talk": "U&@++",
+    "machine": "뉃"
+  },
+  {
+    "talk": "U&@++^",
+    "machine": "뉄"
+  },
+  {
+    "talk": "U&@++_",
+    "machine": "뉅"
+  },
+  {
+    "talk": "U&@++_^",
+    "machine": "뉆"
+  },
+  {
+    "talk": "E",
+    "machine": "뉇"
+  },
+  {
+    "talk": "E^",
+    "machine": "뉈"
+  },
+  {
+    "talk": "E_",
+    "machine": "뉉"
+  },
+  {
+    "talk": "E_^",
+    "machine": "뉊"
+  },
+  {
+    "talk": "E--",
+    "machine": "뉋"
+  },
+  {
+    "talk": "E--^",
+    "machine": "뉌"
+  },
+  {
+    "talk": "E--_",
+    "machine": "뉍"
+  },
+  {
+    "talk": "E--_^",
+    "machine": "뉎"
+  },
+  {
+    "talk": "E-",
+    "machine": "뉏"
+  },
+  {
+    "talk": "E-^",
+    "machine": "뉐"
+  },
+  {
+    "talk": "E-_",
+    "machine": "뉑"
+  },
+  {
+    "talk": "E-_^",
+    "machine": "뉒"
+  },
+  {
+    "talk": "E+",
+    "machine": "뉓"
+  },
+  {
+    "talk": "E+^",
+    "machine": "뉔"
+  },
+  {
+    "talk": "E+_",
+    "machine": "뉕"
+  },
+  {
+    "talk": "E+_^",
+    "machine": "뉖"
+  },
+  {
+    "talk": "E++",
+    "machine": "뉗"
+  },
+  {
+    "talk": "E++^",
+    "machine": "뉘"
+  },
+  {
+    "talk": "E++_",
+    "machine": "뉙"
+  },
+  {
+    "talk": "E++_^",
+    "machine": "뉚"
+  },
+  {
+    "talk": "E@",
+    "machine": "뉛"
+  },
+  {
+    "talk": "E@^",
+    "machine": "뉜"
+  },
+  {
+    "talk": "E@_",
+    "machine": "뉝"
+  },
+  {
+    "talk": "E@_^",
+    "machine": "뉞"
+  },
+  {
+    "talk": "E@--",
+    "machine": "뉟"
+  },
+  {
+    "talk": "E@--^",
+    "machine": "뉠"
+  },
+  {
+    "talk": "E@--_",
+    "machine": "뉡"
+  },
+  {
+    "talk": "E@--_^",
+    "machine": "뉢"
+  },
+  {
+    "talk": "E@-",
+    "machine": "뉣"
+  },
+  {
+    "talk": "E@-^",
+    "machine": "뉤"
+  },
+  {
+    "talk": "E@-_",
+    "machine": "뉥"
+  },
+  {
+    "talk": "E@-_^",
+    "machine": "뉦"
+  },
+  {
+    "talk": "E@+",
+    "machine": "뉧"
+  },
+  {
+    "talk": "E@+^",
+    "machine": "뉨"
+  },
+  {
+    "talk": "E@+_",
+    "machine": "뉩"
+  },
+  {
+    "talk": "E@+_^",
+    "machine": "뉪"
+  },
+  {
+    "talk": "E@++",
+    "machine": "뉫"
+  },
+  {
+    "talk": "E@++^",
+    "machine": "뉬"
+  },
+  {
+    "talk": "E@++_",
+    "machine": "뉭"
+  },
+  {
+    "talk": "E@++_^",
+    "machine": "뉮"
+  },
+  {
+    "talk": "E&",
+    "machine": "뉯"
+  },
+  {
+    "talk": "E&^",
+    "machine": "뉰"
+  },
+  {
+    "talk": "E&_",
+    "machine": "뉱"
+  },
+  {
+    "talk": "E&_^",
+    "machine": "뉲"
+  },
+  {
+    "talk": "E&--",
+    "machine": "뉳"
+  },
+  {
+    "talk": "E&--^",
+    "machine": "뉴"
+  },
+  {
+    "talk": "E&--_",
+    "machine": "뉵"
+  },
+  {
+    "talk": "E&--_^",
+    "machine": "뉶"
+  },
+  {
+    "talk": "E&-",
+    "machine": "뉷"
+  },
+  {
+    "talk": "E&-^",
+    "machine": "뉸"
+  },
+  {
+    "talk": "E&-_",
+    "machine": "뉹"
+  },
+  {
+    "talk": "E&-_^",
+    "machine": "뉺"
+  },
+  {
+    "talk": "E&+",
+    "machine": "뉻"
+  },
+  {
+    "talk": "E&+^",
+    "machine": "뉼"
+  },
+  {
+    "talk": "E&+_",
+    "machine": "뉽"
+  },
+  {
+    "talk": "E&+_^",
+    "machine": "뉾"
+  },
+  {
+    "talk": "E&++",
+    "machine": "뉿"
+  },
+  {
+    "talk": "E&++^",
+    "machine": "늀"
+  },
+  {
+    "talk": "E&++_",
+    "machine": "늁"
+  },
+  {
+    "talk": "E&++_^",
+    "machine": "늂"
+  },
+  {
+    "talk": "E&@",
+    "machine": "늃"
+  },
+  {
+    "talk": "E&@^",
+    "machine": "늄"
+  },
+  {
+    "talk": "E&@_",
+    "machine": "늅"
+  },
+  {
+    "talk": "E&@_^",
+    "machine": "늆"
+  },
+  {
+    "talk": "E&@--",
+    "machine": "늇"
+  },
+  {
+    "talk": "E&@--^",
+    "machine": "늈"
+  },
+  {
+    "talk": "E&@--_",
+    "machine": "늉"
+  },
+  {
+    "talk": "E&@--_^",
+    "machine": "늊"
+  },
+  {
+    "talk": "E&@-",
+    "machine": "늋"
+  },
+  {
+    "talk": "E&@-^",
+    "machine": "늌"
+  },
+  {
+    "talk": "E&@-_",
+    "machine": "늍"
+  },
+  {
+    "talk": "E&@-_^",
+    "machine": "늎"
+  },
+  {
+    "talk": "E&@+",
+    "machine": "늏"
+  },
+  {
+    "talk": "E&@+^",
+    "machine": "느"
+  },
+  {
+    "talk": "E&@+_",
+    "machine": "늑"
+  },
+  {
+    "talk": "E&@+_^",
+    "machine": "늒"
+  },
+  {
+    "talk": "E&@++",
+    "machine": "늓"
+  },
+  {
+    "talk": "E&@++^",
+    "machine": "는"
+  },
+  {
+    "talk": "E&@++_",
+    "machine": "늕"
+  },
+  {
+    "talk": "E&@++_^",
+    "machine": "늖"
+  },
+  {
+    "talk": "e$",
+    "machine": "늗"
+  },
+  {
+    "talk": "e$^",
+    "machine": "늘"
+  },
+  {
+    "talk": "e$_",
+    "machine": "늙"
+  },
+  {
+    "talk": "e$_^",
+    "machine": "늚"
+  },
+  {
+    "talk": "e$--",
+    "machine": "늛"
+  },
+  {
+    "talk": "e$--^",
+    "machine": "늜"
+  },
+  {
+    "talk": "e$--_",
+    "machine": "늝"
+  },
+  {
+    "talk": "e$--_^",
+    "machine": "늞"
+  },
+  {
+    "talk": "e$-",
+    "machine": "늟"
+  },
+  {
+    "talk": "e$-^",
+    "machine": "늠"
+  },
+  {
+    "talk": "e$-_",
+    "machine": "늡"
+  },
+  {
+    "talk": "e$-_^",
+    "machine": "늢"
+  },
+  {
+    "talk": "e$+",
+    "machine": "늣"
+  },
+  {
+    "talk": "e$+^",
+    "machine": "늤"
+  },
+  {
+    "talk": "e$+_",
+    "machine": "능"
+  },
+  {
+    "talk": "e$+_^",
+    "machine": "늦"
+  },
+  {
+    "talk": "e$++",
+    "machine": "늧"
+  },
+  {
+    "talk": "e$++^",
+    "machine": "늨"
+  },
+  {
+    "talk": "e$++_",
+    "machine": "늩"
+  },
+  {
+    "talk": "e$++_^",
+    "machine": "늪"
+  },
+  {
+    "talk": "e$@",
+    "machine": "늫"
+  },
+  {
+    "talk": "e$@^",
+    "machine": "늬"
+  },
+  {
+    "talk": "e$@_",
+    "machine": "늭"
+  },
+  {
+    "talk": "e$@_^",
+    "machine": "늮"
+  },
+  {
+    "talk": "e$@--",
+    "machine": "늯"
+  },
+  {
+    "talk": "e$@--^",
+    "machine": "늰"
+  },
+  {
+    "talk": "e$@--_",
+    "machine": "늱"
+  },
+  {
+    "talk": "e$@--_^",
+    "machine": "늲"
+  },
+  {
+    "talk": "e$@-",
+    "machine": "늳"
+  },
+  {
+    "talk": "e$@-^",
+    "machine": "늴"
+  },
+  {
+    "talk": "e$@-_",
+    "machine": "늵"
+  },
+  {
+    "talk": "e$@-_^",
+    "machine": "늶"
+  },
+  {
+    "talk": "e$@+",
+    "machine": "늷"
+  },
+  {
+    "talk": "e$@+^",
+    "machine": "늸"
+  },
+  {
+    "talk": "e$@+_",
+    "machine": "늹"
+  },
+  {
+    "talk": "e$@+_^",
+    "machine": "늺"
+  },
+  {
+    "talk": "e$@++",
+    "machine": "늻"
+  },
+  {
+    "talk": "e$@++^",
+    "machine": "늼"
+  },
+  {
+    "talk": "e$@++_",
+    "machine": "늽"
+  },
+  {
+    "talk": "e$@++_^",
+    "machine": "늾"
+  },
+  {
+    "talk": "e$&",
+    "machine": "늿"
+  },
+  {
+    "talk": "e$&^",
+    "machine": "닀"
+  },
+  {
+    "talk": "e$&_",
+    "machine": "닁"
+  },
+  {
+    "talk": "e$&_^",
+    "machine": "닂"
+  },
+  {
+    "talk": "e$&--",
+    "machine": "닃"
+  },
+  {
+    "talk": "e$&--^",
+    "machine": "닄"
+  },
+  {
+    "talk": "e$&--_",
+    "machine": "닅"
+  },
+  {
+    "talk": "e$&--_^",
+    "machine": "닆"
+  },
+  {
+    "talk": "e$&-",
+    "machine": "닇"
+  },
+  {
+    "talk": "e$&-^",
+    "machine": "니"
+  },
+  {
+    "talk": "e$&-_",
+    "machine": "닉"
+  },
+  {
+    "talk": "e$&-_^",
+    "machine": "닊"
+  },
+  {
+    "talk": "e$&+",
+    "machine": "닋"
+  },
+  {
+    "talk": "e$&+^",
+    "machine": "닌"
+  },
+  {
+    "talk": "e$&+_",
+    "machine": "닍"
+  },
+  {
+    "talk": "e$&+_^",
+    "machine": "닎"
+  },
+  {
+    "talk": "e$&++",
+    "machine": "닏"
+  },
+  {
+    "talk": "e$&++^",
+    "machine": "닐"
+  },
+  {
+    "talk": "e$&++_",
+    "machine": "닑"
+  },
+  {
+    "talk": "e$&++_^",
+    "machine": "닒"
+  },
+  {
+    "talk": "e$&@",
+    "machine": "닓"
+  },
+  {
+    "talk": "e$&@^",
+    "machine": "닔"
+  },
+  {
+    "talk": "e$&@_",
+    "machine": "닕"
+  },
+  {
+    "talk": "e$&@_^",
+    "machine": "닖"
+  },
+  {
+    "talk": "e$&@--",
+    "machine": "닗"
+  },
+  {
+    "talk": "e$&@--^",
+    "machine": "님"
+  },
+  {
+    "talk": "e$&@--_",
+    "machine": "닙"
+  },
+  {
+    "talk": "e$&@--_^",
+    "machine": "닚"
+  },
+  {
+    "talk": "e$&@-",
+    "machine": "닛"
+  },
+  {
+    "talk": "e$&@-^",
+    "machine": "닜"
+  },
+  {
+    "talk": "e$&@-_",
+    "machine": "닝"
+  },
+  {
+    "talk": "e$&@-_^",
+    "machine": "닞"
+  },
+  {
+    "talk": "e$&@+",
+    "machine": "닟"
+  },
+  {
+    "talk": "e$&@+^",
+    "machine": "닠"
+  },
+  {
+    "talk": "e$&@+_",
+    "machine": "닡"
+  },
+  {
+    "talk": "e$&@+_^",
+    "machine": "닢"
+  },
+  {
+    "talk": "e$&@++",
+    "machine": "닣"
+  },
+  {
+    "talk": "e$&@++^",
+    "machine": "다"
+  },
+  {
+    "talk": "e$&@++_",
+    "machine": "닥"
+  },
+  {
+    "talk": "e$&@++_^",
+    "machine": "닦"
+  },
+  {
+    "talk": "o$",
+    "machine": "닧"
+  },
+  {
+    "talk": "o$^",
+    "machine": "단"
+  },
+  {
+    "talk": "o$_",
+    "machine": "닩"
+  },
+  {
+    "talk": "o$_^",
+    "machine": "닪"
+  },
+  {
+    "talk": "o$--",
+    "machine": "닫"
+  },
+  {
+    "talk": "o$--^",
+    "machine": "달"
+  },
+  {
+    "talk": "o$--_",
+    "machine": "닭"
+  },
+  {
+    "talk": "o$--_^",
+    "machine": "닮"
+  },
+  {
+    "talk": "o$-",
+    "machine": "닯"
+  },
+  {
+    "talk": "o$-^",
+    "machine": "닰"
+  },
+  {
+    "talk": "o$-_",
+    "machine": "닱"
+  },
+  {
+    "talk": "o$-_^",
+    "machine": "닲"
+  },
+  {
+    "talk": "o$+",
+    "machine": "닳"
+  },
+  {
+    "talk": "o$+^",
+    "machine": "담"
+  },
+  {
+    "talk": "o$+_",
+    "machine": "답"
+  },
+  {
+    "talk": "o$+_^",
+    "machine": "닶"
+  },
+  {
+    "talk": "o$++",
+    "machine": "닷"
+  },
+  {
+    "talk": "o$++^",
+    "machine": "닸"
+  },
+  {
+    "talk": "o$++_",
+    "machine": "당"
+  },
+  {
+    "talk": "o$++_^",
+    "machine": "닺"
+  },
+  {
+    "talk": "o$@",
+    "machine": "닻"
+  },
+  {
+    "talk": "o$@^",
+    "machine": "닼"
+  },
+  {
+    "talk": "o$@_",
+    "machine": "닽"
+  },
+  {
+    "talk": "o$@_^",
+    "machine": "닾"
+  },
+  {
+    "talk": "o$@--",
+    "machine": "닿"
+  },
+  {
+    "talk": "o$@--^",
+    "machine": "대"
+  },
+  {
+    "talk": "o$@--_",
+    "machine": "댁"
+  },
+  {
+    "talk": "o$@--_^",
+    "machine": "댂"
+  },
+  {
+    "talk": "o$@-",
+    "machine": "댃"
+  },
+  {
+    "talk": "o$@-^",
+    "machine": "댄"
+  },
+  {
+    "talk": "o$@-_",
+    "machine": "댅"
+  },
+  {
+    "talk": "o$@-_^",
+    "machine": "댆"
+  },
+  {
+    "talk": "o$@+",
+    "machine": "댇"
+  },
+  {
+    "talk": "o$@+^",
+    "machine": "댈"
+  },
+  {
+    "talk": "o$@+_",
+    "machine": "댉"
+  },
+  {
+    "talk": "o$@+_^",
+    "machine": "댊"
+  },
+  {
+    "talk": "o$@++",
+    "machine": "댋"
+  },
+  {
+    "talk": "o$@++^",
+    "machine": "댌"
+  },
+  {
+    "talk": "o$@++_",
+    "machine": "댍"
+  },
+  {
+    "talk": "o$@++_^",
+    "machine": "댎"
+  },
+  {
+    "talk": "o$&",
+    "machine": "댏"
+  },
+  {
+    "talk": "o$&^",
+    "machine": "댐"
+  },
+  {
+    "talk": "o$&_",
+    "machine": "댑"
+  },
+  {
+    "talk": "o$&_^",
+    "machine": "댒"
+  },
+  {
+    "talk": "o$&--",
+    "machine": "댓"
+  },
+  {
+    "talk": "o$&--^",
+    "machine": "댔"
+  },
+  {
+    "talk": "o$&--_",
+    "machine": "댕"
+  },
+  {
+    "talk": "o$&--_^",
+    "machine": "댖"
+  },
+  {
+    "talk": "o$&-",
+    "machine": "댗"
+  },
+  {
+    "talk": "o$&-^",
+    "machine": "댘"
+  },
+  {
+    "talk": "o$&-_",
+    "machine": "댙"
+  },
+  {
+    "talk": "o$&-_^",
+    "machine": "댚"
+  },
+  {
+    "talk": "o$&+",
+    "machine": "댛"
+  },
+  {
+    "talk": "o$&+^",
+    "machine": "댜"
+  },
+  {
+    "talk": "o$&+_",
+    "machine": "댝"
+  },
+  {
+    "talk": "o$&+_^",
+    "machine": "댞"
+  },
+  {
+    "talk": "o$&++",
+    "machine": "댟"
+  },
+  {
+    "talk": "o$&++^",
+    "machine": "댠"
+  },
+  {
+    "talk": "o$&++_",
+    "machine": "댡"
+  },
+  {
+    "talk": "o$&++_^",
+    "machine": "댢"
+  },
+  {
+    "talk": "o$&@",
+    "machine": "댣"
+  },
+  {
+    "talk": "o$&@^",
+    "machine": "댤"
+  },
+  {
+    "talk": "o$&@_",
+    "machine": "댥"
+  },
+  {
+    "talk": "o$&@_^",
+    "machine": "댦"
+  },
+  {
+    "talk": "o$&@--",
+    "machine": "댧"
+  },
+  {
+    "talk": "o$&@--^",
+    "machine": "댨"
+  },
+  {
+    "talk": "o$&@--_",
+    "machine": "댩"
+  },
+  {
+    "talk": "o$&@--_^",
+    "machine": "댪"
+  },
+  {
+    "talk": "o$&@-",
+    "machine": "댫"
+  },
+  {
+    "talk": "o$&@-^",
+    "machine": "댬"
+  },
+  {
+    "talk": "o$&@-_",
+    "machine": "댭"
+  },
+  {
+    "talk": "o$&@-_^",
+    "machine": "댮"
+  },
+  {
+    "talk": "o$&@+",
+    "machine": "댯"
+  },
+  {
+    "talk": "o$&@+^",
+    "machine": "댰"
+  },
+  {
+    "talk": "o$&@+_",
+    "machine": "댱"
+  },
+  {
+    "talk": "o$&@+_^",
+    "machine": "댲"
+  },
+  {
+    "talk": "o$&@++",
+    "machine": "댳"
+  },
+  {
+    "talk": "o$&@++^",
+    "machine": "댴"
+  },
+  {
+    "talk": "o$&@++_",
+    "machine": "댵"
+  },
+  {
+    "talk": "o$&@++_^",
+    "machine": "댶"
+  },
+  {
+    "talk": "A",
+    "machine": "댷"
+  },
+  {
+    "talk": "A^",
+    "machine": "댸"
+  },
+  {
+    "talk": "A_",
+    "machine": "댹"
+  },
+  {
+    "talk": "A_^",
+    "machine": "댺"
+  },
+  {
+    "talk": "A--",
+    "machine": "댻"
+  },
+  {
+    "talk": "A--^",
+    "machine": "댼"
+  },
+  {
+    "talk": "A--_",
+    "machine": "댽"
+  },
+  {
+    "talk": "A--_^",
+    "machine": "댾"
+  },
+  {
+    "talk": "A-",
+    "machine": "댿"
+  },
+  {
+    "talk": "A-^",
+    "machine": "덀"
+  },
+  {
+    "talk": "A-_",
+    "machine": "덁"
+  },
+  {
+    "talk": "A-_^",
+    "machine": "덂"
+  },
+  {
+    "talk": "A+",
+    "machine": "덃"
+  },
+  {
+    "talk": "A+^",
+    "machine": "덄"
+  },
+  {
+    "talk": "A+_",
+    "machine": "덅"
+  },
+  {
+    "talk": "A+_^",
+    "machine": "덆"
+  },
+  {
+    "talk": "A++",
+    "machine": "덇"
+  },
+  {
+    "talk": "A++^",
+    "machine": "덈"
+  },
+  {
+    "talk": "A++_",
+    "machine": "덉"
+  },
+  {
+    "talk": "A++_^",
+    "machine": "덊"
+  },
+  {
+    "talk": "A@",
+    "machine": "덋"
+  },
+  {
+    "talk": "A@^",
+    "machine": "덌"
+  },
+  {
+    "talk": "A@_",
+    "machine": "덍"
+  },
+  {
+    "talk": "A@_^",
+    "machine": "덎"
+  },
+  {
+    "talk": "A@--",
+    "machine": "덏"
+  },
+  {
+    "talk": "A@--^",
+    "machine": "덐"
+  },
+  {
+    "talk": "A@--_",
+    "machine": "덑"
+  },
+  {
+    "talk": "A@--_^",
+    "machine": "덒"
+  },
+  {
+    "talk": "A@-",
+    "machine": "덓"
+  },
+  {
+    "talk": "A@-^",
+    "machine": "더"
+  },
+  {
+    "talk": "A@-_",
+    "machine": "덕"
+  },
+  {
+    "talk": "A@-_^",
+    "machine": "덖"
+  },
+  {
+    "talk": "A@+",
+    "machine": "덗"
+  },
+  {
+    "talk": "A@+^",
+    "machine": "던"
+  },
+  {
+    "talk": "A@+_",
+    "machine": "덙"
+  },
+  {
+    "talk": "A@+_^",
+    "machine": "덚"
+  },
+  {
+    "talk": "A@++",
+    "machine": "덛"
+  },
+  {
+    "talk": "A@++^",
+    "machine": "덜"
+  },
+  {
+    "talk": "A@++_",
+    "machine": "덝"
+  },
+  {
+    "talk": "A@++_^",
+    "machine": "덞"
+  },
+  {
+    "talk": "A&",
+    "machine": "덟"
+  },
+  {
+    "talk": "A&^",
+    "machine": "덠"
+  },
+  {
+    "talk": "A&_",
+    "machine": "덡"
+  },
+  {
+    "talk": "A&_^",
+    "machine": "덢"
+  },
+  {
+    "talk": "A&--",
+    "machine": "덣"
+  },
+  {
+    "talk": "A&--^",
+    "machine": "덤"
+  },
+  {
+    "talk": "A&--_",
+    "machine": "덥"
+  },
+  {
+    "talk": "A&--_^",
+    "machine": "덦"
+  },
+  {
+    "talk": "A&-",
+    "machine": "덧"
+  },
+  {
+    "talk": "A&-^",
+    "machine": "덨"
+  },
+  {
+    "talk": "A&-_",
+    "machine": "덩"
+  },
+  {
+    "talk": "A&-_^",
+    "machine": "덪"
+  },
+  {
+    "talk": "A&+",
+    "machine": "덫"
+  },
+  {
+    "talk": "A&+^",
+    "machine": "덬"
+  },
+  {
+    "talk": "A&+_",
+    "machine": "덭"
+  },
+  {
+    "talk": "A&+_^",
+    "machine": "덮"
+  },
+  {
+    "talk": "A&++",
+    "machine": "덯"
+  },
+  {
+    "talk": "A&++^",
+    "machine": "데"
+  },
+  {
+    "talk": "A&++_",
+    "machine": "덱"
+  },
+  {
+    "talk": "A&++_^",
+    "machine": "덲"
+  },
+  {
+    "talk": "A&@",
+    "machine": "덳"
+  },
+  {
+    "talk": "A&@^",
+    "machine": "덴"
+  },
+  {
+    "talk": "A&@_",
+    "machine": "덵"
+  },
+  {
+    "talk": "A&@_^",
+    "machine": "덶"
+  },
+  {
+    "talk": "A&@--",
+    "machine": "덷"
+  },
+  {
+    "talk": "A&@--^",
+    "machine": "델"
+  },
+  {
+    "talk": "A&@--_",
+    "machine": "덹"
+  },
+  {
+    "talk": "A&@--_^",
+    "machine": "덺"
+  },
+  {
+    "talk": "A&@-",
+    "machine": "덻"
+  },
+  {
+    "talk": "A&@-^",
+    "machine": "덼"
+  },
+  {
+    "talk": "A&@-_",
+    "machine": "덽"
+  },
+  {
+    "talk": "A&@-_^",
+    "machine": "덾"
+  },
+  {
+    "talk": "A&@+",
+    "machine": "덿"
+  },
+  {
+    "talk": "A&@+^",
+    "machine": "뎀"
+  },
+  {
+    "talk": "A&@+_",
+    "machine": "뎁"
+  },
+  {
+    "talk": "A&@+_^",
+    "machine": "뎂"
+  },
+  {
+    "talk": "A&@++",
+    "machine": "뎃"
+  },
+  {
+    "talk": "A&@++^",
+    "machine": "뎄"
+  },
+  {
+    "talk": "A&@++_",
+    "machine": "뎅"
+  },
+  {
+    "talk": "A&@++_^",
+    "machine": "뎆"
+  },
+  {
+    "talk": "a",
+    "machine": "뎇"
+  },
+  {
+    "talk": "a^",
+    "machine": "뎈"
+  },
+  {
+    "talk": "a_",
+    "machine": "뎉"
+  },
+  {
+    "talk": "a_^",
+    "machine": "뎊"
+  },
+  {
+    "talk": "a--",
+    "machine": "뎋"
+  },
+  {
+    "talk": "a--^",
+    "machine": "뎌"
+  },
+  {
+    "talk": "a--_",
+    "machine": "뎍"
+  },
+  {
+    "talk": "a--_^",
+    "machine": "뎎"
+  },
+  {
+    "talk": "a-",
+    "machine": "뎏"
+  },
+  {
+    "talk": "a-^",
+    "machine": "뎐"
+  },
+  {
+    "talk": "a-_",
+    "machine": "뎑"
+  },
+  {
+    "talk": "a-_^",
+    "machine": "뎒"
+  },
+  {
+    "talk": "a+",
+    "machine": "뎓"
+  },
+  {
+    "talk": "a+^",
+    "machine": "뎔"
+  },
+  {
+    "talk": "a+_",
+    "machine": "뎕"
+  },
+  {
+    "talk": "a+_^",
+    "machine": "뎖"
+  },
+  {
+    "talk": "a++",
+    "machine": "뎗"
+  },
+  {
+    "talk": "a++^",
+    "machine": "뎘"
+  },
+  {
+    "talk": "a++_",
+    "machine": "뎙"
+  },
+  {
+    "talk": "a++_^",
+    "machine": "뎚"
+  },
+  {
+    "talk": "a@",
+    "machine": "뎛"
+  },
+  {
+    "talk": "a@^",
+    "machine": "뎜"
+  },
+  {
+    "talk": "a@_",
+    "machine": "뎝"
+  },
+  {
+    "talk": "a@_^",
+    "machine": "뎞"
+  },
+  {
+    "talk": "a@--",
+    "machine": "뎟"
+  },
+  {
+    "talk": "a@--^",
+    "machine": "뎠"
+  },
+  {
+    "talk": "a@--_",
+    "machine": "뎡"
+  },
+  {
+    "talk": "a@--_^",
+    "machine": "뎢"
+  },
+  {
+    "talk": "a@-",
+    "machine": "뎣"
+  },
+  {
+    "talk": "a@-^",
+    "machine": "뎤"
+  },
+  {
+    "talk": "a@-_",
+    "machine": "뎥"
+  },
+  {
+    "talk": "a@-_^",
+    "machine": "뎦"
+  },
+  {
+    "talk": "a@+",
+    "machine": "뎧"
+  },
+  {
+    "talk": "a@+^",
+    "machine": "뎨"
+  },
+  {
+    "talk": "a@+_",
+    "machine": "뎩"
+  },
+  {
+    "talk": "a@+_^",
+    "machine": "뎪"
+  },
+  {
+    "talk": "a@++",
+    "machine": "뎫"
+  },
+  {
+    "talk": "a@++^",
+    "machine": "뎬"
+  },
+  {
+    "talk": "a@++_",
+    "machine": "뎭"
+  },
+  {
+    "talk": "a@++_^",
+    "machine": "뎮"
+  },
+  {
+    "talk": "a&",
+    "machine": "뎯"
+  },
+  {
+    "talk": "a&^",
+    "machine": "뎰"
+  },
+  {
+    "talk": "a&_",
+    "machine": "뎱"
+  },
+  {
+    "talk": "a&_^",
+    "machine": "뎲"
+  },
+  {
+    "talk": "a&--",
+    "machine": "뎳"
+  },
+  {
+    "talk": "a&--^",
+    "machine": "뎴"
+  },
+  {
+    "talk": "a&--_",
+    "machine": "뎵"
+  },
+  {
+    "talk": "a&--_^",
+    "machine": "뎶"
+  },
+  {
+    "talk": "a&-",
+    "machine": "뎷"
+  },
+  {
+    "talk": "a&-^",
+    "machine": "뎸"
+  },
+  {
+    "talk": "a&-_",
+    "machine": "뎹"
+  },
+  {
+    "talk": "a&-_^",
+    "machine": "뎺"
+  },
+  {
+    "talk": "a&+",
+    "machine": "뎻"
+  },
+  {
+    "talk": "a&+^",
+    "machine": "뎼"
+  },
+  {
+    "talk": "a&+_",
+    "machine": "뎽"
+  },
+  {
+    "talk": "a&+_^",
+    "machine": "뎾"
+  },
+  {
+    "talk": "a&++",
+    "machine": "뎿"
+  },
+  {
+    "talk": "a&++^",
+    "machine": "돀"
+  },
+  {
+    "talk": "a&++_",
+    "machine": "돁"
+  },
+  {
+    "talk": "a&++_^",
+    "machine": "돂"
+  },
+  {
+    "talk": "a&@",
+    "machine": "돃"
+  },
+  {
+    "talk": "a&@^",
+    "machine": "도"
+  },
+  {
+    "talk": "a&@_",
+    "machine": "독"
+  },
+  {
+    "talk": "a&@_^",
+    "machine": "돆"
+  },
+  {
+    "talk": "a&@--",
+    "machine": "돇"
+  },
+  {
+    "talk": "a&@--^",
+    "machine": "돈"
+  },
+  {
+    "talk": "a&@--_",
+    "machine": "돉"
+  },
+  {
+    "talk": "a&@--_^",
+    "machine": "돊"
+  },
+  {
+    "talk": "a&@-",
+    "machine": "돋"
+  },
+  {
+    "talk": "a&@-^",
+    "machine": "돌"
+  },
+  {
+    "talk": "a&@-_",
+    "machine": "돍"
+  },
+  {
+    "talk": "a&@-_^",
+    "machine": "돎"
+  },
+  {
+    "talk": "a&@+",
+    "machine": "돏"
+  },
+  {
+    "talk": "a&@+^",
+    "machine": "돐"
+  },
+  {
+    "talk": "a&@+_",
+    "machine": "돑"
+  },
+  {
+    "talk": "a&@+_^",
+    "machine": "돒"
+  },
+  {
+    "talk": "a&@++",
+    "machine": "돓"
+  },
+  {
+    "talk": "a&@++^",
+    "machine": "돔"
+  },
+  {
+    "talk": "a&@++_",
+    "machine": "돕"
+  },
+  {
+    "talk": "a&@++_^",
+    "machine": "돖"
+  },
+  {
+    "talk": "=.",
+    "machine": "돗"
+  },
+  {
+    "talk": "=?",
+    "machine": "돘"
+  },
+  {
+    "talk": "=!",
+    "machine": "동"
+  },
+  {
+    "talk": "=+",
+    "machine": "돚"
+  },
+  {
+    "talk": "=-",
+    "machine": "돛"
+  },
+  {
+    "talk": " ",
+    "machine": "돜"
+  },
+  {
+    "talk": "0",
+    "machine": "돝"
+  },
+  {
+    "talk": "1",
+    "machine": "돞"
+  },
+  {
+    "talk": "2",
+    "machine": "돟"
+  },
+  {
+    "talk": "3",
+    "machine": "돠"
+  },
+  {
+    "talk": "4",
+    "machine": "돡"
+  },
+  {
+    "talk": "5",
+    "machine": "돢"
+  },
+  {
+    "talk": "6",
+    "machine": "돣"
+  },
+  {
+    "talk": "7",
+    "machine": "돤"
+  },
+  {
+    "talk": "8",
+    "machine": "돥"
+  },
+  {
+    "talk": "9",
+    "machine": "돦"
+  }
+]

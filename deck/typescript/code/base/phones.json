@@ -1,0 +1,1724 @@
+[
+  {
+    "ipa": "m̥",
+    "talk": "mh!",
+    "simple": "mħ",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "m",
+    "talk": "m",
+    "simple": "m",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɱ̊",
+    "talk": "m~h!",
+    "simple": "mħ",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɱ",
+    "talk": "m~",
+    "simple": "m",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "n̼",
+    "talk": "n",
+    "simple": "n",
+    "kind": "consonant",
+    "place": "linguolabial",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "n̪̊",
+    "talk": "n~h!",
+    "simple": "nħ",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "n̪",
+    "talk": "n~",
+    "simple": "n",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "n̥",
+    "talk": "nh!",
+    "simple": "nħ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "n",
+    "talk": "n",
+    "simple": "n",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "n̠̊",
+    "talk": "nh!",
+    "simple": "nħ",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "n̠",
+    "talk": "n",
+    "simple": "n",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɳ̊",
+    "talk": "Nh!",
+    "simple": "ṇħ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɳ",
+    "talk": "N",
+    "simple": "ṇ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɲ̊",
+    "talk": "ny~h!",
+    "simple": "nẏħ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɲ",
+    "talk": "ny~",
+    "simple": "nẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ŋ̊",
+    "talk": "qh!",
+    "simple": "ṅħ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ŋ",
+    "talk": "q",
+    "simple": "ṅ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɴ̥",
+    "talk": "qh!",
+    "simple": "ṅħ",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "nasal",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɴ",
+    "talk": "q",
+    "simple": "ṅ",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "nasal",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "p",
+    "talk": "p",
+    "simple": "p",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "b",
+    "talk": "b",
+    "simple": "b",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "p̪",
+    "talk": "p~",
+    "simple": "p",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "b̪",
+    "talk": "b~",
+    "simple": "b",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "t̼",
+    "talk": "t",
+    "simple": "t",
+    "kind": "consonant",
+    "place": "linguolabial",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "d̼",
+    "talk": "d",
+    "simple": "d",
+    "kind": "consonant",
+    "place": "linguolabial",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "t̪",
+    "talk": "t~",
+    "simple": "t",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "d̪",
+    "talk": "d~",
+    "simple": "d",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "t",
+    "talk": "t",
+    "simple": "t",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "d",
+    "talk": "d",
+    "simple": "d",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʈ",
+    "talk": "T",
+    "simple": "ṭ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɖ",
+    "talk": "D",
+    "simple": "ḍ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "c",
+    "talk": "ky~",
+    "simple": "kẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɟ",
+    "talk": "gy~",
+    "simple": "gẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "k",
+    "talk": "k",
+    "simple": "k",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɡ",
+    "talk": "g",
+    "simple": "g",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "q",
+    "talk": "K",
+    "simple": "ḳ",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "plosive",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɢ",
+    "talk": "g",
+    "simple": "g",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʡ",
+    "talk": "Q",
+    "simple": "q̇",
+    "kind": "consonant",
+    "place": "pharyngeal-epiglottal",
+    "manner": "plosive",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "ʔ",
+    "talk": "'",
+    "simple": "'",
+    "kind": "consonant",
+    "place": "glottal",
+    "manner": "plosive",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "s̪",
+    "talk": "s~",
+    "simple": "s",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "z̪",
+    "talk": "z~",
+    "simple": "z",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "s",
+    "talk": "s",
+    "simple": "s",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "z",
+    "talk": "z",
+    "simple": "z",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʃ",
+    "talk": "x",
+    "simple": "x",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʒ",
+    "talk": "j",
+    "simple": "j",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʂ",
+    "talk": "X",
+    "simple": "x̣",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʐ",
+    "talk": "J",
+    "simple": "ȷ̈",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɕ",
+    "talk": "xy~",
+    "simple": "xẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʑ",
+    "talk": "jy~",
+    "simple": "jẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɸ",
+    "talk": "F",
+    "simple": "f̣",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "β",
+    "talk": "V",
+    "simple": "ṿ",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "f",
+    "talk": "f",
+    "simple": "f",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "v",
+    "talk": "v",
+    "simple": "v",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "θ̼",
+    "talk": "c",
+    "simple": "c",
+    "kind": "consonant",
+    "place": "linguolabial",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ð̼",
+    "talk": "C",
+    "simple": "c̣",
+    "kind": "consonant",
+    "place": "linguolabial",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "θ",
+    "talk": "c",
+    "simple": "c",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ð",
+    "talk": "C",
+    "simple": "c̣",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "θ̠",
+    "talk": "c",
+    "simple": "c",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ð̠",
+    "talk": "C",
+    "simple": "c̣",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɹ̠̊˔",
+    "talk": "x",
+    "simple": "x",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "ɹ̠˔",
+    "talk": "u$",
+    "simple": "r",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɻ̊˔",
+    "talk": "X",
+    "simple": "x̣",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "ɻ˔",
+    "talk": "u$",
+    "simple": "r",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ç",
+    "talk": "hy~",
+    "simple": "hẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʝ",
+    "talk": "y",
+    "simple": "y",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "x",
+    "talk": "H",
+    "simple": "ḥ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɣ",
+    "talk": "G",
+    "simple": "ġ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "χ",
+    "talk": "H",
+    "simple": "ḥ",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʁ",
+    "talk": "G",
+    "simple": "ġ",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ħ",
+    "talk": "Hh~",
+    "simple": "ḥɦ",
+    "kind": "consonant",
+    "place": "pharyngeal-epiglottal",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʕ",
+    "talk": "Q",
+    "simple": "q̇",
+    "kind": "consonant",
+    "place": "pharyngeal-epiglottal",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "h",
+    "talk": "h",
+    "simple": "h",
+    "kind": "consonant",
+    "place": "glottal",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɦ",
+    "talk": "hh~",
+    "simple": "hɦ",
+    "kind": "consonant",
+    "place": "glottal",
+    "manner": "non-sibilant-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "β̞",
+    "talk": "V",
+    "simple": "ṿ",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʋ",
+    "talk": "V",
+    "simple": "ṿ",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ð̞",
+    "talk": "C",
+    "simple": "c̣",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɹ",
+    "talk": "u$",
+    "simple": "r",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɹ̠",
+    "talk": "u$",
+    "simple": "r",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɻ",
+    "talk": "u$",
+    "simple": "r",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "j",
+    "talk": "y",
+    "simple": "y",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɰ",
+    "talk": "W",
+    "simple": "ẇ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "˷",
+    "talk": "h",
+    "simple": "h",
+    "kind": "consonant",
+    "place": "glottal",
+    "manner": "approximant",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ⱱ̟",
+    "talk": "V",
+    "simple": "ṿ",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "tap-flap",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ⱱ",
+    "talk": "V",
+    "simple": "ṿ",
+    "kind": "consonant",
+    "place": "labiodental",
+    "manner": "tap-flap",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɾ̥",
+    "talk": "rh!",
+    "simple": "ṙħ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "tap-flap",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɾ",
+    "talk": "r",
+    "simple": "ṙ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "tap-flap",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɽ̊",
+    "talk": "Rh!",
+    "simple": "ṛħ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "tap-flap",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɽ",
+    "talk": "R",
+    "simple": "ṛ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "tap-flap",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɢ̆",
+    "talk": "g",
+    "simple": "g",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "tap-flap",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʡ̮",
+    "talk": "Q",
+    "simple": "q̇",
+    "kind": "consonant",
+    "place": "pharyngeal-epiglottal",
+    "manner": "tap-flap",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "ʙ̥",
+    "talk": "bbh!",
+    "simple": "bbħ",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "trill",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʙ",
+    "talk": "bb",
+    "simple": "bb",
+    "kind": "consonant",
+    "place": "bilabial",
+    "manner": "trill",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "r̥",
+    "talk": "rh!",
+    "simple": "ṙħ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "trill",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "r",
+    "talk": "r",
+    "simple": "ṙ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "trill",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "r̠",
+    "talk": "r",
+    "simple": "ṙ",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "trill",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɽ̊r̥",
+    "talk": "Rh!rh!",
+    "simple": "ṛħṙħ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "trill",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɽr",
+    "talk": "Rr",
+    "simple": "ṛṙ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "trill",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʀ̥",
+    "talk": "GGh!",
+    "simple": "ġġħ",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "trill",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʀ",
+    "talk": "GG",
+    "simple": "ġġ",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "trill",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʜ",
+    "talk": "Hh~",
+    "simple": "ḥɦ",
+    "kind": "consonant",
+    "place": "pharyngeal-epiglottal",
+    "manner": "trill",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "ʢ",
+    "talk": "Q",
+    "simple": "q̇",
+    "kind": "consonant",
+    "place": "pharyngeal-epiglottal",
+    "manner": "trill",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ɬ̪",
+    "talk": "S~",
+    "simple": "ṣ",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "lateral-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɬ",
+    "talk": "S",
+    "simple": "ṣ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "lateral-fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɮ",
+    "talk": "Z",
+    "simple": "ẓ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "lateral-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ꞎ",
+    "talk": "Z",
+    "simple": "ẓ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "lateral-fricative",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "𝼅",
+    "talk": "Z",
+    "simple": "ẓ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "lateral-fricative",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "𝼆",
+    "talk": "Z",
+    "simple": "ẓ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "lateral-fricative",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ʎ̝",
+    "talk": "ly~",
+    "simple": "lẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "lateral-fricative",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "𝼄",
+    "talk": "Z",
+    "simple": "ẓ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "lateral-fricative",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ʟ̝",
+    "talk": "Z",
+    "simple": "ẓ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "lateral-fricative",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "l̪",
+    "talk": "l~",
+    "simple": "l",
+    "kind": "consonant",
+    "place": "dental",
+    "manner": "lateral-approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "l̥",
+    "talk": "lh!",
+    "simple": "lħ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "lateral-approximant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "l",
+    "talk": "l",
+    "simple": "l",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "lateral-approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "l̠",
+    "talk": "l",
+    "simple": "l",
+    "kind": "consonant",
+    "place": "postalveolar",
+    "manner": "lateral-approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɭ̊",
+    "talk": "Lh!",
+    "simple": "ḷħ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "lateral-approximant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɭ",
+    "talk": "L",
+    "simple": "ḷ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "lateral-approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʎ̥",
+    "talk": "ly~h!",
+    "simple": "lẏħ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "lateral-approximant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʎ",
+    "talk": "ly~",
+    "simple": "lẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "lateral-approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʟ̥",
+    "talk": "lh!",
+    "simple": "lħ",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "lateral-approximant",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "ʟ",
+    "talk": "l",
+    "simple": "l",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "lateral-approximant",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ʟ̠",
+    "talk": "l",
+    "simple": "l",
+    "kind": "consonant",
+    "place": "uvular",
+    "manner": "lateral-approximant",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ɺ̥",
+    "talk": "lh!",
+    "simple": "lħ",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "lateral-tap-flap",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɺ",
+    "talk": "l",
+    "simple": "l",
+    "kind": "consonant",
+    "place": "alveolar",
+    "manner": "lateral-tap-flap",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "𝼈̥",
+    "talk": "Lh!",
+    "simple": "ḷħ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "lateral-tap-flap",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "𝼈",
+    "talk": "L",
+    "simple": "ḷ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "lateral-tap-flap",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ʎ̮",
+    "talk": "ly~",
+    "simple": "lẏ",
+    "kind": "consonant",
+    "place": "palatal",
+    "manner": "lateral-tap-flap",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ʟ̆",
+    "talk": "l",
+    "simple": "l",
+    "kind": "consonant",
+    "place": "velar",
+    "manner": "lateral-tap-flap",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ʍ",
+    "talk": "wh!",
+    "simple": "wħ",
+    "kind": "consonant",
+    "manner": "fricative-approximant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "w",
+    "talk": "w",
+    "simple": "w",
+    "kind": "consonant",
+    "manner": "fricative-approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɥ",
+    "talk": "yw~",
+    "simple": "yẉ",
+    "kind": "consonant",
+    "manner": "fricative-approximant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɧ",
+    "talk": "H",
+    "simple": "ḥ",
+    "kind": "consonant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɫ",
+    "talk": "lG~",
+    "simple": "lg̃",
+    "kind": "consonant",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɓ",
+    "talk": "b?",
+    "simple": "b̖",
+    "kind": "consonant",
+    "manner": "voiced",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɗ",
+    "talk": "d?",
+    "simple": "d̖",
+    "kind": "consonant",
+    "manner": "voiced",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ᶑ",
+    "talk": "d?",
+    "simple": "d̖",
+    "kind": "consonant",
+    "manner": "voiced",
+    "voicing": "voiced",
+    "provisional": true
+  },
+  {
+    "ipa": "ʄ",
+    "talk": "g?y~",
+    "simple": "g̀ẏ",
+    "kind": "consonant",
+    "manner": "voiced",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɠ",
+    "talk": "g?",
+    "simple": "g̀",
+    "kind": "consonant",
+    "manner": "voiced",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ʛ",
+    "talk": "g?",
+    "simple": "g̀",
+    "kind": "consonant",
+    "manner": "voiced",
+    "voicing": "voiced"
+  },
+  {
+    "ipa": "ɓ̥",
+    "talk": "b?h!",
+    "simple": "b̖ħ",
+    "kind": "consonant",
+    "manner": "voiceless",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɗ̥",
+    "talk": "t?",
+    "simple": "t̖",
+    "kind": "consonant",
+    "manner": "voiceless",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ᶑ̥",
+    "talk": "t?",
+    "simple": "t̖",
+    "kind": "consonant",
+    "manner": "voiceless",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "ʄ̥",
+    "talk": "g?y~h!",
+    "simple": "g̀ẏħ",
+    "kind": "consonant",
+    "manner": "voiceless",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɠ̊",
+    "talk": "g?h!",
+    "simple": "g̀ħ",
+    "kind": "consonant",
+    "manner": "voiceless",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʛ̥",
+    "talk": "g?h!",
+    "simple": "g̀ħ",
+    "kind": "consonant",
+    "manner": "voiceless",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "pʼ",
+    "talk": "p!",
+    "simple": "ṕ",
+    "kind": "consonant",
+    "manner": "stop",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "tʼ",
+    "talk": "t!",
+    "simple": "t̗",
+    "kind": "consonant",
+    "manner": "stop",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʈʼ",
+    "talk": "T!",
+    "simple": "ṭ̗",
+    "kind": "consonant",
+    "manner": "stop",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "cʼ",
+    "talk": "ky~!",
+    "simple": "kẏ̗",
+    "kind": "consonant",
+    "manner": "stop",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "kʼ",
+    "talk": "k!",
+    "simple": "k̗",
+    "kind": "consonant",
+    "manner": "stop",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "qʼ",
+    "talk": "K!",
+    "simple": "ḳ̗",
+    "kind": "consonant",
+    "manner": "stop",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "fʼ",
+    "talk": "f!",
+    "simple": "f̗",
+    "kind": "consonant",
+    "manner": "fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "sʼ",
+    "talk": "s!",
+    "simple": "ś",
+    "kind": "consonant",
+    "manner": "fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʂʼ",
+    "talk": "X!",
+    "simple": "x̣́",
+    "kind": "consonant",
+    "manner": "fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɕʼ",
+    "talk": "xy~!",
+    "simple": "xẏ́",
+    "kind": "consonant",
+    "manner": "fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "xʼ",
+    "talk": "H!",
+    "simple": "ḥ̗",
+    "kind": "consonant",
+    "manner": "fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "χʼ",
+    "talk": "H!",
+    "simple": "ḥ̗",
+    "kind": "consonant",
+    "manner": "fricative",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ɸʼ",
+    "talk": "F!",
+    "simple": "f̣́",
+    "kind": "consonant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "θʼ",
+    "talk": "c!",
+    "simple": "ć",
+    "kind": "consonant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "ʃʼ",
+    "talk": "x!",
+    "simple": "x́",
+    "kind": "consonant",
+    "voicing": "voiceless"
+  },
+  {
+    "ipa": "𝼈̊",
+    "talk": "Lh!",
+    "simple": "ḷħ",
+    "kind": "consonant",
+    "place": "retroflex",
+    "manner": "lateral-tap-flap",
+    "voicing": "voiceless",
+    "provisional": true
+  },
+  {
+    "ipa": "i",
+    "talk": "i",
+    "simple": "i",
+    "kind": "vowel",
+    "height": "close",
+    "backness": "front",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "y",
+    "talk": "i$",
+    "simple": "i̤",
+    "kind": "vowel",
+    "height": "close",
+    "backness": "front",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ɨ",
+    "talk": "i$",
+    "simple": "i̤",
+    "kind": "vowel",
+    "height": "close",
+    "backness": "central",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ʉ",
+    "talk": "u",
+    "simple": "u",
+    "kind": "vowel",
+    "height": "close",
+    "backness": "central",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ɯ",
+    "talk": "O",
+    "simple": "ọ",
+    "kind": "vowel",
+    "height": "close",
+    "backness": "back",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "u",
+    "talk": "u",
+    "simple": "u",
+    "kind": "vowel",
+    "height": "close",
+    "backness": "back",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ɪ",
+    "talk": "I",
+    "simple": "ị",
+    "kind": "vowel",
+    "height": "near-close",
+    "backness": "front",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ʏ",
+    "talk": "i$",
+    "simple": "i̤",
+    "kind": "vowel",
+    "height": "near-close",
+    "backness": "front",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ʊ",
+    "talk": "O",
+    "simple": "ọ",
+    "kind": "vowel",
+    "height": "near-close",
+    "backness": "back",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "e",
+    "talk": "e",
+    "simple": "e",
+    "kind": "vowel",
+    "height": "close-mid",
+    "backness": "front",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ø",
+    "talk": "a$",
+    "simple": "a̤",
+    "kind": "vowel",
+    "height": "close-mid",
+    "backness": "front",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ɘ",
+    "talk": "I",
+    "simple": "ị",
+    "kind": "vowel",
+    "height": "close-mid",
+    "backness": "central",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɵ",
+    "talk": "O",
+    "simple": "ọ",
+    "kind": "vowel",
+    "height": "close-mid",
+    "backness": "central",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ɤ",
+    "talk": "O",
+    "simple": "ọ",
+    "kind": "vowel",
+    "height": "close-mid",
+    "backness": "back",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "o",
+    "talk": "o",
+    "simple": "o",
+    "kind": "vowel",
+    "height": "close-mid",
+    "backness": "back",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "e̞",
+    "talk": "e",
+    "simple": "e",
+    "kind": "vowel",
+    "height": "mid",
+    "backness": "front",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ø̞",
+    "talk": "a$",
+    "simple": "a̤",
+    "kind": "vowel",
+    "height": "mid",
+    "backness": "front",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ə",
+    "talk": "U",
+    "simple": "ụ",
+    "kind": "vowel",
+    "height": "mid",
+    "backness": "central",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɤ̞",
+    "talk": "O",
+    "simple": "ọ",
+    "kind": "vowel",
+    "height": "mid",
+    "backness": "back",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "o̞",
+    "talk": "o",
+    "simple": "o",
+    "kind": "vowel",
+    "height": "mid",
+    "backness": "back",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ɛ",
+    "talk": "E",
+    "simple": "ẹ",
+    "kind": "vowel",
+    "height": "open-mid",
+    "backness": "front",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "œ",
+    "talk": "e$",
+    "simple": "e̤",
+    "kind": "vowel",
+    "height": "open-mid",
+    "backness": "front",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ɜ",
+    "talk": "O",
+    "simple": "ọ",
+    "kind": "vowel",
+    "height": "open-mid",
+    "backness": "central",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɞ",
+    "talk": "U",
+    "simple": "ụ",
+    "kind": "vowel",
+    "height": "open-mid",
+    "backness": "central",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ʌ",
+    "talk": "U",
+    "simple": "ụ",
+    "kind": "vowel",
+    "height": "open-mid",
+    "backness": "back",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɔ",
+    "talk": "o$",
+    "simple": "o̤",
+    "kind": "vowel",
+    "height": "open-mid",
+    "backness": "back",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "æ",
+    "talk": "A",
+    "simple": "ạ",
+    "kind": "vowel",
+    "height": "near-open",
+    "backness": "front",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɐ",
+    "talk": "a",
+    "simple": "a",
+    "kind": "vowel",
+    "height": "near-open",
+    "backness": "central",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "a",
+    "talk": "a",
+    "simple": "a",
+    "kind": "vowel",
+    "height": "open",
+    "backness": "front",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɶ",
+    "talk": "e$",
+    "simple": "e̤",
+    "kind": "vowel",
+    "height": "open",
+    "backness": "front",
+    "roundedness": "rounded"
+  },
+  {
+    "ipa": "ä",
+    "talk": "a",
+    "simple": "a",
+    "kind": "vowel",
+    "height": "open",
+    "backness": "central",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɑ",
+    "talk": "a",
+    "simple": "a",
+    "kind": "vowel",
+    "height": "open",
+    "backness": "back",
+    "roundedness": "unrounded"
+  },
+  {
+    "ipa": "ɒ",
+    "talk": "a",
+    "simple": "a",
+    "kind": "vowel",
+    "height": "open",
+    "backness": "back",
+    "roundedness": "rounded"
+  }
+]
