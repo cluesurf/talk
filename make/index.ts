@@ -232,6 +232,25 @@ export const CONSONANTS = [
   { i: 'w', x: '콧', o: `w` },
   { i: 'y~', x: '콨', o: `y${m.u.dot}` },
   { i: 'y', x: '콩', o: `y` },
+  // Precomposed letters that `makeIpaToTalk` emits for real chart
+  // phones but had no glyph, so `machine()` threw on them. The dental
+  // `~`, ejective `!`, and implosion `?` are suffix-only marks, so
+  // each base+feature needs its own glyph (following `t~`, `f!`,
+  // `b?`). Hangul continues the consonant block from U+CF84.
+  { i: 'b~', x: '쾄', o: `b` }, // b̪
+  { i: 'p~', x: '쾅', o: `p` }, // p̪
+  { i: 'm~', x: '쾆', o: `m` }, // ɱ
+  { i: 's~', x: '쾇', o: `s` }, // s̪
+  { i: 'z~', x: '쾈', o: `z` }, // z̪
+  { i: 'l~', x: '쾉', o: `l` }, // l̪
+  { i: 'S~', x: '쾊', o: `s${m.d.dot}` }, // ɬ̪
+  { i: 't?', x: '쾋', o: `t${m.d.grave}` }, // ɗ̥
+  { i: 'c!', x: '쾌', o: `c${m.u.acute}` }, // θʼ
+  { i: 'F!', x: '쾍', o: `f${m.d.dot}${m.u.acute}` }, // ɸʼ
+  { i: 'ky~!', x: '쾎', o: `ky${m.u.dot}${m.d.acute}` }, // cʼ
+  { i: 'xy~!', x: '쾏', o: `xy${m.u.dot}${m.u.acute}` }, // ɕʼ
+  { i: 'c*', x: '쾐', o: `c${m.d.down}` }, // 𝼊 retroflex click
+  { i: 'K*', x: '쾑', o: `k${m.d.dot}${m.d.down}` }, // ʞ velar click
 ]
 
 export const GLYPHS = [

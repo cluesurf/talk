@@ -101,22 +101,21 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         break
       case '\u0331': // macron below
       case '\u0320': // minus below
-        if (result.last?.out?.type === 'consonant') {
-          switch (result.last.out.value) {
-            case 's':
-              replaceLastConsonantIfMatch('x', 's')
-              break
-            case 'n':
-            case 'l': // https://en.wikipedia.org/wiki/Voiced_dental,_alveolar_and_postalveolar_lateral_approximants
-              break
-            default:
-              throw new Error(
-                `Unknown macron: (${parts.slice(0, i).join('')})`,
-              )
-          }
-        } else {
-          addFeature('long')
-        }
+        // Retracted (U+0320) is relative articulation, ignored.
+        // Macron-below (U+0331) is likewise treated as a no-op.
+        // https://en.wikipedia.org/wiki/Relative_articulation
+        break
+      // Relative articulation is ignored (raised, lowered,
+      // advanced, retracted).
+      // https://en.wikipedia.org/wiki/Relative_articulation
+      case '˔': // raised
+      case '˕': // lowered
+      case '˗': // retracted
+      case '̜': // less rounded
+      case '‖': // major phrase break
+      case '↗': // global rise
+      case '↘': // global fall
+        break
       case 'ũ':
         addVowel('u')
         addFeature('nasalization')
@@ -234,6 +233,12 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         break
       case 'ǂ':
         addConsonant('d*')
+        break
+      case '𝼊':
+        addConsonant('c*')
+        break
+      case 'ʞ':
+        addConsonant('K*')
         break
       case 'θ':
         addConsonant('c')
@@ -478,8 +483,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
       case '\u030a':
         addFeature('voiceless')
         break
-      case `${m.d.tilde}`:
-        addFeature(`nasalization`)
+      case `${m.d.tilde}`: // creaky voice (tilde below), ignored
         break
       case 'ṵ':
         addVowel('u')
@@ -535,8 +539,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         break
       case '\u0339':
         break
-      case '\u0306': // extra short vowel
-        addFeature('short')
+      case '\u0306': // extra-short, ignored (too fine-grained)
         break
       case 'ɱ':
         addConsonant('m')
@@ -641,8 +644,9 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         break
       case ':':
       case 'ː': // full-long
-      case 'ˑ': // half-long
         addFeature('long')
+        break
+      case 'ˑ': // half-long, ignored (too fine-grained)
         break
       case 'o':
         addVowel('o')
@@ -683,8 +687,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
       case '\u0348': // tense
         addFeature('tense')
         break
-      case '\u032F': // non-syllabic
-        addFeature('non-syllabic')
+      case '\u032F': // non-syllabic, ignored (too fine-grained)
         break
       case '\u031f':
         break
@@ -1201,7 +1204,10 @@ export function makeTalkToIpa(text: string) {
       case 'a':
         if (next === '$') {
           i++
-          out.push('œ')
+          // `a$` is the Talk form for `ø` (see makeIpaToTalk and
+          // mappings.json). Keep both directions consistent so
+          // Talk -> IPA -> Talk round-trips.
+          out.push('ø')
         } else {
           out.push('a')
         }
@@ -1220,7 +1226,12 @@ export function makeTalkToIpa(text: string) {
         }
         break
       case 'c':
-        out.push('θ')
+        if (next === '*') {
+          i++
+          out.push('𝼊')
+        } else {
+          out.push('θ')
+        }
         break
       case 'C':
         if (next === '~') {
@@ -1302,7 +1313,10 @@ export function makeTalkToIpa(text: string) {
       case 'e':
         if (next === '$') {
           i++
-          out.push('ø')
+          // `e$` is the Talk form for `œ` (see makeIpaToTalk and
+          // mappings.json). Keep both directions consistent so
+          // Talk -> IPA -> Talk round-trips.
+          out.push('œ')
         } else {
           out.push('e')
         }
@@ -1355,7 +1369,12 @@ export function makeTalkToIpa(text: string) {
         }
         break
       case 'K':
-        out.push('q')
+        if (next === '*') {
+          i++
+          out.push('ʞ')
+        } else {
+          out.push('q')
+        }
         break
       case 'l':
         if (next === '*') {
