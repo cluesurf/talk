@@ -1,7 +1,7 @@
-import lowercase from '~/make/data/lowercase.json'
-import capital from '~/make/data/capital.json'
-import other from '~/make/data/other.json'
-import diacritics from '~/make/data/diacritics.json'
+import lowercase from './lowercase.json'
+import capital from './capital.json'
+import other from './other.json'
+import diacritics from './diacritics.json'
 
 export type MarkInfo = {
   'X-SAMPA': string

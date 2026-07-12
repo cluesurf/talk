@@ -6,8 +6,8 @@
 import { readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import talk from '~/make'
-import { makeIpaToTalk, makeTalkToIpa } from '~/make/ipa'
+import talk from '~/code'
+import { makeIpaToTalk, makeTalkToIpa } from '~/code/ipa'
 
 export const TEST_DIR = dirname(fileURLToPath(import.meta.url))
 
@@ -60,7 +60,10 @@ export function loadMappings(): {
 }
 
 export function loadMissing(): string[] {
-  const text = readFileSync(resolve(TEST_DIR, 'missing.csv'), 'utf8').trim()
+  const text = readFileSync(
+    resolve(TEST_DIR, 'missing.csv'),
+    'utf8',
+  ).trim()
   return text
     .split(/\r?\n/)
     .slice(1)
@@ -115,10 +118,18 @@ export function consonantCombos(rows = loadConsonants()): Combo[] {
 export function vowelCombos(rows = loadVowels()): Combo[] {
   const out: Combo[] = []
   for (const row of rows) {
-    out.push({ ipa: row.symbol, kind: 'vowel', feature: 'base', tones: false })
+    out.push({
+      ipa: row.symbol,
+      kind: 'vowel',
+      feature: 'base',
+      tones: false,
+    })
     for (const mod of VOWEL_MODIFIERS) {
       out.push({
-        ipa: mod.feature === 'stress' ? mod.ipa + row.symbol : row.symbol + mod.ipa,
+        ipa:
+          mod.feature === 'stress'
+            ? mod.ipa + row.symbol
+            : row.symbol + mod.ipa,
         kind: 'vowel',
         feature: mod.feature,
         tones: mod.tones,

@@ -23,7 +23,7 @@
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { makeIpaToTalk } from '~/make/ipa'
+import { makeIpaToTalk } from '~/code/ipa'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 
@@ -64,7 +64,9 @@ function tryTalk(ipa: string): string | null {
   }
 }
 
-const consonantRows = parseCsv<ConsonantRow>(resolve(HERE, 'consonants.csv'))
+const consonantRows = parseCsv<ConsonantRow>(
+  resolve(HERE, 'consonants.csv'),
+)
 const vowelRows = parseCsv<VowelRow>(resolve(HERE, 'vowels.csv'))
 
 const consonants: Record<string, string> = {}
@@ -89,10 +91,17 @@ writeFileSync(outPath, JSON.stringify({ consonants, vowels }, null, 2))
 // CSV of IPA chars that have no Talk equivalent yet — for
 // the user to fill in by hand.
 const missingPath = resolve(HERE, 'missing.csv')
-const missingCsv = ['ipa,talk', ...missing.map(m => `${m.ipa},`)].join('\n') + '\n'
+const missingCsv =
+  ['ipa,talk', ...missing.map(m => `${m.ipa},`)].join('\n') + '\n'
 writeFileSync(missingPath, missingCsv)
 
 console.log(`[build-mappings] wrote ${outPath}`)
-console.log(`  consonants: ${Object.keys(consonants).length}/${consonantRows.length}`)
-console.log(`  vowels:     ${Object.keys(vowels).length}/${vowelRows.length}`)
-console.log(`[build-mappings] wrote ${missingPath} (${missing.length} unmapped)`)
+console.log(
+  `  consonants: ${Object.keys(consonants).length}/${consonantRows.length}`,
+)
+console.log(
+  `  vowels:     ${Object.keys(vowels).length}/${vowelRows.length}`,
+)
+console.log(
+  `[build-mappings] wrote ${missingPath} (${missing.length} unmapped)`,
+)

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { tokenize } from './tokenizer'
+import { tokenize } from '~/code/tokenizer'
 
 describe('tokenize', () => {
   // ─── Basic consonants ─────────────────────────────────
@@ -230,7 +230,10 @@ describe('tokenize', () => {
   it('parses extra high tone', () => {
     const tokens = tokenize('a++')
     expect(tokens).toHaveLength(1)
-    expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'extra-high' })
+    expect(tokens[0]).toMatchObject({
+      form: 'vowel',
+      tone: 'extra-high',
+    })
   })
 
   it('parses low tone', () => {
@@ -242,7 +245,10 @@ describe('tokenize', () => {
   it('parses extra low tone', () => {
     const tokens = tokenize('a--')
     expect(tokens).toHaveLength(1)
-    expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'extra-low' })
+    expect(tokens[0]).toMatchObject({
+      form: 'vowel',
+      tone: 'extra-low',
+    })
   })
 
   it('parses rising tone', () => {
@@ -266,19 +272,28 @@ describe('tokenize', () => {
   it('parses falling-2 tone', () => {
     const tokens = tokenize('a\\\\')
     expect(tokens).toHaveLength(1)
-    expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'falling-2' })
+    expect(tokens[0]).toMatchObject({
+      form: 'vowel',
+      tone: 'falling-2',
+    })
   })
 
   it('parses falling-rising tone', () => {
     const tokens = tokenize('a\\/')
     expect(tokens).toHaveLength(1)
-    expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'falling-rising' })
+    expect(tokens[0]).toMatchObject({
+      form: 'vowel',
+      tone: 'falling-rising',
+    })
   })
 
   it('parses rising-falling tone', () => {
     const tokens = tokenize('a/\\')
     expect(tokens).toHaveLength(1)
-    expect(tokens[0]).toMatchObject({ form: 'vowel', tone: 'rising-falling' })
+    expect(tokens[0]).toMatchObject({
+      form: 'vowel',
+      tone: 'rising-falling',
+    })
   })
 
   // ─── Combined flags ───────────────────────────────────
@@ -307,12 +322,25 @@ describe('tokenize', () => {
   })
 
   it('parses complex sequence with flags', () => {
-    const tokens = tokenize("t!a++nDh~")
+    const tokens = tokenize('t!a++nDh~')
     expect(tokens).toHaveLength(4)
-    expect(tokens[0]).toMatchObject({ form: 'consonant', text: 't', ejective: true })
-    expect(tokens[1]).toMatchObject({ form: 'vowel', text: 'a', tone: 'extra-high' })
+    expect(tokens[0]).toMatchObject({
+      form: 'consonant',
+      text: 't',
+      ejective: true,
+    })
+    expect(tokens[1]).toMatchObject({
+      form: 'vowel',
+      text: 'a',
+      tone: 'extra-high',
+    })
     expect(tokens[2]).toMatchObject({ form: 'consonant', text: 'n' })
-    expect(tokens[3]).toMatchObject({ form: 'consonant', text: 'D', variant: true, aspirated: true })
+    expect(tokens[3]).toMatchObject({
+      form: 'consonant',
+      text: 'D',
+      variant: true,
+      aspirated: true,
+    })
   })
 
   it('parses words with spaces', () => {
@@ -357,7 +385,13 @@ describe('tokenize', () => {
   it('parses all five vowels', () => {
     const tokens = tokenize('ieaou')
     expect(tokens).toHaveLength(5)
-    expect(tokens.map(t => (t as any).text)).toEqual(['i', 'e', 'a', 'o', 'u'])
+    expect(tokens.map(t => (t as any).text)).toEqual([
+      'i',
+      'e',
+      'a',
+      'o',
+      'u',
+    ])
   })
 
   it('does not confuse consonant n~ as modifier on previous', () => {

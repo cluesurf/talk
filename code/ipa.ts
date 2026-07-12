@@ -1,6 +1,6 @@
-import { m, TextList } from '~/make/constants'
+import { m, TextList } from './constants'
 
-import TABLE, { IPA, IPA_PATTERN } from '~/make/data'
+import TABLE, { IPA, IPA_PATTERN } from './data'
 
 export type Feature =
   | 'implosion'

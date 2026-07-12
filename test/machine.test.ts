@@ -13,7 +13,7 @@
 // dumps any gaps to `machine-gaps.csv` while new phones are being added.
 
 import { describe, expect, it } from 'vitest'
-import { GLYPHS } from '~/make'
+import { GLYPHS } from '~/code'
 import {
   allCombos,
   comboTalk,
@@ -103,7 +103,9 @@ describe('one Hangul letter per sound', () => {
     // Base plus any stack of modifiers collapses onto a single glyph.
     const mappings = loadMappings()
     const bad: string[] = []
-    for (const talkText of new Set(Object.values(mappings.consonants))) {
+    for (const talkText of new Set(
+      Object.values(mappings.consonants),
+    )) {
       const hangul = machine(talkText)
       if (hangul == null || [...hangul].length !== 1) {
         bad.push(`${talkText} -> ${hangul}`)

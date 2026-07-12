@@ -4,7 +4,7 @@
 // (b) the syllable split matches the expected `a - b - c` shape.
 
 import { describe, expect, it } from 'vitest'
-import chunk from '~/make/syllables'
+import chunk from '~/code/syllables'
 
 // [word, expected syllables joined with ' - ']
 const CASES: Array<[string, string]> = [
