@@ -30,10 +30,12 @@ pronunciation, including nasalized vowels, tense consonants, clicks, and
 tones, amongst other things. A cross-cultural romanization scheme
 basically!
 
-There are two forms:
+There are three forms:
 
 - **ASCII**: For writing in a text editor without fancy symbols.
 - **Simplified**: For reading with condensed characters and diacritics.
+- **Machine**: A single Hangul code point per phonetic letter, for
+  compact tokenization (useful for AI models and lookups).
 
 The goal of the simplified version is to make it as easy as possible to
 read text given basic knowledge of today's standard English writing
@@ -43,23 +45,27 @@ the gist of it.
 
 ## Examples
 
-| ascii           | simplified   |
-| :-------------- | :----------- |
-| txando^         | txandȯ       |
-| surdjyo^        | suṙdjyȯ      |
-| HEth~Ah         | ḥẹtɦạh       |
-| siqk            | siṅk         |
-| txya@+a-a++u    | txyá̖àa̋u      |
-| hwpo$kUi^mUno$s | hwpo̤kụïmụno̤s |
-| sinho^rEsi      | sinhȯṙẹsi    |
-| batO\_'aH       | batọ̄qaḥ      |
-| aiyuQaK         | aiyuq̇aḳ      |
-| s'oQya&te       | s'oq̇ya̰te     |
-| t!arEba         | t̖aṙẹba       |
-| txhaK!EnEba     | txhaḳ̖ẹnẹba   |
-| txh~im          | txɦim        |
-| txy\~h\~im      | txẏɦim       |
-| mh!im           | mħim         |
+The `hangul` column is the machine encoding: `talk.machine(...)` packs
+each phonetic letter into a single Hangul code point, so a whole word
+becomes a compact, one-code-point-per-sound string.
+
+| ascii | simplified | hangul |
+| :-- | :-- | :-- |
+| txando^ | txandȯ | 켶콣뱿켔켤붇 |
+| surdjyo^ | suṙdjyȯ | 콉삟콞켤콃콩붇 |
+| HEth\~Ah | ḥẹtɦạh | 켾뀟켶켑눯콀 |
+| siqk | siṅk | 콉롟켕켼 |
+| txya@+a-a++u | txyá̖àa̋u | 켶콣콩뱌뱶뱷삟 |
+| hwpo$kUi^mUno$s | hwpo̤kụïmụno̤s | 콀콧켬뺄켼뙏띗켒뙏켔뺄콉 |
+| sinho^rEsi | sinhȯṙẹsi | 콉롟켔콀붇콞뀟콉롟 |
+| batO\_'aH | batọ̄'aḥ | 켧뱿켶뎏켚뱿켾 |
+| aiyuQaK | aiyuq̇aḳ | 뱿롟콩삟켛뱿켻 |
+| s'oQya&te | s'oq̇ya̰te | 콉켚뺏켛콩뱩켶멯 |
+| t!arEba | t̗aṙẹba | 켱뱿콞뀟켧뱿 |
+| txhaK!EnEba | txhaḳ̗ẹnẹba | 켶콣콀뱿켺뀟켔뀟켧뱿 |
+| txh\~im | txɦim | 켶콣켑롟켒 |
+| txy\~h\~im | txẏɦim | 켶콣콨켑롟켒 |
+| mh!im | mħim | 켒켿롟켒 |
 
 ## Why not IPA or XSampa?
 
@@ -124,7 +130,7 @@ combined in standard ways.
 | consonant | ?       | Makes consonant implosive                                                                                                             |
 | consonant | @       | Makes consonant tense (korean)                                                                                                        |
 | consonant | .       | Makes consonant a stop consonant (korean, so when you end on `t.`, it is making the mouth shape of `t` but not really pronouncing it) |
-| consonant | \*      | Finds the closes "click consonant" mapping (there are 5, d, p, k, l, t)                                                               |
+| consonant | \*      | Click consonant: `p*` (ʘ), `t*` (ǀ), `k*` (ǃ), `l*` (ǁ), `d*` (ǂ), `c*` (𝼊), `K*` (ʞ)                                                 |
 | consonant | capital | Consonant variant                                                                                                                     |
 | vowel     | ^       | Stressed vowel                                                                                                                        |
 | vowel     | \_      | Long vowel                                                                                                                            |
@@ -147,126 +153,293 @@ combined in standard ways.
 
 ### Consonants
 
+This is the full set of IPA consonants we map, in ASCII, simplified, and
+machine (Hangul) form.
+
 _Note: GitHub markdown doesn't really render the diacritics that nicely,
 some are misaligned. We will have a font to remedy this for websites._
 
-| IPA | ascii | simplified                      |
-| :-- | :---- | :------------------------------ |
-| ʰ   | h~    | ɦ (or macron when on consonant) |
-| m   | m     | m                               |
-| ɳ   | N     | ṇ                               |
-| n   | n     | n                               |
-| ŋ   | q     | ṅ                               |
-|     | G~    | g̃                               |
-| ʁ   | G     | ġ                               |
-| ɠ   | g?    | g̀                               |
-| g   | g     | g                               |
-| ʔ   | '     | '                               |
-| ʕ   | Q     | q̇                               |
-| dʰ  | dh~   | ḏ                               |
-| ɗ   | d?    | d̖                               |
-| dʼ  | d!    | d̗                               |
-| ǂ   | d\*   | d̬                               |
-| d̚   | d.    | d̤                               |
-| ɖ   | D     | ḍ                               |
-| dˤ  | dQ~   | d̰                               |
-| d   | d     | d                               |
-| ɓ   | b?    | b̖                               |
-| bʼ  | b!    | b̗                               |
-| b   | b     | b                               |
-| pʼ  | p!    | ṕ                               |
-| ʘ   | p\*   | p̂                               |
-| p̚   | p.    | p̈                               |
-| p͈   | p@    | p̌                               |
-| p   | p     | p                               |
-| ʈʼ  | T!    | ṭ̗                               |
-| ʈ   | T     | ṭ                               |
-| tʼ  | t!    | t̗                               |
-| ǀ   | t\*   | t̬                               |
-| tˤ  | tQ~   | t̰                               |
-| tʰ  | th~   | ṯ                               |
-| t͈   | t@    | ṱ                               |
-| t̚   | t.    | t̤                               |
-| t   | t     | t                               |
-| kʼ  | k!    | k̗                               |
-| k̚   | k.    | ḵ                               |
-| ǃ   | k\*   | k̬                               |
-| qʼ  | K!    | ḳ̗                               |
-| q   | K     | ḳ                               |
-| k   | k     | k                               |
-| χʼ  | H!    | ḥ̗                               |
-| χ   | H     | ḥ                               |
-|     | h!    | ħ                               |
-| h   | h     | h                               |
-| ʐ   | J     | ȷ̈                               |
-| ʒʼ  | j!    | j́                               |
-| ʒ   | j     | j                               |
-| ɬʼ  | S!    | ṣ́                               |
-| sʼ  | s!    | ś                               |
-| ɬ   | S     | ṣ                               |
-| sˤ  | sQ~   | s̰                               |
-| s͈   | s@    | s̭                               |
-| s   | s     | s                               |
-| ɸ   | F     | f̣                               |
-| fʼ  | f!    | f̗                               |
-| f   | f     | f                               |
-| ʋ   | V     | ṿ                               |
-| v   | v     | v                               |
-| zʼ  | z!    | ź                               |
-| zˤ  | zQ~   | z̰                               |
-| z   | z     | z                               |
-| ɮʼ  | Z!    | ẓ́                               |
-| ɮ   | Z     | ẓ                               |
-| ðˤ  | CQ~   | c̣̃                               |
-| ð   | C     | c̣                               |
-| θˤ  | cQ~   | c̃                               |
-| θ   | c     | c                               |
-| ɭ   | L     | ḷ                               |
-| ǁ   | l\*   | l̬                               |
-| lˤ  | lQ~   | l̰                               |
-| l   | l     | l                               |
-| ɽ   | R     | ṛ                               |
-| r   | r     | ṙ                               |
-| ʃʼ  | x!    | x́                               |
-| ʂʼ  | X!    | x̣́                               |
-| ʂ   | X     | x̣                               |
-| ʃ͈   | x@    | x̭                               |
-| ʃ   | x     | x                               |
-| ɰ   | W     | ẇ                               |
-| wʼ  | w!    | ẃ                               |
-| ʷ   | w~    | ẉ                               |
-| w   | w     | w                               |
-| ʲ   | y~    | ẏ                               |
-| j   | y     | y                               |
+| IPA | ascii | simplified | hangul |
+| :-- | :-- | :-- | :-- |
+| m̥ | mh! | mħ | 켒켿 |
+| m | m | m | 켒 |
+| ɱ̊ | m\~h! | mħ | 쾆켿 |
+| ɱ | m\~ | m | 쾆 |
+| n̼ | n | n | 켔 |
+| n̪̊ | n\~h! | nħ | 쾃켿 |
+| n̪ | n\~ | n | 쾃 |
+| n̥ | nh! | nħ | 켔켿 |
+| n | n | n | 켔 |
+| n̠̊ | nh! | nħ | 켔켿 |
+| n̠ | n | n | 켔 |
+| ɳ̊ | Nh! | ṇħ | 켓켿 |
+| ɳ | N | ṇ | 켓 |
+| ɲ̊ | ny\~h! | nẏħ | 켔콨켿 |
+| ɲ | ny\~ | nẏ | 켔콨 |
+| ŋ̊ | qh! | ṅħ | 켕켿 |
+| ŋ | q | ṅ | 켕 |
+| ɴ̥ | qh! | ṅħ | 켕켿 |
+| ɴ | q | ṅ | 켕 |
+| p | p | p | 켬 |
+| b | b | b | 켧 |
+| p̪ | p\~ | p | 쾅 |
+| b̪ | b\~ | b | 쾄 |
+| t̼ | t | t | 켶 |
+| d̼ | d | d | 켤 |
+| t̪ | t\~ | t | 켮 |
+| d̪ | d\~ | d | 켝 |
+| t | t | t | 켶 |
+| d | d | d | 켤 |
+| ʈ | T | ṭ | 켰 |
+| ɖ | D | ḍ | 켢 |
+| c | ky\~ | kẏ | 켼콨 |
+| ɟ | gy\~ | gẏ | 켙콨 |
+| k | k | k | 켼 |
+| ɡ | g | g | 켙 |
+| q | K | ḳ | 켻 |
+| ɢ | g | g | 켙 |
+| ʔ | ' | ' | 켚 |
+| s̪ | s\~ | s | 쾇 |
+| z̪ | z\~ | z | 쾈 |
+| s | s | s | 콉 |
+| z | z | z | 콑 |
+| ʃ | x | x | 콣 |
+| ʒ | j | j | 콃 |
+| ʂ | X | x̣ | 콡 |
+| ʐ | J | ȷ̈ | 콁 |
+| ɕ | xy\~ | xẏ | 콣콨 |
+| ʑ | jy\~ | jẏ | 콃콨 |
+| ɸ | F | f̣ | 콊 |
+| β | V | ṿ | 콍 |
+| f | f | f | 콌 |
+| v | v | v | 콎 |
+| θ̼ | c | c | 콗 |
+| ð̼ | C | c̣ | 콕 |
+| θ | c | c | 콗 |
+| ð | C | c̣ | 콕 |
+| θ̠ | c | c | 콗 |
+| ð̠ | C | c̣ | 콕 |
+| ɹ̠˔ | u$ | r | 삔 |
+| ɻ˔ | u$ | r | 삔 |
+| ç | hy\~ | hẏ | 콀콨 |
+| ʝ | y | y | 콩 |
+| x | H | ḥ | 켾 |
+| ɣ | G | ġ | 켗 |
+| χ | H | ḥ | 켾 |
+| ʁ | G | ġ | 켗 |
+| ħ | Hh\~ | ḥɦ | 켾켑 |
+| ʕ | Q | q̇ | 켛 |
+| h | h | h | 콀 |
+| ɦ | hh\~ | hɦ | 콀켑 |
+| β̞ | V | ṿ | 콍 |
+| ʋ | V | ṿ | 콍 |
+| ð̞ | C | c̣ | 콕 |
+| ɹ | u$ | r | 삔 |
+| ɹ̠ | u$ | r | 삔 |
+| ɻ | u$ | r | 삔 |
+| j | y | y | 콩 |
+| ɰ | W | ẇ | 콤 |
+| ⱱ̟ | V | ṿ | 콍 |
+| ⱱ | V | ṿ | 콍 |
+| ɾ̥ | rh! | ṙħ | 콞켿 |
+| ɾ | r | ṙ | 콞 |
+| ɽ̊ | Rh! | ṛħ | 콜켿 |
+| ɽ | R | ṛ | 콜 |
+| ʙ̥ | bbh! | bbħ | 켧켧켿 |
+| ʙ | bb | bb | 켧켧 |
+| r̥ | rh! | ṙħ | 콞켿 |
+| r | r | ṙ | 콞 |
+| r̠ | r | ṙ | 콞 |
+| ɽ̊r̥ | Rh!rh! | ṛħṙħ | 콜켿콞켿 |
+| ɽr | Rr | ṛṙ | 콜콞 |
+| ʀ̥ | GGh! | ġġħ | 켗켗켿 |
+| ʀ | GG | ġġ | 켗켗 |
+| ɬ̪ | S\~ | ṣ | 쾊 |
+| ɬ | S | ṣ | 콆 |
+| ɮ | Z | ẓ | 콓 |
+| ʎ̝ | ly\~ | lẏ | 콛콨 |
+| l̪ | l\~ | l | 쾉 |
+| l̥ | lh! | lħ | 콛켿 |
+| l | l | l | 콛 |
+| l̠ | l | l | 콛 |
+| ɭ̊ | Lh! | ḷħ | 콘켿 |
+| ɭ | L | ḷ | 콘 |
+| ʎ̥ | ly\~h! | lẏħ | 콛콨켿 |
+| ʎ | ly\~ | lẏ | 콛콨 |
+| ɺ̥ | lh! | lħ | 콛켿 |
+| ɺ | l | l | 콛 |
+| ʍ | wh! | wħ | 콧켿 |
+| w | w | w | 콧 |
+| ɥ | yw\~ | yẉ | 콩콦 |
+| ɧ | H | ḥ | 켾 |
+| ɫ | lG\~ | lg̃ | 콛켖 |
+| ɓ | b? | b̖ | 켥 |
+| ɗ | d? | d̖ | 켞 |
+| ʄ | g?y\~ | g̀ẏ | 켘콨 |
+| ɠ | g? | g̀ | 켘 |
+| ʛ | g? | g̀ | 켘 |
+| ɓ̥ | b?h! | b̖ħ | 켥켿 |
+| ɗ̥ | t? | t̖ | 쾋 |
+| ʄ̥ | g?y\~h! | g̀ẏħ | 켘콨켿 |
+| ɠ̊ | g?h! | g̀ħ | 켘켿 |
+| ʛ̥ | g?h! | g̀ħ | 켘켿 |
+| pʼ | p! | ṕ | 켨 |
+| tʼ | t! | t̗ | 켱 |
+| ʈʼ | T! | ṭ̗ | 켯 |
+| cʼ | ky\~! | kẏ̗ | 쾎 |
+| kʼ | k! | k̗ | 켷 |
+| qʼ | K! | ḳ̗ | 켺 |
+| fʼ | f! | f̗ | 콋 |
+| sʼ | s! | ś | 콅 |
+| ʂʼ | X! | x̣́ | 콠 |
+| ɕʼ | xy\~! | xẏ́ | 쾏 |
+| xʼ | H! | ḥ̗ | 켽 |
+| χʼ | H! | ḥ̗ | 켽 |
+| ɸʼ | F! | f̣́ | 쾍 |
+| θʼ | c! | ć | 쾌 |
+| ʃʼ | x! | x́ | 콟 |
+| ʄ̊ | g?y\~h! | g̀ẏħ | 켘콨켿 |
+| ɬʼ | S! | ṣ́ | 콄 |
+| ʘ | p\* | p̂ | 켩 |
+| ǀ | t\* | t̬ | 켲 |
+| ǃ | k\* | k̬ | 켹 |
+| 𝼊 | c\* | c̬ | 쾐 |
+| ǂ | d\* | d̬ | 켠 |
+| ʞ | K\* | ḳ̬ | 쾑 |
+| ǁ | l\* | l̬ | 콙 |
 
 ### Vowels
 
-These are all the combos for the letter `a`, same applies to all vowels.
+This is the full set of IPA vowels we map.
+
+| IPA | ascii | simplified | hangul |
+| :-- | :-- | :-- | :-- |
+| i | i | i | 롟 |
+| y | i$ | i̤ | 롔 |
+| ɨ | i$ | i̤ | 롔 |
+| ʉ | u | u | 삟 |
+| ɯ | O | ọ | 됿 |
+| u | u | u | 삟 |
+| ɪ | I | ị | 긏 |
+| ʏ | i$ | i̤ | 롔 |
+| ʊ | O | ọ | 됿 |
+| e | e | e | 멯 |
+| ø | a$ | a̤ | 뱴 |
+| ɘ | I | ị | 긏 |
+| ɵ | O | ọ | 됿 |
+| ɤ | O | ọ | 됿 |
+| o | o | o | 뺏 |
+| e̞ | e | e | 멯 |
+| ø̞ | a$ | a̤ | 뱴 |
+| ə | U | ụ | 뙏 |
+| ɤ̞ | O | ọ | 됿 |
+| o̞ | o | o | 뺏 |
+| ɛ | E | ẹ | 뀟 |
+| œ | e$ | e̤ | 멤 |
+| ɜ | O | ọ | 됿 |
+| ɞ | U | ụ | 뙏 |
+| ʌ | U | ụ | 뙏 |
+| ɔ | o$ | o̤ | 뺄 |
+| æ | A | ạ | 눯 |
+| ɐ | a | a | 뱿 |
+| a | a | a | 뱿 |
+| ɶ | e$ | e̤ | 멤 |
+| ä | a | a | 뱿 |
+| ɑ | a | a | 뱿 |
+| ɒ | a | a | 뱿 |
+
+Every vowel takes the same modifier set (stress, length, nasal, tone,
+etc.). Here are all the combos for the letter `a`, and the same pattern
+applies to all vowels.
 
 | IPA  | ascii | simplified |
 | :--- | :---- | :--------- |
-| æ    | A     | ạ          |
+| æ    | A     | ạ          |
 | œ    | a$    | a̤          |
-| ˈa   | a^    | ȧ          |
-| aː   | a\_   | ā          |
+| ˈa   | a^    | ȧ          |
+| aː   | a\_   | ā          |
 | aʼ   | a!    | a̱          |
 | a̰    | a&    | a̰          |
 | a͈    | a@    | a̖          |
-| a˦   | a+    | á          |
+| a˦   | a+    | á          |
 | a˥   | a++   | a̋          |
-| a˨   | a-    | à          |
-| a˩   | a--   | ȁ          |
-| a˧˥  | a/    | ą́          |
-| a˩˥  | a//   | ą̋          |
-| a˥˧  | a\\   | ą̀          |
-| a˥˩  | a\\\\ | ą̏          |
-| a˩˥˩ | a/\   | â          |
-| a˥˩˥ | a\\/  | ǎ          |
+| a˨   | a-    | à          |
+| a˩   | a--   | ȁ          |
+| a˧˥  | a/    | ą́          |
+| a˩˥  | a//   | ą̋          |
+| a˥˧  | a\\   | ą̀          |
+| a˥˩  | a\\\\ | ą̏          |
+| a˩˥˩ | a/\   | â          |
+| a˥˩˥ | a\\/  | ǎ          |
 
 _Note: Exact tone sequences can be represented with sequences like
 `a+a++a--`, where one vowel is spread across multiple tones. But common
 tones, across languages, can take advantage of the shortened
 syntax/encoding._
+
+## IPA Diacritics
+
+The IPA defines a set of **diacritics** that modify a base symbol,
+grouped by `type` below. The `state` column says whether Talk maps the
+diacritic to a phonetic feature, or ignores it, and `talk` is the
+resulting Talk affix when it is mapped.
+
+| symbol | type | meaning | state | talk |
+| :-- | :-- | :-- | :-- | :-- |
+| ◌ʰ | secondary articulation | aspirated | mapped | h\~ |
+| ◌ʷ | secondary articulation | labialized | mapped | w\~ |
+| ◌ʲ | secondary articulation | palatalized | mapped | y\~ |
+| ◌ˠ | secondary articulation | velarized | mapped | G\~ |
+| ◌ˤ | secondary articulation | pharyngealized | mapped | Q\~ |
+| ◌ⁿ | secondary articulation | nasal release | mapped | n |
+| ◌̥ | phonation | voiceless | mapped | h! |
+| ◌̬ | phonation | voiced | mapped |   |
+| ◌̤ | phonation | breathy voice | ignored |   |
+| ◌̰ | phonation | creaky voice | ignored |   |
+| ◌̹ | phonation | more rounded | ignored |   |
+| ◌̜ | phonation | less rounded | ignored |   |
+| ◌̟ | relative articulation | advanced | ignored |   |
+| ◌̠ | relative articulation | retracted | ignored |   |
+| ◌̈ | relative articulation | centralized | ignored |   |
+| ◌̽ | relative articulation | mid-centralized | ignored |   |
+| ◌̝ | relative articulation | raised | ignored |   |
+| ◌̞ | relative articulation | lowered | ignored |   |
+| ◌̘ | tongue root | advanced tongue root | ignored |   |
+| ◌̙ | tongue root | retracted tongue root | ignored |   |
+| ◌̪ | articulation | dental | mapped | \~ |
+| ◌̺ | articulation | apical | ignored |   |
+| ◌̻ | articulation | laminal | ignored |   |
+| ◌̃ | nasality | nasalized | mapped | & |
+| ◌̩ | syllabicity | syllabic | ignored |   |
+| ◌̯ | syllabicity | non-syllabic | ignored |   |
+| ◌ː | length | long | mapped | \_ |
+| ◌ˑ | length | half-long | ignored |   |
+| ◌̆ | length | extra-short | ignored |   |
+| ◌̚ | release | no audible release | mapped | . |
+| ◌ʼ | airstream | ejective | mapped | ! |
+| ◌ˈ | stress | primary stress | mapped | ^ |
+| ◌ˌ | stress | secondary stress | ignored |   |
+| ◌˥ | tone | extra high | mapped | ++ |
+| ◌˦ | tone | high | mapped | + |
+| ◌˧ | tone | mid | mapped |   |
+| ◌˨ | tone | low | mapped | - |
+| ◌˩ | tone | extra low | mapped | -- |
+| ◌‖ | prosody | major phrase break | ignored |   |
+| ◌↗ | prosody | global rise | ignored |   |
+| ◌↘ | prosody | global fall | ignored |   |
+
+The full list is also in
+[`test/diacritics.csv`](test/diacritics.csv).
+
+**On the ignored ones.** IPA itself is not perfectly exact. Real speech
+has far more subtle variation than any discrete character set can
+capture, and the ignored diacritics above (relative articulation,
+breathy/creaky voice, tongue-root position, half-long, and so on) mark
+distinctions so fine-grained that they are hard to even hear reliably,
+hard to transcribe consistently, and hard to reproduce the same way
+across recordings. For a discrete model of sound aimed at AI and coding,
+they are mostly unnecessary, so Talk lets them fall through rather than
+inventing symbols for detail it cannot use.
 
 ## Installation
 
@@ -279,10 +452,10 @@ npm install @cluesurf/talk
 ```ts
 import make from '@cluesurf/talk'
 
-make('aiyuQaK') // => 'aiyuq̇aḳ'
+make('aiyuQaK') // => 'aiyuq̇aḳ'
 ```
 
-_See the `test.ts` file for most up-to-date stuff._
+_See the `test/` folder for the up-to-date test suite._
 
 ## Libraries
 
@@ -292,142 +465,46 @@ _See the `test.ts` file for most up-to-date stuff._
   formatted ASCII text and [renders it](https://tone.surf) using
   ToneText.
 
-## ReadTalk
-
-Here we have included a system inspired by the
-[Double Metaphone algorithm](https://github.com/words/double-metaphone/blob/main/index.js),
-which is an algorithm which creates a simplified pronunciation "hash" of
-some input text, usually English or other Indo-European languages.
-
-Since Talk is itself a simplified ASCII pronunciation system for any of
-the world's languages (like X-SAMPA or IPA, but easier to write), it was
-straightforward to make a system where we _progressively simplify the
-pronunciation from accurate to only simplified consonants and no
-vowels_. There are 5 categories of things which get tinkered with when
-"refining" the pronunciation from its most accurate form, to the most
-basic form:
-
-- **vowel**: none, one, basic, all. No vowels, the `a` vowel, the 5
-  basic vowels `i e a o u`, or any possible vowel allowed by Talk.
-- **consonant**: all, simplified. All possible consonants allowed by
-  Talk, or a simplified subset, where it basically merges bp, td, xj,
-  fv, sz, and kg, and gets rid of any consonant variants like click
-  consonants or stop/tense consonants (Korean).
-- **tone**: yes, no. Whether or not we include tone markers (useful in
-  Chinese).
-- **duration**: yes, no. Whether or not we include duration markers
-  (useful in Sanskrit).
-- **aspiration**: yes, no. Whether or not we include aspiration markers
-  (useful in Indian languages).
-
-By combining all these characteristics, we end up with something like
-this (for the word `by~oph~am`, which has palatalization, aspiration,
-and a few vowels and non-simplified consonants):
-
-```js
-import read from '@cluesurf/talk/make/read'
-
-const list = read('by~oph~am')
-[
-  {
-    text: 'by~oph~am',
-    mass: 405,
-    load: {
-      consonant: 'all',
-      vowel: 'all',
-      tone: 'yes',
-      aspiration: 'yes',
-      duration: 'yes',
-    },
-  },
-  {
-    text: 'by~ph~m',
-    mass: 324,
-    load: {
-      consonant: 'all',
-      vowel: 'basic',
-      tone: 'yes',
-      aspiration: 'yes',
-      duration: 'yes',
-    },
-  },
-  {
-    text: 'by~opam',
-    mass: 270,
-    load: {
-      consonant: 'all',
-      vowel: 'all',
-      tone: 'yes',
-      aspiration: 'no',
-      duration: 'yes',
-    },
-  },
-  {
-    text: 'pyopham',
-    mass: 270,
-    load: {
-      consonant: 'simplified',
-      vowel: 'all',
-      tone: 'yes',
-      aspiration: 'yes',
-      duration: 'yes',
-    },
-  },
-  {
-    text: 'by~pm',
-    mass: 216,
-    load: {
-      consonant: 'all',
-      vowel: 'basic',
-      tone: 'yes',
-      aspiration: 'no',
-      duration: 'yes',
-    },
-  },
-  {
-    text: 'pyphm',
-    mass: 216,
-    load: {
-      consonant: 'simplified',
-      vowel: 'basic',
-      tone: 'yes',
-      aspiration: 'yes',
-      duration: 'yes',
-    },
-  },
-]
-```
-
-The `mass` is basically a "weight" for now, to say how many features it
-included, i.e. how close to the actual pronunciation it was. The smaller
-the mass, the less it is like the original pronunciation.
-
-You then use the `text` as a key in a lookup table to find words
-matching that refined text pronunciation. You likely will find the same
-term in several spots, but you can just filter those at at query time.
-
-That's about it! Now have to play with this in production to see how
-useful it is in practice for building pseudo-fuzzy dictionary search.
-
 ## Syllables and Pronunciation
 
-Using the library, you can also count the number of syllables in a word,
-and convert IPA text into ASCII Call Text.
+You can convert IPA to Talk, tokenize Talk into phonetic letters, split a
+word into syllables, and pack it into the Hangul machine encoding.
 
 ```ts
-import talk from '@cluesurf/talk/make/talk'
-import syllables from '@cluesurf/talk/make/talk/syllables'
+import talk, {
+  makeIpaToTalk,
+  makeTalkToIpa,
+  tokenize,
+} from '@cluesurf/talk'
+import chunk from '@cluesurf/talk/make/syllables'
 
-talk('kxɯʎʎikʰa̠da̠') // => 'kHOly~ly~ikh~a@da@'
-syllables('kHOly~ly~ikh~a@da@') // => { size: 4 }
+// IPA -> Talk (many IPA symbols normalize to one Talk letter)
+makeIpaToTalk('kxɯʎʎikʰa̠da̠') // => 'kHOly~ly~ikh~ada'
+
+// Talk -> IPA (Talk is the canonical form, so this round-trips)
+makeTalkToIpa('kHO') // => 'kχʊ'
+
+// Tokenize Talk into structured phonetic letters
+tokenize('t!a++nDh~') // => [{ form: 'consonant', text: 't', ejective: true }, ...]
+
+// Split into syllables
+chunk('fOla^sOfi') // => { syllables: [...], clusters: [...] }
+
+// Pack into one Hangul code point per letter
+talk.machine('mh!im') // => '켒켿롟켒'
 ```
 
 ## IPA and XSampa
 
 ```ts
-import talkToIPA from '@cluesurf/talk/make/talk/ipa'
-import talkToXSampa from '@cluesurf/talk/make/talk/xsampa'
-import ipaToTalk from '@cluesurf/talk/make/ipa/talk'
+import {
+  makeTalkToIpa,
+  makeIpaToTalk,
+  makeTalkToXSampa,
+  makeXSampaToTalk,
+  makeIpaToXSampa,
+  makeXSampaToIpa,
+} from '@cluesurf/talk'
 ```
 
 ## ToneText
