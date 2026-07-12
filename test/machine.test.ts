@@ -14,7 +14,14 @@
 
 import { describe, expect, it } from 'vitest'
 import { GLYPHS } from '~/make'
-import { allCombos, comboTalk, machine } from '~/test/helper'
+import {
+  allCombos,
+  comboTalk,
+  ipaToTalk,
+  loadMappings,
+  loadVowels,
+  machine,
+} from '~/test/helper'
 
 describe('glyph table integrity', () => {
   it('every glyph has a unique Talk key `i`', () => {
@@ -71,20 +78,59 @@ describe('machine encoding is injective', () => {
     expect(collisions).toEqual([])
   })
 
-  it('encodes one Hangul codepoint per Talk letter', () => {
-    // A quick structural sanity check on a handful of known letters.
+  it('encodes one Hangul codepoint per phonetic letter', () => {
+    // Each single sound is one code point (modifiers collapse onto the
+    // base); a multi-sound word is one code point per sound.
     const cases: Array<[string, number]> = [
       ['g', 1],
-      ['mh!', 2],
-      ['ty~', 2],
+      ['mh!', 1], // voiceless m, one sound
+      ['ty~', 1], // palatalized t, one sound
+      ['Tw~', 1], // labialized retroflex t, one sound
       ['u$', 1],
-      ['Tw~', 2],
+      ['tak', 3], // t + a + k
+      ['many~a', 4], // m + a + ny~ + a
     ]
     for (const [talkText, len] of cases) {
       const hangul = machine(talkText)
       expect(hangul, talkText).not.toBeNull()
       expect([...(hangul as string)].length, talkText).toBe(len)
     }
+  })
+})
+
+describe('one Hangul letter per sound', () => {
+  it('every mapped consonant is exactly one Hangul code point', () => {
+    // Base plus any stack of modifiers collapses onto a single glyph.
+    const mappings = loadMappings()
+    const bad: string[] = []
+    for (const talkText of new Set(Object.values(mappings.consonants))) {
+      const hangul = machine(talkText)
+      if (hangul == null || [...hangul].length !== 1) {
+        bad.push(`${talkText} -> ${hangul}`)
+      }
+    }
+    expect(bad).toEqual([])
+  })
+
+  it('every vowel with tone and length is one Hangul code point', () => {
+    const bad: string[] = []
+    const tones = ['', '˥', '˦', '˧', '˨', '˩']
+    const lengths = ['', 'ː']
+    for (const vowel of loadVowels()) {
+      for (const tone of tones) {
+        for (const length of lengths) {
+          const talkText = ipaToTalk(vowel.symbol + length + tone, true)
+          if (talkText == null) {
+            continue
+          }
+          const hangul = machine(talkText)
+          if (hangul == null || [...hangul].length !== 1) {
+            bad.push(`${vowel.symbol}${length}${tone} -> ${talkText}`)
+          }
+        }
+      }
+    }
+    expect(bad).toEqual([])
   })
 })
 

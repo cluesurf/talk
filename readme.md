@@ -34,8 +34,8 @@ There are three forms:
 
 - **ASCII**: For writing in a text editor without fancy symbols.
 - **Simplified**: For reading with condensed characters and diacritics.
-- **Machine**: A single Hangul code point per phonetic letter, for
-  compact tokenization (useful for AI models and lookups).
+- **Machine**: A single Hangul code point per sound, for compact
+  tokenization (useful for AI models and lookups).
 
 The goal of the simplified version is to make it as easy as possible to
 read text given basic knowledge of today's standard English writing
@@ -46,14 +46,14 @@ the gist of it.
 ## Examples
 
 The `hangul` column is the machine encoding: `talk.machine(...)` packs
-each phonetic letter into a single Hangul code point, so a whole word
-becomes a compact, one-code-point-per-sound string.
+each sound into a single Hangul code point (base plus all its modifiers),
+so a whole word becomes a compact, one-code-point-per-sound string.
 
 | ascii | simplified | hangul |
 | :-- | :-- | :-- |
 | txando^ | txandȯ | 켶콣뱿켔켤붇 |
 | surdjyo^ | suṙdjyȯ | 콉삟콞켤콃콩붇 |
-| HEth\~Ah | ḥẹtɦạh | 켾뀟켶켑눯콀 |
+| HEth\~Ah | ḥẹtɦạh | 켾뀟퀢눯콀 |
 | siqk | siṅk | 콉롟켕켼 |
 | txya@+a-a++u | txyá̖àa̋u | 켶콣콩뱌뱶뱷삟 |
 | hwpo$kUi^mUno$s | hwpo̤kụïmụno̤s | 콀콧켬뺄켼뙏띗켒뙏켔뺄콉 |
@@ -63,9 +63,9 @@ becomes a compact, one-code-point-per-sound string.
 | s'oQya&te | s'oq̇ya̰te | 콉켚뺏켛콩뱩켶멯 |
 | t!arEba | t̗aṙẹba | 켱뱿콞뀟켧뱿 |
 | txhaK!EnEba | txhaḳ̗ẹnẹba | 켶콣콀뱿켺뀟켔뀟켧뱿 |
-| txh\~im | txɦim | 켶콣켑롟켒 |
-| txy\~h\~im | txẏɦim | 켶콣콨켑롟켒 |
-| mh!im | mħim | 켒켿롟켒 |
+| txh\~im | txɦim | 켶큪롟켒 |
+| txy\~h\~im | txẏɦim | 켶큤켑롟켒 |
+| mh!im | mħim | 쾒롟켒 |
 
 ## Why not IPA or XSampa?
 
@@ -154,31 +154,32 @@ combined in standard ways.
 ### Consonants
 
 This is the full set of IPA consonants we map, in ASCII, simplified, and
-machine (Hangul) form.
+machine (Hangul) form. Every consonant, however modified, is a single
+Hangul code point.
 
 _Note: GitHub markdown doesn't really render the diacritics that nicely,
 some are misaligned. We will have a font to remedy this for websites._
 
 | IPA | ascii | simplified | hangul |
 | :-- | :-- | :-- | :-- |
-| m̥ | mh! | mħ | 켒켿 |
+| m̥ | mh! | mħ | 쾒 |
 | m | m | m | 켒 |
-| ɱ̊ | m\~h! | mħ | 쾆켿 |
+| ɱ̊ | m\~h! | mħ | 쾓 |
 | ɱ | m\~ | m | 쾆 |
 | n̼ | n | n | 켔 |
-| n̪̊ | n\~h! | nħ | 쾃켿 |
+| n̪̊ | n\~h! | nħ | 쾣 |
 | n̪ | n\~ | n | 쾃 |
-| n̥ | nh! | nħ | 켔켿 |
+| n̥ | nh! | nħ | 쾢 |
 | n | n | n | 켔 |
-| n̠̊ | nh! | nħ | 켔켿 |
+| n̠̊ | nh! | nħ | 쾢 |
 | n̠ | n | n | 켔 |
-| ɳ̊ | Nh! | ṇħ | 켓켿 |
+| ɳ̊ | Nh! | ṇħ | 쾲 |
 | ɳ | N | ṇ | 켓 |
-| ɲ̊ | ny\~h! | nẏħ | 켔콨켿 |
-| ɲ | ny\~ | nẏ | 켔콨 |
-| ŋ̊ | qh! | ṅħ | 켕켿 |
+| ɲ̊ | ny\~h! | nẏħ | 쾥 |
+| ɲ | ny\~ | nẏ | 쾤 |
+| ŋ̊ | qh! | ṅħ | 쿃 |
 | ŋ | q | ṅ | 켕 |
-| ɴ̥ | qh! | ṅħ | 켕켿 |
+| ɴ̥ | qh! | ṅħ | 쿃 |
 | ɴ | q | ṅ | 켕 |
 | p | p | p | 켬 |
 | b | b | b | 켧 |
@@ -192,8 +193,8 @@ some are misaligned. We will have a font to remedy this for websites._
 | d | d | d | 켤 |
 | ʈ | T | ṭ | 켰 |
 | ɖ | D | ḍ | 켢 |
-| c | ky\~ | kẏ | 켼콨 |
-| ɟ | gy\~ | gẏ | 켙콨 |
+| c | ky\~ | kẏ | 쿧 |
+| ɟ | gy\~ | gẏ | 쿗 |
 | k | k | k | 켼 |
 | ɡ | g | g | 켙 |
 | q | K | ḳ | 켻 |
@@ -207,8 +208,8 @@ some are misaligned. We will have a font to remedy this for websites._
 | ʒ | j | j | 콃 |
 | ʂ | X | x̣ | 콡 |
 | ʐ | J | ȷ̈ | 콁 |
-| ɕ | xy\~ | xẏ | 콣콨 |
-| ʑ | jy\~ | jẏ | 콃콨 |
+| ɕ | xy\~ | xẏ | 큤 |
+| ʑ | jy\~ | jẏ | 큳 |
 | ɸ | F | f̣ | 콊 |
 | β | V | ṿ | 콍 |
 | f | f | f | 콌 |
@@ -221,16 +222,16 @@ some are misaligned. We will have a font to remedy this for websites._
 | ð̠ | C | c̣ | 콕 |
 | ɹ̠˔ | u$ | r | 삔 |
 | ɻ˔ | u$ | r | 삔 |
-| ç | hy\~ | hẏ | 콀콨 |
+| ç | hy\~ | hẏ | 탣 |
 | ʝ | y | y | 콩 |
 | x | H | ḥ | 켾 |
 | ɣ | G | ġ | 켗 |
 | χ | H | ḥ | 켾 |
 | ʁ | G | ġ | 켗 |
-| ħ | Hh\~ | ḥɦ | 켾켑 |
+| ħ | Hh\~ | ḥɦ | 탹 |
 | ʕ | Q | q̇ | 켛 |
 | h | h | h | 콀 |
-| ɦ | hh\~ | hɦ | 콀켑 |
+| ɦ | hh\~ | hɦ | 탩 |
 | β̞ | V | ṿ | 콍 |
 | ʋ | V | ṿ | 콍 |
 | ð̞ | C | c̣ | 콕 |
@@ -241,48 +242,49 @@ some are misaligned. We will have a font to remedy this for websites._
 | ɰ | W | ẇ | 콤 |
 | ⱱ̟ | V | ṿ | 콍 |
 | ⱱ | V | ṿ | 콍 |
-| ɾ̥ | rh! | ṙħ | 콞켿 |
+| ɾ̥ | rh! | ṙħ | 턠 |
 | ɾ | r | ṙ | 콞 |
-| ɽ̊ | Rh! | ṛħ | 콜켿 |
+| ɽ̊ | Rh! | ṛħ | 터 |
 | ɽ | R | ṛ | 콜 |
-| ʙ̥ | bbh! | bbħ | 켧켧켿 |
-| ʙ | bb | bb | 켧켧 |
-| r̥ | rh! | ṙħ | 콞켿 |
+| ɢ̆ | g | g | 켙 |
+| ʙ̥ | bbh! | bbħ | 툗 |
+| ʙ | bb | bb | 툖 |
+| r̥ | rh! | ṙħ | 턠 |
 | r | r | ṙ | 콞 |
 | r̠ | r | ṙ | 콞 |
-| ɽ̊r̥ | Rh!rh! | ṛħṙħ | 콜켿콞켿 |
-| ɽr | Rr | ṛṙ | 콜콞 |
-| ʀ̥ | GGh! | ġġħ | 켗켗켿 |
-| ʀ | GG | ġġ | 켗켗 |
+| ɽ̊r̥ | Rh!rh! | ṛħṙħ | 퉊 |
+| ɽr | Rr | ṛṙ | 툸 |
+| ʀ̥ | GGh! | ġġħ | 툩 |
+| ʀ | GG | ġġ | 툨 |
 | ɬ̪ | S\~ | ṣ | 쾊 |
 | ɬ | S | ṣ | 콆 |
 | ɮ | Z | ẓ | 콓 |
-| ʎ̝ | ly\~ | lẏ | 콛콨 |
+| ʎ̝ | ly\~ | lẏ | 턂 |
 | l̪ | l\~ | l | 쾉 |
-| l̥ | lh! | lħ | 콛켿 |
+| l̥ | lh! | lħ | 턀 |
 | l | l | l | 콛 |
 | l̠ | l | l | 콛 |
-| ɭ̊ | Lh! | ḷħ | 콘켿 |
+| ɭ̊ | Lh! | ḷħ | 턏 |
 | ɭ | L | ḷ | 콘 |
-| ʎ̥ | ly\~h! | lẏħ | 콛콨켿 |
-| ʎ | ly\~ | lẏ | 콛콨 |
-| ɺ̥ | lh! | lħ | 콛켿 |
+| ʎ̥ | ly\~h! | lẏħ | 턃 |
+| ʎ | ly\~ | lẏ | 턂 |
+| ɺ̥ | lh! | lħ | 턀 |
 | ɺ | l | l | 콛 |
-| ʍ | wh! | wħ | 콧켿 |
+| ʍ | wh! | wħ | 텁 |
 | w | w | w | 콧 |
-| ɥ | yw\~ | yẉ | 콩콦 |
+| ɥ | yw\~ | yẉ | 텔 |
 | ɧ | H | ḥ | 켾 |
-| ɫ | lG\~ | lg̃ | 콛켖 |
+| ɫ | lG\~ | lg̃ | 턆 |
 | ɓ | b? | b̖ | 켥 |
 | ɗ | d? | d̖ | 켞 |
-| ʄ | g?y\~ | g̀ẏ | 켘콨 |
+| ʄ | g?y\~ | g̀ẏ | 툈 |
 | ɠ | g? | g̀ | 켘 |
 | ʛ | g? | g̀ | 켘 |
-| ɓ̥ | b?h! | b̖ħ | 켥켿 |
+| ɓ̥ | b?h! | b̖ħ | 퇣 |
 | ɗ̥ | t? | t̖ | 쾋 |
-| ʄ̥ | g?y\~h! | g̀ẏħ | 켘콨켿 |
-| ɠ̊ | g?h! | g̀ħ | 켘켿 |
-| ʛ̥ | g?h! | g̀ħ | 켘켿 |
+| ʄ̥ | g?y\~h! | g̀ẏħ | 툉 |
+| ɠ̊ | g?h! | g̀ħ | 툅 |
+| ʛ̥ | g?h! | g̀ħ | 툅 |
 | pʼ | p! | ṕ | 켨 |
 | tʼ | t! | t̗ | 켱 |
 | ʈʼ | T! | ṭ̗ | 켯 |
@@ -298,7 +300,7 @@ some are misaligned. We will have a font to remedy this for websites._
 | ɸʼ | F! | f̣́ | 쾍 |
 | θʼ | c! | ć | 쾌 |
 | ʃʼ | x! | x́ | 콟 |
-| ʄ̊ | g?y\~h! | g̀ẏħ | 켘콨켿 |
+| ʄ̊ | g?y\~h! | g̀ẏħ | 툉 |
 | ɬʼ | S! | ṣ́ | 콄 |
 | ʘ | p\* | p̂ | 켩 |
 | ǀ | t\* | t̬ | 켲 |
@@ -310,7 +312,8 @@ some are misaligned. We will have a font to remedy this for websites._
 
 ### Vowels
 
-This is the full set of IPA vowels we map.
+This is the full set of IPA vowels we map. Every vowel, with any tone,
+length, stress, or nasalization, is a single Hangul code point.
 
 | IPA | ascii | simplified | hangul |
 | :-- | :-- | :-- | :-- |
@@ -467,8 +470,8 @@ _See the `test/` folder for the up-to-date test suite._
 
 ## Syllables and Pronunciation
 
-You can convert IPA to Talk, tokenize Talk into phonetic letters, split a
-word into syllables, and pack it into the Hangul machine encoding.
+You can convert IPA to Talk, tokenize Talk into sounds, split a word into
+syllables, and pack it into the Hangul machine encoding.
 
 ```ts
 import talk, {
@@ -484,14 +487,14 @@ makeIpaToTalk('kxɯʎʎikʰa̠da̠') // => 'kHOly~ly~ikh~ada'
 // Talk -> IPA (Talk is the canonical form, so this round-trips)
 makeTalkToIpa('kHO') // => 'kχʊ'
 
-// Tokenize Talk into structured phonetic letters
+// Tokenize Talk into structured sounds
 tokenize('t!a++nDh~') // => [{ form: 'consonant', text: 't', ejective: true }, ...]
 
 // Split into syllables
 chunk('fOla^sOfi') // => { syllables: [...], clusters: [...] }
 
-// Pack into one Hangul code point per letter
-talk.machine('mh!im') // => '켒켿롟켒'
+// Pack into one Hangul code point per sound
+talk.machine('mh!im') // => '쾒롟켒'
 ```
 
 ## IPA and XSampa

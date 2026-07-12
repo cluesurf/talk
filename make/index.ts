@@ -253,6 +253,111 @@ export const CONSONANTS = [
   { i: 'K*', x: '쾑', o: `k${m.d.dot}${m.d.down}` }, // ʞ velar click
 ]
 
+// Every consonant modifier (aspiration, palatalization, dental,
+// voiceless, ...) should collapse onto its base as a SINGLE glyph, so
+// `machine()` emits one Hangul code point per sound. Rather than hand
+// listing each combination, generate them: take each base letter above,
+// apply the modifier suffixes `makeIpaToTalk` can emit, and assign the
+// next free Hangul code point. The readable form is composed from the
+// base plus modifier glyphs, so it stacks the same diacritics.
+
+// The atomic base letters (single sounds), including the doubled
+// trills, in the spirit of `BASE_VOWEL_GLYPHS`.
+const CONSONANT_BASE_INPUTS = [
+  'm', 'n', 'N', 'q', 'g', 'k', 'b', 'p', 'd', 't', 'T', 'D',
+  's', 'z', 'x', 'j', 'X', 'J', 'f', 'v', 'c', 'C', 'h', 'H',
+  'l', 'L', 'r', 'R', 'w', 'y', 'G', 'Q', "'", 'W', 'F', 'V',
+  'Z', 'S', 'b?', 'd?', 'g?', 'bb', 'GG', 'Rr',
+]
+
+// Modifier-suffix combinations `makeIpaToTalk` can emit (empty = the
+// bare base, then singles and the common voiceless stacks). Applied to
+// every base, so any modified consonant collapses onto one glyph.
+const CONSONANT_MODIFIER_INPUTS = [
+  '', 'h!', '~', '~h!', 'y~', 'y~h!', 'w~', 'w~h!', 'G~', 'G~h!',
+  'h~', 'h~h!', 'Q~', 'Q~h!', '!', '?', '@', '.',
+]
+
+// Next free Hangul code point after the hand-assigned consonant block.
+let CONSONANT_CODE =
+  Math.max(...CONSONANTS.map(glyph => glyph.x.codePointAt(0)!)) + 1
+const USED_CODES = new Set(
+  [...VOWELS, ...CONSONANTS, ...SYMBOLS, ...NUMERALS].map(glyph =>
+    glyph.x.codePointAt(0),
+  ),
+)
+
+function getNextConsonantGlyph() {
+  while (USED_CODES.has(CONSONANT_CODE)) {
+    CONSONANT_CODE++
+  }
+  const glyph = String.fromCodePoint(CONSONANT_CODE)
+  USED_CODES.add(CONSONANT_CODE)
+  CONSONANT_CODE++
+  return glyph
+}
+
+// Readable lookup: the base glyphs above, plus the suffix-only feature
+// marks that have no standalone glyph. Longest key wins so `Q~` beats
+// `Q` and `b?` beats `b`.
+const READABLE_BY_INPUT = new Map(
+  CONSONANTS.map(glyph => [glyph.i, glyph.o]),
+)
+READABLE_BY_INPUT.set('Q~', `${m.d.tilde}`)
+READABLE_BY_INPUT.set('~', '')
+READABLE_BY_INPUT.set('@', `${m.d.up}`)
+READABLE_BY_INPUT.set('!', `${m.d.acute}`)
+READABLE_BY_INPUT.set('?', `${m.d.grave}`)
+READABLE_BY_INPUT.set('.', `${m.d.macron}`)
+const INPUTS_LONGEST_FIRST = [...READABLE_BY_INPUT.keys()].sort(
+  (a, b) => b.length - a.length,
+)
+
+function composeConsonantReadable(input: string) {
+  let out = ''
+  let i = 0
+  outer: while (i < input.length) {
+    for (const key of INPUTS_LONGEST_FIRST) {
+      if (key && input.startsWith(key, i)) {
+        out += READABLE_BY_INPUT.get(key)
+        i += key.length
+        continue outer
+      }
+    }
+    // Should not happen: every generated input is base + known modifiers.
+    return input
+  }
+  return out
+}
+
+// Trills whose voiceless form voices each element (ɽ̊r̥ -> Rh!rh!) do
+// not fit base + suffix, so they are listed as extras.
+const CONSONANT_EXTRA_INPUTS = ['Rh!rh!']
+
+const CONSONANT_SEEN = new Set(CONSONANTS.map(glyph => glyph.i))
+
+function addGeneratedConsonant(input: string) {
+  if (CONSONANT_SEEN.has(input)) {
+    return
+  }
+  CONSONANT_SEEN.add(input)
+  CONSONANTS.push({
+    i: input,
+    x: getNextConsonantGlyph(),
+    o: composeConsonantReadable(input),
+  })
+}
+
+for (const base of CONSONANT_BASE_INPUTS) {
+  for (const modifier of CONSONANT_MODIFIER_INPUTS) {
+    addGeneratedConsonant(base + modifier)
+  }
+}
+
+for (const input of CONSONANT_EXTRA_INPUTS) {
+  addGeneratedConsonant(input)
+}
+
 export const GLYPHS = [
   ...VOWELS,
   ...CONSONANTS,
