@@ -1,8 +1,8 @@
 import st from '@lancejpollard/script-tree'
 import { m } from './constants'
-// Precomputed by `code/glyph-builder.ts` (`pnpm glyphs`): every valid
-// modified consonant sound, so no `makeIpaToTalk` runs at load.
-import CONSONANT_INPUTS from './data/consonants.json'
+// Precomputed by `code/make/glyph-builder.ts` (`pnpm glyphs`): every
+// valid modified consonant sound, so no `makeIpaToTalk` runs at load.
+import CONSONANT_INPUTS from './base/consonants.json'
 
 // https://en.wikipedia.org/wiki/Hangul_Syllables
 // LAST used is U+CF82, so can continue from there.
@@ -259,7 +259,7 @@ export const CONSONANTS = [
 
 // Every consonant, however modified, collapses onto its base as a SINGLE
 // glyph, so `machine()` emits one Hangul code point per sound. The set of
-// valid modified sounds is generated in `glyph-builder.ts` (every base run
+// valid modified sounds is generated in `make/glyph-builder.ts` (each base
 // through `makeIpaToTalk` with each modifier-diacritic combination), so
 // nothing is listed by hand and no junk combination (`b??`, ...) can
 // appear. Here we just assign each a free Hangul code point and a

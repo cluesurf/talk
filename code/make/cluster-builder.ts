@@ -2,7 +2,7 @@ import fs from 'fs'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
-import { Clusters } from './clusters'
+import { Clusters } from '../clusters'
 
 import {
   sortLength,
@@ -11,11 +11,11 @@ import {
   endConsonants,
   fullConsonants,
   vowels,
-} from './cluster-definitions'
+} from '../cluster-definitions'
 
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
-const CLUSTERS_PATH = path.join(__dirname, 'clusters.json')
+const CLUSTERS_PATH = path.join(__dirname, '../base/clusters.json')
 
 let HANGUL_CODE = 53248
 

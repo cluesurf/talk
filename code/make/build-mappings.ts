@@ -68,9 +68,9 @@ function tryTalk(ipa: string): string | null {
 }
 
 const consonantRows = parseCsv<ConsonantRow>(
-  resolve(HERE, 'consonants.csv'),
+  resolve(HERE, '../base/consonants.csv'),
 )
-const vowelRows = parseCsv<VowelRow>(resolve(HERE, 'vowels.csv'))
+const vowelRows = parseCsv<VowelRow>(resolve(HERE, '../base/vowels.csv'))
 
 const consonants: Record<string, string> = {}
 const vowels: Record<string, string> = {}
@@ -90,13 +90,13 @@ for (const row of vowelRows) {
   else {missing.push({ kind: 'vowel', ipa: row.symbol })}
 }
 
-const outPath = resolve(HERE, 'mappings.json')
+const outPath = resolve(HERE, '../base/mappings.json')
 
 writeFileSync(outPath, JSON.stringify({ consonants, vowels }, null, 2))
 
 // CSV of IPA chars that have no Talk equivalent yet — for
 // the user to fill in by hand.
-const missingPath = resolve(HERE, 'missing.csv')
+const missingPath = resolve(HERE, '../base/missing.csv')
 const missingCsv =
   ['ipa,talk', ...missing.map(m => `${m.ipa},`)].join('\n') + '\n'
 

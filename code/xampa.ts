@@ -1,4 +1,4 @@
-import TABLE, { XSAMPA, XSAMPA_PATTERN } from '~/code/data/index'
+import TABLE, { XSAMPA, XSAMPA_PATTERN } from '~/code/base'
 import { ipa2xsampa } from 'x-sampa-ipa'
 
 import { makeIpaToTalk, makeTalkToIpa } from './ipa'

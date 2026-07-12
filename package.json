@@ -41,9 +41,9 @@
     "lint": "eslint . --fix && prettier --write .",
     "test": "NODE_NO_WARNINGS=1 vitest run",
     "test:watch": "NODE_NO_WARNINGS=1 vitest",
-    "mappings": "NODE_NO_WARNINGS=1 npx tsx test/build-mappings.ts",
-    "cluster": "NODE_NO_WARNINGS=1 npx tsx code/cluster-builder.ts",
-    "glyphs": "NODE_NO_WARNINGS=1 npx tsx code/glyph-builder.ts",
+    "mappings": "NODE_NO_WARNINGS=1 npx tsx code/make/build-mappings.ts",
+    "cluster": "NODE_NO_WARNINGS=1 npx tsx code/make/cluster-builder.ts",
+    "glyphs": "NODE_NO_WARNINGS=1 npx tsx code/make/glyph-builder.ts",
     "host": "pnpm make && npm publish --access=public"
   },
   "devDependencies": {

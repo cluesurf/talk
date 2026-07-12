@@ -1,6 +1,6 @@
 import { m, TextList } from './constants'
 
-import TABLE, { IPA, IPA_PATTERN } from './data'
+import TABLE, { IPA, IPA_PATTERN } from './base'
 
 export type Feature =
   | 'implosion'

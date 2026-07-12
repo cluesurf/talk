@@ -11,6 +11,9 @@ import { makeIpaToTalk, makeTalkToIpa } from '~/code/ipa'
 
 export const TEST_DIR = dirname(fileURLToPath(import.meta.url))
 
+// The phone charts and generated data live in `code/base/`.
+export const BASE_DIR = resolve(TEST_DIR, '../code/base')
+
 export type ConsonantRow = {
   symbol: string
   place: string
@@ -28,7 +31,7 @@ export type VowelRow = {
 export function parseCsv<T extends Record<string, string>>(
   file: string,
 ): T[] {
-  const text = readFileSync(resolve(TEST_DIR, file), 'utf8').trim()
+  const text = readFileSync(resolve(BASE_DIR, file), 'utf8').trim()
   const lines = text.split(/\r?\n/)
   const header = lines[0]!.split(',')
 
@@ -58,13 +61,13 @@ export function loadMappings(): {
   vowels: Record<string, string>
 } {
   return JSON.parse(
-    readFileSync(resolve(TEST_DIR, 'mappings.json'), 'utf8'),
+    readFileSync(resolve(BASE_DIR, 'mappings.json'), 'utf8'),
   )
 }
 
 export function loadMissing(): string[] {
   const text = readFileSync(
-    resolve(TEST_DIR, 'missing.csv'),
+    resolve(BASE_DIR, 'missing.csv'),
     'utf8',
   ).trim()
 

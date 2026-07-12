@@ -1,4 +1,4 @@
-import CLUSTERS_JSON from './clusters.json'
+import CLUSTERS_JSON from './base/clusters.json'
 
 export type Clusters = {
   consonants: Record<string, string>
