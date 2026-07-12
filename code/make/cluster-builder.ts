@@ -54,7 +54,7 @@ function loadExistingClustersNested(): Clusters {
   }
 
   const data = fs.readFileSync(CLUSTERS_PATH, 'utf-8')
-  const clusters: Clusters = JSON.parse(data)
+  const clusters = JSON.parse(data) as Clusters
 
   // Find the highest code point across all categories
   let maxCode = HANGUL_CODE - 1

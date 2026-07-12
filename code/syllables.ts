@@ -496,7 +496,7 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
 
     // Check if any dense full consonant would match before trying end consonants
     let longerDenseMatch: {
-      chunk: any[]
+      chunk: Mark[]
       match: string
       length: number
     } | null = null
@@ -529,7 +529,7 @@ export function groupMarksIntoClusters(chunks: Mark[]) {
 
     // Check end consonants but prefer longer dense matches
     let endConsonantMatch: {
-      chunk: any[]
+      chunk: Mark[]
       match: string
       length: number
     } | null = null
@@ -1026,6 +1026,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
       }
 
       case ClusterKey.CONSONANT:
+      // falls through
 
       case ClusterKey.START_CONSONANT: {
         // Start syllable with consonant(s)
@@ -1195,9 +1196,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
               const prevCluster =
                 syllable.clusters[syllable.clusters.length - 2]
 
-              if (
-                prevCluster?.form === ClusterKey.START_CONSONANT
-              ) {
+              if (prevCluster?.form === ClusterKey.START_CONSONANT) {
                 // Remove the ' we just added
                 syllable.clusters.pop()
                 i--

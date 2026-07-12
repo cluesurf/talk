@@ -14,7 +14,7 @@ export const CONSONANT_FORM = [
   'velarization',
 ] as const
 
-export type ConsonantForm = typeof CONSONANT_FORM[number]
+export type ConsonantForm = (typeof CONSONANT_FORM)[number]
 
 // flow(plosive, fricative)
 export const CONSONANT_MOLD = [
@@ -30,7 +30,7 @@ export const CONSONANT_MOLD = [
   'tap',
 ] as const
 
-export type ConsonantMold = typeof CONSONANT_MOLD[number]
+export type ConsonantMold = (typeof CONSONANT_MOLD)[number]
 
 // site(bilabial)
 export const CONSONANT_SITE = [
@@ -50,7 +50,7 @@ export const CONSONANT_SITE = [
   'velar',
 ] as const
 
-export type ConsonantSite = typeof CONSONANT_SITE[number]
+export type ConsonantSite = (typeof CONSONANT_SITE)[number]
 
 export const CONSONANT_FLOW = [
   'standard',
@@ -59,17 +59,17 @@ export const CONSONANT_FLOW = [
   'click',
 ] as const
 
-export type ConsonantFlow = typeof CONSONANT_FLOW[number]
+export type ConsonantFlow = (typeof CONSONANT_FLOW)[number]
 
 // tone(voiced / unvoiced)
 export const CONSONANT_TONE = ['voiced', 'unvoiced'] as const
 
-export type ConsonantTone = typeof CONSONANT_TONE[number]
+export type ConsonantTone = (typeof CONSONANT_TONE)[number]
 
 // length (short, long/geminate)
 export const CONSONANT_TIME = ['standard', 'long'] as const
 
-export type ConsonantTime = typeof CONSONANT_TIME[number]
+export type ConsonantTime = (typeof CONSONANT_TIME)[number]
 
 // Consonant === Beat
 export type Consonant = {
@@ -635,32 +635,32 @@ export const VOWEL_ROOM = [
   'open',
 ] as const
 
-export type VowelRoom = typeof VOWEL_ROOM[number]
+export type VowelRoom = (typeof VOWEL_ROOM)[number]
 
 // (rounded (tense)/unrounded (lax))
 export const VOWEL_FLEX = ['rounded', 'unrounded'] as const
 
-export type VowelFlex = typeof VOWEL_FLEX[number]
+export type VowelFlex = (typeof VOWEL_FLEX)[number]
 
 // (front, mid, back)
 export const VOWEL_SITE = ['front', 'center', 'back'] as const
 
-export type VowelSite = typeof VOWEL_SITE[number]
+export type VowelSite = (typeof VOWEL_SITE)[number]
 
 // stress
 export const VOWEL_KICK = ['standard', 'stress'] as const
 
-export type VowelKick = typeof VOWEL_KICK[number]
+export type VowelKick = (typeof VOWEL_KICK)[number]
 
 // nasal/oral
 export const VOWEL_NOSE = ['oral', 'nasal'] as const
 
-export type VowelNose = typeof VOWEL_NOSE[number]
+export type VowelNose = (typeof VOWEL_NOSE)[number]
 
 // length
 export const VOWEL_TIME = ['standard', 'long', 'short'] as const
 
-export type VowelTime = typeof VOWEL_TIME[number]
+export type VowelTime = (typeof VOWEL_TIME)[number]
 
 // Vowel === Tune
 export type Vowel = {

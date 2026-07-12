@@ -36,16 +36,8 @@ export type ViewType = {
   load: Record<string, string>
 }
 
-const VOWEL: SimplifyType['vowel'][] = [
-  'none',
-  'one',
-  'basic',
-  'all',
-]
-const CONSONANT: SimplifyType['consonant'][] = [
-  'all',
-  'simplified',
-]
+const VOWEL: SimplifyType['vowel'][] = ['none', 'one', 'basic', 'all']
+const CONSONANT: SimplifyType['consonant'][] = ['all', 'simplified']
 const TONE: SimplifyType['tone'][] = ['yes', 'no']
 const DURATION: SimplifyType['duration'][] = ['yes', 'no']
 const ASPIRATION: SimplifyType['aspiration'][] = ['yes', 'no']

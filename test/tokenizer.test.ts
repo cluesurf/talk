@@ -425,7 +425,7 @@ describe('tokenize', () => {
     const tokens = tokenize('ieaou')
 
     expect(tokens).toHaveLength(5)
-    expect(tokens.map(t => (t as any).text)).toEqual([
+    expect(tokens.map(t => ('text' in t ? t.text : ''))).toEqual([
       'i',
       'e',
       'a',

@@ -6,15 +6,78 @@ import { makeIpaToTalk } from '~/code/ipa'
 // and no junk cross-product ever appears: `makeIpaToTalk` only emits
 // valid Talk, so a combination it cannot form is simply never produced.
 const BASE_CONSONANTS = [
-  'm', 'ɱ', 'n', 'ɳ', 'ɲ', 'ŋ', 'ɴ',
-  'p', 'b', 't', 'd', 'ʈ', 'ɖ', 'c', 'ɟ', 'k', 'ɡ', 'q', 'ɢ', 'ʔ',
-  's', 'z', 'ʃ', 'ʒ', 'ʂ', 'ʐ', 'ɕ', 'ʑ',
-  'ɸ', 'β', 'f', 'v', 'θ', 'ð', 'ç', 'ʝ', 'x', 'ɣ', 'χ', 'ʁ', 'ħ', 'ʕ',
-  'h', 'ɦ',
-  'ʋ', 'ɹ', 'ɻ', 'j', 'ɰ', 'ⱱ', 'ɾ', 'ɽ', 'ʙ', 'r', 'ʀ', 'ɽr', 'ɽ̊r̥',
-  'ɬ', 'ɮ', 'l', 'ɭ', 'ʎ', 'ɺ',
-  'ʍ', 'w', 'ɥ', 'ɫ',
-  'ɓ', 'ɗ', 'ʄ', 'ɠ', 'ʛ',
+  'm',
+  'ɱ',
+  'n',
+  'ɳ',
+  'ɲ',
+  'ŋ',
+  'ɴ',
+  'p',
+  'b',
+  't',
+  'd',
+  'ʈ',
+  'ɖ',
+  'c',
+  'ɟ',
+  'k',
+  'ɡ',
+  'q',
+  'ɢ',
+  'ʔ',
+  's',
+  'z',
+  'ʃ',
+  'ʒ',
+  'ʂ',
+  'ʐ',
+  'ɕ',
+  'ʑ',
+  'ɸ',
+  'β',
+  'f',
+  'v',
+  'θ',
+  'ð',
+  'ç',
+  'ʝ',
+  'x',
+  'ɣ',
+  'χ',
+  'ʁ',
+  'ħ',
+  'ʕ',
+  'h',
+  'ɦ',
+  'ʋ',
+  'ɹ',
+  'ɻ',
+  'j',
+  'ɰ',
+  'ⱱ',
+  'ɾ',
+  'ɽ',
+  'ʙ',
+  'r',
+  'ʀ',
+  'ɽr',
+  'ɽ̊r̥',
+  'ɬ',
+  'ɮ',
+  'l',
+  'ɭ',
+  'ʎ',
+  'ɺ',
+  'ʍ',
+  'w',
+  'ɥ',
+  'ɫ',
+  'ɓ',
+  'ɗ',
+  'ʄ',
+  'ɠ',
+  'ʛ',
 ]
 
 // One array per modifier dimension (each optional). The order the marks
@@ -43,7 +106,12 @@ function buildConsonantInputs() {
           for (const ejective of EJECTIVE) {
             for (const voiceless of VOICELESS) {
               const ipa =
-                base + dental + secondary + aspiration + ejective + voiceless
+                base +
+                dental +
+                secondary +
+                aspiration +
+                ejective +
+                voiceless
 
               let talk: string
 

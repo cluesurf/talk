@@ -70,7 +70,9 @@ function tryTalk(ipa: string): string | null {
 const consonantRows = parseCsv<ConsonantRow>(
   resolve(HERE, '../base/consonants.csv'),
 )
-const vowelRows = parseCsv<VowelRow>(resolve(HERE, '../base/vowels.csv'))
+const vowelRows = parseCsv<VowelRow>(
+  resolve(HERE, '../base/vowels.csv'),
+)
 
 const consonants: Record<string, string> = {}
 const vowels: Record<string, string> = {}
@@ -79,15 +81,21 @@ const missing: { kind: 'consonant' | 'vowel'; ipa: string }[] = []
 for (const row of consonantRows) {
   const talk = tryTalk(row.symbol)
 
-  if (talk) {consonants[row.symbol] = talk}
-  else {missing.push({ kind: 'consonant', ipa: row.symbol })}
+  if (talk) {
+    consonants[row.symbol] = talk
+  } else {
+    missing.push({ kind: 'consonant', ipa: row.symbol })
+  }
 }
 
 for (const row of vowelRows) {
   const talk = tryTalk(row.symbol)
 
-  if (talk) {vowels[row.symbol] = talk}
-  else {missing.push({ kind: 'vowel', ipa: row.symbol })}
+  if (talk) {
+    vowels[row.symbol] = talk
+  } else {
+    missing.push({ kind: 'vowel', ipa: row.symbol })
+  }
 }
 
 const outPath = resolve(HERE, '../base/mappings.json')

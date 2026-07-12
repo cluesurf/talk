@@ -358,25 +358,32 @@ export const GLYPHS = [
   ...NUMERALS,
 ]
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment, @typescript-eslint/no-unsafe-member-access
-const tree = st.fork(GLYPHS)
-// eslint-disable-next-line @typescript-eslint/no-unsafe-return, @typescript-eslint/no-unsafe-member-access
-const talk = (text: string): string => st.form(text, tree)
+// `@lancejpollard/script-tree` ships no types, so pin the surface we use.
+// `fork` builds the longest-match trie, `form` joins matched outputs, and
+// `list` returns the matched glyph records.
+type ScriptTreeTree = unknown
+type ScriptTreeApi = {
+  fork(glyphs: Take[]): ScriptTreeTree
+  form(text: string, tree: ScriptTreeTree): string
+  list(text: string, tree: ScriptTreeTree): Take[]
+}
+
+const scriptTree = st as ScriptTreeApi
+
+const tree = scriptTree.fork(GLYPHS)
+const talk = (text: string): string => scriptTree.form(text, tree)
 
 talk.inputs = (text: string): string[] =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
-  st.list(text, tree).map((x: any) => x.i)
+  scriptTree.list(text, tree).map(x => x.i)
 
 talk.readableOutput = (text: string): string[] =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
-  st.list(text, tree).map((x: any) => x.o)
+  scriptTree.list(text, tree).map(x => x.o)
 
 talk.readable = (text: string): string =>
   talk.readableOutput(text).join('')
 
 talk.machineOutputs = (text: string): string[] =>
-  // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access, @typescript-eslint/no-unsafe-return
-  st.list(text, tree).map((x: any) => x.x)
+  scriptTree.list(text, tree).map(x => x.x)
 
 talk.machine = (text: string): string =>
   talk.machineOutputs(text).join('')

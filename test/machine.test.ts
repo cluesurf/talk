@@ -109,7 +109,7 @@ describe('machine encoding is injective', () => {
       const hangul = machine(talkText)
 
       expect(hangul, talkText).not.toBeNull()
-      expect([...(hangul!)].length, talkText).toBe(len)
+      expect([...hangul!].length, talkText).toBe(len)
     }
   })
 })

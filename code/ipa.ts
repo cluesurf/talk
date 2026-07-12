@@ -800,6 +800,7 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
         case '˦':
         case '˧':
         case '˨':
+        // falls through
 
         case '˩': {
           const part = parts[i++]
@@ -1018,9 +1019,6 @@ export function makeIpaToTalk(ipa: string, options = { tones: true }) {
       case 'tense':
         if (result.last.consonant) {
           assert(result.last.consonant, 'tense:last-consonant')
-
-          if (/x/.exec(result.last.consonant.value)) {
-          }
 
           const second =
             result.last.consonants[result.last.consonants.length - 2]

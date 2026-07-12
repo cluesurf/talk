@@ -23,12 +23,22 @@
 
 ## Overview
 
-**Talk** uses the Latin script with diacritics to encode most of Earth's
-natural language features, enough so that you can write every language
-using the same Latin-oriented system and be close enough to a realistic
-pronunciation, including nasalized vowels, tense consonants, clicks, and
-tones, amongst other things. A cross-cultural romanization scheme
-basically!
+**Talk** is a phonetic front end and tokenization layer for speech and
+language models. Its **machine** encoding turns text or IPA into a
+single code point per sound, so a model gets a finite, normalized phone
+vocabulary instead of raw IPA or byte-pair fragments that split a
+pronunciation across several tokens. If you build TTS, ASR, G2P, or any
+multilingual pipeline that has to reason about how words sound, this
+gives you one clean token per phone that converts losslessly to and from
+IPA (`makeIpaToTalk` / `makeTalkToIpa`), plus syllabification for free.
+
+It is also a readable, keyboard-typable **romanization**. Talk uses the
+Latin script with diacritics to encode most of Earth's natural language
+features, enough that you can write every language in the same
+Latin-oriented system and land close to a realistic pronunciation,
+including nasalized vowels, tense consonants, clicks, and tones. It
+reads like the pronunciation guides people already know, so a
+non-linguist can get the gist without special training.
 
 There are three forms:
 
@@ -43,6 +53,11 @@ practices. Of course you need to learn the basics if you really want to
 take advantage of it, but without learning anything, you still can get
 the gist of it.
 
+Talk is not a replacement for IPA and does not chase its exactness. It
+aims for about 95% accuracy, which is plenty for a tokenizer or a
+learner, and it speaks IPA fluently for the cases where you need the
+last 5%. See [Why not IPA or XSampa?](#why-not-ipa-or-xsampa) below.
+
 ## Examples
 
 The `machine` column is the machine encoding: `talk.machine(...)` packs
@@ -54,7 +69,7 @@ string.
 | :-------------- | :----------------------- |
 | txando^         | 켶콣뱿켔켤붇             |
 | surdjyo^        | 콉삟콞켤콃콩붇           |
-| HEth\~Ah        | 켾뀟퀢눯콀               |
+| HEth\~Ah        | 켾뀟턕눯콀               |
 | siqk            | 콉롟켕켼                 |
 | txya@+a-a++u    | 켶콣콩뱌뱶뱷삟           |
 | hwpo$kUi^mUno$s | 콀콧켬뺄켼뙏띗켒뙏켔뺄콉 |
@@ -64,9 +79,9 @@ string.
 | s'oQya&te       | 콉켚뺏켛콩뱩켶멯         |
 | t!arEba         | 켱뱿콞뀟켧뱿             |
 | txhaK!EnEba     | 켶콣콀뱿켺뀟켔뀟켧뱿     |
-| txh\~im         | 켶큪롟켒                 |
-| txy\~h\~im      | 켶큤켑롟켒               |
-| mh!im           | 쾒롟켒                   |
+| txh\~im         | 켶콣켑롟켒               |
+| txy\~h\~im      | 켶턹켑롟켒               |
+| mh!im           | 킡롟켒                   |
 
 ## Why not IPA or XSampa?
 
@@ -161,26 +176,26 @@ Hangul code point.
 _Note: GitHub markdown doesn't really render the diacritics that nicely,
 some are misaligned. We will have a font to remedy this for websites._
 
-| IPA | ascii   | maching |
+| IPA | ascii   | machine |
 | :-- | :------ | :------ |
-| m̥   | mh!     | 쾒      |
+| m̥   | mh!     | 킡      |
 | m   | m       | 켒      |
-| ɱ̊   | m\~h!   | 쾓      |
+| ɱ̊   | m\~h!   | 키      |
 | ɱ   | m\~     | 쾆      |
 | n̼   | n       | 켔      |
-| n̪̊   | n\~h!   | 쾣      |
+| n̪̊   | n\~h!   | 킾      |
 | n̪   | n\~     | 쾃      |
-| n̥   | nh!     | 쾢      |
+| n̥   | nh!     | 킯      |
 | n   | n       | 켔      |
-| n̠̊   | nh!     | 쾢      |
+| n̠̊   | nh!     | 킯      |
 | n̠   | n       | 켔      |
-| ɳ̊   | Nh!     | 쾲      |
+| ɳ̊   | Nh!     | 쿐      |
 | ɳ   | N       | 켓      |
-| ɲ̊   | ny\~h!  | 쾥      |
-| ɲ   | ny\~    | 쾤      |
-| ŋ̊   | qh!     | 쿃      |
+| ɲ̊   | ny\~h!  | 킳      |
+| ɲ   | ny\~    | 킲      |
+| ŋ̊   | qh!     | 탉      |
 | ŋ   | q       | 켕      |
-| ɴ̥   | qh!     | 쿃      |
+| ɴ̥   | qh!     | 탉      |
 | ɴ   | q       | 켕      |
 | p   | p       | 켬      |
 | b   | b       | 켧      |
@@ -194,8 +209,8 @@ some are misaligned. We will have a font to remedy this for websites._
 | d   | d       | 켤      |
 | ʈ   | T       | 켰      |
 | ɖ   | D       | 켢      |
-| c   | ky\~    | 쿧      |
-| ɟ   | gy\~    | 쿗      |
+| c   | ky\~    | 큿      |
+| ɟ   | gy\~    | 큯      |
 | k   | k       | 켼      |
 | ɡ   | g       | 켙      |
 | q   | K       | 켻      |
@@ -209,8 +224,8 @@ some are misaligned. We will have a font to remedy this for websites._
 | ʒ   | j       | 콃      |
 | ʂ   | X       | 콡      |
 | ʐ   | J       | 콁      |
-| ɕ   | xy\~    | 큤      |
-| ʑ   | jy\~    | 큳      |
+| ɕ   | xy\~    | 턹      |
+| ʑ   | jy\~    | 큹      |
 | ɸ   | F       | 콊      |
 | β   | V       | 콍      |
 | f   | f       | 콌      |
@@ -223,16 +238,16 @@ some are misaligned. We will have a font to remedy this for websites._
 | ð̠   | C       | 콕      |
 | ɹ̠˔  | u$      | 삔      |
 | ɻ˔  | u$      | 삔      |
-| ç   | hy\~    | 탣      |
+| ç   | hy\~    | 클      |
 | ʝ   | y       | 콩      |
 | x   | H       | 켾      |
 | ɣ   | G       | 켗      |
 | χ   | H       | 켾      |
 | ʁ   | G       | 켗      |
-| ħ   | Hh\~    | 탹      |
+| ħ   | Hh\~    | 쾴      |
 | ʕ   | Q       | 켛      |
 | h   | h       | 콀      |
-| ɦ   | hh\~    | 탩      |
+| ɦ   | hh\~    | 큳      |
 | β̞   | V       | 콍      |
 | ʋ   | V       | 콍      |
 | ð̞   | C       | 콕      |
@@ -243,49 +258,49 @@ some are misaligned. We will have a font to remedy this for websites._
 | ɰ   | W       | 콤      |
 | ⱱ̟   | V       | 콍      |
 | ⱱ   | V       | 콍      |
-| ɾ̥   | rh!     | 턠      |
+| ɾ̥   | rh!     | 탗      |
 | ɾ   | r       | 콞      |
-| ɽ̊   | Rh!     | 터      |
+| ɽ̊   | Rh!     | 쿗      |
 | ɽ   | R       | 콜      |
 | ɢ̆   | g       | 켙      |
-| ʙ̥   | bbh!    | 툗      |
-| ʙ   | bb      | 툖      |
-| r̥   | rh!     | 턠      |
+| ʙ̥   | bbh!    | 퀨      |
+| ʙ   | bb      | 퀧      |
+| r̥   | rh!     | 탗      |
 | r   | r       | 콞      |
 | r̠   | r       | 콞      |
-| ɽ̊r̥  | Rh!rh!  | 퉊      |
-| ɽr  | Rr      | 툸      |
-| ʀ̥   | GGh!    | 툩      |
-| ʀ   | GG      | 툨      |
+| ɽ̊r̥  | Rh!rh!  | 쿘      |
+| ɽr  | Rr      | 쿙      |
+| ʀ̥   | GGh!    | 쾪      |
+| ʀ   | GG      | 쾩      |
 | ɬ̪   | S\~     | 쾊      |
 | ɬ   | S       | 콆      |
 | ɮ   | Z       | 콓      |
-| ʎ̝   | ly\~    | 턂      |
+| ʎ̝   | ly\~    | 킎      |
 | l̪   | l\~     | 쾉      |
-| l̥   | lh!     | 턀      |
+| l̥   | lh!     | 킋      |
 | l   | l       | 콛      |
 | l̠   | l       | 콛      |
-| ɭ̊   | Lh!     | 턏      |
+| ɭ̊   | Lh!     | 쿉      |
 | ɭ   | L       | 콘      |
-| ʎ̥   | ly\~h!  | 턃      |
-| ʎ   | ly\~    | 턂      |
-| ɺ̥   | lh!     | 턀      |
+| ʎ̥   | ly\~h!  | 킏      |
+| ʎ   | ly\~    | 킎      |
+| ɺ̥   | lh!     | 킋      |
 | ɺ   | l       | 콛      |
-| ʍ   | wh!     | 텁      |
+| ʍ   | wh!     | 턶      |
 | w   | w       | 콧      |
-| ɥ   | yw\~    | 텔      |
+| ɥ   | yw\~    | 턽      |
 | ɧ   | H       | 켾      |
-| ɫ   | lG\~    | 턆      |
+| ɫ   | lG\~    | 킄      |
 | ɓ   | b?      | 켥      |
 | ɗ   | d?      | 켞      |
-| ʄ   | g?y\~   | 툈      |
+| ʄ   | g?y\~   | 큪      |
 | ɠ   | g?      | 켘      |
 | ʛ   | g?      | 켘      |
-| ɓ̥   | b?h!    | 퇣      |
+| ɓ̥   | b?h!    | 퀦      |
 | ɗ̥   | t?      | 쾋      |
-| ʄ̥   | g?y\~h! | 툉      |
-| ɠ̊   | g?h!    | 툅      |
-| ʛ̥   | g?h!    | 툅      |
+| ʄ̥   | g?y\~h! | 큫      |
+| ɠ̊   | g?h!    | 큩      |
+| ʛ̥   | g?h!    | 큩      |
 | pʼ  | p!      | 켨      |
 | tʼ  | t!      | 켱      |
 | ʈʼ  | T!      | 켯      |
@@ -301,7 +316,7 @@ some are misaligned. We will have a font to remedy this for websites._
 | ɸʼ  | F!      | 쾍      |
 | θʼ  | c!      | 쾌      |
 | ʃʼ  | x!      | 콟      |
-| ʄ̊   | g?y\~h! | 툉      |
+| ʄ̊   | g?y\~h! | 큫      |
 | ɬʼ  | S!      | 콄      |
 | ʘ   | p\*     | 켩      |
 | ǀ   | t\*     | 켲      |
@@ -356,25 +371,25 @@ Every vowel takes the same modifier set (stress, length, nasal, tone,
 etc.). Here are all the combos for the letter `a`, and the same pattern
 applies to all vowels.
 
-| IPA  | ascii |
-| :--- | :---- |
-| æ    | A     |
-| œ    | a$    |
-| ˈa   | a^    |
-| aː   | a\_   |
-| aʼ   | a!    |
-| a̰    | a&    |
-| a͈    | a@    |
-| a˦   | a+    |
-| a˥   | a++   |
-| a˨   | a-    |
-| a˩   | a--   |
-| a˧˥  | a/    |
-| a˩˥  | a//   |
-| a˥˧  | a\\   |
-| a˥˩  | a\\\\ |
-| a˩˥˩ | a/\   |
-| a˥˩˥ | a\\/  |
+| IPA  | ascii | machine |
+| :--- | :---- | :------ |
+| æ    | A     | 눯      |
+| œ    | a$    | 뱴      |
+| ˈa   | a^    | 뭷      |
+| aː   | a\_   | 믏      |
+| aʼ   | a!    | 밧      |
+| a̰    | a&    | 뱩      |
+| a͈    | a@    | 뱓      |
+| a˦   | a+    | 뱸      |
+| a˥   | a++   | 뱷      |
+| a˨   | a-    | 뱶      |
+| a˩   | a--   | 뱵      |
+| a˧˥  | a/    | 뱹      |
+| a˩˥  | a//   | 뱺      |
+| a˥˧  | a\\   | 뱾      |
+| a˥˩  | a\\\\ | 뱽      |
+| a˩˥˩ | a/\   | 뱼      |
+| a˥˩˥ | a\\/  | 뱻      |
 
 _Note: Exact tone sequences can be represented with sequences like
 `a+a++a--`, where one vowel is spread across multiple tones. But common
@@ -432,7 +447,8 @@ resulting Talk affix when it is mapped.
 | ◌↗     | prosody                | global rise           | ignored |      |
 | ◌↘     | prosody                | global fall           | ignored |      |
 
-The full list is also in [`test/diacritics.csv`](test/diacritics.csv).
+The full list is also in
+[`code/base/diacritics.csv`](code/base/diacritics.csv).
 
 **On the ignored ones.** IPA itself is not perfectly exact. Real speech
 has far more subtle variation than any discrete character set can

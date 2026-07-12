@@ -356,43 +356,77 @@ export function serializeToken(token: Token): string {
   const parts: string[] = [token.text]
 
   if (token.form === 'consonant') {
-    if (token.click) {parts.push('*')}
+    if (token.click) {
+      parts.push('*')
+    }
 
-    if (token.ejective) {parts.push('!')}
+    if (token.ejective) {
+      parts.push('!')
+    }
 
-    if (token.implosive) {parts.push('?')}
+    if (token.implosive) {
+      parts.push('?')
+    }
 
-    if (token.dental) {parts.push('~')}
+    if (token.dental) {
+      parts.push('~')
+    }
 
-    if (token.pharyngealized) {parts.push('Q~')}
+    if (token.pharyngealized) {
+      parts.push('Q~')
+    }
 
-    if (token.velarized) {parts.push('G~')}
+    if (token.velarized) {
+      parts.push('G~')
+    }
 
-    if (token.palatalized) {parts.push('y~')}
+    if (token.palatalized) {
+      parts.push('y~')
+    }
 
-    if (token.labialized) {parts.push('w~')}
+    if (token.labialized) {
+      parts.push('w~')
+    }
 
-    if (token.aspirated) {parts.push('h~')}
+    if (token.aspirated) {
+      parts.push('h~')
+    }
 
-    if (token.stop) {parts.push('.')}
+    if (token.stop) {
+      parts.push('.')
+    }
 
-    if (token.tense) {parts.push('@')}
+    if (token.tense) {
+      parts.push('@')
+    }
 
     return parts.join('')
   }
 
   // vowel
-  if (token.rounded) {parts.push('$')}
+  if (token.rounded) {
+    parts.push('$')
+  }
 
-  if (token.nasal) {parts.push('&')}
+  if (token.nasal) {
+    parts.push('&')
+  }
 
-  if (token.long) {parts.push('_')}
+  if (token.long) {
+    parts.push('_')
+  }
 
-  if (token.short) {parts.push('!')}
+  if (token.short) {
+    parts.push('!')
+  }
 
-  if (token.nonsyllabic) {parts.push('@')}
+  if (token.nonsyllabic) {
+    parts.push('@')
+  }
 
-  if (token.stressed) {parts.push('^')}
+  if (token.stressed) {
+    parts.push('^')
+  }
 
   if (token.tone) {
     parts.push(serializeTone(token.tone))

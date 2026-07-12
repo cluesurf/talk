@@ -120,7 +120,10 @@ export const LARYNGEAL: (Modifier & {
 // Voiceless: only voiced sonorants (voiceless nasals, liquids, glides).
 // Obstruents get their voiceless counterpart as a distinct base letter,
 // so this never combines with a laryngeal setting.
-export const VOICELESS: Modifier & { manners: string[]; voicings: string[] } = {
+export const VOICELESS: Modifier & {
+  manners: string[]
+  voicings: string[]
+} = {
   ipa: '̥',
   talk: 'h!',
   label: 'voiceless',

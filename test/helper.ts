@@ -62,7 +62,10 @@ export function loadMappings(): {
 } {
   return JSON.parse(
     readFileSync(resolve(BASE_DIR, 'mappings.json'), 'utf8'),
-  )
+  ) as {
+    consonants: Record<string, string>
+    vowels: Record<string, string>
+  }
 }
 
 export function loadMissing(): string[] {
