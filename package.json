@@ -1,11 +1,20 @@
 {
-  "version": "1.7.6",
+  "version": "1.7.8",
   "name": "@cluesurf/talk",
   "main": "./host/index.js",
+  "module": "./host/index.mjs",
   "license": "MIT",
   "exports": {
-    ".": "./host/index.js",
-    "./*": "./host/make/*.js"
+    ".": {
+      "types": "./host/index.d.ts",
+      "import": "./host/index.mjs",
+      "require": "./host/index.js"
+    },
+    "./*": {
+      "types": "./host/make/*.d.ts",
+      "import": "./host/make/*.mjs",
+      "require": "./host/make/*.js"
+    }
   },
   "typesVersions": {
     "*": {
