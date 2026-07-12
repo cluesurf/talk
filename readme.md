@@ -460,14 +460,6 @@ make('aiyuQaK') // => 'aiyuq̇aḳ'
 
 _See the `test/` folder for the up-to-date test suite._
 
-## Libraries
-
-- [`@cluesurf/text`](https://github.com/cluesurf/text.js): Builds off
-  Talk spec to convert different scripts/orthographies into TalkText.
-- [`@cluesurf/tone`](https://github.com/cluesurf/tone): Takes the Talk
-  formatted ASCII text and [renders it](https://tone.surf) using
-  ToneText.
-
 ## Syllables and Pronunciation
 
 You can convert IPA to Talk, tokenize Talk into sounds, split a word
