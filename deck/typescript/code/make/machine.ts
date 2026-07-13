@@ -18,7 +18,7 @@ const FILE = resolve(HERE, '../base/machine.json')
 const START = 0xac00
 const END = 0xd7a3
 
-type Entry = { talk: string; machine: string }
+type Entry = { talk: string; token: string }
 
 const existing = JSON.parse(readFileSync(FILE, 'utf8')) as Entry[]
 
@@ -26,8 +26,8 @@ const byTalk = new Map<string, string>()
 const used = new Set<number>()
 
 for (const entry of existing) {
-  byTalk.set(entry.talk, entry.machine)
-  used.add(entry.machine.codePointAt(0)!)
+  byTalk.set(entry.talk, entry.token)
+  used.add(entry.token.codePointAt(0)!)
 }
 
 let cursor = START
@@ -61,10 +61,10 @@ for (const sound of sounds) {
     continue
   }
 
-  const machine = String.fromCodePoint(nextCodePoint())
+  const token = String.fromCodePoint(nextCodePoint())
 
-  byTalk.set(sound.talk, machine)
-  out.push({ talk: sound.talk, machine })
+  byTalk.set(sound.talk, token)
+  out.push({ talk: sound.talk, token })
   added++
 }
 

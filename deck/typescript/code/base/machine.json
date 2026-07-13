@@ -1,8094 +1,8218 @@
 [
   {
     "talk": "mh!",
-    "machine": "가"
+    "token": "가"
   },
   {
     "talk": "mh!y~",
-    "machine": "각"
+    "token": "각"
   },
   {
     "talk": "m",
-    "machine": "갂"
+    "token": "갂"
   },
   {
     "talk": "my~",
-    "machine": "갃"
+    "token": "갃"
   },
   {
     "talk": "my~h!",
-    "machine": "간"
+    "token": "간"
   },
   {
     "talk": "m~h!",
-    "machine": "갅"
+    "token": "갅"
   },
   {
     "talk": "m~h!y~",
-    "machine": "갆"
+    "token": "갆"
   },
   {
     "talk": "m~",
-    "machine": "갇"
+    "token": "갇"
   },
   {
     "talk": "m~y~",
-    "machine": "갈"
+    "token": "갈"
   },
   {
     "talk": "m~y~h!",
-    "machine": "갉"
+    "token": "갉"
   },
   {
     "talk": "n",
-    "machine": "갊"
+    "token": "갊"
   },
   {
     "talk": "nh!",
-    "machine": "갋"
+    "token": "갋"
   },
   {
     "talk": "nw~",
-    "machine": "갌"
+    "token": "갌"
   },
   {
     "talk": "nw~h!",
-    "machine": "갍"
+    "token": "갍"
   },
   {
     "talk": "ny~",
-    "machine": "갎"
+    "token": "갎"
   },
   {
     "talk": "ny~h!",
-    "machine": "갏"
+    "token": "갏"
   },
   {
     "talk": "ny~w~",
-    "machine": "감"
+    "token": "감"
   },
   {
     "talk": "ny~w~h!",
-    "machine": "갑"
+    "token": "갑"
   },
   {
     "talk": "n~h!",
-    "machine": "값"
+    "token": "값"
   },
   {
     "talk": "n~h!w~",
-    "machine": "갓"
+    "token": "갓"
   },
   {
     "talk": "n~h!y~",
-    "machine": "갔"
+    "token": "갔"
   },
   {
     "talk": "n~h!y~w~",
-    "machine": "강"
+    "token": "강"
   },
   {
     "talk": "n~h!G~",
-    "machine": "갖"
+    "token": "갖"
   },
   {
     "talk": "n~h!G~w~",
-    "machine": "갗"
+    "token": "갗"
   },
   {
     "talk": "n~h!Q~",
-    "machine": "갘"
+    "token": "갘"
   },
   {
     "talk": "n~h!Q~w~",
-    "machine": "같"
+    "token": "같"
   },
   {
     "talk": "n~h!~",
-    "machine": "갚"
+    "token": "갚"
   },
   {
     "talk": "n~h!~w~",
-    "machine": "갛"
+    "token": "갛"
   },
   {
     "talk": "n~h!~y~",
-    "machine": "개"
+    "token": "개"
   },
   {
     "talk": "n~h!~y~w~",
-    "machine": "객"
+    "token": "객"
   },
   {
     "talk": "n~h!~G~",
-    "machine": "갞"
+    "token": "갞"
   },
   {
     "talk": "n~h!~G~w~",
-    "machine": "갟"
+    "token": "갟"
   },
   {
     "talk": "n~h!~Q~",
-    "machine": "갠"
+    "token": "갠"
   },
   {
     "talk": "n~h!~Q~w~",
-    "machine": "갡"
+    "token": "갡"
   },
   {
     "talk": "n~",
-    "machine": "갢"
+    "token": "갢"
   },
   {
     "talk": "n~w~",
-    "machine": "갣"
+    "token": "갣"
   },
   {
     "talk": "n~w~h!",
-    "machine": "갤"
+    "token": "갤"
   },
   {
     "talk": "n~y~",
-    "machine": "갥"
+    "token": "갥"
   },
   {
     "talk": "n~y~h!",
-    "machine": "갦"
+    "token": "갦"
   },
   {
     "talk": "n~y~w~",
-    "machine": "갧"
+    "token": "갧"
   },
   {
     "talk": "n~y~w~h!",
-    "machine": "갨"
+    "token": "갨"
   },
   {
     "talk": "n~G~",
-    "machine": "갩"
+    "token": "갩"
   },
   {
     "talk": "n~G~h!",
-    "machine": "갪"
+    "token": "갪"
   },
   {
     "talk": "n~G~w~",
-    "machine": "갫"
+    "token": "갫"
   },
   {
     "talk": "n~G~w~h!",
-    "machine": "갬"
+    "token": "갬"
   },
   {
     "talk": "n~Q~",
-    "machine": "갭"
+    "token": "갭"
   },
   {
     "talk": "n~Q~h!",
-    "machine": "갮"
+    "token": "갮"
   },
   {
     "talk": "n~Q~w~",
-    "machine": "갯"
+    "token": "갯"
   },
   {
     "talk": "n~Q~w~h!",
-    "machine": "갰"
+    "token": "갰"
   },
   {
     "talk": "n~~",
-    "machine": "갱"
+    "token": "갱"
   },
   {
     "talk": "n~~h!",
-    "machine": "갲"
+    "token": "갲"
   },
   {
     "talk": "n~~w~",
-    "machine": "갳"
+    "token": "갳"
   },
   {
     "talk": "n~~w~h!",
-    "machine": "갴"
+    "token": "갴"
   },
   {
     "talk": "n~~y~",
-    "machine": "갵"
+    "token": "갵"
   },
   {
     "talk": "n~~y~h!",
-    "machine": "갶"
+    "token": "갶"
   },
   {
     "talk": "n~~y~w~",
-    "machine": "갷"
+    "token": "갷"
   },
   {
     "talk": "n~~y~w~h!",
-    "machine": "갸"
+    "token": "갸"
   },
   {
     "talk": "n~~G~",
-    "machine": "갹"
+    "token": "갹"
   },
   {
     "talk": "n~~G~h!",
-    "machine": "갺"
+    "token": "갺"
   },
   {
     "talk": "n~~G~w~",
-    "machine": "갻"
+    "token": "갻"
   },
   {
     "talk": "n~~G~w~h!",
-    "machine": "갼"
+    "token": "갼"
   },
   {
     "talk": "n~~Q~",
-    "machine": "갽"
+    "token": "갽"
   },
   {
     "talk": "n~~Q~h!",
-    "machine": "갾"
+    "token": "갾"
   },
   {
     "talk": "n~~Q~w~",
-    "machine": "갿"
+    "token": "갿"
   },
   {
     "talk": "n~~Q~w~h!",
-    "machine": "걀"
+    "token": "걀"
   },
   {
     "talk": "nh!w~",
-    "machine": "걁"
+    "token": "걁"
   },
   {
     "talk": "nh!y~",
-    "machine": "걂"
+    "token": "걂"
   },
   {
     "talk": "nh!y~w~",
-    "machine": "걃"
+    "token": "걃"
   },
   {
     "talk": "nh!G~",
-    "machine": "걄"
+    "token": "걄"
   },
   {
     "talk": "nh!G~w~",
-    "machine": "걅"
+    "token": "걅"
   },
   {
     "talk": "nh!Q~",
-    "machine": "걆"
+    "token": "걆"
   },
   {
     "talk": "nh!Q~w~",
-    "machine": "걇"
+    "token": "걇"
   },
   {
     "talk": "nh!~",
-    "machine": "걈"
+    "token": "걈"
   },
   {
     "talk": "nh!~w~",
-    "machine": "걉"
+    "token": "걉"
   },
   {
     "talk": "nh!~y~",
-    "machine": "걊"
+    "token": "걊"
   },
   {
     "talk": "nh!~y~w~",
-    "machine": "걋"
+    "token": "걋"
   },
   {
     "talk": "nh!~G~",
-    "machine": "걌"
+    "token": "걌"
   },
   {
     "talk": "nh!~G~w~",
-    "machine": "걍"
+    "token": "걍"
   },
   {
     "talk": "nh!~Q~",
-    "machine": "걎"
+    "token": "걎"
   },
   {
     "talk": "nh!~Q~w~",
-    "machine": "걏"
+    "token": "걏"
   },
   {
     "talk": "nG~",
-    "machine": "걐"
+    "token": "걐"
   },
   {
     "talk": "nG~h!",
-    "machine": "걑"
+    "token": "걑"
   },
   {
     "talk": "nG~w~",
-    "machine": "걒"
+    "token": "걒"
   },
   {
     "talk": "nG~w~h!",
-    "machine": "걓"
+    "token": "걓"
   },
   {
     "talk": "nQ~",
-    "machine": "걔"
+    "token": "걔"
   },
   {
     "talk": "nQ~h!",
-    "machine": "걕"
+    "token": "걕"
   },
   {
     "talk": "nQ~w~",
-    "machine": "걖"
+    "token": "걖"
   },
   {
     "talk": "nQ~w~h!",
-    "machine": "걗"
+    "token": "걗"
   },
   {
     "talk": "Nh!",
-    "machine": "걘"
+    "token": "걘"
   },
   {
     "talk": "Nh!w~",
-    "machine": "걙"
+    "token": "걙"
   },
   {
     "talk": "Nh!y~",
-    "machine": "걚"
+    "token": "걚"
   },
   {
     "talk": "Nh!y~w~",
-    "machine": "걛"
+    "token": "걛"
   },
   {
     "talk": "N",
-    "machine": "걜"
+    "token": "걜"
   },
   {
     "talk": "Nw~",
-    "machine": "걝"
+    "token": "걝"
   },
   {
     "talk": "Nw~h!",
-    "machine": "걞"
+    "token": "걞"
   },
   {
     "talk": "Ny~",
-    "machine": "걟"
+    "token": "걟"
   },
   {
     "talk": "Ny~h!",
-    "machine": "걠"
+    "token": "걠"
   },
   {
     "talk": "Ny~w~",
-    "machine": "걡"
+    "token": "걡"
   },
   {
     "talk": "Ny~w~h!",
-    "machine": "걢"
+    "token": "걢"
   },
   {
     "talk": "ny~h!w~",
-    "machine": "걣"
+    "token": "걣"
   },
   {
     "talk": "qh!",
-    "machine": "걤"
+    "token": "걤"
   },
   {
     "talk": "qh!w~",
-    "machine": "걥"
+    "token": "걥"
   },
   {
     "talk": "qh!y~",
-    "machine": "걦"
+    "token": "걦"
   },
   {
     "talk": "qh!y~w~",
-    "machine": "걧"
+    "token": "걧"
   },
   {
     "talk": "q",
-    "machine": "걨"
+    "token": "걨"
   },
   {
     "talk": "qw~",
-    "machine": "걩"
+    "token": "걩"
   },
   {
     "talk": "qw~h!",
-    "machine": "걪"
+    "token": "걪"
   },
   {
     "talk": "qy~",
-    "machine": "걫"
+    "token": "걫"
   },
   {
     "talk": "qy~h!",
-    "machine": "걬"
+    "token": "걬"
   },
   {
     "talk": "qy~w~",
-    "machine": "걭"
+    "token": "걭"
   },
   {
     "talk": "qy~w~h!",
-    "machine": "걮"
+    "token": "걮"
   },
   {
     "talk": "p",
-    "machine": "걯"
+    "token": "걯"
   },
   {
     "talk": "ph~",
-    "machine": "거"
+    "token": "거"
   },
   {
     "talk": "p!",
-    "machine": "걱"
+    "token": "걱"
   },
   {
     "talk": "py~",
-    "machine": "걲"
+    "token": "걲"
   },
   {
     "talk": "py~h~",
-    "machine": "걳"
+    "token": "걳"
   },
   {
     "talk": "py~!",
-    "machine": "건"
+    "token": "건"
   },
   {
     "talk": "b",
-    "machine": "걵"
+    "token": "걵"
   },
   {
     "talk": "bh~",
-    "machine": "걶"
+    "token": "걶"
   },
   {
     "talk": "by~",
-    "machine": "걷"
+    "token": "걷"
   },
   {
     "talk": "by~h~",
-    "machine": "걸"
+    "token": "걸"
   },
   {
     "talk": "p~",
-    "machine": "걹"
+    "token": "걹"
   },
   {
     "talk": "p~h~",
-    "machine": "걺"
+    "token": "걺"
   },
   {
     "talk": "p~!",
-    "machine": "걻"
+    "token": "걻"
   },
   {
     "talk": "p~y~",
-    "machine": "걼"
+    "token": "걼"
   },
   {
     "talk": "p~y~h~",
-    "machine": "걽"
+    "token": "걽"
   },
   {
     "talk": "p~y~!",
-    "machine": "걾"
+    "token": "걾"
   },
   {
     "talk": "b~",
-    "machine": "걿"
+    "token": "걿"
   },
   {
     "talk": "b~h~",
-    "machine": "검"
+    "token": "검"
   },
   {
     "talk": "b~y~",
-    "machine": "겁"
+    "token": "겁"
   },
   {
     "talk": "b~y~h~",
-    "machine": "겂"
+    "token": "겂"
   },
   {
     "talk": "t",
-    "machine": "것"
+    "token": "것"
   },
   {
     "talk": "th~",
-    "machine": "겄"
+    "token": "겄"
   },
   {
     "talk": "t!",
-    "machine": "겅"
+    "token": "겅"
   },
   {
     "talk": "tw~",
-    "machine": "겆"
+    "token": "겆"
   },
   {
     "talk": "tw~h~",
-    "machine": "겇"
+    "token": "겇"
   },
   {
     "talk": "tw~!",
-    "machine": "겈"
+    "token": "겈"
   },
   {
     "talk": "ty~",
-    "machine": "겉"
+    "token": "겉"
   },
   {
     "talk": "ty~h~",
-    "machine": "겊"
+    "token": "겊"
   },
   {
     "talk": "ty~!",
-    "machine": "겋"
+    "token": "겋"
   },
   {
     "talk": "ty~w~",
-    "machine": "게"
+    "token": "게"
   },
   {
     "talk": "ty~w~h~",
-    "machine": "겍"
+    "token": "겍"
   },
   {
     "talk": "ty~w~!",
-    "machine": "겎"
+    "token": "겎"
   },
   {
     "talk": "d",
-    "machine": "겏"
+    "token": "겏"
   },
   {
     "talk": "dh~",
-    "machine": "겐"
+    "token": "겐"
   },
   {
     "talk": "dw~",
-    "machine": "겑"
+    "token": "겑"
   },
   {
     "talk": "dw~h~",
-    "machine": "겒"
+    "token": "겒"
   },
   {
     "talk": "dy~",
-    "machine": "겓"
+    "token": "겓"
   },
   {
     "talk": "dy~h~",
-    "machine": "겔"
+    "token": "겔"
   },
   {
     "talk": "dy~w~",
-    "machine": "겕"
+    "token": "겕"
   },
   {
     "talk": "dy~w~h~",
-    "machine": "겖"
+    "token": "겖"
   },
   {
     "talk": "t~",
-    "machine": "겗"
+    "token": "겗"
   },
   {
     "talk": "t~h~",
-    "machine": "겘"
+    "token": "겘"
   },
   {
     "talk": "t~!",
-    "machine": "겙"
+    "token": "겙"
   },
   {
     "talk": "t~w~",
-    "machine": "겚"
+    "token": "겚"
   },
   {
     "talk": "t~w~h~",
-    "machine": "겛"
+    "token": "겛"
   },
   {
     "talk": "t~w~!",
-    "machine": "겜"
+    "token": "겜"
   },
   {
     "talk": "t~y~",
-    "machine": "겝"
+    "token": "겝"
   },
   {
     "talk": "t~y~h~",
-    "machine": "겞"
+    "token": "겞"
   },
   {
     "talk": "t~y~!",
-    "machine": "겟"
+    "token": "겟"
   },
   {
     "talk": "t~y~w~",
-    "machine": "겠"
+    "token": "겠"
   },
   {
     "talk": "t~y~w~h~",
-    "machine": "겡"
+    "token": "겡"
   },
   {
     "talk": "t~y~w~!",
-    "machine": "겢"
+    "token": "겢"
   },
   {
     "talk": "t~G~",
-    "machine": "겣"
+    "token": "겣"
   },
   {
     "talk": "t~G~h~",
-    "machine": "겤"
+    "token": "겤"
   },
   {
     "talk": "t~G~!",
-    "machine": "겥"
+    "token": "겥"
   },
   {
     "talk": "t~G~w~",
-    "machine": "겦"
+    "token": "겦"
   },
   {
     "talk": "t~G~w~h~",
-    "machine": "겧"
+    "token": "겧"
   },
   {
     "talk": "t~G~w~!",
-    "machine": "겨"
+    "token": "겨"
   },
   {
     "talk": "t~Q~",
-    "machine": "격"
+    "token": "격"
   },
   {
     "talk": "t~Q~h~",
-    "machine": "겪"
+    "token": "겪"
   },
   {
     "talk": "t~Q~!",
-    "machine": "겫"
+    "token": "겫"
   },
   {
     "talk": "t~Q~w~",
-    "machine": "견"
+    "token": "견"
   },
   {
     "talk": "t~Q~w~h~",
-    "machine": "겭"
+    "token": "겭"
   },
   {
     "talk": "t~Q~w~!",
-    "machine": "겮"
+    "token": "겮"
   },
   {
     "talk": "t~~",
-    "machine": "겯"
+    "token": "겯"
   },
   {
     "talk": "t~~h~",
-    "machine": "결"
+    "token": "결"
   },
   {
     "talk": "t~~!",
-    "machine": "겱"
+    "token": "겱"
   },
   {
     "talk": "t~~w~",
-    "machine": "겲"
+    "token": "겲"
   },
   {
     "talk": "t~~w~h~",
-    "machine": "겳"
+    "token": "겳"
   },
   {
     "talk": "t~~w~!",
-    "machine": "겴"
+    "token": "겴"
   },
   {
     "talk": "t~~y~",
-    "machine": "겵"
+    "token": "겵"
   },
   {
     "talk": "t~~y~h~",
-    "machine": "겶"
+    "token": "겶"
   },
   {
     "talk": "t~~y~!",
-    "machine": "겷"
+    "token": "겷"
   },
   {
     "talk": "t~~y~w~",
-    "machine": "겸"
+    "token": "겸"
   },
   {
     "talk": "t~~y~w~h~",
-    "machine": "겹"
+    "token": "겹"
   },
   {
     "talk": "t~~y~w~!",
-    "machine": "겺"
+    "token": "겺"
   },
   {
     "talk": "t~~G~",
-    "machine": "겻"
+    "token": "겻"
   },
   {
     "talk": "t~~G~h~",
-    "machine": "겼"
+    "token": "겼"
   },
   {
     "talk": "t~~G~!",
-    "machine": "경"
+    "token": "경"
   },
   {
     "talk": "t~~G~w~",
-    "machine": "겾"
+    "token": "겾"
   },
   {
     "talk": "t~~G~w~h~",
-    "machine": "겿"
+    "token": "겿"
   },
   {
     "talk": "t~~G~w~!",
-    "machine": "곀"
+    "token": "곀"
   },
   {
     "talk": "t~~Q~",
-    "machine": "곁"
+    "token": "곁"
   },
   {
     "talk": "t~~Q~h~",
-    "machine": "곂"
+    "token": "곂"
   },
   {
     "talk": "t~~Q~!",
-    "machine": "곃"
+    "token": "곃"
   },
   {
     "talk": "t~~Q~w~",
-    "machine": "계"
+    "token": "계"
   },
   {
     "talk": "t~~Q~w~h~",
-    "machine": "곅"
+    "token": "곅"
   },
   {
     "talk": "t~~Q~w~!",
-    "machine": "곆"
+    "token": "곆"
   },
   {
     "talk": "d~",
-    "machine": "곇"
+    "token": "곇"
   },
   {
     "talk": "d~h~",
-    "machine": "곈"
+    "token": "곈"
   },
   {
     "talk": "d~w~",
-    "machine": "곉"
+    "token": "곉"
   },
   {
     "talk": "d~w~h~",
-    "machine": "곊"
+    "token": "곊"
   },
   {
     "talk": "d~y~",
-    "machine": "곋"
+    "token": "곋"
   },
   {
     "talk": "d~y~h~",
-    "machine": "곌"
+    "token": "곌"
   },
   {
     "talk": "d~y~w~",
-    "machine": "곍"
+    "token": "곍"
   },
   {
     "talk": "d~y~w~h~",
-    "machine": "곎"
+    "token": "곎"
   },
   {
     "talk": "d~G~",
-    "machine": "곏"
+    "token": "곏"
   },
   {
     "talk": "d~G~h~",
-    "machine": "곐"
+    "token": "곐"
   },
   {
     "talk": "d~G~w~",
-    "machine": "곑"
+    "token": "곑"
   },
   {
     "talk": "d~G~w~h~",
-    "machine": "곒"
+    "token": "곒"
   },
   {
     "talk": "d~Q~",
-    "machine": "곓"
+    "token": "곓"
   },
   {
     "talk": "d~Q~h~",
-    "machine": "곔"
+    "token": "곔"
   },
   {
     "talk": "d~Q~w~",
-    "machine": "곕"
+    "token": "곕"
   },
   {
     "talk": "d~Q~w~h~",
-    "machine": "곖"
+    "token": "곖"
   },
   {
     "talk": "d~~",
-    "machine": "곗"
+    "token": "곗"
   },
   {
     "talk": "d~~h~",
-    "machine": "곘"
+    "token": "곘"
   },
   {
     "talk": "d~~w~",
-    "machine": "곙"
+    "token": "곙"
   },
   {
     "talk": "d~~w~h~",
-    "machine": "곚"
+    "token": "곚"
   },
   {
     "talk": "d~~y~",
-    "machine": "곛"
+    "token": "곛"
   },
   {
     "talk": "d~~y~h~",
-    "machine": "곜"
+    "token": "곜"
   },
   {
     "talk": "d~~y~w~",
-    "machine": "곝"
+    "token": "곝"
   },
   {
     "talk": "d~~y~w~h~",
-    "machine": "곞"
+    "token": "곞"
   },
   {
     "talk": "d~~G~",
-    "machine": "곟"
+    "token": "곟"
   },
   {
     "talk": "d~~G~h~",
-    "machine": "고"
+    "token": "고"
   },
   {
     "talk": "d~~G~w~",
-    "machine": "곡"
+    "token": "곡"
   },
   {
     "talk": "d~~G~w~h~",
-    "machine": "곢"
+    "token": "곢"
   },
   {
     "talk": "d~~Q~",
-    "machine": "곣"
+    "token": "곣"
   },
   {
     "talk": "d~~Q~h~",
-    "machine": "곤"
+    "token": "곤"
   },
   {
     "talk": "d~~Q~w~",
-    "machine": "곥"
+    "token": "곥"
   },
   {
     "talk": "d~~Q~w~h~",
-    "machine": "곦"
+    "token": "곦"
   },
   {
     "talk": "tG~",
-    "machine": "곧"
+    "token": "곧"
   },
   {
     "talk": "tG~h~",
-    "machine": "골"
+    "token": "골"
   },
   {
     "talk": "tG~!",
-    "machine": "곩"
+    "token": "곩"
   },
   {
     "talk": "tG~w~",
-    "machine": "곪"
+    "token": "곪"
   },
   {
     "talk": "tG~w~h~",
-    "machine": "곫"
+    "token": "곫"
   },
   {
     "talk": "tG~w~!",
-    "machine": "곬"
+    "token": "곬"
   },
   {
     "talk": "tQ~",
-    "machine": "곭"
+    "token": "곭"
   },
   {
     "talk": "tQ~h~",
-    "machine": "곮"
+    "token": "곮"
   },
   {
     "talk": "tQ~!",
-    "machine": "곯"
+    "token": "곯"
   },
   {
     "talk": "tQ~w~",
-    "machine": "곰"
+    "token": "곰"
   },
   {
     "talk": "tQ~w~h~",
-    "machine": "곱"
+    "token": "곱"
   },
   {
     "talk": "tQ~w~!",
-    "machine": "곲"
+    "token": "곲"
   },
   {
     "talk": "dG~",
-    "machine": "곳"
+    "token": "곳"
   },
   {
     "talk": "dG~h~",
-    "machine": "곴"
+    "token": "곴"
   },
   {
     "talk": "dG~w~",
-    "machine": "공"
+    "token": "공"
   },
   {
     "talk": "dG~w~h~",
-    "machine": "곶"
+    "token": "곶"
   },
   {
     "talk": "dQ~",
-    "machine": "곷"
+    "token": "곷"
   },
   {
     "talk": "dQ~h~",
-    "machine": "곸"
+    "token": "곸"
   },
   {
     "talk": "dQ~w~",
-    "machine": "곹"
+    "token": "곹"
   },
   {
     "talk": "dQ~w~h~",
-    "machine": "곺"
+    "token": "곺"
   },
   {
     "talk": "T",
-    "machine": "곻"
+    "token": "곻"
   },
   {
     "talk": "Th~",
-    "machine": "과"
+    "token": "과"
   },
   {
     "talk": "T!",
-    "machine": "곽"
+    "token": "곽"
   },
   {
     "talk": "Tw~",
-    "machine": "곾"
+    "token": "곾"
   },
   {
     "talk": "Tw~h~",
-    "machine": "곿"
+    "token": "곿"
   },
   {
     "talk": "Tw~!",
-    "machine": "관"
+    "token": "관"
   },
   {
     "talk": "Ty~",
-    "machine": "괁"
+    "token": "괁"
   },
   {
     "talk": "Ty~h~",
-    "machine": "괂"
+    "token": "괂"
   },
   {
     "talk": "Ty~!",
-    "machine": "괃"
+    "token": "괃"
   },
   {
     "talk": "Ty~w~",
-    "machine": "괄"
+    "token": "괄"
   },
   {
     "talk": "Ty~w~h~",
-    "machine": "괅"
+    "token": "괅"
   },
   {
     "talk": "Ty~w~!",
-    "machine": "괆"
+    "token": "괆"
   },
   {
     "talk": "D",
-    "machine": "괇"
+    "token": "괇"
   },
   {
     "talk": "Dh~",
-    "machine": "괈"
+    "token": "괈"
   },
   {
     "talk": "Dw~",
-    "machine": "괉"
+    "token": "괉"
   },
   {
     "talk": "Dw~h~",
-    "machine": "괊"
+    "token": "괊"
   },
   {
     "talk": "Dy~",
-    "machine": "괋"
+    "token": "괋"
   },
   {
     "talk": "Dy~h~",
-    "machine": "괌"
+    "token": "괌"
   },
   {
     "talk": "Dy~w~",
-    "machine": "괍"
+    "token": "괍"
   },
   {
     "talk": "Dy~w~h~",
-    "machine": "괎"
+    "token": "괎"
   },
   {
     "talk": "ky~",
-    "machine": "괏"
+    "token": "괏"
   },
   {
     "talk": "ky~h~",
-    "machine": "괐"
+    "token": "괐"
   },
   {
     "talk": "ky~!",
-    "machine": "광"
+    "token": "광"
   },
   {
     "talk": "ky~w~",
-    "machine": "괒"
+    "token": "괒"
   },
   {
     "talk": "ky~w~h~",
-    "machine": "괓"
+    "token": "괓"
   },
   {
     "talk": "ky~w~!",
-    "machine": "괔"
+    "token": "괔"
   },
   {
     "talk": "gy~",
-    "machine": "괕"
+    "token": "괕"
   },
   {
     "talk": "gy~h~",
-    "machine": "괖"
+    "token": "괖"
   },
   {
     "talk": "gy~w~",
-    "machine": "괗"
+    "token": "괗"
   },
   {
     "talk": "gy~w~h~",
-    "machine": "괘"
+    "token": "괘"
   },
   {
     "talk": "k",
-    "machine": "괙"
+    "token": "괙"
   },
   {
     "talk": "kh~",
-    "machine": "괚"
+    "token": "괚"
   },
   {
     "talk": "k!",
-    "machine": "괛"
+    "token": "괛"
   },
   {
     "talk": "kw~",
-    "machine": "괜"
+    "token": "괜"
   },
   {
     "talk": "kw~h~",
-    "machine": "괝"
+    "token": "괝"
   },
   {
     "talk": "kw~!",
-    "machine": "괞"
+    "token": "괞"
   },
   {
     "talk": "g",
-    "machine": "괟"
+    "token": "괟"
   },
   {
     "talk": "gh~",
-    "machine": "괠"
+    "token": "괠"
   },
   {
     "talk": "gw~",
-    "machine": "괡"
+    "token": "괡"
   },
   {
     "talk": "gw~h~",
-    "machine": "괢"
+    "token": "괢"
   },
   {
     "talk": "K",
-    "machine": "괣"
+    "token": "괣"
   },
   {
     "talk": "Kh~",
-    "machine": "괤"
+    "token": "괤"
   },
   {
     "talk": "K!",
-    "machine": "괥"
+    "token": "괥"
   },
   {
     "talk": "Kw~",
-    "machine": "괦"
+    "token": "괦"
   },
   {
     "talk": "Kw~h~",
-    "machine": "괧"
+    "token": "괧"
   },
   {
     "talk": "Kw~!",
-    "machine": "괨"
+    "token": "괨"
   },
   {
     "talk": "Ky~",
-    "machine": "괩"
+    "token": "괩"
   },
   {
     "talk": "Ky~h~",
-    "machine": "괪"
+    "token": "괪"
   },
   {
     "talk": "Ky~!",
-    "machine": "괫"
+    "token": "괫"
   },
   {
     "talk": "Ky~w~",
-    "machine": "괬"
+    "token": "괬"
   },
   {
     "talk": "Ky~w~h~",
-    "machine": "괭"
+    "token": "괭"
   },
   {
     "talk": "Ky~w~!",
-    "machine": "괮"
+    "token": "괮"
   },
   {
     "talk": "Q",
-    "machine": "괯"
+    "token": "괯"
   },
   {
     "talk": "Qh~",
-    "machine": "괰"
+    "token": "괰"
   },
   {
     "talk": "Q!",
-    "machine": "괱"
+    "token": "괱"
   },
   {
     "talk": "'",
-    "machine": "괲"
+    "token": "괲"
   },
   {
     "talk": "s~",
-    "machine": "괳"
+    "token": "괳"
   },
   {
     "talk": "s~!",
-    "machine": "괴"
+    "token": "괴"
   },
   {
     "talk": "s~w~",
-    "machine": "괵"
+    "token": "괵"
   },
   {
     "talk": "s~w~!",
-    "machine": "괶"
+    "token": "괶"
   },
   {
     "talk": "s~y~",
-    "machine": "괷"
+    "token": "괷"
   },
   {
     "talk": "s~y~!",
-    "machine": "괸"
+    "token": "괸"
   },
   {
     "talk": "s~y~w~",
-    "machine": "괹"
+    "token": "괹"
   },
   {
     "talk": "s~y~w~!",
-    "machine": "괺"
+    "token": "괺"
   },
   {
     "talk": "s~G~",
-    "machine": "괻"
+    "token": "괻"
   },
   {
     "talk": "s~G~!",
-    "machine": "괼"
+    "token": "괼"
   },
   {
     "talk": "s~G~w~",
-    "machine": "괽"
+    "token": "괽"
   },
   {
     "talk": "s~G~w~!",
-    "machine": "괾"
+    "token": "괾"
   },
   {
     "talk": "s~Q~",
-    "machine": "괿"
+    "token": "괿"
   },
   {
     "talk": "s~Q~!",
-    "machine": "굀"
+    "token": "굀"
   },
   {
     "talk": "s~Q~w~",
-    "machine": "굁"
+    "token": "굁"
   },
   {
     "talk": "s~Q~w~!",
-    "machine": "굂"
+    "token": "굂"
   },
   {
     "talk": "s~~",
-    "machine": "굃"
+    "token": "굃"
   },
   {
     "talk": "s~~!",
-    "machine": "굄"
+    "token": "굄"
   },
   {
     "talk": "s~~w~",
-    "machine": "굅"
+    "token": "굅"
   },
   {
     "talk": "s~~w~!",
-    "machine": "굆"
+    "token": "굆"
   },
   {
     "talk": "s~~y~",
-    "machine": "굇"
+    "token": "굇"
   },
   {
     "talk": "s~~y~!",
-    "machine": "굈"
+    "token": "굈"
   },
   {
     "talk": "s~~y~w~",
-    "machine": "굉"
+    "token": "굉"
   },
   {
     "talk": "s~~y~w~!",
-    "machine": "굊"
+    "token": "굊"
   },
   {
     "talk": "s~~G~",
-    "machine": "굋"
+    "token": "굋"
   },
   {
     "talk": "s~~G~!",
-    "machine": "굌"
+    "token": "굌"
   },
   {
     "talk": "s~~G~w~",
-    "machine": "굍"
+    "token": "굍"
   },
   {
     "talk": "s~~G~w~!",
-    "machine": "굎"
+    "token": "굎"
   },
   {
     "talk": "s~~Q~",
-    "machine": "굏"
+    "token": "굏"
   },
   {
     "talk": "s~~Q~!",
-    "machine": "교"
+    "token": "교"
   },
   {
     "talk": "s~~Q~w~",
-    "machine": "굑"
+    "token": "굑"
   },
   {
     "talk": "s~~Q~w~!",
-    "machine": "굒"
+    "token": "굒"
   },
   {
     "talk": "z~",
-    "machine": "굓"
+    "token": "굓"
   },
   {
     "talk": "z~w~",
-    "machine": "굔"
+    "token": "굔"
   },
   {
     "talk": "z~y~",
-    "machine": "굕"
+    "token": "굕"
   },
   {
     "talk": "z~y~w~",
-    "machine": "굖"
+    "token": "굖"
   },
   {
     "talk": "z~G~",
-    "machine": "굗"
+    "token": "굗"
   },
   {
     "talk": "z~G~w~",
-    "machine": "굘"
+    "token": "굘"
   },
   {
     "talk": "z~Q~",
-    "machine": "굙"
+    "token": "굙"
   },
   {
     "talk": "z~Q~w~",
-    "machine": "굚"
+    "token": "굚"
   },
   {
     "talk": "z~~",
-    "machine": "굛"
+    "token": "굛"
   },
   {
     "talk": "z~~w~",
-    "machine": "굜"
+    "token": "굜"
   },
   {
     "talk": "z~~y~",
-    "machine": "굝"
+    "token": "굝"
   },
   {
     "talk": "z~~y~w~",
-    "machine": "굞"
+    "token": "굞"
   },
   {
     "talk": "z~~G~",
-    "machine": "굟"
+    "token": "굟"
   },
   {
     "talk": "z~~G~w~",
-    "machine": "굠"
+    "token": "굠"
   },
   {
     "talk": "z~~Q~",
-    "machine": "굡"
+    "token": "굡"
   },
   {
     "talk": "z~~Q~w~",
-    "machine": "굢"
+    "token": "굢"
   },
   {
     "talk": "s",
-    "machine": "굣"
+    "token": "굣"
   },
   {
     "talk": "s!",
-    "machine": "굤"
+    "token": "굤"
   },
   {
     "talk": "sw~",
-    "machine": "굥"
+    "token": "굥"
   },
   {
     "talk": "sw~!",
-    "machine": "굦"
+    "token": "굦"
   },
   {
     "talk": "sy~",
-    "machine": "굧"
+    "token": "굧"
   },
   {
     "talk": "sy~!",
-    "machine": "굨"
+    "token": "굨"
   },
   {
     "talk": "sy~w~",
-    "machine": "굩"
+    "token": "굩"
   },
   {
     "talk": "sy~w~!",
-    "machine": "굪"
+    "token": "굪"
   },
   {
     "talk": "sG~",
-    "machine": "굫"
+    "token": "굫"
   },
   {
     "talk": "sG~!",
-    "machine": "구"
+    "token": "구"
   },
   {
     "talk": "sG~w~",
-    "machine": "국"
+    "token": "국"
   },
   {
     "talk": "sG~w~!",
-    "machine": "굮"
+    "token": "굮"
   },
   {
     "talk": "sQ~",
-    "machine": "굯"
+    "token": "굯"
   },
   {
     "talk": "sQ~!",
-    "machine": "군"
+    "token": "군"
   },
   {
     "talk": "sQ~w~",
-    "machine": "굱"
+    "token": "굱"
   },
   {
     "talk": "sQ~w~!",
-    "machine": "굲"
+    "token": "굲"
   },
   {
     "talk": "z",
-    "machine": "굳"
+    "token": "굳"
   },
   {
     "talk": "zw~",
-    "machine": "굴"
+    "token": "굴"
   },
   {
     "talk": "zy~",
-    "machine": "굵"
+    "token": "굵"
   },
   {
     "talk": "zy~w~",
-    "machine": "굶"
+    "token": "굶"
   },
   {
     "talk": "zG~",
-    "machine": "굷"
+    "token": "굷"
   },
   {
     "talk": "zG~w~",
-    "machine": "굸"
+    "token": "굸"
   },
   {
     "talk": "zQ~",
-    "machine": "굹"
+    "token": "굹"
   },
   {
     "talk": "zQ~w~",
-    "machine": "굺"
+    "token": "굺"
   },
   {
     "talk": "x",
-    "machine": "굻"
+    "token": "굻"
   },
   {
     "talk": "x!",
-    "machine": "굼"
+    "token": "굼"
   },
   {
     "talk": "xw~",
-    "machine": "굽"
+    "token": "굽"
   },
   {
     "talk": "xw~!",
-    "machine": "굾"
+    "token": "굾"
   },
   {
     "talk": "xy~",
-    "machine": "굿"
+    "token": "굿"
   },
   {
     "talk": "xy~!",
-    "machine": "궀"
+    "token": "궀"
   },
   {
     "talk": "xy~w~",
-    "machine": "궁"
+    "token": "궁"
   },
   {
     "talk": "xy~w~!",
-    "machine": "궂"
+    "token": "궂"
   },
   {
     "talk": "j",
-    "machine": "궃"
+    "token": "궃"
   },
   {
     "talk": "jw~",
-    "machine": "궄"
+    "token": "궄"
   },
   {
     "talk": "jy~",
-    "machine": "궅"
+    "token": "궅"
   },
   {
     "talk": "jy~w~",
-    "machine": "궆"
+    "token": "궆"
   },
   {
     "talk": "X",
-    "machine": "궇"
+    "token": "궇"
   },
   {
     "talk": "X!",
-    "machine": "궈"
+    "token": "궈"
   },
   {
     "talk": "Xw~",
-    "machine": "궉"
+    "token": "궉"
   },
   {
     "talk": "Xw~!",
-    "machine": "궊"
+    "token": "궊"
   },
   {
     "talk": "Xy~",
-    "machine": "궋"
+    "token": "궋"
   },
   {
     "talk": "Xy~!",
-    "machine": "권"
+    "token": "권"
   },
   {
     "talk": "Xy~w~",
-    "machine": "궍"
+    "token": "궍"
   },
   {
     "talk": "Xy~w~!",
-    "machine": "궎"
+    "token": "궎"
   },
   {
     "talk": "J",
-    "machine": "궏"
+    "token": "궏"
   },
   {
     "talk": "Jw~",
-    "machine": "궐"
+    "token": "궐"
   },
   {
     "talk": "Jy~",
-    "machine": "궑"
+    "token": "궑"
   },
   {
     "talk": "Jy~w~",
-    "machine": "궒"
+    "token": "궒"
   },
   {
     "talk": "F",
-    "machine": "궓"
+    "token": "궓"
   },
   {
     "talk": "F!",
-    "machine": "궔"
+    "token": "궔"
   },
   {
     "talk": "Fy~",
-    "machine": "궕"
+    "token": "궕"
   },
   {
     "talk": "Fy~!",
-    "machine": "궖"
+    "token": "궖"
   },
   {
     "talk": "V",
-    "machine": "궗"
+    "token": "궗"
   },
   {
     "talk": "Vy~",
-    "machine": "궘"
+    "token": "궘"
   },
   {
     "talk": "f",
-    "machine": "궙"
+    "token": "궙"
   },
   {
     "talk": "f!",
-    "machine": "궚"
+    "token": "궚"
   },
   {
     "talk": "fy~",
-    "machine": "궛"
+    "token": "궛"
   },
   {
     "talk": "fy~!",
-    "machine": "궜"
+    "token": "궜"
   },
   {
     "talk": "v",
-    "machine": "궝"
+    "token": "궝"
   },
   {
     "talk": "vy~",
-    "machine": "궞"
+    "token": "궞"
   },
   {
     "talk": "c",
-    "machine": "궟"
+    "token": "궟"
   },
   {
     "talk": "c!",
-    "machine": "궠"
+    "token": "궠"
   },
   {
     "talk": "cw~",
-    "machine": "궡"
+    "token": "궡"
   },
   {
     "talk": "cw~!",
-    "machine": "궢"
+    "token": "궢"
   },
   {
     "talk": "cy~",
-    "machine": "궣"
+    "token": "궣"
   },
   {
     "talk": "cy~!",
-    "machine": "궤"
+    "token": "궤"
   },
   {
     "talk": "cy~w~",
-    "machine": "궥"
+    "token": "궥"
   },
   {
     "talk": "cy~w~!",
-    "machine": "궦"
+    "token": "궦"
   },
   {
     "talk": "C",
-    "machine": "궧"
+    "token": "궧"
   },
   {
     "talk": "Cw~",
-    "machine": "궨"
+    "token": "궨"
   },
   {
     "talk": "Cy~",
-    "machine": "궩"
+    "token": "궩"
   },
   {
     "talk": "Cy~w~",
-    "machine": "궪"
+    "token": "궪"
   },
   {
     "talk": "cG~",
-    "machine": "궫"
+    "token": "궫"
   },
   {
     "talk": "cG~!",
-    "machine": "궬"
+    "token": "궬"
   },
   {
     "talk": "cG~w~",
-    "machine": "궭"
+    "token": "궭"
   },
   {
     "talk": "cG~w~!",
-    "machine": "궮"
+    "token": "궮"
   },
   {
     "talk": "cQ~",
-    "machine": "궯"
+    "token": "궯"
   },
   {
     "talk": "cQ~!",
-    "machine": "궰"
+    "token": "궰"
   },
   {
     "talk": "cQ~w~",
-    "machine": "궱"
+    "token": "궱"
   },
   {
     "talk": "cQ~w~!",
-    "machine": "궲"
+    "token": "궲"
   },
   {
     "talk": "c~",
-    "machine": "궳"
+    "token": "궳"
   },
   {
     "talk": "c~!",
-    "machine": "궴"
+    "token": "궴"
   },
   {
     "talk": "c~w~",
-    "machine": "궵"
+    "token": "궵"
   },
   {
     "talk": "c~w~!",
-    "machine": "궶"
+    "token": "궶"
   },
   {
     "talk": "c~y~",
-    "machine": "궷"
+    "token": "궷"
   },
   {
     "talk": "c~y~!",
-    "machine": "궸"
+    "token": "궸"
   },
   {
     "talk": "c~y~w~",
-    "machine": "궹"
+    "token": "궹"
   },
   {
     "talk": "c~y~w~!",
-    "machine": "궺"
+    "token": "궺"
   },
   {
     "talk": "c~G~",
-    "machine": "궻"
+    "token": "궻"
   },
   {
     "talk": "c~G~!",
-    "machine": "궼"
+    "token": "궼"
   },
   {
     "talk": "c~G~w~",
-    "machine": "궽"
+    "token": "궽"
   },
   {
     "talk": "c~G~w~!",
-    "machine": "궾"
+    "token": "궾"
   },
   {
     "talk": "c~Q~",
-    "machine": "궿"
+    "token": "궿"
   },
   {
     "talk": "c~Q~!",
-    "machine": "귀"
+    "token": "귀"
   },
   {
     "talk": "c~Q~w~",
-    "machine": "귁"
+    "token": "귁"
   },
   {
     "talk": "c~Q~w~!",
-    "machine": "귂"
+    "token": "귂"
   },
   {
     "talk": "CG~",
-    "machine": "귃"
+    "token": "귃"
   },
   {
     "talk": "CG~w~",
-    "machine": "귄"
+    "token": "귄"
   },
   {
     "talk": "CQ~",
-    "machine": "귅"
+    "token": "귅"
   },
   {
     "talk": "CQ~w~",
-    "machine": "귆"
+    "token": "귆"
   },
   {
     "talk": "C~",
-    "machine": "귇"
+    "token": "귇"
   },
   {
     "talk": "C~w~",
-    "machine": "귈"
+    "token": "귈"
   },
   {
     "talk": "C~y~",
-    "machine": "귉"
+    "token": "귉"
   },
   {
     "talk": "C~y~w~",
-    "machine": "귊"
+    "token": "귊"
   },
   {
     "talk": "C~G~",
-    "machine": "귋"
+    "token": "귋"
   },
   {
     "talk": "C~G~w~",
-    "machine": "귌"
+    "token": "귌"
   },
   {
     "talk": "C~Q~",
-    "machine": "귍"
+    "token": "귍"
   },
   {
     "talk": "C~Q~w~",
-    "machine": "귎"
+    "token": "귎"
   },
   {
     "talk": "u$",
-    "machine": "귏"
+    "token": "귏"
   },
   {
     "talk": "u$w~",
-    "machine": "귐"
+    "token": "귐"
   },
   {
     "talk": "u$y~",
-    "machine": "귑"
+    "token": "귑"
   },
   {
     "talk": "u$y~w~",
-    "machine": "귒"
+    "token": "귒"
   },
   {
     "talk": "hy~",
-    "machine": "귓"
+    "token": "귓"
   },
   {
     "talk": "hy~!",
-    "machine": "귔"
+    "token": "귔"
   },
   {
     "talk": "hy~w~",
-    "machine": "귕"
+    "token": "귕"
   },
   {
     "talk": "hy~w~!",
-    "machine": "귖"
+    "token": "귖"
   },
   {
     "talk": "y",
-    "machine": "귗"
+    "token": "귗"
   },
   {
     "talk": "yw~",
-    "machine": "귘"
+    "token": "귘"
   },
   {
     "talk": "H",
-    "machine": "귙"
+    "token": "귙"
   },
   {
     "talk": "H!",
-    "machine": "귚"
+    "token": "귚"
   },
   {
     "talk": "Hw~",
-    "machine": "귛"
+    "token": "귛"
   },
   {
     "talk": "Hw~!",
-    "machine": "규"
+    "token": "규"
   },
   {
     "talk": "Hy~",
-    "machine": "귝"
+    "token": "귝"
   },
   {
     "talk": "Hy~!",
-    "machine": "귞"
+    "token": "귞"
   },
   {
     "talk": "Hy~w~",
-    "machine": "귟"
+    "token": "귟"
   },
   {
     "talk": "Hy~w~!",
-    "machine": "균"
+    "token": "균"
   },
   {
     "talk": "G",
-    "machine": "귡"
+    "token": "귡"
   },
   {
     "talk": "Gw~",
-    "machine": "귢"
+    "token": "귢"
   },
   {
     "talk": "Gy~",
-    "machine": "귣"
+    "token": "귣"
   },
   {
     "talk": "Gy~w~",
-    "machine": "귤"
+    "token": "귤"
   },
   {
     "talk": "Hh~",
-    "machine": "귥"
+    "token": "귥"
   },
   {
     "talk": "Hh~!",
-    "machine": "귦"
+    "token": "귦"
   },
   {
     "talk": "h",
-    "machine": "귧"
+    "token": "귧"
   },
   {
     "talk": "hh~",
-    "machine": "귨"
+    "token": "귨"
   },
   {
     "talk": "Vh!",
-    "machine": "귩"
+    "token": "귩"
   },
   {
     "talk": "Vy~h!",
-    "machine": "귪"
+    "token": "귪"
   },
   {
     "talk": "Ch!",
-    "machine": "귫"
+    "token": "귫"
   },
   {
     "talk": "Cw~h!",
-    "machine": "귬"
+    "token": "귬"
   },
   {
     "talk": "Cy~h!",
-    "machine": "귭"
+    "token": "귭"
   },
   {
     "talk": "Cy~w~h!",
-    "machine": "귮"
+    "token": "귮"
   },
   {
     "talk": "CG~h!",
-    "machine": "귯"
+    "token": "귯"
   },
   {
     "talk": "CG~w~h!",
-    "machine": "귰"
+    "token": "귰"
   },
   {
     "talk": "CQ~h!",
-    "machine": "귱"
+    "token": "귱"
   },
   {
     "talk": "CQ~w~h!",
-    "machine": "귲"
+    "token": "귲"
   },
   {
     "talk": "C~h!",
-    "machine": "귳"
+    "token": "귳"
   },
   {
     "talk": "C~w~h!",
-    "machine": "귴"
+    "token": "귴"
   },
   {
     "talk": "C~y~h!",
-    "machine": "귵"
+    "token": "귵"
   },
   {
     "talk": "C~y~w~h!",
-    "machine": "귶"
+    "token": "귶"
   },
   {
     "talk": "C~G~h!",
-    "machine": "귷"
+    "token": "귷"
   },
   {
     "talk": "C~G~w~h!",
-    "machine": "그"
+    "token": "그"
   },
   {
     "talk": "C~Q~h!",
-    "machine": "극"
+    "token": "극"
   },
   {
     "talk": "C~Q~w~h!",
-    "machine": "귺"
+    "token": "귺"
   },
   {
     "talk": "u$h!",
-    "machine": "귻"
+    "token": "귻"
   },
   {
     "talk": "u$w~h!",
-    "machine": "근"
+    "token": "근"
   },
   {
     "talk": "u$y~h!",
-    "machine": "귽"
+    "token": "귽"
   },
   {
     "talk": "u$y~w~h!",
-    "machine": "귾"
+    "token": "귾"
   },
   {
     "talk": "u$G~",
-    "machine": "귿"
+    "token": "귿"
   },
   {
     "talk": "u$G~h!",
-    "machine": "글"
+    "token": "글"
   },
   {
     "talk": "u$G~w~",
-    "machine": "긁"
+    "token": "긁"
   },
   {
     "talk": "u$G~w~h!",
-    "machine": "긂"
+    "token": "긂"
   },
   {
     "talk": "u$Q~",
-    "machine": "긃"
+    "token": "긃"
   },
   {
     "talk": "u$Q~h!",
-    "machine": "긄"
+    "token": "긄"
   },
   {
     "talk": "u$Q~w~",
-    "machine": "긅"
+    "token": "긅"
   },
   {
     "talk": "u$Q~w~h!",
-    "machine": "긆"
+    "token": "긆"
   },
   {
     "talk": "u$~",
-    "machine": "긇"
+    "token": "긇"
   },
   {
     "talk": "u$~h!",
-    "machine": "금"
+    "token": "금"
   },
   {
     "talk": "u$~w~",
-    "machine": "급"
+    "token": "급"
   },
   {
     "talk": "u$~w~h!",
-    "machine": "긊"
+    "token": "긊"
   },
   {
     "talk": "u$~y~",
-    "machine": "긋"
+    "token": "긋"
   },
   {
     "talk": "u$~y~h!",
-    "machine": "긌"
+    "token": "긌"
   },
   {
     "talk": "u$~y~w~",
-    "machine": "긍"
+    "token": "긍"
   },
   {
     "talk": "u$~y~w~h!",
-    "machine": "긎"
+    "token": "긎"
   },
   {
     "talk": "u$~G~",
-    "machine": "긏"
+    "token": "긏"
   },
   {
     "talk": "u$~G~h!",
-    "machine": "긐"
+    "token": "긐"
   },
   {
     "talk": "u$~G~w~",
-    "machine": "긑"
+    "token": "긑"
   },
   {
     "talk": "u$~G~w~h!",
-    "machine": "긒"
+    "token": "긒"
   },
   {
     "talk": "u$~Q~",
-    "machine": "긓"
+    "token": "긓"
   },
   {
     "talk": "u$~Q~h!",
-    "machine": "긔"
+    "token": "긔"
   },
   {
     "talk": "u$~Q~w~",
-    "machine": "긕"
+    "token": "긕"
   },
   {
     "talk": "u$~Q~w~h!",
-    "machine": "긖"
+    "token": "긖"
   },
   {
     "talk": "yh!",
-    "machine": "긗"
+    "token": "긗"
   },
   {
     "talk": "yw~h!",
-    "machine": "긘"
+    "token": "긘"
   },
   {
     "talk": "W",
-    "machine": "긙"
+    "token": "긙"
   },
   {
     "talk": "Wh!",
-    "machine": "긚"
+    "token": "긚"
   },
   {
     "talk": "Ww~",
-    "machine": "긛"
+    "token": "긛"
   },
   {
     "talk": "Ww~h!",
-    "machine": "긜"
+    "token": "긜"
   },
   {
     "talk": "Wy~",
-    "machine": "긝"
+    "token": "긝"
   },
   {
     "talk": "Wy~h!",
-    "machine": "긞"
+    "token": "긞"
   },
   {
     "talk": "Wy~w~",
-    "machine": "긟"
+    "token": "긟"
   },
   {
     "talk": "Wy~w~h!",
-    "machine": "긠"
+    "token": "긠"
   },
   {
     "talk": "hh!",
-    "machine": "긡"
+    "token": "긡"
   },
   {
     "talk": "rh!",
-    "machine": "긢"
+    "token": "긢"
   },
   {
     "talk": "rh!w~",
-    "machine": "긣"
+    "token": "긣"
   },
   {
     "talk": "rh!y~",
-    "machine": "긤"
+    "token": "긤"
   },
   {
     "talk": "rh!y~w~",
-    "machine": "긥"
+    "token": "긥"
   },
   {
     "talk": "rh!G~",
-    "machine": "긦"
+    "token": "긦"
   },
   {
     "talk": "rh!G~w~",
-    "machine": "긧"
+    "token": "긧"
   },
   {
     "talk": "rh!Q~",
-    "machine": "긨"
+    "token": "긨"
   },
   {
     "talk": "rh!Q~w~",
-    "machine": "긩"
+    "token": "긩"
   },
   {
     "talk": "rh!~",
-    "machine": "긪"
+    "token": "긪"
   },
   {
     "talk": "rh!~w~",
-    "machine": "긫"
+    "token": "긫"
   },
   {
     "talk": "rh!~y~",
-    "machine": "긬"
+    "token": "긬"
   },
   {
     "talk": "rh!~y~w~",
-    "machine": "긭"
+    "token": "긭"
   },
   {
     "talk": "rh!~G~",
-    "machine": "긮"
+    "token": "긮"
   },
   {
     "talk": "rh!~G~w~",
-    "machine": "긯"
+    "token": "긯"
   },
   {
     "talk": "rh!~Q~",
-    "machine": "기"
+    "token": "기"
   },
   {
     "talk": "rh!~Q~w~",
-    "machine": "긱"
+    "token": "긱"
   },
   {
     "talk": "r",
-    "machine": "긲"
+    "token": "긲"
   },
   {
     "talk": "rw~",
-    "machine": "긳"
+    "token": "긳"
   },
   {
     "talk": "rw~h!",
-    "machine": "긴"
+    "token": "긴"
   },
   {
     "talk": "ry~",
-    "machine": "긵"
+    "token": "긵"
   },
   {
     "talk": "ry~h!",
-    "machine": "긶"
+    "token": "긶"
   },
   {
     "talk": "ry~w~",
-    "machine": "긷"
+    "token": "긷"
   },
   {
     "talk": "ry~w~h!",
-    "machine": "길"
+    "token": "길"
   },
   {
     "talk": "rG~",
-    "machine": "긹"
+    "token": "긹"
   },
   {
     "talk": "rG~h!",
-    "machine": "긺"
+    "token": "긺"
   },
   {
     "talk": "rG~w~",
-    "machine": "긻"
+    "token": "긻"
   },
   {
     "talk": "rG~w~h!",
-    "machine": "긼"
+    "token": "긼"
   },
   {
     "talk": "rQ~",
-    "machine": "긽"
+    "token": "긽"
   },
   {
     "talk": "rQ~h!",
-    "machine": "긾"
+    "token": "긾"
   },
   {
     "talk": "rQ~w~",
-    "machine": "긿"
+    "token": "긿"
   },
   {
     "talk": "rQ~w~h!",
-    "machine": "김"
+    "token": "김"
   },
   {
     "talk": "r~",
-    "machine": "깁"
+    "token": "깁"
   },
   {
     "talk": "r~h!",
-    "machine": "깂"
+    "token": "깂"
   },
   {
     "talk": "r~w~",
-    "machine": "깃"
+    "token": "깃"
   },
   {
     "talk": "r~w~h!",
-    "machine": "깄"
+    "token": "깄"
   },
   {
     "talk": "r~y~",
-    "machine": "깅"
+    "token": "깅"
   },
   {
     "talk": "r~y~h!",
-    "machine": "깆"
+    "token": "깆"
   },
   {
     "talk": "r~y~w~",
-    "machine": "깇"
+    "token": "깇"
   },
   {
     "talk": "r~y~w~h!",
-    "machine": "깈"
+    "token": "깈"
   },
   {
     "talk": "r~G~",
-    "machine": "깉"
+    "token": "깉"
   },
   {
     "talk": "r~G~h!",
-    "machine": "깊"
+    "token": "깊"
   },
   {
     "talk": "r~G~w~",
-    "machine": "깋"
+    "token": "깋"
   },
   {
     "talk": "r~G~w~h!",
-    "machine": "까"
+    "token": "까"
   },
   {
     "talk": "r~Q~",
-    "machine": "깍"
+    "token": "깍"
   },
   {
     "talk": "r~Q~h!",
-    "machine": "깎"
+    "token": "깎"
   },
   {
     "talk": "r~Q~w~",
-    "machine": "깏"
+    "token": "깏"
   },
   {
     "talk": "r~Q~w~h!",
-    "machine": "깐"
+    "token": "깐"
   },
   {
     "talk": "Rh!",
-    "machine": "깑"
+    "token": "깑"
   },
   {
     "talk": "Rh!w~",
-    "machine": "깒"
+    "token": "깒"
   },
   {
     "talk": "Rh!y~",
-    "machine": "깓"
+    "token": "깓"
   },
   {
     "talk": "Rh!y~w~",
-    "machine": "깔"
+    "token": "깔"
   },
   {
     "talk": "R",
-    "machine": "깕"
+    "token": "깕"
   },
   {
     "talk": "Rw~",
-    "machine": "깖"
+    "token": "깖"
   },
   {
     "talk": "Rw~h!",
-    "machine": "깗"
+    "token": "깗"
   },
   {
     "talk": "Ry~",
-    "machine": "깘"
+    "token": "깘"
   },
   {
     "talk": "Ry~h!",
-    "machine": "깙"
+    "token": "깙"
   },
   {
     "talk": "Ry~w~",
-    "machine": "깚"
+    "token": "깚"
   },
   {
     "talk": "Ry~w~h!",
-    "machine": "깛"
+    "token": "깛"
   },
   {
     "talk": "gh!",
-    "machine": "깜"
+    "token": "깜"
   },
   {
     "talk": "gw~h!",
-    "machine": "깝"
+    "token": "깝"
   },
   {
     "talk": "gy~h!",
-    "machine": "깞"
+    "token": "깞"
   },
   {
     "talk": "gy~w~h!",
-    "machine": "깟"
+    "token": "깟"
   },
   {
     "talk": "bbh!",
-    "machine": "깠"
+    "token": "깠"
   },
   {
     "talk": "bbh!y~",
-    "machine": "깡"
+    "token": "깡"
   },
   {
     "talk": "bb",
-    "machine": "깢"
+    "token": "깢"
   },
   {
     "talk": "bby~",
-    "machine": "깣"
+    "token": "깣"
   },
   {
     "talk": "bby~h!",
-    "machine": "깤"
+    "token": "깤"
   },
   {
     "talk": "Rh!rh!",
-    "machine": "깥"
+    "token": "깥"
   },
   {
     "talk": "Rh!rh!w~",
-    "machine": "깦"
+    "token": "깦"
   },
   {
     "talk": "Rh!rh!y~",
-    "machine": "깧"
+    "token": "깧"
   },
   {
     "talk": "Rh!rh!y~w~",
-    "machine": "깨"
+    "token": "깨"
   },
   {
     "talk": "Rr",
-    "machine": "깩"
+    "token": "깩"
   },
   {
     "talk": "Rrh!",
-    "machine": "깪"
+    "token": "깪"
   },
   {
     "talk": "Rrw~",
-    "machine": "깫"
+    "token": "깫"
   },
   {
     "talk": "Rrw~h!",
-    "machine": "깬"
+    "token": "깬"
   },
   {
     "talk": "Rry~",
-    "machine": "깭"
+    "token": "깭"
   },
   {
     "talk": "Rry~h!",
-    "machine": "깮"
+    "token": "깮"
   },
   {
     "talk": "Rry~w~",
-    "machine": "깯"
+    "token": "깯"
   },
   {
     "talk": "Rry~w~h!",
-    "machine": "깰"
+    "token": "깰"
   },
   {
     "talk": "GGh!",
-    "machine": "깱"
+    "token": "깱"
   },
   {
     "talk": "GGh!w~",
-    "machine": "깲"
+    "token": "깲"
   },
   {
     "talk": "GGh!y~",
-    "machine": "깳"
+    "token": "깳"
   },
   {
     "talk": "GGh!y~w~",
-    "machine": "깴"
+    "token": "깴"
   },
   {
     "talk": "GG",
-    "machine": "깵"
+    "token": "깵"
   },
   {
     "talk": "GGw~",
-    "machine": "깶"
+    "token": "깶"
   },
   {
     "talk": "GGw~h!",
-    "machine": "깷"
+    "token": "깷"
   },
   {
     "talk": "GGy~",
-    "machine": "깸"
+    "token": "깸"
   },
   {
     "talk": "GGy~h!",
-    "machine": "깹"
+    "token": "깹"
   },
   {
     "talk": "GGy~w~",
-    "machine": "깺"
+    "token": "깺"
   },
   {
     "talk": "GGy~w~h!",
-    "machine": "깻"
+    "token": "깻"
   },
   {
     "talk": "Qh!",
-    "machine": "깼"
+    "token": "깼"
   },
   {
     "talk": "S~",
-    "machine": "깽"
+    "token": "깽"
   },
   {
     "talk": "S~!",
-    "machine": "깾"
+    "token": "깾"
   },
   {
     "talk": "S~w~",
-    "machine": "깿"
+    "token": "깿"
   },
   {
     "talk": "S~w~!",
-    "machine": "꺀"
+    "token": "꺀"
   },
   {
     "talk": "S~y~",
-    "machine": "꺁"
+    "token": "꺁"
   },
   {
     "talk": "S~y~!",
-    "machine": "꺂"
+    "token": "꺂"
   },
   {
     "talk": "S~y~w~",
-    "machine": "꺃"
+    "token": "꺃"
   },
   {
     "talk": "S~y~w~!",
-    "machine": "꺄"
+    "token": "꺄"
   },
   {
     "talk": "S~G~",
-    "machine": "꺅"
+    "token": "꺅"
   },
   {
     "talk": "S~G~!",
-    "machine": "꺆"
+    "token": "꺆"
   },
   {
     "talk": "S~G~w~",
-    "machine": "꺇"
+    "token": "꺇"
   },
   {
     "talk": "S~G~w~!",
-    "machine": "꺈"
+    "token": "꺈"
   },
   {
     "talk": "S~Q~",
-    "machine": "꺉"
+    "token": "꺉"
   },
   {
     "talk": "S~Q~!",
-    "machine": "꺊"
+    "token": "꺊"
   },
   {
     "talk": "S~Q~w~",
-    "machine": "꺋"
+    "token": "꺋"
   },
   {
     "talk": "S~Q~w~!",
-    "machine": "꺌"
+    "token": "꺌"
   },
   {
     "talk": "S~~",
-    "machine": "꺍"
+    "token": "꺍"
   },
   {
     "talk": "S~~!",
-    "machine": "꺎"
+    "token": "꺎"
   },
   {
     "talk": "S~~w~",
-    "machine": "꺏"
+    "token": "꺏"
   },
   {
     "talk": "S~~w~!",
-    "machine": "꺐"
+    "token": "꺐"
   },
   {
     "talk": "S~~y~",
-    "machine": "꺑"
+    "token": "꺑"
   },
   {
     "talk": "S~~y~!",
-    "machine": "꺒"
+    "token": "꺒"
   },
   {
     "talk": "S~~y~w~",
-    "machine": "꺓"
+    "token": "꺓"
   },
   {
     "talk": "S~~y~w~!",
-    "machine": "꺔"
+    "token": "꺔"
   },
   {
     "talk": "S~~G~",
-    "machine": "꺕"
+    "token": "꺕"
   },
   {
     "talk": "S~~G~!",
-    "machine": "꺖"
+    "token": "꺖"
   },
   {
     "talk": "S~~G~w~",
-    "machine": "꺗"
+    "token": "꺗"
   },
   {
     "talk": "S~~G~w~!",
-    "machine": "꺘"
+    "token": "꺘"
   },
   {
     "talk": "S~~Q~",
-    "machine": "꺙"
+    "token": "꺙"
   },
   {
     "talk": "S~~Q~!",
-    "machine": "꺚"
+    "token": "꺚"
   },
   {
     "talk": "S~~Q~w~",
-    "machine": "꺛"
+    "token": "꺛"
   },
   {
     "talk": "S~~Q~w~!",
-    "machine": "꺜"
+    "token": "꺜"
   },
   {
     "talk": "S",
-    "machine": "꺝"
+    "token": "꺝"
   },
   {
     "talk": "S!",
-    "machine": "꺞"
+    "token": "꺞"
   },
   {
     "talk": "Sw~",
-    "machine": "꺟"
+    "token": "꺟"
   },
   {
     "talk": "Sw~!",
-    "machine": "꺠"
+    "token": "꺠"
   },
   {
     "talk": "Sy~",
-    "machine": "꺡"
+    "token": "꺡"
   },
   {
     "talk": "Sy~!",
-    "machine": "꺢"
+    "token": "꺢"
   },
   {
     "talk": "Sy~w~",
-    "machine": "꺣"
+    "token": "꺣"
   },
   {
     "talk": "Sy~w~!",
-    "machine": "꺤"
+    "token": "꺤"
   },
   {
     "talk": "SG~",
-    "machine": "꺥"
+    "token": "꺥"
   },
   {
     "talk": "SG~!",
-    "machine": "꺦"
+    "token": "꺦"
   },
   {
     "talk": "SG~w~",
-    "machine": "꺧"
+    "token": "꺧"
   },
   {
     "talk": "SG~w~!",
-    "machine": "꺨"
+    "token": "꺨"
   },
   {
     "talk": "SQ~",
-    "machine": "꺩"
+    "token": "꺩"
   },
   {
     "talk": "SQ~!",
-    "machine": "꺪"
+    "token": "꺪"
   },
   {
     "talk": "SQ~w~",
-    "machine": "꺫"
+    "token": "꺫"
   },
   {
     "talk": "SQ~w~!",
-    "machine": "꺬"
+    "token": "꺬"
   },
   {
     "talk": "Z",
-    "machine": "꺭"
+    "token": "꺭"
   },
   {
     "talk": "Zw~",
-    "machine": "꺮"
+    "token": "꺮"
   },
   {
     "talk": "Zy~",
-    "machine": "꺯"
+    "token": "꺯"
   },
   {
     "talk": "Zy~w~",
-    "machine": "꺰"
+    "token": "꺰"
   },
   {
     "talk": "ZG~",
-    "machine": "꺱"
+    "token": "꺱"
   },
   {
     "talk": "ZG~w~",
-    "machine": "꺲"
+    "token": "꺲"
   },
   {
     "talk": "ZQ~",
-    "machine": "꺳"
+    "token": "꺳"
   },
   {
     "talk": "ZQ~w~",
-    "machine": "꺴"
+    "token": "꺴"
   },
   {
     "talk": "Z~",
-    "machine": "꺵"
+    "token": "꺵"
   },
   {
     "talk": "Z~w~",
-    "machine": "꺶"
+    "token": "꺶"
   },
   {
     "talk": "Z~y~",
-    "machine": "꺷"
+    "token": "꺷"
   },
   {
     "talk": "Z~y~w~",
-    "machine": "꺸"
+    "token": "꺸"
   },
   {
     "talk": "Z~G~",
-    "machine": "꺹"
+    "token": "꺹"
   },
   {
     "talk": "Z~G~w~",
-    "machine": "꺺"
+    "token": "꺺"
   },
   {
     "talk": "Z~Q~",
-    "machine": "꺻"
+    "token": "꺻"
   },
   {
     "talk": "Z~Q~w~",
-    "machine": "꺼"
+    "token": "꺼"
   },
   {
     "talk": "ly~",
-    "machine": "꺽"
+    "token": "꺽"
   },
   {
     "talk": "ly~w~",
-    "machine": "꺾"
+    "token": "꺾"
   },
   {
     "talk": "l~",
-    "machine": "꺿"
+    "token": "꺿"
   },
   {
     "talk": "l~h!",
-    "machine": "껀"
+    "token": "껀"
   },
   {
     "talk": "l~w~",
-    "machine": "껁"
+    "token": "껁"
   },
   {
     "talk": "l~w~h!",
-    "machine": "껂"
+    "token": "껂"
   },
   {
     "talk": "l~y~",
-    "machine": "껃"
+    "token": "껃"
   },
   {
     "talk": "l~y~h!",
-    "machine": "껄"
+    "token": "껄"
   },
   {
     "talk": "l~y~w~",
-    "machine": "껅"
+    "token": "껅"
   },
   {
     "talk": "l~y~w~h!",
-    "machine": "껆"
+    "token": "껆"
   },
   {
     "talk": "l~G~",
-    "machine": "껇"
+    "token": "껇"
   },
   {
     "talk": "l~G~h!",
-    "machine": "껈"
+    "token": "껈"
   },
   {
     "talk": "l~G~w~",
-    "machine": "껉"
+    "token": "껉"
   },
   {
     "talk": "l~G~w~h!",
-    "machine": "껊"
+    "token": "껊"
   },
   {
     "talk": "l~Q~",
-    "machine": "껋"
+    "token": "껋"
   },
   {
     "talk": "l~Q~h!",
-    "machine": "껌"
+    "token": "껌"
   },
   {
     "talk": "l~Q~w~",
-    "machine": "껍"
+    "token": "껍"
   },
   {
     "talk": "l~Q~w~h!",
-    "machine": "껎"
+    "token": "껎"
   },
   {
     "talk": "l~~",
-    "machine": "껏"
+    "token": "껏"
   },
   {
     "talk": "l~~h!",
-    "machine": "껐"
+    "token": "껐"
   },
   {
     "talk": "l~~w~",
-    "machine": "껑"
+    "token": "껑"
   },
   {
     "talk": "l~~w~h!",
-    "machine": "껒"
+    "token": "껒"
   },
   {
     "talk": "l~~y~",
-    "machine": "껓"
+    "token": "껓"
   },
   {
     "talk": "l~~y~h!",
-    "machine": "껔"
+    "token": "껔"
   },
   {
     "talk": "l~~y~w~",
-    "machine": "껕"
+    "token": "껕"
   },
   {
     "talk": "l~~y~w~h!",
-    "machine": "껖"
+    "token": "껖"
   },
   {
     "talk": "l~~G~",
-    "machine": "껗"
+    "token": "껗"
   },
   {
     "talk": "l~~G~h!",
-    "machine": "께"
+    "token": "께"
   },
   {
     "talk": "l~~G~w~",
-    "machine": "껙"
+    "token": "껙"
   },
   {
     "talk": "l~~G~w~h!",
-    "machine": "껚"
+    "token": "껚"
   },
   {
     "talk": "l~~Q~",
-    "machine": "껛"
+    "token": "껛"
   },
   {
     "talk": "l~~Q~h!",
-    "machine": "껜"
+    "token": "껜"
   },
   {
     "talk": "l~~Q~w~",
-    "machine": "껝"
+    "token": "껝"
   },
   {
     "talk": "l~~Q~w~h!",
-    "machine": "껞"
+    "token": "껞"
   },
   {
     "talk": "lh!",
-    "machine": "껟"
+    "token": "껟"
   },
   {
     "talk": "lh!w~",
-    "machine": "껠"
+    "token": "껠"
   },
   {
     "talk": "lh!y~",
-    "machine": "껡"
+    "token": "껡"
   },
   {
     "talk": "lh!y~w~",
-    "machine": "껢"
+    "token": "껢"
   },
   {
     "talk": "lh!G~",
-    "machine": "껣"
+    "token": "껣"
   },
   {
     "talk": "lh!G~w~",
-    "machine": "껤"
+    "token": "껤"
   },
   {
     "talk": "lh!Q~",
-    "machine": "껥"
+    "token": "껥"
   },
   {
     "talk": "lh!Q~w~",
-    "machine": "껦"
+    "token": "껦"
   },
   {
     "talk": "lh!~",
-    "machine": "껧"
+    "token": "껧"
   },
   {
     "talk": "lh!~w~",
-    "machine": "껨"
+    "token": "껨"
   },
   {
     "talk": "lh!~y~",
-    "machine": "껩"
+    "token": "껩"
   },
   {
     "talk": "lh!~y~w~",
-    "machine": "껪"
+    "token": "껪"
   },
   {
     "talk": "lh!~G~",
-    "machine": "껫"
+    "token": "껫"
   },
   {
     "talk": "lh!~G~w~",
-    "machine": "껬"
+    "token": "껬"
   },
   {
     "talk": "lh!~Q~",
-    "machine": "껭"
+    "token": "껭"
   },
   {
     "talk": "lh!~Q~w~",
-    "machine": "껮"
+    "token": "껮"
   },
   {
     "talk": "l",
-    "machine": "껯"
+    "token": "껯"
   },
   {
     "talk": "lw~",
-    "machine": "껰"
+    "token": "껰"
   },
   {
     "talk": "lw~h!",
-    "machine": "껱"
+    "token": "껱"
   },
   {
     "talk": "ly~h!",
-    "machine": "껲"
+    "token": "껲"
   },
   {
     "talk": "ly~w~h!",
-    "machine": "껳"
+    "token": "껳"
   },
   {
     "talk": "lG~",
-    "machine": "껴"
+    "token": "껴"
   },
   {
     "talk": "lG~h!",
-    "machine": "껵"
+    "token": "껵"
   },
   {
     "talk": "lG~w~",
-    "machine": "껶"
+    "token": "껶"
   },
   {
     "talk": "lG~w~h!",
-    "machine": "껷"
+    "token": "껷"
   },
   {
     "talk": "lQ~",
-    "machine": "껸"
+    "token": "껸"
   },
   {
     "talk": "lQ~h!",
-    "machine": "껹"
+    "token": "껹"
   },
   {
     "talk": "lQ~w~",
-    "machine": "껺"
+    "token": "껺"
   },
   {
     "talk": "lQ~w~h!",
-    "machine": "껻"
+    "token": "껻"
   },
   {
     "talk": "Lh!",
-    "machine": "껼"
+    "token": "껼"
   },
   {
     "talk": "Lh!w~",
-    "machine": "껽"
+    "token": "껽"
   },
   {
     "talk": "Lh!y~",
-    "machine": "껾"
+    "token": "껾"
   },
   {
     "talk": "Lh!y~w~",
-    "machine": "껿"
+    "token": "껿"
   },
   {
     "talk": "L",
-    "machine": "꼀"
+    "token": "꼀"
   },
   {
     "talk": "Lw~",
-    "machine": "꼁"
+    "token": "꼁"
   },
   {
     "talk": "Lw~h!",
-    "machine": "꼂"
+    "token": "꼂"
   },
   {
     "talk": "Ly~",
-    "machine": "꼃"
+    "token": "꼃"
   },
   {
     "talk": "Ly~h!",
-    "machine": "꼄"
+    "token": "꼄"
   },
   {
     "talk": "Ly~w~",
-    "machine": "꼅"
+    "token": "꼅"
   },
   {
     "talk": "Ly~w~h!",
-    "machine": "꼆"
+    "token": "꼆"
   },
   {
     "talk": "ly~h!w~",
-    "machine": "꼇"
+    "token": "꼇"
   },
   {
     "talk": "wh!",
-    "machine": "꼈"
+    "token": "꼈"
   },
   {
     "talk": "wh!w~",
-    "machine": "꼉"
+    "token": "꼉"
   },
   {
     "talk": "wh!y~",
-    "machine": "꼊"
+    "token": "꼊"
   },
   {
     "talk": "wh!y~w~",
-    "machine": "꼋"
+    "token": "꼋"
   },
   {
     "talk": "w",
-    "machine": "꼌"
+    "token": "꼌"
   },
   {
     "talk": "ww~",
-    "machine": "꼍"
+    "token": "꼍"
   },
   {
     "talk": "ww~h!",
-    "machine": "꼎"
+    "token": "꼎"
   },
   {
     "talk": "wy~",
-    "machine": "꼏"
+    "token": "꼏"
   },
   {
     "talk": "wy~h!",
-    "machine": "꼐"
+    "token": "꼐"
   },
   {
     "talk": "wy~w~",
-    "machine": "꼑"
+    "token": "꼑"
   },
   {
     "talk": "wy~w~h!",
-    "machine": "꼒"
+    "token": "꼒"
   },
   {
     "talk": "yw~w~",
-    "machine": "꼓"
+    "token": "꼓"
   },
   {
     "talk": "yw~w~h!",
-    "machine": "꼔"
+    "token": "꼔"
   },
   {
     "talk": "yw~y~",
-    "machine": "꼕"
+    "token": "꼕"
   },
   {
     "talk": "yw~y~h!",
-    "machine": "꼖"
+    "token": "꼖"
   },
   {
     "talk": "yw~y~w~",
-    "machine": "꼗"
+    "token": "꼗"
   },
   {
     "talk": "yw~y~w~h!",
-    "machine": "꼘"
+    "token": "꼘"
   },
   {
     "talk": "lG~y~",
-    "machine": "꼙"
+    "token": "꼙"
   },
   {
     "talk": "lG~y~w~",
-    "machine": "꼚"
+    "token": "꼚"
   },
   {
     "talk": "b?",
-    "machine": "꼛"
+    "token": "꼛"
   },
   {
     "talk": "b?w~",
-    "machine": "꼜"
+    "token": "꼜"
   },
   {
     "talk": "b?y~",
-    "machine": "꼝"
+    "token": "꼝"
   },
   {
     "talk": "b?y~w~",
-    "machine": "꼞"
+    "token": "꼞"
   },
   {
     "talk": "d?",
-    "machine": "꼟"
+    "token": "꼟"
   },
   {
     "talk": "d?w~",
-    "machine": "꼠"
+    "token": "꼠"
   },
   {
     "talk": "d?y~",
-    "machine": "꼡"
+    "token": "꼡"
   },
   {
     "talk": "d?y~w~",
-    "machine": "꼢"
+    "token": "꼢"
   },
   {
     "talk": "g?y~",
-    "machine": "꼣"
+    "token": "꼣"
   },
   {
     "talk": "g?y~w~",
-    "machine": "꼤"
+    "token": "꼤"
   },
   {
     "talk": "g?y~y~",
-    "machine": "꼥"
+    "token": "꼥"
   },
   {
     "talk": "g?y~y~w~",
-    "machine": "꼦"
+    "token": "꼦"
   },
   {
     "talk": "g?",
-    "machine": "꼧"
+    "token": "꼧"
   },
   {
     "talk": "g?w~",
-    "machine": "꼨"
+    "token": "꼨"
   },
   {
     "talk": "b?h!",
-    "machine": "꼩"
+    "token": "꼩"
   },
   {
     "talk": "b?h!w~",
-    "machine": "꼪"
+    "token": "꼪"
   },
   {
     "talk": "b?h!y~",
-    "machine": "꼫"
+    "token": "꼫"
   },
   {
     "talk": "b?h!y~w~",
-    "machine": "꼬"
+    "token": "꼬"
   },
   {
     "talk": "t?",
-    "machine": "꼭"
+    "token": "꼭"
   },
   {
     "talk": "t?w~",
-    "machine": "꼮"
+    "token": "꼮"
   },
   {
     "talk": "t?y~",
-    "machine": "꼯"
+    "token": "꼯"
   },
   {
     "talk": "t?y~w~",
-    "machine": "꼰"
+    "token": "꼰"
   },
   {
     "talk": "g?y~h!",
-    "machine": "꼱"
+    "token": "꼱"
   },
   {
     "talk": "g?y~h!w~",
-    "machine": "꼲"
+    "token": "꼲"
   },
   {
     "talk": "g?y~h!y~",
-    "machine": "꼳"
+    "token": "꼳"
   },
   {
     "talk": "g?y~h!y~w~",
-    "machine": "꼴"
+    "token": "꼴"
   },
   {
     "talk": "g?h!",
-    "machine": "꼵"
+    "token": "꼵"
   },
   {
     "talk": "g?h!w~",
-    "machine": "꼶"
+    "token": "꼶"
   },
   {
     "talk": "g?h!y~",
-    "machine": "꼷"
+    "token": "꼷"
   },
   {
     "talk": "g?h!y~w~",
-    "machine": "꼸"
+    "token": "꼸"
   },
   {
     "talk": "p!w~",
-    "machine": "꼹"
+    "token": "꼹"
   },
   {
     "talk": "p!y~",
-    "machine": "꼺"
+    "token": "꼺"
   },
   {
     "talk": "p!y~w~",
-    "machine": "꼻"
+    "token": "꼻"
   },
   {
     "talk": "t!w~",
-    "machine": "꼼"
+    "token": "꼼"
   },
   {
     "talk": "t!y~",
-    "machine": "꼽"
+    "token": "꼽"
   },
   {
     "talk": "t!y~w~",
-    "machine": "꼾"
+    "token": "꼾"
   },
   {
     "talk": "T!w~",
-    "machine": "꼿"
+    "token": "꼿"
   },
   {
     "talk": "T!y~",
-    "machine": "꽀"
+    "token": "꽀"
   },
   {
     "talk": "T!y~w~",
-    "machine": "꽁"
+    "token": "꽁"
   },
   {
     "talk": "ky~!w~",
-    "machine": "꽂"
+    "token": "꽂"
   },
   {
     "talk": "ky~!y~",
-    "machine": "꽃"
+    "token": "꽃"
   },
   {
     "talk": "ky~!y~w~",
-    "machine": "꽄"
+    "token": "꽄"
   },
   {
     "talk": "k!w~",
-    "machine": "꽅"
+    "token": "꽅"
   },
   {
     "talk": "k!y~",
-    "machine": "꽆"
+    "token": "꽆"
   },
   {
     "talk": "k!y~w~",
-    "machine": "꽇"
+    "token": "꽇"
   },
   {
     "talk": "K!w~",
-    "machine": "꽈"
+    "token": "꽈"
   },
   {
     "talk": "K!y~",
-    "machine": "꽉"
+    "token": "꽉"
   },
   {
     "talk": "K!y~w~",
-    "machine": "꽊"
+    "token": "꽊"
   },
   {
     "talk": "f!!",
-    "machine": "꽋"
+    "token": "꽋"
   },
   {
     "talk": "f!w~",
-    "machine": "꽌"
+    "token": "꽌"
   },
   {
     "talk": "f!w~!",
-    "machine": "꽍"
+    "token": "꽍"
   },
   {
     "talk": "f!y~",
-    "machine": "꽎"
+    "token": "꽎"
   },
   {
     "talk": "f!y~!",
-    "machine": "꽏"
+    "token": "꽏"
   },
   {
     "talk": "f!y~w~",
-    "machine": "꽐"
+    "token": "꽐"
   },
   {
     "talk": "f!y~w~!",
-    "machine": "꽑"
+    "token": "꽑"
   },
   {
     "talk": "s!!",
-    "machine": "꽒"
+    "token": "꽒"
   },
   {
     "talk": "s!w~",
-    "machine": "꽓"
+    "token": "꽓"
   },
   {
     "talk": "s!w~!",
-    "machine": "꽔"
+    "token": "꽔"
   },
   {
     "talk": "s!y~",
-    "machine": "꽕"
+    "token": "꽕"
   },
   {
     "talk": "s!y~!",
-    "machine": "꽖"
+    "token": "꽖"
   },
   {
     "talk": "s!y~w~",
-    "machine": "꽗"
+    "token": "꽗"
   },
   {
     "talk": "s!y~w~!",
-    "machine": "꽘"
+    "token": "꽘"
   },
   {
     "talk": "X!!",
-    "machine": "꽙"
+    "token": "꽙"
   },
   {
     "talk": "X!w~",
-    "machine": "꽚"
+    "token": "꽚"
   },
   {
     "talk": "X!w~!",
-    "machine": "꽛"
+    "token": "꽛"
   },
   {
     "talk": "X!y~",
-    "machine": "꽜"
+    "token": "꽜"
   },
   {
     "talk": "X!y~!",
-    "machine": "꽝"
+    "token": "꽝"
   },
   {
     "talk": "X!y~w~",
-    "machine": "꽞"
+    "token": "꽞"
   },
   {
     "talk": "X!y~w~!",
-    "machine": "꽟"
+    "token": "꽟"
   },
   {
     "talk": "xy~!!",
-    "machine": "꽠"
+    "token": "꽠"
   },
   {
     "talk": "xy~!w~",
-    "machine": "꽡"
+    "token": "꽡"
   },
   {
     "talk": "xy~!w~!",
-    "machine": "꽢"
+    "token": "꽢"
   },
   {
     "talk": "xy~!y~",
-    "machine": "꽣"
+    "token": "꽣"
   },
   {
     "talk": "xy~!y~!",
-    "machine": "꽤"
+    "token": "꽤"
   },
   {
     "talk": "xy~!y~w~",
-    "machine": "꽥"
+    "token": "꽥"
   },
   {
     "talk": "xy~!y~w~!",
-    "machine": "꽦"
+    "token": "꽦"
   },
   {
     "talk": "H!!",
-    "machine": "꽧"
+    "token": "꽧"
   },
   {
     "talk": "H!w~",
-    "machine": "꽨"
+    "token": "꽨"
   },
   {
     "talk": "H!w~!",
-    "machine": "꽩"
+    "token": "꽩"
   },
   {
     "talk": "H!y~",
-    "machine": "꽪"
+    "token": "꽪"
   },
   {
     "talk": "H!y~!",
-    "machine": "꽫"
+    "token": "꽫"
   },
   {
     "talk": "H!y~w~",
-    "machine": "꽬"
+    "token": "꽬"
   },
   {
     "talk": "H!y~w~!",
-    "machine": "꽭"
+    "token": "꽭"
   },
   {
     "talk": "F!w~",
-    "machine": "꽮"
+    "token": "꽮"
   },
   {
     "talk": "F!y~",
-    "machine": "꽯"
+    "token": "꽯"
   },
   {
     "talk": "F!y~w~",
-    "machine": "꽰"
+    "token": "꽰"
   },
   {
     "talk": "c!w~",
-    "machine": "꽱"
+    "token": "꽱"
   },
   {
     "talk": "c!y~",
-    "machine": "꽲"
+    "token": "꽲"
   },
   {
     "talk": "c!y~w~",
-    "machine": "꽳"
+    "token": "꽳"
   },
   {
     "talk": "x!w~",
-    "machine": "꽴"
+    "token": "꽴"
   },
   {
     "talk": "x!y~",
-    "machine": "꽵"
+    "token": "꽵"
   },
   {
     "talk": "x!y~w~",
-    "machine": "꽶"
+    "token": "꽶"
   },
   {
     "talk": "i",
-    "machine": "꽷"
+    "token": "꽷"
   },
   {
     "talk": "i^",
-    "machine": "꽸"
+    "token": "꽸"
   },
   {
     "talk": "i_",
-    "machine": "꽹"
+    "token": "꽹"
   },
   {
     "talk": "i_^",
-    "machine": "꽺"
+    "token": "꽺"
   },
   {
     "talk": "i--",
-    "machine": "꽻"
+    "token": "꽻"
   },
   {
     "talk": "i--^",
-    "machine": "꽼"
+    "token": "꽼"
   },
   {
     "talk": "i--_",
-    "machine": "꽽"
+    "token": "꽽"
   },
   {
     "talk": "i--_^",
-    "machine": "꽾"
+    "token": "꽾"
   },
   {
     "talk": "i-",
-    "machine": "꽿"
+    "token": "꽿"
   },
   {
     "talk": "i-^",
-    "machine": "꾀"
+    "token": "꾀"
   },
   {
     "talk": "i-_",
-    "machine": "꾁"
+    "token": "꾁"
   },
   {
     "talk": "i-_^",
-    "machine": "꾂"
+    "token": "꾂"
   },
   {
     "talk": "i+",
-    "machine": "꾃"
+    "token": "꾃"
   },
   {
     "talk": "i+^",
-    "machine": "꾄"
+    "token": "꾄"
   },
   {
     "talk": "i+_",
-    "machine": "꾅"
+    "token": "꾅"
   },
   {
     "talk": "i+_^",
-    "machine": "꾆"
+    "token": "꾆"
   },
   {
     "talk": "i++",
-    "machine": "꾇"
+    "token": "꾇"
   },
   {
     "talk": "i++^",
-    "machine": "꾈"
+    "token": "꾈"
   },
   {
     "talk": "i++_",
-    "machine": "꾉"
+    "token": "꾉"
   },
   {
     "talk": "i++_^",
-    "machine": "꾊"
+    "token": "꾊"
   },
   {
     "talk": "i@",
-    "machine": "꾋"
+    "token": "꾋"
   },
   {
     "talk": "i@^",
-    "machine": "꾌"
+    "token": "꾌"
   },
   {
     "talk": "i@_",
-    "machine": "꾍"
+    "token": "꾍"
   },
   {
     "talk": "i@_^",
-    "machine": "꾎"
+    "token": "꾎"
   },
   {
     "talk": "i@--",
-    "machine": "꾏"
+    "token": "꾏"
   },
   {
     "talk": "i@--^",
-    "machine": "꾐"
+    "token": "꾐"
   },
   {
     "talk": "i@--_",
-    "machine": "꾑"
+    "token": "꾑"
   },
   {
     "talk": "i@--_^",
-    "machine": "꾒"
+    "token": "꾒"
   },
   {
     "talk": "i@-",
-    "machine": "꾓"
+    "token": "꾓"
   },
   {
     "talk": "i@-^",
-    "machine": "꾔"
+    "token": "꾔"
   },
   {
     "talk": "i@-_",
-    "machine": "꾕"
+    "token": "꾕"
   },
   {
     "talk": "i@-_^",
-    "machine": "꾖"
+    "token": "꾖"
   },
   {
     "talk": "i@+",
-    "machine": "꾗"
+    "token": "꾗"
   },
   {
     "talk": "i@+^",
-    "machine": "꾘"
+    "token": "꾘"
   },
   {
     "talk": "i@+_",
-    "machine": "꾙"
+    "token": "꾙"
   },
   {
     "talk": "i@+_^",
-    "machine": "꾚"
+    "token": "꾚"
   },
   {
     "talk": "i@++",
-    "machine": "꾛"
+    "token": "꾛"
   },
   {
     "talk": "i@++^",
-    "machine": "꾜"
+    "token": "꾜"
   },
   {
     "talk": "i@++_",
-    "machine": "꾝"
+    "token": "꾝"
   },
   {
     "talk": "i@++_^",
-    "machine": "꾞"
+    "token": "꾞"
   },
   {
     "talk": "i&",
-    "machine": "꾟"
+    "token": "꾟"
   },
   {
     "talk": "i&^",
-    "machine": "꾠"
+    "token": "꾠"
   },
   {
     "talk": "i&_",
-    "machine": "꾡"
+    "token": "꾡"
   },
   {
     "talk": "i&_^",
-    "machine": "꾢"
+    "token": "꾢"
   },
   {
     "talk": "i&--",
-    "machine": "꾣"
+    "token": "꾣"
   },
   {
     "talk": "i&--^",
-    "machine": "꾤"
+    "token": "꾤"
   },
   {
     "talk": "i&--_",
-    "machine": "꾥"
+    "token": "꾥"
   },
   {
     "talk": "i&--_^",
-    "machine": "꾦"
+    "token": "꾦"
   },
   {
     "talk": "i&-",
-    "machine": "꾧"
+    "token": "꾧"
   },
   {
     "talk": "i&-^",
-    "machine": "꾨"
+    "token": "꾨"
   },
   {
     "talk": "i&-_",
-    "machine": "꾩"
+    "token": "꾩"
   },
   {
     "talk": "i&-_^",
-    "machine": "꾪"
+    "token": "꾪"
   },
   {
     "talk": "i&+",
-    "machine": "꾫"
+    "token": "꾫"
   },
   {
     "talk": "i&+^",
-    "machine": "꾬"
+    "token": "꾬"
   },
   {
     "talk": "i&+_",
-    "machine": "꾭"
+    "token": "꾭"
   },
   {
     "talk": "i&+_^",
-    "machine": "꾮"
+    "token": "꾮"
   },
   {
     "talk": "i&++",
-    "machine": "꾯"
+    "token": "꾯"
   },
   {
     "talk": "i&++^",
-    "machine": "꾰"
+    "token": "꾰"
   },
   {
     "talk": "i&++_",
-    "machine": "꾱"
+    "token": "꾱"
   },
   {
     "talk": "i&++_^",
-    "machine": "꾲"
+    "token": "꾲"
   },
   {
     "talk": "i&@",
-    "machine": "꾳"
+    "token": "꾳"
   },
   {
     "talk": "i&@^",
-    "machine": "꾴"
+    "token": "꾴"
   },
   {
     "talk": "i&@_",
-    "machine": "꾵"
+    "token": "꾵"
   },
   {
     "talk": "i&@_^",
-    "machine": "꾶"
+    "token": "꾶"
   },
   {
     "talk": "i&@--",
-    "machine": "꾷"
+    "token": "꾷"
   },
   {
     "talk": "i&@--^",
-    "machine": "꾸"
+    "token": "꾸"
   },
   {
     "talk": "i&@--_",
-    "machine": "꾹"
+    "token": "꾹"
   },
   {
     "talk": "i&@--_^",
-    "machine": "꾺"
+    "token": "꾺"
   },
   {
     "talk": "i&@-",
-    "machine": "꾻"
+    "token": "꾻"
   },
   {
     "talk": "i&@-^",
-    "machine": "꾼"
+    "token": "꾼"
   },
   {
     "talk": "i&@-_",
-    "machine": "꾽"
+    "token": "꾽"
   },
   {
     "talk": "i&@-_^",
-    "machine": "꾾"
+    "token": "꾾"
   },
   {
     "talk": "i&@+",
-    "machine": "꾿"
+    "token": "꾿"
   },
   {
     "talk": "i&@+^",
-    "machine": "꿀"
+    "token": "꿀"
   },
   {
     "talk": "i&@+_",
-    "machine": "꿁"
+    "token": "꿁"
   },
   {
     "talk": "i&@+_^",
-    "machine": "꿂"
+    "token": "꿂"
   },
   {
     "talk": "i&@++",
-    "machine": "꿃"
+    "token": "꿃"
   },
   {
     "talk": "i&@++^",
-    "machine": "꿄"
+    "token": "꿄"
   },
   {
     "talk": "i&@++_",
-    "machine": "꿅"
+    "token": "꿅"
   },
   {
     "talk": "i&@++_^",
-    "machine": "꿆"
+    "token": "꿆"
   },
   {
     "talk": "i$",
-    "machine": "꿇"
+    "token": "꿇"
   },
   {
     "talk": "i$^",
-    "machine": "꿈"
+    "token": "꿈"
   },
   {
     "talk": "i$_",
-    "machine": "꿉"
+    "token": "꿉"
   },
   {
     "talk": "i$_^",
-    "machine": "꿊"
+    "token": "꿊"
   },
   {
     "talk": "i$--",
-    "machine": "꿋"
+    "token": "꿋"
   },
   {
     "talk": "i$--^",
-    "machine": "꿌"
+    "token": "꿌"
   },
   {
     "talk": "i$--_",
-    "machine": "꿍"
+    "token": "꿍"
   },
   {
     "talk": "i$--_^",
-    "machine": "꿎"
+    "token": "꿎"
   },
   {
     "talk": "i$-",
-    "machine": "꿏"
+    "token": "꿏"
   },
   {
     "talk": "i$-^",
-    "machine": "꿐"
+    "token": "꿐"
   },
   {
     "talk": "i$-_",
-    "machine": "꿑"
+    "token": "꿑"
   },
   {
     "talk": "i$-_^",
-    "machine": "꿒"
+    "token": "꿒"
   },
   {
     "talk": "i$+",
-    "machine": "꿓"
+    "token": "꿓"
   },
   {
     "talk": "i$+^",
-    "machine": "꿔"
+    "token": "꿔"
   },
   {
     "talk": "i$+_",
-    "machine": "꿕"
+    "token": "꿕"
   },
   {
     "talk": "i$+_^",
-    "machine": "꿖"
+    "token": "꿖"
   },
   {
     "talk": "i$++",
-    "machine": "꿗"
+    "token": "꿗"
   },
   {
     "talk": "i$++^",
-    "machine": "꿘"
+    "token": "꿘"
   },
   {
     "talk": "i$++_",
-    "machine": "꿙"
+    "token": "꿙"
   },
   {
     "talk": "i$++_^",
-    "machine": "꿚"
+    "token": "꿚"
   },
   {
     "talk": "i$@",
-    "machine": "꿛"
+    "token": "꿛"
   },
   {
     "talk": "i$@^",
-    "machine": "꿜"
+    "token": "꿜"
   },
   {
     "talk": "i$@_",
-    "machine": "꿝"
+    "token": "꿝"
   },
   {
     "talk": "i$@_^",
-    "machine": "꿞"
+    "token": "꿞"
   },
   {
     "talk": "i$@--",
-    "machine": "꿟"
+    "token": "꿟"
   },
   {
     "talk": "i$@--^",
-    "machine": "꿠"
+    "token": "꿠"
   },
   {
     "talk": "i$@--_",
-    "machine": "꿡"
+    "token": "꿡"
   },
   {
     "talk": "i$@--_^",
-    "machine": "꿢"
+    "token": "꿢"
   },
   {
     "talk": "i$@-",
-    "machine": "꿣"
+    "token": "꿣"
   },
   {
     "talk": "i$@-^",
-    "machine": "꿤"
+    "token": "꿤"
   },
   {
     "talk": "i$@-_",
-    "machine": "꿥"
+    "token": "꿥"
   },
   {
     "talk": "i$@-_^",
-    "machine": "꿦"
+    "token": "꿦"
   },
   {
     "talk": "i$@+",
-    "machine": "꿧"
+    "token": "꿧"
   },
   {
     "talk": "i$@+^",
-    "machine": "꿨"
+    "token": "꿨"
   },
   {
     "talk": "i$@+_",
-    "machine": "꿩"
+    "token": "꿩"
   },
   {
     "talk": "i$@+_^",
-    "machine": "꿪"
+    "token": "꿪"
   },
   {
     "talk": "i$@++",
-    "machine": "꿫"
+    "token": "꿫"
   },
   {
     "talk": "i$@++^",
-    "machine": "꿬"
+    "token": "꿬"
   },
   {
     "talk": "i$@++_",
-    "machine": "꿭"
+    "token": "꿭"
   },
   {
     "talk": "i$@++_^",
-    "machine": "꿮"
+    "token": "꿮"
   },
   {
     "talk": "i$&",
-    "machine": "꿯"
+    "token": "꿯"
   },
   {
     "talk": "i$&^",
-    "machine": "꿰"
+    "token": "꿰"
   },
   {
     "talk": "i$&_",
-    "machine": "꿱"
+    "token": "꿱"
   },
   {
     "talk": "i$&_^",
-    "machine": "꿲"
+    "token": "꿲"
   },
   {
     "talk": "i$&--",
-    "machine": "꿳"
+    "token": "꿳"
   },
   {
     "talk": "i$&--^",
-    "machine": "꿴"
+    "token": "꿴"
   },
   {
     "talk": "i$&--_",
-    "machine": "꿵"
+    "token": "꿵"
   },
   {
     "talk": "i$&--_^",
-    "machine": "꿶"
+    "token": "꿶"
   },
   {
     "talk": "i$&-",
-    "machine": "꿷"
+    "token": "꿷"
   },
   {
     "talk": "i$&-^",
-    "machine": "꿸"
+    "token": "꿸"
   },
   {
     "talk": "i$&-_",
-    "machine": "꿹"
+    "token": "꿹"
   },
   {
     "talk": "i$&-_^",
-    "machine": "꿺"
+    "token": "꿺"
   },
   {
     "talk": "i$&+",
-    "machine": "꿻"
+    "token": "꿻"
   },
   {
     "talk": "i$&+^",
-    "machine": "꿼"
+    "token": "꿼"
   },
   {
     "talk": "i$&+_",
-    "machine": "꿽"
+    "token": "꿽"
   },
   {
     "talk": "i$&+_^",
-    "machine": "꿾"
+    "token": "꿾"
   },
   {
     "talk": "i$&++",
-    "machine": "꿿"
+    "token": "꿿"
   },
   {
     "talk": "i$&++^",
-    "machine": "뀀"
+    "token": "뀀"
   },
   {
     "talk": "i$&++_",
-    "machine": "뀁"
+    "token": "뀁"
   },
   {
     "talk": "i$&++_^",
-    "machine": "뀂"
+    "token": "뀂"
   },
   {
     "talk": "i$&@",
-    "machine": "뀃"
+    "token": "뀃"
   },
   {
     "talk": "i$&@^",
-    "machine": "뀄"
+    "token": "뀄"
   },
   {
     "talk": "i$&@_",
-    "machine": "뀅"
+    "token": "뀅"
   },
   {
     "talk": "i$&@_^",
-    "machine": "뀆"
+    "token": "뀆"
   },
   {
     "talk": "i$&@--",
-    "machine": "뀇"
+    "token": "뀇"
   },
   {
     "talk": "i$&@--^",
-    "machine": "뀈"
+    "token": "뀈"
   },
   {
     "talk": "i$&@--_",
-    "machine": "뀉"
+    "token": "뀉"
   },
   {
     "talk": "i$&@--_^",
-    "machine": "뀊"
+    "token": "뀊"
   },
   {
     "talk": "i$&@-",
-    "machine": "뀋"
+    "token": "뀋"
   },
   {
     "talk": "i$&@-^",
-    "machine": "뀌"
+    "token": "뀌"
   },
   {
     "talk": "i$&@-_",
-    "machine": "뀍"
+    "token": "뀍"
   },
   {
     "talk": "i$&@-_^",
-    "machine": "뀎"
+    "token": "뀎"
   },
   {
     "talk": "i$&@+",
-    "machine": "뀏"
+    "token": "뀏"
   },
   {
     "talk": "i$&@+^",
-    "machine": "뀐"
+    "token": "뀐"
   },
   {
     "talk": "i$&@+_",
-    "machine": "뀑"
+    "token": "뀑"
   },
   {
     "talk": "i$&@+_^",
-    "machine": "뀒"
+    "token": "뀒"
   },
   {
     "talk": "i$&@++",
-    "machine": "뀓"
+    "token": "뀓"
   },
   {
     "talk": "i$&@++^",
-    "machine": "뀔"
+    "token": "뀔"
   },
   {
     "talk": "i$&@++_",
-    "machine": "뀕"
+    "token": "뀕"
   },
   {
     "talk": "i$&@++_^",
-    "machine": "뀖"
+    "token": "뀖"
   },
   {
     "talk": "u",
-    "machine": "뀗"
+    "token": "뀗"
   },
   {
     "talk": "u^",
-    "machine": "뀘"
+    "token": "뀘"
   },
   {
     "talk": "u_",
-    "machine": "뀙"
+    "token": "뀙"
   },
   {
     "talk": "u_^",
-    "machine": "뀚"
+    "token": "뀚"
   },
   {
     "talk": "u--",
-    "machine": "뀛"
+    "token": "뀛"
   },
   {
     "talk": "u--^",
-    "machine": "뀜"
+    "token": "뀜"
   },
   {
     "talk": "u--_",
-    "machine": "뀝"
+    "token": "뀝"
   },
   {
     "talk": "u--_^",
-    "machine": "뀞"
+    "token": "뀞"
   },
   {
     "talk": "u-",
-    "machine": "뀟"
+    "token": "뀟"
   },
   {
     "talk": "u-^",
-    "machine": "뀠"
+    "token": "뀠"
   },
   {
     "talk": "u-_",
-    "machine": "뀡"
+    "token": "뀡"
   },
   {
     "talk": "u-_^",
-    "machine": "뀢"
+    "token": "뀢"
   },
   {
     "talk": "u+",
-    "machine": "뀣"
+    "token": "뀣"
   },
   {
     "talk": "u+^",
-    "machine": "뀤"
+    "token": "뀤"
   },
   {
     "talk": "u+_",
-    "machine": "뀥"
+    "token": "뀥"
   },
   {
     "talk": "u+_^",
-    "machine": "뀦"
+    "token": "뀦"
   },
   {
     "talk": "u++",
-    "machine": "뀧"
+    "token": "뀧"
   },
   {
     "talk": "u++^",
-    "machine": "뀨"
+    "token": "뀨"
   },
   {
     "talk": "u++_",
-    "machine": "뀩"
+    "token": "뀩"
   },
   {
     "talk": "u++_^",
-    "machine": "뀪"
+    "token": "뀪"
   },
   {
     "talk": "u@",
-    "machine": "뀫"
+    "token": "뀫"
   },
   {
     "talk": "u@^",
-    "machine": "뀬"
+    "token": "뀬"
   },
   {
     "talk": "u@_",
-    "machine": "뀭"
+    "token": "뀭"
   },
   {
     "talk": "u@_^",
-    "machine": "뀮"
+    "token": "뀮"
   },
   {
     "talk": "u@--",
-    "machine": "뀯"
+    "token": "뀯"
   },
   {
     "talk": "u@--^",
-    "machine": "뀰"
+    "token": "뀰"
   },
   {
     "talk": "u@--_",
-    "machine": "뀱"
+    "token": "뀱"
   },
   {
     "talk": "u@--_^",
-    "machine": "뀲"
+    "token": "뀲"
   },
   {
     "talk": "u@-",
-    "machine": "뀳"
+    "token": "뀳"
   },
   {
     "talk": "u@-^",
-    "machine": "뀴"
+    "token": "뀴"
   },
   {
     "talk": "u@-_",
-    "machine": "뀵"
+    "token": "뀵"
   },
   {
     "talk": "u@-_^",
-    "machine": "뀶"
+    "token": "뀶"
   },
   {
     "talk": "u@+",
-    "machine": "뀷"
+    "token": "뀷"
   },
   {
     "talk": "u@+^",
-    "machine": "뀸"
+    "token": "뀸"
   },
   {
     "talk": "u@+_",
-    "machine": "뀹"
+    "token": "뀹"
   },
   {
     "talk": "u@+_^",
-    "machine": "뀺"
+    "token": "뀺"
   },
   {
     "talk": "u@++",
-    "machine": "뀻"
+    "token": "뀻"
   },
   {
     "talk": "u@++^",
-    "machine": "뀼"
+    "token": "뀼"
   },
   {
     "talk": "u@++_",
-    "machine": "뀽"
+    "token": "뀽"
   },
   {
     "talk": "u@++_^",
-    "machine": "뀾"
+    "token": "뀾"
   },
   {
     "talk": "u&",
-    "machine": "뀿"
+    "token": "뀿"
   },
   {
     "talk": "u&^",
-    "machine": "끀"
+    "token": "끀"
   },
   {
     "talk": "u&_",
-    "machine": "끁"
+    "token": "끁"
   },
   {
     "talk": "u&_^",
-    "machine": "끂"
+    "token": "끂"
   },
   {
     "talk": "u&--",
-    "machine": "끃"
+    "token": "끃"
   },
   {
     "talk": "u&--^",
-    "machine": "끄"
+    "token": "끄"
   },
   {
     "talk": "u&--_",
-    "machine": "끅"
+    "token": "끅"
   },
   {
     "talk": "u&--_^",
-    "machine": "끆"
+    "token": "끆"
   },
   {
     "talk": "u&-",
-    "machine": "끇"
+    "token": "끇"
   },
   {
     "talk": "u&-^",
-    "machine": "끈"
+    "token": "끈"
   },
   {
     "talk": "u&-_",
-    "machine": "끉"
+    "token": "끉"
   },
   {
     "talk": "u&-_^",
-    "machine": "끊"
+    "token": "끊"
   },
   {
     "talk": "u&+",
-    "machine": "끋"
+    "token": "끋"
   },
   {
     "talk": "u&+^",
-    "machine": "끌"
+    "token": "끌"
   },
   {
     "talk": "u&+_",
-    "machine": "끍"
+    "token": "끍"
   },
   {
     "talk": "u&+_^",
-    "machine": "끎"
+    "token": "끎"
   },
   {
     "talk": "u&++",
-    "machine": "끏"
+    "token": "끏"
   },
   {
     "talk": "u&++^",
-    "machine": "끐"
+    "token": "끐"
   },
   {
     "talk": "u&++_",
-    "machine": "끑"
+    "token": "끑"
   },
   {
     "talk": "u&++_^",
-    "machine": "끒"
+    "token": "끒"
   },
   {
     "talk": "u&@",
-    "machine": "끓"
+    "token": "끓"
   },
   {
     "talk": "u&@^",
-    "machine": "끔"
+    "token": "끔"
   },
   {
     "talk": "u&@_",
-    "machine": "끕"
+    "token": "끕"
   },
   {
     "talk": "u&@_^",
-    "machine": "끖"
+    "token": "끖"
   },
   {
     "talk": "u&@--",
-    "machine": "끗"
+    "token": "끗"
   },
   {
     "talk": "u&@--^",
-    "machine": "끘"
+    "token": "끘"
   },
   {
     "talk": "u&@--_",
-    "machine": "끙"
+    "token": "끙"
   },
   {
     "talk": "u&@--_^",
-    "machine": "끚"
+    "token": "끚"
   },
   {
     "talk": "u&@-",
-    "machine": "끛"
+    "token": "끛"
   },
   {
     "talk": "u&@-^",
-    "machine": "끜"
+    "token": "끜"
   },
   {
     "talk": "u&@-_",
-    "machine": "끝"
+    "token": "끝"
   },
   {
     "talk": "u&@-_^",
-    "machine": "끞"
+    "token": "끞"
   },
   {
     "talk": "u&@+",
-    "machine": "끟"
+    "token": "끟"
   },
   {
     "talk": "u&@+^",
-    "machine": "끠"
+    "token": "끠"
   },
   {
     "talk": "u&@+_",
-    "machine": "끡"
+    "token": "끡"
   },
   {
     "talk": "u&@+_^",
-    "machine": "끢"
+    "token": "끢"
   },
   {
     "talk": "u&@++",
-    "machine": "끣"
+    "token": "끣"
   },
   {
     "talk": "u&@++^",
-    "machine": "끤"
+    "token": "끤"
   },
   {
     "talk": "u&@++_",
-    "machine": "끥"
+    "token": "끥"
   },
   {
     "talk": "u&@++_^",
-    "machine": "끦"
+    "token": "끦"
   },
   {
     "talk": "O",
-    "machine": "끧"
+    "token": "끧"
   },
   {
     "talk": "O^",
-    "machine": "끨"
+    "token": "끨"
   },
   {
     "talk": "O_",
-    "machine": "끩"
+    "token": "끩"
   },
   {
     "talk": "O_^",
-    "machine": "끪"
+    "token": "끪"
   },
   {
     "talk": "O--",
-    "machine": "끫"
+    "token": "끫"
   },
   {
     "talk": "O--^",
-    "machine": "끬"
+    "token": "끬"
   },
   {
     "talk": "O--_",
-    "machine": "끭"
+    "token": "끭"
   },
   {
     "talk": "O--_^",
-    "machine": "끮"
+    "token": "끮"
   },
   {
     "talk": "O-",
-    "machine": "끯"
+    "token": "끯"
   },
   {
     "talk": "O-^",
-    "machine": "끰"
+    "token": "끰"
   },
   {
     "talk": "O-_",
-    "machine": "끱"
+    "token": "끱"
   },
   {
     "talk": "O-_^",
-    "machine": "끲"
+    "token": "끲"
   },
   {
     "talk": "O+",
-    "machine": "끳"
+    "token": "끳"
   },
   {
     "talk": "O+^",
-    "machine": "끴"
+    "token": "끴"
   },
   {
     "talk": "O+_",
-    "machine": "끵"
+    "token": "끵"
   },
   {
     "talk": "O+_^",
-    "machine": "끶"
+    "token": "끶"
   },
   {
     "talk": "O++",
-    "machine": "끷"
+    "token": "끷"
   },
   {
     "talk": "O++^",
-    "machine": "끸"
+    "token": "끸"
   },
   {
     "talk": "O++_",
-    "machine": "끹"
+    "token": "끹"
   },
   {
     "talk": "O++_^",
-    "machine": "끺"
+    "token": "끺"
   },
   {
     "talk": "O@",
-    "machine": "끻"
+    "token": "끻"
   },
   {
     "talk": "O@^",
-    "machine": "끼"
+    "token": "끼"
   },
   {
     "talk": "O@_",
-    "machine": "끽"
+    "token": "끽"
   },
   {
     "talk": "O@_^",
-    "machine": "끾"
+    "token": "끾"
   },
   {
     "talk": "O@--",
-    "machine": "끿"
+    "token": "끿"
   },
   {
     "talk": "O@--^",
-    "machine": "낀"
+    "token": "낀"
   },
   {
     "talk": "O@--_",
-    "machine": "낁"
+    "token": "낁"
   },
   {
     "talk": "O@--_^",
-    "machine": "낂"
+    "token": "낂"
   },
   {
     "talk": "O@-",
-    "machine": "낃"
+    "token": "낃"
   },
   {
     "talk": "O@-^",
-    "machine": "낄"
+    "token": "낄"
   },
   {
     "talk": "O@-_",
-    "machine": "낅"
+    "token": "낅"
   },
   {
     "talk": "O@-_^",
-    "machine": "낆"
+    "token": "낆"
   },
   {
     "talk": "O@+",
-    "machine": "낇"
+    "token": "낇"
   },
   {
     "talk": "O@+^",
-    "machine": "낈"
+    "token": "낈"
   },
   {
     "talk": "O@+_",
-    "machine": "낉"
+    "token": "낉"
   },
   {
     "talk": "O@+_^",
-    "machine": "낊"
+    "token": "낊"
   },
   {
     "talk": "O@++",
-    "machine": "낋"
+    "token": "낋"
   },
   {
     "talk": "O@++^",
-    "machine": "낌"
+    "token": "낌"
   },
   {
     "talk": "O@++_",
-    "machine": "낍"
+    "token": "낍"
   },
   {
     "talk": "O@++_^",
-    "machine": "낎"
+    "token": "낎"
   },
   {
     "talk": "O&",
-    "machine": "낏"
+    "token": "낏"
   },
   {
     "talk": "O&^",
-    "machine": "낐"
+    "token": "낐"
   },
   {
     "talk": "O&_",
-    "machine": "낑"
+    "token": "낑"
   },
   {
     "talk": "O&_^",
-    "machine": "낒"
+    "token": "낒"
   },
   {
     "talk": "O&--",
-    "machine": "낓"
+    "token": "낓"
   },
   {
     "talk": "O&--^",
-    "machine": "낔"
+    "token": "낔"
   },
   {
     "talk": "O&--_",
-    "machine": "낕"
+    "token": "낕"
   },
   {
     "talk": "O&--_^",
-    "machine": "낖"
+    "token": "낖"
   },
   {
     "talk": "O&-",
-    "machine": "낗"
+    "token": "낗"
   },
   {
     "talk": "O&-^",
-    "machine": "나"
+    "token": "나"
   },
   {
     "talk": "O&-_",
-    "machine": "낙"
+    "token": "낙"
   },
   {
     "talk": "O&-_^",
-    "machine": "낚"
+    "token": "낚"
   },
   {
     "talk": "O&+",
-    "machine": "낛"
+    "token": "낛"
   },
   {
     "talk": "O&+^",
-    "machine": "난"
+    "token": "난"
   },
   {
     "talk": "O&+_",
-    "machine": "낝"
+    "token": "낝"
   },
   {
     "talk": "O&+_^",
-    "machine": "낞"
+    "token": "낞"
   },
   {
     "talk": "O&++",
-    "machine": "낟"
+    "token": "낟"
   },
   {
     "talk": "O&++^",
-    "machine": "날"
+    "token": "날"
   },
   {
     "talk": "O&++_",
-    "machine": "낡"
+    "token": "낡"
   },
   {
     "talk": "O&++_^",
-    "machine": "낢"
+    "token": "낢"
   },
   {
     "talk": "O&@",
-    "machine": "낣"
+    "token": "낣"
   },
   {
     "talk": "O&@^",
-    "machine": "낤"
+    "token": "낤"
   },
   {
     "talk": "O&@_",
-    "machine": "낥"
+    "token": "낥"
   },
   {
     "talk": "O&@_^",
-    "machine": "낦"
+    "token": "낦"
   },
   {
     "talk": "O&@--",
-    "machine": "낧"
+    "token": "낧"
   },
   {
     "talk": "O&@--^",
-    "machine": "남"
+    "token": "남"
   },
   {
     "talk": "O&@--_",
-    "machine": "납"
+    "token": "납"
   },
   {
     "talk": "O&@--_^",
-    "machine": "낪"
+    "token": "낪"
   },
   {
     "talk": "O&@-",
-    "machine": "낫"
+    "token": "낫"
   },
   {
     "talk": "O&@-^",
-    "machine": "났"
+    "token": "났"
   },
   {
     "talk": "O&@-_",
-    "machine": "낭"
+    "token": "낭"
   },
   {
     "talk": "O&@-_^",
-    "machine": "낮"
+    "token": "낮"
   },
   {
     "talk": "O&@+",
-    "machine": "낯"
+    "token": "낯"
   },
   {
     "talk": "O&@+^",
-    "machine": "낰"
+    "token": "낰"
   },
   {
     "talk": "O&@+_",
-    "machine": "낱"
+    "token": "낱"
   },
   {
     "talk": "O&@+_^",
-    "machine": "낲"
+    "token": "낲"
   },
   {
     "talk": "O&@++",
-    "machine": "낳"
+    "token": "낳"
   },
   {
     "talk": "O&@++^",
-    "machine": "내"
+    "token": "내"
   },
   {
     "talk": "O&@++_",
-    "machine": "낵"
+    "token": "낵"
   },
   {
     "talk": "O&@++_^",
-    "machine": "낶"
+    "token": "낶"
   },
   {
     "talk": "I",
-    "machine": "낷"
+    "token": "낷"
   },
   {
     "talk": "I^",
-    "machine": "낸"
+    "token": "낸"
   },
   {
     "talk": "I_",
-    "machine": "낹"
+    "token": "낹"
   },
   {
     "talk": "I_^",
-    "machine": "낺"
+    "token": "낺"
   },
   {
     "talk": "I--",
-    "machine": "낻"
+    "token": "낻"
   },
   {
     "talk": "I--^",
-    "machine": "낼"
+    "token": "낼"
   },
   {
     "talk": "I--_",
-    "machine": "낽"
+    "token": "낽"
   },
   {
     "talk": "I--_^",
-    "machine": "낾"
+    "token": "낾"
   },
   {
     "talk": "I-",
-    "machine": "낿"
+    "token": "낿"
   },
   {
     "talk": "I-^",
-    "machine": "냀"
+    "token": "냀"
   },
   {
     "talk": "I-_",
-    "machine": "냁"
+    "token": "냁"
   },
   {
     "talk": "I-_^",
-    "machine": "냂"
+    "token": "냂"
   },
   {
     "talk": "I+",
-    "machine": "냃"
+    "token": "냃"
   },
   {
     "talk": "I+^",
-    "machine": "냄"
+    "token": "냄"
   },
   {
     "talk": "I+_",
-    "machine": "냅"
+    "token": "냅"
   },
   {
     "talk": "I+_^",
-    "machine": "냆"
+    "token": "냆"
   },
   {
     "talk": "I++",
-    "machine": "냇"
+    "token": "냇"
   },
   {
     "talk": "I++^",
-    "machine": "냈"
+    "token": "냈"
   },
   {
     "talk": "I++_",
-    "machine": "냉"
+    "token": "냉"
   },
   {
     "talk": "I++_^",
-    "machine": "냊"
+    "token": "냊"
   },
   {
     "talk": "I@",
-    "machine": "냋"
+    "token": "냋"
   },
   {
     "talk": "I@^",
-    "machine": "냌"
+    "token": "냌"
   },
   {
     "talk": "I@_",
-    "machine": "냍"
+    "token": "냍"
   },
   {
     "talk": "I@_^",
-    "machine": "냎"
+    "token": "냎"
   },
   {
     "talk": "I@--",
-    "machine": "냏"
+    "token": "냏"
   },
   {
     "talk": "I@--^",
-    "machine": "냐"
+    "token": "냐"
   },
   {
     "talk": "I@--_",
-    "machine": "냑"
+    "token": "냑"
   },
   {
     "talk": "I@--_^",
-    "machine": "냒"
+    "token": "냒"
   },
   {
     "talk": "I@-",
-    "machine": "냓"
+    "token": "냓"
   },
   {
     "talk": "I@-^",
-    "machine": "냔"
+    "token": "냔"
   },
   {
     "talk": "I@-_",
-    "machine": "냕"
+    "token": "냕"
   },
   {
     "talk": "I@-_^",
-    "machine": "냖"
+    "token": "냖"
   },
   {
     "talk": "I@+",
-    "machine": "냗"
+    "token": "냗"
   },
   {
     "talk": "I@+^",
-    "machine": "냘"
+    "token": "냘"
   },
   {
     "talk": "I@+_",
-    "machine": "냙"
+    "token": "냙"
   },
   {
     "talk": "I@+_^",
-    "machine": "냚"
+    "token": "냚"
   },
   {
     "talk": "I@++",
-    "machine": "냛"
+    "token": "냛"
   },
   {
     "talk": "I@++^",
-    "machine": "냜"
+    "token": "냜"
   },
   {
     "talk": "I@++_",
-    "machine": "냝"
+    "token": "냝"
   },
   {
     "talk": "I@++_^",
-    "machine": "냞"
+    "token": "냞"
   },
   {
     "talk": "I&",
-    "machine": "냟"
+    "token": "냟"
   },
   {
     "talk": "I&^",
-    "machine": "냠"
+    "token": "냠"
   },
   {
     "talk": "I&_",
-    "machine": "냡"
+    "token": "냡"
   },
   {
     "talk": "I&_^",
-    "machine": "냢"
+    "token": "냢"
   },
   {
     "talk": "I&--",
-    "machine": "냣"
+    "token": "냣"
   },
   {
     "talk": "I&--^",
-    "machine": "냤"
+    "token": "냤"
   },
   {
     "talk": "I&--_",
-    "machine": "냥"
+    "token": "냥"
   },
   {
     "talk": "I&--_^",
-    "machine": "냦"
+    "token": "냦"
   },
   {
     "talk": "I&-",
-    "machine": "냧"
+    "token": "냧"
   },
   {
     "talk": "I&-^",
-    "machine": "냨"
+    "token": "냨"
   },
   {
     "talk": "I&-_",
-    "machine": "냩"
+    "token": "냩"
   },
   {
     "talk": "I&-_^",
-    "machine": "냪"
+    "token": "냪"
   },
   {
     "talk": "I&+",
-    "machine": "냫"
+    "token": "냫"
   },
   {
     "talk": "I&+^",
-    "machine": "냬"
+    "token": "냬"
   },
   {
     "talk": "I&+_",
-    "machine": "냭"
+    "token": "냭"
   },
   {
     "talk": "I&+_^",
-    "machine": "냮"
+    "token": "냮"
   },
   {
     "talk": "I&++",
-    "machine": "냯"
+    "token": "냯"
   },
   {
     "talk": "I&++^",
-    "machine": "냰"
+    "token": "냰"
   },
   {
     "talk": "I&++_",
-    "machine": "냱"
+    "token": "냱"
   },
   {
     "talk": "I&++_^",
-    "machine": "냲"
+    "token": "냲"
   },
   {
     "talk": "I&@",
-    "machine": "냳"
+    "token": "냳"
   },
   {
     "talk": "I&@^",
-    "machine": "냴"
+    "token": "냴"
   },
   {
     "talk": "I&@_",
-    "machine": "냵"
+    "token": "냵"
   },
   {
     "talk": "I&@_^",
-    "machine": "냶"
+    "token": "냶"
   },
   {
     "talk": "I&@--",
-    "machine": "냷"
+    "token": "냷"
   },
   {
     "talk": "I&@--^",
-    "machine": "냸"
+    "token": "냸"
   },
   {
     "talk": "I&@--_",
-    "machine": "냹"
+    "token": "냹"
   },
   {
     "talk": "I&@--_^",
-    "machine": "냺"
+    "token": "냺"
   },
   {
     "talk": "I&@-",
-    "machine": "냻"
+    "token": "냻"
   },
   {
     "talk": "I&@-^",
-    "machine": "냼"
+    "token": "냼"
   },
   {
     "talk": "I&@-_",
-    "machine": "냽"
+    "token": "냽"
   },
   {
     "talk": "I&@-_^",
-    "machine": "냾"
+    "token": "냾"
   },
   {
     "talk": "I&@+",
-    "machine": "냿"
+    "token": "냿"
   },
   {
     "talk": "I&@+^",
-    "machine": "넀"
+    "token": "넀"
   },
   {
     "talk": "I&@+_",
-    "machine": "넁"
+    "token": "넁"
   },
   {
     "talk": "I&@+_^",
-    "machine": "넂"
+    "token": "넂"
   },
   {
     "talk": "I&@++",
-    "machine": "넃"
+    "token": "넃"
   },
   {
     "talk": "I&@++^",
-    "machine": "넄"
+    "token": "넄"
   },
   {
     "talk": "I&@++_",
-    "machine": "넅"
+    "token": "넅"
   },
   {
     "talk": "I&@++_^",
-    "machine": "넆"
+    "token": "넆"
   },
   {
     "talk": "e",
-    "machine": "넇"
+    "token": "넇"
   },
   {
     "talk": "e^",
-    "machine": "너"
+    "token": "너"
   },
   {
     "talk": "e_",
-    "machine": "넉"
+    "token": "넉"
   },
   {
     "talk": "e_^",
-    "machine": "넊"
+    "token": "넊"
   },
   {
     "talk": "e--",
-    "machine": "넋"
+    "token": "넋"
   },
   {
     "talk": "e--^",
-    "machine": "넌"
+    "token": "넌"
   },
   {
     "talk": "e--_",
-    "machine": "넍"
+    "token": "넍"
   },
   {
     "talk": "e--_^",
-    "machine": "넎"
+    "token": "넎"
   },
   {
     "talk": "e-",
-    "machine": "넏"
+    "token": "넏"
   },
   {
     "talk": "e-^",
-    "machine": "널"
+    "token": "널"
   },
   {
     "talk": "e-_",
-    "machine": "넑"
+    "token": "넑"
   },
   {
     "talk": "e-_^",
-    "machine": "넒"
+    "token": "넒"
   },
   {
     "talk": "e+",
-    "machine": "넓"
+    "token": "넓"
   },
   {
     "talk": "e+^",
-    "machine": "넔"
+    "token": "넔"
   },
   {
     "talk": "e+_",
-    "machine": "넕"
+    "token": "넕"
   },
   {
     "talk": "e+_^",
-    "machine": "넖"
+    "token": "넖"
   },
   {
     "talk": "e++",
-    "machine": "넗"
+    "token": "넗"
   },
   {
     "talk": "e++^",
-    "machine": "넘"
+    "token": "넘"
   },
   {
     "talk": "e++_",
-    "machine": "넙"
+    "token": "넙"
   },
   {
     "talk": "e++_^",
-    "machine": "넚"
+    "token": "넚"
   },
   {
     "talk": "e@",
-    "machine": "넛"
+    "token": "넛"
   },
   {
     "talk": "e@^",
-    "machine": "넜"
+    "token": "넜"
   },
   {
     "talk": "e@_",
-    "machine": "넝"
+    "token": "넝"
   },
   {
     "talk": "e@_^",
-    "machine": "넞"
+    "token": "넞"
   },
   {
     "talk": "e@--",
-    "machine": "넟"
+    "token": "넟"
   },
   {
     "talk": "e@--^",
-    "machine": "넠"
+    "token": "넠"
   },
   {
     "talk": "e@--_",
-    "machine": "넡"
+    "token": "넡"
   },
   {
     "talk": "e@--_^",
-    "machine": "넢"
+    "token": "넢"
   },
   {
     "talk": "e@-",
-    "machine": "넣"
+    "token": "넣"
   },
   {
     "talk": "e@-^",
-    "machine": "네"
+    "token": "네"
   },
   {
     "talk": "e@-_",
-    "machine": "넥"
+    "token": "넥"
   },
   {
     "talk": "e@-_^",
-    "machine": "넦"
+    "token": "넦"
   },
   {
     "talk": "e@+",
-    "machine": "넧"
+    "token": "넧"
   },
   {
     "talk": "e@+^",
-    "machine": "넨"
+    "token": "넨"
   },
   {
     "talk": "e@+_",
-    "machine": "넩"
+    "token": "넩"
   },
   {
     "talk": "e@+_^",
-    "machine": "넪"
+    "token": "넪"
   },
   {
     "talk": "e@++",
-    "machine": "넫"
+    "token": "넫"
   },
   {
     "talk": "e@++^",
-    "machine": "넬"
+    "token": "넬"
   },
   {
     "talk": "e@++_",
-    "machine": "넭"
+    "token": "넭"
   },
   {
     "talk": "e@++_^",
-    "machine": "넮"
+    "token": "넮"
   },
   {
     "talk": "e&",
-    "machine": "넯"
+    "token": "넯"
   },
   {
     "talk": "e&^",
-    "machine": "넰"
+    "token": "넰"
   },
   {
     "talk": "e&_",
-    "machine": "넱"
+    "token": "넱"
   },
   {
     "talk": "e&_^",
-    "machine": "넲"
+    "token": "넲"
   },
   {
     "talk": "e&--",
-    "machine": "넳"
+    "token": "넳"
   },
   {
     "talk": "e&--^",
-    "machine": "넴"
+    "token": "넴"
   },
   {
     "talk": "e&--_",
-    "machine": "넵"
+    "token": "넵"
   },
   {
     "talk": "e&--_^",
-    "machine": "넶"
+    "token": "넶"
   },
   {
     "talk": "e&-",
-    "machine": "넷"
+    "token": "넷"
   },
   {
     "talk": "e&-^",
-    "machine": "넸"
+    "token": "넸"
   },
   {
     "talk": "e&-_",
-    "machine": "넹"
+    "token": "넹"
   },
   {
     "talk": "e&-_^",
-    "machine": "넺"
+    "token": "넺"
   },
   {
     "talk": "e&+",
-    "machine": "넻"
+    "token": "넻"
   },
   {
     "talk": "e&+^",
-    "machine": "넼"
+    "token": "넼"
   },
   {
     "talk": "e&+_",
-    "machine": "넽"
+    "token": "넽"
   },
   {
     "talk": "e&+_^",
-    "machine": "넾"
+    "token": "넾"
   },
   {
     "talk": "e&++",
-    "machine": "넿"
+    "token": "넿"
   },
   {
     "talk": "e&++^",
-    "machine": "녀"
+    "token": "녀"
   },
   {
     "talk": "e&++_",
-    "machine": "녁"
+    "token": "녁"
   },
   {
     "talk": "e&++_^",
-    "machine": "녂"
+    "token": "녂"
   },
   {
     "talk": "e&@",
-    "machine": "녃"
+    "token": "녃"
   },
   {
     "talk": "e&@^",
-    "machine": "년"
+    "token": "년"
   },
   {
     "talk": "e&@_",
-    "machine": "녅"
+    "token": "녅"
   },
   {
     "talk": "e&@_^",
-    "machine": "녆"
+    "token": "녆"
   },
   {
     "talk": "e&@--",
-    "machine": "녇"
+    "token": "녇"
   },
   {
     "talk": "e&@--^",
-    "machine": "녈"
+    "token": "녈"
   },
   {
     "talk": "e&@--_",
-    "machine": "녉"
+    "token": "녉"
   },
   {
     "talk": "e&@--_^",
-    "machine": "녊"
+    "token": "녊"
   },
   {
     "talk": "e&@-",
-    "machine": "녋"
+    "token": "녋"
   },
   {
     "talk": "e&@-^",
-    "machine": "녌"
+    "token": "녌"
   },
   {
     "talk": "e&@-_",
-    "machine": "녍"
+    "token": "녍"
   },
   {
     "talk": "e&@-_^",
-    "machine": "녎"
+    "token": "녎"
   },
   {
     "talk": "e&@+",
-    "machine": "녏"
+    "token": "녏"
   },
   {
     "talk": "e&@+^",
-    "machine": "념"
+    "token": "념"
   },
   {
     "talk": "e&@+_",
-    "machine": "녑"
+    "token": "녑"
   },
   {
     "talk": "e&@+_^",
-    "machine": "녒"
+    "token": "녒"
   },
   {
     "talk": "e&@++",
-    "machine": "녓"
+    "token": "녓"
   },
   {
     "talk": "e&@++^",
-    "machine": "녔"
+    "token": "녔"
   },
   {
     "talk": "e&@++_",
-    "machine": "녕"
+    "token": "녕"
   },
   {
     "talk": "e&@++_^",
-    "machine": "녖"
+    "token": "녖"
   },
   {
     "talk": "a$",
-    "machine": "녗"
+    "token": "녗"
   },
   {
     "talk": "a$^",
-    "machine": "녘"
+    "token": "녘"
   },
   {
     "talk": "a$_",
-    "machine": "녙"
+    "token": "녙"
   },
   {
     "talk": "a$_^",
-    "machine": "녚"
+    "token": "녚"
   },
   {
     "talk": "a$--",
-    "machine": "녛"
+    "token": "녛"
   },
   {
     "talk": "a$--^",
-    "machine": "녜"
+    "token": "녜"
   },
   {
     "talk": "a$--_",
-    "machine": "녝"
+    "token": "녝"
   },
   {
     "talk": "a$--_^",
-    "machine": "녞"
+    "token": "녞"
   },
   {
     "talk": "a$-",
-    "machine": "녟"
+    "token": "녟"
   },
   {
     "talk": "a$-^",
-    "machine": "녠"
+    "token": "녠"
   },
   {
     "talk": "a$-_",
-    "machine": "녡"
+    "token": "녡"
   },
   {
     "talk": "a$-_^",
-    "machine": "녢"
+    "token": "녢"
   },
   {
     "talk": "a$+",
-    "machine": "녣"
+    "token": "녣"
   },
   {
     "talk": "a$+^",
-    "machine": "녤"
+    "token": "녤"
   },
   {
     "talk": "a$+_",
-    "machine": "녥"
+    "token": "녥"
   },
   {
     "talk": "a$+_^",
-    "machine": "녦"
+    "token": "녦"
   },
   {
     "talk": "a$++",
-    "machine": "녧"
+    "token": "녧"
   },
   {
     "talk": "a$++^",
-    "machine": "녨"
+    "token": "녨"
   },
   {
     "talk": "a$++_",
-    "machine": "녩"
+    "token": "녩"
   },
   {
     "talk": "a$++_^",
-    "machine": "녪"
+    "token": "녪"
   },
   {
     "talk": "a$@",
-    "machine": "녫"
+    "token": "녫"
   },
   {
     "talk": "a$@^",
-    "machine": "녬"
+    "token": "녬"
   },
   {
     "talk": "a$@_",
-    "machine": "녭"
+    "token": "녭"
   },
   {
     "talk": "a$@_^",
-    "machine": "녮"
+    "token": "녮"
   },
   {
     "talk": "a$@--",
-    "machine": "녯"
+    "token": "녯"
   },
   {
     "talk": "a$@--^",
-    "machine": "녰"
+    "token": "녰"
   },
   {
     "talk": "a$@--_",
-    "machine": "녱"
+    "token": "녱"
   },
   {
     "talk": "a$@--_^",
-    "machine": "녲"
+    "token": "녲"
   },
   {
     "talk": "a$@-",
-    "machine": "녳"
+    "token": "녳"
   },
   {
     "talk": "a$@-^",
-    "machine": "녴"
+    "token": "녴"
   },
   {
     "talk": "a$@-_",
-    "machine": "녵"
+    "token": "녵"
   },
   {
     "talk": "a$@-_^",
-    "machine": "녶"
+    "token": "녶"
   },
   {
     "talk": "a$@+",
-    "machine": "녷"
+    "token": "녷"
   },
   {
     "talk": "a$@+^",
-    "machine": "노"
+    "token": "노"
   },
   {
     "talk": "a$@+_",
-    "machine": "녹"
+    "token": "녹"
   },
   {
     "talk": "a$@+_^",
-    "machine": "녺"
+    "token": "녺"
   },
   {
     "talk": "a$@++",
-    "machine": "녻"
+    "token": "녻"
   },
   {
     "talk": "a$@++^",
-    "machine": "논"
+    "token": "논"
   },
   {
     "talk": "a$@++_",
-    "machine": "녽"
+    "token": "녽"
   },
   {
     "talk": "a$@++_^",
-    "machine": "녾"
+    "token": "녾"
   },
   {
     "talk": "a$&",
-    "machine": "녿"
+    "token": "녿"
   },
   {
     "talk": "a$&^",
-    "machine": "놀"
+    "token": "놀"
   },
   {
     "talk": "a$&_",
-    "machine": "놁"
+    "token": "놁"
   },
   {
     "talk": "a$&_^",
-    "machine": "놂"
+    "token": "놂"
   },
   {
     "talk": "a$&--",
-    "machine": "놃"
+    "token": "놃"
   },
   {
     "talk": "a$&--^",
-    "machine": "놄"
+    "token": "놄"
   },
   {
     "talk": "a$&--_",
-    "machine": "놅"
+    "token": "놅"
   },
   {
     "talk": "a$&--_^",
-    "machine": "놆"
+    "token": "놆"
   },
   {
     "talk": "a$&-",
-    "machine": "놇"
+    "token": "놇"
   },
   {
     "talk": "a$&-^",
-    "machine": "놈"
+    "token": "놈"
   },
   {
     "talk": "a$&-_",
-    "machine": "놉"
+    "token": "놉"
   },
   {
     "talk": "a$&-_^",
-    "machine": "놊"
+    "token": "놊"
   },
   {
     "talk": "a$&+",
-    "machine": "놋"
+    "token": "놋"
   },
   {
     "talk": "a$&+^",
-    "machine": "놌"
+    "token": "놌"
   },
   {
     "talk": "a$&+_",
-    "machine": "농"
+    "token": "농"
   },
   {
     "talk": "a$&+_^",
-    "machine": "놎"
+    "token": "놎"
   },
   {
     "talk": "a$&++",
-    "machine": "놏"
+    "token": "놏"
   },
   {
     "talk": "a$&++^",
-    "machine": "놐"
+    "token": "놐"
   },
   {
     "talk": "a$&++_",
-    "machine": "놑"
+    "token": "놑"
   },
   {
     "talk": "a$&++_^",
-    "machine": "높"
+    "token": "높"
   },
   {
     "talk": "a$&@",
-    "machine": "놓"
+    "token": "놓"
   },
   {
     "talk": "a$&@^",
-    "machine": "놔"
+    "token": "놔"
   },
   {
     "talk": "a$&@_",
-    "machine": "놕"
+    "token": "놕"
   },
   {
     "talk": "a$&@_^",
-    "machine": "놖"
+    "token": "놖"
   },
   {
     "talk": "a$&@--",
-    "machine": "놗"
+    "token": "놗"
   },
   {
     "talk": "a$&@--^",
-    "machine": "놘"
+    "token": "놘"
   },
   {
     "talk": "a$&@--_",
-    "machine": "놙"
+    "token": "놙"
   },
   {
     "talk": "a$&@--_^",
-    "machine": "놚"
+    "token": "놚"
   },
   {
     "talk": "a$&@-",
-    "machine": "놛"
+    "token": "놛"
   },
   {
     "talk": "a$&@-^",
-    "machine": "놜"
+    "token": "놜"
   },
   {
     "talk": "a$&@-_",
-    "machine": "놝"
+    "token": "놝"
   },
   {
     "talk": "a$&@-_^",
-    "machine": "놞"
+    "token": "놞"
   },
   {
     "talk": "a$&@+",
-    "machine": "놟"
+    "token": "놟"
   },
   {
     "talk": "a$&@+^",
-    "machine": "놠"
+    "token": "놠"
   },
   {
     "talk": "a$&@+_",
-    "machine": "놡"
+    "token": "놡"
   },
   {
     "talk": "a$&@+_^",
-    "machine": "놢"
+    "token": "놢"
   },
   {
     "talk": "a$&@++",
-    "machine": "놣"
+    "token": "놣"
   },
   {
     "talk": "a$&@++^",
-    "machine": "놤"
+    "token": "놤"
   },
   {
     "talk": "a$&@++_",
-    "machine": "놥"
+    "token": "놥"
   },
   {
     "talk": "a$&@++_^",
-    "machine": "놦"
+    "token": "놦"
   },
   {
     "talk": "o",
-    "machine": "놧"
+    "token": "놧"
   },
   {
     "talk": "o^",
-    "machine": "놨"
+    "token": "놨"
   },
   {
     "talk": "o_",
-    "machine": "놩"
+    "token": "놩"
   },
   {
     "talk": "o_^",
-    "machine": "놪"
+    "token": "놪"
   },
   {
     "talk": "o--",
-    "machine": "놫"
+    "token": "놫"
   },
   {
     "talk": "o--^",
-    "machine": "놬"
+    "token": "놬"
   },
   {
     "talk": "o--_",
-    "machine": "놭"
+    "token": "놭"
   },
   {
     "talk": "o--_^",
-    "machine": "놮"
+    "token": "놮"
   },
   {
     "talk": "o-",
-    "machine": "놯"
+    "token": "놯"
   },
   {
     "talk": "o-^",
-    "machine": "놰"
+    "token": "놰"
   },
   {
     "talk": "o-_",
-    "machine": "놱"
+    "token": "놱"
   },
   {
     "talk": "o-_^",
-    "machine": "놲"
+    "token": "놲"
   },
   {
     "talk": "o+",
-    "machine": "놳"
+    "token": "놳"
   },
   {
     "talk": "o+^",
-    "machine": "놴"
+    "token": "놴"
   },
   {
     "talk": "o+_",
-    "machine": "놵"
+    "token": "놵"
   },
   {
     "talk": "o+_^",
-    "machine": "놶"
+    "token": "놶"
   },
   {
     "talk": "o++",
-    "machine": "놷"
+    "token": "놷"
   },
   {
     "talk": "o++^",
-    "machine": "놸"
+    "token": "놸"
   },
   {
     "talk": "o++_",
-    "machine": "놹"
+    "token": "놹"
   },
   {
     "talk": "o++_^",
-    "machine": "놺"
+    "token": "놺"
   },
   {
     "talk": "o@",
-    "machine": "놻"
+    "token": "놻"
   },
   {
     "talk": "o@^",
-    "machine": "놼"
+    "token": "놼"
   },
   {
     "talk": "o@_",
-    "machine": "놽"
+    "token": "놽"
   },
   {
     "talk": "o@_^",
-    "machine": "놾"
+    "token": "놾"
   },
   {
     "talk": "o@--",
-    "machine": "놿"
+    "token": "놿"
   },
   {
     "talk": "o@--^",
-    "machine": "뇀"
+    "token": "뇀"
   },
   {
     "talk": "o@--_",
-    "machine": "뇁"
+    "token": "뇁"
   },
   {
     "talk": "o@--_^",
-    "machine": "뇂"
+    "token": "뇂"
   },
   {
     "talk": "o@-",
-    "machine": "뇃"
+    "token": "뇃"
   },
   {
     "talk": "o@-^",
-    "machine": "뇄"
+    "token": "뇄"
   },
   {
     "talk": "o@-_",
-    "machine": "뇅"
+    "token": "뇅"
   },
   {
     "talk": "o@-_^",
-    "machine": "뇆"
+    "token": "뇆"
   },
   {
     "talk": "o@+",
-    "machine": "뇇"
+    "token": "뇇"
   },
   {
     "talk": "o@+^",
-    "machine": "뇈"
+    "token": "뇈"
   },
   {
     "talk": "o@+_",
-    "machine": "뇉"
+    "token": "뇉"
   },
   {
     "talk": "o@+_^",
-    "machine": "뇊"
+    "token": "뇊"
   },
   {
     "talk": "o@++",
-    "machine": "뇋"
+    "token": "뇋"
   },
   {
     "talk": "o@++^",
-    "machine": "뇌"
+    "token": "뇌"
   },
   {
     "talk": "o@++_",
-    "machine": "뇍"
+    "token": "뇍"
   },
   {
     "talk": "o@++_^",
-    "machine": "뇎"
+    "token": "뇎"
   },
   {
     "talk": "o&",
-    "machine": "뇏"
+    "token": "뇏"
   },
   {
     "talk": "o&^",
-    "machine": "뇐"
+    "token": "뇐"
   },
   {
     "talk": "o&_",
-    "machine": "뇑"
+    "token": "뇑"
   },
   {
     "talk": "o&_^",
-    "machine": "뇒"
+    "token": "뇒"
   },
   {
     "talk": "o&--",
-    "machine": "뇓"
+    "token": "뇓"
   },
   {
     "talk": "o&--^",
-    "machine": "뇔"
+    "token": "뇔"
   },
   {
     "talk": "o&--_",
-    "machine": "뇕"
+    "token": "뇕"
   },
   {
     "talk": "o&--_^",
-    "machine": "뇖"
+    "token": "뇖"
   },
   {
     "talk": "o&-",
-    "machine": "뇗"
+    "token": "뇗"
   },
   {
     "talk": "o&-^",
-    "machine": "뇘"
+    "token": "뇘"
   },
   {
     "talk": "o&-_",
-    "machine": "뇙"
+    "token": "뇙"
   },
   {
     "talk": "o&-_^",
-    "machine": "뇚"
+    "token": "뇚"
   },
   {
     "talk": "o&+",
-    "machine": "뇛"
+    "token": "뇛"
   },
   {
     "talk": "o&+^",
-    "machine": "뇜"
+    "token": "뇜"
   },
   {
     "talk": "o&+_",
-    "machine": "뇝"
+    "token": "뇝"
   },
   {
     "talk": "o&+_^",
-    "machine": "뇞"
+    "token": "뇞"
   },
   {
     "talk": "o&++",
-    "machine": "뇟"
+    "token": "뇟"
   },
   {
     "talk": "o&++^",
-    "machine": "뇠"
+    "token": "뇠"
   },
   {
     "talk": "o&++_",
-    "machine": "뇡"
+    "token": "뇡"
   },
   {
     "talk": "o&++_^",
-    "machine": "뇢"
+    "token": "뇢"
   },
   {
     "talk": "o&@",
-    "machine": "뇣"
+    "token": "뇣"
   },
   {
     "talk": "o&@^",
-    "machine": "뇤"
+    "token": "뇤"
   },
   {
     "talk": "o&@_",
-    "machine": "뇥"
+    "token": "뇥"
   },
   {
     "talk": "o&@_^",
-    "machine": "뇦"
+    "token": "뇦"
   },
   {
     "talk": "o&@--",
-    "machine": "뇧"
+    "token": "뇧"
   },
   {
     "talk": "o&@--^",
-    "machine": "뇨"
+    "token": "뇨"
   },
   {
     "talk": "o&@--_",
-    "machine": "뇩"
+    "token": "뇩"
   },
   {
     "talk": "o&@--_^",
-    "machine": "뇪"
+    "token": "뇪"
   },
   {
     "talk": "o&@-",
-    "machine": "뇫"
+    "token": "뇫"
   },
   {
     "talk": "o&@-^",
-    "machine": "뇬"
+    "token": "뇬"
   },
   {
     "talk": "o&@-_",
-    "machine": "뇭"
+    "token": "뇭"
   },
   {
     "talk": "o&@-_^",
-    "machine": "뇮"
+    "token": "뇮"
   },
   {
     "talk": "o&@+",
-    "machine": "뇯"
+    "token": "뇯"
   },
   {
     "talk": "o&@+^",
-    "machine": "뇰"
+    "token": "뇰"
   },
   {
     "talk": "o&@+_",
-    "machine": "뇱"
+    "token": "뇱"
   },
   {
     "talk": "o&@+_^",
-    "machine": "뇲"
+    "token": "뇲"
   },
   {
     "talk": "o&@++",
-    "machine": "뇳"
+    "token": "뇳"
   },
   {
     "talk": "o&@++^",
-    "machine": "뇴"
+    "token": "뇴"
   },
   {
     "talk": "o&@++_",
-    "machine": "뇵"
+    "token": "뇵"
   },
   {
     "talk": "o&@++_^",
-    "machine": "뇶"
+    "token": "뇶"
   },
   {
     "talk": "U",
-    "machine": "뇷"
+    "token": "뇷"
   },
   {
     "talk": "U^",
-    "machine": "뇸"
+    "token": "뇸"
   },
   {
     "talk": "U_",
-    "machine": "뇹"
+    "token": "뇹"
   },
   {
     "talk": "U_^",
-    "machine": "뇺"
+    "token": "뇺"
   },
   {
     "talk": "U--",
-    "machine": "뇻"
+    "token": "뇻"
   },
   {
     "talk": "U--^",
-    "machine": "뇼"
+    "token": "뇼"
   },
   {
     "talk": "U--_",
-    "machine": "뇽"
+    "token": "뇽"
   },
   {
     "talk": "U--_^",
-    "machine": "뇾"
+    "token": "뇾"
   },
   {
     "talk": "U-",
-    "machine": "뇿"
+    "token": "뇿"
   },
   {
     "talk": "U-^",
-    "machine": "눀"
+    "token": "눀"
   },
   {
     "talk": "U-_",
-    "machine": "눁"
+    "token": "눁"
   },
   {
     "talk": "U-_^",
-    "machine": "눂"
+    "token": "눂"
   },
   {
     "talk": "U+",
-    "machine": "눃"
+    "token": "눃"
   },
   {
     "talk": "U+^",
-    "machine": "누"
+    "token": "누"
   },
   {
     "talk": "U+_",
-    "machine": "눅"
+    "token": "눅"
   },
   {
     "talk": "U+_^",
-    "machine": "눆"
+    "token": "눆"
   },
   {
     "talk": "U++",
-    "machine": "눇"
+    "token": "눇"
   },
   {
     "talk": "U++^",
-    "machine": "눈"
+    "token": "눈"
   },
   {
     "talk": "U++_",
-    "machine": "눉"
+    "token": "눉"
   },
   {
     "talk": "U++_^",
-    "machine": "눊"
+    "token": "눊"
   },
   {
     "talk": "U@",
-    "machine": "눋"
+    "token": "눋"
   },
   {
     "talk": "U@^",
-    "machine": "눌"
+    "token": "눌"
   },
   {
     "talk": "U@_",
-    "machine": "눍"
+    "token": "눍"
   },
   {
     "talk": "U@_^",
-    "machine": "눎"
+    "token": "눎"
   },
   {
     "talk": "U@--",
-    "machine": "눏"
+    "token": "눏"
   },
   {
     "talk": "U@--^",
-    "machine": "눐"
+    "token": "눐"
   },
   {
     "talk": "U@--_",
-    "machine": "눑"
+    "token": "눑"
   },
   {
     "talk": "U@--_^",
-    "machine": "눒"
+    "token": "눒"
   },
   {
     "talk": "U@-",
-    "machine": "눓"
+    "token": "눓"
   },
   {
     "talk": "U@-^",
-    "machine": "눔"
+    "token": "눔"
   },
   {
     "talk": "U@-_",
-    "machine": "눕"
+    "token": "눕"
   },
   {
     "talk": "U@-_^",
-    "machine": "눖"
+    "token": "눖"
   },
   {
     "talk": "U@+",
-    "machine": "눗"
+    "token": "눗"
   },
   {
     "talk": "U@+^",
-    "machine": "눘"
+    "token": "눘"
   },
   {
     "talk": "U@+_",
-    "machine": "눙"
+    "token": "눙"
   },
   {
     "talk": "U@+_^",
-    "machine": "눚"
+    "token": "눚"
   },
   {
     "talk": "U@++",
-    "machine": "눛"
+    "token": "눛"
   },
   {
     "talk": "U@++^",
-    "machine": "눜"
+    "token": "눜"
   },
   {
     "talk": "U@++_",
-    "machine": "눝"
+    "token": "눝"
   },
   {
     "talk": "U@++_^",
-    "machine": "눞"
+    "token": "눞"
   },
   {
     "talk": "U&",
-    "machine": "눟"
+    "token": "눟"
   },
   {
     "talk": "U&^",
-    "machine": "눠"
+    "token": "눠"
   },
   {
     "talk": "U&_",
-    "machine": "눡"
+    "token": "눡"
   },
   {
     "talk": "U&_^",
-    "machine": "눢"
+    "token": "눢"
   },
   {
     "talk": "U&--",
-    "machine": "눣"
+    "token": "눣"
   },
   {
     "talk": "U&--^",
-    "machine": "눤"
+    "token": "눤"
   },
   {
     "talk": "U&--_",
-    "machine": "눥"
+    "token": "눥"
   },
   {
     "talk": "U&--_^",
-    "machine": "눦"
+    "token": "눦"
   },
   {
     "talk": "U&-",
-    "machine": "눧"
+    "token": "눧"
   },
   {
     "talk": "U&-^",
-    "machine": "눨"
+    "token": "눨"
   },
   {
     "talk": "U&-_",
-    "machine": "눩"
+    "token": "눩"
   },
   {
     "talk": "U&-_^",
-    "machine": "눪"
+    "token": "눪"
   },
   {
     "talk": "U&+",
-    "machine": "눫"
+    "token": "눫"
   },
   {
     "talk": "U&+^",
-    "machine": "눬"
+    "token": "눬"
   },
   {
     "talk": "U&+_",
-    "machine": "눭"
+    "token": "눭"
   },
   {
     "talk": "U&+_^",
-    "machine": "눮"
+    "token": "눮"
   },
   {
     "talk": "U&++",
-    "machine": "눯"
+    "token": "눯"
   },
   {
     "talk": "U&++^",
-    "machine": "눰"
+    "token": "눰"
   },
   {
     "talk": "U&++_",
-    "machine": "눱"
+    "token": "눱"
   },
   {
     "talk": "U&++_^",
-    "machine": "눲"
+    "token": "눲"
   },
   {
     "talk": "U&@",
-    "machine": "눳"
+    "token": "눳"
   },
   {
     "talk": "U&@^",
-    "machine": "눴"
+    "token": "눴"
   },
   {
     "talk": "U&@_",
-    "machine": "눵"
+    "token": "눵"
   },
   {
     "talk": "U&@_^",
-    "machine": "눶"
+    "token": "눶"
   },
   {
     "talk": "U&@--",
-    "machine": "눷"
+    "token": "눷"
   },
   {
     "talk": "U&@--^",
-    "machine": "눸"
+    "token": "눸"
   },
   {
     "talk": "U&@--_",
-    "machine": "눹"
+    "token": "눹"
   },
   {
     "talk": "U&@--_^",
-    "machine": "눺"
+    "token": "눺"
   },
   {
     "talk": "U&@-",
-    "machine": "눻"
+    "token": "눻"
   },
   {
     "talk": "U&@-^",
-    "machine": "눼"
+    "token": "눼"
   },
   {
     "talk": "U&@-_",
-    "machine": "눽"
+    "token": "눽"
   },
   {
     "talk": "U&@-_^",
-    "machine": "눾"
+    "token": "눾"
   },
   {
     "talk": "U&@+",
-    "machine": "눿"
+    "token": "눿"
   },
   {
     "talk": "U&@+^",
-    "machine": "뉀"
+    "token": "뉀"
   },
   {
     "talk": "U&@+_",
-    "machine": "뉁"
+    "token": "뉁"
   },
   {
     "talk": "U&@+_^",
-    "machine": "뉂"
+    "token": "뉂"
   },
   {
     "talk": "U&@++",
-    "machine": "뉃"
+    "token": "뉃"
   },
   {
     "talk": "U&@++^",
-    "machine": "뉄"
+    "token": "뉄"
   },
   {
     "talk": "U&@++_",
-    "machine": "뉅"
+    "token": "뉅"
   },
   {
     "talk": "U&@++_^",
-    "machine": "뉆"
+    "token": "뉆"
   },
   {
     "talk": "E",
-    "machine": "뉇"
+    "token": "뉇"
   },
   {
     "talk": "E^",
-    "machine": "뉈"
+    "token": "뉈"
   },
   {
     "talk": "E_",
-    "machine": "뉉"
+    "token": "뉉"
   },
   {
     "talk": "E_^",
-    "machine": "뉊"
+    "token": "뉊"
   },
   {
     "talk": "E--",
-    "machine": "뉋"
+    "token": "뉋"
   },
   {
     "talk": "E--^",
-    "machine": "뉌"
+    "token": "뉌"
   },
   {
     "talk": "E--_",
-    "machine": "뉍"
+    "token": "뉍"
   },
   {
     "talk": "E--_^",
-    "machine": "뉎"
+    "token": "뉎"
   },
   {
     "talk": "E-",
-    "machine": "뉏"
+    "token": "뉏"
   },
   {
     "talk": "E-^",
-    "machine": "뉐"
+    "token": "뉐"
   },
   {
     "talk": "E-_",
-    "machine": "뉑"
+    "token": "뉑"
   },
   {
     "talk": "E-_^",
-    "machine": "뉒"
+    "token": "뉒"
   },
   {
     "talk": "E+",
-    "machine": "뉓"
+    "token": "뉓"
   },
   {
     "talk": "E+^",
-    "machine": "뉔"
+    "token": "뉔"
   },
   {
     "talk": "E+_",
-    "machine": "뉕"
+    "token": "뉕"
   },
   {
     "talk": "E+_^",
-    "machine": "뉖"
+    "token": "뉖"
   },
   {
     "talk": "E++",
-    "machine": "뉗"
+    "token": "뉗"
   },
   {
     "talk": "E++^",
-    "machine": "뉘"
+    "token": "뉘"
   },
   {
     "talk": "E++_",
-    "machine": "뉙"
+    "token": "뉙"
   },
   {
     "talk": "E++_^",
-    "machine": "뉚"
+    "token": "뉚"
   },
   {
     "talk": "E@",
-    "machine": "뉛"
+    "token": "뉛"
   },
   {
     "talk": "E@^",
-    "machine": "뉜"
+    "token": "뉜"
   },
   {
     "talk": "E@_",
-    "machine": "뉝"
+    "token": "뉝"
   },
   {
     "talk": "E@_^",
-    "machine": "뉞"
+    "token": "뉞"
   },
   {
     "talk": "E@--",
-    "machine": "뉟"
+    "token": "뉟"
   },
   {
     "talk": "E@--^",
-    "machine": "뉠"
+    "token": "뉠"
   },
   {
     "talk": "E@--_",
-    "machine": "뉡"
+    "token": "뉡"
   },
   {
     "talk": "E@--_^",
-    "machine": "뉢"
+    "token": "뉢"
   },
   {
     "talk": "E@-",
-    "machine": "뉣"
+    "token": "뉣"
   },
   {
     "talk": "E@-^",
-    "machine": "뉤"
+    "token": "뉤"
   },
   {
     "talk": "E@-_",
-    "machine": "뉥"
+    "token": "뉥"
   },
   {
     "talk": "E@-_^",
-    "machine": "뉦"
+    "token": "뉦"
   },
   {
     "talk": "E@+",
-    "machine": "뉧"
+    "token": "뉧"
   },
   {
     "talk": "E@+^",
-    "machine": "뉨"
+    "token": "뉨"
   },
   {
     "talk": "E@+_",
-    "machine": "뉩"
+    "token": "뉩"
   },
   {
     "talk": "E@+_^",
-    "machine": "뉪"
+    "token": "뉪"
   },
   {
     "talk": "E@++",
-    "machine": "뉫"
+    "token": "뉫"
   },
   {
     "talk": "E@++^",
-    "machine": "뉬"
+    "token": "뉬"
   },
   {
     "talk": "E@++_",
-    "machine": "뉭"
+    "token": "뉭"
   },
   {
     "talk": "E@++_^",
-    "machine": "뉮"
+    "token": "뉮"
   },
   {
     "talk": "E&",
-    "machine": "뉯"
+    "token": "뉯"
   },
   {
     "talk": "E&^",
-    "machine": "뉰"
+    "token": "뉰"
   },
   {
     "talk": "E&_",
-    "machine": "뉱"
+    "token": "뉱"
   },
   {
     "talk": "E&_^",
-    "machine": "뉲"
+    "token": "뉲"
   },
   {
     "talk": "E&--",
-    "machine": "뉳"
+    "token": "뉳"
   },
   {
     "talk": "E&--^",
-    "machine": "뉴"
+    "token": "뉴"
   },
   {
     "talk": "E&--_",
-    "machine": "뉵"
+    "token": "뉵"
   },
   {
     "talk": "E&--_^",
-    "machine": "뉶"
+    "token": "뉶"
   },
   {
     "talk": "E&-",
-    "machine": "뉷"
+    "token": "뉷"
   },
   {
     "talk": "E&-^",
-    "machine": "뉸"
+    "token": "뉸"
   },
   {
     "talk": "E&-_",
-    "machine": "뉹"
+    "token": "뉹"
   },
   {
     "talk": "E&-_^",
-    "machine": "뉺"
+    "token": "뉺"
   },
   {
     "talk": "E&+",
-    "machine": "뉻"
+    "token": "뉻"
   },
   {
     "talk": "E&+^",
-    "machine": "뉼"
+    "token": "뉼"
   },
   {
     "talk": "E&+_",
-    "machine": "뉽"
+    "token": "뉽"
   },
   {
     "talk": "E&+_^",
-    "machine": "뉾"
+    "token": "뉾"
   },
   {
     "talk": "E&++",
-    "machine": "뉿"
+    "token": "뉿"
   },
   {
     "talk": "E&++^",
-    "machine": "늀"
+    "token": "늀"
   },
   {
     "talk": "E&++_",
-    "machine": "늁"
+    "token": "늁"
   },
   {
     "talk": "E&++_^",
-    "machine": "늂"
+    "token": "늂"
   },
   {
     "talk": "E&@",
-    "machine": "늃"
+    "token": "늃"
   },
   {
     "talk": "E&@^",
-    "machine": "늄"
+    "token": "늄"
   },
   {
     "talk": "E&@_",
-    "machine": "늅"
+    "token": "늅"
   },
   {
     "talk": "E&@_^",
-    "machine": "늆"
+    "token": "늆"
   },
   {
     "talk": "E&@--",
-    "machine": "늇"
+    "token": "늇"
   },
   {
     "talk": "E&@--^",
-    "machine": "늈"
+    "token": "늈"
   },
   {
     "talk": "E&@--_",
-    "machine": "늉"
+    "token": "늉"
   },
   {
     "talk": "E&@--_^",
-    "machine": "늊"
+    "token": "늊"
   },
   {
     "talk": "E&@-",
-    "machine": "늋"
+    "token": "늋"
   },
   {
     "talk": "E&@-^",
-    "machine": "늌"
+    "token": "늌"
   },
   {
     "talk": "E&@-_",
-    "machine": "늍"
+    "token": "늍"
   },
   {
     "talk": "E&@-_^",
-    "machine": "늎"
+    "token": "늎"
   },
   {
     "talk": "E&@+",
-    "machine": "늏"
+    "token": "늏"
   },
   {
     "talk": "E&@+^",
-    "machine": "느"
+    "token": "느"
   },
   {
     "talk": "E&@+_",
-    "machine": "늑"
+    "token": "늑"
   },
   {
     "talk": "E&@+_^",
-    "machine": "늒"
+    "token": "늒"
   },
   {
     "talk": "E&@++",
-    "machine": "늓"
+    "token": "늓"
   },
   {
     "talk": "E&@++^",
-    "machine": "는"
+    "token": "는"
   },
   {
     "talk": "E&@++_",
-    "machine": "늕"
+    "token": "늕"
   },
   {
     "talk": "E&@++_^",
-    "machine": "늖"
+    "token": "늖"
   },
   {
     "talk": "e$",
-    "machine": "늗"
+    "token": "늗"
   },
   {
     "talk": "e$^",
-    "machine": "늘"
+    "token": "늘"
   },
   {
     "talk": "e$_",
-    "machine": "늙"
+    "token": "늙"
   },
   {
     "talk": "e$_^",
-    "machine": "늚"
+    "token": "늚"
   },
   {
     "talk": "e$--",
-    "machine": "늛"
+    "token": "늛"
   },
   {
     "talk": "e$--^",
-    "machine": "늜"
+    "token": "늜"
   },
   {
     "talk": "e$--_",
-    "machine": "늝"
+    "token": "늝"
   },
   {
     "talk": "e$--_^",
-    "machine": "늞"
+    "token": "늞"
   },
   {
     "talk": "e$-",
-    "machine": "늟"
+    "token": "늟"
   },
   {
     "talk": "e$-^",
-    "machine": "늠"
+    "token": "늠"
   },
   {
     "talk": "e$-_",
-    "machine": "늡"
+    "token": "늡"
   },
   {
     "talk": "e$-_^",
-    "machine": "늢"
+    "token": "늢"
   },
   {
     "talk": "e$+",
-    "machine": "늣"
+    "token": "늣"
   },
   {
     "talk": "e$+^",
-    "machine": "늤"
+    "token": "늤"
   },
   {
     "talk": "e$+_",
-    "machine": "능"
+    "token": "능"
   },
   {
     "talk": "e$+_^",
-    "machine": "늦"
+    "token": "늦"
   },
   {
     "talk": "e$++",
-    "machine": "늧"
+    "token": "늧"
   },
   {
     "talk": "e$++^",
-    "machine": "늨"
+    "token": "늨"
   },
   {
     "talk": "e$++_",
-    "machine": "늩"
+    "token": "늩"
   },
   {
     "talk": "e$++_^",
-    "machine": "늪"
+    "token": "늪"
   },
   {
     "talk": "e$@",
-    "machine": "늫"
+    "token": "늫"
   },
   {
     "talk": "e$@^",
-    "machine": "늬"
+    "token": "늬"
   },
   {
     "talk": "e$@_",
-    "machine": "늭"
+    "token": "늭"
   },
   {
     "talk": "e$@_^",
-    "machine": "늮"
+    "token": "늮"
   },
   {
     "talk": "e$@--",
-    "machine": "늯"
+    "token": "늯"
   },
   {
     "talk": "e$@--^",
-    "machine": "늰"
+    "token": "늰"
   },
   {
     "talk": "e$@--_",
-    "machine": "늱"
+    "token": "늱"
   },
   {
     "talk": "e$@--_^",
-    "machine": "늲"
+    "token": "늲"
   },
   {
     "talk": "e$@-",
-    "machine": "늳"
+    "token": "늳"
   },
   {
     "talk": "e$@-^",
-    "machine": "늴"
+    "token": "늴"
   },
   {
     "talk": "e$@-_",
-    "machine": "늵"
+    "token": "늵"
   },
   {
     "talk": "e$@-_^",
-    "machine": "늶"
+    "token": "늶"
   },
   {
     "talk": "e$@+",
-    "machine": "늷"
+    "token": "늷"
   },
   {
     "talk": "e$@+^",
-    "machine": "늸"
+    "token": "늸"
   },
   {
     "talk": "e$@+_",
-    "machine": "늹"
+    "token": "늹"
   },
   {
     "talk": "e$@+_^",
-    "machine": "늺"
+    "token": "늺"
   },
   {
     "talk": "e$@++",
-    "machine": "늻"
+    "token": "늻"
   },
   {
     "talk": "e$@++^",
-    "machine": "늼"
+    "token": "늼"
   },
   {
     "talk": "e$@++_",
-    "machine": "늽"
+    "token": "늽"
   },
   {
     "talk": "e$@++_^",
-    "machine": "늾"
+    "token": "늾"
   },
   {
     "talk": "e$&",
-    "machine": "늿"
+    "token": "늿"
   },
   {
     "talk": "e$&^",
-    "machine": "닀"
+    "token": "닀"
   },
   {
     "talk": "e$&_",
-    "machine": "닁"
+    "token": "닁"
   },
   {
     "talk": "e$&_^",
-    "machine": "닂"
+    "token": "닂"
   },
   {
     "talk": "e$&--",
-    "machine": "닃"
+    "token": "닃"
   },
   {
     "talk": "e$&--^",
-    "machine": "닄"
+    "token": "닄"
   },
   {
     "talk": "e$&--_",
-    "machine": "닅"
+    "token": "닅"
   },
   {
     "talk": "e$&--_^",
-    "machine": "닆"
+    "token": "닆"
   },
   {
     "talk": "e$&-",
-    "machine": "닇"
+    "token": "닇"
   },
   {
     "talk": "e$&-^",
-    "machine": "니"
+    "token": "니"
   },
   {
     "talk": "e$&-_",
-    "machine": "닉"
+    "token": "닉"
   },
   {
     "talk": "e$&-_^",
-    "machine": "닊"
+    "token": "닊"
   },
   {
     "talk": "e$&+",
-    "machine": "닋"
+    "token": "닋"
   },
   {
     "talk": "e$&+^",
-    "machine": "닌"
+    "token": "닌"
   },
   {
     "talk": "e$&+_",
-    "machine": "닍"
+    "token": "닍"
   },
   {
     "talk": "e$&+_^",
-    "machine": "닎"
+    "token": "닎"
   },
   {
     "talk": "e$&++",
-    "machine": "닏"
+    "token": "닏"
   },
   {
     "talk": "e$&++^",
-    "machine": "닐"
+    "token": "닐"
   },
   {
     "talk": "e$&++_",
-    "machine": "닑"
+    "token": "닑"
   },
   {
     "talk": "e$&++_^",
-    "machine": "닒"
+    "token": "닒"
   },
   {
     "talk": "e$&@",
-    "machine": "닓"
+    "token": "닓"
   },
   {
     "talk": "e$&@^",
-    "machine": "닔"
+    "token": "닔"
   },
   {
     "talk": "e$&@_",
-    "machine": "닕"
+    "token": "닕"
   },
   {
     "talk": "e$&@_^",
-    "machine": "닖"
+    "token": "닖"
   },
   {
     "talk": "e$&@--",
-    "machine": "닗"
+    "token": "닗"
   },
   {
     "talk": "e$&@--^",
-    "machine": "님"
+    "token": "님"
   },
   {
     "talk": "e$&@--_",
-    "machine": "닙"
+    "token": "닙"
   },
   {
     "talk": "e$&@--_^",
-    "machine": "닚"
+    "token": "닚"
   },
   {
     "talk": "e$&@-",
-    "machine": "닛"
+    "token": "닛"
   },
   {
     "talk": "e$&@-^",
-    "machine": "닜"
+    "token": "닜"
   },
   {
     "talk": "e$&@-_",
-    "machine": "닝"
+    "token": "닝"
   },
   {
     "talk": "e$&@-_^",
-    "machine": "닞"
+    "token": "닞"
   },
   {
     "talk": "e$&@+",
-    "machine": "닟"
+    "token": "닟"
   },
   {
     "talk": "e$&@+^",
-    "machine": "닠"
+    "token": "닠"
   },
   {
     "talk": "e$&@+_",
-    "machine": "닡"
+    "token": "닡"
   },
   {
     "talk": "e$&@+_^",
-    "machine": "닢"
+    "token": "닢"
   },
   {
     "talk": "e$&@++",
-    "machine": "닣"
+    "token": "닣"
   },
   {
     "talk": "e$&@++^",
-    "machine": "다"
+    "token": "다"
   },
   {
     "talk": "e$&@++_",
-    "machine": "닥"
+    "token": "닥"
   },
   {
     "talk": "e$&@++_^",
-    "machine": "닦"
+    "token": "닦"
   },
   {
     "talk": "o$",
-    "machine": "닧"
+    "token": "닧"
   },
   {
     "talk": "o$^",
-    "machine": "단"
+    "token": "단"
   },
   {
     "talk": "o$_",
-    "machine": "닩"
+    "token": "닩"
   },
   {
     "talk": "o$_^",
-    "machine": "닪"
+    "token": "닪"
   },
   {
     "talk": "o$--",
-    "machine": "닫"
+    "token": "닫"
   },
   {
     "talk": "o$--^",
-    "machine": "달"
+    "token": "달"
   },
   {
     "talk": "o$--_",
-    "machine": "닭"
+    "token": "닭"
   },
   {
     "talk": "o$--_^",
-    "machine": "닮"
+    "token": "닮"
   },
   {
     "talk": "o$-",
-    "machine": "닯"
+    "token": "닯"
   },
   {
     "talk": "o$-^",
-    "machine": "닰"
+    "token": "닰"
   },
   {
     "talk": "o$-_",
-    "machine": "닱"
+    "token": "닱"
   },
   {
     "talk": "o$-_^",
-    "machine": "닲"
+    "token": "닲"
   },
   {
     "talk": "o$+",
-    "machine": "닳"
+    "token": "닳"
   },
   {
     "talk": "o$+^",
-    "machine": "담"
+    "token": "담"
   },
   {
     "talk": "o$+_",
-    "machine": "답"
+    "token": "답"
   },
   {
     "talk": "o$+_^",
-    "machine": "닶"
+    "token": "닶"
   },
   {
     "talk": "o$++",
-    "machine": "닷"
+    "token": "닷"
   },
   {
     "talk": "o$++^",
-    "machine": "닸"
+    "token": "닸"
   },
   {
     "talk": "o$++_",
-    "machine": "당"
+    "token": "당"
   },
   {
     "talk": "o$++_^",
-    "machine": "닺"
+    "token": "닺"
   },
   {
     "talk": "o$@",
-    "machine": "닻"
+    "token": "닻"
   },
   {
     "talk": "o$@^",
-    "machine": "닼"
+    "token": "닼"
   },
   {
     "talk": "o$@_",
-    "machine": "닽"
+    "token": "닽"
   },
   {
     "talk": "o$@_^",
-    "machine": "닾"
+    "token": "닾"
   },
   {
     "talk": "o$@--",
-    "machine": "닿"
+    "token": "닿"
   },
   {
     "talk": "o$@--^",
-    "machine": "대"
+    "token": "대"
   },
   {
     "talk": "o$@--_",
-    "machine": "댁"
+    "token": "댁"
   },
   {
     "talk": "o$@--_^",
-    "machine": "댂"
+    "token": "댂"
   },
   {
     "talk": "o$@-",
-    "machine": "댃"
+    "token": "댃"
   },
   {
     "talk": "o$@-^",
-    "machine": "댄"
+    "token": "댄"
   },
   {
     "talk": "o$@-_",
-    "machine": "댅"
+    "token": "댅"
   },
   {
     "talk": "o$@-_^",
-    "machine": "댆"
+    "token": "댆"
   },
   {
     "talk": "o$@+",
-    "machine": "댇"
+    "token": "댇"
   },
   {
     "talk": "o$@+^",
-    "machine": "댈"
+    "token": "댈"
   },
   {
     "talk": "o$@+_",
-    "machine": "댉"
+    "token": "댉"
   },
   {
     "talk": "o$@+_^",
-    "machine": "댊"
+    "token": "댊"
   },
   {
     "talk": "o$@++",
-    "machine": "댋"
+    "token": "댋"
   },
   {
     "talk": "o$@++^",
-    "machine": "댌"
+    "token": "댌"
   },
   {
     "talk": "o$@++_",
-    "machine": "댍"
+    "token": "댍"
   },
   {
     "talk": "o$@++_^",
-    "machine": "댎"
+    "token": "댎"
   },
   {
     "talk": "o$&",
-    "machine": "댏"
+    "token": "댏"
   },
   {
     "talk": "o$&^",
-    "machine": "댐"
+    "token": "댐"
   },
   {
     "talk": "o$&_",
-    "machine": "댑"
+    "token": "댑"
   },
   {
     "talk": "o$&_^",
-    "machine": "댒"
+    "token": "댒"
   },
   {
     "talk": "o$&--",
-    "machine": "댓"
+    "token": "댓"
   },
   {
     "talk": "o$&--^",
-    "machine": "댔"
+    "token": "댔"
   },
   {
     "talk": "o$&--_",
-    "machine": "댕"
+    "token": "댕"
   },
   {
     "talk": "o$&--_^",
-    "machine": "댖"
+    "token": "댖"
   },
   {
     "talk": "o$&-",
-    "machine": "댗"
+    "token": "댗"
   },
   {
     "talk": "o$&-^",
-    "machine": "댘"
+    "token": "댘"
   },
   {
     "talk": "o$&-_",
-    "machine": "댙"
+    "token": "댙"
   },
   {
     "talk": "o$&-_^",
-    "machine": "댚"
+    "token": "댚"
   },
   {
     "talk": "o$&+",
-    "machine": "댛"
+    "token": "댛"
   },
   {
     "talk": "o$&+^",
-    "machine": "댜"
+    "token": "댜"
   },
   {
     "talk": "o$&+_",
-    "machine": "댝"
+    "token": "댝"
   },
   {
     "talk": "o$&+_^",
-    "machine": "댞"
+    "token": "댞"
   },
   {
     "talk": "o$&++",
-    "machine": "댟"
+    "token": "댟"
   },
   {
     "talk": "o$&++^",
-    "machine": "댠"
+    "token": "댠"
   },
   {
     "talk": "o$&++_",
-    "machine": "댡"
+    "token": "댡"
   },
   {
     "talk": "o$&++_^",
-    "machine": "댢"
+    "token": "댢"
   },
   {
     "talk": "o$&@",
-    "machine": "댣"
+    "token": "댣"
   },
   {
     "talk": "o$&@^",
-    "machine": "댤"
+    "token": "댤"
   },
   {
     "talk": "o$&@_",
-    "machine": "댥"
+    "token": "댥"
   },
   {
     "talk": "o$&@_^",
-    "machine": "댦"
+    "token": "댦"
   },
   {
     "talk": "o$&@--",
-    "machine": "댧"
+    "token": "댧"
   },
   {
     "talk": "o$&@--^",
-    "machine": "댨"
+    "token": "댨"
   },
   {
     "talk": "o$&@--_",
-    "machine": "댩"
+    "token": "댩"
   },
   {
     "talk": "o$&@--_^",
-    "machine": "댪"
+    "token": "댪"
   },
   {
     "talk": "o$&@-",
-    "machine": "댫"
+    "token": "댫"
   },
   {
     "talk": "o$&@-^",
-    "machine": "댬"
+    "token": "댬"
   },
   {
     "talk": "o$&@-_",
-    "machine": "댭"
+    "token": "댭"
   },
   {
     "talk": "o$&@-_^",
-    "machine": "댮"
+    "token": "댮"
   },
   {
     "talk": "o$&@+",
-    "machine": "댯"
+    "token": "댯"
   },
   {
     "talk": "o$&@+^",
-    "machine": "댰"
+    "token": "댰"
   },
   {
     "talk": "o$&@+_",
-    "machine": "댱"
+    "token": "댱"
   },
   {
     "talk": "o$&@+_^",
-    "machine": "댲"
+    "token": "댲"
   },
   {
     "talk": "o$&@++",
-    "machine": "댳"
+    "token": "댳"
   },
   {
     "talk": "o$&@++^",
-    "machine": "댴"
+    "token": "댴"
   },
   {
     "talk": "o$&@++_",
-    "machine": "댵"
+    "token": "댵"
   },
   {
     "talk": "o$&@++_^",
-    "machine": "댶"
+    "token": "댶"
   },
   {
     "talk": "A",
-    "machine": "댷"
+    "token": "댷"
   },
   {
     "talk": "A^",
-    "machine": "댸"
+    "token": "댸"
   },
   {
     "talk": "A_",
-    "machine": "댹"
+    "token": "댹"
   },
   {
     "talk": "A_^",
-    "machine": "댺"
+    "token": "댺"
   },
   {
     "talk": "A--",
-    "machine": "댻"
+    "token": "댻"
   },
   {
     "talk": "A--^",
-    "machine": "댼"
+    "token": "댼"
   },
   {
     "talk": "A--_",
-    "machine": "댽"
+    "token": "댽"
   },
   {
     "talk": "A--_^",
-    "machine": "댾"
+    "token": "댾"
   },
   {
     "talk": "A-",
-    "machine": "댿"
+    "token": "댿"
   },
   {
     "talk": "A-^",
-    "machine": "덀"
+    "token": "덀"
   },
   {
     "talk": "A-_",
-    "machine": "덁"
+    "token": "덁"
   },
   {
     "talk": "A-_^",
-    "machine": "덂"
+    "token": "덂"
   },
   {
     "talk": "A+",
-    "machine": "덃"
+    "token": "덃"
   },
   {
     "talk": "A+^",
-    "machine": "덄"
+    "token": "덄"
   },
   {
     "talk": "A+_",
-    "machine": "덅"
+    "token": "덅"
   },
   {
     "talk": "A+_^",
-    "machine": "덆"
+    "token": "덆"
   },
   {
     "talk": "A++",
-    "machine": "덇"
+    "token": "덇"
   },
   {
     "talk": "A++^",
-    "machine": "덈"
+    "token": "덈"
   },
   {
     "talk": "A++_",
-    "machine": "덉"
+    "token": "덉"
   },
   {
     "talk": "A++_^",
-    "machine": "덊"
+    "token": "덊"
   },
   {
     "talk": "A@",
-    "machine": "덋"
+    "token": "덋"
   },
   {
     "talk": "A@^",
-    "machine": "덌"
+    "token": "덌"
   },
   {
     "talk": "A@_",
-    "machine": "덍"
+    "token": "덍"
   },
   {
     "talk": "A@_^",
-    "machine": "덎"
+    "token": "덎"
   },
   {
     "talk": "A@--",
-    "machine": "덏"
+    "token": "덏"
   },
   {
     "talk": "A@--^",
-    "machine": "덐"
+    "token": "덐"
   },
   {
     "talk": "A@--_",
-    "machine": "덑"
+    "token": "덑"
   },
   {
     "talk": "A@--_^",
-    "machine": "덒"
+    "token": "덒"
   },
   {
     "talk": "A@-",
-    "machine": "덓"
+    "token": "덓"
   },
   {
     "talk": "A@-^",
-    "machine": "더"
+    "token": "더"
   },
   {
     "talk": "A@-_",
-    "machine": "덕"
+    "token": "덕"
   },
   {
     "talk": "A@-_^",
-    "machine": "덖"
+    "token": "덖"
   },
   {
     "talk": "A@+",
-    "machine": "덗"
+    "token": "덗"
   },
   {
     "talk": "A@+^",
-    "machine": "던"
+    "token": "던"
   },
   {
     "talk": "A@+_",
-    "machine": "덙"
+    "token": "덙"
   },
   {
     "talk": "A@+_^",
-    "machine": "덚"
+    "token": "덚"
   },
   {
     "talk": "A@++",
-    "machine": "덛"
+    "token": "덛"
   },
   {
     "talk": "A@++^",
-    "machine": "덜"
+    "token": "덜"
   },
   {
     "talk": "A@++_",
-    "machine": "덝"
+    "token": "덝"
   },
   {
     "talk": "A@++_^",
-    "machine": "덞"
+    "token": "덞"
   },
   {
     "talk": "A&",
-    "machine": "덟"
+    "token": "덟"
   },
   {
     "talk": "A&^",
-    "machine": "덠"
+    "token": "덠"
   },
   {
     "talk": "A&_",
-    "machine": "덡"
+    "token": "덡"
   },
   {
     "talk": "A&_^",
-    "machine": "덢"
+    "token": "덢"
   },
   {
     "talk": "A&--",
-    "machine": "덣"
+    "token": "덣"
   },
   {
     "talk": "A&--^",
-    "machine": "덤"
+    "token": "덤"
   },
   {
     "talk": "A&--_",
-    "machine": "덥"
+    "token": "덥"
   },
   {
     "talk": "A&--_^",
-    "machine": "덦"
+    "token": "덦"
   },
   {
     "talk": "A&-",
-    "machine": "덧"
+    "token": "덧"
   },
   {
     "talk": "A&-^",
-    "machine": "덨"
+    "token": "덨"
   },
   {
     "talk": "A&-_",
-    "machine": "덩"
+    "token": "덩"
   },
   {
     "talk": "A&-_^",
-    "machine": "덪"
+    "token": "덪"
   },
   {
     "talk": "A&+",
-    "machine": "덫"
+    "token": "덫"
   },
   {
     "talk": "A&+^",
-    "machine": "덬"
+    "token": "덬"
   },
   {
     "talk": "A&+_",
-    "machine": "덭"
+    "token": "덭"
   },
   {
     "talk": "A&+_^",
-    "machine": "덮"
+    "token": "덮"
   },
   {
     "talk": "A&++",
-    "machine": "덯"
+    "token": "덯"
   },
   {
     "talk": "A&++^",
-    "machine": "데"
+    "token": "데"
   },
   {
     "talk": "A&++_",
-    "machine": "덱"
+    "token": "덱"
   },
   {
     "talk": "A&++_^",
-    "machine": "덲"
+    "token": "덲"
   },
   {
     "talk": "A&@",
-    "machine": "덳"
+    "token": "덳"
   },
   {
     "talk": "A&@^",
-    "machine": "덴"
+    "token": "덴"
   },
   {
     "talk": "A&@_",
-    "machine": "덵"
+    "token": "덵"
   },
   {
     "talk": "A&@_^",
-    "machine": "덶"
+    "token": "덶"
   },
   {
     "talk": "A&@--",
-    "machine": "덷"
+    "token": "덷"
   },
   {
     "talk": "A&@--^",
-    "machine": "델"
+    "token": "델"
   },
   {
     "talk": "A&@--_",
-    "machine": "덹"
+    "token": "덹"
   },
   {
     "talk": "A&@--_^",
-    "machine": "덺"
+    "token": "덺"
   },
   {
     "talk": "A&@-",
-    "machine": "덻"
+    "token": "덻"
   },
   {
     "talk": "A&@-^",
-    "machine": "덼"
+    "token": "덼"
   },
   {
     "talk": "A&@-_",
-    "machine": "덽"
+    "token": "덽"
   },
   {
     "talk": "A&@-_^",
-    "machine": "덾"
+    "token": "덾"
   },
   {
     "talk": "A&@+",
-    "machine": "덿"
+    "token": "덿"
   },
   {
     "talk": "A&@+^",
-    "machine": "뎀"
+    "token": "뎀"
   },
   {
     "talk": "A&@+_",
-    "machine": "뎁"
+    "token": "뎁"
   },
   {
     "talk": "A&@+_^",
-    "machine": "뎂"
+    "token": "뎂"
   },
   {
     "talk": "A&@++",
-    "machine": "뎃"
+    "token": "뎃"
   },
   {
     "talk": "A&@++^",
-    "machine": "뎄"
+    "token": "뎄"
   },
   {
     "talk": "A&@++_",
-    "machine": "뎅"
+    "token": "뎅"
   },
   {
     "talk": "A&@++_^",
-    "machine": "뎆"
+    "token": "뎆"
   },
   {
     "talk": "a",
-    "machine": "뎇"
+    "token": "뎇"
   },
   {
     "talk": "a^",
-    "machine": "뎈"
+    "token": "뎈"
   },
   {
     "talk": "a_",
-    "machine": "뎉"
+    "token": "뎉"
   },
   {
     "talk": "a_^",
-    "machine": "뎊"
+    "token": "뎊"
   },
   {
     "talk": "a--",
-    "machine": "뎋"
+    "token": "뎋"
   },
   {
     "talk": "a--^",
-    "machine": "뎌"
+    "token": "뎌"
   },
   {
     "talk": "a--_",
-    "machine": "뎍"
+    "token": "뎍"
   },
   {
     "talk": "a--_^",
-    "machine": "뎎"
+    "token": "뎎"
   },
   {
     "talk": "a-",
-    "machine": "뎏"
+    "token": "뎏"
   },
   {
     "talk": "a-^",
-    "machine": "뎐"
+    "token": "뎐"
   },
   {
     "talk": "a-_",
-    "machine": "뎑"
+    "token": "뎑"
   },
   {
     "talk": "a-_^",
-    "machine": "뎒"
+    "token": "뎒"
   },
   {
     "talk": "a+",
-    "machine": "뎓"
+    "token": "뎓"
   },
   {
     "talk": "a+^",
-    "machine": "뎔"
+    "token": "뎔"
   },
   {
     "talk": "a+_",
-    "machine": "뎕"
+    "token": "뎕"
   },
   {
     "talk": "a+_^",
-    "machine": "뎖"
+    "token": "뎖"
   },
   {
     "talk": "a++",
-    "machine": "뎗"
+    "token": "뎗"
   },
   {
     "talk": "a++^",
-    "machine": "뎘"
+    "token": "뎘"
   },
   {
     "talk": "a++_",
-    "machine": "뎙"
+    "token": "뎙"
   },
   {
     "talk": "a++_^",
-    "machine": "뎚"
+    "token": "뎚"
   },
   {
     "talk": "a@",
-    "machine": "뎛"
+    "token": "뎛"
   },
   {
     "talk": "a@^",
-    "machine": "뎜"
+    "token": "뎜"
   },
   {
     "talk": "a@_",
-    "machine": "뎝"
+    "token": "뎝"
   },
   {
     "talk": "a@_^",
-    "machine": "뎞"
+    "token": "뎞"
   },
   {
     "talk": "a@--",
-    "machine": "뎟"
+    "token": "뎟"
   },
   {
     "talk": "a@--^",
-    "machine": "뎠"
+    "token": "뎠"
   },
   {
     "talk": "a@--_",
-    "machine": "뎡"
+    "token": "뎡"
   },
   {
     "talk": "a@--_^",
-    "machine": "뎢"
+    "token": "뎢"
   },
   {
     "talk": "a@-",
-    "machine": "뎣"
+    "token": "뎣"
   },
   {
     "talk": "a@-^",
-    "machine": "뎤"
+    "token": "뎤"
   },
   {
     "talk": "a@-_",
-    "machine": "뎥"
+    "token": "뎥"
   },
   {
     "talk": "a@-_^",
-    "machine": "뎦"
+    "token": "뎦"
   },
   {
     "talk": "a@+",
-    "machine": "뎧"
+    "token": "뎧"
   },
   {
     "talk": "a@+^",
-    "machine": "뎨"
+    "token": "뎨"
   },
   {
     "talk": "a@+_",
-    "machine": "뎩"
+    "token": "뎩"
   },
   {
     "talk": "a@+_^",
-    "machine": "뎪"
+    "token": "뎪"
   },
   {
     "talk": "a@++",
-    "machine": "뎫"
+    "token": "뎫"
   },
   {
     "talk": "a@++^",
-    "machine": "뎬"
+    "token": "뎬"
   },
   {
     "talk": "a@++_",
-    "machine": "뎭"
+    "token": "뎭"
   },
   {
     "talk": "a@++_^",
-    "machine": "뎮"
+    "token": "뎮"
   },
   {
     "talk": "a&",
-    "machine": "뎯"
+    "token": "뎯"
   },
   {
     "talk": "a&^",
-    "machine": "뎰"
+    "token": "뎰"
   },
   {
     "talk": "a&_",
-    "machine": "뎱"
+    "token": "뎱"
   },
   {
     "talk": "a&_^",
-    "machine": "뎲"
+    "token": "뎲"
   },
   {
     "talk": "a&--",
-    "machine": "뎳"
+    "token": "뎳"
   },
   {
     "talk": "a&--^",
-    "machine": "뎴"
+    "token": "뎴"
   },
   {
     "talk": "a&--_",
-    "machine": "뎵"
+    "token": "뎵"
   },
   {
     "talk": "a&--_^",
-    "machine": "뎶"
+    "token": "뎶"
   },
   {
     "talk": "a&-",
-    "machine": "뎷"
+    "token": "뎷"
   },
   {
     "talk": "a&-^",
-    "machine": "뎸"
+    "token": "뎸"
   },
   {
     "talk": "a&-_",
-    "machine": "뎹"
+    "token": "뎹"
   },
   {
     "talk": "a&-_^",
-    "machine": "뎺"
+    "token": "뎺"
   },
   {
     "talk": "a&+",
-    "machine": "뎻"
+    "token": "뎻"
   },
   {
     "talk": "a&+^",
-    "machine": "뎼"
+    "token": "뎼"
   },
   {
     "talk": "a&+_",
-    "machine": "뎽"
+    "token": "뎽"
   },
   {
     "talk": "a&+_^",
-    "machine": "뎾"
+    "token": "뎾"
   },
   {
     "talk": "a&++",
-    "machine": "뎿"
+    "token": "뎿"
   },
   {
     "talk": "a&++^",
-    "machine": "돀"
+    "token": "돀"
   },
   {
     "talk": "a&++_",
-    "machine": "돁"
+    "token": "돁"
   },
   {
     "talk": "a&++_^",
-    "machine": "돂"
+    "token": "돂"
   },
   {
     "talk": "a&@",
-    "machine": "돃"
+    "token": "돃"
   },
   {
     "talk": "a&@^",
-    "machine": "도"
+    "token": "도"
   },
   {
     "talk": "a&@_",
-    "machine": "독"
+    "token": "독"
   },
   {
     "talk": "a&@_^",
-    "machine": "돆"
+    "token": "돆"
   },
   {
     "talk": "a&@--",
-    "machine": "돇"
+    "token": "돇"
   },
   {
     "talk": "a&@--^",
-    "machine": "돈"
+    "token": "돈"
   },
   {
     "talk": "a&@--_",
-    "machine": "돉"
+    "token": "돉"
   },
   {
     "talk": "a&@--_^",
-    "machine": "돊"
+    "token": "돊"
   },
   {
     "talk": "a&@-",
-    "machine": "돋"
+    "token": "돋"
   },
   {
     "talk": "a&@-^",
-    "machine": "돌"
+    "token": "돌"
   },
   {
     "talk": "a&@-_",
-    "machine": "돍"
+    "token": "돍"
   },
   {
     "talk": "a&@-_^",
-    "machine": "돎"
+    "token": "돎"
   },
   {
     "talk": "a&@+",
-    "machine": "돏"
+    "token": "돏"
   },
   {
     "talk": "a&@+^",
-    "machine": "돐"
+    "token": "돐"
   },
   {
     "talk": "a&@+_",
-    "machine": "돑"
+    "token": "돑"
   },
   {
     "talk": "a&@+_^",
-    "machine": "돒"
+    "token": "돒"
   },
   {
     "talk": "a&@++",
-    "machine": "돓"
+    "token": "돓"
   },
   {
     "talk": "a&@++^",
-    "machine": "돔"
+    "token": "돔"
   },
   {
     "talk": "a&@++_",
-    "machine": "돕"
+    "token": "돕"
   },
   {
     "talk": "a&@++_^",
-    "machine": "돖"
+    "token": "돖"
   },
   {
     "talk": "=.",
-    "machine": "돗"
+    "token": "돗"
   },
   {
     "talk": "=?",
-    "machine": "돘"
+    "token": "돘"
   },
   {
     "talk": "=!",
-    "machine": "동"
+    "token": "동"
   },
   {
     "talk": "=+",
-    "machine": "돚"
+    "token": "돚"
   },
   {
     "talk": "=-",
-    "machine": "돛"
+    "token": "돛"
   },
   {
     "talk": " ",
-    "machine": "돜"
+    "token": "돜"
   },
   {
     "talk": "0",
-    "machine": "돝"
+    "token": "돝"
   },
   {
     "talk": "1",
-    "machine": "돞"
+    "token": "돞"
   },
   {
     "talk": "2",
-    "machine": "돟"
+    "token": "돟"
   },
   {
     "talk": "3",
-    "machine": "돠"
+    "token": "돠"
   },
   {
     "talk": "4",
-    "machine": "돡"
+    "token": "돡"
   },
   {
     "talk": "5",
-    "machine": "돢"
+    "token": "돢"
   },
   {
     "talk": "6",
-    "machine": "돣"
+    "token": "돣"
   },
   {
     "talk": "7",
-    "machine": "돤"
+    "token": "돤"
   },
   {
     "talk": "8",
-    "machine": "돥"
+    "token": "돥"
   },
   {
     "talk": "9",
-    "machine": "돦"
+    "token": "돦"
+  },
+  {
+    "talk": "S!w~",
+    "token": "돧"
+  },
+  {
+    "talk": "S!y~",
+    "token": "돨"
+  },
+  {
+    "talk": "S!y~w~",
+    "token": "돩"
+  },
+  {
+    "talk": "p*",
+    "token": "돪"
+  },
+  {
+    "talk": "p*w~",
+    "token": "돫"
+  },
+  {
+    "talk": "p*y~",
+    "token": "돬"
+  },
+  {
+    "talk": "p*y~w~",
+    "token": "돭"
+  },
+  {
+    "talk": "t*",
+    "token": "돮"
+  },
+  {
+    "talk": "t*w~",
+    "token": "돯"
+  },
+  {
+    "talk": "t*y~",
+    "token": "돰"
+  },
+  {
+    "talk": "t*y~w~",
+    "token": "돱"
+  },
+  {
+    "talk": "k*",
+    "token": "돲"
+  },
+  {
+    "talk": "k*w~",
+    "token": "돳"
+  },
+  {
+    "talk": "k*y~",
+    "token": "돴"
+  },
+  {
+    "talk": "k*y~w~",
+    "token": "돵"
+  },
+  {
+    "talk": "c*",
+    "token": "돶"
+  },
+  {
+    "talk": "c*w~",
+    "token": "돷"
+  },
+  {
+    "talk": "c*y~",
+    "token": "돸"
+  },
+  {
+    "talk": "c*y~w~",
+    "token": "돹"
+  },
+  {
+    "talk": "d*",
+    "token": "돺"
+  },
+  {
+    "talk": "d*w~",
+    "token": "돻"
+  },
+  {
+    "talk": "d*y~",
+    "token": "돼"
+  },
+  {
+    "talk": "d*y~w~",
+    "token": "돽"
+  },
+  {
+    "talk": "K*",
+    "token": "돾"
+  },
+  {
+    "talk": "K*w~",
+    "token": "돿"
+  },
+  {
+    "talk": "K*y~",
+    "token": "됀"
+  },
+  {
+    "talk": "K*y~w~",
+    "token": "됁"
+  },
+  {
+    "talk": "l*",
+    "token": "됂"
+  },
+  {
+    "talk": "l*w~",
+    "token": "됃"
+  },
+  {
+    "talk": "l*y~",
+    "token": "됄"
+  },
+  {
+    "talk": "l*y~w~",
+    "token": "됅"
   }
 ]

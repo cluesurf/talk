@@ -1,6 +1,6 @@
 // The runtime state: every lookup the conversions need, built once.
 
-import { machineEntries, modifiers, phones } from './data'
+import { tokenEntries, modifiers, phones } from './data'
 import { buildSymbols } from './symbol'
 import { Trie, TrieBuilder, buildTrie } from './trie'
 import type { Modifier, Phone, SymbolEntry, Unit } from './type'
@@ -96,8 +96,8 @@ function bootstrap(): Runtime {
 
   const machineByTalk = new Map<string, string>()
 
-  for (const entry of machineEntries) {
-    machineByTalk.set(entry.talk, entry.machine)
+  for (const entry of tokenEntries) {
+    machineByTalk.set(entry.talk, entry.token)
   }
 
   return {

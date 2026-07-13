@@ -61,10 +61,10 @@ export type SoundInfo = {
   kind: Kind
 }
 
-// A frozen talk-sound to Hangul code point assignment.
-export type MachineEntry = {
+// A frozen talk-sound to Hangul code point (token) assignment.
+export type TokenEntry = {
   talk: string
-  machine: string
+  token: string
 }
 
 // A unit the scanner can match: a base sound, an affix, or a passthrough

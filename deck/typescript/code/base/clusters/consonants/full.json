@@ -1,0 +1,386 @@
+[
+  {
+    "talk": "brvsts",
+    "token": "㩩"
+  },
+  {
+    "talk": "prvsks",
+    "token": "㩪"
+  },
+  {
+    "talk": "prvsts",
+    "token": "㩫"
+  },
+  {
+    "talk": "spldjd",
+    "token": "㩬"
+  },
+  {
+    "talk": "spldjt",
+    "token": "㩭"
+  },
+  {
+    "talk": "spltxp",
+    "token": "㩮"
+  },
+  {
+    "talk": "spltxt",
+    "token": "㩯"
+  },
+  {
+    "talk": "sprdjd",
+    "token": "㩰"
+  },
+  {
+    "talk": "'l:dj",
+    "token": "㩱"
+  },
+  {
+    "talk": "brvsk",
+    "token": "㩲"
+  },
+  {
+    "talk": "brvst",
+    "token": "㩳"
+  },
+  {
+    "talk": "brvzd",
+    "token": "㩴"
+  },
+  {
+    "talk": "brvzt",
+    "token": "㩵"
+  },
+  {
+    "talk": "prvsk",
+    "token": "㩶"
+  },
+  {
+    "talk": "prvst",
+    "token": "㩷"
+  },
+  {
+    "talk": "prvzd",
+    "token": "㩸"
+  },
+  {
+    "talk": "prvzt",
+    "token": "㩹"
+  },
+  {
+    "talk": "spldj",
+    "token": "㩺"
+  },
+  {
+    "talk": "sprdj",
+    "token": "㩻"
+  },
+  {
+    "talk": "'l:c",
+    "token": "㩼"
+  },
+  {
+    "talk": "'l:C",
+    "token": "㩽"
+  },
+  {
+    "talk": "'l:d",
+    "token": "㩾"
+  },
+  {
+    "talk": "'l:f",
+    "token": "㩿"
+  },
+  {
+    "talk": "'l:m",
+    "token": "㪀"
+  },
+  {
+    "talk": "'l:n",
+    "token": "㪁"
+  },
+  {
+    "talk": "'l:p",
+    "token": "㪂"
+  },
+  {
+    "talk": "'l:s",
+    "token": "㪃"
+  },
+  {
+    "talk": "'l:t",
+    "token": "㪄"
+  },
+  {
+    "talk": "'l:v",
+    "token": "㪅"
+  },
+  {
+    "talk": "'l:x",
+    "token": "㪆"
+  },
+  {
+    "talk": "'l:z",
+    "token": "㪇"
+  },
+  {
+    "talk": "brvc",
+    "token": "㪈"
+  },
+  {
+    "talk": "brvC",
+    "token": "㪉"
+  },
+  {
+    "talk": "brvs",
+    "token": "㪊"
+  },
+  {
+    "talk": "brvz",
+    "token": "㪋"
+  },
+  {
+    "talk": "prvc",
+    "token": "㪌"
+  },
+  {
+    "talk": "prvC",
+    "token": "㪍"
+  },
+  {
+    "talk": "prvs",
+    "token": "㪎"
+  },
+  {
+    "talk": "prvt",
+    "token": "㪏"
+  },
+  {
+    "talk": "prvz",
+    "token": "㪐"
+  },
+  {
+    "talk": "'dj",
+    "token": "㪑"
+  },
+  {
+    "talk": "'dx",
+    "token": "㪒"
+  },
+  {
+    "talk": "'tx",
+    "token": "㪓"
+  },
+  {
+    "talk": "brm",
+    "token": "㪔"
+  },
+  {
+    "talk": "brn",
+    "token": "㪕"
+  },
+  {
+    "talk": "brq",
+    "token": "㪖"
+  },
+  {
+    "talk": "brv",
+    "token": "㪗"
+  },
+  {
+    "talk": "krm",
+    "token": "㪘"
+  },
+  {
+    "talk": "krn",
+    "token": "㪙"
+  },
+  {
+    "talk": "krq",
+    "token": "㪚"
+  },
+  {
+    "talk": "prm",
+    "token": "㪛"
+  },
+  {
+    "talk": "prn",
+    "token": "㪜"
+  },
+  {
+    "talk": "prq",
+    "token": "㪝"
+  },
+  {
+    "talk": "prv",
+    "token": "㪞"
+  },
+  {
+    "talk": "trm",
+    "token": "㪟"
+  },
+  {
+    "talk": "trn",
+    "token": "㪠"
+  },
+  {
+    "talk": "trq",
+    "token": "㪡"
+  },
+  {
+    "talk": "txm",
+    "token": "㪢"
+  },
+  {
+    "talk": "txn",
+    "token": "㪣"
+  },
+  {
+    "talk": "txq",
+    "token": "㪤"
+  },
+  {
+    "talk": "'b",
+    "token": "㪥"
+  },
+  {
+    "talk": "'B",
+    "token": "㪦"
+  },
+  {
+    "talk": "'c",
+    "token": "㪧"
+  },
+  {
+    "talk": "'C",
+    "token": "㪨"
+  },
+  {
+    "talk": "'d",
+    "token": "㪩"
+  },
+  {
+    "talk": "'D",
+    "token": "㪪"
+  },
+  {
+    "talk": "'f",
+    "token": "㪫"
+  },
+  {
+    "talk": "'F",
+    "token": "㪬"
+  },
+  {
+    "talk": "'g",
+    "token": "㪭"
+  },
+  {
+    "talk": "'h",
+    "token": "㪮"
+  },
+  {
+    "talk": "'H",
+    "token": "㪯"
+  },
+  {
+    "talk": "'j",
+    "token": "㪰"
+  },
+  {
+    "talk": "'J",
+    "token": "㪱"
+  },
+  {
+    "talk": "'k",
+    "token": "㪲"
+  },
+  {
+    "talk": "'K",
+    "token": "㪳"
+  },
+  {
+    "talk": "'l",
+    "token": "㪴"
+  },
+  {
+    "talk": "'L",
+    "token": "㪵"
+  },
+  {
+    "talk": "'m",
+    "token": "㪶"
+  },
+  {
+    "talk": "'n",
+    "token": "㪷"
+  },
+  {
+    "talk": "'N",
+    "token": "㪸"
+  },
+  {
+    "talk": "'p",
+    "token": "㪹"
+  },
+  {
+    "talk": "'q",
+    "token": "㪺"
+  },
+  {
+    "talk": "'r",
+    "token": "㪻"
+  },
+  {
+    "talk": "'R",
+    "token": "㪼"
+  },
+  {
+    "talk": "'s",
+    "token": "㪽"
+  },
+  {
+    "talk": "'S",
+    "token": "㪾"
+  },
+  {
+    "talk": "'t",
+    "token": "㪿"
+  },
+  {
+    "talk": "'T",
+    "token": "㫀"
+  },
+  {
+    "talk": "'v",
+    "token": "㫁"
+  },
+  {
+    "talk": "'V",
+    "token": "㫂"
+  },
+  {
+    "talk": "'w",
+    "token": "㫃"
+  },
+  {
+    "talk": "'x",
+    "token": "㫄"
+  },
+  {
+    "talk": "'X",
+    "token": "㫅"
+  },
+  {
+    "talk": "'y",
+    "token": "㫆"
+  },
+  {
+    "talk": "'z",
+    "token": "㫇"
+  },
+  {
+    "talk": "'Z",
+    "token": "㫈"
+  }
+]

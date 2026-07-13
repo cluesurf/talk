@@ -3,8 +3,8 @@
 import MACHINE from './base/machine.json'
 import MODIFIERS from './base/modifiers.json'
 import PHONES from './base/phones.json'
-import type { MachineEntry, Modifier, Phone } from './type'
+import type { Modifier, Phone, TokenEntry } from './type'
 
 export const phones = PHONES as Phone[]
 export const modifiers = MODIFIERS as Modifier[]
-export const machineEntries = MACHINE as MachineEntry[]
+export const tokenEntries = MACHINE as TokenEntry[]

@@ -51,7 +51,7 @@ change plus a small generalization, not a rewrite.
 
 ## Provisional merges
 
-22 rare chart sounds have no dedicated talk letter, so they merge to the
+23 rare chart sounds have no dedicated talk letter, so they merge to the
 nearest existing talk sound (talk is about 95% accurate, so many IPA
 symbols already share one talk letter). These entries are flagged
 `"provisional": true` in phones.json. The merges are best-effort and
@@ -81,3 +81,4 @@ open to revision.
 | ʎ̮   | ly~         | palatal lateral flap to ʎ                                      |
 | ᶑ   | d?          | retroflex implosive to alveolar implosive ɗ                    |
 | ᶑ̥   | t?          | voiceless retroflex implosive to voiceless implosive           |
+| ᶑ̊   | t?          | voiceless retroflex implosive (ring above) to voiceless implosive |

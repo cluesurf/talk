@@ -12,7 +12,7 @@ import PHONES from '../code/base/phones.json'
 import MACHINE from '../code/base/machine.json'
 
 const phones = PHONES as { ipa: string; talk: string }[]
-const sounds = MACHINE as { talk: string; machine: string }[]
+const sounds = MACHINE as { talk: string; token: string }[]
 
 describe('coverage', () => {
   it('maps every chart symbol to a talk spelling', () => {
@@ -65,11 +65,11 @@ describe('machine encoding', () => {
     const dupes: string[] = []
 
     for (const s of sounds) {
-      if (seen.has(s.machine)) {
+      if (seen.has(s.token)) {
         dupes.push(s.talk)
       }
 
-      seen.add(s.machine)
+      seen.add(s.token)
     }
 
     expect(dupes).toEqual([])

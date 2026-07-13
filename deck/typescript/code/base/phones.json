@@ -1425,6 +1425,67 @@
     "provisional": true
   },
   {
+    "ipa": "ᶑ̊",
+    "talk": "t?",
+    "simple": "t̖",
+    "kind": "consonant",
+    "provisional": true
+  },
+  {
+    "ipa": "ʄ̊",
+    "talk": "g?y~h!",
+    "simple": "g̀ẏħ",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "ɬʼ",
+    "talk": "S!",
+    "simple": "ṣ́",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "ʘ",
+    "talk": "p*",
+    "simple": "p̂",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "ǀ",
+    "talk": "t*",
+    "simple": "t̬",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "ǃ",
+    "talk": "k*",
+    "simple": "k̬",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "𝼊",
+    "talk": "c*",
+    "simple": "c̬",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "ǂ",
+    "talk": "d*",
+    "simple": "d̬",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "ʞ",
+    "talk": "K*",
+    "simple": "ḳ̬",
+    "kind": "consonant"
+  },
+  {
+    "ipa": "ǁ",
+    "talk": "l*",
+    "simple": "l̬",
+    "kind": "consonant"
+  },
+  {
     "ipa": "i",
     "talk": "i",
     "simple": "i",

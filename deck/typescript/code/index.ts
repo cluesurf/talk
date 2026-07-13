@@ -19,12 +19,12 @@ import { segment } from './sound'
 export type {
   Attaches,
   Kind,
-  MachineEntry,
   Modifier,
   Phone,
   Sound,
   SoundInfo,
   SymbolEntry,
+  TokenEntry,
   Unit,
 } from './type'
 
@@ -39,6 +39,10 @@ export {
 } from './convert'
 export { enumerateSounds } from './enumerate'
 export { segment } from './sound'
+export { syllables } from './syllable'
+export type { Syllable, Cluster } from './syllable'
+
+import { syllables } from './syllable'
 
 const talk = {
   ipaToTalk,
@@ -48,6 +52,7 @@ const talk = {
   machine,
   machineOutputs,
   segment,
+  syllables,
   combine,
   enumerateSounds,
 }
