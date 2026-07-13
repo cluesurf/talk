@@ -26,6 +26,7 @@ on:
 jobs:
   coverage:
     runs-on: windows-latest
+    timeout-minutes: 15
 
     steps:
       - name: Check out (for base/chinese-symbols-unicode.csv)
@@ -39,17 +40,14 @@ jobs:
       - name: Install fonttools
         run: pip install fonttools
 
-      # YaHei (msyh) + SimSun (simsun) ship with Windows Server by default. This
-      # is a best-effort safety net for the rarer Traditional fonts; never fatal.
-      - name: Ensure Chinese font capabilities (best effort)
+      # YaHei (msyh) + SimSun (simsun) ship with Windows Server by default, so we
+      # just use what is present. We do NOT run `Add-WindowsCapability -Online`:
+      # it hangs for many minutes on the runner (blocks on Windows Update). If we
+      # later need the rarer Traditional fonts, get them a non-hanging way.
+      - name: List CJK fonts present
         shell: pwsh
-        continue-on-error: true
         run: |
-          try {
-            Add-WindowsCapability -Online -Name "Language.Fonts.Hans~~~und-HANS~0.0.1.0" -ErrorAction SilentlyContinue
-            Add-WindowsCapability -Online -Name "Language.Fonts.Hant~~~und-HANT~0.0.1.0" -ErrorAction SilentlyContinue
-          } catch { Write-Host "font capability step skipped: $_" }
-          Write-Host "CJK-ish fonts present in C:\Windows\Fonts:"
+          Write-Host "CJK fonts present in C:\Windows\Fonts:"
           Get-ChildItem C:\Windows\Fonts\ -Include *.ttc,*.ttf -Recurse |
             Where-Object { $_.Name -match 'msyh|simsun|simhei|msjh|mingliu|kaiti|fangsong|dfkai' } |
             Select-Object -ExpandProperty Name

@@ -4,7 +4,7 @@
 // Everything is derived from three data files (in base/) and a
 // double-array trie scan. No runtime dependencies.
 
-import { combine } from './combine'
+import { combine } from './string/combine'
 import {
   ipaToTalk,
   machine,
@@ -12,9 +12,9 @@ import {
   readable,
   talkToIpa,
   tokenize,
-} from './convert'
-import { enumerateSounds } from './enumerate'
-import { segment } from './sound'
+} from './string/convert'
+import { enumerateSounds } from './string/enumerate'
+import { segment } from './string/sound'
 
 export type {
   Attaches,
@@ -26,9 +26,9 @@ export type {
   SymbolEntry,
   TokenEntry,
   Unit,
-} from './type'
+} from './string/type'
 
-export { combine } from './combine'
+export { combine } from './string/combine'
 export {
   ipaToTalk,
   machine,
@@ -36,9 +36,9 @@ export {
   readable,
   talkToIpa,
   tokenize,
-} from './convert'
-export { enumerateSounds } from './enumerate'
-export { segment } from './sound'
+} from './string/convert'
+export { enumerateSounds } from './string/enumerate'
+export { segment } from './string/sound'
 export { syllables } from './syllable'
 export type { Syllable, Cluster } from './syllable'
 

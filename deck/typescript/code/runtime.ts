@@ -2,7 +2,7 @@
 
 import { tokenEntries, modifiers, phones } from './data'
 import { buildSymbols } from './symbol'
-import { Trie, TrieBuilder, buildTrie } from './trie'
+import { Trie, TrieBuilder, buildTrie } from '../trie'
 import type { Modifier, Phone, SymbolEntry, Unit } from './type'
 
 export type Runtime = {
