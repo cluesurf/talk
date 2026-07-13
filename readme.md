@@ -127,13 +127,13 @@ simplified system like this.
 ## Libraries
 
 Implementations of Talk, one per language. Each converts between IPA,
-Talk, the simplified reading form, and the machine (token) encoding, and
-splits words into syllables.
+Talk, the simplified reading form, and the machine (token) encoding. The
+TypeScript library also splits words into syllables.
 
-| Library                             | Language   | Note                                                         | Status |
-| :---------------------------------- | :--------- | :----------------------------------------------------------- | :----- |
-| [`@cluesurf/talk`](deck/typescript) | TypeScript | Full encoder, tokenizer, and syllabifier. Zero dependencies. | ✅     |
-| `talk-phonetics`                    | Python     | Planned port for the Python-first speech-ML ecosystem.       | TODO   |
+| Language   | Library                             | Status |
+| :--------- | :---------------------------------- | :----- |
+| TypeScript | [`@cluesurf/talk`](deck/typescript) | ✅     |
+| Python     | [`cluesurf-talk`](deck/python)      | ✅     |
 
 ## Encoding
 
@@ -457,9 +457,6 @@ resulting Talk affix when it is mapped.
 | ◌‖     | prosody                | major phrase break    | ignored |      |
 | ◌↗     | prosody                | global rise           | ignored |      |
 | ◌↘     | prosody                | global fall           | ignored |      |
-
-The full list is also in
-[`code/base/diacritics.csv`](code/base/diacritics.csv).
 
 **On the ignored ones.** IPA itself is not perfectly exact. Real speech
 has far more subtle variation than any discrete character set can

@@ -1,5 +1,5 @@
 [project]
-name = "talk"
+name = "cluesurf-talk"
 version = "2.0.0"
 description = "Tokenized IPA for AI and NLP, a keyboard-friendly ASCII phonetic encoding that converts to and from IPA with one token per effective sound."
 readme = "readme.md"
