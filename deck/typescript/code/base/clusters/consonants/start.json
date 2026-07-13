@@ -1,1570 +1,1178 @@
 [
   {
-    "talk": "jdj:r",
-    "token": "㐩"
+    "talk": "jdj:r"
   },
   {
-    "talk": "jtx:r",
-    "token": "㐪"
+    "talk": "jtx:r"
   },
   {
-    "talk": "sdj:r",
-    "token": "㐫"
+    "talk": "sdj:r"
   },
   {
-    "talk": "stx:r",
-    "token": "㐬"
+    "talk": "stx:r"
   },
   {
-    "talk": "xdj:r",
-    "token": "㐭"
+    "talk": "xdj:r"
   },
   {
-    "talk": "xtx:r",
-    "token": "㐮"
+    "talk": "xtx:r"
   },
   {
-    "talk": "zdj:r",
-    "token": "㐯"
+    "talk": "zdj:r"
   },
   {
-    "talk": "ztx:r",
-    "token": "㐰"
+    "talk": "ztx:r"
   },
   {
-    "talk": "dj:r",
-    "token": "㐱"
+    "talk": "dj:r"
   },
   {
-    "talk": "jb:w",
-    "token": "㐲"
+    "talk": "jb:w"
   },
   {
-    "talk": "jb:y",
-    "token": "㐳"
+    "talk": "jb:y"
   },
   {
-    "talk": "jc:w",
-    "token": "㐴"
+    "talk": "jc:w"
   },
   {
-    "talk": "jc:y",
-    "token": "㐵"
+    "talk": "jc:y"
   },
   {
-    "talk": "jd:j",
-    "token": "㐶"
+    "talk": "jd:j"
   },
   {
-    "talk": "jD:J",
-    "token": "㐷"
+    "talk": "jD:J"
   },
   {
-    "talk": "jd:r",
-    "token": "㐸"
+    "talk": "jd:r"
   },
   {
-    "talk": "jd:w",
-    "token": "㐹"
+    "talk": "jd:w"
   },
   {
-    "talk": "jd:y",
-    "token": "㐺"
+    "talk": "jd:y"
   },
   {
-    "talk": "jf:r",
-    "token": "㐻"
+    "talk": "jf:r"
   },
   {
-    "talk": "jf:w",
-    "token": "㐼"
+    "talk": "jf:w"
   },
   {
-    "talk": "jf:y",
-    "token": "㐽"
+    "talk": "jf:y"
   },
   {
-    "talk": "jg:r",
-    "token": "㐾"
+    "talk": "jg:r"
   },
   {
-    "talk": "jg:w",
-    "token": "㐿"
+    "talk": "jg:w"
   },
   {
-    "talk": "jg:y",
-    "token": "㑀"
+    "talk": "jg:y"
   },
   {
-    "talk": "jk:l",
-    "token": "㑁"
+    "talk": "jk:l"
   },
   {
-    "talk": "jk:r",
-    "token": "㑂"
+    "talk": "jk:r"
   },
   {
-    "talk": "jk:w",
-    "token": "㑃"
+    "talk": "jk:w"
   },
   {
-    "talk": "jk:y",
-    "token": "㑄"
+    "talk": "jk:y"
   },
   {
-    "talk": "jl:w",
-    "token": "㑅"
+    "talk": "jl:w"
   },
   {
-    "talk": "jm:l",
-    "token": "㑆"
+    "talk": "jm:l"
   },
   {
-    "talk": "jm:r",
-    "token": "㑇"
+    "talk": "jm:r"
   },
   {
-    "talk": "jm:w",
-    "token": "㑈"
+    "talk": "jm:w"
   },
   {
-    "talk": "jm:y",
-    "token": "㑉"
+    "talk": "jm:y"
   },
   {
-    "talk": "jn:r",
-    "token": "㑊"
+    "talk": "jn:r"
   },
   {
-    "talk": "jn:w",
-    "token": "㑋"
+    "talk": "jn:w"
   },
   {
-    "talk": "jn:y",
-    "token": "㑌"
+    "talk": "jn:y"
   },
   {
-    "talk": "jp:l",
-    "token": "㑍"
+    "talk": "jp:l"
   },
   {
-    "talk": "jp:r",
-    "token": "㑎"
+    "talk": "jp:r"
   },
   {
-    "talk": "jp:w",
-    "token": "㑏"
+    "talk": "jp:w"
   },
   {
-    "talk": "jt:r",
-    "token": "㑐"
+    "talk": "jt:r"
   },
   {
-    "talk": "jt:w",
-    "token": "㑑"
+    "talk": "jt:w"
   },
   {
-    "talk": "jt:x",
-    "token": "㑒"
+    "talk": "jt:x"
   },
   {
-    "talk": "jt:y",
-    "token": "㑓"
+    "talk": "jt:y"
   },
   {
-    "talk": "sb:w",
-    "token": "㑔"
+    "talk": "sb:w"
   },
   {
-    "talk": "sb:y",
-    "token": "㑕"
+    "talk": "sb:y"
   },
   {
-    "talk": "sc:w",
-    "token": "㑖"
+    "talk": "sc:w"
   },
   {
-    "talk": "sc:y",
-    "token": "㑗"
+    "talk": "sc:y"
   },
   {
-    "talk": "sd:j",
-    "token": "㑘"
+    "talk": "sd:j"
   },
   {
-    "talk": "sD:J",
-    "token": "㑙"
+    "talk": "sD:J"
   },
   {
-    "talk": "sd:r",
-    "token": "㑚"
+    "talk": "sd:r"
   },
   {
-    "talk": "sd:w",
-    "token": "㑛"
+    "talk": "sd:w"
   },
   {
-    "talk": "sd:y",
-    "token": "㑜"
+    "talk": "sd:y"
   },
   {
-    "talk": "sf:r",
-    "token": "㑝"
+    "talk": "sf:r"
   },
   {
-    "talk": "sf:w",
-    "token": "㑞"
+    "talk": "sf:w"
   },
   {
-    "talk": "sf:y",
-    "token": "㑟"
+    "talk": "sf:y"
   },
   {
-    "talk": "sg:r",
-    "token": "㑠"
+    "talk": "sg:r"
   },
   {
-    "talk": "sg:w",
-    "token": "㑡"
+    "talk": "sg:w"
   },
   {
-    "talk": "sg:y",
-    "token": "㑢"
+    "talk": "sg:y"
   },
   {
-    "talk": "sk:l",
-    "token": "㑣"
+    "talk": "sk:l"
   },
   {
-    "talk": "sk:r",
-    "token": "㑤"
+    "talk": "sk:r"
   },
   {
-    "talk": "sk:w",
-    "token": "㑥"
+    "talk": "sk:w"
   },
   {
-    "talk": "sk:y",
-    "token": "㑦"
+    "talk": "sk:y"
   },
   {
-    "talk": "sl:w",
-    "token": "㑧"
+    "talk": "sl:w"
   },
   {
-    "talk": "sm:l",
-    "token": "㑨"
+    "talk": "sm:l"
   },
   {
-    "talk": "sm:r",
-    "token": "㑩"
+    "talk": "sm:r"
   },
   {
-    "talk": "sm:w",
-    "token": "㑪"
+    "talk": "sm:w"
   },
   {
-    "talk": "sm:y",
-    "token": "㑫"
+    "talk": "sm:y"
   },
   {
-    "talk": "sn:r",
-    "token": "㑬"
+    "talk": "sn:r"
   },
   {
-    "talk": "sn:w",
-    "token": "㑭"
+    "talk": "sn:w"
   },
   {
-    "talk": "sn:y",
-    "token": "㑮"
+    "talk": "sn:y"
   },
   {
-    "talk": "sp:l",
-    "token": "㑯"
+    "talk": "sp:l"
   },
   {
-    "talk": "sp:r",
-    "token": "㑰"
+    "talk": "sp:r"
   },
   {
-    "talk": "sp:w",
-    "token": "㑱"
+    "talk": "sp:w"
   },
   {
-    "talk": "st:r",
-    "token": "㑲"
+    "talk": "st:r"
   },
   {
-    "talk": "st:w",
-    "token": "㑳"
+    "talk": "st:w"
   },
   {
-    "talk": "st:x",
-    "token": "㑴"
+    "talk": "st:x"
   },
   {
-    "talk": "st:y",
-    "token": "㑵"
+    "talk": "st:y"
   },
   {
-    "talk": "tz:w",
-    "token": "㑶"
+    "talk": "tz:w"
   },
   {
-    "talk": "tz:y",
-    "token": "㑷"
+    "talk": "tz:y"
   },
   {
-    "talk": "xb:w",
-    "token": "㑸"
+    "talk": "xb:w"
   },
   {
-    "talk": "xb:y",
-    "token": "㑹"
+    "talk": "xb:y"
   },
   {
-    "talk": "xc:w",
-    "token": "㑺"
+    "talk": "xc:w"
   },
   {
-    "talk": "xc:y",
-    "token": "㑻"
+    "talk": "xc:y"
   },
   {
-    "talk": "xd:j",
-    "token": "㑼"
+    "talk": "xd:j"
   },
   {
-    "talk": "xD:J",
-    "token": "㑽"
+    "talk": "xD:J"
   },
   {
-    "talk": "xd:r",
-    "token": "㑾"
+    "talk": "xd:r"
   },
   {
-    "talk": "xd:w",
-    "token": "㑿"
+    "talk": "xd:w"
   },
   {
-    "talk": "xd:y",
-    "token": "㒀"
+    "talk": "xd:y"
   },
   {
-    "talk": "xf:r",
-    "token": "㒁"
+    "talk": "xf:r"
   },
   {
-    "talk": "xf:w",
-    "token": "㒂"
+    "talk": "xf:w"
   },
   {
-    "talk": "xf:y",
-    "token": "㒃"
+    "talk": "xf:y"
   },
   {
-    "talk": "xg:r",
-    "token": "㒄"
+    "talk": "xg:r"
   },
   {
-    "talk": "xg:w",
-    "token": "㒅"
+    "talk": "xg:w"
   },
   {
-    "talk": "xg:y",
-    "token": "㒆"
+    "talk": "xg:y"
   },
   {
-    "talk": "xk:l",
-    "token": "㒇"
+    "talk": "xk:l"
   },
   {
-    "talk": "xk:r",
-    "token": "㒈"
+    "talk": "xk:r"
   },
   {
-    "talk": "xk:w",
-    "token": "㒉"
+    "talk": "xk:w"
   },
   {
-    "talk": "xk:y",
-    "token": "㒊"
+    "talk": "xk:y"
   },
   {
-    "talk": "xl:w",
-    "token": "㒋"
+    "talk": "xl:w"
   },
   {
-    "talk": "xm:l",
-    "token": "㒌"
+    "talk": "xm:l"
   },
   {
-    "talk": "xm:r",
-    "token": "㒍"
+    "talk": "xm:r"
   },
   {
-    "talk": "xm:w",
-    "token": "㒎"
+    "talk": "xm:w"
   },
   {
-    "talk": "xm:y",
-    "token": "㒏"
+    "talk": "xm:y"
   },
   {
-    "talk": "xn:r",
-    "token": "㒐"
+    "talk": "xn:r"
   },
   {
-    "talk": "xn:w",
-    "token": "㒑"
+    "talk": "xn:w"
   },
   {
-    "talk": "xn:y",
-    "token": "㒒"
+    "talk": "xn:y"
   },
   {
-    "talk": "xp:l",
-    "token": "㒓"
+    "talk": "xp:l"
   },
   {
-    "talk": "xp:r",
-    "token": "㒔"
+    "talk": "xp:r"
   },
   {
-    "talk": "xp:w",
-    "token": "㒕"
+    "talk": "xp:w"
   },
   {
-    "talk": "xt:r",
-    "token": "㒖"
+    "talk": "xt:r"
   },
   {
-    "talk": "xt:w",
-    "token": "㒗"
+    "talk": "xt:w"
   },
   {
-    "talk": "xt:x",
-    "token": "㒘"
+    "talk": "xt:x"
   },
   {
-    "talk": "xt:y",
-    "token": "㒙"
+    "talk": "xt:y"
   },
   {
-    "talk": "zb:w",
-    "token": "㒚"
+    "talk": "zb:w"
   },
   {
-    "talk": "zb:y",
-    "token": "㒛"
+    "talk": "zb:y"
   },
   {
-    "talk": "zc:w",
-    "token": "㒜"
+    "talk": "zc:w"
   },
   {
-    "talk": "zc:y",
-    "token": "㒝"
+    "talk": "zc:y"
   },
   {
-    "talk": "zd:j",
-    "token": "㒞"
+    "talk": "zd:j"
   },
   {
-    "talk": "zD:J",
-    "token": "㒟"
+    "talk": "zD:J"
   },
   {
-    "talk": "zd:r",
-    "token": "㒠"
+    "talk": "zd:r"
   },
   {
-    "talk": "zd:w",
-    "token": "㒡"
+    "talk": "zd:w"
   },
   {
-    "talk": "zd:y",
-    "token": "㒢"
+    "talk": "zd:y"
   },
   {
-    "talk": "zf:r",
-    "token": "㒣"
+    "talk": "zf:r"
   },
   {
-    "talk": "zf:w",
-    "token": "㒤"
+    "talk": "zf:w"
   },
   {
-    "talk": "zf:y",
-    "token": "㒥"
+    "talk": "zf:y"
   },
   {
-    "talk": "zg:r",
-    "token": "㒦"
+    "talk": "zg:r"
   },
   {
-    "talk": "zg:w",
-    "token": "㒧"
+    "talk": "zg:w"
   },
   {
-    "talk": "zg:y",
-    "token": "㒨"
+    "talk": "zg:y"
   },
   {
-    "talk": "zk:l",
-    "token": "㒩"
+    "talk": "zk:l"
   },
   {
-    "talk": "zk:r",
-    "token": "㒪"
+    "talk": "zk:r"
   },
   {
-    "talk": "zk:w",
-    "token": "㒫"
+    "talk": "zk:w"
   },
   {
-    "talk": "zk:y",
-    "token": "㒬"
+    "talk": "zk:y"
   },
   {
-    "talk": "zl:w",
-    "token": "㒭"
+    "talk": "zl:w"
   },
   {
-    "talk": "zm:l",
-    "token": "㒮"
+    "talk": "zm:l"
   },
   {
-    "talk": "zm:r",
-    "token": "㒯"
+    "talk": "zm:r"
   },
   {
-    "talk": "zm:w",
-    "token": "㒰"
+    "talk": "zm:w"
   },
   {
-    "talk": "zm:y",
-    "token": "㒱"
+    "talk": "zm:y"
   },
   {
-    "talk": "zn:r",
-    "token": "㒲"
+    "talk": "zn:r"
   },
   {
-    "talk": "zn:w",
-    "token": "㒳"
+    "talk": "zn:w"
   },
   {
-    "talk": "zn:y",
-    "token": "㒴"
+    "talk": "zn:y"
   },
   {
-    "talk": "zp:l",
-    "token": "㒵"
+    "talk": "zp:l"
   },
   {
-    "talk": "zp:r",
-    "token": "㒶"
+    "talk": "zp:r"
   },
   {
-    "talk": "zp:w",
-    "token": "㒷"
+    "talk": "zp:w"
   },
   {
-    "talk": "zt:r",
-    "token": "㒸"
+    "talk": "zt:r"
   },
   {
-    "talk": "zt:w",
-    "token": "㒹"
+    "talk": "zt:w"
   },
   {
-    "talk": "zt:x",
-    "token": "㒺"
+    "talk": "zt:x"
   },
   {
-    "talk": "zt:y",
-    "token": "㒻"
+    "talk": "zt:y"
   },
   {
-    "talk": "djh",
-    "token": "㒼"
+    "talk": "djh"
   },
   {
-    "talk": "djy",
-    "token": "㒽"
+    "talk": "djy"
   },
   {
-    "talk": "djz",
-    "token": "㒾"
+    "talk": "djz"
   },
   {
-    "talk": "dxh",
-    "token": "㒿"
+    "talk": "dxh"
   },
   {
-    "talk": "dxy",
-    "token": "㓀"
+    "talk": "dxy"
   },
   {
-    "talk": "h:l",
-    "token": "㓁"
+    "talk": "h:l"
   },
   {
-    "talk": "h:m",
-    "token": "㓂"
+    "talk": "h:m"
   },
   {
-    "talk": "h:n",
-    "token": "㓃"
+    "talk": "h:n"
   },
   {
-    "talk": "h:r",
-    "token": "㓄"
+    "talk": "h:r"
   },
   {
-    "talk": "h:w",
-    "token": "㓅"
+    "talk": "h:w"
   },
   {
-    "talk": "h:y",
-    "token": "㓆"
+    "talk": "h:y"
   },
   {
-    "talk": "j:c",
-    "token": "㓇"
+    "talk": "j:c"
   },
   {
-    "talk": "j:d",
-    "token": "㓈"
+    "talk": "j:d"
   },
   {
-    "talk": "j:j",
-    "token": "㓉"
+    "talk": "j:j"
   },
   {
-    "talk": "j:k",
-    "token": "㓊"
+    "talk": "j:k"
   },
   {
-    "talk": "j:l",
-    "token": "㓋"
+    "talk": "j:l"
   },
   {
-    "talk": "j:m",
-    "token": "㓌"
+    "talk": "j:m"
   },
   {
-    "talk": "j:n",
-    "token": "㓍"
+    "talk": "j:n"
   },
   {
-    "talk": "j:p",
-    "token": "㓎"
+    "talk": "j:p"
   },
   {
-    "talk": "j:t",
-    "token": "㓏"
+    "talk": "j:t"
   },
   {
-    "talk": "j:w",
-    "token": "㓐"
+    "talk": "j:w"
   },
   {
-    "talk": "jbr",
-    "token": "㓑"
+    "talk": "jbr"
   },
   {
-    "talk": "q:l",
-    "token": "㓒"
+    "talk": "q:l"
   },
   {
-    "talk": "s:c",
-    "token": "㓓"
+    "talk": "s:c"
   },
   {
-    "talk": "s:d",
-    "token": "㓔"
+    "talk": "s:d"
   },
   {
-    "talk": "s:j",
-    "token": "㓕"
+    "talk": "s:j"
   },
   {
-    "talk": "s:k",
-    "token": "㓖"
+    "talk": "s:k"
   },
   {
-    "talk": "s:l",
-    "token": "㓗"
+    "talk": "s:l"
   },
   {
-    "talk": "s:m",
-    "token": "㓘"
+    "talk": "s:m"
   },
   {
-    "talk": "s:n",
-    "token": "㓙"
+    "talk": "s:n"
   },
   {
-    "talk": "s:p",
-    "token": "㓚"
+    "talk": "s:p"
   },
   {
-    "talk": "s:t",
-    "token": "㓛"
+    "talk": "s:t"
   },
   {
-    "talk": "s:w",
-    "token": "㓜"
+    "talk": "s:w"
   },
   {
-    "talk": "sbr",
-    "token": "㓝"
+    "talk": "sbr"
   },
   {
-    "talk": "skr",
-    "token": "㓞"
+    "talk": "skr"
   },
   {
-    "talk": "skw",
-    "token": "㓟"
+    "talk": "skw"
   },
   {
-    "talk": "smw",
-    "token": "㓠"
+    "talk": "smw"
   },
   {
-    "talk": "snw",
-    "token": "㓡"
+    "talk": "snw"
   },
   {
-    "talk": "spl",
-    "token": "㓢"
+    "talk": "spl"
   },
   {
-    "talk": "spr",
-    "token": "㓣"
+    "talk": "spr"
   },
   {
-    "talk": "spw",
-    "token": "㓤"
+    "talk": "spw"
   },
   {
-    "talk": "str",
-    "token": "㓥"
+    "talk": "str"
   },
   {
-    "talk": "txc",
-    "token": "㓦"
+    "talk": "txc"
   },
   {
-    "talk": "txh",
-    "token": "㓧"
+    "talk": "txh"
   },
   {
-    "talk": "txs",
-    "token": "㓨"
+    "talk": "txs"
   },
   {
-    "talk": "txy",
-    "token": "㓩"
+    "talk": "txy"
   },
   {
-    "talk": "x:c",
-    "token": "㓪"
+    "talk": "x:c"
   },
   {
-    "talk": "x:d",
-    "token": "㓫"
+    "talk": "x:d"
   },
   {
-    "talk": "x:j",
-    "token": "㓬"
+    "talk": "x:j"
   },
   {
-    "talk": "x:k",
-    "token": "㓭"
+    "talk": "x:k"
   },
   {
-    "talk": "x:l",
-    "token": "㓮"
+    "talk": "x:l"
   },
   {
-    "talk": "x:m",
-    "token": "㓯"
+    "talk": "x:m"
   },
   {
-    "talk": "x:n",
-    "token": "㓰"
+    "talk": "x:n"
   },
   {
-    "talk": "x:p",
-    "token": "㓱"
+    "talk": "x:p"
   },
   {
-    "talk": "x:t",
-    "token": "㓲"
+    "talk": "x:t"
   },
   {
-    "talk": "x:w",
-    "token": "㓳"
+    "talk": "x:w"
   },
   {
-    "talk": "xbr",
-    "token": "㓴"
+    "talk": "xbr"
   },
   {
-    "talk": "z:c",
-    "token": "㓵"
+    "talk": "z:c"
   },
   {
-    "talk": "z:d",
-    "token": "㓶"
+    "talk": "z:d"
   },
   {
-    "talk": "z:j",
-    "token": "㓷"
+    "talk": "z:j"
   },
   {
-    "talk": "z:k",
-    "token": "㓸"
+    "talk": "z:k"
   },
   {
-    "talk": "z:l",
-    "token": "㓹"
+    "talk": "z:l"
   },
   {
-    "talk": "z:m",
-    "token": "㓺"
+    "talk": "z:m"
   },
   {
-    "talk": "z:n",
-    "token": "㓻"
+    "talk": "z:n"
   },
   {
-    "talk": "z:p",
-    "token": "㓼"
+    "talk": "z:p"
   },
   {
-    "talk": "z:t",
-    "token": "㓽"
+    "talk": "z:t"
   },
   {
-    "talk": "z:w",
-    "token": "㓾"
+    "talk": "z:w"
   },
   {
-    "talk": "zbr",
-    "token": "㓿"
+    "talk": "zbr"
   },
   {
-    "talk": "bh",
-    "token": "㔀"
+    "talk": "bh"
   },
   {
-    "talk": "Bh",
-    "token": "㔁"
+    "talk": "Bh"
   },
   {
-    "talk": "bj",
-    "token": "㔂"
+    "talk": "bj"
   },
   {
-    "talk": "bl",
-    "token": "㔃"
+    "talk": "bl"
   },
   {
-    "talk": "br",
-    "token": "㔄"
+    "talk": "br"
   },
   {
-    "talk": "bs",
-    "token": "㔅"
+    "talk": "bs"
   },
   {
-    "talk": "bw",
-    "token": "㔆"
+    "talk": "bw"
   },
   {
-    "talk": "by",
-    "token": "㔇"
+    "talk": "by"
   },
   {
-    "talk": "By",
-    "token": "㔈"
+    "talk": "By"
   },
   {
-    "talk": "bz",
-    "token": "㔉"
+    "talk": "bz"
   },
   {
-    "talk": "ch",
-    "token": "㔊"
+    "talk": "ch"
   },
   {
-    "talk": "Ch",
-    "token": "㔋"
+    "talk": "Ch"
   },
   {
-    "talk": "cl",
-    "token": "㔌"
+    "talk": "cl"
   },
   {
-    "talk": "Cl",
-    "token": "㔍"
+    "talk": "Cl"
   },
   {
-    "talk": "cr",
-    "token": "㔎"
+    "talk": "cr"
   },
   {
-    "talk": "Cr",
-    "token": "㔏"
+    "talk": "Cr"
   },
   {
-    "talk": "cw",
-    "token": "㔐"
+    "talk": "cw"
   },
   {
-    "talk": "Cw",
-    "token": "㔑"
+    "talk": "Cw"
   },
   {
-    "talk": "cy",
-    "token": "㔒"
+    "talk": "cy"
   },
   {
-    "talk": "Cy",
-    "token": "㔓"
+    "talk": "Cy"
   },
   {
-    "talk": "dh",
-    "token": "㔔"
+    "talk": "dh"
   },
   {
-    "talk": "Dh",
-    "token": "㔕"
+    "talk": "Dh"
   },
   {
-    "talk": "dj",
-    "token": "㔖"
+    "talk": "dj"
   },
   {
-    "talk": "dl",
-    "token": "㔗"
+    "talk": "dl"
   },
   {
-    "talk": "dr",
-    "token": "㔘"
+    "talk": "dr"
   },
   {
-    "talk": "dw",
-    "token": "㔙"
+    "talk": "dw"
   },
   {
-    "talk": "dy",
-    "token": "㔚"
+    "talk": "dy"
   },
   {
-    "talk": "Dy",
-    "token": "㔛"
+    "talk": "Dy"
   },
   {
-    "talk": "dz",
-    "token": "㔜"
+    "talk": "dz"
   },
   {
-    "talk": "fc",
-    "token": "㔝"
+    "talk": "fc"
   },
   {
-    "talk": "fC",
-    "token": "㔞"
+    "talk": "fC"
   },
   {
-    "talk": "fh",
-    "token": "㔟"
+    "talk": "fh"
   },
   {
-    "talk": "Fh",
-    "token": "㔠"
+    "talk": "Fh"
   },
   {
-    "talk": "fl",
-    "token": "㔡"
+    "talk": "fl"
   },
   {
-    "talk": "fm",
-    "token": "㔢"
+    "talk": "fm"
   },
   {
-    "talk": "fn",
-    "token": "㔣"
+    "talk": "fn"
   },
   {
-    "talk": "fr",
-    "token": "㔤"
+    "talk": "fr"
   },
   {
-    "talk": "fs",
-    "token": "㔥"
+    "talk": "fs"
   },
   {
-    "talk": "fv",
-    "token": "㔦"
+    "talk": "fv"
   },
   {
-    "talk": "fw",
-    "token": "㔧"
+    "talk": "fw"
   },
   {
-    "talk": "fy",
-    "token": "㔨"
+    "talk": "fy"
   },
   {
-    "talk": "Fy",
-    "token": "㔩"
+    "talk": "Fy"
   },
   {
-    "talk": "gC",
-    "token": "㔪"
+    "talk": "gC"
   },
   {
-    "talk": "gh",
-    "token": "㔫"
+    "talk": "gh"
   },
   {
-    "talk": "Gh",
-    "token": "㔬"
+    "talk": "Gh"
   },
   {
-    "talk": "gj",
-    "token": "㔭"
+    "talk": "gj"
   },
   {
-    "talk": "gl",
-    "token": "㔮"
+    "talk": "gl"
   },
   {
-    "talk": "gr",
-    "token": "㔯"
+    "talk": "gr"
   },
   {
-    "talk": "gs",
-    "token": "㔰"
+    "talk": "gs"
   },
   {
-    "talk": "gw",
-    "token": "㔱"
+    "talk": "gw"
   },
   {
-    "talk": "gy",
-    "token": "㔲"
+    "talk": "gy"
   },
   {
-    "talk": "Gy",
-    "token": "㔳"
+    "talk": "Gy"
   },
   {
-    "talk": "gz",
-    "token": "㔴"
+    "talk": "gz"
   },
   {
-    "talk": "Hh",
-    "token": "㔵"
+    "talk": "Hh"
   },
   {
-    "talk": "hy",
-    "token": "㔶"
+    "talk": "hy"
   },
   {
-    "talk": "Hy",
-    "token": "㔷"
+    "talk": "Hy"
   },
   {
-    "talk": "jh",
-    "token": "㔸"
+    "talk": "jh"
   },
   {
-    "talk": "Jh",
-    "token": "㔹"
+    "talk": "Jh"
   },
   {
-    "talk": "jl",
-    "token": "㔺"
+    "talk": "jl"
   },
   {
-    "talk": "jm",
-    "token": "㔻"
+    "talk": "jm"
   },
   {
-    "talk": "jn",
-    "token": "㔼"
+    "talk": "jn"
   },
   {
-    "talk": "jr",
-    "token": "㔽"
+    "talk": "jr"
   },
   {
-    "talk": "jw",
-    "token": "㔾"
+    "talk": "jw"
   },
   {
-    "talk": "jy",
-    "token": "㔿"
+    "talk": "jy"
   },
   {
-    "talk": "Jy",
-    "token": "㕀"
+    "talk": "Jy"
   },
   {
-    "talk": "kc",
-    "token": "㕁"
+    "talk": "kc"
   },
   {
-    "talk": "kC",
-    "token": "㕂"
+    "talk": "kC"
   },
   {
-    "talk": "kh",
-    "token": "㕃"
+    "talk": "kh"
   },
   {
-    "talk": "Kh",
-    "token": "㕄"
+    "talk": "Kh"
   },
   {
-    "talk": "kl",
-    "token": "㕅"
+    "talk": "kl"
   },
   {
-    "talk": "kr",
-    "token": "㕆"
+    "talk": "kr"
   },
   {
-    "talk": "ks",
-    "token": "㕇"
+    "talk": "ks"
   },
   {
-    "talk": "kw",
-    "token": "㕈"
+    "talk": "kw"
   },
   {
-    "talk": "kx",
-    "token": "㕉"
+    "talk": "kx"
   },
   {
-    "talk": "ky",
-    "token": "㕊"
+    "talk": "ky"
   },
   {
-    "talk": "Ky",
-    "token": "㕋"
+    "talk": "Ky"
   },
   {
-    "talk": "lh",
-    "token": "㕌"
+    "talk": "lh"
   },
   {
-    "talk": "Lh",
-    "token": "㕍"
+    "talk": "Lh"
   },
   {
-    "talk": "ly",
-    "token": "㕎"
+    "talk": "ly"
   },
   {
-    "talk": "Ly",
-    "token": "㕏"
+    "talk": "Ly"
   },
   {
-    "talk": "mh",
-    "token": "㕐"
+    "talk": "mh"
   },
   {
-    "talk": "ml",
-    "token": "㕑"
+    "talk": "ml"
   },
   {
-    "talk": "mr",
-    "token": "㕒"
+    "talk": "mr"
   },
   {
-    "talk": "mw",
-    "token": "㕓"
+    "talk": "mw"
   },
   {
-    "talk": "my",
-    "token": "㕔"
+    "talk": "my"
   },
   {
-    "talk": "nh",
-    "token": "㕕"
+    "talk": "nh"
   },
   {
-    "talk": "Nh",
-    "token": "㕖"
+    "talk": "Nh"
   },
   {
-    "talk": "nl",
-    "token": "㕗"
+    "talk": "nl"
   },
   {
-    "talk": "nr",
-    "token": "㕘"
+    "talk": "nr"
   },
   {
-    "talk": "nw",
-    "token": "㕙"
+    "talk": "nw"
   },
   {
-    "talk": "ny",
-    "token": "㕚"
+    "talk": "ny"
   },
   {
-    "talk": "Ny",
-    "token": "㕛"
+    "talk": "Ny"
   },
   {
-    "talk": "pc",
-    "token": "㕜"
+    "talk": "pc"
   },
   {
-    "talk": "pC",
-    "token": "㕝"
+    "talk": "pC"
   },
   {
-    "talk": "ph",
-    "token": "㕞"
+    "talk": "ph"
   },
   {
-    "talk": "pj",
-    "token": "㕟"
+    "talk": "pj"
   },
   {
-    "talk": "pl",
-    "token": "㕠"
+    "talk": "pl"
   },
   {
-    "talk": "pr",
-    "token": "㕡"
+    "talk": "pr"
   },
   {
-    "talk": "ps",
-    "token": "㕢"
+    "talk": "ps"
   },
   {
-    "talk": "pw",
-    "token": "㕣"
+    "talk": "pw"
   },
   {
-    "talk": "px",
-    "token": "㕤"
+    "talk": "px"
   },
   {
-    "talk": "py",
-    "token": "㕥"
+    "talk": "py"
   },
   {
-    "talk": "pz",
-    "token": "㕦"
+    "talk": "pz"
   },
   {
-    "talk": "qh",
-    "token": "㕧"
+    "talk": "qh"
   },
   {
-    "talk": "Qh",
-    "token": "㕨"
+    "talk": "Qh"
   },
   {
-    "talk": "qr",
-    "token": "㕩"
+    "talk": "qr"
   },
   {
-    "talk": "qw",
-    "token": "㕪"
+    "talk": "qw"
   },
   {
-    "talk": "qy",
-    "token": "㕫"
+    "talk": "qy"
   },
   {
-    "talk": "Qy",
-    "token": "㕬"
+    "talk": "Qy"
   },
   {
-    "talk": "rh",
-    "token": "㕭"
+    "talk": "rh"
   },
   {
-    "talk": "Rh",
-    "token": "㕮"
+    "talk": "Rh"
   },
   {
-    "talk": "ry",
-    "token": "㕯"
+    "talk": "ry"
   },
   {
-    "talk": "Ry",
-    "token": "㕰"
+    "talk": "Ry"
   },
   {
-    "talk": "sh",
-    "token": "㕱"
+    "talk": "sh"
   },
   {
-    "talk": "Sh",
-    "token": "㕲"
+    "talk": "Sh"
   },
   {
-    "talk": "sk",
-    "token": "㕳"
+    "talk": "sk"
   },
   {
-    "talk": "sl",
-    "token": "㕴"
+    "talk": "sl"
   },
   {
-    "talk": "sm",
-    "token": "㕵"
+    "talk": "sm"
   },
   {
-    "talk": "sn",
-    "token": "㕶"
+    "talk": "sn"
   },
   {
-    "talk": "sp",
-    "token": "㕷"
+    "talk": "sp"
   },
   {
-    "talk": "sr",
-    "token": "㕸"
+    "talk": "sr"
   },
   {
-    "talk": "st",
-    "token": "㕹"
+    "talk": "st"
   },
   {
-    "talk": "sw",
-    "token": "㕺"
+    "talk": "sw"
   },
   {
-    "talk": "sy",
-    "token": "㕻"
+    "talk": "sy"
   },
   {
-    "talk": "Sy",
-    "token": "㕼"
+    "talk": "Sy"
   },
   {
-    "talk": "th",
-    "token": "㕽"
+    "talk": "th"
   },
   {
-    "talk": "Th",
-    "token": "㕾"
+    "talk": "Th"
   },
   {
-    "talk": "tj",
-    "token": "㕿"
+    "talk": "tj"
   },
   {
-    "talk": "tr",
-    "token": "㖀"
+    "talk": "tr"
   },
   {
-    "talk": "ts",
-    "token": "㖁"
+    "talk": "ts"
   },
   {
-    "talk": "tw",
-    "token": "㖂"
+    "talk": "tw"
   },
   {
-    "talk": "tx",
-    "token": "㖃"
+    "talk": "tx"
   },
   {
-    "talk": "ty",
-    "token": "㖄"
+    "talk": "ty"
   },
   {
-    "talk": "Ty",
-    "token": "㖅"
+    "talk": "Ty"
   },
   {
-    "talk": "tz",
-    "token": "㖆"
+    "talk": "tz"
   },
   {
-    "talk": "u$",
-    "token": "㖇"
+    "talk": "u$"
   },
   {
-    "talk": "vh",
-    "token": "㖈"
+    "talk": "vh"
   },
   {
-    "talk": "Vh",
-    "token": "㖉"
+    "talk": "Vh"
   },
   {
-    "talk": "vl",
-    "token": "㖊"
+    "talk": "vl"
   },
   {
-    "talk": "vr",
-    "token": "㖋"
+    "talk": "vr"
   },
   {
-    "talk": "vw",
-    "token": "㖌"
+    "talk": "vw"
   },
   {
-    "talk": "vy",
-    "token": "㖍"
+    "talk": "vy"
   },
   {
-    "talk": "Vy",
-    "token": "㖎"
+    "talk": "Vy"
   },
   {
-    "talk": "wh",
-    "token": "㖏"
+    "talk": "wh"
   },
   {
-    "talk": "wr",
-    "token": "㖐"
+    "talk": "wr"
   },
   {
-    "talk": "wy",
-    "token": "㖑"
+    "talk": "wy"
   },
   {
-    "talk": "xb",
-    "token": "㖒"
+    "talk": "xb"
   },
   {
-    "talk": "xd",
-    "token": "㖓"
+    "talk": "xd"
   },
   {
-    "talk": "xg",
-    "token": "㖔"
+    "talk": "xg"
   },
   {
-    "talk": "xh",
-    "token": "㖕"
+    "talk": "xh"
   },
   {
-    "talk": "Xh",
-    "token": "㖖"
+    "talk": "Xh"
   },
   {
-    "talk": "xk",
-    "token": "㖗"
+    "talk": "xk"
   },
   {
-    "talk": "xl",
-    "token": "㖘"
+    "talk": "xl"
   },
   {
-    "talk": "xp",
-    "token": "㖙"
+    "talk": "xp"
   },
   {
-    "talk": "xr",
-    "token": "㖚"
+    "talk": "xr"
   },
   {
-    "talk": "xt",
-    "token": "㖛"
+    "talk": "xt"
   },
   {
-    "talk": "xw",
-    "token": "㖜"
+    "talk": "xw"
   },
   {
-    "talk": "xy",
-    "token": "㖝"
+    "talk": "xy"
   },
   {
-    "talk": "Xy",
-    "token": "㖞"
+    "talk": "Xy"
   },
   {
-    "talk": "yh",
-    "token": "㖟"
+    "talk": "yh"
   },
   {
-    "talk": "zb",
-    "token": "㖠"
+    "talk": "zb"
   },
   {
-    "talk": "zd",
-    "token": "㖡"
+    "talk": "zd"
   },
   {
-    "talk": "zg",
-    "token": "㖢"
+    "talk": "zg"
   },
   {
-    "talk": "zh",
-    "token": "㖣"
+    "talk": "zh"
   },
   {
-    "talk": "Zh",
-    "token": "㖤"
+    "talk": "Zh"
   },
   {
-    "talk": "zk",
-    "token": "㖥"
+    "talk": "zk"
   },
   {
-    "talk": "zl",
-    "token": "㖦"
+    "talk": "zl"
   },
   {
-    "talk": "zm",
-    "token": "㖧"
+    "talk": "zm"
   },
   {
-    "talk": "zn",
-    "token": "㖨"
+    "talk": "zn"
   },
   {
-    "talk": "zp",
-    "token": "㖩"
+    "talk": "zp"
   },
   {
-    "talk": "zr",
-    "token": "㖪"
+    "talk": "zr"
   },
   {
-    "talk": "zt",
-    "token": "㖫"
+    "talk": "zt"
   },
   {
-    "talk": "zv",
-    "token": "㖬"
+    "talk": "zv"
   },
   {
-    "talk": "zw",
-    "token": "㖭"
+    "talk": "zw"
   },
   {
-    "talk": "zy",
-    "token": "㖮"
+    "talk": "zy"
   },
   {
-    "talk": "Zy",
-    "token": "㖯"
+    "talk": "Zy"
   },
   {
-    "talk": "'",
-    "token": "㖰"
+    "talk": "'"
   }
 ]

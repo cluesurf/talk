@@ -1,386 +1,290 @@
 [
   {
-    "talk": "brvsts",
-    "token": "㩩"
+    "talk": "brvsts"
   },
   {
-    "talk": "prvsks",
-    "token": "㩪"
+    "talk": "prvsks"
   },
   {
-    "talk": "prvsts",
-    "token": "㩫"
+    "talk": "prvsts"
   },
   {
-    "talk": "spldjd",
-    "token": "㩬"
+    "talk": "spldjd"
   },
   {
-    "talk": "spldjt",
-    "token": "㩭"
+    "talk": "spldjt"
   },
   {
-    "talk": "spltxp",
-    "token": "㩮"
+    "talk": "spltxp"
   },
   {
-    "talk": "spltxt",
-    "token": "㩯"
+    "talk": "spltxt"
   },
   {
-    "talk": "sprdjd",
-    "token": "㩰"
+    "talk": "sprdjd"
   },
   {
-    "talk": "'l:dj",
-    "token": "㩱"
+    "talk": "'l:dj"
   },
   {
-    "talk": "brvsk",
-    "token": "㩲"
+    "talk": "brvsk"
   },
   {
-    "talk": "brvst",
-    "token": "㩳"
+    "talk": "brvst"
   },
   {
-    "talk": "brvzd",
-    "token": "㩴"
+    "talk": "brvzd"
   },
   {
-    "talk": "brvzt",
-    "token": "㩵"
+    "talk": "brvzt"
   },
   {
-    "talk": "prvsk",
-    "token": "㩶"
+    "talk": "prvsk"
   },
   {
-    "talk": "prvst",
-    "token": "㩷"
+    "talk": "prvst"
   },
   {
-    "talk": "prvzd",
-    "token": "㩸"
+    "talk": "prvzd"
   },
   {
-    "talk": "prvzt",
-    "token": "㩹"
+    "talk": "prvzt"
   },
   {
-    "talk": "spldj",
-    "token": "㩺"
+    "talk": "spldj"
   },
   {
-    "talk": "sprdj",
-    "token": "㩻"
+    "talk": "sprdj"
   },
   {
-    "talk": "'l:c",
-    "token": "㩼"
+    "talk": "'l:c"
   },
   {
-    "talk": "'l:C",
-    "token": "㩽"
+    "talk": "'l:C"
   },
   {
-    "talk": "'l:d",
-    "token": "㩾"
+    "talk": "'l:d"
   },
   {
-    "talk": "'l:f",
-    "token": "㩿"
+    "talk": "'l:f"
   },
   {
-    "talk": "'l:m",
-    "token": "㪀"
+    "talk": "'l:m"
   },
   {
-    "talk": "'l:n",
-    "token": "㪁"
+    "talk": "'l:n"
   },
   {
-    "talk": "'l:p",
-    "token": "㪂"
+    "talk": "'l:p"
   },
   {
-    "talk": "'l:s",
-    "token": "㪃"
+    "talk": "'l:s"
   },
   {
-    "talk": "'l:t",
-    "token": "㪄"
+    "talk": "'l:t"
   },
   {
-    "talk": "'l:v",
-    "token": "㪅"
+    "talk": "'l:v"
   },
   {
-    "talk": "'l:x",
-    "token": "㪆"
+    "talk": "'l:x"
   },
   {
-    "talk": "'l:z",
-    "token": "㪇"
+    "talk": "'l:z"
   },
   {
-    "talk": "brvc",
-    "token": "㪈"
+    "talk": "brvc"
   },
   {
-    "talk": "brvC",
-    "token": "㪉"
+    "talk": "brvC"
   },
   {
-    "talk": "brvs",
-    "token": "㪊"
+    "talk": "brvs"
   },
   {
-    "talk": "brvz",
-    "token": "㪋"
+    "talk": "brvz"
   },
   {
-    "talk": "prvc",
-    "token": "㪌"
+    "talk": "prvc"
   },
   {
-    "talk": "prvC",
-    "token": "㪍"
+    "talk": "prvC"
   },
   {
-    "talk": "prvs",
-    "token": "㪎"
+    "talk": "prvs"
   },
   {
-    "talk": "prvt",
-    "token": "㪏"
+    "talk": "prvt"
   },
   {
-    "talk": "prvz",
-    "token": "㪐"
+    "talk": "prvz"
   },
   {
-    "talk": "'dj",
-    "token": "㪑"
+    "talk": "'dj"
   },
   {
-    "talk": "'dx",
-    "token": "㪒"
+    "talk": "'dx"
   },
   {
-    "talk": "'tx",
-    "token": "㪓"
+    "talk": "'tx"
   },
   {
-    "talk": "brm",
-    "token": "㪔"
+    "talk": "brm"
   },
   {
-    "talk": "brn",
-    "token": "㪕"
+    "talk": "brn"
   },
   {
-    "talk": "brq",
-    "token": "㪖"
+    "talk": "brq"
   },
   {
-    "talk": "brv",
-    "token": "㪗"
+    "talk": "brv"
   },
   {
-    "talk": "krm",
-    "token": "㪘"
+    "talk": "krm"
   },
   {
-    "talk": "krn",
-    "token": "㪙"
+    "talk": "krn"
   },
   {
-    "talk": "krq",
-    "token": "㪚"
+    "talk": "krq"
   },
   {
-    "talk": "prm",
-    "token": "㪛"
+    "talk": "prm"
   },
   {
-    "talk": "prn",
-    "token": "㪜"
+    "talk": "prn"
   },
   {
-    "talk": "prq",
-    "token": "㪝"
+    "talk": "prq"
   },
   {
-    "talk": "prv",
-    "token": "㪞"
+    "talk": "prv"
   },
   {
-    "talk": "trm",
-    "token": "㪟"
+    "talk": "trm"
   },
   {
-    "talk": "trn",
-    "token": "㪠"
+    "talk": "trn"
   },
   {
-    "talk": "trq",
-    "token": "㪡"
+    "talk": "trq"
   },
   {
-    "talk": "txm",
-    "token": "㪢"
+    "talk": "txm"
   },
   {
-    "talk": "txn",
-    "token": "㪣"
+    "talk": "txn"
   },
   {
-    "talk": "txq",
-    "token": "㪤"
+    "talk": "txq"
   },
   {
-    "talk": "'b",
-    "token": "㪥"
+    "talk": "'b"
   },
   {
-    "talk": "'B",
-    "token": "㪦"
+    "talk": "'B"
   },
   {
-    "talk": "'c",
-    "token": "㪧"
+    "talk": "'c"
   },
   {
-    "talk": "'C",
-    "token": "㪨"
+    "talk": "'C"
   },
   {
-    "talk": "'d",
-    "token": "㪩"
+    "talk": "'d"
   },
   {
-    "talk": "'D",
-    "token": "㪪"
+    "talk": "'D"
   },
   {
-    "talk": "'f",
-    "token": "㪫"
+    "talk": "'f"
   },
   {
-    "talk": "'F",
-    "token": "㪬"
+    "talk": "'F"
   },
   {
-    "talk": "'g",
-    "token": "㪭"
+    "talk": "'g"
   },
   {
-    "talk": "'h",
-    "token": "㪮"
+    "talk": "'h"
   },
   {
-    "talk": "'H",
-    "token": "㪯"
+    "talk": "'H"
   },
   {
-    "talk": "'j",
-    "token": "㪰"
+    "talk": "'j"
   },
   {
-    "talk": "'J",
-    "token": "㪱"
+    "talk": "'J"
   },
   {
-    "talk": "'k",
-    "token": "㪲"
+    "talk": "'k"
   },
   {
-    "talk": "'K",
-    "token": "㪳"
+    "talk": "'K"
   },
   {
-    "talk": "'l",
-    "token": "㪴"
+    "talk": "'l"
   },
   {
-    "talk": "'L",
-    "token": "㪵"
+    "talk": "'L"
   },
   {
-    "talk": "'m",
-    "token": "㪶"
+    "talk": "'m"
   },
   {
-    "talk": "'n",
-    "token": "㪷"
+    "talk": "'n"
   },
   {
-    "talk": "'N",
-    "token": "㪸"
+    "talk": "'N"
   },
   {
-    "talk": "'p",
-    "token": "㪹"
+    "talk": "'p"
   },
   {
-    "talk": "'q",
-    "token": "㪺"
+    "talk": "'q"
   },
   {
-    "talk": "'r",
-    "token": "㪻"
+    "talk": "'r"
   },
   {
-    "talk": "'R",
-    "token": "㪼"
+    "talk": "'R"
   },
   {
-    "talk": "'s",
-    "token": "㪽"
+    "talk": "'s"
   },
   {
-    "talk": "'S",
-    "token": "㪾"
+    "talk": "'S"
   },
   {
-    "talk": "'t",
-    "token": "㪿"
+    "talk": "'t"
   },
   {
-    "talk": "'T",
-    "token": "㫀"
+    "talk": "'T"
   },
   {
-    "talk": "'v",
-    "token": "㫁"
+    "talk": "'v"
   },
   {
-    "talk": "'V",
-    "token": "㫂"
+    "talk": "'V"
   },
   {
-    "talk": "'w",
-    "token": "㫃"
+    "talk": "'w"
   },
   {
-    "talk": "'x",
-    "token": "㫄"
+    "talk": "'x"
   },
   {
-    "talk": "'X",
-    "token": "㫅"
+    "talk": "'X"
   },
   {
-    "talk": "'y",
-    "token": "㫆"
+    "talk": "'y"
   },
   {
-    "talk": "'z",
-    "token": "㫇"
+    "talk": "'z"
   },
   {
-    "talk": "'Z",
-    "token": "㫈"
+    "talk": "'Z"
   }
 ]

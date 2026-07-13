@@ -1,13 +1,17 @@
-// The cluster whitelists, loaded from base/clusters/ and turned into
-// talk -> token lookups for the syllabifier.
+// The cluster whitelists, loaded from base/clusters/. The category files
+// list the cluster definitions; base/clusters/index.json holds one Chinese
+// token per atomic piece (each colon-split part and the colon-removed
+// whole). A cluster's code is the token of its whole (colon-removed) form.
 
 import consonantList from '../base/clusters/consonants/index.json'
 import startList from '../base/clusters/consonants/start.json'
 import endList from '../base/clusters/consonants/end.json'
 import fullList from '../base/clusters/consonants/full.json'
 import vowelList from '../base/clusters/vowels/index.json'
+import pieceList from '../base/clusters/index.json'
 
-type Entry = { talk: string; token: string }
+type Cluster = { talk: string }
+type Piece = { talk: string; token: string }
 
 export type Clusters = {
   consonants: Record<string, string>
@@ -17,20 +21,30 @@ export type Clusters = {
   vowels: Record<string, string>
 }
 
-function toMap(list: Entry[]): Record<string, string> {
+const tokenOf = new Map<string, string>()
+
+for (const piece of pieceList as Piece[]) {
+  tokenOf.set(piece.talk, piece.token)
+}
+
+function codeOf(cluster: string): string {
+  return tokenOf.get(cluster.replace(/:/g, '')) ?? ''
+}
+
+function toMap(list: Cluster[]): Record<string, string> {
   const map: Record<string, string> = {}
 
-  for (const entry of list) {
-    map[entry.talk] = entry.token
+  for (const { talk } of list) {
+    map[talk] = codeOf(talk)
   }
 
   return map
 }
 
 export const CLUSTERS: Clusters = {
-  consonants: toMap(consonantList as Entry[]),
-  startConsonants: toMap(startList as Entry[]),
-  endConsonants: toMap(endList as Entry[]),
-  fullConsonants: toMap(fullList as Entry[]),
-  vowels: toMap(vowelList as Entry[]),
+  consonants: toMap(consonantList as Cluster[]),
+  startConsonants: toMap(startList as Cluster[]),
+  endConsonants: toMap(endList as Cluster[]),
+  fullConsonants: toMap(fullList as Cluster[]),
+  vowels: toMap(vowelList as Cluster[]),
 }

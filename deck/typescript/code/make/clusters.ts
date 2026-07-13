@@ -1001,39 +1001,26 @@ eI`
 
 // ─── build base/clusters/ ────────────────────────────────────────────
 //
-// One CJK code point per cluster, written as arrays of { talk, token }
-// under base/clusters/. Append-only: a cluster keeps its token once
-// assigned, and new clusters take the next free CJK code point.
+// The five category files list the cluster definitions as { talk } only.
+// A cluster may contain a `:`, which splits a coda (the part before) from
+// an onset (the part after). Word-final it can instead be one unit with
+// the colon removed. So the atomic pieces of a cluster are each colon-split
+// part, plus the whole with the colon removed. Those unique pieces are
+// collected into clusters/index.json and given one Chinese character each
+// (the token). Append-only: a piece keeps its token once assigned.
 
-type Entry = { talk: string; token: string }
+type Piece = { talk: string; token: string }
+type Cluster = { talk: string }
 
 const HERE = dirname(fileURLToPath(import.meta.url))
 const DIR = resolve(HERE, '../base/clusters')
+const INDEX = resolve(DIR, 'index.json')
 
-// CJK ideograph ranges (and related blocks). Large enough to grow the
-// cluster set well past the Hangul block's headroom. Walked in order,
-// skipping code points already used, so overlapping ranges are fine.
-const CJK_BLOCKS: [number, number][] = [
-  [0x3400, 0x4db5],
-  [0x4e00, 0x62ff],
-  [0x6300, 0x77ff],
-  [0x7800, 0x8cff],
-  [0x8d00, 0x9fcc],
-  [0x2e80, 0x2fd5],
-  [0x3190, 0x319f],
-  [0x3400, 0x4dbf],
-  [0x4e00, 0x9fcc],
-  [0xf900, 0xfaad],
-  [0x20000, 0x215ff],
-  [0x21600, 0x230ff],
-  [0x23100, 0x245ff],
-  [0x24600, 0x260ff],
-  [0x26100, 0x275ff],
-  [0x27600, 0x290ff],
-  [0x29100, 0x2a6df],
-  [0x2a700, 0x2b734],
-  [0x2b740, 0x2b81d],
-]
+// The Chinese character set to draw tokens from, at the repository root.
+const CHINESE = resolve(
+  HERE,
+  '../../../../base/symbol/chinese/common/combined.csv',
+)
 
 // file (relative to DIR) -> the defined cluster list
 const SOURCES: [string, string[]][] = [
@@ -1044,88 +1031,97 @@ const SOURCES: [string, string[]][] = [
   ['vowels/index.json', vowels],
 ]
 
-function read(file: string): Entry[] {
-  return existsSync(file)
-    ? (JSON.parse(readFileSync(file, 'utf8')) as Entry[])
-    : []
+// The atomic pieces of a cluster: each colon-split part, plus the whole
+// with the colons removed.
+function piecesOf(cluster: string): string[] {
+  const parts = cluster.split(':')
+
+  return [...parts, parts.join('')]
+}
+
+// The `character` column of combined.csv, in file order.
+function chineseCharacters(): string[] {
+  const text = readFileSync(CHINESE, 'utf8').trim()
+
+  return text
+    .split(/\r?\n/)
+    .slice(1)
+    .map(line => line.split(',')[2])
+    .filter(Boolean)
 }
 
 function build(): void {
-  const existing = SOURCES.map(([rel]) => read(resolve(DIR, rel)))
+  // Every unique piece across every cluster.
+  const pieces = new Set<string>()
 
-  const used = new Set<number>()
-
-  for (const list of existing) {
-    for (const entry of list) {
-      used.add(entry.token.codePointAt(0)!)
+  for (const [, items] of SOURCES) {
+    for (const cluster of items) {
+      for (const piece of piecesOf(cluster)) {
+        pieces.add(piece)
+      }
     }
   }
 
-  // Next free CJK code point, walking the blocks in order.
-  let block = 0
-  let point = CJK_BLOCKS[0][0]
+  // Keep existing tokens (append-only) and mark them used.
+  const existing: Piece[] = existsSync(INDEX)
+    ? (JSON.parse(readFileSync(INDEX, 'utf8')) as Piece[])
+    : []
+  const tokenOf = new Map(existing.map(e => [e.talk, e.token]))
+  const used = new Set(existing.map(e => e.token))
 
-  const next = (): string => {
-    for (;;) {
-      if (block >= CJK_BLOCKS.length) {
-        throw new Error('ran out of CJK code points')
-      }
+  // Draw the next unused Chinese character for each new piece.
+  const chinese = chineseCharacters()
 
-      const [start, end] = CJK_BLOCKS[block]
+  let cursor = 0
 
-      if (point < start) {
-        point = start
-      }
-
-      if (point > end) {
-        block++
-        point = block < CJK_BLOCKS.length ? CJK_BLOCKS[block][0] : 0
-        continue
-      }
-
-      const code = point++
-
-      if (!used.has(code)) {
-        used.add(code)
-
-        return String.fromCodePoint(code)
-      }
+  const nextToken = (): string => {
+    while (cursor < chinese.length && used.has(chinese[cursor])) {
+      cursor++
     }
+
+    if (cursor >= chinese.length) {
+      throw new Error('ran out of Chinese characters')
+    }
+
+    const token = chinese[cursor++]
+
+    used.add(token)
+
+    return token
   }
 
   let added = 0
 
-  SOURCES.forEach(([rel, items], index) => {
-    const byTalk = new Map(existing[index].map(e => [e.talk, e.token]))
-    const valid = new Set(items)
-
-    for (const talk of [...byTalk.keys()]) {
-      if (!valid.has(talk)) {
-        byTalk.delete(talk)
-      }
+  for (const piece of [...pieces].sort(sortLength)) {
+    if (!tokenOf.has(piece)) {
+      tokenOf.set(piece, nextToken())
+      added++
     }
+  }
 
-    for (const item of items) {
-      if (!byTalk.has(item)) {
-        byTalk.set(item, next())
-        added++
-      }
-    }
+  const indexOut: Piece[] = [...pieces]
+    .sort(sortLength)
+    .map(talk => ({ talk, token: tokenOf.get(talk)! }))
 
-    const out: Entry[] = [...items]
+  mkdirSync(DIR, { recursive: true })
+  writeFileSync(INDEX, JSON.stringify(indexOut, null, 2) + '\n')
+
+  // The category files: cluster definitions only, no token.
+  for (const [rel, items] of SOURCES) {
+    const out: Cluster[] = [...items]
       .sort(sortLength)
-      .map(talk => ({ talk, token: byTalk.get(talk)! }))
-
+      .map(talk => ({ talk }))
     const file = resolve(DIR, rel)
 
     mkdirSync(dirname(file), { recursive: true })
     writeFileSync(file, JSON.stringify(out, null, 2) + '\n')
-
     console.log(`  ${rel}: ${out.length}`)
-  })
+  }
 
   console.log(`[clusters] wrote ${DIR}`)
-  console.log(`  newly added: ${added}`)
+  console.log(
+    `  index pieces: ${indexOut.length} (newly added ${added})`,
+  )
 }
 
 build()
