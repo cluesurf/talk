@@ -449,40 +449,52 @@ const vowels = Object.keys(CLUSTERS.vowels).sort(
 // ─── fast cluster lookup ─────────────────────────────────────────────
 //
 // Instead of scanning every cluster at each position, each list becomes a
-// trie keyed by its colon-stripped text (the sound sequence), so a lookup
-// walks once. A match is valid only when it ends exactly on a sound
-// boundary, so multi-character sounds (vowel variants, and future
-// ejectives or clicks) never match half a sound.
+// trie keyed by the value string it spells out, so a lookup walks once to
+// gather candidates. Each candidate is then verified with the exact same
+// check the old flat scan used (the next `count` sounds, joined, equal the
+// cluster's value form), so this matches the old logic sound for sound.
 
 const sortLength = (a: string, b: string) => {
   const diff = b.length - a.length
   return diff || a.localeCompare(b)
 }
 
-// One trie node value is the list of original clusters (with colons) that
-// share a colon-stripped form, kept in list order.
-function buildClusterTrie(list: string[]): Trie<string[]> {
-  const byStripped = new Map<string, string[]>()
+// A cluster and how many sounds it spans (the old scan's `y.length`).
+type ClusterCount = { cluster: string; count: number }
+
+// Group clusters by the value string they match. Consonant clusters carry
+// only colons (split markers, dropped for matching), so the value string
+// is the colon-stripped form and the span is its length. Vowel clusters
+// carry `$` variant marks, which are part of the sound value, so the value
+// string keeps them and the span is the base-vowel count.
+function buildClusterTrie(
+  list: string[],
+  vowel: boolean,
+): Trie<ClusterCount[]> {
+  const byKey = new Map<string, ClusterCount[]>()
 
   for (const cluster of list) {
-    const stripped = cluster.replace(/:/g, '')
-    const group = byStripped.get(stripped) ?? []
-    group.push(cluster)
-    byStripped.set(stripped, group)
+    const key = vowel ? cluster : cluster.replace(/:/g, '')
+    const count = vowel
+      ? cluster.replace(/\$/g, '').length
+      : cluster.replace(/:/g, '').length
+    const group = byKey.get(key) ?? []
+    group.push({ cluster, count })
+    byKey.set(key, group)
   }
 
-  const builder = new TrieBuilder<string[]>()
-  for (const [stripped, group] of byStripped) {
-    builder.add(stripped, group)
+  const builder = new TrieBuilder<ClusterCount[]>()
+  for (const [key, group] of byKey) {
+    builder.add(key, group)
   }
   return builder.build()
 }
 
-const fullConsonantTrie = buildClusterTrie(fullConsonants)
-const startConsonantTrie = buildClusterTrie(startConsonants)
-const endConsonantTrie = buildClusterTrie(endConsonants)
-const consonantTrie = buildClusterTrie(consonants)
-const vowelTrie = buildClusterTrie(vowels)
+const fullConsonantTrie = buildClusterTrie(fullConsonants, false)
+const startConsonantTrie = buildClusterTrie(startConsonants, false)
+const endConsonantTrie = buildClusterTrie(endConsonants, false)
+const consonantTrie = buildClusterTrie(consonants, false)
+const vowelTrie = buildClusterTrie(vowels, true)
 
 const startConsonantStripped = new Set(
   startConsonants.map(x => x.replace(/:/g, '')),
@@ -490,49 +502,46 @@ const startConsonantStripped = new Set(
 
 type ClusterMatch = { cluster: string; count: number }
 
-// The sound values of a word, joined, with a map from a character offset
-// back to the sound index that starts there (plus the end).
-type Frame = {
-  text: string
-  indexAtOffset: Map<number, number>
-  offsetOfIndex: number[]
-}
+// The sound values of a word, joined, with the character offset each sound
+// starts at.
+type Frame = { text: string; offsetOfIndex: number[] }
 
 function frameOf(chunks: Segment[]): Frame {
   const offsetOfIndex: number[] = []
-  const indexAtOffset = new Map<number, number>()
   let text = ''
 
   for (let i = 0; i < chunks.length; i++) {
     offsetOfIndex.push(text.length)
-    indexAtOffset.set(text.length, i)
     text += chunks[i]!.value ?? ''
   }
 
-  indexAtOffset.set(text.length, chunks.length)
-  return { text, indexAtOffset, offsetOfIndex }
+  return { text, offsetOfIndex }
 }
 
-// Clusters from `trie` that match starting at sound `i`, ending on a
-// sound boundary, ordered exactly as the flat list would be iterated
-// (longest first, ties alphabetical).
+// Clusters that match at sound `i`, verified exactly as the old scan did
+// (`chunks.slice(i, i + count)` joined equals the cluster's value form),
+// ordered longest first with alphabetical ties.
 function clusterMatches(
-  trie: Trie<string[]>,
+  trie: Trie<ClusterCount[]>,
   frame: Frame,
+  chunks: Segment[],
   i: number,
 ): ClusterMatch[] {
   const offset = frame.offsetOfIndex[i]!
   const out: ClusterMatch[] = []
 
   for (const hit of trie.matchAllAt(frame.text, offset)) {
-    const end = frame.indexAtOffset.get(offset + hit.length)
+    const key = frame.text.slice(offset, offset + hit.length)
 
-    if (end === undefined) {
-      continue // does not land on a sound boundary
-    }
+    for (const { cluster, count } of hit.value) {
+      const joined = chunks
+        .slice(i, i + count)
+        .map(c => c.value ?? '')
+        .join('')
 
-    for (const cluster of hit.value) {
-      out.push({ cluster, count: end - i })
+      if (joined === key) {
+        out.push({ cluster, count })
+      }
     }
   }
 
@@ -656,6 +665,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
     for (const { cluster: x, count } of clusterMatches(
       fullConsonantTrie,
       frame,
+      chunks,
       i,
     )) {
       const y = x.replace(/:/g, '')
@@ -734,6 +744,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
     for (const { cluster: x, count } of clusterMatches(
       startConsonantTrie,
       frame,
+      chunks,
       i,
     )) {
       span.push({
@@ -748,6 +759,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
     for (const { cluster: x, count } of clusterMatches(
       vowelTrie,
       frame,
+      chunks,
       i,
     )) {
       span.push({
@@ -771,6 +783,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
     for (const { cluster: fc, count } of clusterMatches(
       fullConsonantTrie,
       frame,
+      chunks,
       i,
     )) {
       const fcNormalized = fc.replace(/:/g, '')
@@ -800,6 +813,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
     for (const { cluster: x, count } of clusterMatches(
       endConsonantTrie,
       frame,
+      chunks,
       i,
     )) {
       if (!endConsonantMatch || count > endConsonantMatch.length) {
@@ -856,6 +870,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
       for (const { cluster: x, count } of clusterMatches(
         consonantTrie,
         frame,
+        chunks,
         i,
       )) {
         span.push({
@@ -873,6 +888,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
       for (const { cluster: x, count } of clusterMatches(
         fullConsonantTrie,
         frame,
+        chunks,
         i,
       )) {
         const y = x.replace(/:/g, '')

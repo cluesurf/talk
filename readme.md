@@ -532,6 +532,33 @@ import tone from '@cluesurf/tone'
 tone.make('a+a+si-kiri-imu-') // => 'a3a3si4kiri4imu4'
 ```
 
+## Token encoding
+
+Which Chinese characters actually render in the base fonts that ship on ordinary
+computers, rather than showing the missing-glyph box. Coverage is read from each
+font's `cmap` (the ground truth for whether a glyph exists), then intersected per
+script: Simplified with Simplified, Traditional with Traditional, never crossed.
+
+The base list is 84,107 Han ideographs used in Chinese, taken from the Unihan
+database by Chinese source or reading.
+
+| Font | System | Script | Characters |
+| --- | --- | --- | --- |
+| PingFang | macOS | SC + TC | 30,979 |
+| Microsoft YaHei | Windows | SC | 27,761 |
+| SimSun | Windows | SC | 27,565 |
+| Microsoft JhengHei | Windows | TC | 27,534 |
+| MingLiU | Windows | TC | 27,531 |
+
+Characters that render on every common desktop of a script (the intersection):
+
+| Set | Fonts | Characters |
+| --- | --- | --- |
+| Simplified common | PingFang, YaHei, SimSun | 27,565 |
+| Traditional common | PingFang, JhengHei, MingLiU | 27,528 |
+
+Per-font and intersection lists live in `base/symbol/chinese/`.
+
 ## License
 
 MIT
