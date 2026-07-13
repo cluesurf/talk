@@ -1,0 +1,8 @@
+# Publish only the built dist/ (plus readme, license, package.json).
+code/
+test/
+tmp/
+*.config.ts
+tsconfig*.json
+.npmignore
+*.tsbuildinfo
