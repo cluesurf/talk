@@ -11,7 +11,7 @@
 </p>
 
 <h3 align='center'>
-  @cluesurf/talk
+  talk
 </h3>
 <p align='center'>
   A Phonetic Encoding

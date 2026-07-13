@@ -3,12 +3,12 @@
 // token per atomic piece (each colon-split part and the colon-removed
 // whole). A cluster's code is the token of its whole (colon-removed) form.
 
-import consonantList from '../base/clusters/consonants/index.json'
-import startList from '../base/clusters/consonants/start.json'
-import endList from '../base/clusters/consonants/end.json'
-import fullList from '../base/clusters/consonants/full.json'
-import vowelList from '../base/clusters/vowels/index.json'
-import pieceList from '../base/clusters/index.json'
+import consonantList from '../../base/clusters/consonants/index.json'
+import startList from '../../base/clusters/consonants/start.json'
+import endList from '../../base/clusters/consonants/end.json'
+import fullList from '../../base/clusters/consonants/full.json'
+import vowelList from '../../base/clusters/vowels/index.json'
+import pieceList from '../../base/clusters/index.json'
 
 type Cluster = { talk: string }
 type Piece = { talk: string; token: string }

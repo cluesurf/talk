@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 
 import { ipaToTalk, talkToIpa } from '../code'
-import PHONES from '../code/base/phones.json'
+import PHONES from '../base/phones.json'
 
 // Ported from the v1 round-trip suite. talk is the canonical normal
 // form, so converting a talk letter to IPA and back must return the

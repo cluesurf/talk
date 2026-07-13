@@ -1,8 +1,8 @@
 import { Trie, TrieBuilder } from '../trie'
 import { CLUSTERS } from './clusters'
-import PHONES from '../base/phones.json'
-import FEATURE_DATA from '../base/talk/features.json'
-import PUNCTUATION_DATA from '../base/talk/punctuation.json'
+import PHONES from '../../base/phones.json'
+import FEATURE_DATA from '../../base/talk/features.json'
+import PUNCTUATION_DATA from '../../base/talk/punctuation.json'
 
 // The vowel-mark axes, matching how talk builds vowel glyphs. Every
 // vowel takes a variant, nasal, syllabic, tone, duration, and accent

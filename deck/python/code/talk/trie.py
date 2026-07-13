@@ -17,12 +17,14 @@ whole matched keys, never from raw index arithmetic.
 
 from __future__ import annotations
 
-from typing import Generic, NamedTuple, TypeVar
+from dataclasses import dataclass
+from typing import Generic, TypeVar
 
 T = TypeVar("T")
 
 
-class Match(Generic[T], NamedTuple):
+@dataclass
+class Match(Generic[T]):
     """A matched value and the number of code points it spanned."""
 
     value: T
