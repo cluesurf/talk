@@ -50,10 +50,6 @@
     "clusters": "NODE_NO_WARNINGS=1 tsx code/make/clusters.ts",
     "prepublishOnly": "pnpm build"
   },
-  "pnpm": {
-    "onlyBuiltDependencies": ["unrs-resolver"],
-    "ignoredBuiltDependencies": ["esbuild"]
-  },
   "devDependencies": {
     "@cluesurf/wash": "^0.10.10",
     "@types/node": "^22.15.3",

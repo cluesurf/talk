@@ -7,9 +7,11 @@ import { describe, expect, it } from 'vitest'
 import PHONES from '../base/phones.json'
 
 // Ported from the v1 coverage suite. The IPA charts (base/ipa/*.csv) are the
-// full inventory. Every chart symbol must either be a supported phone (in
-// phones.json) or be listed in missing.csv as a known, unsupported symbol.
-// Nothing is allowed to silently fall through.
+// full inventory. Every chart symbol must either be a cleanly supported
+// phone or be listed in missing.csv as a known, unsupported symbol. Nothing
+// is allowed to silently fall through. A provisional phone is only an
+// approximate fallback for an otherwise-unsupported symbol, so it does not
+// count as supported (those symbols belong in missing.csv).
 const HERE = dirname(fileURLToPath(import.meta.url))
 
 function column(file: string): string[] {
@@ -23,7 +25,9 @@ function column(file: string): string[] {
 
 const nfd = (text: string) => text.normalize('NFD')
 const supported = new Set(
-  (PHONES as { ipa: string }[]).map(p => nfd(p.ipa)),
+  (PHONES as { ipa: string; provisional?: boolean }[])
+    .filter(p => !p.provisional)
+    .map(p => nfd(p.ipa)),
 )
 const isSupported = (symbol: string) => supported.has(nfd(symbol))
 

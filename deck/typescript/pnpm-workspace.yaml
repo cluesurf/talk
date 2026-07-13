@@ -1,0 +1,7 @@
+# pnpm v11 reads build-approval settings here, not from package.json.
+onlyBuiltDependencies:
+  - unrs-resolver
+ignoredBuiltDependencies:
+  - esbuild
+allowBuilds:
+  esbuild: true
