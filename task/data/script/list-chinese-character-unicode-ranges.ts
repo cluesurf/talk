@@ -283,7 +283,7 @@ function main(): void {
   // per-character CSV: one row per Chinese ideograph with its readings.
   const readingValues = collectReadingValues()
   const csvPath = path.resolve(
-    option('csv', 'hold/base/script/chinese-symbols-unicode.csv'),
+    option('csv', 'base/chinese-symbols-unicode.csv'),
   )
   mkdirSync(path.dirname(csvPath), { recursive: true })
 

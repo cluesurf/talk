@@ -1,0 +1,123 @@
+# Extract the glyph coverage (cmap) of the base Windows CJK fonts, so we can
+# intersect it with the macOS PingFang coverage and keep only the Chinese
+# characters that render on every common system.
+#
+# The runner is ephemeral: files written on it vanish when the job ends, so the
+# results leave via an uploaded ARTIFACT you download afterward (Actions run
+# page, or `gh run download`). Nothing is committed back to the repo.
+#
+# It runs automatically when you push this workflow / the CSV / the scripts on
+# the v2-typescript branch (a workflow_dispatch-only job on a NON-default branch
+# won't show a "Run workflow" button, so the push trigger is what makes it go).
+# It also exposes manual dispatch once this file reaches the default branch.
+
+name: windows cjk font coverage
+
+on:
+  workflow_dispatch: {}
+  push:
+    branches:
+      - v2-typescript
+    paths:
+      - '.github/workflows/windows-cjk-font-coverage.yml'
+      - 'base/chinese-symbols-unicode.csv'
+      - 'task/data/script/**'
+
+jobs:
+  coverage:
+    runs-on: windows-latest
+
+    steps:
+      - name: Check out (for base/chinese-symbols-unicode.csv)
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install fonttools
+        run: pip install fonttools
+
+      # YaHei (msyh) + SimSun (simsun) ship with Windows Server by default. This
+      # is a best-effort safety net for the rarer Traditional fonts; never fatal.
+      - name: Ensure Chinese font capabilities (best effort)
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          try {
+            Add-WindowsCapability -Online -Name "Language.Fonts.Hans~~~und-HANS~0.0.1.0" -ErrorAction SilentlyContinue
+            Add-WindowsCapability -Online -Name "Language.Fonts.Hant~~~und-HANT~0.0.1.0" -ErrorAction SilentlyContinue
+          } catch { Write-Host "font capability step skipped: $_" }
+          Write-Host "CJK-ish fonts present in C:\Windows\Fonts:"
+          Get-ChildItem C:\Windows\Fonts\ -Include *.ttc,*.ttf -Recurse |
+            Where-Object { $_.Name -match 'msyh|simsun|simhei|msjh|mingliu|kaiti|fangsong|dfkai' } |
+            Select-Object -ExpandProperty Name
+
+      - name: Extract cmap coverage + windows-common CSV
+        shell: python
+        run: |
+          import os
+          from fontTools.ttLib import TTFont, TTCollection
+
+          # basename -> path. basename matches the local script's coverage-file
+          # naming, so these drop straight into tmp/.font-coverage/.
+          FONTS = {
+              'msyh.ttc':    r'C:\Windows\Fonts\msyh.ttc',     # Microsoft YaHei (Simplified)
+              'simsun.ttc':  r'C:\Windows\Fonts\simsun.ttc',   # SimSun (Simplified)
+              'msjh.ttc':    r'C:\Windows\Fonts\msjh.ttc',     # Microsoft JhengHei (Traditional)
+              'mingliu.ttc': r'C:\Windows\Fonts\mingliu.ttc',  # MingLiU (Traditional)
+          }
+
+          outdir = 'windows-font-coverage'
+          os.makedirs(outdir, exist_ok=True)
+
+          coverage = {}
+          for name, path in FONTS.items():
+              if not os.path.exists(path):
+                  print(f'SKIP {name}: not present at {path}')
+                  continue
+              try:
+                  fonts = TTCollection(path).fonts
+              except Exception:
+                  fonts = [TTFont(path, fontNumber=0)]
+              cps = set()
+              for f in fonts:
+                  if 'cmap' in f:
+                      for t in f['cmap'].tables:
+                          if t.isUnicode():
+                              cps.update(t.cmap.keys())
+              coverage[name] = cps
+              with open(os.path.join(outdir, f'{name}.txt'), 'w', encoding='utf-8') as fh:
+                  fh.write('\n'.join(str(c) for c in sorted(cps)))
+              print(f'{name}: {len(cps)} code points')
+
+          # convenience: filter the copied CSV to characters covered by EVERY
+          # windows font that was present (the windows-side intersection).
+          if coverage:
+              common = set.intersection(*coverage.values())
+              inp = os.path.join('base', 'chinese-symbols-unicode.csv')
+              outp = os.path.join(outdir, 'chinese-symbols-unicode-windows-common.csv')
+              kept = total = 0
+              with open(inp, encoding='utf-8') as f, open(outp, 'w', encoding='utf-8', newline='') as o:
+                  o.write(f.readline())  # header
+                  for line in f:
+                      total += 1
+                      parts = line.split(',')
+                      try:
+                          cp = int(parts[1])
+                      except (IndexError, ValueError):
+                          continue
+                      if cp in common:
+                          o.write(line)
+                          kept += 1
+              print(f'windows-common CSV: kept {kept} / {total} -> {outp}')
+          else:
+              print('no windows fonts found; no CSV written')
+
+      - name: Upload coverage artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-font-coverage
+          path: windows-font-coverage/
+          if-no-files-found: error

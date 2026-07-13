@@ -29,8 +29,8 @@
  *
  * Flags:
  *   --font <path>       (repeatable) extract this font's coverage
- *   --in <csv>          input CSV   (default hold/base/script/chinese-symbols-unicode.csv)
- *   --out <csv>         output CSV  (default hold/base/script/chinese-symbols-unicode-common.csv)
+ *   --in <csv>          input CSV   (default base/chinese-symbols-unicode.csv)
+ *   --out <csv>         output CSV  (default base/chinese-symbols-unicode-common.csv)
  *   --coverage-dir <d>  where per-font coverage lists live (default tmp/.font-coverage)
  */
 
@@ -60,10 +60,10 @@ function option(name: string, fallback: string): string {
 }
 
 const IN_CSV = path.resolve(
-  option('in', 'hold/base/script/chinese-symbols-unicode.csv'),
+  option('in', 'base/chinese-symbols-unicode.csv'),
 )
 const OUT_CSV = path.resolve(
-  option('out', 'hold/base/script/chinese-symbols-unicode-common.csv'),
+  option('out', 'base/chinese-symbols-unicode-common.csv'),
 )
 const COVERAGE_DIR = path.resolve(option('coverage-dir', 'tmp/.font-coverage'))
 const FONTS = optionAll('font')
