@@ -5,6 +5,7 @@ export type Kind = 'consonant' | 'vowel' | 'symbol'
 export type Phone = {
   ipa: string
   talk: string
+  xsampa: string
   simple: string
   kind: 'consonant' | 'vowel'
   place?: string
@@ -26,6 +27,7 @@ export type Attaches = {
 export type Modifier = {
   ipa: string
   talk: string
+  xsampa: string
   simple: string
   base: 'consonant' | 'vowel'
   feature: string

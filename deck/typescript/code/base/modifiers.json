@@ -2,54 +2,80 @@
   {
     "ipa": "̪",
     "talk": "~",
+    "xsampa": "_d",
     "simple": "",
     "base": "consonant",
     "feature": "dental",
     "slot": "articulation",
     "order": 10,
-    "attaches": { "place": ["dental", "alveolar"] }
+    "attaches": {
+      "place": [
+        "dental",
+        "alveolar"
+      ]
+    }
   },
   {
     "ipa": "ʲ",
     "talk": "y~",
+    "xsampa": "_j",
     "simple": "ʲ",
     "base": "consonant",
     "feature": "palatalized",
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "notPlace": ["palatal", "pharyngeal-epiglottal", "glottal"]
+      "notPlace": [
+        "palatal",
+        "pharyngeal-epiglottal",
+        "glottal"
+      ]
     }
   },
   {
     "ipa": "ˠ",
     "talk": "G~",
+    "xsampa": "_G",
     "simple": "ˠ",
     "base": "consonant",
     "feature": "velarized",
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "place": ["dental", "alveolar"],
-      "notPlace": ["pharyngeal-epiglottal", "glottal"]
+      "place": [
+        "dental",
+        "alveolar"
+      ],
+      "notPlace": [
+        "pharyngeal-epiglottal",
+        "glottal"
+      ]
     }
   },
   {
     "ipa": "ˤ",
     "talk": "Q~",
+    "xsampa": "_?\\",
     "simple": "ˤ",
     "base": "consonant",
     "feature": "pharyngealized",
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "place": ["dental", "alveolar"],
-      "notPlace": ["pharyngeal-epiglottal", "glottal"]
+      "place": [
+        "dental",
+        "alveolar"
+      ],
+      "notPlace": [
+        "pharyngeal-epiglottal",
+        "glottal"
+      ]
     }
   },
   {
     "ipa": "ʷ",
     "talk": "w~",
+    "xsampa": "_w",
     "simple": "ʷ",
     "base": "consonant",
     "feature": "labialized",
@@ -67,16 +93,25 @@
   {
     "ipa": "ʰ",
     "talk": "h~",
+    "xsampa": "_h",
     "simple": "ʰ",
     "base": "consonant",
     "feature": "aspirated",
     "slot": "laryngeal",
     "order": 40,
-    "attaches": { "manner": ["plosive"], "notPlace": ["glottal"] }
+    "attaches": {
+      "manner": [
+        "plosive"
+      ],
+      "notPlace": [
+        "glottal"
+      ]
+    }
   },
   {
     "ipa": "ʼ",
     "talk": "!",
+    "xsampa": "_>",
     "simple": "ʼ",
     "base": "consonant",
     "feature": "ejective",
@@ -90,13 +125,18 @@
         "non-sibilant-fricative",
         "lateral-fricative"
       ],
-      "voicing": ["voiceless"],
-      "notPlace": ["glottal"]
+      "voicing": [
+        "voiceless"
+      ],
+      "notPlace": [
+        "glottal"
+      ]
     }
   },
   {
     "ipa": "̥",
     "talk": "h!",
+    "xsampa": "_0",
     "simple": "̥",
     "base": "consonant",
     "feature": "voiceless",
@@ -112,12 +152,15 @@
         "lateral-approximant",
         "lateral-tap-flap"
       ],
-      "voicing": ["voiced"]
+      "voicing": [
+        "voiced"
+      ]
     }
   },
   {
     "ipa": "̃",
     "talk": "&",
+    "xsampa": "_~",
     "simple": "̃",
     "base": "vowel",
     "feature": "nasalized",
@@ -127,6 +170,7 @@
   {
     "ipa": "̯",
     "talk": "@",
+    "xsampa": "_^",
     "simple": "̯",
     "base": "vowel",
     "feature": "non-syllabic",
@@ -136,6 +180,7 @@
   {
     "ipa": "˩",
     "talk": "--",
+    "xsampa": "_B",
     "simple": "˩",
     "base": "vowel",
     "feature": "extra-low-tone",
@@ -145,6 +190,7 @@
   {
     "ipa": "˨",
     "talk": "-",
+    "xsampa": "_L",
     "simple": "˨",
     "base": "vowel",
     "feature": "low-tone",
@@ -154,6 +200,7 @@
   {
     "ipa": "˦",
     "talk": "+",
+    "xsampa": "_H",
     "simple": "˦",
     "base": "vowel",
     "feature": "high-tone",
@@ -163,6 +210,7 @@
   {
     "ipa": "˥",
     "talk": "++",
+    "xsampa": "_T",
     "simple": "˥",
     "base": "vowel",
     "feature": "extra-high-tone",
@@ -172,6 +220,7 @@
   {
     "ipa": "ː",
     "talk": "_",
+    "xsampa": ":",
     "simple": "ː",
     "base": "vowel",
     "feature": "long",
@@ -181,6 +230,7 @@
   {
     "ipa": "ˈ",
     "talk": "^",
+    "xsampa": "\"",
     "simple": "ˈ",
     "base": "vowel",
     "feature": "stress",
