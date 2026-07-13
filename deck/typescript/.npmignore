@@ -1,0 +1,7 @@
+# Publish only the built host/ (plus readme, license, package.json).
+test/
+tmp/
+*.config.ts
+tsconfig*.json
+.npmignore
+*.tsbuildinfo

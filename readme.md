@@ -30,7 +30,7 @@ vocabulary instead of raw IPA or byte-pair fragments that split a
 pronunciation across several tokens. If you build TTS, ASR, G2P, or any
 multilingual pipeline that has to reason about how words sound, this
 gives you one clean token per phone that converts losslessly to and from
-IPA (`makeIpaToTalk` / `makeTalkToIpa`), plus syllabification for free.
+IPA, plus syllabification for free.
 
 It is also a readable, keyboard-typable **romanization**. Talk uses the
 Latin script with diacritics to encode most of Earth's natural language
@@ -123,6 +123,17 @@ pruh-nuhn-see-EY-shuhn
 They use that because it's easier for people without linguistics
 knowledge to understand. So we sort of normalized things against a
 simplified system like this.
+
+## Libraries
+
+Implementations of Talk, one per language. Each converts between IPA,
+Talk, the simplified reading form, and the machine (token) encoding, and
+splits words into syllables.
+
+| Library                             | Language   | Note                                                         | Status |
+| :---------------------------------- | :--------- | :----------------------------------------------------------- | :----- |
+| [`@cluesurf/talk`](deck/typescript) | TypeScript | Full encoder, tokenizer, and syllabifier. Zero dependencies. | ✅     |
+| `talk-phonetics`                    | Python     | Planned port for the Python-first speech-ML ecosystem.       | TODO   |
 
 ## Encoding
 
@@ -460,77 +471,47 @@ across recordings. For a discrete model of sound aimed at AI and coding,
 they are mostly unnecessary, so Talk lets them fall through rather than
 inventing symbols for detail it cannot use.
 
-## Installation
+## Syllables
 
-```bash
-npm install @cluesurf/talk
-```
+Talk also splits a word into syllables, each a sequence of onset,
+nucleus, and coda clusters. IPA and X-SAMPA give you symbols and stop
+there, so this comes built in, which the TTS, speech-recognition, and
+language-learning use cases all need.
 
-## Usage
+Some rarer sounds are not yet handled by the syllable system. The
+current gaps are listed in
+[`base/syllable/unsupported.csv`](base/syllable/unsupported.csv)
+(dentals, retroflex plosives, implosives, ejectives, and clicks).
 
-```ts
-import make from '@cluesurf/talk'
+## Token encoding
 
-make('aiyuQaK') // => 'aiyuq̇aḳ'
-```
+Which Chinese characters actually _render_ in the base fonts that ship
+on ordinary computers, rather than showing the "missing-glyph" box
+basically (so you can actually see the glyphs not missing font glyphs,
+most of the time). Coverage is read from each font's `cmap` (the ground
+truth for whether a glyph exists), then intersected per script:
+Simplified with Simplified, Traditional with Traditional.
 
-_See the `test/` folder for the up-to-date test suite._
+The base list is 84,107 Han ideographs used in Chinese, taken from the
+Unihan database by Chinese source or reading.
 
-## Syllables and Pronunciation
+| Font               | System  | Script  | Characters |
+| ------------------ | ------- | ------- | ---------- |
+| PingFang           | macOS   | SC + TC | 30,979     |
+| Microsoft YaHei    | Windows | SC      | 27,761     |
+| SimSun             | Windows | SC      | 27,565     |
+| Microsoft JhengHei | Windows | TC      | 27,534     |
+| MingLiU            | Windows | TC      | 27,531     |
 
-You can convert IPA to Talk, tokenize Talk into sounds, split a word
-into syllables, and pack it into the Hangul machine encoding.
+Characters that render on every common desktop of a script (the
+intersection):
 
-```ts
-import talk, {
-  makeIpaToTalk,
-  makeTalkToIpa,
-  tokenize,
-} from '@cluesurf/talk'
-import chunk from '@cluesurf/talk/make/syllables'
+| Set                | Fonts                       | Characters |
+| ------------------ | --------------------------- | ---------- |
+| Simplified common  | PingFang, YaHei, SimSun     | 27,565     |
+| Traditional common | PingFang, JhengHei, MingLiU | 27,528     |
 
-// IPA -> Talk (many IPA symbols normalize to one Talk letter)
-makeIpaToTalk('kxɯʎʎikʰa̠da̠') // => 'kHOly~ly~ikh~ada'
-
-// Talk -> IPA (Talk is the canonical form, so this round-trips)
-makeTalkToIpa('kHO') // => 'kχʊ'
-
-// Tokenize Talk into structured sounds
-tokenize('t!a++nDh~') // => [{ form: 'consonant', text: 't', ejective: true }, ...]
-
-// Split into syllables
-chunk('fOla^sOfi') // => { syllables: [...], clusters: [...] }
-
-// Pack into one Hangul code point per sound
-talk.machine('mh!im') // => '쾒롟켒'
-```
-
-## IPA and XSampa
-
-```ts
-import {
-  makeTalkToIpa,
-  makeIpaToTalk,
-  makeTalkToXSampa,
-  makeXSampaToTalk,
-  makeIpaToXSampa,
-  makeXSampaToIpa,
-} from '@cluesurf/talk'
-```
-
-## ToneText
-
-You can also transform Talk into
-[ToneText](https://github.com/cluesurf/tone) by writing it in ASCII, and
-running it through the tone text code, which is freely available and
-open source there.
-
-```ts
-import tone from '@cluesurf/tone'
-
-// make it for the font.
-tone.make('a+a+si-kiri-imu-') // => 'a3a3si4kiri4imu4'
-```
+Per-font and intersection lists live in `base/symbol/chinese/`.
 
 ## License
 

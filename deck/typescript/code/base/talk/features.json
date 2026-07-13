@@ -1,0 +1,88 @@
+[
+  {
+    "talk": "--",
+    "form": "tone",
+    "tone": "extra low"
+  },
+  {
+    "talk": "-",
+    "form": "tone",
+    "tone": "low"
+  },
+  {
+    "talk": "++",
+    "form": "tone",
+    "tone": "extra high"
+  },
+  {
+    "talk": "+",
+    "form": "tone",
+    "tone": "high"
+  },
+  {
+    "talk": "//",
+    "form": "tone",
+    "tone": "rising 2"
+  },
+  {
+    "talk": "/",
+    "form": "tone",
+    "tone": "rising"
+  },
+  {
+    "talk": "\\/",
+    "form": "tone",
+    "tone": "falling rising"
+  },
+  {
+    "talk": "/\\",
+    "form": "tone",
+    "tone": "rising falling"
+  },
+  {
+    "talk": "\\\\",
+    "form": "tone",
+    "tone": "falling 2"
+  },
+  {
+    "talk": "\\",
+    "form": "tone",
+    "tone": "falling"
+  },
+  {
+    "talk": "@",
+    "tense": true
+  },
+  {
+    "talk": ".",
+    "stop": true
+  },
+  {
+    "talk": "!",
+    "truncation": true
+  },
+  {
+    "talk": "_",
+    "elongation": true
+  },
+  {
+    "talk": "^",
+    "emphasis": true
+  },
+  {
+    "talk": "?",
+    "implosion": true
+  },
+  {
+    "talk": "*",
+    "click": true
+  },
+  {
+    "talk": "~",
+    "dentalization": true
+  },
+  {
+    "talk": "&",
+    "nasalization": true
+  }
+]
