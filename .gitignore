@@ -2,3 +2,19 @@ tmp
 node_modules
 host
 .github/
+
+# LaTeX / paper build artifacts (the built .pdf is kept, intermediates are not)
+text/**/*.aux
+text/**/*.log
+text/**/*.out
+text/**/*.toc
+text/**/*.lof
+text/**/*.lot
+text/**/*.bbl
+text/**/*.blg
+text/**/*.thm
+text/**/*.fls
+text/**/*.fdb_latexmk
+text/**/*.synctex.gz
+text/**/arxiv-submission/
+text/**/arxiv-submission.zip

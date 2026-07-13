@@ -1,0 +1,17 @@
+\section{The machine form}
+
+The set of canonical sounds is finite. Counting every base with every valid combination of modifiers gives about two thousand sounds. Because the set is finite and fixed, each sound can be given its own code point, and a word can be written as one code point per sound.
+
+Talk uses the Hangul syllable block for this. That block is a large contiguous run of code points, more than eleven thousand of them, each a single code point rather than a base plus combining marks. Assigning one Hangul code point to each talk sound gives a model a finite and normalized phone vocabulary, where a pronunciation is a short sequence of whole tokens and never splits across fragments. The choice of Hangul is a matter of fit. It is a large, contiguous run of code points, rendered by common fonts, and its characters share one fixed width. A token string then reads as a clear, evenly spaced sequence that is easy to count and align, which suits a discrete phone vocabulary. A sound like \verb|mh!im|, a voiceless \verb|m| then \verb|i| then \verb|m|, becomes a three code point string, one token per sound.
+
+A base and all of its modifiers collapse onto one token. This is what one token per effective sound means. The examples below stack several features onto a single sound, and each is still one Hangul code point.
+
+\input{text/examples-collapse}
+
+The map from sound to code point is fixed and append-only. A code point is never reassigned once given, and a new sound takes the next free slot. A run that adds nothing leaves the map unchanged. This matters for anyone who trains on the tokens. A model, an index, or a dataset built on the map keeps its meaning after an upgrade, since old tokens still point to the same sounds.
+
+There is a second granularity above the single sound. Talk splits a word into syllables, and a syllable is built from clusters, an onset consonant cluster, a vowel cluster for the nucleus, and a coda consonant cluster. Each cluster can be tokenized too, and for this talk uses Chinese characters, tens of thousands of single code points. A consonant cluster such as \verb|str| or a vowel cluster gets one Chinese character, so a syllable becomes a short run of cluster tokens rather than a longer run of phone tokens. This is useful where a shorter sequence helps, since a cluster sequence is coarser than a phone sequence while still tracking how the word is put together. Chinese characters are used here for the same reasons, a large set with consistent fixed-width glyphs and common font coverage. The Chinese set is far larger than the Hangul block, which matches the expectation that clusters outnumber single sounds, since clusters are combinatorial while the sound inventory is fixed. The particular code points are an implementation choice. The property that carries is one token per unit, whether the unit is a sound or a cluster.
+
+\input{text/examples-cluster}
+
+The cluster inventory is where the system is still growing. The current set covers a subset of consonant and vowel clusters and ships in the TypeScript library, with the Python port next. A richer inventory, drawn from large IPA word lists gathered from the web, is the next step, so the syllable side widens over time. The sound tokens beneath it stay fixed as it grows.

@@ -1,0 +1,5 @@
+\section{Conclusion}
+
+Talk gives a phonetic encoding with two forms that serve different needs. The ASCII form is typeable and readable, and stays close to how pronunciation guides are already written. The machine form is one code point per sound, on a fixed and append-only map, so a word becomes a compact and steady sequence of tokens. Both forms convert to and from IPA, and a word can be split into syllables and clusters for the tasks that want a coarser unit.
+
+The goal is a phonetic vocabulary that a speech or language model can use directly, one that is finite, normalized, and steady across releases, with IPA available whenever the finest detail is needed. The libraries are ready to try, and the source is open \cite{cluesurf2026talk}.

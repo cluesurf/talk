@@ -1,0 +1,27 @@
+% arXiv: force the PDF-producing engine (pdflatex) during AutoTeX processing.
+\ifdefined\pdfoutput \pdfoutput=1 \fi
+
+\documentclass{article}
+
+\input{text/package}
+
+\begin{document}
+\maketitle
+\thispagestyle{plain}
+
+\input{text/abstract}
+
+\input{text/01-introduction}
+\input{text/02-the-encoding}
+\input{text/03-machine-tokens}
+\input{text/04-using-it}
+\input{text/05-scope-and-status}
+\input{text/06-conclusion}
+
+\needspace{0.35\textheight}
+\bibliographystyle{talkfirst}
+\bibliography{talk}
+
+\input{text/appendix-ipa}
+
+\end{document}

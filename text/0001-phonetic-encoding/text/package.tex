@@ -1,0 +1,130 @@
+\usepackage{iftex}
+\usepackage{needspace}
+\ifluatex
+  % Fonts with the coverage this paper needs, loaded only under lualatex:
+  % a monospace with IPA for code, DejaVu Sans for IPA in tables, a Korean
+  % face for the Hangul sound tokens, and a Chinese face (with CJK
+  % Extension A) for the cluster tokens.
+  \usepackage{fontspec}
+  \setmonofont{DejaVu Sans Mono}[Scale=MatchLowercase]
+  \newfontfamily\ipafont{Noto Sans}[Scale=MatchLowercase]
+  \newfontfamily\tokenfont{Apple SD Gothic Neo}[Scale=MatchLowercase]
+  \newfontfamily\clusterfont{Hiragino Sans GB}[Scale=MatchLowercase]
+\else
+  \newcommand{\ipafont}{}
+  \newcommand{\tokenfont}{}
+  \newcommand{\clusterfont}{}
+\fi
+\usepackage[english]{babel}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage[thmmarks, amsmath]{ntheorem}
+\usepackage{setspace}
+\usepackage{csquotes}
+\usepackage{enumitem}
+\usepackage{parskip}
+\usepackage{microtype}
+\usepackage[htt]{hyphenat}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{longtable}
+\usepackage{fancyvrb}
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[
+    pdfauthor={Lance Pollard},
+    pdftitle={Talk: A Phonetic Encoding for Speech and Language Models},
+    pdfsubject={A phonetic encoding with an ASCII form and a one-token-per-sound machine form, for speech and language models},
+    pdfkeywords={phonetics, IPA, phonetic transcription, tokenization, NLP, speech, text-to-speech, grapheme-to-phoneme, romanization, X-SAMPA, subword, Hangul},
+    pdfcreator={Lance Pollard},
+    pdfproducer={LuaLaTeX},
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=black,
+    citecolor=black
+]{hyperref}
+
+\hypersetup{
+    pdfinfo={
+        ContactEmail={lancejpollard@gmail.com},
+        ContactURL={https://clue.surf},
+        Copyright={Copyright (C) 2026 ClueSurf}
+    }
+}
+
+\usepackage{etoolbox}
+\graphicspath{{figure/}}
+\apptocmd{\thebibliography}{\interlinepenalty=10000}{}{}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+\tolerance=1500
+\emergencystretch=3em
+\setlength{\parfillskip}{0pt plus 1fil}
+\sloppy
+
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{-- \thepage\ --}
+\setlength{\footskip}{40pt}
+\fancypagestyle{plain}{
+  \fancyhf{}
+  \fancyfoot[C]{-- \thepage\ --}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+\BeforeBeginEnvironment{equation}{\vspace{4pt}}
+\AfterEndEnvironment{equation}{\vspace{4pt}}
+\setlength{\itemsep}{0pt}
+\setlist[itemize]{before=\vspace{0pt},after=\vspace{-2pt}}
+
+\titleformat{\section}{\Large\bfseries}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection.}{0.5em}{}
+\titleformat{\subsubsection}{\small\itshape}{\thesubsubsection.}{0.5em}{}
+
+\onehalfspacing
+
+\theoremheaderfont{\bfseries}
+\theorembodyfont{\normalfont}
+\theoremindent0pt
+\newtheorem{definition}{Definition}
+\newtheorem{principle}{Principle}
+
+\makeatletter
+\def\@begintheorem#1#2#3{%
+  \par\addvspace{1em}%
+  \noindent\textbf{#1 #2.}
+  \ifx\@empty#3\relax
+    \quad
+  \else
+    \ \textbf{#3:}
+  \fi
+  \hspace{0.5em}
+}
+\def\@endtheorem{\par}
+\makeatother
+
+% Inline literal talk spellings and code, robust to the special
+% characters talk uses (~ ! @ ^ _ & $ *).
+\newcommand{\code}[1]{\texttt{#1}}
+
+% Code blocks use fancyvrb Verbatim with commandchars, so comments can be
+% wrapped in a lighter gray. IPA glyphs render through the font, unlike
+% listings, which mishandles multi-byte input. Use \cmt{...} for a comment.
+\definecolor{codecomment}{gray}{0.55}
+\newcommand{\cmt}[1]{\textcolor{codecomment}{#1}}
+
+\title{
+  {\huge \textbf{Talk}} \\[3mm]
+  \large A phonetic encoding with one token per effective sound, \\ for speech and language models
+}
+\author{Lance Pollard \\ \small lancejpollard@gmail.com}
+\date{July 2026}
