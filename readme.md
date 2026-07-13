@@ -40,18 +40,11 @@ including nasalized vowels, tense consonants, clicks, and tones. It
 reads like the pronunciation guides people already know, so a
 non-linguist can get the gist without special training.
 
-There are three forms:
+There are two forms:
 
 - **ASCII**: For writing in a text editor without fancy symbols.
-- **Simplified**: For reading with condensed characters and diacritics.
 - **Machine**: A single Hangul code point per sound, for compact
   tokenization (useful for AI models and lookups).
-
-The goal of the simplified version is to make it as easy as possible to
-read text given basic knowledge of today's standard English writing
-practices. Of course you need to learn the basics if you really want to
-take advantage of it, but without learning anything, you still can get
-the gist of it.
 
 Talk is not a replacement for IPA and does not chase its exactness. It
 aims for about 95% accuracy, which is plenty for a tokenizer or a
@@ -94,10 +87,7 @@ English speaker, and XSampa is too foreign for the same group of people
 (even though it's easy to write on a keyboard).
 
 Our goal with Talk is to make an easy to write and easy to understand
-3rd encoding which requires less expert knowledge. And a readable
-romanization form ("simplified" form) which an average English
-reader/speaker can get close to intuiting without more than a small
-handful of key notes, not requiring tons of special knowledge.
+3rd encoding which requires less expert knowledge.
 
 Also, Talk is not meant to replace the level-of-detail ("exactness") of
 IPA, it's goal is to only get like ~95% accuracy. This is because we
@@ -107,28 +97,11 @@ If Talk is not exact enough for a specific rendering, you can use IPA,
 but otherwise Talk will be much easier to understand and use on both
 sides.
 
-_We are aware of [competing standards](https://xkcd.com/927/) haha. But
-for the websites we are planning on making, thinking of showing the
-general public IPA has (in our experiments / customer testing) so far
-revealed that it is either ignored or misunderstood, so we are making
-something that we think will be used and not misunderstood._
-
-Almost every language learning resource on the web has their own version
-of writing the pronunciations of words, often like this:
-
-```
-pruh-nuhn-see-EY-shuhn
-```
-
-They use that because it's easier for people without linguistics
-knowledge to understand. So we sort of normalized things against a
-simplified system like this.
-
 ## Libraries
 
 Implementations of Talk, one per language. Each converts between IPA,
-Talk, the simplified reading form, and the machine (token) encoding. The
-TypeScript library also splits words into syllables.
+Talk, and the machine (token) encoding. The TypeScript library also
+splits words into syllables.
 
 | Language   | Library                             | Status |
 | :--------- | :---------------------------------- | :----- |
@@ -138,7 +111,7 @@ TypeScript library also splits words into syllables.
 ## Encoding
 
 Here are the modifiers on consonants, vowels, and symbols (like
-punctuation), and how they look in ASCII and simplified form.
+punctuation), and how they look in ASCII.
 
 ### Modifiers
 
@@ -180,9 +153,9 @@ combined in standard ways.
 
 ### Consonants
 
-This is the full set of IPA consonants we map, in ASCII, simplified, and
-machine (Hangul) form. Every consonant, however modified, is a single
-Hangul code point.
+This is the full set of IPA consonants we map, in ASCII, and machine
+(Hangul) form. Every consonant, however modified, is a single Hangul
+code point.
 
 _Note: GitHub markdown doesn't really render the diacritics that nicely,
 some are misaligned. We will have a font to remedy this for websites._
