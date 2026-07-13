@@ -46,6 +46,7 @@
     "pretest": "pnpm copy:base",
     "test": "NODE_NO_WARNINGS=1 vitest run",
     "test:watch": "NODE_NO_WARNINGS=1 vitest",
+    "host": "pnpm build && npm publish --access=public",
     "tokens": "NODE_NO_WARNINGS=1 tsx code/make/tokens.ts",
     "clusters": "NODE_NO_WARNINGS=1 tsx code/make/clusters.ts",
     "prepublishOnly": "pnpm build"
