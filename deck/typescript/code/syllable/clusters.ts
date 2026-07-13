@@ -19,9 +19,11 @@ export type Clusters = {
 
 function toMap(list: Entry[]): Record<string, string> {
   const map: Record<string, string> = {}
+
   for (const entry of list) {
     map[entry.talk] = entry.token
   }
+
   return map
 }
 

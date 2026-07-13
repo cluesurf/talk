@@ -40,6 +40,7 @@ describe('double-array trie', () => {
       ['a', 'first'],
       ['a', 'second'],
     ])
+
     expect(dupes.matchAt('a', 0)).toBe('first')
   })
 })

@@ -17,6 +17,7 @@ const sounds = MACHINE as { talk: string; token: string }[]
 describe('coverage', () => {
   it('maps every chart symbol to a talk spelling', () => {
     const unmapped = phones.filter(p => !p.talk)
+
     expect(unmapped).toEqual([])
   })
 
@@ -82,6 +83,7 @@ describe('round trips', () => {
   it('ipa -> talk -> ipa is stable', () => {
     for (const w of ipaWords) {
       const t = ipaToTalk(w)
+
       // A second pass through talk -> ipa -> talk is a fixed point.
       expect(ipaToTalk(talkToIpa(t))).toBe(t)
     }
@@ -103,6 +105,7 @@ describe('api', () => {
 
   it('tokenizes into sounds with features', () => {
     const [first] = segment('th~a')
+
     expect(first?.base?.talk).toBe('t')
     expect(first?.modifiers.map(m => m.feature)).toEqual(['aspirated'])
   })

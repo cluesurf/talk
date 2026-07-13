@@ -11,5 +11,6 @@
     "noEmit": true,
     "types": ["node"]
   },
-  "include": ["code"]
+  "include": ["code", "test", "*.config.ts"],
+  "exclude": ["host", "tmp", "node_modules"]
 }

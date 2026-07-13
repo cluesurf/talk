@@ -63,6 +63,7 @@ describe('symbols, numerals, and space', () => {
 
   it('marks them as symbol sounds', () => {
     const [dot, space, seven] = segment('=. 7')
+
     expect(dot?.kind).toBe('symbol')
     expect(space?.kind).toBe('symbol')
     expect(seven?.kind).toBe('symbol')
@@ -88,6 +89,7 @@ describe('real words', () => {
 describe('sound structure', () => {
   it('exposes the base and modifier features', () => {
     const [sound] = segment('th~a')
+
     expect(sound?.base?.talk).toBe('t')
     expect(sound?.kind).toBe('consonant')
     expect(sound?.modifiers.map(m => m.feature)).toEqual(['aspirated'])
@@ -95,6 +97,7 @@ describe('sound structure', () => {
 
   it('exposes vowel modifier features', () => {
     const [sound] = segment('a&+_')
+
     expect(sound?.kind).toBe('vowel')
     expect(sound?.base?.talk).toBe('a')
     expect(new Set(sound?.modifiers.map(m => m.feature))).toEqual(
@@ -123,6 +126,7 @@ describe('canonicalization', () => {
   it('ipaToTalk output tokenizes back to the same chunks', () => {
     for (const ipa of ['tʰa', 'kʷasˤo', 'ˈmama', 'ãtu']) {
       const talk = ipaToTalk(ipa)
+
       expect(chunks(talk).join('')).toBe(talk)
     }
   })

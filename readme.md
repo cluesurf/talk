@@ -130,10 +130,10 @@ Implementations of Talk, one per language. Each converts between IPA,
 Talk, the simplified reading form, and the machine (token) encoding, and
 splits words into syllables.
 
-| Library | Language | Note | Status |
-| :------ | :------- | :--- | :----- |
-| [`@cluesurf/talk`](deck/typescript) | TypeScript | Full encoder, tokenizer, and syllabifier. Zero dependencies. | ✅ |
-| `talk-phonetics` | Python | Planned port for the Python-first speech-ML ecosystem. | TODO |
+| Library                             | Language   | Note                                                         | Status |
+| :---------------------------------- | :--------- | :----------------------------------------------------------- | :----- |
+| [`@cluesurf/talk`](deck/typescript) | TypeScript | Full encoder, tokenizer, and syllabifier. Zero dependencies. | ✅     |
+| `talk-phonetics`                    | Python     | Planned port for the Python-first speech-ML ecosystem.       | TODO   |
 
 ## Encoding
 
@@ -478,35 +478,38 @@ nucleus, and coda clusters. IPA and X-SAMPA give you symbols and stop
 there, so this comes built in, which the TTS, speech-recognition, and
 language-learning use cases all need.
 
-Some rarer sounds are not yet handled by the syllable system. The current
-gaps are listed in
-[`base/syllable/unsupported.csv`](base/syllable/unsupported.csv) (dentals,
-retroflex plosives, implosives, ejectives, and clicks).
+Some rarer sounds are not yet handled by the syllable system. The
+current gaps are listed in
+[`base/syllable/unsupported.csv`](base/syllable/unsupported.csv)
+(dentals, retroflex plosives, implosives, ejectives, and clicks).
 
 ## Token encoding
 
-Which Chinese characters actually render in the base fonts that ship on ordinary
-computers, rather than showing the missing-glyph box. Coverage is read from each
-font's `cmap` (the ground truth for whether a glyph exists), then intersected per
-script: Simplified with Simplified, Traditional with Traditional, never crossed.
+Which Chinese characters actually _render_ in the base fonts that ship
+on ordinary computers, rather than showing the "missing-glyph" box
+basically (so you can actually see the glyphs not missing font glyphs,
+most of the time). Coverage is read from each font's `cmap` (the ground
+truth for whether a glyph exists), then intersected per script:
+Simplified with Simplified, Traditional with Traditional.
 
-The base list is 84,107 Han ideographs used in Chinese, taken from the Unihan
-database by Chinese source or reading.
+The base list is 84,107 Han ideographs used in Chinese, taken from the
+Unihan database by Chinese source or reading.
 
-| Font | System | Script | Characters |
-| --- | --- | --- | --- |
-| PingFang | macOS | SC + TC | 30,979 |
-| Microsoft YaHei | Windows | SC | 27,761 |
-| SimSun | Windows | SC | 27,565 |
-| Microsoft JhengHei | Windows | TC | 27,534 |
-| MingLiU | Windows | TC | 27,531 |
+| Font               | System  | Script  | Characters |
+| ------------------ | ------- | ------- | ---------- |
+| PingFang           | macOS   | SC + TC | 30,979     |
+| Microsoft YaHei    | Windows | SC      | 27,761     |
+| SimSun             | Windows | SC      | 27,565     |
+| Microsoft JhengHei | Windows | TC      | 27,534     |
+| MingLiU            | Windows | TC      | 27,531     |
 
-Characters that render on every common desktop of a script (the intersection):
+Characters that render on every common desktop of a script (the
+intersection):
 
-| Set | Fonts | Characters |
-| --- | --- | --- |
-| Simplified common | PingFang, YaHei, SimSun | 27,565 |
-| Traditional common | PingFang, JhengHei, MingLiU | 27,528 |
+| Set                | Fonts                       | Characters |
+| ------------------ | --------------------------- | ---------- |
+| Simplified common  | PingFang, YaHei, SimSun     | 27,565     |
+| Traditional common | PingFang, JhengHei, MingLiU | 27,528     |
 
 Per-font and intersection lists live in `base/symbol/chinese/`.
 

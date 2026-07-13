@@ -10,7 +10,7 @@ export default defineConfig({
   dts: true,
   sourcemap: true,
   clean: true,
-  outDir: 'dist',
+  outDir: 'host',
   splitting: false,
   // Zero runtime dependencies: the JSON data files are inlined into the
   // bundle, and there are no external packages to keep out.

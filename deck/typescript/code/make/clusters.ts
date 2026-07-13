@@ -1054,6 +1054,7 @@ function build(): void {
   const existing = SOURCES.map(([rel]) => read(resolve(DIR, rel)))
 
   const used = new Set<number>()
+
   for (const list of existing) {
     for (const entry of list) {
       used.add(entry.token.codePointAt(0)!)
@@ -1062,7 +1063,7 @@ function build(): void {
 
   // Next free CJK code point, walking the blocks in order.
   let block = 0
-  let point = CJK_BLOCKS[0]![0]
+  let point = CJK_BLOCKS[0][0]
 
   const next = (): string => {
     for (;;) {
@@ -1070,7 +1071,7 @@ function build(): void {
         throw new Error('ran out of CJK code points')
       }
 
-      const [start, end] = CJK_BLOCKS[block]!
+      const [start, end] = CJK_BLOCKS[block]
 
       if (point < start) {
         point = start
@@ -1078,7 +1079,7 @@ function build(): void {
 
       if (point > end) {
         block++
-        point = block < CJK_BLOCKS.length ? CJK_BLOCKS[block]![0] : 0
+        point = block < CJK_BLOCKS.length ? CJK_BLOCKS[block][0] : 0
         continue
       }
 
@@ -1086,6 +1087,7 @@ function build(): void {
 
       if (!used.has(code)) {
         used.add(code)
+
         return String.fromCodePoint(code)
       }
     }
@@ -1094,7 +1096,7 @@ function build(): void {
   let added = 0
 
   SOURCES.forEach(([rel, items], index) => {
-    const byTalk = new Map(existing[index]!.map(e => [e.talk, e.token]))
+    const byTalk = new Map(existing[index].map(e => [e.talk, e.token]))
     const valid = new Set(items)
 
     for (const talk of [...byTalk.keys()]) {
@@ -1115,6 +1117,7 @@ function build(): void {
       .map(talk => ({ talk, token: byTalk.get(talk)! }))
 
     const file = resolve(DIR, rel)
+
     mkdirSync(dirname(file), { recursive: true })
     writeFileSync(file, JSON.stringify(out, null, 2) + '\n')
 

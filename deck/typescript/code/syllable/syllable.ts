@@ -456,6 +456,7 @@ const vowels = Object.keys(CLUSTERS.vowels).sort(
 
 const sortLength = (a: string, b: string) => {
   const diff = b.length - a.length
+
   return diff || a.localeCompare(b)
 }
 
@@ -479,14 +480,17 @@ function buildClusterTrie(
       ? cluster.replace(/\$/g, '').length
       : cluster.replace(/:/g, '').length
     const group = byKey.get(key) ?? []
+
     group.push({ cluster, count })
     byKey.set(key, group)
   }
 
   const builder = new TrieBuilder<ClusterCount[]>()
+
   for (const [key, group] of byKey) {
     builder.add(key, group)
   }
+
   return builder.build()
 }
 
@@ -508,11 +512,12 @@ type Frame = { text: string; offsetOfIndex: number[] }
 
 function frameOf(chunks: Segment[]): Frame {
   const offsetOfIndex: number[] = []
+
   let text = ''
 
-  for (let i = 0; i < chunks.length; i++) {
+  for (const chunk of chunks) {
     offsetOfIndex.push(text.length)
-    text += chunks[i]!.value ?? ''
+    text += chunk.value ?? ''
   }
 
   return { text, offsetOfIndex }
@@ -527,7 +532,7 @@ function clusterMatches(
   chunks: Segment[],
   i: number,
 ): ClusterMatch[] {
-  const offset = frame.offsetOfIndex[i]!
+  const offset = frame.offsetOfIndex[i]
   const out: ClusterMatch[] = []
 
   for (const hit of trie.matchAllAt(frame.text, offset)) {
@@ -546,6 +551,7 @@ function clusterMatches(
   }
 
   out.sort((a, b) => sortLength(a.cluster, b.cluster))
+
   return out
 }
 
@@ -647,7 +653,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
   while (i < chunks.length) {
     const span: Span[] = []
 
-    const chunk = chunks[i]!
+    const chunk = chunks[i]
 
     if (chunk.type === 'punctuation') {
       span.push({
@@ -692,7 +698,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
               const colonParts = x.split(':')
 
               if (colonParts.length === 2) {
-                const rightPart = colonParts[1]!
+                const rightPart = colonParts[1]
                 const potentialCluster = rightPart + nextChunk?.value
 
                 // Skip this match to allow splitting into a start
@@ -925,10 +931,10 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
   i = 0
 
   while (i < list.length) {
-    const node = list[i]!
+    const node = list[i]
 
     for (let j = 0; j < node.length; j++) {
-      const span = node[j]!
+      const span = node[j]
 
       // Check if this span has a colon (can be split)
       if (/:/.exec(span.match)) {
@@ -953,7 +959,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
           let array = left
 
           while (k < span.chunk.length) {
-            const mark = span.chunk[k]!
+            const mark = span.chunk[k]
 
             text += mark.value
             array.push(mark)
@@ -973,13 +979,13 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
               {
                 ...span,
                 chunk: left,
-                match: leftPart!,
+                match: leftPart,
                 form: ClusterType.END_CONSONANT,
               },
               {
                 ...span,
                 chunk: right,
-                match: rightPart!,
+                match: rightPart,
                 form: ClusterType.CONSONANT,
               },
             )
@@ -997,14 +1003,14 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
 
   while (i < list.length) {
     const last = list[i - 1]
-    const node = list[i++]!
+    const node = list[i++]
 
     if (!last) {
       continue
     }
 
-    const lastSpan = last[last.length - 1]!
-    const nodeSpan = node[0]!
+    const lastSpan = last[last.length - 1]
+    const nodeSpan = node[0]
 
     // can split - but only if followed by vowel
     if (
@@ -1023,7 +1029,7 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
       let array = left
 
       while (j < lastSpan.chunk.length) {
-        const mark = lastSpan.chunk[j]!
+        const mark = lastSpan.chunk[j]
 
         text += mark.value
         array.push(mark)
@@ -1061,13 +1067,13 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
       return result
     }
 
-    const cluster = CLUSTER_MAP[span.form]!
-    const form = CLUSTER_KEY[span.form]!
+    const cluster = CLUSTER_MAP[span.form]
+    const form = CLUSTER_KEY[span.form]
 
     const result: Cluster = {
       form,
       text: span.chunk.map(serialize).join(''),
-      code: cluster[span.match]!,
+      code: cluster[span.match],
     }
 
     if (hasEmphasis) {
@@ -1215,7 +1221,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
   const syllables: Syllable[] = []
 
   while (i < clusters.length) {
-    const cluster = clusters[i]!
+    const cluster = clusters[i]
 
     // Skip punctuation (spaces, etc) - they don't belong in syllables
     if (cluster.form === ClusterKey.PUNCTUATION) {
@@ -1235,7 +1241,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
 
         // Look for following consonants that end this syllable
         while (i < clusters.length) {
-          const next = clusters[i]!
+          const next = clusters[i]
 
           // Skip punctuation (spaces, etc)
           if (next.form === ClusterKey.PUNCTUATION) {
@@ -1307,9 +1313,9 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
         // Look for vowel
         while (
           i < clusters.length &&
-          clusters[i]!.form !== ClusterKey.VOWEL
+          clusters[i].form !== ClusterKey.VOWEL
         ) {
-          const next = clusters[i]!
+          const next = clusters[i]
 
           // Skip punctuation (spaces, etc)
           if (next.form === ClusterKey.PUNCTUATION) {
@@ -1377,13 +1383,13 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
           // check if we should break based on what follows
           if (
             syllable.clusters.length >= 2 &&
-            syllable.clusters[0]!.form === ClusterKey.START_CONSONANT &&
-            syllable.clusters[syllable.clusters.length - 1]!.form ===
+            syllable.clusters[0].form === ClusterKey.START_CONSONANT &&
+            syllable.clusters[syllable.clusters.length - 1].form ===
               ClusterKey.CONSONANT
           ) {
             // Look ahead to see what's coming
             if (i < clusters.length) {
-              const upcomingCluster = clusters[i]!
+              const upcomingCluster = clusters[i]
 
               // If we see another consonant cluster coming and no vowel nearby,
               // we should break here to start a new syllable
@@ -1509,7 +1515,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             if (
               syllable.clusters.length > 1 &&
               i < clusters.length &&
-              clusters[i]!.form !== ClusterKey.VOWEL
+              clusters[i].form !== ClusterKey.VOWEL
             ) {
               break
             }
@@ -1519,14 +1525,14 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
         // Add the vowel if found
         if (
           i < clusters.length &&
-          clusters[i]!.form === ClusterKey.VOWEL
+          clusters[i].form === ClusterKey.VOWEL
         ) {
-          syllable.clusters.push(clusters[i]!)
+          syllable.clusters.push(clusters[i])
           i++
 
           // Look for trailing consonants
           while (i < clusters.length) {
-            const next = clusters[i]!
+            const next = clusters[i]
 
             // Skip punctuation (spaces, etc)
             if (next.form === ClusterKey.PUNCTUATION) {
@@ -1581,7 +1587,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
 
           if (syllable.clusters.length > 0) {
             const lastCluster =
-              syllable.clusters[syllable.clusters.length - 1]!
+              syllable.clusters[syllable.clusters.length - 1]
 
             // If the last cluster is an END_CONSONANT, this syllable is complete
             if (lastCluster.form === ClusterKey.END_CONSONANT) {
@@ -1591,7 +1597,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
             else if (syllable.clusters.length >= 2) {
               // Look ahead to see if we should end here
               if (i < clusters.length) {
-                const next = clusters[i]!
+                const next = clusters[i]
 
                 if (
                   next.form === ClusterKey.START_CONSONANT ||

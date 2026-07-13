@@ -201,6 +201,7 @@ export class Trie<T> {
     const stateLimit = check.length
 
     let state = 1
+
     const hits: Match<T>[] = []
 
     for (let i = at; i < text.length; i++) {

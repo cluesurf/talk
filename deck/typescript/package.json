@@ -3,19 +3,19 @@
   "name": "@cluesurf/talk",
   "type": "module",
   "license": "MIT",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
+  "main": "./host/index.cjs",
+  "module": "./host/index.js",
+  "types": "./host/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "types": "./host/index.d.ts",
+      "import": "./host/index.js",
+      "require": "./host/index.cjs"
     },
     "./syllable": {
-      "types": "./dist/syllable/index.d.ts",
-      "import": "./dist/syllable/index.js",
-      "require": "./dist/syllable/index.cjs"
+      "types": "./host/syllable/index.d.ts",
+      "import": "./host/syllable/index.js",
+      "require": "./host/syllable/index.cjs"
     }
   },
   "sideEffects": false,

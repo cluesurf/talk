@@ -12,6 +12,7 @@ const shape = (word: string): string[][] => {
   const result = syllables(word) as {
     syllables?: { clusters?: { form: string; text: string }[] }[]
   }
+
   return (result.syllables ?? []).map(s =>
     (s.clusters ?? []).map(c => `${c.form}:${c.text}`),
   )
@@ -33,6 +34,7 @@ describe('syllable basics', () => {
     const texts = result.syllables.map(s =>
       s.clusters.map(c => c.text).join(''),
     )
+
     expect(texts).toEqual(['ma', 'ma'])
   })
 
@@ -40,6 +42,7 @@ describe('syllable basics', () => {
     const result = syllables('siqk') as {
       syllables: { clusters: { text: string }[] }[]
     }
+
     expect(result.syllables).toHaveLength(1)
   })
 })

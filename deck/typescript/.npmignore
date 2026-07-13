@@ -1,5 +1,4 @@
-# Publish only the built dist/ (plus readme, license, package.json).
-code/
+# Publish only the built host/ (plus readme, license, package.json).
 test/
 tmp/
 *.config.ts

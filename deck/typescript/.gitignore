@@ -1,4 +1,4 @@
-dist
+host
 node_modules
 tmp
 *.tsbuildinfo
