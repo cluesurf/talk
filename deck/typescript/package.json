@@ -1,6 +1,25 @@
 {
   "version": "2.0.0",
   "name": "@cluesurf/talk",
+  "description": "Tokenized IPA for AI and NLP, a keyboard-friendly ASCII phonetic encoding that converts to and from IPA with one token per effective sound.",
+  "author": "Lance Pollard <lancejpollard@gmail.com>",
+  "contributors": ["ClueSurf"],
+  "keywords": [
+    "nlp",
+    "text-to-speech",
+    "transliteration",
+    "linguistics",
+    "tts",
+    "phonology",
+    "ipa",
+    "phonetics",
+    "computational-linguistics",
+    "romanization",
+    "writing-systems",
+    "international-phonetic-alphabet",
+    "phonetic-alphabet",
+    "phonetic-transcription"
+  ],
   "type": "module",
   "license": "MIT",
   "main": "./host/index.cjs",
@@ -21,17 +40,15 @@
   "sideEffects": false,
   "prettier": "@cluesurf/wash/flow.json",
   "scripts": {
-    "build": "tsup",
+    "copy:base": "tsx code/make/copy-base.ts",
+    "build": "pnpm copy:base && tsup",
     "lint": "eslint . --fix && prettier --write .",
+    "pretest": "pnpm copy:base",
     "test": "NODE_NO_WARNINGS=1 vitest run",
     "test:watch": "NODE_NO_WARNINGS=1 vitest",
     "tokens": "NODE_NO_WARNINGS=1 tsx code/make/tokens.ts",
     "clusters": "NODE_NO_WARNINGS=1 tsx code/make/clusters.ts",
     "prepublishOnly": "pnpm build"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": ["unrs-resolver"],
-    "ignoredBuiltDependencies": ["esbuild"]
   },
   "devDependencies": {
     "@cluesurf/wash": "^0.10.10",

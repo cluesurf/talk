@@ -2,3 +2,6 @@ host
 node_modules
 tmp
 *.tsbuildinfo
+
+# Data copied from the shared top-level base/ by copy:base (source of truth is ../../base)
+base/

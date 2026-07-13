@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 import { enumerateSounds } from '..'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
-const FILE = resolve(HERE, '../base/tokens.json')
+const FILE = resolve(HERE, '../../../../base/tokens.json')
 
 // Hangul Syllables block.
 const START = 0xac00

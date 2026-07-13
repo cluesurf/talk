@@ -1013,7 +1013,7 @@ type Piece = { talk: string; token: string }
 type Cluster = { talk: string }
 
 const HERE = dirname(fileURLToPath(import.meta.url))
-const DIR = resolve(HERE, '../base/clusters')
+const DIR = resolve(HERE, '../../../../base/clusters')
 const INDEX = resolve(DIR, 'index.json')
 
 // The Chinese character set to draw tokens from, at the repository root.

@@ -1,0 +1,13 @@
+# Build output and caches (host/ matches the TypeScript package; never dist/)
+host/
+dist/
+build/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Data is copied from the shared top-level base/ by `copy:base`; the source
+# of truth is base/, not this generated copy.
+code/talk/base/

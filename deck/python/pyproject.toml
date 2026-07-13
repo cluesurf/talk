@@ -1,0 +1,58 @@
+[project]
+name = "talk"
+version = "2.0.0"
+description = "Tokenized IPA for AI and NLP, a keyboard-friendly ASCII phonetic encoding that converts to and from IPA with one token per effective sound."
+readme = "readme.md"
+requires-python = ">=3.9"
+license = "MIT"
+authors = [
+  { name = "Lance Pollard", email = "lancejpollard@gmail.com" },
+  { name = "ClueSurf" },
+]
+keywords = [
+  "nlp",
+  "text-to-speech",
+  "transliteration",
+  "linguistics",
+  "tts",
+  "phonology",
+  "ipa",
+  "phonetics",
+  "computational-linguistics",
+  "romanization",
+  "writing-systems",
+  "international-phonetic-alphabet",
+  "phonetic-alphabet",
+  "phonetic-transcription",
+]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/cluesurf/talk"
+Repository = "https://github.com/cluesurf/talk"
+Issues = "https://github.com/cluesurf/talk/issues"
+
+[build-system]
+requires = ["uv_build>=0.9,<0.10"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-root = "code"
+module-name = "talk"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.ruff]
+line-length = 88

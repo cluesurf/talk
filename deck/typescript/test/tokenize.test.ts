@@ -135,3 +135,118 @@ describe('canonicalization', () => {
     expect(tokenize('th~a')).toEqual(segment('th~a'))
   })
 })
+
+describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
+  const shape = (talk: string) =>
+    segment(talk).map(s => ({
+      talk: s.talk,
+      kind: s.kind,
+      base: s.base?.talk,
+      features: s.modifiers.map(m => m.feature),
+    }))
+
+  it('parses a bare consonant, vowel, and glottal stop', () => {
+    expect(shape('t')).toEqual([
+      { talk: 't', kind: 'consonant', base: 't', features: [] },
+    ])
+    expect(shape('a')).toEqual([
+      { talk: 'a', kind: 'vowel', base: 'a', features: [] },
+    ])
+    expect(shape("'")).toEqual([
+      { talk: "'", kind: 'consonant', base: "'", features: [] },
+    ])
+  })
+
+  it('decomposes a consonant secondary articulation into base + feature', () => {
+    expect(shape('th~')).toEqual([
+      { talk: 'th~', kind: 'consonant', base: 't', features: ['aspirated'] },
+    ])
+    expect(shape('kw~')).toEqual([
+      { talk: 'kw~', kind: 'consonant', base: 'k', features: ['labialized'] },
+    ])
+    expect(shape('dQ~')).toEqual([
+      {
+        talk: 'dQ~',
+        kind: 'consonant',
+        base: 'd',
+        features: ['pharyngealized'],
+      },
+    ])
+  })
+
+  it('keeps a pre-composed chart phone as its own base', () => {
+    // Clicks, ejectives, the palatal nasal, retroflex, implosives, and
+    // the rounded front vowels are single chart phones, not base+modifier.
+    for (const talk of ['t!', 'ny~', 'lG~', 'k*', 'b?', 'i$', 'D']) {
+      const [sound] = segment(talk)
+
+      expect(sound?.talk).toBe(talk)
+      expect(sound?.base?.talk).toBe(talk)
+      expect(sound?.modifiers).toEqual([])
+    }
+  })
+
+  it('parses vowel suprasegmentals as base + feature', () => {
+    expect(shape('a^')).toEqual([
+      { talk: 'a^', kind: 'vowel', base: 'a', features: ['stress'] },
+    ])
+    expect(shape('a_')).toEqual([
+      { talk: 'a_', kind: 'vowel', base: 'a', features: ['long'] },
+    ])
+    expect(shape('a&')).toEqual([
+      { talk: 'a&', kind: 'vowel', base: 'a', features: ['nasalized'] },
+    ])
+    expect(shape('i@')).toEqual([
+      { talk: 'i@', kind: 'vowel', base: 'i', features: ['non-syllabic'] },
+    ])
+  })
+
+  it('parses the four register tones', () => {
+    expect(segment('a+')[0]?.modifiers[0]?.feature).toBe('high-tone')
+    expect(segment('a++')[0]?.modifiers[0]?.feature).toBe('extra-high-tone')
+    expect(segment('a-')[0]?.modifiers[0]?.feature).toBe('low-tone')
+    expect(segment('a--')[0]?.modifiers[0]?.feature).toBe('extra-low-tone')
+  })
+
+  it('stacks multiple vowel features in one chunk', () => {
+    const [sound] = segment('a&^_+')
+
+    expect(sound?.base?.talk).toBe('a')
+    expect(new Set(sound?.modifiers.map(m => m.feature))).toEqual(
+      new Set(['nasalized', 'stress', 'long', 'high-tone']),
+    )
+  })
+
+  it('parses sequences, spaces, symbols, and numerals', () => {
+    expect(shape('tak').map(s => s.base)).toEqual(['t', 'a', 'k'])
+    expect(segment('ma na').map(s => s.kind)).toEqual([
+      'consonant',
+      'vowel',
+      'symbol',
+      'consonant',
+      'vowel',
+    ])
+    expect(segment('=.')[0]?.kind).toBe('symbol')
+    expect(segment('3')[0]?.kind).toBe('symbol')
+    expect(shape('ma=.3').map(s => s.kind)).toEqual([
+      'consonant',
+      'vowel',
+      'symbol',
+      'symbol',
+    ])
+  })
+
+  it('handles edge cases', () => {
+    expect(segment('')).toEqual([])
+    expect(shape('ieaou').map(s => s.base)).toEqual(['i', 'e', 'a', 'o', 'u'])
+    // n is its own consonant, never a modifier on the preceding m.
+    expect(shape('mn').map(s => s.base)).toEqual(['m', 'n'])
+  })
+
+  it('carries an unknown mark through as a raw symbol', () => {
+    // `.` and the contour-tone marks are not string-level modifiers, so
+    // they pass through untouched rather than attaching to the vowel.
+    expect(segment('t.').map(s => s.raw)).toEqual([false, true])
+    expect(segment('a/').map(s => s.raw)).toEqual([false, true])
+  })
+})
