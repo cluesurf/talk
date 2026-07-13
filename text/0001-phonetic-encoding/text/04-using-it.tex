@@ -1,22 +1,8 @@
 \section{Use cases}
 
-Talk ships as a library for Python and TypeScript, with no runtime dependencies. Linguistics and speech work is often done in Python, so the examples here are in Python. The TypeScript package \verb|@cluesurf/talk| offers the same functions.
+Talk ships as a library for Python and TypeScript, with no runtime dependencies, and the functions are the same in both. The introduction shows a short Python example. The TypeScript package is \verb|@cluesurf/talk|.
 
-\begin{lstlisting}
-import talk
-
-talk.talk_to_ipa("kw~asQ~o") # the IPA form
-talk.machine("kw~asQ~o") # one code point per sound
-talk.machine_outputs("kw~asQ~o") # the code points as a list
-
-for sound in talk.segment("th~a"):
-    sound.base.talk # "t"
-    [m.feature for m in sound.modifiers] # ["aspirated"]
-
-talk.enumerate_sounds() # the full inventory of canonical sounds
-\end{lstlisting}
-
-The following are a few potential use cases, meant only to give the idea. Talk can back many more.
+A few potential use cases follow. These are of course just for inspiration, and there are many other applications too.
 
 A text-to-speech or grapheme-to-phoneme front end turns text or IPA into talk, then feeds the acoustic model one token per sound. The model sees a normalized phone vocabulary of fixed size, in place of raw IPA that a byte tokenizer would fragment. The same front end can emit cluster tokens where the downstream model works at the syllable level.
 

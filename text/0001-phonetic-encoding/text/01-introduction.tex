@@ -6,21 +6,21 @@ A single sound is often a base letter followed by one or more combining diacriti
 
 Talk is a phonetic encoding designed around these problems. It has two written forms. The first is a plain ASCII spelling, where each sound is a base consonant or vowel followed by modifiers, so a person can type pronunciations on a normal keyboard and a program can read them without special handling. The second is a machine form, where each canonical sound is a single code point, so a word becomes a compact string of one token per sound. A short example, in Python:
 
-\begin{lstlisting}
+\begin{Verbatim}[commandchars=\\\{\},fontsize=\small]
 import talk
 
-# prajna, written in IPA
-talk.talk_to_ipa("pradjy~ny~a_") # => "pradʑɲaː"
+\cmt{# prajna, written in IPA}
+talk.talk_to_ipa("pradjy~ny~a_") \cmt{# => "pradʑɲaː"}
 
-# one Hangul code point per sound
-talk.machine("pradjy~ny~a_") # => a 7 code point string
+\cmt{# one Hangul code point per sound}
+talk.machine("pradjy~ny~a_") \cmt{# => a 7 code point string}
 
-# the sounds, each with its features
-talk.segment("pradjy~ny~a_") # => [p, r, a, d, jy~, ny~, a_]
+\cmt{# the sounds, each with its features}
+talk.segment("pradjy~ny~a_") \cmt{# => [p, r, a, d, jy~, ny~, a_]}
 
-# and the reverse, IPA back to talk
-talk.ipa_to_talk("prɐdʑɲaː") # => "pradjy~ny~a_"
-\end{lstlisting}
+\cmt{# and the reverse, IPA back to talk}
+talk.ipa_to_talk("prɐdʑɲaː") \cmt{# => "pradjy~ny~a_"}
+\end{Verbatim}
 
 The contribution is a small set of design choices that work together.
 
@@ -28,7 +28,7 @@ The contribution is a small set of design choices that work together.
 \item A phonetic alphabet in plain ASCII, where each sound is a base plus modifiers in a fixed order, so every sound has exactly one spelling.
 \item A machine form that maps each canonical sound to one code point, so a word is one token per sound. The Hangul syllable block holds the individual sounds, and Chinese characters hold consonant and vowel clusters.
 \item A fixed, append-only map from sound to code point, so a token never changes meaning across releases.
-\item Conversion to and from IPA, without loss in the talk direction, and splitting of a word into syllables.
+\item Conversion to and from IPA, and splitting of a word into syllables.
 \item Implementations for Python and TypeScript with no runtime dependencies.
 \end{itemize}
 
