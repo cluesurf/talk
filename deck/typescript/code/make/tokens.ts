@@ -1,10 +1,10 @@
-// Generate base/machine.json: one Hangul code point per canonical sound.
+// Generate base/tokens.json: one Hangul code point per canonical sound.
 //
 // Append-only. Existing assignments are kept exactly, new sounds take the
 // next free code point. A sound's code point never changes once assigned,
-// so machine tokens stay stable across releases.
+// so tokens tokens stay stable across releases.
 //
-//   npx tsx code/make/machine.ts
+//   npx tsx code/make/tokens.ts
 
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url'
 import { enumerateSounds } from '..'
 
 const HERE = dirname(fileURLToPath(import.meta.url))
-const FILE = resolve(HERE, '../base/machine.json')
+const FILE = resolve(HERE, '../base/tokens.json')
 
 // Hangul Syllables block.
 const START = 0xac00
@@ -70,7 +70,7 @@ for (const sound of sounds) {
 
 writeFileSync(FILE, JSON.stringify(out, null, 2) + '\n')
 
-console.log(`[build-machine] wrote ${FILE}`)
+console.log(`[build-tokens] wrote ${FILE}`)
 console.log(`  sounds enumerated: ${sounds.length}`)
 console.log(`  total assigned:    ${out.length}`)
 console.log(`  newly added:       ${added}`)

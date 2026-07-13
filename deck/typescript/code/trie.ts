@@ -15,6 +15,9 @@
 // range), so a Map of the ~150 real characters is far smaller than a flat
 // array spanning the whole code-unit range, and just as fast in practice.
 
+// A matched value and the number of code units it spanned.
+type Match<T> = { value: T; length: number }
+
 // A temporary node used only while building, then discarded.
 type BuildNode<T> = {
   children: Map<number, BuildNode<T>>
@@ -189,6 +192,40 @@ export class Trie<T> {
     this.matchedLength = bestLength
 
     return bestValue
+  }
+
+  // Every key that is a prefix of `text` at `at`, with its length, from
+  // shortest to longest.
+  matchAllAt(text: string, at: number): Match<T>[] {
+    const { charToCode, base, check, value } = this
+    const stateLimit = check.length
+
+    let state = 1
+    const hits: Match<T>[] = []
+
+    for (let i = at; i < text.length; i++) {
+      const code = charToCode.get(text.charCodeAt(i))
+
+      if (code === undefined) {
+        break
+      }
+
+      const next = base[state] + code
+
+      if (next >= stateLimit || check[next] !== state) {
+        break
+      }
+
+      state = next
+
+      const hit = value[state]
+
+      if (hit !== undefined) {
+        hits.push({ value: hit, length: i - at + 1 })
+      }
+    }
+
+    return hits
   }
 }
 

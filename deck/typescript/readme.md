@@ -86,7 +86,7 @@ scans with a trie.
 - **base/phones.json** is the base sounds.
 - **base/modifiers.json** is the affixes, with the rules for what they
   attach to.
-- **base/machine.json** is the frozen sound to Hangul code point map.
+- **base/tokens.json** is the frozen sound to Hangul code point map.
 
 See [`code/base/readme.md`](code/base/readme.md) for the data model, the
 coverage guarantee, the provisional merges, and the open todos
@@ -102,14 +102,14 @@ position tells them apart.
 ## Machine stability
 
 `machine()` assigns each canonical sound one Hangul code point from
-`base/machine.json`. That file is append-only: a code point is never
-renumbered once assigned, so machine tokens stay stable across releases.
-Any model or index built on them survives an upgrade.
+`base/tokens.json`. That file is append-only: a code point is never
+renumbered once assigned, so tokens stay stable across releases. Any
+model or index built on them survives an upgrade.
 
 Regenerate it after adding a sound or modifier:
 
 ```bash
-npx tsx code/make/machine.ts
+npx tsx code/make/tokens.ts
 ```
 
 The build keeps every existing assignment and gives new sounds the next

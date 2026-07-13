@@ -9,7 +9,7 @@ import talk, {
   talkToIpa,
 } from '../code'
 import PHONES from '../code/base/phones.json'
-import MACHINE from '../code/base/machine.json'
+import MACHINE from '../code/base/tokens.json'
 
 const phones = PHONES as { ipa: string; talk: string }[]
 const sounds = MACHINE as { talk: string; token: string }[]

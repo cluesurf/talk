@@ -1,3 +1,4 @@
+import { Trie, TrieBuilder } from '../trie'
 import { CLUSTERS } from './clusters'
 
 // The vowel-mark axes, matching how talk builds vowel glyphs. Every
@@ -445,6 +446,100 @@ const vowels = Object.keys(CLUSTERS.vowels).sort(
   (a, b) => b.length - a.length,
 )
 
+// ─── fast cluster lookup ─────────────────────────────────────────────
+//
+// Instead of scanning every cluster at each position, each list becomes a
+// trie keyed by its colon-stripped text (the sound sequence), so a lookup
+// walks once. A match is valid only when it ends exactly on a sound
+// boundary, so multi-character sounds (vowel variants, and future
+// ejectives or clicks) never match half a sound.
+
+const sortLength = (a: string, b: string) => {
+  const diff = b.length - a.length
+  return diff || a.localeCompare(b)
+}
+
+// One trie node value is the list of original clusters (with colons) that
+// share a colon-stripped form, kept in list order.
+function buildClusterTrie(list: string[]): Trie<string[]> {
+  const byStripped = new Map<string, string[]>()
+
+  for (const cluster of list) {
+    const stripped = cluster.replace(/:/g, '')
+    const group = byStripped.get(stripped) ?? []
+    group.push(cluster)
+    byStripped.set(stripped, group)
+  }
+
+  const builder = new TrieBuilder<string[]>()
+  for (const [stripped, group] of byStripped) {
+    builder.add(stripped, group)
+  }
+  return builder.build()
+}
+
+const fullConsonantTrie = buildClusterTrie(fullConsonants)
+const startConsonantTrie = buildClusterTrie(startConsonants)
+const endConsonantTrie = buildClusterTrie(endConsonants)
+const consonantTrie = buildClusterTrie(consonants)
+const vowelTrie = buildClusterTrie(vowels)
+
+const startConsonantStripped = new Set(
+  startConsonants.map(x => x.replace(/:/g, '')),
+)
+
+type ClusterMatch = { cluster: string; count: number }
+
+// The sound values of a word, joined, with a map from a character offset
+// back to the sound index that starts there (plus the end).
+type Frame = {
+  text: string
+  indexAtOffset: Map<number, number>
+  offsetOfIndex: number[]
+}
+
+function frameOf(chunks: Segment[]): Frame {
+  const offsetOfIndex: number[] = []
+  const indexAtOffset = new Map<number, number>()
+  let text = ''
+
+  for (let i = 0; i < chunks.length; i++) {
+    offsetOfIndex.push(text.length)
+    indexAtOffset.set(text.length, i)
+    text += chunks[i]!.value ?? ''
+  }
+
+  indexAtOffset.set(text.length, chunks.length)
+  return { text, indexAtOffset, offsetOfIndex }
+}
+
+// Clusters from `trie` that match starting at sound `i`, ending on a
+// sound boundary, ordered exactly as the flat list would be iterated
+// (longest first, ties alphabetical).
+function clusterMatches(
+  trie: Trie<string[]>,
+  frame: Frame,
+  i: number,
+): ClusterMatch[] {
+  const offset = frame.offsetOfIndex[i]!
+  const out: ClusterMatch[] = []
+
+  for (const hit of trie.matchAllAt(frame.text, offset)) {
+    const end = frame.indexAtOffset.get(offset + hit.length)
+
+    if (end === undefined) {
+      continue // does not land on a sound boundary
+    }
+
+    for (const cluster of hit.value) {
+      out.push({ cluster, count: end - i })
+    }
+  }
+
+  out.sort((a, b) => sortLength(a.cluster, b.cluster))
+  return out
+}
+
 enum ClusterType {
   FULL_CONSONANT = 0,
   CONSONANT = 1,
@@ -536,13 +631,12 @@ export function readSegments(string: string) {
 // Step 2: Group marks into clusters
 export function groupSegmentsIntoClusters(chunks: Segment[]) {
   const list: Span[][] = []
+  const frame = frameOf(chunks)
 
   let i = 0
 
   while (i < chunks.length) {
     const span: Span[] = []
-
-    let j = 0
 
     const chunk = chunks[i]!
 
@@ -558,88 +652,76 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
     }
 
     // First check for standalone full consonants (high priority)
-    j = 0
-
-    while (j < fullConsonants.length) {
-      const x = fullConsonants[j++]!
-      // Handle colon notation - remove colons for matching
+    // First check for standalone full consonants (high priority).
+    for (const { cluster: x, count } of clusterMatches(
+      fullConsonantTrie,
+      frame,
+      i,
+    )) {
       const y = x.replace(/:/g, '')
-      const chunk = chunks.slice(i, i + y.length)
-      const chunkStr = chunk.map(x => x.value).join('')
+      const chunk = chunks.slice(i, i + count)
 
-      if (chunkStr === y) {
-        // Only match standalone consonants (single characters or glottal + consonant)
-        // Skip dense clusters like 'gm', 'kn', etc.
-        const isDenseCluster =
-          y.length >= 2 && !y.startsWith("'") && !/^[lrwy]$/.test(y)
+      // Only match standalone consonants (single characters or glottal +
+      // consonant). Skip dense clusters like 'gm', 'kn', etc.
+      const isDenseCluster =
+        y.length >= 2 && !y.startsWith("'") && !/^[lrwy]$/.test(y)
 
-        if (!isDenseCluster) {
-          // Check if this is a colon pattern and if we should use it
-          if (x.includes(':')) {
-            // Look ahead to see what follows
-            const nextChunkIndex = i + y.length
+      if (!isDenseCluster) {
+        // Check if this is a colon pattern and if we should use it
+        if (x.includes(':')) {
+          // Look ahead to see what follows
+          const nextChunkIndex = i + count
 
-            if (nextChunkIndex < chunks.length) {
-              const nextChunk = chunks[nextChunkIndex]
+          if (nextChunkIndex < chunks.length) {
+            const nextChunk = chunks[nextChunkIndex]
 
-              // Only split if next is a vowel
-              if (nextChunk?.type !== 'vowel') {
-                // Check if splitting would allow a better match
-                // For example, 'l:d followed by j could be 'l + dj (start consonant)
-                const colonParts = x.split(':')
+            // Only split if next is a vowel
+            if (nextChunk?.type !== 'vowel') {
+              // Check if splitting would allow a better match. For
+              // example, 'l:d followed by j could be 'l + dj.
+              const colonParts = x.split(':')
 
-                if (colonParts.length === 2) {
-                  const rightPart = colonParts[1]!
-                  // Check if rightPart + next would form a known cluster
-                  const potentialCluster = rightPart + nextChunk?.value
+              if (colonParts.length === 2) {
+                const rightPart = colonParts[1]!
+                const potentialCluster = rightPart + nextChunk?.value
 
-                  let wouldFormBetterCluster = false
-
-                  // Check if it would form a start consonant
-                  for (const sc of startConsonants) {
-                    if (sc.replace(/:/g, '') === potentialCluster) {
-                      wouldFormBetterCluster = true
-                      break
-                    }
-                  }
-
-                  if (wouldFormBetterCluster) {
-                    // Skip this match to allow splitting
-                    continue
-                  }
+                // Skip this match to allow splitting into a start
+                // consonant.
+                if (startConsonantStripped.has(potentialCluster)) {
+                  continue
                 }
-
-                // Don't split - treat as full consonant
-                span.push({
-                  chunk,
-                  match: x,
-                  form: ClusterType.FULL_CONSONANT,
-                })
-                i += y.length
-                break
               }
-              // If next is vowel, skip this full consonant match
-              // to allow potential splitting later
-            } else {
-              // At end of word, don't split
+
+              // Don't split - treat as full consonant
               span.push({
                 chunk,
                 match: x,
                 form: ClusterType.FULL_CONSONANT,
               })
-              i += y.length
+              i += count
               break
             }
+            // If next is vowel, skip this full consonant match
+            // to allow potential splitting later
           } else {
-            // No colon, normal match
+            // At end of word, don't split
             span.push({
               chunk,
               match: x,
               form: ClusterType.FULL_CONSONANT,
             })
-            i += y.length
+            i += count
             break
           }
+        } else {
+          // No colon, normal match
+          span.push({
+            chunk,
+            match: x,
+            form: ClusterType.FULL_CONSONANT,
+          })
+          i += count
+          break
         }
       }
     }
@@ -649,37 +731,32 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
       continue
     }
 
-    j = 0
-
-    while (j < startConsonants.length) {
-      const x = startConsonants[j++]!
-      const y = x.replace(/:/g, '')
-      const chunk = chunks.slice(i, i + y.length)
-      const chunkStr = chunk.map(x => x.value).join('')
-
-      if (chunkStr === y) {
-        span.push({
-          chunk,
-          match: x,
-          form: ClusterType.START_CONSONANT,
-        })
-        i += y.length
-        break
-      }
+    for (const { cluster: x, count } of clusterMatches(
+      startConsonantTrie,
+      frame,
+      i,
+    )) {
+      span.push({
+        chunk: chunks.slice(i, i + count),
+        match: x,
+        form: ClusterType.START_CONSONANT,
+      })
+      i += count
+      break
     }
 
-    j = 0
-
-    while (j < vowels.length) {
-      const x = vowels[j++]!
-      const y = x.replace(/\$/g, '')
-      const chunk = chunks.slice(i, i + y.length)
-
-      if (chunk.map(x => x.value).join('') === x) {
-        span.push({ chunk, match: x, form: ClusterType.VOWEL })
-        i += y.length
-        break
-      }
+    for (const { cluster: x, count } of clusterMatches(
+      vowelTrie,
+      frame,
+      i,
+    )) {
+      span.push({
+        chunk: chunks.slice(i, i + count),
+        match: x,
+        form: ClusterType.VOWEL,
+      })
+      i += count
+      break
     }
 
     let matched = false
@@ -691,7 +768,11 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
       length: number
     } | null = null
 
-    for (const fc of fullConsonants) {
+    for (const { cluster: fc, count } of clusterMatches(
+      fullConsonantTrie,
+      frame,
+      i,
+    )) {
       const fcNormalized = fc.replace(/:/g, '')
       const isDenseCluster =
         fcNormalized.length >= 2 &&
@@ -699,19 +780,11 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
         !/^[lrwy]$/.test(fcNormalized)
 
       if (isDenseCluster) {
-        const fcChunk = chunks.slice(i, i + fcNormalized.length)
-        const fcChunkStr = fcChunk.map(x => x.value).join('')
-
-        if (fcChunkStr === fcNormalized) {
-          if (
-            !longerDenseMatch ||
-            fcNormalized.length > longerDenseMatch.length
-          ) {
-            longerDenseMatch = {
-              chunk: fcChunk,
-              match: fc,
-              length: fcNormalized.length,
-            }
+        if (!longerDenseMatch || count > longerDenseMatch.length) {
+          longerDenseMatch = {
+            chunk: chunks.slice(i, i + count),
+            match: fc,
+            length: count,
           }
         }
       }
@@ -724,21 +797,16 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
       length: number
     } | null = null
 
-    j = 0
-
-    while (j < endConsonants.length) {
-      const x = endConsonants[j++]!
-      const y = x.replace(/:/g, '')
-      const chunk = chunks.slice(i, i + y.length)
-      const chunkStr = chunk.map(x => x.value).join('')
-
-      if (chunkStr === y) {
-        if (!endConsonantMatch || y.length > endConsonantMatch.length) {
-          endConsonantMatch = {
-            chunk,
-            match: x,
-            length: y.length,
-          }
+    for (const { cluster: x, count } of clusterMatches(
+      endConsonantTrie,
+      frame,
+      i,
+    )) {
+      if (!endConsonantMatch || count > endConsonantMatch.length) {
+        endConsonantMatch = {
+          chunk: chunks.slice(i, i + count),
+          match: x,
+          length: count,
         }
       }
     }
@@ -785,45 +853,42 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
     if (!matched && span.length === 0) {
       // Only process single consonants if we don't have content in span
       // This ensures we complete the current span before starting a new one
-      j = 0
-
-      while (j < consonants.length) {
-        const x = consonants[j++]!
-        const chunk = chunks.slice(i, i + x.length)
-
-        if (chunk.map(x => x.value).join('') === x) {
-          span.push({ chunk, match: x, form: ClusterType.CONSONANT })
-          i += x.length
-          break
-        }
+      for (const { cluster: x, count } of clusterMatches(
+        consonantTrie,
+        frame,
+        i,
+      )) {
+        span.push({
+          chunk: chunks.slice(i, i + count),
+          match: x,
+          form: ClusterType.CONSONANT,
+        })
+        i += count
+        break
       }
     }
 
     // If no matches found yet, try dense consonant clusters as fallback
     if (span.length === 0) {
-      j = 0
-
-      while (j < fullConsonants.length) {
-        const x = fullConsonants[j++]!
-        // Handle colon notation - remove colons for matching
+      for (const { cluster: x, count } of clusterMatches(
+        fullConsonantTrie,
+        frame,
+        i,
+      )) {
         const y = x.replace(/:/g, '')
-        const chunk = chunks.slice(i, i + y.length)
-        const chunkStr = chunk.map(x => x.value).join('')
 
-        if (chunkStr === y) {
-          // Only match dense clusters (skip what we already tried above)
-          const isDenseCluster =
-            y.length >= 2 && !y.startsWith("'") && !/^[lrwy]$/.test(y)
+        // Only match dense clusters (skip what we already tried above)
+        const isDenseCluster =
+          y.length >= 2 && !y.startsWith("'") && !/^[lrwy]$/.test(y)
 
-          if (isDenseCluster) {
-            span.push({
-              chunk,
-              match: x,
-              form: ClusterType.FULL_CONSONANT,
-            })
-            i += y.length
-            break
-          }
+        if (isDenseCluster) {
+          span.push({
+            chunk: chunks.slice(i, i + count),
+            match: x,
+            form: ClusterType.FULL_CONSONANT,
+          })
+          i += count
+          break
         }
       }
     }
