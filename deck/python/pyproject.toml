@@ -1,0 +1,34 @@
+[project]
+name = "cluesurf-talk"
+version = "2.0.0"
+description = "A phonetic encoding: IPA <-> talk (ASCII) <-> simple (readable) <-> token (one Hangul code point per sound). Zero dependencies."
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "ClueSurf" }]
+keywords = ["ipa", "phonetics", "phonemic", "transliteration", "linguistics"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent",
+  "Topic :: Text Processing :: Linguistic",
+]
+dependencies = []
+
+[project.urls]
+Homepage = "https://github.com/cluesurf/talk"
+Repository = "https://github.com/cluesurf/talk"
+Issues = "https://github.com/cluesurf/talk/issues"
+
+[build-system]
+requires = ["uv_build>=0.9,<0.10"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+module-name = "talk"
+
+[dependency-groups]
+dev = ["pytest>=8", "ruff>=0.6"]
+
+[tool.ruff]
+line-length = 88

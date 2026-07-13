@@ -1,0 +1,12 @@
+# Build output and caches
+dist/
+build/
+*.egg-info/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+.venv/
+
+# Data is copied from the shared top-level base/ by `copy:base`; the source
+# of truth is base/, not this generated copy.
+src/talk/base/
