@@ -63,11 +63,18 @@ export function ipaToTalk(text: string): string {
     i += R.ipaUnit.matchedLength
 
     if (unit.role === 'phone') {
-      // A base begins a new sound.
+      // A base begins a new sound. A held stress mark belongs on the vowel
+      // of the syllable, so it skips any onset consonants and lands on the
+      // next vowel.
       flush()
       base = unit.phone
-      mods = pending
-      pending = []
+
+      if (base.form === 'vowel') {
+        mods = pending
+        pending = []
+      } else {
+        mods = []
+      }
     } else if (unit.role === 'modifier') {
       if (unit.modifier.prefix) {
         // Attaches to the following base (stress precedes the vowel).

@@ -61,11 +61,16 @@ def ipa_to_talk(text: str) -> str:
         i += R.ipa_unit.matched_length
 
         if unit.role == "phone":
-            # A base begins a new sound.
+            # A base begins a new sound. A held stress mark belongs on the
+            # vowel of the syllable, so it skips any onset consonants and
+            # lands on the next vowel.
             flush()
             base = unit.phone
-            mods = pending
-            pending = []
+            if base.form == "vowel":
+                mods = pending
+                pending = []
+            else:
+                mods = []
         elif unit.role == "modifier":
             assert unit.modifier is not None
             if unit.modifier.prefix:

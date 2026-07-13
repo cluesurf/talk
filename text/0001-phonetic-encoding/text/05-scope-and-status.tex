@@ -1,0 +1,9 @@
+\section{Scope and status}
+
+The encoding and both libraries are implemented and in use. The Python and TypeScript packages convert between IPA and talk, produce the machine tokens, and expose the sound inventory, with no runtime dependencies.
+
+The aim is to cover the full IPA inventory in the ASCII form and in the machine tokens. Most of it is covered now. A small number of rarer symbols are still being added, and because the sound-to-token map grows by appending, this happens without disturbing existing tokens.
+
+The syllable splitter is available in the TypeScript library and handles the syllable shapes of common languages. Some rarer material, such as clicks, is not split yet, and the Python port of the splitter is in progress. The syllable layer sits above the sound encoding, so the phone tokens are unaffected by its coverage.
+
+The design is settled and the remaining work is additive. New sounds extend the inventory, new rules extend the splitter, and neither changes the meaning of what is already there.

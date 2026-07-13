@@ -1,0 +1,27 @@
+\section{Use cases}
+
+Talk ships as a library for Python and TypeScript, with no runtime dependencies. Linguistics and speech work is often done in Python, so the examples here are in Python. The TypeScript package \verb|@cluesurf/talk| offers the same functions.
+
+\begin{lstlisting}
+import talk
+
+talk.talk_to_ipa("kw~asQ~o") # the IPA form
+talk.machine("kw~asQ~o") # one code point per sound
+talk.machine_outputs("kw~asQ~o") # the code points as a list
+
+for sound in talk.segment("th~a"):
+    sound.base.talk # "t"
+    [m.feature for m in sound.modifiers] # ["aspirated"]
+
+talk.enumerate_sounds() # the full inventory of canonical sounds
+\end{lstlisting}
+
+The following are a few potential use cases, meant only to give the idea. Talk can back many more.
+
+A text-to-speech or grapheme-to-phoneme front end turns text or IPA into talk, then feeds the acoustic model one token per sound. The model sees a normalized phone vocabulary of fixed size, in place of raw IPA that a byte tokenizer would fragment. The same front end can emit cluster tokens where the downstream model works at the syllable level.
+
+A speech recognition or forced alignment system that labels audio at the phone or cluster level can use talk tokens as its label set. Because the map is fixed, a label set built once stays valid as the inventory grows.
+
+A multilingual model can share one phonetic vocabulary across languages, since talk writes every language in the same base and modifier system. A word in one language and a similar sounding word in another land on overlapping tokens, which grapheme based vocabularies do not give.
+
+A language learning tool can show the ASCII form, which reads much like the pronunciation guides that dictionaries already use, together with the syllable split. A learner then gets a readable spelling and clear syllable breaks without needing to read IPA.

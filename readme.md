@@ -46,10 +46,22 @@ There are two forms:
 - **Machine**: A single Hangul code point per sound, for compact
   tokenization (useful for AI models and lookups).
 
-Talk is not a replacement for IPA and does not chase its exactness. It
-aims for about 95% accuracy, which is plenty for a tokenizer or a
-learner, and it speaks IPA fluently for the cases where you need the
-last 5%. See [Why not IPA or XSampa?](#why-not-ipa-or-xsampa) below.
+Talk is not trying to compete with or replace IPA. It is for writing
+pronunciations in plain ASCII and tokenizing them in a standard way for
+tools like NLP, AI, and databases. It aims for about 95% accuracy, which
+is plenty for a tokenizer or a learner, and it speaks IPA fluently for
+the cases where you need the last 5%.
+
+## Libraries
+
+Implementations of Talk, one per language. Each converts between IPA,
+Talk, and the machine (token) encoding. The TypeScript library also
+splits words into syllables.
+
+| Language   | Library                             | Status |
+| :--------- | :---------------------------------- | :----- |
+| TypeScript | [`@cluesurf/talk`](deck/typescript) | ✅     |
+| Python     | [`cluesurf-talk`](deck/python)      | ✅     |
 
 ## Examples
 
@@ -75,38 +87,6 @@ string.
 | txh\~im         | 켶콣켑롟켒               |
 | txy\~h\~im      | 켶턹켑롟켒               |
 | mh!im           | 킡롟켒                   |
-
-## Why not IPA or XSampa?
-
-IPA and XSampa are useful because they are widespread amongst the
-linguistic community, and much has been encoded using (at least) the IPA
-encoding.
-
-However, IPA is not that easy to understand or write for the average
-English speaker, and XSampa is too foreign for the same group of people
-(even though it's easy to write on a keyboard).
-
-Our goal with Talk is to make an easy to write and easy to understand
-3rd encoding which requires less expert knowledge.
-
-Also, Talk is not meant to replace the level-of-detail ("exactness") of
-IPA, it's goal is to only get like ~95% accuracy. This is because we
-believe real-world pronunciations a highly varied within even a single
-word of a language, and so being as exact as IPA is kind of misleading.
-If Talk is not exact enough for a specific rendering, you can use IPA,
-but otherwise Talk will be much easier to understand and use on both
-sides.
-
-## Libraries
-
-Implementations of Talk, one per language. Each converts between IPA,
-Talk, and the machine (token) encoding. The TypeScript library also
-splits words into syllables.
-
-| Language   | Library                             | Status |
-| :--------- | :---------------------------------- | :----- |
-| TypeScript | [`@cluesurf/talk`](deck/typescript) | ✅     |
-| Python     | [`cluesurf-talk`](deck/python)      | ✅     |
 
 ## Encoding
 

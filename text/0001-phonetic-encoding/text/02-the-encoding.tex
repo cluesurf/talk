@@ -1,0 +1,37 @@
+\section{The encoding}
+
+Talk describes a sound as a base plus modifiers. The bases are the consonants and vowels of the IPA charts, written with Latin letters and a few case and punctuation conventions. Uppercase marks a variant of a letter, so \verb|t| and \verb|T| are two related places of articulation, and \verb|a| and \verb|A| are two related vowels. A base on its own is a common sound. A base with modifiers is a more specific one.
+
+A modifier is a short suffix that adds one feature. The consonant modifiers cover the secondary articulations and a few phonation and airstream features. The vowel modifiers cover length, nasalization, stress, and tone.
+
+\begin{center}
+\begin{tabular}{lll}
+\toprule
+Base & Modifier & Feature \\
+\midrule
+consonant & \verb|h~| & aspiration \\
+consonant & \verb|w~| & labialization \\
+consonant & \verb|y~| & palatalization \\
+consonant & \verb|G~| & velarization \\
+consonant & \verb|Q~| & pharyngealization \\
+consonant & \verb|!|  & ejective \\
+consonant & \verb|?|  & implosive \\
+consonant & \verb|h!| & voiceless \\
+vowel     & \verb|_|  & long \\
+vowel     & \verb|&|  & nasalized \\
+vowel     & \verb|^|  & stress \\
+vowel     & \verb|-- - + ++| & tone, extra low to extra high \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Each modifier belongs to a slot, and the slots have a fixed order. When a sound is written, its modifiers are placed in that order, so any set of features has exactly one spelling. This is what makes the form canonical. Two inputs that describe the same sound, in whatever order the modifiers are given, produce the same string, which is what a tokenizer and an index need.
+
+A word from any language becomes a talk spelling and a token string. The
+Token column here is covered in the next section.
+
+\input{text/examples}
+
+Talk aims for about ninety-five percent of the distinctions that IPA can draw. It does not try to capture all of them, though the remaining ones are within reach, and folding them in cleanly is a near-term goal, so that share should grow. Real pronunciation varies within a single word and across speakers, so the finest IPA distinctions, such as small differences in tongue-root position or degree of rounding, are often below what a discrete model can use or a listener can reliably hear. Talk folds those into the nearest supported sound. When the last five percent matters, IPA is still there, and talk converts to it.
+
+Conversion runs in both directions. \verb|talk_to_ipa| reads a talk string and returns IPA. \verb|ipa_to_talk| reads IPA and returns talk. The talk direction is the canonical one, so a talk spelling converted to IPA and back returns the same spelling. The IPA direction is many to one, since several fine IPA symbols map to the same talk sound, which is the ninety-five percent choice made concrete.
