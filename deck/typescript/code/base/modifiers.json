@@ -9,10 +9,7 @@
     "slot": "articulation",
     "order": 10,
     "attaches": {
-      "place": [
-        "dental",
-        "alveolar"
-      ]
+      "place": ["dental", "alveolar"]
     }
   },
   {
@@ -25,11 +22,7 @@
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "notPlace": [
-        "palatal",
-        "pharyngeal-epiglottal",
-        "glottal"
-      ]
+      "notPlace": ["palatal", "pharyngeal-epiglottal", "glottal"]
     }
   },
   {
@@ -42,14 +35,8 @@
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "place": [
-        "dental",
-        "alveolar"
-      ],
-      "notPlace": [
-        "pharyngeal-epiglottal",
-        "glottal"
-      ]
+      "place": ["dental", "alveolar"],
+      "notPlace": ["pharyngeal-epiglottal", "glottal"]
     }
   },
   {
@@ -62,14 +49,8 @@
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "place": [
-        "dental",
-        "alveolar"
-      ],
-      "notPlace": [
-        "pharyngeal-epiglottal",
-        "glottal"
-      ]
+      "place": ["dental", "alveolar"],
+      "notPlace": ["pharyngeal-epiglottal", "glottal"]
     }
   },
   {
@@ -100,12 +81,8 @@
     "slot": "laryngeal",
     "order": 40,
     "attaches": {
-      "manner": [
-        "plosive"
-      ],
-      "notPlace": [
-        "glottal"
-      ]
+      "manner": ["plosive"],
+      "notPlace": ["glottal"]
     }
   },
   {
@@ -125,12 +102,8 @@
         "non-sibilant-fricative",
         "lateral-fricative"
       ],
-      "voicing": [
-        "voiceless"
-      ],
-      "notPlace": [
-        "glottal"
-      ]
+      "voicing": ["voiceless"],
+      "notPlace": ["glottal"]
     }
   },
   {
@@ -152,9 +125,7 @@
         "lateral-approximant",
         "lateral-tap-flap"
       ],
-      "voicing": [
-        "voiced"
-      ]
+      "voicing": ["voiced"]
     }
   },
   {

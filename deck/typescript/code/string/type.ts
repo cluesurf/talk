@@ -7,7 +7,7 @@ export type Phone = {
   talk: string
   xsampa: string
   simple: string
-  kind: 'consonant' | 'vowel'
+  form: 'consonant' | 'vowel'
   place?: string
   manner?: string
   voicing?: string

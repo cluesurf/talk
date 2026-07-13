@@ -85,7 +85,7 @@ export function enumerateSounds(): SoundInfo[] {
 
   for (const base of phones) {
     const pool =
-      base.kind === 'consonant'
+      base.form === 'consonant'
         ? R.consonantModifiers
         : R.vowelModifiers
     const usable = pool.filter(m => attaches(base, m))

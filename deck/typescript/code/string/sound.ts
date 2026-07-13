@@ -26,7 +26,7 @@ export function makeSound(base: Phone, mods: Modifier[]): Sound {
     ipa,
     simple,
     machine: R.machineByTalk.get(talk) ?? '',
-    kind: base.kind,
+    kind: base.form,
     base,
     modifiers: ordered,
     raw: false,

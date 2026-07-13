@@ -4,7 +4,7 @@
     "talk": "mh!",
     "xsampa": "m_0",
     "simple": "mħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -14,7 +14,7 @@
     "talk": "m",
     "xsampa": "m",
     "simple": "m",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "nasal",
     "voicing": "voiced"
@@ -24,7 +24,7 @@
     "talk": "m~h!",
     "xsampa": "F_0",
     "simple": "mħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -34,7 +34,7 @@
     "talk": "m~",
     "xsampa": "F",
     "simple": "m",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "nasal",
     "voicing": "voiced"
@@ -44,7 +44,7 @@
     "talk": "n",
     "xsampa": "n_N",
     "simple": "n",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "linguolabial",
     "manner": "nasal",
     "voicing": "voiced"
@@ -54,7 +54,7 @@
     "talk": "n~h!",
     "xsampa": "n_d_0",
     "simple": "nħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -64,7 +64,7 @@
     "talk": "n~",
     "xsampa": "n_d",
     "simple": "n",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "nasal",
     "voicing": "voiced"
@@ -74,7 +74,7 @@
     "talk": "nh!",
     "xsampa": "n_0",
     "simple": "nħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -84,7 +84,7 @@
     "talk": "n",
     "xsampa": "n",
     "simple": "n",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "nasal",
     "voicing": "voiced"
@@ -94,7 +94,7 @@
     "talk": "nh!",
     "xsampa": "n_-_0",
     "simple": "nħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -104,7 +104,7 @@
     "talk": "n",
     "xsampa": "n_-",
     "simple": "n",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "nasal",
     "voicing": "voiced"
@@ -114,7 +114,7 @@
     "talk": "Nh!",
     "xsampa": "n`_0",
     "simple": "ṇħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -124,7 +124,7 @@
     "talk": "N",
     "xsampa": "n`",
     "simple": "ṇ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "nasal",
     "voicing": "voiced"
@@ -134,7 +134,7 @@
     "talk": "ny~h!",
     "xsampa": "J_0",
     "simple": "nẏħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -144,7 +144,7 @@
     "talk": "ny~",
     "xsampa": "J",
     "simple": "nẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "nasal",
     "voicing": "voiced"
@@ -154,7 +154,7 @@
     "talk": "qh!",
     "xsampa": "N_0",
     "simple": "ṅħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -164,7 +164,7 @@
     "talk": "q",
     "xsampa": "N",
     "simple": "ṅ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "nasal",
     "voicing": "voiced"
@@ -174,7 +174,7 @@
     "talk": "qh!",
     "xsampa": "N\\_0",
     "simple": "ṅħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "nasal",
     "voicing": "voiceless"
@@ -184,7 +184,7 @@
     "talk": "q",
     "xsampa": "N\\",
     "simple": "ṅ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "nasal",
     "voicing": "voiced"
@@ -194,7 +194,7 @@
     "talk": "p",
     "xsampa": "p",
     "simple": "p",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -204,7 +204,7 @@
     "talk": "b",
     "xsampa": "b",
     "simple": "b",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "plosive",
     "voicing": "voiced"
@@ -214,7 +214,7 @@
     "talk": "p~",
     "xsampa": "p_d",
     "simple": "p",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -224,7 +224,7 @@
     "talk": "b~",
     "xsampa": "b_d",
     "simple": "b",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "plosive",
     "voicing": "voiced"
@@ -234,7 +234,7 @@
     "talk": "t",
     "xsampa": "t_N",
     "simple": "t",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "linguolabial",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -244,7 +244,7 @@
     "talk": "d",
     "xsampa": "d_N",
     "simple": "d",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "linguolabial",
     "manner": "plosive",
     "voicing": "voiced"
@@ -254,7 +254,7 @@
     "talk": "t~",
     "xsampa": "t_d",
     "simple": "t",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -264,7 +264,7 @@
     "talk": "d~",
     "xsampa": "d_d",
     "simple": "d",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "plosive",
     "voicing": "voiced"
@@ -274,7 +274,7 @@
     "talk": "t",
     "xsampa": "t",
     "simple": "t",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -284,7 +284,7 @@
     "talk": "d",
     "xsampa": "d",
     "simple": "d",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "plosive",
     "voicing": "voiced"
@@ -294,7 +294,7 @@
     "talk": "T",
     "xsampa": "t`",
     "simple": "ṭ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -304,7 +304,7 @@
     "talk": "D",
     "xsampa": "d`",
     "simple": "ḍ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "plosive",
     "voicing": "voiced"
@@ -314,7 +314,7 @@
     "talk": "ky~",
     "xsampa": "c",
     "simple": "kẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -324,7 +324,7 @@
     "talk": "gy~",
     "xsampa": "J\\",
     "simple": "gẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "plosive",
     "voicing": "voiced"
@@ -334,7 +334,7 @@
     "talk": "k",
     "xsampa": "k",
     "simple": "k",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -344,7 +344,7 @@
     "talk": "g",
     "xsampa": "g",
     "simple": "g",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "plosive",
     "voicing": "voiced"
@@ -354,7 +354,7 @@
     "talk": "K",
     "xsampa": "q",
     "simple": "ḳ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "plosive",
     "voicing": "voiceless"
@@ -364,7 +364,7 @@
     "talk": "g",
     "xsampa": "G\\",
     "simple": "g",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "plosive",
     "voicing": "voiced"
@@ -374,7 +374,7 @@
     "talk": "Q",
     "xsampa": ">\\",
     "simple": "q̇",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "pharyngeal-epiglottal",
     "manner": "plosive",
     "voicing": "voiceless",
@@ -385,7 +385,7 @@
     "talk": "'",
     "xsampa": "?",
     "simple": "'",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "glottal",
     "manner": "plosive",
     "voicing": "voiced"
@@ -395,7 +395,7 @@
     "talk": "s~",
     "xsampa": "s_d",
     "simple": "s",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "sibilant-fricative",
     "voicing": "voiceless"
@@ -405,7 +405,7 @@
     "talk": "z~",
     "xsampa": "z_d",
     "simple": "z",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "sibilant-fricative",
     "voicing": "voiced"
@@ -415,7 +415,7 @@
     "talk": "s",
     "xsampa": "s",
     "simple": "s",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "sibilant-fricative",
     "voicing": "voiceless"
@@ -425,7 +425,7 @@
     "talk": "z",
     "xsampa": "z",
     "simple": "z",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "sibilant-fricative",
     "voicing": "voiced"
@@ -435,7 +435,7 @@
     "talk": "x",
     "xsampa": "S",
     "simple": "x",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "sibilant-fricative",
     "voicing": "voiceless"
@@ -445,7 +445,7 @@
     "talk": "j",
     "xsampa": "Z",
     "simple": "j",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "sibilant-fricative",
     "voicing": "voiced"
@@ -455,7 +455,7 @@
     "talk": "X",
     "xsampa": "s`",
     "simple": "x̣",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "sibilant-fricative",
     "voicing": "voiceless"
@@ -465,7 +465,7 @@
     "talk": "J",
     "xsampa": "z`",
     "simple": "ȷ̈",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "sibilant-fricative",
     "voicing": "voiced"
@@ -475,7 +475,7 @@
     "talk": "xy~",
     "xsampa": "s\\",
     "simple": "xẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "sibilant-fricative",
     "voicing": "voiceless"
@@ -485,7 +485,7 @@
     "talk": "jy~",
     "xsampa": "z\\",
     "simple": "jẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "sibilant-fricative",
     "voicing": "voiced"
@@ -495,7 +495,7 @@
     "talk": "F",
     "xsampa": "p\\",
     "simple": "f̣",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -505,7 +505,7 @@
     "talk": "V",
     "xsampa": "B",
     "simple": "ṿ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -515,7 +515,7 @@
     "talk": "f",
     "xsampa": "f",
     "simple": "f",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -525,7 +525,7 @@
     "talk": "v",
     "xsampa": "v",
     "simple": "v",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -535,7 +535,7 @@
     "talk": "c",
     "xsampa": "T_N",
     "simple": "c",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "linguolabial",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -545,7 +545,7 @@
     "talk": "C",
     "xsampa": "D_N",
     "simple": "c̣",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "linguolabial",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -555,7 +555,7 @@
     "talk": "c",
     "xsampa": "T",
     "simple": "c",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -565,7 +565,7 @@
     "talk": "C",
     "xsampa": "D",
     "simple": "c̣",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -575,7 +575,7 @@
     "talk": "c",
     "xsampa": "T_-",
     "simple": "c",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -585,7 +585,7 @@
     "talk": "C",
     "xsampa": "D_-",
     "simple": "c̣",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -595,7 +595,7 @@
     "talk": "x",
     "xsampa": "r\\_-_0_r",
     "simple": "x",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless",
@@ -606,7 +606,7 @@
     "talk": "u$",
     "xsampa": "r\\_-_r",
     "simple": "r",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -616,7 +616,7 @@
     "talk": "X",
     "xsampa": "r\\`_0_r",
     "simple": "x̣",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless",
@@ -627,7 +627,7 @@
     "talk": "u$",
     "xsampa": "r\\`_r",
     "simple": "r",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -637,7 +637,7 @@
     "talk": "hy~",
     "xsampa": "C",
     "simple": "hẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -647,7 +647,7 @@
     "talk": "y",
     "xsampa": "j\\",
     "simple": "y",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -657,7 +657,7 @@
     "talk": "H",
     "xsampa": "x",
     "simple": "ḥ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -667,7 +667,7 @@
     "talk": "G",
     "xsampa": "G",
     "simple": "ġ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -677,7 +677,7 @@
     "talk": "H",
     "xsampa": "X",
     "simple": "ḥ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -687,7 +687,7 @@
     "talk": "G",
     "xsampa": "R",
     "simple": "ġ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -697,7 +697,7 @@
     "talk": "Hh~",
     "xsampa": "X\\",
     "simple": "ḥɦ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "pharyngeal-epiglottal",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -707,7 +707,7 @@
     "talk": "Q",
     "xsampa": "?\\",
     "simple": "q̇",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "pharyngeal-epiglottal",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -717,7 +717,7 @@
     "talk": "h",
     "xsampa": "h",
     "simple": "h",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "glottal",
     "manner": "non-sibilant-fricative",
     "voicing": "voiceless"
@@ -727,7 +727,7 @@
     "talk": "hh~",
     "xsampa": "h\\",
     "simple": "hɦ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "glottal",
     "manner": "non-sibilant-fricative",
     "voicing": "voiced"
@@ -737,7 +737,7 @@
     "talk": "V",
     "xsampa": "B_o",
     "simple": "ṿ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "approximant",
     "voicing": "voiced"
@@ -747,7 +747,7 @@
     "talk": "V",
     "xsampa": "P",
     "simple": "ṿ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "approximant",
     "voicing": "voiced"
@@ -757,7 +757,7 @@
     "talk": "C",
     "xsampa": "D_o",
     "simple": "c̣",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "approximant",
     "voicing": "voiced"
@@ -767,7 +767,7 @@
     "talk": "u$",
     "xsampa": "r\\",
     "simple": "r",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "approximant",
     "voicing": "voiced"
@@ -777,7 +777,7 @@
     "talk": "u$",
     "xsampa": "r\\_-",
     "simple": "r",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "approximant",
     "voicing": "voiced"
@@ -787,7 +787,7 @@
     "talk": "u$",
     "xsampa": "r\\`",
     "simple": "r",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "approximant",
     "voicing": "voiced"
@@ -797,7 +797,7 @@
     "talk": "y",
     "xsampa": "j",
     "simple": "y",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "approximant",
     "voicing": "voiced"
@@ -807,7 +807,7 @@
     "talk": "W",
     "xsampa": "M\\",
     "simple": "ẇ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "approximant",
     "voicing": "voiced"
@@ -817,7 +817,7 @@
     "talk": "h",
     "xsampa": "˷",
     "simple": "h",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "glottal",
     "manner": "approximant",
     "voicing": "voiced",
@@ -828,7 +828,7 @@
     "talk": "V",
     "xsampa": "ⱱ_+",
     "simple": "ṿ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "tap-flap",
     "voicing": "voiced"
@@ -838,7 +838,7 @@
     "talk": "V",
     "xsampa": "ⱱ",
     "simple": "ṿ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "labiodental",
     "manner": "tap-flap",
     "voicing": "voiced"
@@ -848,7 +848,7 @@
     "talk": "rh!",
     "xsampa": "4_0",
     "simple": "ṙħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "tap-flap",
     "voicing": "voiceless"
@@ -858,7 +858,7 @@
     "talk": "r",
     "xsampa": "4",
     "simple": "ṙ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "tap-flap",
     "voicing": "voiced"
@@ -868,7 +868,7 @@
     "talk": "Rh!",
     "xsampa": "r`_0",
     "simple": "ṛħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "tap-flap",
     "voicing": "voiceless"
@@ -878,7 +878,7 @@
     "talk": "R",
     "xsampa": "r`",
     "simple": "ṛ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "tap-flap",
     "voicing": "voiced"
@@ -888,7 +888,7 @@
     "talk": "g",
     "xsampa": "G\\_X",
     "simple": "g",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "tap-flap",
     "voicing": "voiced"
@@ -898,7 +898,7 @@
     "talk": "Q",
     "xsampa": ">\\",
     "simple": "q̇",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "pharyngeal-epiglottal",
     "manner": "tap-flap",
     "voicing": "voiceless",
@@ -909,7 +909,7 @@
     "talk": "bbh!",
     "xsampa": "B\\_0",
     "simple": "bbħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "trill",
     "voicing": "voiceless"
@@ -919,7 +919,7 @@
     "talk": "bb",
     "xsampa": "B\\",
     "simple": "bb",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "bilabial",
     "manner": "trill",
     "voicing": "voiced"
@@ -929,7 +929,7 @@
     "talk": "rh!",
     "xsampa": "r_0",
     "simple": "ṙħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "trill",
     "voicing": "voiceless"
@@ -939,7 +939,7 @@
     "talk": "r",
     "xsampa": "r",
     "simple": "ṙ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "trill",
     "voicing": "voiced"
@@ -949,7 +949,7 @@
     "talk": "r",
     "xsampa": "r_-",
     "simple": "ṙ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "trill",
     "voicing": "voiced"
@@ -959,7 +959,7 @@
     "talk": "Rh!rh!",
     "xsampa": "r`_0r_0",
     "simple": "ṛħṙħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "trill",
     "voicing": "voiceless"
@@ -969,7 +969,7 @@
     "talk": "Rr",
     "xsampa": "r`r",
     "simple": "ṛṙ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "trill",
     "voicing": "voiced"
@@ -979,7 +979,7 @@
     "talk": "GGh!",
     "xsampa": "R\\_0",
     "simple": "ġġħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "trill",
     "voicing": "voiceless"
@@ -989,7 +989,7 @@
     "talk": "GG",
     "xsampa": "R\\",
     "simple": "ġġ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "trill",
     "voicing": "voiced"
@@ -999,7 +999,7 @@
     "talk": "Hh~",
     "xsampa": "H\\",
     "simple": "ḥɦ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "pharyngeal-epiglottal",
     "manner": "trill",
     "voicing": "voiceless",
@@ -1010,7 +1010,7 @@
     "talk": "Q",
     "xsampa": "<\\",
     "simple": "q̇",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "pharyngeal-epiglottal",
     "manner": "trill",
     "voicing": "voiced",
@@ -1021,7 +1021,7 @@
     "talk": "S~",
     "xsampa": "K_d",
     "simple": "ṣ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "lateral-fricative",
     "voicing": "voiceless"
@@ -1031,7 +1031,7 @@
     "talk": "S",
     "xsampa": "K",
     "simple": "ṣ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "lateral-fricative",
     "voicing": "voiceless"
@@ -1041,7 +1041,7 @@
     "talk": "Z",
     "xsampa": "K\\",
     "simple": "ẓ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "lateral-fricative",
     "voicing": "voiced"
@@ -1051,7 +1051,7 @@
     "talk": "Z",
     "xsampa": "ꞎ",
     "simple": "ẓ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "lateral-fricative",
     "voicing": "voiced",
@@ -1062,7 +1062,7 @@
     "talk": "Z",
     "xsampa": "𝼅",
     "simple": "ẓ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "lateral-fricative",
     "voicing": "voiced",
@@ -1073,7 +1073,7 @@
     "talk": "Z",
     "xsampa": "𝼆",
     "simple": "ẓ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "lateral-fricative",
     "voicing": "voiced",
@@ -1084,7 +1084,7 @@
     "talk": "ly~",
     "xsampa": "L_r",
     "simple": "lẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "lateral-fricative",
     "voicing": "voiced"
@@ -1094,7 +1094,7 @@
     "talk": "Z",
     "xsampa": "𝼄",
     "simple": "ẓ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "lateral-fricative",
     "voicing": "voiced",
@@ -1105,7 +1105,7 @@
     "talk": "Z",
     "xsampa": "L\\_r",
     "simple": "ẓ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "lateral-fricative",
     "voicing": "voiced",
@@ -1116,7 +1116,7 @@
     "talk": "l~",
     "xsampa": "l_d",
     "simple": "l",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "dental",
     "manner": "lateral-approximant",
     "voicing": "voiced"
@@ -1126,7 +1126,7 @@
     "talk": "lh!",
     "xsampa": "l_0",
     "simple": "lħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "lateral-approximant",
     "voicing": "voiceless"
@@ -1136,7 +1136,7 @@
     "talk": "l",
     "xsampa": "l",
     "simple": "l",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "lateral-approximant",
     "voicing": "voiced"
@@ -1146,7 +1146,7 @@
     "talk": "l",
     "xsampa": "l_-",
     "simple": "l",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "postalveolar",
     "manner": "lateral-approximant",
     "voicing": "voiced"
@@ -1156,7 +1156,7 @@
     "talk": "Lh!",
     "xsampa": "l`_0",
     "simple": "ḷħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "lateral-approximant",
     "voicing": "voiceless"
@@ -1166,7 +1166,7 @@
     "talk": "L",
     "xsampa": "l`",
     "simple": "ḷ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "lateral-approximant",
     "voicing": "voiced"
@@ -1176,7 +1176,7 @@
     "talk": "ly~h!",
     "xsampa": "L_0",
     "simple": "lẏħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "lateral-approximant",
     "voicing": "voiceless"
@@ -1186,7 +1186,7 @@
     "talk": "ly~",
     "xsampa": "L",
     "simple": "lẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "lateral-approximant",
     "voicing": "voiced"
@@ -1196,7 +1196,7 @@
     "talk": "lh!",
     "xsampa": "L\\_0",
     "simple": "lħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "lateral-approximant",
     "voicing": "voiceless",
@@ -1207,7 +1207,7 @@
     "talk": "l",
     "xsampa": "L\\",
     "simple": "l",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "lateral-approximant",
     "voicing": "voiced",
@@ -1218,7 +1218,7 @@
     "talk": "l",
     "xsampa": "L\\_-",
     "simple": "l",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "uvular",
     "manner": "lateral-approximant",
     "voicing": "voiced",
@@ -1229,7 +1229,7 @@
     "talk": "lh!",
     "xsampa": "l\\_0",
     "simple": "lħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "lateral-tap-flap",
     "voicing": "voiceless"
@@ -1239,7 +1239,7 @@
     "talk": "l",
     "xsampa": "l\\",
     "simple": "l",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "alveolar",
     "manner": "lateral-tap-flap",
     "voicing": "voiced"
@@ -1249,7 +1249,7 @@
     "talk": "Lh!",
     "xsampa": "𝼈_0",
     "simple": "ḷħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "lateral-tap-flap",
     "voicing": "voiceless",
@@ -1260,7 +1260,7 @@
     "talk": "L",
     "xsampa": "𝼈",
     "simple": "ḷ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "lateral-tap-flap",
     "voicing": "voiced",
@@ -1271,7 +1271,7 @@
     "talk": "ly~",
     "xsampa": "L",
     "simple": "lẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "palatal",
     "manner": "lateral-tap-flap",
     "voicing": "voiced",
@@ -1282,7 +1282,7 @@
     "talk": "l",
     "xsampa": "L\\_X",
     "simple": "l",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "velar",
     "manner": "lateral-tap-flap",
     "voicing": "voiced",
@@ -1293,7 +1293,7 @@
     "talk": "wh!",
     "xsampa": "W",
     "simple": "wħ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative-approximant",
     "voicing": "voiceless"
   },
@@ -1302,7 +1302,7 @@
     "talk": "w",
     "xsampa": "w",
     "simple": "w",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative-approximant",
     "voicing": "voiced"
   },
@@ -1311,7 +1311,7 @@
     "talk": "yw~",
     "xsampa": "H",
     "simple": "yẉ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative-approximant",
     "voicing": "voiced"
   },
@@ -1320,7 +1320,7 @@
     "talk": "H",
     "xsampa": "x\\",
     "simple": "ḥ",
-    "kind": "consonant",
+    "form": "consonant",
     "voicing": "voiceless"
   },
   {
@@ -1328,7 +1328,7 @@
     "talk": "lG~",
     "xsampa": "5",
     "simple": "lg̃",
-    "kind": "consonant",
+    "form": "consonant",
     "voicing": "voiced"
   },
   {
@@ -1336,7 +1336,7 @@
     "talk": "b?",
     "xsampa": "b_<",
     "simple": "b̖",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiced",
     "voicing": "voiced"
   },
@@ -1345,7 +1345,7 @@
     "talk": "d?",
     "xsampa": "d_<",
     "simple": "d̖",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiced",
     "voicing": "voiced"
   },
@@ -1354,7 +1354,7 @@
     "talk": "d?",
     "xsampa": "ᶑ",
     "simple": "d̖",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiced",
     "voicing": "voiced",
     "provisional": true
@@ -1364,7 +1364,7 @@
     "talk": "g?y~",
     "xsampa": "J\\_<",
     "simple": "g̀ẏ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiced",
     "voicing": "voiced"
   },
@@ -1373,7 +1373,7 @@
     "talk": "g?",
     "xsampa": "g_<",
     "simple": "g̀",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiced",
     "voicing": "voiced"
   },
@@ -1382,7 +1382,7 @@
     "talk": "g?",
     "xsampa": "G\\_<",
     "simple": "g̀",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiced",
     "voicing": "voiced"
   },
@@ -1391,7 +1391,7 @@
     "talk": "b?h!",
     "xsampa": "b_<_0",
     "simple": "b̖ħ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiceless",
     "voicing": "voiceless"
   },
@@ -1400,7 +1400,7 @@
     "talk": "t?",
     "xsampa": "d_<_0",
     "simple": "t̖",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiceless",
     "voicing": "voiceless"
   },
@@ -1409,7 +1409,7 @@
     "talk": "t?",
     "xsampa": "ᶑ_0",
     "simple": "t̖",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiceless",
     "voicing": "voiceless",
     "provisional": true
@@ -1419,7 +1419,7 @@
     "talk": "g?y~h!",
     "xsampa": "J\\_<_0",
     "simple": "g̀ẏħ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiceless",
     "voicing": "voiceless"
   },
@@ -1428,7 +1428,7 @@
     "talk": "g?h!",
     "xsampa": "g_<_0",
     "simple": "g̀ħ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiceless",
     "voicing": "voiceless"
   },
@@ -1437,7 +1437,7 @@
     "talk": "g?h!",
     "xsampa": "G\\_<_0",
     "simple": "g̀ħ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "voiceless",
     "voicing": "voiceless"
   },
@@ -1446,7 +1446,7 @@
     "talk": "p!",
     "xsampa": "p_>",
     "simple": "ṕ",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "stop",
     "voicing": "voiceless"
   },
@@ -1455,7 +1455,7 @@
     "talk": "t!",
     "xsampa": "t_>",
     "simple": "t̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "stop",
     "voicing": "voiceless"
   },
@@ -1464,7 +1464,7 @@
     "talk": "T!",
     "xsampa": "t`_>",
     "simple": "ṭ̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "stop",
     "voicing": "voiceless"
   },
@@ -1473,7 +1473,7 @@
     "talk": "ky~!",
     "xsampa": "c_>",
     "simple": "kẏ̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "stop",
     "voicing": "voiceless"
   },
@@ -1482,7 +1482,7 @@
     "talk": "k!",
     "xsampa": "k_>",
     "simple": "k̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "stop",
     "voicing": "voiceless"
   },
@@ -1491,7 +1491,7 @@
     "talk": "K!",
     "xsampa": "q_>",
     "simple": "ḳ̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "stop",
     "voicing": "voiceless"
   },
@@ -1500,7 +1500,7 @@
     "talk": "f!",
     "xsampa": "f_>",
     "simple": "f̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative",
     "voicing": "voiceless"
   },
@@ -1509,7 +1509,7 @@
     "talk": "s!",
     "xsampa": "s_>",
     "simple": "ś",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative",
     "voicing": "voiceless"
   },
@@ -1518,7 +1518,7 @@
     "talk": "X!",
     "xsampa": "s`_>",
     "simple": "x̣́",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative",
     "voicing": "voiceless"
   },
@@ -1527,7 +1527,7 @@
     "talk": "xy~!",
     "xsampa": "s\\_>",
     "simple": "xẏ́",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative",
     "voicing": "voiceless"
   },
@@ -1536,7 +1536,7 @@
     "talk": "H!",
     "xsampa": "x_>",
     "simple": "ḥ̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative",
     "voicing": "voiceless"
   },
@@ -1545,7 +1545,7 @@
     "talk": "H!",
     "xsampa": "X_>",
     "simple": "ḥ̗",
-    "kind": "consonant",
+    "form": "consonant",
     "manner": "fricative",
     "voicing": "voiceless"
   },
@@ -1554,7 +1554,7 @@
     "talk": "F!",
     "xsampa": "p\\_>",
     "simple": "f̣́",
-    "kind": "consonant",
+    "form": "consonant",
     "voicing": "voiceless"
   },
   {
@@ -1562,7 +1562,7 @@
     "talk": "c!",
     "xsampa": "T_>",
     "simple": "ć",
-    "kind": "consonant",
+    "form": "consonant",
     "voicing": "voiceless"
   },
   {
@@ -1570,7 +1570,7 @@
     "talk": "x!",
     "xsampa": "S_>",
     "simple": "x́",
-    "kind": "consonant",
+    "form": "consonant",
     "voicing": "voiceless"
   },
   {
@@ -1578,7 +1578,7 @@
     "talk": "Lh!",
     "xsampa": "𝼈_0",
     "simple": "ḷħ",
-    "kind": "consonant",
+    "form": "consonant",
     "place": "retroflex",
     "manner": "lateral-tap-flap",
     "voicing": "voiceless",
@@ -1589,7 +1589,7 @@
     "talk": "t?",
     "xsampa": "ᶑ_0",
     "simple": "t̖",
-    "kind": "consonant",
+    "form": "consonant",
     "provisional": true
   },
   {
@@ -1597,70 +1597,70 @@
     "talk": "g?y~h!",
     "xsampa": "J\\_<_0",
     "simple": "g̀ẏħ",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "ɬʼ",
     "talk": "S!",
     "xsampa": "K_>",
     "simple": "ṣ́",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "ʘ",
     "talk": "p*",
     "xsampa": "O\\",
     "simple": "p̂",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "ǀ",
     "talk": "t*",
     "xsampa": "|\\",
     "simple": "t̬",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "ǃ",
     "talk": "k*",
     "xsampa": "!\\",
     "simple": "k̬",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "𝼊",
     "talk": "c*",
     "xsampa": "𝼊",
     "simple": "c̬",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "ǂ",
     "talk": "d*",
     "xsampa": "=\\",
     "simple": "d̬",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "ʞ",
     "talk": "K*",
     "xsampa": "ʞ",
     "simple": "ḳ̬",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "ǁ",
     "talk": "l*",
     "xsampa": "|\\|\\",
     "simple": "l̬",
-    "kind": "consonant"
+    "form": "consonant"
   },
   {
     "ipa": "i",
     "talk": "i",
     "xsampa": "i",
     "simple": "i",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close",
     "backness": "front",
     "roundedness": "unrounded"
@@ -1670,7 +1670,7 @@
     "talk": "i$",
     "xsampa": "y",
     "simple": "i̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close",
     "backness": "front",
     "roundedness": "rounded"
@@ -1680,7 +1680,7 @@
     "talk": "i$",
     "xsampa": "1",
     "simple": "i̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close",
     "backness": "central",
     "roundedness": "unrounded"
@@ -1690,7 +1690,7 @@
     "talk": "u",
     "xsampa": "}",
     "simple": "u",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close",
     "backness": "central",
     "roundedness": "rounded"
@@ -1700,7 +1700,7 @@
     "talk": "O",
     "xsampa": "M",
     "simple": "ọ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close",
     "backness": "back",
     "roundedness": "unrounded"
@@ -1710,7 +1710,7 @@
     "talk": "u",
     "xsampa": "u",
     "simple": "u",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close",
     "backness": "back",
     "roundedness": "rounded"
@@ -1720,7 +1720,7 @@
     "talk": "I",
     "xsampa": "I",
     "simple": "ị",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "near-close",
     "backness": "front",
     "roundedness": "unrounded"
@@ -1730,7 +1730,7 @@
     "talk": "i$",
     "xsampa": "Y",
     "simple": "i̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "near-close",
     "backness": "front",
     "roundedness": "rounded"
@@ -1740,7 +1740,7 @@
     "talk": "O",
     "xsampa": "U",
     "simple": "ọ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "near-close",
     "backness": "back",
     "roundedness": "rounded"
@@ -1750,7 +1750,7 @@
     "talk": "e",
     "xsampa": "e",
     "simple": "e",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close-mid",
     "backness": "front",
     "roundedness": "unrounded"
@@ -1760,7 +1760,7 @@
     "talk": "a$",
     "xsampa": "2",
     "simple": "a̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close-mid",
     "backness": "front",
     "roundedness": "rounded"
@@ -1770,7 +1770,7 @@
     "talk": "I",
     "xsampa": "@\\",
     "simple": "ị",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close-mid",
     "backness": "central",
     "roundedness": "unrounded"
@@ -1780,7 +1780,7 @@
     "talk": "O",
     "xsampa": "8",
     "simple": "ọ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close-mid",
     "backness": "central",
     "roundedness": "rounded"
@@ -1790,7 +1790,7 @@
     "talk": "O",
     "xsampa": "7",
     "simple": "ọ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close-mid",
     "backness": "back",
     "roundedness": "unrounded"
@@ -1800,7 +1800,7 @@
     "talk": "o",
     "xsampa": "o",
     "simple": "o",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "close-mid",
     "backness": "back",
     "roundedness": "rounded"
@@ -1810,7 +1810,7 @@
     "talk": "e",
     "xsampa": "e_o",
     "simple": "e",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "mid",
     "backness": "front",
     "roundedness": "unrounded"
@@ -1820,7 +1820,7 @@
     "talk": "a$",
     "xsampa": "2_o",
     "simple": "a̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "mid",
     "backness": "front",
     "roundedness": "rounded"
@@ -1830,7 +1830,7 @@
     "talk": "U",
     "xsampa": "@",
     "simple": "ụ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "mid",
     "backness": "central",
     "roundedness": "unrounded"
@@ -1840,7 +1840,7 @@
     "talk": "O",
     "xsampa": "7_o",
     "simple": "ọ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "mid",
     "backness": "back",
     "roundedness": "unrounded"
@@ -1850,7 +1850,7 @@
     "talk": "o",
     "xsampa": "o_o",
     "simple": "o",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "mid",
     "backness": "back",
     "roundedness": "rounded"
@@ -1860,7 +1860,7 @@
     "talk": "E",
     "xsampa": "E",
     "simple": "ẹ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open-mid",
     "backness": "front",
     "roundedness": "unrounded"
@@ -1870,7 +1870,7 @@
     "talk": "e$",
     "xsampa": "9",
     "simple": "e̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open-mid",
     "backness": "front",
     "roundedness": "rounded"
@@ -1880,7 +1880,7 @@
     "talk": "O",
     "xsampa": "3",
     "simple": "ọ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open-mid",
     "backness": "central",
     "roundedness": "unrounded"
@@ -1890,7 +1890,7 @@
     "talk": "U",
     "xsampa": "3\\",
     "simple": "ụ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open-mid",
     "backness": "central",
     "roundedness": "rounded"
@@ -1900,7 +1900,7 @@
     "talk": "U",
     "xsampa": "V",
     "simple": "ụ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open-mid",
     "backness": "back",
     "roundedness": "unrounded"
@@ -1910,7 +1910,7 @@
     "talk": "o$",
     "xsampa": "O",
     "simple": "o̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open-mid",
     "backness": "back",
     "roundedness": "rounded"
@@ -1920,7 +1920,7 @@
     "talk": "A",
     "xsampa": "{",
     "simple": "ạ",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "near-open",
     "backness": "front",
     "roundedness": "unrounded"
@@ -1930,7 +1930,7 @@
     "talk": "a",
     "xsampa": "6",
     "simple": "a",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "near-open",
     "backness": "central",
     "roundedness": "unrounded"
@@ -1940,7 +1940,7 @@
     "talk": "a",
     "xsampa": "a",
     "simple": "a",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open",
     "backness": "front",
     "roundedness": "unrounded"
@@ -1950,7 +1950,7 @@
     "talk": "e$",
     "xsampa": "&",
     "simple": "e̤",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open",
     "backness": "front",
     "roundedness": "rounded"
@@ -1960,7 +1960,7 @@
     "talk": "a",
     "xsampa": "a_\"",
     "simple": "a",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open",
     "backness": "central",
     "roundedness": "unrounded"
@@ -1970,7 +1970,7 @@
     "talk": "a",
     "xsampa": "A",
     "simple": "a",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open",
     "backness": "back",
     "roundedness": "unrounded"
@@ -1980,7 +1980,7 @@
     "talk": "a",
     "xsampa": "Q",
     "simple": "a",
-    "kind": "vowel",
+    "form": "vowel",
     "height": "open",
     "backness": "back",
     "roundedness": "rounded"

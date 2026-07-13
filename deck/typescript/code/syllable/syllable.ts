@@ -1,21 +1,12 @@
 import { Trie, TrieBuilder } from '../trie'
 import { CLUSTERS } from './clusters'
+import PHONES from '../base/phones.json'
+import FEATURE_DATA from '../base/talk/features.json'
+import PUNCTUATION_DATA from '../base/talk/punctuation.json'
 
 // The vowel-mark axes, matching how talk builds vowel glyphs. Every
 // vowel takes a variant, nasal, syllabic, tone, duration, and accent
 // slot, and the segment table below is generated over their product.
-const BASE_VOWEL_GLYPHS = [
-  'I',
-  'E',
-  'A',
-  'O',
-  'U',
-  'i',
-  'e',
-  'a',
-  'o',
-  'u',
-]
 const TONE_MARKS = [
   '--',
   '-',
@@ -82,322 +73,157 @@ type Span = {
   emphasis?: boolean
 }
 
-const SEGMENT: Record<string, Segment> = {
-  '=.': { type: 'punctuation', value: '.' },
-  '=@': { type: 'punctuation', value: '@' },
-  '=?': { type: 'punctuation', value: '?' },
-  '=!': { type: 'punctuation', value: '!' },
-  '=+': { type: 'punctuation', value: '+' },
-  '=-': { type: 'punctuation', value: '-' },
-  'h!': { voicelessness: true },
-  'h~': { aspiration: true },
-  'w~': { labialization: true },
-  'y~': { palatalization: true },
-  'G~': { velarization: true },
-  'Q~': { pharyngealization: true },
-  'l*': { type: 'consonant', value: 'l', form: 'stop', click: true },
-  't*': { type: 'consonant', value: 't', form: 'stop', click: true },
-  'd*': { type: 'consonant', value: 'd', form: 'stop', click: true },
-  'k*': { type: 'consonant', value: 'k', form: 'stop', click: true },
-  'p*': { type: 'consonant', value: 'p', form: 'stop', click: true },
-  'n.': {
-    type: 'consonant',
-    value: 'n',
-    form: 'continuant',
-    stop: true,
-  },
-  'q.': {
-    type: 'consonant',
-    value: 'q',
-    form: 'continuant',
-    stop: true,
-  },
-  'g.': { type: 'consonant', value: 'g', form: 'stop', stop: true },
-  'd.': { type: 'consonant', value: 'd', form: 'stop', stop: true },
-  'b.': { type: 'consonant', value: 'b', form: 'stop', stop: true },
-  'p.': { type: 'consonant', value: 'p', form: 'stop', stop: true },
-  't.': { type: 'consonant', value: 't', form: 'stop', stop: true },
-  'k.': { type: 'consonant', value: 'k', form: 'stop', stop: true },
-  's.': {
-    type: 'consonant',
-    value: 's',
-    form: 'continuant',
-    stop: true,
-  },
-  'f.': {
-    type: 'consonant',
-    value: 'f',
-    form: 'continuant',
-    stop: true,
-  },
-  'v.': {
-    type: 'consonant',
-    value: 'v',
-    form: 'continuant',
-    stop: true,
-  },
-  'z.': {
-    type: 'consonant',
-    value: 'z',
-    form: 'continuant',
-    stop: true,
-  },
-  'j.': {
-    type: 'consonant',
-    value: 'j',
-    form: 'continuant',
-    stop: true,
-  },
-  'x.': {
-    type: 'consonant',
-    value: 'x',
-    form: 'continuant',
-    stop: true,
-  },
-  'c.': {
-    type: 'consonant',
-    value: 'c',
-    form: 'continuant',
-    stop: true,
-  },
-
-  'n@': {
-    type: 'consonant',
-    value: 'n',
-    form: 'continuant',
-    tense: true,
-  },
-  'q@': {
-    type: 'consonant',
-    value: 'q',
-    form: 'continuant',
-    tense: true,
-  },
-  'g@': { type: 'consonant', value: 'g', form: 'stop', tense: true },
-  'd@': { type: 'consonant', value: 'd', form: 'stop', tense: true },
-  'b@': { type: 'consonant', value: 'b', form: 'stop', tense: true },
-  'p@': { type: 'consonant', value: 'p', form: 'stop', tense: true },
-  't@': { type: 'consonant', value: 't', form: 'stop', tense: true },
-  'k@': { type: 'consonant', value: 'k', form: 'stop', tense: true },
-  's@': {
-    type: 'consonant',
-    value: 's',
-    form: 'continuant',
-    tense: true,
-  },
-  'f@': {
-    type: 'consonant',
-    value: 'f',
-    form: 'continuant',
-    tense: true,
-  },
-  'v@': {
-    type: 'consonant',
-    value: 'v',
-    form: 'continuant',
-    tense: true,
-  },
-  'z@': {
-    type: 'consonant',
-    value: 'z',
-    form: 'continuant',
-    tense: true,
-  },
-  'j@': {
-    type: 'consonant',
-    value: 'j',
-    form: 'continuant',
-    tense: true,
-  },
-  'x@': {
-    type: 'consonant',
-    value: 'x',
-    form: 'continuant',
-    tense: true,
-  },
-  'c@': {
-    type: 'consonant',
-    value: 'c',
-    form: 'continuant',
-    tense: true,
-  },
-
-  'n!': {
-    type: 'consonant',
-    value: 'n',
-    form: 'continuant',
-    ejection: true,
-  },
-  'q!': {
-    type: 'consonant',
-    value: 'q',
-    form: 'continuant',
-    ejection: true,
-  },
-  'g!': { type: 'consonant', value: 'g', form: 'stop', ejection: true },
-  'd!': { type: 'consonant', value: 'd', form: 'stop', ejection: true },
-  'b!': { type: 'consonant', value: 'b', form: 'stop', ejection: true },
-  'p!': { type: 'consonant', value: 'p', form: 'stop', ejection: true },
-  't!': { type: 'consonant', value: 't', form: 'stop', ejection: true },
-  'k!': { type: 'consonant', value: 'k', form: 'stop', ejection: true },
-  's!': {
-    type: 'consonant',
-    value: 's',
-    form: 'continuant',
-    ejection: true,
-  },
-  'f!': {
-    type: 'consonant',
-    value: 'f',
-    form: 'continuant',
-    ejection: true,
-  },
-  'v!': {
-    type: 'consonant',
-    value: 'v',
-    form: 'continuant',
-    ejection: true,
-  },
-  'z!': {
-    type: 'consonant',
-    value: 'z',
-    form: 'continuant',
-    ejection: true,
-  },
-  'j!': {
-    type: 'consonant',
-    value: 'j',
-    form: 'continuant',
-    ejection: true,
-  },
-  'x!': {
-    type: 'consonant',
-    value: 'x',
-    form: 'continuant',
-    ejection: true,
-  },
-  'c!': {
-    type: 'consonant',
-    value: 'c',
-    form: 'continuant',
-    ejection: true,
-  },
-  'C!': {
-    type: 'consonant',
-    value: 'C',
-    form: 'continuant',
-    ejection: true,
-  },
-  'y!': {
-    type: 'consonant',
-    value: 'y',
-    form: 'continuant',
-    ejection: true,
-  },
-  'w!': {
-    type: 'consonant',
-    value: 'w',
-    form: 'continuant',
-    ejection: true,
-  },
-  'Q!': {
-    type: 'consonant',
-    value: 'Q',
-    form: 'continuant',
-    ejection: true,
-  },
-  'l!': {
-    type: 'consonant',
-    value: 'l',
-    form: 'continuant',
-    ejection: true,
-  },
-  'r!': {
-    type: 'consonant',
-    value: 'r',
-    form: 'continuant',
-    ejection: true,
-  },
-  'n~': {
-    type: 'consonant',
-    value: 'n',
-    form: 'stop',
-    dentalization: true,
-  },
-  't~': {
-    type: 'consonant',
-    value: 't',
-    form: 'stop',
-    dentalization: true,
-  },
-  'd~': {
-    type: 'consonant',
-    value: 'd',
-    form: 'stop',
-    dentalization: true,
-  },
-
-  m: { type: 'consonant', value: 'm', form: 'continuant' },
-  n: { type: 'consonant', value: 'n', form: 'continuant' },
-  N: { type: 'consonant', value: 'N', form: 'continuant' },
-  q: { type: 'consonant', value: 'q', form: 'continuant' },
-  g: { type: 'consonant', value: 'g', form: 'stop' },
-  G: { type: 'consonant', value: 'G', form: 'continuant' },
-  d: { type: 'consonant', value: 'd', form: 'stop' },
-  b: { type: 'consonant', value: 'b', form: 'stop' },
-  p: { type: 'consonant', value: 'p', form: 'stop' },
-  t: { type: 'consonant', value: 't', form: 'stop' },
-  T: { type: 'consonant', value: 'T', form: 'stop' },
-  k: { type: 'consonant', value: 'k', form: 'stop' },
-  K: { type: 'consonant', value: 'K', form: 'stop' },
-  h: { type: 'consonant', value: 'h', form: 'continuant' },
-  H: { type: 'consonant', value: 'H', form: 'continuant' },
-  s: { type: 'consonant', value: 's', form: 'continuant' },
-  S: { type: 'consonant', value: 'S', form: 'continuant' },
-  f: { type: 'consonant', value: 'f', form: 'continuant' },
-  F: { type: 'consonant', value: 'F', form: 'continuant' },
-  V: { type: 'consonant', value: 'V', form: 'continuant' },
-  v: { type: 'consonant', value: 'v', form: 'continuant' },
-  z: { type: 'consonant', value: 'z', form: 'continuant' },
-  Z: { type: 'consonant', value: 'Z', form: 'continuant' },
-  j: { type: 'consonant', value: 'j', form: 'continuant' },
-  J: { type: 'consonant', value: 'J', form: 'continuant' },
-  x: { type: 'consonant', value: 'x', form: 'continuant' },
-  X: { type: 'consonant', value: 'X', form: 'continuant' },
-  c: { type: 'consonant', value: 'c', form: 'continuant' },
-  C: { type: 'consonant', value: 'C', form: 'continuant' },
-  y: { type: 'consonant', value: 'y', form: 'continuant' },
-  W: { type: 'consonant', value: 'W', form: 'continuant' },
-  w: { type: 'consonant', value: 'w', form: 'continuant' },
-  Q: { type: 'consonant', value: 'Q', form: 'continuant' },
-  "'": { type: 'consonant', value: "'", form: 'continuant' },
-  l: { type: 'consonant', value: 'l', form: 'continuant' },
-  L: { type: 'consonant', value: 'L', form: 'continuant' },
-  r: { type: 'consonant', value: 'r', form: 'continuant' },
-  R: { type: 'consonant', value: 'R', form: 'continuant' },
-  ' ': { type: 'punctuation', value: ' ' },
+// A punctuation/feature record carries a `talk` key plus the segment
+// fields. Feature records may also carry a `form` category ('tone') that is
+// not a segment field, so it is stripped when the runtime map is built.
+type SegmentRecord = Segment & { talk: string }
+type FeatureRecord = Omit<Segment, 'form'> & {
+  talk: string
+  form?: string
 }
 
-const EXTRA_FEATURES: Record<string, Segment> = {
-  '--': { tone: 'extra low' },
-  '-': { tone: 'low' },
-  '++': { tone: 'extra high' },
-  '+': { tone: 'high' },
-  '//': { tone: 'rising 2' }, // rising 2 (vietnamese ngã)
-  '/': { tone: 'rising' }, // rising (vietnamese sắc)
-  '\\/': { tone: 'falling rising' }, // falling rising (vietnamese hỏi)
-  '/\\': { tone: 'rising falling' }, // rising falling
-  '\\\\': { tone: 'falling 2' }, // falling 2 (vietnamese nặng)
-  '\\': { tone: 'falling' }, // falling (vietnamese huyền)
-  '@': { tense: true },
-  '.': { stop: true },
-  '!': { truncation: true },
-  _: { elongation: true },
-  '^': { emphasis: true },
-  '?': { implosion: true },
-  '*': { click: true },
-  '~': { dentalization: true },
-  '&': { nasalization: true },
+const PUNCTUATION = PUNCTUATION_DATA as unknown as SegmentRecord[]
+const FEATURE = FEATURE_DATA as unknown as FeatureRecord[]
+
+// The base talk alphabet comes from the sound inventory (phones.json), so
+// each letter is declared in exactly one place. Consonant letters are every
+// single-character consonant except retroflex D (ɖ), which talk folds into
+// its dental spelling. Vowel glyphs are the single-character vowels (their
+// $ variant is a mark applied during generation).
+type PhoneEntry = { talk: string; form: 'consonant' | 'vowel' }
+
+const phones = PHONES as PhoneEntry[]
+
+function baseLetters(want: 'consonant' | 'vowel'): string[] {
+  const out: string[] = []
+
+  for (const phone of phones) {
+    const glyph =
+      want === 'vowel' ? phone.talk.replace('$', '') : phone.talk
+
+    if (phone.form !== want || glyph.length !== 1 || glyph === 'D') {
+      continue
+    }
+
+    if (!out.includes(glyph)) {
+      out.push(glyph)
+    }
+  }
+
+  return out
+}
+
+const CONSONANT_LETTERS = baseLetters('consonant')
+const BASE_VOWEL_GLYPHS = baseLetters('vowel')
+
+// The consonant feature flags. A modified consonant is a base letter plus a
+// modifier suffix that contributes one of these. (Note `!` is ejection on a
+// consonant but truncation on a vowel mark, so consonant modifiers are kept
+// separate from the vowel EXTRA_FEATURES table.)
+type FlagKey =
+  | 'click'
+  | 'stop'
+  | 'tense'
+  | 'ejection'
+  | 'dentalization'
+  | 'voicelessness'
+  | 'aspiration'
+  | 'labialization'
+  | 'palatalization'
+  | 'velarization'
+  | 'pharyngealization'
+
+// Mark-only merges: a modifier that stands alone as its own segment.
+const MERGE_MARKS: { talk: string; flag: FlagKey }[] = [
+  { talk: 'h!', flag: 'voicelessness' },
+  { talk: 'h~', flag: 'aspiration' },
+  { talk: 'w~', flag: 'labialization' },
+  { talk: 'y~', flag: 'palatalization' },
+  { talk: 'G~', flag: 'velarization' },
+  { talk: 'Q~', flag: 'pharyngealization' },
+]
+
+// The base letters each modifier suffix composes with, in the order the
+// segments are inserted. `.`(stop) and `@`(tense) share the same obstruent
+// set. Every modified variant is inserted before the plain base letters so
+// readSegments matches the longer key first.
+const STOP_TENSE_BASES = [
+  'n',
+  'q',
+  'g',
+  'd',
+  'b',
+  'p',
+  't',
+  'k',
+  's',
+  'f',
+  'v',
+  'z',
+  'j',
+  'x',
+  'c',
+]
+const EJECT_BASES = [...STOP_TENSE_BASES, 'C', 'y', 'w', 'Q', 'l', 'r']
+const CONSONANT_FAMILIES: {
+  suffix: string
+  flag: FlagKey
+  bases: string[]
+}[] = [
+  { suffix: '*', flag: 'click', bases: ['l', 't', 'd', 'k', 'p'] },
+  { suffix: '.', flag: 'stop', bases: STOP_TENSE_BASES },
+  { suffix: '@', flag: 'tense', bases: STOP_TENSE_BASES },
+  { suffix: '!', flag: 'ejection', bases: EJECT_BASES },
+  { suffix: '~', flag: 'dentalization', bases: ['n', 't', 'd'] },
+]
+
+// The vowel-mark feature table: each mark (tone, tense, duration, etc.)
+// maps to the segment flags it contributes. The `form` category on tone
+// records is metadata, not a segment flag, so it is left out here.
+const EXTRA_FEATURES: Record<string, Segment> = {}
+
+for (const record of FEATURE) {
+  const flags: Segment = {}
+
+  for (const key of Object.keys(record)) {
+    if (key === 'talk' || key === 'form') {
+      continue
+    }
+
+    ;(flags as Record<string, unknown>)[key] = (
+      record as Record<string, unknown>
+    )[key]
+  }
+
+  EXTRA_FEATURES[record.talk] = flags
+}
+
+// The segment table, keyed by talk spelling. Insertion order matters:
+// readSegments matches the first key that prefixes the input, so mark-only
+// merges and modified variants (h!, n., n@) must precede their base letters
+// (h, n). Punctuation and the modifier families are inserted first; vowels
+// are generated last over the mark product.
+const SEGMENT: Record<string, Segment> = {}
+
+for (const { talk, ...seg } of PUNCTUATION) {
+  SEGMENT[talk] = seg
+}
+
+for (const { talk, flag } of MERGE_MARKS) {
+  SEGMENT[talk] = { [flag]: true }
+}
+
+for (const { suffix, flag, bases } of CONSONANT_FAMILIES) {
+  for (const base of bases) {
+    const seg: Segment = { type: 'consonant', value: base }
+
+    seg[flag] = true
+    SEGMENT[`${base}${suffix}`] = seg
+  }
+}
+
+for (const base of CONSONANT_LETTERS) {
+  SEGMENT[base] = { type: 'consonant', value: base }
 }
 
 BASE_VOWEL_GLYPHS.forEach(g => {
