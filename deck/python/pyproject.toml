@@ -2,7 +2,7 @@
 name = "cluesurf-talk"
 version = "2.0.0"
 description = "A phonetic encoding: IPA <-> talk (ASCII) <-> simple (readable) <-> token (one Hangul code point per sound). Zero dependencies."
-readme = "README.md"
+readme = "readme.md"
 requires-python = ">=3.10"
 license = "MIT"
 authors = [{ name = "ClueSurf" }]
@@ -25,6 +25,7 @@ requires = ["uv_build>=0.9,<0.10"]
 build-backend = "uv_build"
 
 [tool.uv.build-backend]
+module-root = "code"
 module-name = "talk"
 
 [dependency-groups]
