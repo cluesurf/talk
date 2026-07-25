@@ -1,0 +1,7 @@
+host/
+target/
+tmp/
+
+# Data copied from the shared top-level base/ by build.rs (source of truth is
+# ../../base). Vendored into the crate so `cargo package` ships it.
+base/

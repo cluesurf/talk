@@ -55,13 +55,14 @@ the cases where you need the last 5%.
 ## Libraries
 
 Implementations of Talk, one per language. Each converts between IPA,
-Talk, and the machine (token) encoding. The TypeScript library also
-splits words into syllables.
+Talk, and the machine (token) encoding. The TypeScript and Rust
+libraries also split words into syllables.
 
-| Language   | Library                             | Status |
-| :--------- | :---------------------------------- | :----- |
-| TypeScript | [`@cluesurf/talk`](deck/typescript) | ✅     |
-| Python     | [`cluesurf-talk`](deck/python)      | ✅     |
+| Language   | Library                             | Syllables | Status |
+| :--------- | :---------------------------------- | :-------- | :----- |
+| TypeScript | [`@cluesurf/talk`](deck/typescript) | ✅        | ✅     |
+| Rust       | [`cluesurf-talk`](deck/rust)        | ✅        | ✅     |
+| Python     | [`cluesurf-talk`](deck/python)      |           | ✅     |
 
 ## Examples
 

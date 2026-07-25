@@ -18,3 +18,4 @@ text/**/*.fdb_latexmk
 text/**/*.synctex.gz
 text/**/arxiv-submission/
 text/**/arxiv-submission.zip
+PR.md

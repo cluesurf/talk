@@ -1,0 +1,3 @@
+# Two spaces, matching the rest of the repo. Pinned here so `cargo fmt` gives
+# the same result for a contributor without this setting in their own config.
+tab_spaces = 2
