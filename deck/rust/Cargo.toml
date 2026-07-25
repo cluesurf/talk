@@ -1,0 +1,77 @@
+[package]
+name = "cluesurf-talk"
+version = "2.0.0"
+edition = "2021"
+rust-version = "1.70"
+description = "Tokenized IPA for AI and NLP, a keyboard-friendly ASCII phonetic encoding that converts to and from IPA with one token per effective sound."
+authors = ["Lance Pollard <lancejpollard@gmail.com>", "ClueSurf"]
+license = "MIT"
+readme = "readme.md"
+homepage = "https://github.com/cluesurf/talk"
+repository = "https://github.com/cluesurf/talk"
+documentation = "https://docs.rs/cluesurf-talk"
+keywords = ["ipa", "phonetics", "phonology", "linguistics", "nlp"]
+categories = ["text-processing", "internationalization", "encoding"]
+# Only the data the crate reads, matching the WANTED list in build.rs. The rest
+# of the shared base/ belongs to other tools.
+include = [
+    "/code/**",
+    "/base/phones.json",
+    "/base/modifiers.json",
+    "/base/tokens.json",
+    "/base/talk/*.json",
+    "/base/clusters/*.json",
+    "/base/clusters/consonants/*.json",
+    "/base/clusters/vowels/*.json",
+    "/base/ipa/*.csv",
+    "/build.rs",
+    "/readme.md",
+]
+
+[lib]
+name = "talk"
+path = "code/lib.rs"
+
+[dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+unicode-normalization = "0.1"
+
+[dev-dependencies]
+serde_json = "1"
+
+[[test]]
+name = "trie"
+path = "test/trie.rs"
+
+[[test]]
+name = "tokenize"
+path = "test/tokenize.rs"
+
+[[test]]
+name = "round_trip"
+path = "test/round_trip.rs"
+
+[[test]]
+name = "machine"
+path = "test/machine.rs"
+
+[[test]]
+name = "stress"
+path = "test/stress.rs"
+
+[[test]]
+name = "coverage"
+path = "test/coverage.rs"
+
+[[test]]
+name = "syllable"
+path = "test/syllable.rs"
+
+[[test]]
+name = "index"
+path = "test/index.rs"
+
+[[test]]
+name = "parity"
+path = "test/parity.rs"

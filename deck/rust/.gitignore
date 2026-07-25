@@ -1,0 +1,8 @@
+host/
+target/
+tmp/
+
+# base/ is deliberately NOT ignored. It is copied from the shared top-level
+# base/ by build.rs, but it is committed, because `cargo package` refuses to
+# ship files git does not track. Committing it also makes drift visible: change
+# the shared data and the next build leaves a diff here to commit.

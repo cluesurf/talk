@@ -1,0 +1,1428 @@
+//! Syllable parsing: split a talk word into syllables, each a sequence of
+//! onset, nucleus, and coda clusters.
+
+use std::cmp::Ordering;
+use std::collections::HashMap;
+use std::fmt;
+use std::sync::OnceLock;
+
+use serde::Deserialize;
+
+use crate::string::data::phones;
+use crate::string::types::Form;
+use crate::syllable::clusters::{clusters, Category};
+use crate::trie::{Trie, TrieBuilder};
+
+// The vowel-mark axes, matching how talk builds vowel glyphs. Every vowel takes
+// a variant, nasal, syllabic, tone, duration, and accent slot, and the segment
+// table below is generated over their product. The empty mark comes last in
+// each axis, so a fully marked spelling is always generated before a plainer
+// one that prefixes it.
+const TONE_MARKS: [&str; 11] = [
+  "--", "-", "++", "+", "/", "//", "\\/", "/\\", "\\\\", "\\", "",
+];
+const VARIANT_MARKS: [&str; 2] = ["$", ""];
+const NASAL_MARKS: [&str; 2] = ["&", ""];
+const DURATION_MARKS: [&str; 3] = ["_", "!", ""];
+const SYLLABIC_MARKS: [&str; 2] = ["@", ""];
+const ACCENT_MARKS: [&str; 2] = ["^", ""];
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
+#[serde(rename_all = "lowercase")]
+pub enum SegmentKind {
+  Punctuation,
+  Vowel,
+  Consonant,
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Deserialize)]
+pub enum Tone {
+  #[serde(rename = "extra high")]
+  ExtraHigh,
+  #[serde(rename = "high")]
+  High,
+  #[serde(rename = "low")]
+  Low,
+  #[serde(rename = "extra low")]
+  ExtraLow,
+  #[serde(rename = "rising")]
+  Rising,
+  #[serde(rename = "rising 2")]
+  Rising2,
+  #[serde(rename = "falling")]
+  Falling,
+  #[serde(rename = "falling 2")]
+  Falling2,
+  #[serde(rename = "rising falling")]
+  RisingFalling,
+  #[serde(rename = "falling rising")]
+  FallingRising,
+}
+
+impl Tone {
+  fn as_talk(self) -> &'static str {
+    match self {
+      Tone::ExtraHigh => "++",
+      Tone::High => "+",
+      Tone::Low => "-",
+      Tone::ExtraLow => "--",
+      Tone::Rising => "/",
+      Tone::Rising2 => "//",
+      Tone::Falling => "\\",
+      Tone::Falling2 => "\\\\",
+      Tone::RisingFalling => "/\\",
+      Tone::FallingRising => "\\/",
+    }
+  }
+}
+
+/// One parsed mark: a base sound plus the features stacked onto it.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct Segment {
+  pub kind: Option<SegmentKind>,
+  pub value: Option<String>,
+  pub tone: Option<Tone>,
+  pub aspiration: bool,
+  pub click: bool,
+  pub dentalization: bool,
+  pub ejection: bool,
+  pub elongation: bool,
+  pub emphasis: bool,
+  pub implosion: bool,
+  pub labialization: bool,
+  pub nasalization: bool,
+  pub palatalization: bool,
+  pub pharyngealization: bool,
+  pub stop: bool,
+  pub tense: bool,
+  pub truncation: bool,
+  pub velarization: bool,
+  pub voicelessness: bool,
+}
+
+macro_rules! merge_flags {
+    ($into:ident, $from:ident, $($field:ident),+ $(,)?) => {
+        $( $into.$field |= $from.$field; )+
+    };
+}
+
+impl Segment {
+  fn text(&self) -> &str {
+    self.value.as_deref().unwrap_or("")
+  }
+
+  /// Stack `other`'s features on top of this one. Every feature `other`
+  /// carries wins; every feature it leaves unset is untouched.
+  fn merge(&mut self, other: &Segment) {
+    if other.kind.is_some() {
+      self.kind = other.kind;
+    }
+
+    if other.value.is_some() {
+      self.value.clone_from(&other.value);
+    }
+
+    if other.tone.is_some() {
+      self.tone = other.tone;
+    }
+
+    merge_flags!(
+      self,
+      other,
+      aspiration,
+      click,
+      dentalization,
+      ejection,
+      elongation,
+      emphasis,
+      implosion,
+      labialization,
+      nasalization,
+      palatalization,
+      pharyngealization,
+      stop,
+      tense,
+      truncation,
+      velarization,
+      voicelessness,
+    );
+  }
+}
+
+/// The consonant feature flags. A modified consonant is a base letter plus a
+/// modifier suffix that contributes one of these. (Note `!` is ejection on a
+/// consonant but truncation on a vowel mark, so consonant modifiers are kept
+/// separate from the vowel feature table.)
+#[derive(Debug, Clone, Copy)]
+enum FlagKey {
+  Aspiration,
+  Click,
+  Dentalization,
+  Ejection,
+  Labialization,
+  Palatalization,
+  Pharyngealization,
+  Stop,
+  Tense,
+  Velarization,
+  Voicelessness,
+}
+
+impl FlagKey {
+  fn set(self, segment: &mut Segment) {
+    match self {
+      FlagKey::Aspiration => segment.aspiration = true,
+      FlagKey::Click => segment.click = true,
+      FlagKey::Dentalization => segment.dentalization = true,
+      FlagKey::Ejection => segment.ejection = true,
+      FlagKey::Labialization => segment.labialization = true,
+      FlagKey::Palatalization => segment.palatalization = true,
+      FlagKey::Pharyngealization => segment.pharyngealization = true,
+      FlagKey::Stop => segment.stop = true,
+      FlagKey::Tense => segment.tense = true,
+      FlagKey::Velarization => segment.velarization = true,
+      FlagKey::Voicelessness => segment.voicelessness = true,
+    }
+  }
+}
+
+/// Mark-only merges: a modifier that stands alone as its own segment.
+const MERGE_MARKS: [(&str, FlagKey); 6] = [
+  ("h!", FlagKey::Voicelessness),
+  ("h~", FlagKey::Aspiration),
+  ("w~", FlagKey::Labialization),
+  ("y~", FlagKey::Palatalization),
+  ("G~", FlagKey::Velarization),
+  ("Q~", FlagKey::Pharyngealization),
+];
+
+/// The base letters each modifier suffix composes with, in the order the
+/// segments are inserted. `.`(stop) and `@`(tense) share the same obstruent
+/// set. Every modified variant is inserted before the plain base letters so
+/// `read_segments` matches the longer key first.
+const STOP_TENSE_BASES: [&str; 15] = [
+  "n", "q", "g", "d", "b", "p", "t", "k", "s", "f", "v", "z", "j", "x", "c",
+];
+const EJECT_EXTRA_BASES: [&str; 6] = ["C", "y", "w", "Q", "l", "r"];
+
+fn consonant_families() -> Vec<(&'static str, FlagKey, Vec<&'static str>)> {
+  let eject_bases: Vec<&'static str> = STOP_TENSE_BASES
+    .iter()
+    .copied()
+    .chain(EJECT_EXTRA_BASES)
+    .collect();
+
+  vec![
+    ("*", FlagKey::Click, vec!["l", "t", "d", "k", "p"]),
+    (".", FlagKey::Stop, STOP_TENSE_BASES.to_vec()),
+    ("@", FlagKey::Tense, STOP_TENSE_BASES.to_vec()),
+    ("!", FlagKey::Ejection, eject_bases),
+    ("~", FlagKey::Dentalization, vec!["n", "t", "d"]),
+  ]
+}
+
+#[derive(Deserialize)]
+struct PunctuationRecord {
+  talk: String,
+  #[serde(rename = "type")]
+  kind: SegmentKind,
+  value: String,
+}
+
+// The vowel-mark feature table: each mark (tone, tense, duration, and so on)
+// maps to the segment flags it contributes. The `form` category on tone records
+// is metadata, not a segment flag, so serde drops it.
+#[derive(Deserialize)]
+struct FeatureRecord {
+  talk: String,
+  tone: Option<Tone>,
+  #[serde(default)]
+  click: bool,
+  #[serde(default)]
+  dentalization: bool,
+  #[serde(default)]
+  elongation: bool,
+  #[serde(default)]
+  emphasis: bool,
+  #[serde(default)]
+  implosion: bool,
+  #[serde(default)]
+  nasalization: bool,
+  #[serde(default)]
+  stop: bool,
+  #[serde(default)]
+  tense: bool,
+  #[serde(default)]
+  truncation: bool,
+}
+
+impl FeatureRecord {
+  fn segment(&self) -> Segment {
+    Segment {
+      tone: self.tone,
+      click: self.click,
+      dentalization: self.dentalization,
+      elongation: self.elongation,
+      emphasis: self.emphasis,
+      implosion: self.implosion,
+      nasalization: self.nasalization,
+      stop: self.stop,
+      tense: self.tense,
+      truncation: self.truncation,
+      ..Segment::default()
+    }
+  }
+}
+
+/// The base talk alphabet comes from the sound inventory (phones.json), so each
+/// letter is declared in exactly one place. Consonant letters are every
+/// single-character consonant except retroflex D (ɖ), which talk folds into its
+/// dental spelling. Vowel glyphs are the single-character vowels (their `$`
+/// variant is a mark applied during generation).
+fn base_letters(want: Form) -> Vec<String> {
+  let mut out: Vec<String> = Vec::new();
+
+  for phone in phones() {
+    let glyph = match want {
+      Form::Vowel => phone.talk.replacen('$', "", 1),
+      Form::Consonant => phone.talk.clone(),
+    };
+
+    if phone.form != want || glyph.chars().count() != 1 || glyph == "D" {
+      continue;
+    }
+
+    if !out.contains(&glyph) {
+      out.push(glyph);
+    }
+  }
+
+  out
+}
+
+/// The segment table, keyed by talk spelling. Insertion order matters:
+/// `read_segments` takes the first key that prefixes the input, so mark-only
+/// merges and modified variants (`h!`, `n.`, `n@`) must precede their base
+/// letters (`h`, `n`). Punctuation and the modifier families are inserted
+/// first; vowels are generated last over the mark product.
+struct SegmentTable {
+  values: Vec<Segment>,
+  /// Key to its position in `values`, for longest-first-declared lookup.
+  at_key: Trie<usize>,
+}
+
+impl SegmentTable {
+  /// The first key, in declaration order, that prefixes `text` at `at`.
+  fn match_at(&self, text: &str, at: usize) -> Option<(&Segment, usize)> {
+    self
+      .at_key
+      .match_all_at(text, at)
+      .into_iter()
+      .min_by_key(|&(index, _)| *index)
+      .map(|(&index, length)| (&self.values[index], length))
+  }
+}
+
+fn segment_table() -> &'static SegmentTable {
+  static CELL: OnceLock<SegmentTable> = OnceLock::new();
+
+  CELL.get_or_init(|| {
+    let mut keys: Vec<String> = Vec::new();
+    let mut values: Vec<Segment> = Vec::new();
+    let mut at_key: HashMap<String, usize> = HashMap::new();
+
+    // An existing key keeps its position and takes the new value, the way
+    // reassigning an object property does.
+    let mut set = |key: String, value: Segment| match at_key.get(&key) {
+      Some(&at) => values[at] = value,
+      None => {
+        at_key.insert(key.clone(), values.len());
+        keys.push(key);
+        values.push(value);
+      }
+    };
+
+    let punctuation: Vec<PunctuationRecord> =
+      serde_json::from_str(include_str!("../../base/talk/punctuation.json"))
+        .expect("base/talk/punctuation.json is malformed");
+
+    for record in punctuation {
+      set(
+        record.talk,
+        Segment {
+          kind: Some(record.kind),
+          value: Some(record.value),
+          ..Segment::default()
+        },
+      );
+    }
+
+    for (talk, flag) in MERGE_MARKS {
+      let mut segment = Segment::default();
+
+      flag.set(&mut segment);
+      set(talk.to_string(), segment);
+    }
+
+    for (suffix, flag, bases) in consonant_families() {
+      for base in bases {
+        let mut segment = Segment {
+          kind: Some(SegmentKind::Consonant),
+          value: Some(base.to_string()),
+          ..Segment::default()
+        };
+
+        flag.set(&mut segment);
+        set(format!("{base}{suffix}"), segment);
+      }
+    }
+
+    for base in base_letters(Form::Consonant) {
+      set(
+        base.clone(),
+        Segment {
+          kind: Some(SegmentKind::Consonant),
+          value: Some(base),
+          ..Segment::default()
+        },
+      );
+    }
+
+    let features: Vec<FeatureRecord> =
+      serde_json::from_str(include_str!("../../base/talk/features.json"))
+        .expect("base/talk/features.json is malformed");
+    let extra: HashMap<&str, Segment> = features
+      .iter()
+      .map(|record| (record.talk.as_str(), record.segment()))
+      .collect();
+    let stack = |segment: &mut Segment, mark: &str| {
+      if let Some(features) = extra.get(mark) {
+        segment.merge(features);
+      }
+    };
+
+    for glyph in base_letters(Form::Vowel) {
+      for accent in ACCENT_MARKS {
+        for duration in DURATION_MARKS {
+          for syllabic in SYLLABIC_MARKS {
+            for nasal in NASAL_MARKS {
+              for variant in VARIANT_MARKS {
+                for tone in TONE_MARKS {
+                  let mut segment = Segment {
+                    kind: Some(SegmentKind::Vowel),
+                    value: Some(format!("{glyph}{variant}")),
+                    ..Segment::default()
+                  };
+
+                  for mark in [nasal, syllabic, tone, duration, accent] {
+                    stack(&mut segment, mark);
+                  }
+
+                  set(
+                    format!("{glyph}{variant}{nasal}{syllabic}{tone}{duration}{accent}"),
+                    segment,
+                  );
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    let mut builder = TrieBuilder::new();
+
+    for (index, key) in keys.iter().enumerate() {
+      builder.add(key, index);
+    }
+
+    SegmentTable {
+      values,
+      at_key: builder.build(),
+    }
+  })
+}
+
+// ─── fast cluster lookup ─────────────────────────────────────────────────────
+//
+// Instead of scanning every cluster at each position, each list becomes a trie
+// keyed by the value string it spells out, so a lookup walks once to gather
+// candidates. Each candidate is then verified with the exact same check the
+// flat scan used (the next `count` sounds, joined, equal the cluster's value
+// form), so this matches that logic sound for sound.
+
+/// The collation the TypeScript build gets from `String.prototype.localeCompare`
+/// under the root locale: letters compare case-insensitively first (their
+/// primary weight), and case breaks the tie afterwards across the whole string
+/// rather than character by character. The cluster alphabet is `:`, `'`, `$`
+/// and ASCII letters, which sort in that order.
+fn primary(character: char) -> u32 {
+  match character {
+    ':' => 0,
+    '\'' => 1,
+    '$' => 2,
+    letter if letter.is_ascii_alphabetic() => {
+      10 + (letter.to_ascii_lowercase() as u32 - 'a' as u32)
+    }
+    other => 1000 + other as u32,
+  }
+}
+
+fn tertiary(character: char) -> u8 {
+  character.is_ascii_uppercase() as u8
+}
+
+fn collate(a: &str, b: &str) -> Ordering {
+  a.chars()
+    .map(primary)
+    .cmp(b.chars().map(primary))
+    .then_with(|| a.chars().map(tertiary).cmp(b.chars().map(tertiary)))
+}
+
+/// Longest first, alphabetical within a length.
+fn sort_length(a: &str, b: &str) -> Ordering {
+  b.chars()
+    .count()
+    .cmp(&a.chars().count())
+    .then_with(|| collate(a, b))
+}
+
+/// A cluster and how many sounds it spans.
+#[derive(Debug, Clone)]
+struct ClusterCount {
+  cluster: String,
+  count: usize,
+}
+
+/// Group clusters by the value string they match. Consonant clusters carry only
+/// colons (split markers, dropped for matching), so the value string is the
+/// colon-stripped form and the span is its length. Vowel clusters carry `$`
+/// variant marks, which are part of the sound value, so the value string keeps
+/// them and the span is the base-vowel count.
+fn build_cluster_trie(list: &[String], vowel: bool) -> Trie<Vec<ClusterCount>> {
+  let mut order: Vec<String> = Vec::new();
+  let mut by_key: HashMap<String, Vec<ClusterCount>> = HashMap::new();
+
+  for cluster in list {
+    let key = if vowel {
+      cluster.clone()
+    } else {
+      cluster.replace(':', "")
+    };
+    let count = if vowel {
+      cluster.replace('$', "").chars().count()
+    } else {
+      cluster.replace(':', "").chars().count()
+    };
+
+    by_key
+      .entry(key.clone())
+      .or_insert_with(|| {
+        order.push(key);
+        Vec::new()
+      })
+      .push(ClusterCount {
+        cluster: cluster.clone(),
+        count,
+      });
+  }
+
+  let mut builder = TrieBuilder::new();
+
+  for key in &order {
+    builder.add(key, by_key.remove(key).expect("grouped key"));
+  }
+
+  builder.build()
+}
+
+struct Lookup {
+  full_consonant: Trie<Vec<ClusterCount>>,
+  start_consonant: Trie<Vec<ClusterCount>>,
+  end_consonant: Trie<Vec<ClusterCount>>,
+  consonant: Trie<Vec<ClusterCount>>,
+  vowel: Trie<Vec<ClusterCount>>,
+  start_consonant_stripped: Vec<String>,
+}
+
+fn lookup() -> &'static Lookup {
+  static CELL: OnceLock<Lookup> = OnceLock::new();
+
+  CELL.get_or_init(|| {
+    let all = clusters();
+    // Longest first, so the trie groups are built in the same order the
+    // flat scan visited them.
+    let by_length = |category: &Category| -> Vec<String> {
+      let mut list = category.talk.clone();
+
+      list.sort_by_key(|cluster| std::cmp::Reverse(cluster.chars().count()));
+      list
+    };
+
+    let start = by_length(&all.start_consonants);
+
+    Lookup {
+      full_consonant: build_cluster_trie(&by_length(&all.full_consonants), false),
+      start_consonant: build_cluster_trie(&start, false),
+      end_consonant: build_cluster_trie(&by_length(&all.end_consonants), false),
+      consonant: build_cluster_trie(&by_length(&all.consonants), false),
+      vowel: build_cluster_trie(&by_length(&all.vowels), true),
+      start_consonant_stripped: start
+        .iter()
+        .map(|cluster| cluster.replace(':', ""))
+        .collect(),
+    }
+  })
+}
+
+/// The sound values of a word, joined, with the character offset each sound
+/// starts at.
+struct Frame {
+  text: String,
+  offset_of_index: Vec<usize>,
+}
+
+fn frame_of(chunks: &[Segment]) -> Frame {
+  let mut offset_of_index = Vec::with_capacity(chunks.len());
+  let mut text = String::new();
+
+  for chunk in chunks {
+    offset_of_index.push(text.len());
+    text.push_str(chunk.text());
+  }
+
+  Frame {
+    text,
+    offset_of_index,
+  }
+}
+
+#[derive(Debug, Clone)]
+struct ClusterMatch {
+  cluster: String,
+  count: usize,
+}
+
+/// The sounds `chunks[i..i + count]` spell out, joined.
+fn joined(chunks: &[Segment], i: usize, count: usize) -> String {
+  let end = (i + count).min(chunks.len());
+
+  chunks[i..end].iter().map(Segment::text).collect()
+}
+
+/// Clusters that match at sound `i`, verified exactly as the flat scan did
+/// (`chunks[i..i + count]` joined equals the cluster's value form), ordered
+/// longest first with alphabetical ties.
+fn cluster_matches(
+  trie: &Trie<Vec<ClusterCount>>,
+  frame: &Frame,
+  chunks: &[Segment],
+  i: usize,
+) -> Vec<ClusterMatch> {
+  // Past the last sound there is nothing to match.
+  let Some(&offset) = frame.offset_of_index.get(i) else {
+    return Vec::new();
+  };
+
+  let mut out: Vec<ClusterMatch> = Vec::new();
+
+  for (group, length) in trie.match_all_at(&frame.text, offset) {
+    let key = &frame.text[offset..offset + length];
+
+    for candidate in group {
+      if joined(chunks, i, candidate.count) == key {
+        out.push(ClusterMatch {
+          cluster: candidate.cluster.clone(),
+          count: candidate.count,
+        });
+      }
+    }
+  }
+
+  out.sort_by(|a, b| sort_length(&a.cluster, &b.cluster));
+
+  out
+}
+
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
+pub enum ClusterKey {
+  FullConsonant,
+  Consonant,
+  StartConsonant,
+  EndConsonant,
+  Vowel,
+  Punctuation,
+}
+
+impl ClusterKey {
+  pub fn as_str(self) -> &'static str {
+    match self {
+      ClusterKey::FullConsonant => "full-consonant",
+      ClusterKey::Consonant => "consonant",
+      ClusterKey::StartConsonant => "start-consonant",
+      ClusterKey::EndConsonant => "end-consonant",
+      ClusterKey::Vowel => "vowel",
+      ClusterKey::Punctuation => "punctuation",
+    }
+  }
+
+  /// The code table this cluster form draws its token from. Punctuation
+  /// carries its own spelling instead of a table code.
+  fn codes(self) -> Option<&'static HashMap<String, String>> {
+    let all = clusters();
+
+    match self {
+      ClusterKey::FullConsonant => Some(&all.full_consonants.code),
+      ClusterKey::Consonant => Some(&all.consonants.code),
+      ClusterKey::StartConsonant => Some(&all.start_consonants.code),
+      ClusterKey::EndConsonant => Some(&all.end_consonants.code),
+      ClusterKey::Vowel => Some(&all.vowels.code),
+      ClusterKey::Punctuation => None,
+    }
+  }
+}
+
+impl fmt::Display for ClusterKey {
+  fn fmt(&self, out: &mut fmt::Formatter<'_>) -> fmt::Result {
+    out.write_str(self.as_str())
+  }
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Cluster {
+  pub form: ClusterKey,
+  pub text: String,
+  pub code: String,
+  /// Primary stress marker, true if this cluster carries the primary stress.
+  pub emphasis: bool,
+}
+
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct Syllable {
+  pub clusters: Vec<Cluster>,
+  /// Primary stress marker, true if this syllable contains the primary
+  /// stress.
+  pub emphasis: bool,
+}
+
+/// Every stage of the parse, for callers that want the intermediate forms.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct Chunked {
+  pub marks: Vec<Segment>,
+  pub syllables: Vec<Syllable>,
+  pub clusters: Vec<Cluster>,
+}
+
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub enum Error {
+  /// The input has a run that no segment spelling matches.
+  InvalidCharacters { input: String, rest: String },
+  /// The sounds parsed, but no cluster covers them.
+  NoClusterMatch { text: String },
+}
+
+impl fmt::Display for Error {
+  fn fmt(&self, out: &mut fmt::Formatter<'_>) -> fmt::Result {
+    match self {
+      Error::InvalidCharacters { input, rest } => {
+        write!(out, "invalid characters found in {input:?} at {rest:?}")
+      }
+      Error::NoClusterMatch { text } => write!(out, "no match found for {text}"),
+    }
+  }
+}
+
+impl std::error::Error for Error {}
+
+/// Step 1: parse a string into marks (basic tokens).
+pub fn read_segments(text: &str) -> Result<Vec<Segment>, Error> {
+  let table = segment_table();
+  let mut chunks: Vec<Segment> = Vec::new();
+  let mut i = 0;
+
+  while i < text.len() {
+    let Some((value, length)) = table.match_at(text, i) else {
+      return Err(Error::InvalidCharacters {
+        input: text.to_string(),
+        rest: text[i..].to_string(),
+      });
+    };
+
+    if value.kind.is_some() {
+      chunks.push(value.clone());
+    } else if let Some(last) = chunks.last_mut() {
+      // A mark-only segment merges into the sound before it. With no
+      // sound before it there is nothing to merge onto, so it is dropped.
+      last.merge(value);
+    }
+
+    i += length;
+  }
+
+  Ok(chunks)
+}
+
+#[derive(Debug, Clone)]
+struct Span {
+  form: ClusterKey,
+  chunk: Vec<Segment>,
+  matched: String,
+}
+
+/// A cluster spelling is "dense" when it is more than one sound and does not
+/// start with a glottal stop. Those are handled after the standalone forms.
+fn is_dense(stripped: &str) -> bool {
+  // The TypeScript build also excludes a bare `l`, `r`, `w` or `y` here,
+  // which a spelling of two or more sounds can never be.
+  stripped.chars().count() >= 2 && !stripped.starts_with('\'')
+}
+
+/// Step 2: group marks into clusters.
+pub fn group_segments_into_clusters(chunks: &[Segment]) -> Result<Vec<Cluster>, Error> {
+  let tries = lookup();
+  let frame = frame_of(chunks);
+  let mut list: Vec<Vec<Span>> = Vec::new();
+  let mut i = 0;
+
+  let slice = |from: usize, count: usize| -> Vec<Segment> {
+    let end = (from + count).min(chunks.len());
+
+    chunks[from..end].to_vec()
+  };
+
+  while i < chunks.len() {
+    let mut span: Vec<Span> = Vec::new();
+    let chunk = &chunks[i];
+
+    if chunk.kind == Some(SegmentKind::Punctuation) {
+      list.push(vec![Span {
+        chunk: vec![chunk.clone()],
+        matched: chunk.text().to_string(),
+        form: ClusterKey::Punctuation,
+      }]);
+      i += 1;
+      continue;
+    }
+
+    // First check for standalone full consonants (high priority).
+    for candidate in cluster_matches(&tries.full_consonant, &frame, chunks, i) {
+      let stripped = candidate.cluster.replace(':', "");
+
+      // Only match standalone consonants (single characters or glottal
+      // plus consonant). Skip dense clusters like `gm` or `kn`.
+      if is_dense(&stripped) {
+        continue;
+      }
+
+      let take = Span {
+        chunk: slice(i, candidate.count),
+        matched: candidate.cluster.clone(),
+        form: ClusterKey::FullConsonant,
+      };
+
+      if !candidate.cluster.contains(':') {
+        // No colon, normal match.
+        span.push(take);
+        i += candidate.count;
+        break;
+      }
+
+      // A colon pattern. Look ahead to see what follows.
+      let Some(next_chunk) = chunks.get(i + candidate.count) else {
+        // At end of word, do not split.
+        span.push(take);
+        i += candidate.count;
+        break;
+      };
+
+      // Only split if next is a vowel, so if it is, skip this full
+      // consonant match to allow potential splitting later.
+      if next_chunk.kind == Some(SegmentKind::Vowel) {
+        continue;
+      }
+
+      // Check if splitting would allow a better match. For example,
+      // `'l:d` followed by `j` could be `'l` plus `dj`.
+      let parts: Vec<&str> = candidate.cluster.split(':').collect();
+
+      if parts.len() == 2 {
+        let potential = format!("{}{}", parts[1], next_chunk.text());
+
+        // Skip this match to allow splitting into a start consonant.
+        if tries.start_consonant_stripped.contains(&potential) {
+          continue;
+        }
+      }
+
+      // Do not split, treat as full consonant.
+      span.push(take);
+      i += candidate.count;
+      break;
+    }
+
+    if !span.is_empty() {
+      list.push(span);
+      continue;
+    }
+
+    if let Some(candidate) = cluster_matches(&tries.start_consonant, &frame, chunks, i).first() {
+      span.push(Span {
+        chunk: slice(i, candidate.count),
+        matched: candidate.cluster.clone(),
+        form: ClusterKey::StartConsonant,
+      });
+      i += candidate.count;
+    }
+
+    if let Some(candidate) = cluster_matches(&tries.vowel, &frame, chunks, i).first() {
+      span.push(Span {
+        chunk: slice(i, candidate.count),
+        matched: candidate.cluster.clone(),
+        form: ClusterKey::Vowel,
+      });
+      i += candidate.count;
+    }
+
+    // Check if any dense full consonant would match before trying end
+    // consonants, and prefer whichever match is longer.
+    let mut dense: Option<ClusterMatch> = None;
+
+    for candidate in cluster_matches(&tries.full_consonant, &frame, chunks, i) {
+      if !is_dense(&candidate.cluster.replace(':', "")) {
+        continue;
+      }
+
+      if dense
+        .as_ref()
+        .map_or(true, |best| candidate.count > best.count)
+      {
+        dense = Some(candidate);
+      }
+    }
+
+    let mut end: Option<ClusterMatch> = None;
+
+    for candidate in cluster_matches(&tries.end_consonant, &frame, chunks, i) {
+      if end
+        .as_ref()
+        .map_or(true, |best| candidate.count > best.count)
+      {
+        end = Some(candidate);
+      }
+    }
+
+    let chosen = match (&dense, &end) {
+      (Some(dense), Some(end)) if dense.count > end.count => {
+        Some((dense, ClusterKey::FullConsonant))
+      }
+      (Some(_), Some(end)) => Some((end, ClusterKey::EndConsonant)),
+      (Some(dense), None) => Some((dense, ClusterKey::FullConsonant)),
+      (None, Some(end)) => Some((end, ClusterKey::EndConsonant)),
+      (None, None) => None,
+    };
+
+    let matched = chosen.is_some();
+
+    if let Some((candidate, form)) = chosen {
+      span.push(Span {
+        chunk: slice(i, candidate.count),
+        matched: candidate.cluster.clone(),
+        form,
+      });
+      i += candidate.count;
+    }
+
+    // Only process single consonants if the span is still empty, so the
+    // current span is completed before a new one starts.
+    if !matched && span.is_empty() {
+      if let Some(candidate) = cluster_matches(&tries.consonant, &frame, chunks, i).first() {
+        span.push(Span {
+          chunk: slice(i, candidate.count),
+          matched: candidate.cluster.clone(),
+          form: ClusterKey::Consonant,
+        });
+        i += candidate.count;
+      }
+    }
+
+    // If no matches were found yet, try dense consonant clusters as a
+    // fallback.
+    if span.is_empty() {
+      for candidate in cluster_matches(&tries.full_consonant, &frame, chunks, i) {
+        if !is_dense(&candidate.cluster.replace(':', "")) {
+          continue;
+        }
+
+        span.push(Span {
+          chunk: slice(i, candidate.count),
+          matched: candidate.cluster.clone(),
+          form: ClusterKey::FullConsonant,
+        });
+        i += candidate.count;
+        break;
+      }
+    }
+
+    if span.is_empty() {
+      return Err(Error::NoClusterMatch {
+        text: chunks[i..].iter().map(Segment::text).collect(),
+      });
+    }
+
+    list.push(span);
+  }
+
+  split_colon_spans(&mut list);
+  lean_colon_spans_onto_vowels(&mut list);
+
+  Ok(
+    list
+      .into_iter()
+      .flatten()
+      .map(|span| {
+        let emphasis = span.chunk.iter().any(|mark| mark.emphasis);
+        let code = match span.form.codes() {
+          Some(codes) => codes.get(&span.matched).cloned().unwrap_or_default(),
+          None => span.matched.clone(),
+        };
+
+        Cluster {
+          form: span.form,
+          text: span.chunk.iter().map(serialize).collect(),
+          code,
+          emphasis,
+        }
+      })
+      .collect(),
+  )
+}
+
+/// Divide `chunk` at the point where its sounds spell `left`, so the colon in a
+/// cluster spelling becomes a real boundary.
+fn divide(chunk: &[Segment], left: &str) -> (Vec<Segment>, Vec<Segment>) {
+  let mut before: Vec<Segment> = Vec::new();
+  let mut after: Vec<Segment> = Vec::new();
+  let mut text = String::new();
+  let mut past = false;
+
+  for mark in chunk {
+    text.push_str(mark.text());
+
+    if past {
+      after.push(mark.clone());
+    } else {
+      before.push(mark.clone());
+    }
+
+    if text == left && after.is_empty() {
+      past = true;
+    }
+  }
+
+  (before, after)
+}
+
+/// First pass: split clusters with colons when appropriate.
+fn split_colon_spans(list: &mut [Vec<Span>]) {
+  for i in 0..list.len() {
+    let mut j = 0;
+
+    while j < list[i].len() {
+      let span = list[i][j].clone();
+
+      if !span.matched.contains(':') {
+        j += 1;
+        continue;
+      }
+
+      // Split an end consonant that is followed by a vowel.
+      let next_form = match list[i].get(j + 1) {
+        Some(next) => Some(next.form),
+        None => list
+          .get(i + 1)
+          .and_then(|node| node.first())
+          .map(|s| s.form),
+      };
+
+      if span.form != ClusterKey::EndConsonant || next_form != Some(ClusterKey::Vowel) {
+        j += 1;
+        continue;
+      }
+
+      let parts: Vec<&str> = span.matched.split(':').collect();
+      let left_part = parts.first().copied().unwrap_or_default().to_string();
+      let right_part = parts.get(1).copied().unwrap_or_default().to_string();
+      let (left, right) = divide(&span.chunk, &left_part);
+
+      if right.is_empty() {
+        j += 1;
+        continue;
+      }
+
+      // Replace the original span with two new spans.
+      list[i].splice(
+        j..j + 1,
+        [
+          Span {
+            chunk: left,
+            matched: left_part,
+            form: ClusterKey::EndConsonant,
+          },
+          Span {
+            chunk: right,
+            matched: right_part,
+            form: ClusterKey::Consonant,
+          },
+        ],
+      );
+
+      // Skip the newly inserted span.
+      j += 2;
+    }
+  }
+}
+
+/// Second pass: a colon span whose next node is a vowel hands its tail to that
+/// vowel, so the boundary lands between syllables.
+fn lean_colon_spans_onto_vowels(list: &mut [Vec<Span>]) {
+  for i in 1..list.len() {
+    let (before, from) = list.split_at_mut(i);
+    let Some(last_span) = before[i - 1].last_mut() else {
+      continue;
+    };
+    let Some(node_span) = from[0].first_mut() else {
+      continue;
+    };
+
+    if !last_span.matched.contains(':') || node_span.form != ClusterKey::Vowel {
+      continue;
+    }
+
+    let left_part = last_span
+      .matched
+      .split(':')
+      .next()
+      .unwrap_or_default()
+      .to_string();
+    let (left, right) = divide(&last_span.chunk, &left_part);
+
+    if !right.is_empty() {
+      node_span.chunk.splice(0..0, right);
+    }
+
+    last_span.chunk = left;
+  }
+}
+
+/// Spell a mark back out in talk.
+pub fn serialize(mark: &Segment) -> String {
+  let mut text = String::new();
+
+  text.push_str(mark.text());
+
+  for (set, spelling) in [
+    (mark.click, "*"),
+    (mark.ejection, "!"),
+    (mark.implosion, "?"),
+    (mark.nasalization, "&"),
+  ] {
+    if set {
+      text.push_str(spelling);
+    }
+  }
+
+  if let Some(tone) = mark.tone {
+    text.push_str(tone.as_talk());
+  }
+
+  for (set, spelling) in [
+    (mark.elongation, "_"),
+    (mark.truncation, "!"),
+    (mark.emphasis, "^"),
+    (mark.dentalization, "~"),
+    (mark.pharyngealization, "Q~"),
+    (mark.velarization, "G~"),
+    (mark.palatalization, "y~"),
+    (mark.labialization, "w~"),
+    (mark.aspiration, "h~"),
+    (mark.stop, "."),
+    (mark.tense, "@"),
+  ] {
+    if set {
+      text.push_str(spelling);
+    }
+  }
+
+  text
+}
+
+/// Step 3: group clusters into syllables.
+pub fn group_clusters_into_syllables(clusters: &[Cluster]) -> Vec<Syllable> {
+  let mut syllables: Vec<Syllable> = Vec::new();
+  let mut i = 0;
+
+  while i < clusters.len() {
+    let cluster = &clusters[i];
+
+    // Skip punctuation (spaces and the like), it does not belong in a
+    // syllable.
+    if cluster.form == ClusterKey::Punctuation {
+      i += 1;
+      continue;
+    }
+
+    let mut syllable = Syllable::default();
+
+    match cluster.form {
+      ClusterKey::Vowel => {
+        syllable.clusters.push(cluster.clone());
+        i += 1;
+
+        take_coda(clusters, &mut i, &mut syllable);
+      }
+
+      // A full consonant is a complete syllable by itself.
+      ClusterKey::FullConsonant => {
+        syllable.clusters.push(cluster.clone());
+        i += 1;
+      }
+
+      ClusterKey::Consonant | ClusterKey::StartConsonant => {
+        syllable.clusters.push(cluster.clone());
+        i += 1;
+
+        // Look for a vowel.
+        while i < clusters.len() && clusters[i].form != ClusterKey::Vowel {
+          let next = clusters[i].clone();
+
+          if next.form == ClusterKey::Punctuation {
+            i += 1;
+            continue;
+          }
+
+          // Each start consonant begins its own syllable in a
+          // consonant sequence.
+          if next.form == ClusterKey::StartConsonant && !syllable.clusters.is_empty() {
+            break;
+          }
+
+          if next.form == ClusterKey::EndConsonant {
+            let only_single = syllable
+              .clusters
+              .iter()
+              .all(|c| c.form == ClusterKey::Consonant);
+
+            // Break before the end consonant to let it start its
+            // own syllable.
+            if only_single && syllable.clusters.len() >= 2 {
+              break;
+            }
+
+            syllable.clusters.push(next);
+            i += 1;
+
+            let upcoming_vowel = clusters[i..]
+              .iter()
+              .take(3)
+              .any(|c| c.form == ClusterKey::Vowel);
+
+            // Always break after an end consonant in a
+            // consonant-only sequence.
+            if !upcoming_vowel {
+              break;
+            }
+
+            continue;
+          }
+
+          syllable.clusters.push(next.clone());
+          i += 1;
+
+          if start_consonant_then_consonant(&syllable)
+            && more_consonants_ahead(clusters, i)
+            && syllable.clusters.len() == 2
+          {
+            break;
+          }
+
+          // A start consonant plus two single consonants is already
+          // full, so do not take another.
+          if syllable.clusters.len() >= 3 {
+            let has_start = syllable
+              .clusters
+              .iter()
+              .any(|c| c.form == ClusterKey::StartConsonant);
+            let singles = syllable
+              .clusters
+              .iter()
+              .filter(|c| c.form == ClusterKey::Consonant)
+              .count();
+
+            if has_start && singles >= 2 {
+              // Put back the consonant just added.
+              syllable.clusters.pop();
+              i -= 1;
+              break;
+            }
+          }
+
+          if next.text != "'" {
+            continue;
+          }
+
+          // A start consonant plus `'` is its own syllable, so close
+          // out whatever came before it.
+          let previous = syllable
+            .clusters
+            .len()
+            .checked_sub(2)
+            .map(|at| syllable.clusters[at].form);
+
+          if previous == Some(ClusterKey::StartConsonant) {
+            // Remove the `'` just added, then the start consonant.
+            syllable.clusters.pop();
+            i -= 1;
+
+            let start = syllable.clusters.pop().expect("start consonant");
+
+            if !syllable.clusters.is_empty() {
+              syllable.emphasis = syllable.clusters.iter().any(|c| c.emphasis);
+              syllables.push(std::mem::take(&mut syllable));
+            }
+
+            syllables.push(Syllable {
+              emphasis: start.emphasis || next.emphasis,
+              clusters: vec![start, next],
+            });
+
+            i += 1;
+            syllable = Syllable::default();
+            break;
+          }
+
+          // Otherwise a following consonant completes this syllable.
+          if syllable.clusters.len() > 1
+            && clusters.get(i).is_some_and(|c| c.form != ClusterKey::Vowel)
+          {
+            break;
+          }
+        }
+
+        // Add the vowel if one was found, then its coda. With no vowel
+        // the consonants collected so far are the whole syllable.
+        if clusters.get(i).is_some_and(|c| c.form == ClusterKey::Vowel) {
+          syllable.clusters.push(clusters[i].clone());
+          i += 1;
+
+          take_coda(clusters, &mut i, &mut syllable);
+        }
+      }
+
+      // An end consonant always ends a syllable, never take following
+      // consonants.
+      ClusterKey::EndConsonant => {
+        syllable.clusters.push(cluster.clone());
+        i += 1;
+      }
+
+      ClusterKey::Punctuation => unreachable!("punctuation is skipped above"),
+    }
+
+    if !syllable.clusters.is_empty() {
+      syllable.emphasis = syllable.clusters.iter().any(|c| c.emphasis);
+      syllables.push(syllable);
+    }
+  }
+
+  syllables
+}
+
+/// The syllable is a start consonant followed by a single consonant.
+fn start_consonant_then_consonant(syllable: &Syllable) -> bool {
+  syllable.clusters.len() >= 2
+    && syllable.clusters[0].form == ClusterKey::StartConsonant
+    && syllable.clusters[syllable.clusters.len() - 1].form == ClusterKey::Consonant
+}
+
+/// Two or more consonants come before the next vowel, so the current syllable
+/// should close rather than absorb them.
+fn more_consonants_ahead(clusters: &[Cluster], i: usize) -> bool {
+  let Some(upcoming) = clusters.get(i) else {
+    return false;
+  };
+
+  if upcoming.form == ClusterKey::Vowel || upcoming.form == ClusterKey::Punctuation {
+    return false;
+  }
+
+  let mut consonants = 0;
+
+  for future in clusters[i..].iter().take(4) {
+    if future.form == ClusterKey::Punctuation {
+      continue;
+    }
+
+    if future.form == ClusterKey::Vowel {
+      break;
+    }
+
+    consonants += 1;
+  }
+
+  consonants >= 2
+}
+
+/// Take the consonants that close a syllable after its vowel.
+fn take_coda(clusters: &[Cluster], i: &mut usize, syllable: &mut Syllable) {
+  while *i < clusters.len() {
+    let next = &clusters[*i];
+
+    if next.form == ClusterKey::Punctuation {
+      *i += 1;
+      continue;
+    }
+
+    // A vowel starts a new syllable.
+    if next.form == ClusterKey::Vowel {
+      break;
+    }
+
+    // An end consonant closes this one.
+    if next.form == ClusterKey::EndConsonant {
+      syllable.clusters.push(next.clone());
+      *i += 1;
+      break;
+    }
+
+    // A consonant with a vowel after it belongs to the next syllable, and a
+    // full consonant always starts its own.
+    if clusters
+      .get(*i + 1)
+      .is_some_and(|c| c.form == ClusterKey::Vowel)
+      || next.form == ClusterKey::FullConsonant
+    {
+      break;
+    }
+
+    syllable.clusters.push(next.clone());
+    *i += 1;
+  }
+}
+
+/// Parse a talk word through all three stages.
+pub fn chunk(text: &str) -> Result<Chunked, Error> {
+  let marks = read_segments(text)?;
+  let clusters = group_segments_into_clusters(&marks)?;
+  let syllables = group_clusters_into_syllables(&clusters);
+
+  Ok(Chunked {
+    marks,
+    syllables,
+    clusters,
+  })
+}
+
+/// The clusters of a talk word, without the syllable grouping.
+pub fn cluster(text: &str) -> Result<Vec<Cluster>, Error> {
+  Ok(chunk(text)?.clusters)
+}
