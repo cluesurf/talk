@@ -88,6 +88,10 @@ The data in `base/` is copied from the shared source by `build.rs`, so
 the source of truth stays in one place across every language port. A
 published crate carries that copy and builds without the repo.
 
+That copy is committed, unlike in the other decks, because `cargo
+package` refuses to ship files git does not track. Change the shared
+data and the next build leaves a diff in `base/` to commit alongside it.
+
 ```bash
 cargo test     # run the suite
 cargo clippy --all-targets

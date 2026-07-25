@@ -1,8 +1,14 @@
 // Copy the shared top-level base/ data into this crate's base/, so the
 // `include_str!` calls resolve and `cargo package` ships the data. The single
-// source of truth is the repo-root base/; this copy is generated and
-// gitignored. When the crate is built from a published .crate archive the
-// repo-root base/ is absent and the vendored copy is used as-is.
+// source of truth is the repo-root base/.
+//
+// Unlike the other decks, this copy is committed rather than ignored, because
+// `cargo package` refuses to ship files git does not track. So editing the
+// shared data leaves a diff here that has to be committed, which is the point:
+// stale vendored data cannot be published by accident.
+//
+// When the crate is built from a published .crate archive the repo-root base/
+// is absent and the vendored copy is used as-is.
 
 use std::fs;
 use std::path::Path;

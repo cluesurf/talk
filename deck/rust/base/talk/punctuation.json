@@ -1,0 +1,37 @@
+[
+  {
+    "talk": "=.",
+    "type": "punctuation",
+    "value": "."
+  },
+  {
+    "talk": "=@",
+    "type": "punctuation",
+    "value": "@"
+  },
+  {
+    "talk": "=?",
+    "type": "punctuation",
+    "value": "?"
+  },
+  {
+    "talk": "=!",
+    "type": "punctuation",
+    "value": "!"
+  },
+  {
+    "talk": "=+",
+    "type": "punctuation",
+    "value": "+"
+  },
+  {
+    "talk": "=-",
+    "type": "punctuation",
+    "value": "-"
+  },
+  {
+    "talk": " ",
+    "type": "punctuation",
+    "value": " "
+  }
+]
