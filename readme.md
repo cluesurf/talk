@@ -14,7 +14,7 @@
   talk
 </h3>
 <p align='center'>
-  A phonetic sequence encoding
+  A phonetic sequence encoding Θ
 </p>
 
 <br/>
