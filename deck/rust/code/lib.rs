@@ -16,7 +16,9 @@ pub mod syllable;
 pub mod trie;
 
 pub use string::combine::combine;
-pub use string::convert::{ipa_to_talk, machine, machine_outputs, readable, talk_to_ipa, tokenize};
+pub use string::convert::{
+  ipa_to_talk, machine, machine_outputs, parse_ipa, readable, talk_to_ipa, tokenize, IpaUnit,
+};
 pub use string::enumerate::enumerate_sounds;
 pub use string::sound::{make_sound, segment};
 pub use string::types::{

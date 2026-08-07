@@ -16,7 +16,9 @@ from __future__ import annotations
 
 from .string.combine import combine
 from .string.convert import (
+    IpaUnit,
     ipa_to_talk,
+    parse_ipa,
     machine,
     machine_outputs,
     readable,
@@ -41,7 +43,9 @@ __version__ = "2.0.0"
 
 __all__ = [
     "combine",
+    "IpaUnit",
     "ipa_to_talk",
+    "parse_ipa",
     "talk_to_ipa",
     "tokenize",
     "readable",

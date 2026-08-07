@@ -2,10 +2,12 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+
 from .combine import combine
 from .runtime import R, nfd
 from .sound import segment
-from .type import Modifier, Phone, Sound
+from .type import Modifier, Phone, Sound, SymbolEntry
 
 
 def tokenize(text: str) -> list[Sound]:
@@ -28,9 +30,38 @@ def machine_outputs(text: str) -> list[str]:
     return [s.machine for s in segment(text)]
 
 
-def ipa_to_talk(text: str) -> str:
+@dataclass(frozen=True)
+class IpaUnit:
+    """One unit of parsed IPA: a sound, a passthrough symbol, or unknown input.
+
+    ``base`` carries the Phone matched from the IPA trie DIRECTLY, not one
+    recovered from a talk spelling. That distinction matters: talk is a
+    deliberately coarse encoding and several IPA vowels share a code
+    (``ɨ``, ``y`` and ``ʏ`` are all ``i$``; six vowels are ``O``). Going
+    IPA -> talk -> Phone therefore loses the exact vowel, while this keeps
+    it.
+    """
+
+    role: str  # "phone" | "symbol" | "unknown"
+    base: Phone | None = None
+    modifiers: tuple[Modifier, ...] = ()
+    symbol: SymbolEntry | None = None
+    text: str | None = None
+
+
+def parse_ipa(text: str) -> list[IpaUnit]:
+    """Parse IPA into base sounds and their modifiers.
+
+    ``kʰ`` is one unit: base ``k`` with the ``aspirated`` modifier. ``iː``
+    is base ``i`` with ``long``. This is what a caller needs to match IPA
+    against a catalog that stores base sounds and modifier flags
+    separately, rather than one row per composed symbol.
+
+    Unknown input is carried through as ``unknown`` rather than dropped,
+    so the caller can see what failed instead of silently losing it.
+    """
     input_text = nfd(text)
-    out: list[str] = []
+    out: list[IpaUnit] = []
 
     base: Phone | None = None
     mods: list[Modifier] = []
@@ -40,7 +71,9 @@ def ipa_to_talk(text: str) -> str:
         nonlocal base, mods
 
         if base is not None:
-            out.append(combine(base.talk, mods))
+            out.append(
+                IpaUnit(role="phone", base=base, modifiers=tuple(mods))
+            )
 
         base = None
         mods = []
@@ -52,9 +85,8 @@ def ipa_to_talk(text: str) -> str:
         unit = R.ipa_unit.match_at(input_text, i)
 
         if unit is None:
-            # Unknown IPA: carry it through.
             flush()
-            out.append(input_text[i])
+            out.append(IpaUnit(role="unknown", text=input_text[i]))
             i += 1
             continue
 
@@ -82,8 +114,30 @@ def ipa_to_talk(text: str) -> str:
         else:
             assert unit.symbol is not None
             flush()
-            out.append(unit.symbol.talk)
+            out.append(IpaUnit(role="symbol", symbol=unit.symbol))
 
     flush()
+
+    return out
+
+
+def ipa_to_talk(text: str) -> str:
+    """IPA to talk spelling.
+
+    The same walk as :func:`parse_ipa`, rendered. Kept as one scanner so
+    the two cannot drift.
+    """
+    out: list[str] = []
+
+    for unit in parse_ipa(text):
+        if unit.role == "phone":
+            assert unit.base is not None
+            out.append(combine(unit.base.talk, list(unit.modifiers)))
+        elif unit.role == "symbol":
+            assert unit.symbol is not None
+            out.append(unit.symbol.talk)
+        else:
+            assert unit.text is not None
+            out.append(unit.text)
 
     return "".join(out)
