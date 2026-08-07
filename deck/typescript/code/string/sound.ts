@@ -1,8 +1,16 @@
 // Talk to sounds.
 
 import { combine } from './combine'
+import { codeOf } from '../space/codec'
 import { R, modifierAttaches, pickModifier } from './runtime'
 import { NO_CODE } from './type'
+
+/**
+ * `machine()` reports the tone notation at full detail, which is what the
+ * flat code always meant.
+ */
+const TONE = 'tone' as const
+const MESH = 'mesh' as const
 import type { Modifier, Phone, Sound, SymbolEntry } from './type'
 
 export function makeSound(
@@ -33,7 +41,11 @@ export function makeSound(
     talk,
     ipa,
     simple,
-    machine: R.machineByTalk.get(talk) ?? NO_CODE,
+    machine: codeOf({
+      sound: { base, modifiers: ordered },
+      notation: TONE,
+      tier: MESH,
+    }),
     kind: base.form,
     base,
     modifiers: ordered,
@@ -47,7 +59,8 @@ function rawSound(entry: SymbolEntry): Sound {
     talk: entry.talk,
     ipa: entry.ipa,
     simple: entry.simple,
-    machine: R.machineByTalk.get(entry.talk) ?? NO_CODE,
+    // A passthrough symbol is not a sound, so it has no code.
+    machine: NO_CODE,
     kind: 'symbol',
     modifiers: [],
     pre: [],

@@ -51,7 +51,7 @@ pub fn capacity(tier: Tier) -> u64 {
 pub fn bytes_for(count: u64) -> usize {
   let bits = 64 - count.max(2).saturating_sub(1).leading_zeros() as usize;
 
-  bits.div_ceil(8).max(1)
+  ((bits + 7) / 8).max(1)
 }
 
 fn nfd(text: &str) -> String {

@@ -10,6 +10,8 @@
 // the byte widths in `byteWidth` tight rather than generous.
 
 import { axesFor, modelFor } from './model'
+import { NO_CODE } from '../string/type'
+import type { Sound } from '../string/type'
 import type { ModelAxis, ModelBase, Notation, Tier } from './model'
 
 /** How many marks an axis offers a base, plus the option of none. */
@@ -231,6 +233,63 @@ export function decodeUnit({
   }
 
   return { base: base.key, marks }
+}
+
+/**
+ * The composition of a parsed sound, ready to encode.
+ *
+ * A `Sound` already carries its base and modifiers; this only has to put
+ * one mark per axis in the order the codec expects, leaving unmarked axes
+ * null.
+ */
+export function compositionOf({
+  sound,
+  notation,
+  tier,
+}: {
+  sound: Pick<Sound, 'base' | 'modifiers'>
+  notation: Notation
+  tier: Tier
+}): Composition | null {
+  if (!sound.base) return null
+
+  const axes = axesFor(notation, tier)
+
+  return {
+    base: sound.base.talk,
+    marks: axes.map(
+      axis =>
+        sound.modifiers.find(modifier => modifier.slot === axis.name)
+          ?.talk ?? null,
+    ),
+  }
+}
+
+/**
+ * The machine code for a parsed sound, computed rather than looked up.
+ *
+ * This is what removed the registry: `tokens.json` held 91,332 assigned
+ * codes and inlined 4.5MB into every bundle, for an answer the model can
+ * derive. A sound outside the space yields `NO_CODE`.
+ */
+export function codeOf({
+  sound,
+  notation,
+  tier,
+}: {
+  sound: Pick<Sound, 'base' | 'modifiers'>
+  notation: Notation
+  tier: Tier
+}): number {
+  const composition = compositionOf({ sound, notation, tier })
+
+  if (!composition) return NO_CODE
+
+  try {
+    return encodeUnit({ composition, notation, tier })
+  } catch {
+    return NO_CODE
+  }
 }
 
 /** Pack codes to the tier's fixed byte width, big-endian. */

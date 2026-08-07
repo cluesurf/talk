@@ -100,46 +100,47 @@ There are a few affixes on consonants and vowels. There are 5 tone
 affixes (extra low, low, neutral, high, and extra high), which can be
 combined in standard ways.
 
-| category | ky\~ategorri$ | 17736 81544 9018 80008 20172 80392 50910 79240 |
+| category  | symbol  | meaning                                                                                                                              |
 | :-------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------- |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| consonant | ky\~onsonant | 17736 80392 1152 22530 80392 1152 81544 1152 9018 |
-| both | both | 8586 80392 9018 43806 |
-| both | both | 8586 80392 9018 43806 |
-| both | both | 8586 80392 9018 43806 |
-| both | both | 8586 80392 9018 43806 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| vowel | vowel | 32220 80392 68705 80008 63185 |
-| symbol | si$mbol | 22530 79240 0 8586 80392 63185 |
+| consonant | h~      | Aspiration                                                                                                                           |
+| consonant | w~      | Labialization                                                                                                                        |
+| consonant | y~      | Palatalization                                                                                                                       |
+| consonant | G~      | Velarization                                                                                                                         |
+| consonant | Q~      | Pharyngealization                                                                                                                    |
+| consonant | y$~     | Labial-palatalization (ᶣ)                                                                                                            |
+| consonant | n~      | Nasal release (ⁿ)                                                                                                                    |
+| consonant | l~      | Lateral release (ˡ)                                                                                                                  |
+| consonant | g~      | Glottalization (ˀ)                                                                                                                   |
+| consonant | $       | Dental (`n$` is n̪, `t$` is t̪)                                                                                                        |
+| consonant | h!      | Voiceless (`n$h!` is n̪̥)                                                                                                              |
+| consonant | !       | Makes consonant ejective                                                                                                             |
+| consonant | ?       | Makes consonant implosive                                                                                                            |
+| consonant | @       | Syllabic (`n@` is n̩)                                                                                                                 |
+| consonant | .       | Makes consonant a stop consonant (korean, so when you end on `t.`, it is making the mouth shape of `t` but not really pronouncing it) |
+| consonant | \*      | Click consonant: `p*` (ʘ), `t*` (ǀ), `k*` (ǃ), `l*` (ǁ), `d*` (ǂ), `c*` (𝼊), `K*` (ʞ), `R*` (‼ retroflex)                             |
+| consonant | doubled | Rolled / trilled: `bb` (ʙ), `rr` (r), `RR` (ɽr), `GG` (ʀ), `rrh!` (r̥)                                                                |
+| consonant | capital | Consonant variant                                                                                                                    |
+| both      | ^       | Stress (after any vowel or consonant)                                                                                                |
+| both      | \_      | Long / geminated (after any vowel or consonant: `b_` is bː)                                                                          |
+| both      | \_!     | Half-long (ˑ)                                                                                                                        |
+| both      | !!      | Extra-short (̆)                                                                                                                       |
+| vowel     | \~      | Nasal vowel (`a~` is ã)                                                                                                              |
+| vowel     | @       | Non-syllabic vowel (`O@` is ʊ̯; `a@~` is a nasal non-syllabic a)                                                                      |
+| vowel     | capital | Vowel variant                                                                                                                        |
+| vowel     | $       | Vowel variant                                                                                                                        |
+| vowel     | +       | High tone (mandarin high)                                                                                                            |
+| vowel     | ++      | Extra high tone                                                                                                                      |
+| vowel     | \*      | Mid tone (˧)                                                                                                                         |
+| vowel     | -       | Low tone (mandarin low)                                                                                                              |
+| vowel     | --      | Extra low tone                                                                                                                       |
+| vowel     | /       | Rising tone (vietnamese sắc, mandarin rising)                                                                                        |
+| vowel     | //      | Rising tone 2 (vietnamese ngã)                                                                                                       |
+| vowel     | \\      | Falling tone (vietnamese huyền, mandarin falling)                                                                                    |
+| vowel     | \\\\    | Falling tone 2 (vietnamese nặng)                                                                                                     |
+| vowel     | /\\     | Rising falling tone                                                                                                                  |
+| vowel     | \\/     | Falling rising tone (vietnamese hỏi)                                                                                                 |
+| symbol    | \\       | When preceding, writes a literal symbol: `\\.` is a period, `\\+` is a plus                                                           |
+
 Two conventions are worth calling out.
 
 `~` FORMS A SUPERSCRIPT on a consonant. `n~` is ⁿ, `l~` is ˡ, `y~` is ʲ.

@@ -100,7 +100,7 @@ pub fn byte_width(notation: Notation, tier: Tier) -> usize {
   let size = size_of(notation, tier).max(2);
   let bits = 64 - (size - 1).leading_zeros() as usize;
 
-  bits.div_ceil(8).clamp(1, 4)
+  ((bits + 7) / 8).clamp(1, 4)
 }
 
 /// Turn a composition into its code.
@@ -199,7 +199,7 @@ pub fn decode_unit(
   let mut high = layout.offsets.len() - 1;
 
   while low < high {
-    let middle = low.midpoint(high + 1);
+    let middle = low + (high + 1 - low) / 2;
 
     if layout.offsets[middle] <= code {
       low = middle;

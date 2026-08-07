@@ -8,6 +8,9 @@ __pycache__/
 .ruff_cache/
 .venv/
 
+# Scratch scripts, never packaged.
+tmp/
+
 # Data is copied from the shared top-level base/ by `copy:base`; the source
 # of truth is base/, not this generated copy.
 code/talk/base/

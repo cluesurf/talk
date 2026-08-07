@@ -1,5 +1,5 @@
 // talk: a phonetic encoding. IPA <-> talk (ascii) <-> simple (readable)
-// <-> machine (one Hangul code point per sound).
+// <-> machine (one 24-bit integer per sound).
 //
 // Everything is derived from three data files (in base/) and a
 // double-array trie scan. No runtime dependencies.
