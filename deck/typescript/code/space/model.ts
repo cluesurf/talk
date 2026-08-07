@@ -25,7 +25,7 @@ export type Notation = 'ipa' | 'tone'
  */
 export type Tier = 'seed' | 'band' | 'mesh'
 
-/** A base sound, spelled in whichever notation is in play. */
+/** A base sound, spelled in whichever type is in play. */
 export type ModelBase = {
   key: string
   form: Form
@@ -155,9 +155,9 @@ function ipaModel(): Model {
 let toneCache: Model | null = null
 let ipaCache: Model | null = null
 
-/** The model for a notation, built once. */
-export function modelFor(notation: Notation): Model {
-  if (notation === 'tone') {
+/** The model for a type, built once. */
+export function modelFor(type: Notation): Model {
+  if (type === 'tone') {
     toneCache = toneCache ?? toneModel()
     return toneCache
   }
@@ -166,11 +166,11 @@ export function modelFor(notation: Notation): Model {
   return ipaCache
 }
 
-/** The axes a tier includes. `seed` has none: it holds atoms. */
-export function axesFor(notation: Notation, tier: Tier): ModelAxis[] {
-  if (tier === 'seed') return []
+/** The axes a system includes. `seed` has none: it holds atoms. */
+export function axesFor(type: Notation, system: Tier): ModelAxis[] {
+  if (system === 'seed') return []
 
-  const { axes } = modelFor(notation)
+  const { axes } = modelFor(type)
 
-  return tier === 'mesh' ? axes : axes.filter(axis => !axis.suprasegmental)
+  return system === 'mesh' ? axes : axes.filter(axis => !axis.suprasegmental)
 }

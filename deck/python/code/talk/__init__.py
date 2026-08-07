@@ -33,15 +33,11 @@ from .space import (
     unpack,
 )
 from .string.normalize import normalize_ipa
+from .space import machine, machine_bytes, machine_text
 from .string.convert import (
     IpaUnit,
     ipa_to_talk,
     parse_ipa,
-    machine,
-    machine_bytes,
-    machine_codes,
-    machine_text,
-    machine_text_codes,
     readable,
     talk_to_ipa,
     tokenize,
@@ -56,7 +52,6 @@ from .string.type import (
     Sound,
     SoundInfo,
     SymbolEntry,
-    TokenEntry,
     Unit,
 )
 
@@ -100,6 +95,5 @@ __all__ = [
     "Sound",
     "SoundInfo",
     "SymbolEntry",
-    "TokenEntry",
     "Unit",
 ]

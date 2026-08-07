@@ -1,6 +1,6 @@
 // The runtime state: every lookup the conversions need, built once.
 
-import { tokenEntries, modifiers, phones } from './data'
+import { modifiers, phones } from './data'
 import { buildSymbols } from './symbol'
 import { Trie, TrieBuilder, buildTrie } from '../trie'
 import type { Modifier, Phone, SymbolEntry, Unit } from './type'
@@ -40,7 +40,6 @@ export type Runtime = {
   // claimed the spelling for a sound: the digits are vowels there (`1` is
   // ɨ, `9` is œ) and `?` is the glottal stop.
   xsampaUnit: Trie<Unit>
-  machineByTalk: Map<string, number>
 }
 
 // Normalize so precomposed and combining IPA forms match the same keys.
@@ -274,12 +273,6 @@ function bootstrap(): Runtime {
     }
   }
 
-  const machineByTalk = new Map<string, number>()
-
-  for (const entry of tokenEntries) {
-    machineByTalk.set(entry.talk, entry.code)
-  }
-
   return {
     symbols,
     basePhones,
@@ -294,7 +287,6 @@ function bootstrap(): Runtime {
     talkModifier: buildTrie([...byTalkSpelling(modifiers)]),
     ipaUnit: ipa.build(),
     xsampaUnit: xsampa.build(),
-    machineByTalk,
   }
 }
 

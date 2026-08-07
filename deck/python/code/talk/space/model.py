@@ -190,24 +190,24 @@ def _ipa_model() -> Model:
 _CACHE: dict[str, Model] = {}
 
 
-def model_for(notation: Notation) -> Model:
+def model_for(type: Notation) -> Model:
     """The model for a notation, built once."""
-    if notation not in _CACHE:
-        _CACHE[notation] = (
-            _tone_model() if notation == "tone" else _ipa_model()
+    if type not in _CACHE:
+        _CACHE[type] = (
+            _tone_model() if type == "tone" else _ipa_model()
         )
 
-    return _CACHE[notation]
+    return _CACHE[type]
 
 
-def axes_for(notation: Notation, tier: Tier) -> list[ModelAxis]:
+def axes_for(type: Notation, system: Tier) -> list[ModelAxis]:
     """The axes a tier includes. ``seed`` has none: it holds atoms."""
-    if tier == "seed":
+    if system == "seed":
         return []
 
-    axes = model_for(notation).axes
+    axes = model_for(type).axes
 
-    if tier == "mesh":
+    if system == "mesh":
         return axes
 
     return [axis for axis in axes if not axis.suprasegmental]

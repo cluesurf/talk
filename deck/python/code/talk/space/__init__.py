@@ -1,4 +1,4 @@
-"""How big the sound space is, and dense integer codes for every tier."""
+"""How big the sound space is, and dense integer codes for every system."""
 
 from .axis import (
     BACK_PLACES,
@@ -14,6 +14,9 @@ from .axis import (
 from .codec import (
     Composition,
     byte_width,
+    machine,
+    machine_bytes,
+    machine_text,
     decode_unit,
     encode_unit,
     pack,
@@ -49,6 +52,9 @@ __all__ = [
     "attaches",
     "axes_for",
     "byte_width",
+    "machine",
+    "machine_bytes",
+    "machine_text",
     "bytes_for",
     "count_attested",
     "count_space",

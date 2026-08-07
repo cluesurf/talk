@@ -1,5 +1,7 @@
 //! Talk to sounds.
 
+use crate::space::codec::code_of;
+use crate::space::model::{Notation, Tier};
 use crate::string::combine::combine;
 use crate::string::runtime::{modifier_attaches, pick_modifier, runtime};
 use crate::string::types::{NO_CODE, Kind, Modifier, Phone, Sound, SymbolEntry, Unit};
@@ -51,7 +53,7 @@ pub fn make_sound(
   );
 
   Sound {
-    machine: machine_of(&talk),
+    machine: code_of(base, &ordered, TONE, MESH),
     talk,
     ipa,
     simple,
@@ -68,7 +70,8 @@ fn raw_sound(entry: &SymbolEntry) -> Sound {
     talk: entry.talk.clone(),
     ipa: entry.ipa.clone(),
     simple: entry.simple.clone(),
-    machine: machine_of(&entry.talk),
+    // A passthrough symbol is not a sound, so it has no code.
+    machine: NO_CODE,
     kind: Kind::Symbol,
     base: None,
     modifiers: Vec::new(),
@@ -77,13 +80,10 @@ fn raw_sound(entry: &SymbolEntry) -> Sound {
   }
 }
 
-fn machine_of(talk: &str) -> i64 {
-  runtime()
-    .machine_by_talk
-    .get(talk)
-    .copied()
-    .unwrap_or(NO_CODE)
-}
+/// `machine()` reports the tone notation at full detail, which is what the
+/// flat code always meant.
+const TONE: Notation = Notation::Tone;
+const MESH: Tier = Tier::Mesh;
 
 /// Split a talk string into sounds. A single starter lookup gives the base (or
 /// a symbol); a base then swallows the modifiers that follow it, and the sound

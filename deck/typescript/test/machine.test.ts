@@ -19,7 +19,7 @@ describe('machine encoding is one Hangul code point per sound', () => {
 
   for (const [talk, len] of cases) {
     it(`encodes ${talk} as ${len} code point(s)`, () => {
-      expect([...machine(talk)]).toHaveLength(len)
+      expect([...machine({ text: talk, type: 'tone', system: 'mesh' })]).toHaveLength(len)
     })
   }
 })
@@ -30,7 +30,7 @@ describe('machine encoding is injective', () => {
     const collisions: string[] = []
 
     for (const sound of enumerateSounds()) {
-      const [code] = machine(sound.talk)
+      const [code] = machine({ text: sound.talk, type: 'tone', system: 'mesh' })
 
       if (code === undefined || code < 0) {
         continue
@@ -52,7 +52,7 @@ describe('machine encoding is injective', () => {
     const bad: string[] = []
 
     for (const sound of enumerateSounds()) {
-      if ([...machine(sound.talk)].length !== 1) {
+      if ([...machine({ text: sound.talk, type: 'tone', system: 'mesh' })].length !== 1) {
         bad.push(sound.talk)
       }
     }

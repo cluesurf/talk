@@ -82,8 +82,8 @@ def _slot_combos(mods: list) -> list[list]:
     return combos
 
 
-def _tone_producible(tier: Tier) -> int:
-    if tier == "seed":
+def _tone_producible(system: Tier) -> int:
+    if system == "seed":
         return len(R.starter_phones) + len(modifiers)
 
     seen: set[str] = set()
@@ -97,7 +97,7 @@ def _tone_producible(tier: Tier) -> int:
                 else R.vowel_modifiers
             )
             if modifier_attaches(base, mod)
-            and (tier == "mesh" or mod.slot not in TONE_SUPRA)
+            and (system == "mesh" or mod.slot not in TONE_SUPRA)
         ]
 
         for combo in _slot_combos(pool):
@@ -106,8 +106,8 @@ def _tone_producible(tier: Tier) -> int:
     return len(seen)
 
 
-def _ipa_producible(tier: Tier) -> int:
-    if tier == "seed":
+def _ipa_producible(system: Tier) -> int:
+    if system == "seed":
         seen: set[str] = set()
 
         for phone in phones:
@@ -129,7 +129,7 @@ def _ipa_producible(tier: Tier) -> int:
         ways = 1
 
         for axis, groups in IPA_AXES.items():
-            if tier == "band" and axis in SUPRASEGMENTAL:
+            if system == "band" and axis in SUPRASEGMENTAL:
                 continue
 
             options = sum(
@@ -146,14 +146,14 @@ def _ipa_producible(tier: Tier) -> int:
     return total
 
 
-def _tone_permitted(tier: Tier) -> int:
-    if tier == "seed":
+def _tone_permitted(system: Tier) -> int:
+    if system == "seed":
         return len(R.starter_phones) + len(modifiers)
 
     by_slot: dict[str, int] = {}
 
     for mod in list(R.consonant_modifiers) + list(R.vowel_modifiers):
-        if tier == "band" and mod.slot in TONE_SUPRA:
+        if system == "band" and mod.slot in TONE_SUPRA:
             continue
         by_slot[mod.slot] = by_slot.get(mod.slot, 0) + 1
 
@@ -164,14 +164,14 @@ def _tone_permitted(tier: Tier) -> int:
     return len(R.starter_phones) * factor
 
 
-def _ipa_permitted(tier: Tier) -> int:
-    if tier == "seed":
+def _ipa_permitted(system: Tier) -> int:
+    if system == "seed":
         return _ipa_producible("seed")
 
     factor = 1
 
     for axis, groups in IPA_AXES.items():
-        if tier == "band" and axis in SUPRASEGMENTAL:
+        if system == "band" and axis in SUPRASEGMENTAL:
             continue
 
         marks = sum(len(group.marks) for group in groups)
@@ -181,19 +181,19 @@ def _ipa_permitted(tier: Tier) -> int:
 
 
 def unit_for(
-    *, phoneme: str, notation: Notation, tier: Tier
+    *, phoneme: str, type: Notation, system: Tier
 ) -> Optional[list[str]]:
     """Reduce one source phoneme to the unit a tier would hold.
 
     Returns ``None`` when the notation cannot read it, so a caller counting
     attested units does not credit input that never resolved.
     """
-    if notation == "ipa":
+    if type == "ipa":
         decomposed = list(_nfd(phoneme))
 
-        if tier == "seed":
+        if system == "seed":
             return decomposed
-        if tier == "mesh":
+        if system == "mesh":
             return [_nfd(phoneme)]
 
         stripped = "".join(
@@ -211,7 +211,7 @@ def unit_for(
 
     sounds = segment(talk)
 
-    if tier == "seed":
+    if system == "seed":
         out: list[str] = []
         for sound in sounds:
             if sound.base is None:
@@ -231,7 +231,7 @@ def unit_for(
         mods = [
             mod
             for mod in sound.modifiers
-            if tier == "mesh" or mod.slot not in TONE_SUPRA
+            if system == "mesh" or mod.slot not in TONE_SUPRA
         ]
         parts.append(sound.base.talk + "".join(mod.talk for mod in mods))
 
@@ -239,7 +239,7 @@ def unit_for(
 
 
 def count_attested(
-    *, phonemes: Iterable[str], notation: Notation, tier: Tier
+    *, phonemes: Iterable[str], type: Notation, system: Tier
 ) -> int:
     """How many distinct units a corpus attests at a tier.
 
@@ -250,7 +250,7 @@ def count_attested(
     seen: set[str] = set()
 
     for phoneme in phonemes:
-        units = unit_for(phoneme=phoneme, notation=notation, tier=tier)
+        units = unit_for(phoneme=phoneme, type=type, system=system)
 
         if units is None:
             continue
@@ -260,7 +260,7 @@ def count_attested(
     return len(seen)
 
 
-def count_space(*, notation: Notation, tier: Tier, space: Space) -> int:
+def count_space(*, type: Notation, system: Tier, space: Space) -> int:
     """How many units exist at a tier, under one reading of "exist".
 
     ``attested`` needs a corpus and is not answerable here; use
@@ -271,20 +271,20 @@ def count_space(*, notation: Notation, tier: Tier, space: Space) -> int:
 
     if space == "producible":
         return (
-            _ipa_producible(tier)
-            if notation == "ipa"
-            else _tone_producible(tier)
+            _ipa_producible(system)
+            if type == "ipa"
+            else _tone_producible(system)
         )
 
     return (
-        _ipa_permitted(tier) if notation == "ipa" else _tone_permitted(tier)
+        _ipa_permitted(system) if type == "ipa" else _tone_permitted(system)
     )
 
 
 @dataclass(frozen=True)
 class SpaceReport:
-    notation: str
-    tier: str
+    type: str
+    system: str
     attested: Optional[int]
     producible: int
     permitted: int
@@ -293,7 +293,7 @@ class SpaceReport:
 def report_space(
     phonemes: Optional[Iterable[str]] = None,
 ) -> list[SpaceReport]:
-    """Every count, for every notation and tier.
+    """Every count, for every type and system.
 
     Pass a corpus to fill the attested column; without one it is ``None``,
     since nothing in the library knows what languages say.
@@ -301,24 +301,24 @@ def report_space(
     corpus = list(phonemes) if phonemes is not None else None
     out: list[SpaceReport] = []
 
-    for notation in ("ipa", "tone"):
-        for tier in ("seed", "band", "mesh"):
+    for type in ("ipa", "tone"):
+        for system in ("seed", "band", "mesh"):
             out.append(
                 SpaceReport(
-                    notation=notation,
-                    tier=tier,
+                    type=type,
+                    system=system,
                     attested=(
                         count_attested(
-                            phonemes=corpus, notation=notation, tier=tier
+                            phonemes=corpus, type=type, system=system
                         )
                         if corpus is not None
                         else None
                     ),
                     producible=count_space(
-                        notation=notation, tier=tier, space="producible"
+                        type=type, system=system, space="producible"
                     ),
                     permitted=count_space(
-                        notation=notation, tier=tier, space="permitted"
+                        type=type, system=system, space="permitted"
                     ),
                 )
             )

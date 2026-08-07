@@ -5,7 +5,7 @@
 //
 //   ATTESTED    what some documented language is recorded saying
 //   PRODUCIBLE  what a human vocal tract can make
-//   PERMITTED   what the notation can write, articulation ignored
+//   PERMITTED   what the type can write, articulation ignored
 //
 // A conlang tool needs PRODUCIBLE, because a designed language draws from
 // sounds nobody happens to use. A corpus index needs ATTESTED. A validator
@@ -22,7 +22,7 @@ import { makeSound } from '../string/sound'
 import { segment } from '../string/sound'
 import type { Modifier, Phone } from '../string/type'
 
-/** Which notation the units are spelled in. */
+/** Which type the units are spelled in. */
 export type Notation = 'ipa' | 'tone'
 
 /**
@@ -54,7 +54,7 @@ const IPA_SUPRA_MARKS = new Set(
 
 /**
  * Choose none or one modifier from each slot, in every combination. The
- * same construction `enumerateSounds` uses, exposed so a tier can restrict
+ * same construction `enumerateSounds` uses, exposed so a system can restrict
  * the pool first.
  */
 function slotCombos(mods: Modifier[]): Modifier[][] {
@@ -91,8 +91,8 @@ function toneAttaches(base: Phone, mod: Modifier): boolean {
   return true
 }
 
-function toneProducible(tier: Tier): number {
-  if (tier === 'seed') {
+function toneProducible(system: Tier): number {
+  if (system === 'seed') {
     return R.starterPhones.length + modifiers.length
   }
 
@@ -104,7 +104,7 @@ function toneProducible(tier: Tier): number {
     ).filter(
       mod =>
         toneAttaches(base, mod) &&
-        (tier === 'mesh' || !TONE_SUPRA.has(mod.slot)),
+        (system === 'mesh' || !TONE_SUPRA.has(mod.slot)),
     )
 
     for (const combo of slotCombos(pool)) {
@@ -115,8 +115,8 @@ function toneProducible(tier: Tier): number {
   return seen.size
 }
 
-function ipaProducible(tier: Tier): number {
-  if (tier === 'seed') {
+function ipaProducible(system: Tier): number {
+  if (system === 'seed') {
     const seen = new Set<string>()
 
     for (const phone of phones) {
@@ -143,7 +143,7 @@ function ipaProducible(tier: Tier): number {
     let ways = 1
 
     for (const [axis, groups] of Object.entries(IPA_AXES)) {
-      if (tier === 'band' && SUPRASEGMENTAL.has(axis)) continue
+      if (system === 'band' && SUPRASEGMENTAL.has(axis)) continue
 
       let options = 0
       for (const group of groups) {
@@ -162,15 +162,15 @@ function ipaProducible(tier: Tier): number {
 
 // ── permitted ───────────────────────────────────────────────────────────
 
-function tonePermitted(tier: Tier): number {
-  if (tier === 'seed') {
+function tonePermitted(system: Tier): number {
+  if (system === 'seed') {
     return R.starterPhones.length + modifiers.length
   }
 
   const bySlot = new Map<string, number>()
 
   for (const mod of [...R.consonantModifiers, ...R.vowelModifiers]) {
-    if (tier === 'band' && TONE_SUPRA.has(mod.slot)) continue
+    if (system === 'band' && TONE_SUPRA.has(mod.slot)) continue
     bySlot.set(mod.slot, (bySlot.get(mod.slot) ?? 0) + 1)
   }
 
@@ -180,13 +180,13 @@ function tonePermitted(tier: Tier): number {
   return R.starterPhones.length * factor
 }
 
-function ipaPermitted(tier: Tier): number {
-  if (tier === 'seed') return ipaProducible('seed')
+function ipaPermitted(system: Tier): number {
+  if (system === 'seed') return ipaProducible('seed')
 
   let factor = 1
 
   for (const [axis, groups] of Object.entries(IPA_AXES)) {
-    if (tier === 'band' && SUPRASEGMENTAL.has(axis)) continue
+    if (system === 'band' && SUPRASEGMENTAL.has(axis)) continue
 
     const marks = groups.reduce((sum, group) => sum + group.marks.length, 0)
     factor *= marks + 1
@@ -198,25 +198,25 @@ function ipaPermitted(tier: Tier): number {
 // ── attested ────────────────────────────────────────────────────────────
 
 /**
- * Reduce one source phoneme to the unit a tier would hold.
+ * Reduce one source phoneme to the unit a system would hold.
  *
- * Returns null when the notation cannot read it, so a caller counting
+ * Returns null when the type cannot read it, so a caller counting
  * attested units does not credit input that never resolved.
  */
 export function unitFor({
   phoneme,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   phoneme: string
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): string[] | null {
-  if (notation === 'ipa') {
+  if (type === 'ipa') {
     const decomposed = [...nfd(phoneme)]
 
-    if (tier === 'seed') return decomposed
-    if (tier === 'mesh') return [nfd(phoneme)]
+    if (system === 'seed') return decomposed
+    if (system === 'mesh') return [nfd(phoneme)]
 
     const stripped = decomposed
       .filter(character => !IPA_SUPRA_MARKS.has(character))
@@ -230,7 +230,7 @@ export function unitFor({
 
   const sounds = segment(talk)
 
-  if (tier === 'seed') {
+  if (system === 'seed') {
     return sounds.flatMap(sound =>
       sound.base
         ? [sound.base.talk, ...sound.modifiers.map(mod => mod.talk)]
@@ -242,7 +242,7 @@ export function unitFor({
     if (!sound.base) return sound.talk
 
     const mods = sound.modifiers.filter(
-      mod => tier === 'mesh' || !TONE_SUPRA.has(mod.slot),
+      mod => system === 'mesh' || !TONE_SUPRA.has(mod.slot),
     )
 
     return sound.base.talk + mods.map(mod => mod.talk).join('')
@@ -260,17 +260,17 @@ export function unitFor({
  */
 export function countAttested({
   phonemes,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   phonemes: Iterable<string>
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): number {
   const seen = new Set<string>()
 
   for (const phoneme of phonemes) {
-    const units = unitFor({ phoneme, notation, tier })
+    const units = unitFor({ phoneme, type, system })
     if (!units) continue
     for (const unit of units) seen.add(unit)
   }
@@ -281,37 +281,37 @@ export function countAttested({
 // ── the public surface ──────────────────────────────────────────────────
 
 /**
- * How many units exist at a tier, under one reading of "exist".
+ * How many units exist at a system, under one reading of "exist".
  *
  * `attested` needs a corpus and is not answerable here; use
  * `countAttested` for it.
  */
 export function countSpace({
-  notation,
-  tier,
+  type,
+  system,
   space,
 }: {
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
   space: Exclude<Space, 'attested'>
 }): number {
   if (space === 'producible') {
-    return notation === 'ipa' ? ipaProducible(tier) : toneProducible(tier)
+    return type === 'ipa' ? ipaProducible(system) : toneProducible(system)
   }
 
-  return notation === 'ipa' ? ipaPermitted(tier) : tonePermitted(tier)
+  return type === 'ipa' ? ipaPermitted(system) : tonePermitted(system)
 }
 
 export type SpaceReport = {
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
   attested: number | null
   producible: number
   permitted: number
 }
 
 /**
- * Every count, for every notation and tier.
+ * Every count, for every type and tier.
  *
  * Pass a corpus to fill the attested column; without one it is null, since
  * nothing in the library knows what languages say.
@@ -320,16 +320,16 @@ export function reportSpace(phonemes?: Iterable<string>): SpaceReport[] {
   const corpus = phonemes ? [...phonemes] : null
   const out: SpaceReport[] = []
 
-  for (const notation of ['ipa', 'tone'] as Notation[]) {
-    for (const tier of ['seed', 'band', 'mesh'] as Tier[]) {
+  for (const type of ['ipa', 'tone'] as Notation[]) {
+    for (const system of ['seed', 'band', 'mesh'] as Tier[]) {
       out.push({
-        notation,
-        tier,
+        type,
+        system,
         attested: corpus
-          ? countAttested({ phonemes: corpus, notation, tier })
+          ? countAttested({ phonemes: corpus, type, system })
           : null,
-        producible: countSpace({ notation, tier, space: 'producible' }),
-        permitted: countSpace({ notation, tier, space: 'permitted' }),
+        producible: countSpace({ type, system, space: 'producible' }),
+        permitted: countSpace({ type, system, space: 'permitted' }),
       })
     }
   }
@@ -337,7 +337,7 @@ export function reportSpace(phonemes?: Iterable<string>): SpaceReport[] {
   return out
 }
 
-/** The character capacity each tier is encoded into. */
+/** The character capacity each system is encoded into. */
 export const CAPACITY: Record<Tier, number> = {
   // Hangul syllables with no final consonant, 19 x 21.
   seed: 399,

@@ -59,7 +59,7 @@ export const BACK_PLACES = ['pharyngeal-epiglottal', 'glottal'] as const
 
 /**
  * Axes that describe the SYLLABLE rather than the segment. The `band`
- * tier excludes these; `mesh` includes them.
+ * system excludes these; `mesh` includes them.
  */
 export const SUPRASEGMENTAL = new Set([
   'duration',

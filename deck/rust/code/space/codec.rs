@@ -234,6 +234,166 @@ pub fn decode_unit(
   Ok(Composition { base: base.key.clone(), marks })
 }
 
+/// The composition of a parsed sound, ready to encode.
+///
+/// A `Sound` already carries its base and modifiers; this only has to put
+/// one mark per axis in the order the codec expects, leaving unmarked axes
+/// `None`.
+pub fn composition_of(
+  base: &crate::string::types::Phone,
+  modifiers: &[&crate::string::types::Modifier],
+  notation: Notation,
+  tier: Tier,
+) -> Composition {
+  let axes = axes_for(notation, tier);
+
+  // The model keys IPA bases by their IPA spelling and tone bases by their
+  // talk spelling, so the composition has to match the notation it is
+  // being encoded in.
+  use unicode_normalization::UnicodeNormalization;
+
+  let key_of = |ipa: &str, talk: &str| -> String {
+    if notation == Notation::Ipa { ipa.nfd().collect() } else { talk.to_string() }
+  };
+
+  Composition {
+    base: key_of(&base.ipa, &base.talk),
+    marks: axes
+      .iter()
+      .map(|axis| {
+        modifiers
+          .iter()
+          .find(|modifier| modifier.slot == axis.name)
+          .map(|modifier| key_of(&modifier.ipa, &modifier.talk))
+      })
+      .collect(),
+  }
+}
+
+/// The machine code for a parsed sound, computed rather than looked up.
+///
+/// This is what removed the registry: `tokens.json` held 91,332 assigned
+/// codes and shipped 4.5MB of data for an answer the model can derive. A
+/// sound outside the space yields `NO_CODE`.
+pub fn code_of(
+  base: &crate::string::types::Phone,
+  modifiers: &[&crate::string::types::Modifier],
+  notation: Notation,
+  tier: Tier,
+) -> i64 {
+  let composition = composition_of(base, modifiers, notation, tier);
+
+  encode_unit(&composition, notation, tier)
+    .map(|code| code as i64)
+    .unwrap_or(crate::string::types::NO_CODE)
+}
+
+/// Encode a whole string at a notation and tier.
+///
+/// The input is read as the notation says: an IPA string for `Ipa`, a tone
+/// string for `Tone`. At `Seed` a sound yields SEVERAL codes, one per
+/// atomic unit, because that tier holds parts rather than wholes.
+///
+/// A unit the tier cannot hold yields `NO_CODE`, so the vector always
+/// lines up with the input and a caller can see what failed.
+pub fn machine(text: &str, r#type: Notation, system: Tier) -> Vec<i64> {
+  use crate::string::read::read_sounds;
+  use unicode_normalization::UnicodeNormalization;
+
+  let mut out: Vec<i64> = Vec::new();
+
+  let push = |unit: &str, out: &mut Vec<i64>| {
+    let composition =
+      Composition { base: unit.to_string(), marks: Vec::new() };
+
+    out.push(
+      encode_unit(&composition, r#type, system)
+        .map(|code| code as i64)
+        .unwrap_or(crate::string::types::NO_CODE),
+    );
+  };
+
+  for sound in read_sounds(text, r#type) {
+    let Some(base) = sound.base else {
+      out.push(crate::string::types::NO_CODE);
+      continue;
+    };
+
+    if system == Tier::Seed {
+      // The base and each mark are separate units here. IPA seed units are
+      // single codepoints, so a multi-character base contributes its parts.
+      if r#type == Notation::Ipa {
+        for character in base.ipa.nfd() {
+          push(&character.to_string(), &mut out);
+        }
+
+        for modifier in &sound.modifiers {
+          for character in modifier.ipa.nfd() {
+            push(&character.to_string(), &mut out);
+          }
+        }
+      } else {
+        push(&base.talk, &mut out);
+
+        for modifier in &sound.modifiers {
+          push(&modifier.talk, &mut out);
+        }
+      }
+
+      continue;
+    }
+
+    out.push(code_of(base, &sound.modifiers, r#type, system));
+  }
+
+  out
+}
+
+/// The block `machine_text` draws from: contiguous CJK ideographs.
+/// Printable, no control characters, no combining marks and no case
+/// folding, so a database can index it with trigrams.
+const TEXT_BASE: u32 = 0x4e00;
+
+/// Encode as text: a fixed number of characters per code.
+///
+/// The vector form is what a model consumes; this is what a text index
+/// consumes. A fixed width means a match on a character boundary is always
+/// a match on a unit boundary.
+pub fn machine_text(text: &str, r#type: Notation, system: Tier) -> String {
+  let width = byte_width(r#type, system);
+  let mut out = String::new();
+
+  for raw in machine(text, r#type, system) {
+    let code = if raw < 0 {
+      size_of(r#type, system)
+    } else {
+      raw as u64
+    };
+
+    // Six bits per character, so the block stays inside one contiguous run.
+    for at in (0..width).rev() {
+      let point = TEXT_BASE + ((code >> (at * 6)) & 0x3f) as u32;
+      out.push(char::from_u32(point).unwrap_or('\u{4e00}'));
+    }
+  }
+
+  out
+}
+
+/// Encode as bytes, the tier's fixed width per code, big-endian.
+pub fn machine_bytes(
+  text: &str,
+  r#type: Notation,
+  system: Tier,
+) -> Vec<u8> {
+  let codes: Vec<u64> = machine(text, r#type, system)
+    .into_iter()
+    .map(|code| if code < 0 { 0 } else { code as u64 })
+    .collect();
+
+  pack(&codes, r#type, system)
+}
+
 /// Pack codes to the tier's fixed byte width, big-endian.
 pub fn pack(codes: &[u64], notation: Notation, tier: Tier) -> Vec<u8> {
   let width = byte_width(notation, tier);

@@ -19,10 +19,10 @@ describe('the three spaces', () => {
     // A sound can be writable without being pronounceable, and
     // pronounceable without anyone pronouncing it. The counts have to
     // reflect that ordering or the model is wrong.
-    for (const notation of ['ipa', 'tone'] as const) {
-      for (const tier of ['band', 'mesh'] as const) {
-        const producible = countSpace({ notation: notation, tier: tier, space: 'producible' })
-        const permitted = countSpace({ notation: notation, tier: tier, space: 'permitted' })
+    for (const type of ['ipa', 'tone'] as const) {
+      for (const system of ['band', 'mesh'] as const) {
+        const producible = countSpace({ type: type, system: system, space: 'producible' })
+        const permitted = countSpace({ type: type, system: system, space: 'permitted' })
 
         expect(producible).toBeLessThan(permitted)
       }
@@ -30,21 +30,21 @@ describe('the three spaces', () => {
   })
 
   it('grows from seed to band to mesh', () => {
-    for (const notation of ['ipa', 'tone'] as const) {
-      const seed = countSpace({ notation: notation, tier: 'seed', space: 'producible' })
-      const band = countSpace({ notation: notation, tier: 'band', space: 'producible' })
-      const mesh = countSpace({ notation: notation, tier: 'mesh', space: 'producible' })
+    for (const type of ['ipa', 'tone'] as const) {
+      const seed = countSpace({ type: type, system: 'seed', space: 'producible' })
+      const band = countSpace({ type: type, system: 'band', space: 'producible' })
+      const mesh = countSpace({ type: type, system: 'mesh', space: 'producible' })
 
       expect(seed).toBeLessThan(band)
       expect(band).toBeLessThan(mesh)
     }
   })
 
-  it('makes ipa larger than tone at every tier past seed', () => {
+  it('makes ipa larger than tone at every system past seed', () => {
     // talk is deliberately coarser, so its space must be the smaller one.
-    for (const tier of ['band', 'mesh'] as const) {
-      expect(countSpace({ notation: 'ipa', tier: tier, space: 'producible' })).toBeGreaterThan(
-        countSpace({ notation: 'tone', tier: tier, space: 'producible' }),
+    for (const system of ['band', 'mesh'] as const) {
+      expect(countSpace({ type: 'ipa', system: system, space: 'producible' })).toBeGreaterThan(
+        countSpace({ type: 'tone', system: system, space: 'producible' }),
       )
     }
   })
@@ -52,8 +52,8 @@ describe('the three spaces', () => {
 
 describe('attachment rules do real work', () => {
   it('cuts the permitted space by orders of magnitude', () => {
-    const producible = countSpace({ notation: 'ipa', tier: 'mesh', space: 'producible' })
-    const permitted = countSpace({ notation: 'ipa', tier: 'mesh', space: 'permitted' })
+    const producible = countSpace({ type: 'ipa', system: 'mesh', space: 'producible' })
+    const permitted = countSpace({ type: 'ipa', system: 'mesh', space: 'permitted' })
 
     // Without rules a mark attaches anywhere, which is most of the space.
     expect(permitted / producible).toBeGreaterThan(100)
@@ -80,20 +80,20 @@ describe('attachment rules do real work', () => {
 
 describe('unitFor', () => {
   it('splits a phoneme into atomic units at seed', () => {
-    expect(unitFor({ phoneme: 'pʰ', notation: 'ipa', tier: 'seed' })).toEqual(['p', 'ʰ'])
+    expect(unitFor({ phoneme: 'pʰ', type: 'ipa', system: 'seed' })).toEqual(['p', 'ʰ'])
   })
 
   it('keeps a phoneme whole at mesh', () => {
-    expect(unitFor({ phoneme: 'pʰ', notation: 'ipa', tier: 'mesh' })).toEqual(['pʰ'])
+    expect(unitFor({ phoneme: 'pʰ', type: 'ipa', system: 'mesh' })).toEqual(['pʰ'])
   })
 
   it('strips suprasegmentals at band', () => {
-    expect(unitFor({ phoneme: 'aː', notation: 'ipa', tier: 'band' })).toEqual(['a'])
-    expect(unitFor({ phoneme: 'a˥', notation: 'ipa', tier: 'band' })).toEqual(['a'])
+    expect(unitFor({ phoneme: 'aː', type: 'ipa', system: 'band' })).toEqual(['a'])
+    expect(unitFor({ phoneme: 'a˥', type: 'ipa', system: 'band' })).toEqual(['a'])
   })
 
   it('keeps segmental marks at band', () => {
-    expect(unitFor({ phoneme: 'pʰ', notation: 'ipa', tier: 'band' })).toEqual(['pʰ'])
+    expect(unitFor({ phoneme: 'pʰ', type: 'ipa', system: 'band' })).toEqual(['pʰ'])
   })
 })
 
@@ -101,18 +101,18 @@ describe('countAttested', () => {
   it('counts distinct units, not occurrences', () => {
     const corpus = ['p', 'p', 'pʰ', 'b']
 
-    expect(countAttested({ phonemes: corpus, notation: 'ipa', tier: 'mesh' })).toBe(3)
+    expect(countAttested({ phonemes: corpus, type: 'ipa', system: 'mesh' })).toBe(3)
     // At seed the units are p, ʰ, b.
-    expect(countAttested({ phonemes: corpus, notation: 'ipa', tier: 'seed' })).toBe(3)
+    expect(countAttested({ phonemes: corpus, type: 'ipa', system: 'seed' })).toBe(3)
   })
 
   it('never exceeds the producible space it draws from', () => {
     const corpus = ['p', 'pʰ', 'b', 'a', 'aː', 'n̪̥']
 
-    for (const notation of ['ipa', 'tone'] as const) {
-      for (const tier of ['band', 'mesh'] as const) {
-        expect(countAttested({ phonemes: corpus, notation: notation, tier: tier })).toBeLessThanOrEqual(
-          countSpace({ notation: notation, tier: tier, space: 'producible' }),
+    for (const type of ['ipa', 'tone'] as const) {
+      for (const system of ['band', 'mesh'] as const) {
+        expect(countAttested({ phonemes: corpus, type: type, system: system })).toBeLessThanOrEqual(
+          countSpace({ type: type, system: system, space: 'producible' }),
         )
       }
     }
@@ -140,21 +140,21 @@ describe('capacity', () => {
     // three quarters, which brought `band` back inside its character
     // space. `mesh` is still six times too large.
     expect(
-      countSpace({ notation: 'tone', tier: 'seed', space: 'producible' }),
+      countSpace({ type: 'tone', system: 'seed', space: 'producible' }),
     ).toBeLessThan(CAPACITY.seed)
     expect(
-      countSpace({ notation: 'tone', tier: 'band', space: 'producible' }),
+      countSpace({ type: 'tone', system: 'band', space: 'producible' }),
     ).toBeLessThan(CAPACITY.band)
     expect(
-      countSpace({ notation: 'tone', tier: 'mesh', space: 'producible' }),
+      countSpace({ type: 'tone', system: 'mesh', space: 'producible' }),
     ).toBeGreaterThan(CAPACITY.mesh)
   })
 
   it('never fits ipa band or mesh in a character space', () => {
-    for (const tier of ['band', 'mesh'] as const) {
+    for (const system of ['band', 'mesh'] as const) {
       expect(
-        countSpace({ notation: 'ipa', tier, space: 'producible' }),
-      ).toBeGreaterThan(CAPACITY[tier])
+        countSpace({ type: 'ipa', system, space: 'producible' }),
+      ).toBeGreaterThan(CAPACITY[system])
     }
   })
 
@@ -163,7 +163,7 @@ describe('capacity', () => {
     expect(bytesFor(70000)).toBe(3)
     expect(
       bytesFor(
-        countSpace({ notation: 'ipa', tier: 'mesh', space: 'producible' }),
+        countSpace({ type: 'ipa', system: 'mesh', space: 'producible' }),
       ),
     ).toBe(4)
   })
@@ -226,7 +226,7 @@ describe('pre-modifiers', () => {
     }
   })
 
-  it('reads the same way from either notation', () => {
+  it('reads the same way from either type', () => {
     for (const ipa of ['pʰk', 'aʰk', 'mʰk', 'sʰ', 'ʰk', 'kʰ', 'ⁿd', 'dⁿ']) {
       expect(talkToIpa(ipaToTalk(ipa)).normalize('NFD')).toBe(
         ipa.normalize('NFD'),

@@ -18,7 +18,6 @@ include = [
     "/code/**",
     "/base/phones.json",
     "/base/modifiers.json",
-    "/base/tokens.json",
     "/base/talk/*.json",
     "/base/clusters/*.json",
     "/base/clusters/consonants/*.json",

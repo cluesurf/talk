@@ -96,13 +96,6 @@ export type SoundInfo = {
   kind: Kind
 }
 
-// A frozen talk-sound to machine code assignment. The code is a 24-bit
-// integer, so it serializes to exactly three bytes.
-export type TokenEntry = {
-  talk: string
-  code: number
-}
-
 // A unit the scanner can match: a base sound, an affix, or a passthrough
 // symbol.
 export type Unit =

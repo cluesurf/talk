@@ -7,7 +7,7 @@ fn main() {
 
   for row in &rows {
     let talk_out = talk::ipa_to_talk(&row[0]);
-    let machine: Vec<String> = talk::machine(&talk_out)
+    let machine: Vec<String> = talk::machine(&talk_out, talk::Notation::Tone, talk::Tier::Mesh)
       .iter()
       .map(|code| code.to_string())
       .collect();

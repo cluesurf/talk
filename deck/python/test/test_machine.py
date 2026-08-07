@@ -20,14 +20,14 @@ from talk import enumerate_sounds, machine
     ],
 )
 def test_encodes_one_code_point_per_sound(talk_text, length):
-    assert len(machine(talk_text)) == length
+    assert len(machine(text=talk_text, type="tone", system="mesh")) == length
 
 
 def test_distinct_enumerated_sounds_map_to_distinct_codes():
     by_hangul = {}
     collisions = []
     for sound in enumerate_sounds():
-        codes = machine(sound.talk)
+        codes = machine(text=sound.talk, type="tone", system="mesh")
         if not codes or codes[0] < 0:
             continue
         hangul = codes[0]
@@ -40,5 +40,5 @@ def test_distinct_enumerated_sounds_map_to_distinct_codes():
 
 
 def test_every_enumerated_sound_encodes_to_exactly_one_code_point():
-    bad = [s.talk for s in enumerate_sounds() if len(machine(s.talk)) != 1]
+    bad = [s.talk for s in enumerate_sounds() if len(machine(text=s.talk, type="tone", system="mesh")) != 1]
     assert bad == []

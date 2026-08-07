@@ -1,4 +1,4 @@
-"""Dense integer codes for every tier of both notations.
+"""Dense integer codes for every system of both notations.
 
 The code is COMPUTED, not looked up. ``ipa mesh`` holds 166 million
 sounds, which no table wants to be, so each code is a mixed-radix index: a
@@ -17,6 +17,19 @@ from __future__ import annotations
 from dataclasses import dataclass
 from typing import Optional
 
+import unicodedata
+
+from ..string.type import NO_CODE
+
+
+def _nfd(text: str) -> str:
+    return unicodedata.normalize("NFD", text)
+
+
+#: The block ``machine_text`` draws from: contiguous CJK ideographs.
+#: Printable, no control characters, no combining marks and no case
+#: folding, so a database can index it with trigrams.
+_TEXT_BASE = 0x4E00
 from .model import (
     ModelAxis,
     ModelBase,
@@ -55,15 +68,15 @@ class Layout:
 _LAYOUTS: dict[str, Layout] = {}
 
 
-def _layout_for(notation: Notation, tier: Tier) -> Layout:
+def _layout_for(type: Notation, system: Tier) -> Layout:
     """The offset table for a tier, built once."""
-    key = f"{notation}:{tier}"
+    key = f"{type}:{system}"
 
     if key in _LAYOUTS:
         return _LAYOUTS[key]
 
-    bases = model_for(notation).bases
-    axes = axes_for(notation, tier)
+    bases = model_for(type).bases
+    axes = axes_for(type, system)
 
     radices: list[list[int]] = []
     offsets: list[int] = []
@@ -89,43 +102,43 @@ def _layout_for(notation: Notation, tier: Tier) -> Layout:
     return layout
 
 
-def size_of(*, notation: Notation, tier: Tier) -> int:
+def size_of(*, type: Notation, system: Tier) -> int:
     """How many codes a tier has, which is the producible count."""
-    if tier == "seed":
-        return len(model_for(notation).units)
+    if system == "seed":
+        return len(model_for(type).units)
 
-    return _layout_for(notation, tier).size
+    return _layout_for(type, system).size
 
 
-def byte_width(*, notation: Notation, tier: Tier) -> int:
+def byte_width(*, type: Notation, system: Tier) -> int:
     """Bytes one code needs, so a caller can pack to a fixed width.
 
     Sized to the tier rather than to a single global width, since ``tone
     seed`` fits in one byte and ``ipa mesh`` needs four.
     """
-    size = max(2, size_of(notation=notation, tier=tier))
+    size = max(2, size_of(type=type, system=system))
     bits = (size - 1).bit_length()
 
     return max(1, min(4, -(-bits // 8)))
 
 
 def encode_unit(
-    *, composition: Composition, notation: Notation, tier: Tier
+    *, composition: Composition, type: Notation, system: Tier
 ) -> int:
     """Turn a composition into its code.
 
     Raises on a base or mark the tier does not hold, because a silent
     fallback would put a wrong sound at a real code.
     """
-    if tier == "seed":
-        units = model_for(notation).units
+    if system == "seed":
+        units = model_for(type).units
 
         if composition.base not in units:
             raise ValueError(f"unknown seed unit {composition.base}")
 
         return units.index(composition.base)
 
-    layout = _layout_for(notation, tier)
+    layout = _layout_for(type, system)
 
     at = next(
         (
@@ -177,17 +190,17 @@ def encode_unit(
     return layout.offsets[at] + local
 
 
-def decode_unit(*, code: int, notation: Notation, tier: Tier) -> Composition:
+def decode_unit(*, code: int, type: Notation, system: Tier) -> Composition:
     """Turn a code back into its composition."""
-    if tier == "seed":
-        units = model_for(notation).units
+    if system == "seed":
+        units = model_for(type).units
 
         if code < 0 or code >= len(units):
             raise ValueError(f"code {code} out of range")
 
         return Composition(base=units[code], marks=[])
 
-    layout = _layout_for(notation, tier)
+    layout = _layout_for(type, system)
 
     if code < 0 or code >= layout.size:
         raise ValueError(f"code {code} out of range")
@@ -228,9 +241,148 @@ def decode_unit(*, code: int, notation: Notation, tier: Tier) -> Composition:
     return Composition(base=base.key, marks=marks)
 
 
-def pack(*, codes: list[int], notation: Notation, tier: Tier) -> bytes:
-    """Pack codes to the tier's fixed byte width, big-endian."""
-    width = byte_width(notation=notation, tier=tier)
+def composition_of(
+    *, sound, type: Notation, system: Tier
+) -> Optional[Composition]:
+    """The composition of a parsed sound, ready to encode.
+
+    A ``Sound`` already carries its base and modifiers; this only has to
+    put one mark per axis in the order the codec expects, leaving unmarked
+    axes ``None``.
+    """
+    if sound.base is None:
+        return None
+
+    axes = axes_for(type, system)
+
+    # The model keys IPA bases by their IPA spelling and tone bases by
+    # their talk spelling, so the composition has to match the notation it
+    # is being encoded in.
+    def key_of(value) -> str:
+        return _nfd(value.ipa) if type == "ipa" else value.talk
+
+    return Composition(
+        base=key_of(sound.base),
+        marks=[
+            next(
+                (
+                    key_of(mod)
+                    for mod in sound.modifiers
+                    if mod.slot == axis.name
+                ),
+                None,
+            )
+            for axis in axes
+        ],
+    )
+
+
+def code_of(*, sound, type: Notation, system: Tier) -> int:
+    """The machine code for a parsed sound, computed rather than looked up.
+
+    This is what removed the registry: ``tokens.json`` held 91,332 assigned
+    codes and inlined 4.5MB into every bundle, for an answer the model can
+    derive. A sound outside the space yields ``NO_CODE``.
+    """
+    composition = composition_of(sound=sound, type=type, system=system)
+
+    if composition is None:
+        return NO_CODE
+
+    try:
+        return encode_unit(
+            composition=composition, type=type, system=system
+        )
+    except ValueError:
+        return NO_CODE
+
+
+def machine(*, text: str, type: Notation, system: Tier) -> list[int]:
+    """Encode a whole string at a notation and tier.
+
+    The input is read as the notation says: an IPA string for ``ipa``, a
+    tone string for ``tone``. At ``seed`` a sound yields SEVERAL codes, one
+    per atomic unit, because that tier holds parts rather than wholes.
+
+    A unit the tier cannot hold yields ``NO_CODE``, so the list always
+    lines up with the input and a caller can see what failed.
+    """
+    from ..string.read import read_sounds
+
+    out: list[int] = []
+
+    def push(unit: str) -> None:
+        try:
+            out.append(
+                encode_unit(
+                    composition=Composition(base=unit, marks=[]),
+                    type=type,
+                    system=system,
+                )
+            )
+        except ValueError:
+            out.append(NO_CODE)
+
+    for sound in read_sounds(text=text, type=type):
+        if sound.base is None:
+            out.append(NO_CODE)
+            continue
+
+        if system == "seed":
+            # The base and each mark are separate units here. IPA seed
+            # units are single codepoints, so a multi-character base
+            # contributes its parts.
+            if type == "ipa":
+                for character in _nfd(sound.base.ipa):
+                    push(character)
+                for mod in sound.modifiers:
+                    for character in _nfd(mod.ipa):
+                        push(character)
+            else:
+                push(sound.base.talk)
+                for mod in sound.modifiers:
+                    push(mod.talk)
+
+            continue
+
+        out.append(code_of(sound=sound, type=type, system=system))
+
+    return out
+
+
+def machine_text(*, text: str, type: Notation, system: Tier) -> str:
+    """Encode as text: a fixed number of characters per code.
+
+    The list form is what a model consumes; this is what a text index
+    consumes. A fixed width means a match on a character boundary is
+    always a match on a unit boundary.
+    """
+    width = byte_width(type=type, system=system)
+    out: list[str] = []
+
+    for raw in machine(text=text, type=type, system=system):
+        code = size_of(type=type, system=system) if raw < 0 else raw
+
+        # Six bits per character, so the block stays inside one contiguous
+        # run of printable CJK.
+        for at in range(width - 1, -1, -1):
+            out.append(chr(_TEXT_BASE + ((code >> (at * 6)) & 0x3F)))
+
+    return "".join(out)
+
+
+def machine_bytes(*, text: str, type: Notation, system: Tier) -> bytes:
+    """Encode as bytes, the tier's fixed width per code, big-endian."""
+    return pack(
+        codes=machine(text=text, type=type, system=system),
+        type=type,
+        system=system,
+    )
+
+
+def pack(*, codes: list[int], type: Notation, system: Tier) -> bytes:
+    """Pack codes to the system's fixed byte width, big-endian."""
+    width = byte_width(type=type, system=system)
     out = bytearray()
 
     for code in codes:
@@ -239,9 +391,9 @@ def pack(*, codes: list[int], notation: Notation, tier: Tier) -> bytes:
     return bytes(out)
 
 
-def unpack(*, data: bytes, notation: Notation, tier: Tier) -> list[int]:
+def unpack(*, data: bytes, type: Notation, system: Tier) -> list[int]:
     """Read codes back from a fixed-width buffer."""
-    width = byte_width(notation=notation, tier=tier)
+    width = byte_width(type=type, system=system)
 
     return [
         int.from_bytes(data[at : at + width], "big")

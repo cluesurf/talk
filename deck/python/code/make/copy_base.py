@@ -19,7 +19,7 @@ HERE = Path(__file__).resolve().parent
 SOURCE = HERE.parents[3] / "base"  # code/make -> code -> python -> deck -> repo root
 TARGET = HERE.parent / "talk" / "base"  # code/make -> code -> code/talk/base
 
-NEEDED = ("phones.json", "modifiers.json", "tokens.json")
+NEEDED = ("phones.json", "modifiers.json")
 
 if TARGET.exists():
     shutil.rmtree(TARGET)

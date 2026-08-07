@@ -1,4 +1,4 @@
-// Dense integer codes for every tier of both notations.
+// Dense integer codes for every system of both notations.
 //
 // The code is COMPUTED, not looked up. `ipa mesh` holds 166 million
 // sounds, which no table wants to be, so each code is a mixed-radix index:
@@ -10,6 +10,16 @@
 // the byte widths in `byteWidth` tight rather than generous.
 
 import { axesFor, modelFor } from './model'
+import { readSounds } from '../string/read'
+import { nfd } from '../string/runtime'
+
+/**
+ * The block `encodeText` draws from: 64 contiguous CJK ideographs. Chosen
+ * because it is printable, has no control characters, no combining marks
+ * and no case folding, so a database can hold it in an ordinary text
+ * column and index it with trigrams.
+ */
+const TEXT_BASE = 0x4e00
 import { NO_CODE } from '../string/type'
 import type { Sound } from '../string/type'
 import type { ModelAxis, ModelBase, Notation, Tier } from './model'
@@ -37,15 +47,15 @@ type Layout = {
 
 const layouts = new Map<string, Layout>()
 
-/** The offset table for a tier, built once. */
-function layoutFor(notation: Notation, tier: Tier): Layout {
-  const cacheKey = `${notation}:${tier}`
+/** The offset table for a system, built once. */
+function layoutFor(type: Notation, system: Tier): Layout {
+  const cacheKey = `${type}:${system}`
   const cached = layouts.get(cacheKey)
 
   if (cached) return cached
 
-  const { bases } = modelFor(notation)
-  const axes = axesFor(notation, tier)
+  const { bases } = modelFor(type)
+  const axes = axesFor(type, system)
 
   const radices: number[][] = []
   const offsets: number[] = []
@@ -67,33 +77,33 @@ function layoutFor(notation: Notation, tier: Tier): Layout {
   return layout
 }
 
-/** How many codes a tier has, which is the producible count. */
+/** How many codes a system has, which is the producible count. */
 export function sizeOf({
-  notation,
-  tier,
+  type,
+  system,
 }: {
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): number {
-  if (tier === 'seed') return modelFor(notation).units.length
+  if (system === 'seed') return modelFor(type).units.length
 
-  return layoutFor(notation, tier).size
+  return layoutFor(type, system).size
 }
 
 /**
  * Bytes one code needs, so a caller can pack to a fixed width.
  *
- * Sized to the tier rather than to a single global width, since `tone
+ * Sized to the system rather than to a single global width, since `tone
  * seed` fits in one byte and `ipa mesh` needs four.
  */
 export function byteWidth({
-  notation,
-  tier,
+  type,
+  system,
 }: {
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): 1 | 2 | 3 | 4 {
-  const bits = Math.ceil(Math.log2(Math.max(2, sizeOf({ notation, tier }))))
+  const bits = Math.ceil(Math.log2(Math.max(2, sizeOf({ type, system }))))
   const bytes = Math.ceil(bits / 8)
 
   if (bytes <= 1) return 1
@@ -113,27 +123,27 @@ export type Composition = {
 /**
  * Turn a composition into its code.
  *
- * Throws on a base or mark the tier does not hold, because a silent
+ * Throws on a base or mark the system does not hold, because a silent
  * fallback would put a wrong sound at a real code.
  */
 export function encodeUnit({
   composition,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   composition: Composition
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): number {
-  if (tier === 'seed') {
-    const at = modelFor(notation).units.indexOf(composition.base)
+  if (system === 'seed') {
+    const at = modelFor(type).units.indexOf(composition.base)
 
     if (at < 0) throw new Error(`unknown seed unit ${composition.base}`)
 
     return at
   }
 
-  const layout = layoutFor(notation, tier)
+  const layout = layoutFor(type, system)
   const at = layout.bases.findIndex(base => base.key === composition.base)
 
   if (at < 0) throw new Error(`unknown base ${composition.base}`)
@@ -179,15 +189,15 @@ export function encodeUnit({
 /** Turn a code back into its composition. */
 export function decodeUnit({
   code,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   code: number
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): Composition {
-  if (tier === 'seed') {
-    const units = modelFor(notation).units
+  if (system === 'seed') {
+    const units = modelFor(type).units
     const unit = units[code]
 
     if (unit === undefined) throw new Error(`code ${code} out of range`)
@@ -195,7 +205,7 @@ export function decodeUnit({
     return { base: unit, marks: [] }
   }
 
-  const layout = layoutFor(notation, tier)
+  const layout = layoutFor(type, system)
 
   if (code < 0 || code >= layout.size) {
     throw new Error(`code ${code} out of range`)
@@ -244,24 +254,32 @@ export function decodeUnit({
  */
 export function compositionOf({
   sound,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   sound: Pick<Sound, 'base' | 'modifiers'>
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): Composition | null {
   if (!sound.base) return null
 
-  const axes = axesFor(notation, tier)
+  const axes = axesFor(type, system)
+
+  // The model keys IPA bases by their IPA spelling and tone bases by their
+  // talk spelling, so the composition has to match the type it is
+  // being encoded in.
+  const keyOf = (value: { ipa: string; talk: string }) =>
+    type === 'ipa' ? nfd(value.ipa) : value.talk
 
   return {
-    base: sound.base.talk,
-    marks: axes.map(
-      axis =>
-        sound.modifiers.find(modifier => modifier.slot === axis.name)
-          ?.talk ?? null,
-    ),
+    base: keyOf(sound.base),
+    marks: axes.map(axis => {
+      const found = sound.modifiers.find(
+        modifier => modifier.slot === axis.name,
+      )
+
+      return found ? keyOf(found) : null
+    }),
   }
 }
 
@@ -274,35 +292,141 @@ export function compositionOf({
  */
 export function codeOf({
   sound,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   sound: Pick<Sound, 'base' | 'modifiers'>
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): number {
-  const composition = compositionOf({ sound, notation, tier })
+  const composition = compositionOf({ sound, type, system })
 
   if (!composition) return NO_CODE
 
   try {
-    return encodeUnit({ composition, notation, tier })
+    return encodeUnit({ composition, type, system })
   } catch {
     return NO_CODE
   }
 }
 
+/**
+ * Encode a whole string at a type and tier.
+ *
+ * The input is read as the type says: an IPA string for `ipa`, a tone
+ * string for `tone`. At `seed` a sound yields SEVERAL codes, one per
+ * atomic unit, because that system holds parts rather than wholes.
+ *
+ * A unit the system cannot hold yields `NO_CODE`, so the array always lines
+ * up with the input and a caller can see what failed.
+ */
+export function machine({
+  text,
+  type,
+  system,
+}: {
+  text: string
+  type: Notation
+  system: Tier
+}): number[] {
+  const out: number[] = []
+
+  const push = (unit: string) => {
+    try {
+      out.push(
+        encodeUnit({ composition: { base: unit, marks: [] }, type, system }),
+      )
+    } catch {
+      out.push(NO_CODE)
+    }
+  }
+
+  for (const sound of readSounds({ text, type })) {
+    if (!sound.base) {
+      out.push(NO_CODE)
+      continue
+    }
+
+    if (system === 'seed') {
+      // The base and each mark are separate units here. IPA seed units are
+      // single codepoints, so a multi-character base contributes its parts.
+      if (type === 'ipa') {
+        for (const character of nfd(sound.base.ipa)) push(character)
+
+        for (const modifier of sound.modifiers) {
+          for (const character of nfd(modifier.ipa)) push(character)
+        }
+      } else {
+        push(sound.base.talk)
+
+        for (const modifier of sound.modifiers) push(modifier.talk)
+      }
+
+      continue
+    }
+
+    out.push(codeOf({ sound, type, system }))
+  }
+
+  return out
+}
+
+/**
+ * Encode as text: a fixed number of characters per code.
+ *
+ * The array form is what a model consumes; this is what a text index
+ * consumes. A fixed width means a match on a character boundary is always
+ * a match on a unit boundary.
+ */
+export function machineText({
+  text,
+  type,
+  system,
+}: {
+  text: string
+  type: Notation
+  system: Tier
+}): string {
+  const width = byteWidth({ type, system })
+  const out: string[] = []
+
+  for (const raw of machine({ text, type, system })) {
+    const code = raw < 0 ? sizeOf({ type, system }) : raw
+
+    // Twelve bits per character, so the block below stays inside one
+    // contiguous run of printable CJK.
+    for (let at = width - 1; at >= 0; at--) {
+      out.push(String.fromCodePoint(TEXT_BASE + ((code >> (at * 6)) & 0x3f)))
+    }
+  }
+
+  return out.join('')
+}
+
+/** Encode as bytes, the tier's fixed width per code, big-endian. */
+export function machineBytes({
+  text,
+  type,
+  system,
+}: {
+  text: string
+  type: Notation
+  system: Tier
+}): Uint8Array {
+  return pack({ codes: machine({ text, type, system }), type, system })
+}
+
 /** Pack codes to the tier's fixed byte width, big-endian. */
 export function pack({
   codes,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   codes: number[]
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): Uint8Array {
-  const width = byteWidth({ notation, tier })
+  const width = byteWidth({ type, system })
   const out = new Uint8Array(codes.length * width)
 
   for (let at = 0; at < codes.length; at++) {
@@ -319,14 +443,14 @@ export function pack({
 /** Read codes back from a fixed-width buffer. */
 export function unpack({
   bytes,
-  notation,
-  tier,
+  type,
+  system,
 }: {
   bytes: Uint8Array
-  notation: Notation
-  tier: Tier
+  type: Notation
+  system: Tier
 }): number[] {
-  const width = byteWidth({ notation, tier })
+  const width = byteWidth({ type, system })
   const out: number[] = []
 
   for (let at = 0; at + width <= bytes.length; at += width) {

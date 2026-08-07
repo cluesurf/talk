@@ -5,7 +5,7 @@ use std::sync::OnceLock;
 
 use unicode_normalization::UnicodeNormalization;
 
-use crate::string::data::{modifiers, phones, token_entries};
+use crate::string::data::{modifiers, phones};
 use crate::string::symbol::symbols;
 use crate::string::types::{Form, Modifier, Phone, SymbolEntry, Unit};
 use crate::trie::{build_trie, Trie, TrieBuilder};
@@ -36,7 +36,6 @@ pub struct Runtime {
   /// Every unit keyed by IPA. IPA has no base/affix spelling clash, so one
   /// trie scans the whole string.
   pub ipa_unit: Trie<Unit>,
-  pub machine_by_talk: HashMap<&'static str, i64>,
 }
 
 /// Normalize so precomposed and combining IPA forms match the same keys.
@@ -287,11 +286,6 @@ fn bootstrap() -> Runtime {
     ipa.add(&nfd(&symbol.ipa), Unit::Symbol(symbol));
   }
 
-  let machine_by_talk = token_entries()
-    .iter()
-    .map(|entry| (entry.talk.as_str(), entry.code))
-    .collect();
-
   let of_base = |base: Form| -> Vec<&'static Modifier> {
     modifiers()
       .iter()
@@ -310,7 +304,6 @@ fn bootstrap() -> Runtime {
       affixes.iter().map(|(talk, list)| (*talk, list.clone())),
     ),
     ipa_unit: ipa.build(),
-    machine_by_talk,
   }
 }
 

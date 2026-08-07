@@ -6,7 +6,7 @@ import { R, modifierAttaches, pickModifier } from './runtime'
 import { NO_CODE } from './type'
 
 /**
- * `machine()` reports the tone notation at full detail, which is what the
+ * `machine()` reports the tone type at full detail, which is what the
  * flat code always meant.
  */
 const TONE = 'tone' as const
@@ -43,8 +43,8 @@ export function makeSound(
     simple,
     machine: codeOf({
       sound: { base, modifiers: ordered },
-      notation: TONE,
-      tier: MESH,
+      type: TONE,
+      system: MESH,
     }),
     kind: base.form,
     base,

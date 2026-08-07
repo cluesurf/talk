@@ -6,7 +6,7 @@ import unicodedata
 from dataclasses import dataclass
 
 from ..trie import Trie, TrieBuilder, build_trie
-from .data import modifiers, phones, token_entries
+from .data import modifiers, phones
 from .symbol import build_symbols
 from .type import Modifier, Phone, SymbolEntry, Unit
 
@@ -38,7 +38,6 @@ class Runtime:
     # Every unit keyed by IPA. IPA has no base/affix spelling clash, so one
     # trie scans the whole string.
     ipa_unit: Trie[Unit]
-    machine_by_talk: dict[str, int]
 
 
 def nfd(text: str) -> str:
@@ -226,11 +225,6 @@ def _bootstrap() -> Runtime:
     for symbol in symbols:
         ipa.add(nfd(symbol.ipa), Unit(role="symbol", symbol=symbol))
 
-    machine_by_talk: dict[str, int] = {}
-
-    for entry in token_entries:
-        machine_by_talk[entry.talk] = entry.code
-
     return Runtime(
         symbols=symbols,
         base_phones=base_phones,
@@ -242,7 +236,6 @@ def _bootstrap() -> Runtime:
         talk_starter=starter.build(),
         talk_modifier=build_trie(_by_talk_spelling(modifiers)),
         ipa_unit=ipa.build(),
-        machine_by_talk=machine_by_talk,
     )
 
 

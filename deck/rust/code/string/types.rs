@@ -137,14 +137,6 @@ pub struct SoundInfo {
   pub kind: Kind,
 }
 
-/// A frozen talk-sound to machine code assignment. The code is a 24-bit
-/// integer, so it serializes to exactly three bytes.
-#[derive(Debug, Clone, Deserialize)]
-pub struct TokenEntry {
-  pub talk: String,
-  pub code: i64,
-}
-
 /// The machine code space: 24 bits, so every code serializes to exactly three
 /// bytes and the inventory has room to grow by two orders of magnitude.
 pub const CODE_LIMIT: i64 = 0xff_ffff;

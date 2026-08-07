@@ -1,8 +1,8 @@
 use std::collections::HashSet;
 
-use talk::string::data::{phones, token_entries};
+use talk::string::data::phones;
 use talk::string::runtime::nfd;
-use talk::{enumerate_sounds, normalize_ipa, ipa_to_talk, machine, readable, segment, talk_to_ipa, Kind};
+use talk::{Notation, Tier, enumerate_sounds, normalize_ipa, ipa_to_talk, machine, readable, segment, talk_to_ipa, Kind};
 
 // ─── coverage ────────────────────────────────────────────────────────────────
 
@@ -34,7 +34,7 @@ fn maps_every_phone_ipa_back_to_its_own_talk_spelling() {
 fn gives_exactly_one_code_point_per_phone() {
   let bad: Vec<&str> = phones()
     .iter()
-    .filter(|phone| machine(&phone.talk).len() != 1)
+    .filter(|phone| machine(&phone.talk, Notation::Tone, Tier::Mesh).len() != 1)
     .map(|phone| phone.talk.as_str())
     .collect();
 
@@ -45,7 +45,7 @@ fn gives_exactly_one_code_point_per_phone() {
 fn gives_exactly_one_code_point_per_enumerated_sound() {
   let bad: Vec<String> = enumerate_sounds()
     .into_iter()
-    .filter(|sound| machine(&sound.talk).len() != 1)
+    .filter(|sound| machine(&sound.talk, Notation::Tone, Tier::Mesh).len() != 1)
     .map(|sound| sound.talk)
     .collect();
 
@@ -53,15 +53,34 @@ fn gives_exactly_one_code_point_per_enumerated_sound() {
 }
 
 #[test]
-fn never_assigns_the_same_code_point_twice() {
-  let mut seen: HashSet<i64> = HashSet::new();
-  let dupes: Vec<&str> = token_entries()
-    .iter()
-    .filter(|entry| !seen.insert(entry.code))
-    .map(|entry| entry.talk.as_str())
-    .collect();
+fn never_gives_two_sounds_the_same_code() {
+  // The registry is gone, so this checks the COMPUTED codes are still a
+  // bijection: what `tokens.json` used to guarantee by construction now has
+  // to hold by arithmetic.
+  let mut seen: std::collections::HashMap<i64, String> =
+    std::collections::HashMap::new();
+  let mut dupes: Vec<String> = Vec::new();
 
-  assert_eq!(dupes, Vec::<&str>::new());
+  for sound in enumerate_sounds() {
+    let codes = machine(&sound.talk, Notation::Tone, Tier::Mesh);
+
+    let Some(&code) = codes.first() else { continue };
+
+    if code < 0 {
+      continue;
+    }
+
+    match seen.get(&code) {
+      Some(prior) if *prior != sound.talk => {
+        dupes.push(format!("{prior} and {} both -> {code}", sound.talk));
+      }
+      _ => {
+        seen.insert(code, sound.talk);
+      }
+    }
+  }
+
+  assert_eq!(dupes, Vec::<String>::new());
 }
 
 // ─── round trips ─────────────────────────────────────────────────────────────
@@ -89,7 +108,7 @@ fn exposes_the_conversions_at_the_crate_root() {
   assert_eq!(ipa_to_talk("tʰ"), "th~");
   assert_eq!(talk_to_ipa("th~"), "tʰ");
   assert_eq!(readable("th~"), "tʰ");
-  assert_eq!(machine("th~").len(), 1);
+  assert_eq!(machine("th~", Notation::Tone, Tier::Mesh).len(), 1);
 }
 
 #[test]

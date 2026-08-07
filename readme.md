@@ -77,17 +77,17 @@ phonemes.
 ## Examples
 
 The `machine` column is the machine encoding: `talk.machine(...)` gives
-one 24-bit integer per sound, base plus all its modifiers, so a whole
-word becomes a compact array with one entry per sound rather than per
+one integer per sound, base plus all its modifiers, so a whole word
+becomes a compact array with one entry per sound rather than per
 character.
 
-| tone            | machine                                        |
-| :-------------- | :--------------------------------------------- |
-| txando^         | 9018 27318 81544 1152 12846 80393              |
-| siqk            | 22530 79048 6864 19074                         |
-| mh!im           | 96 79048 0                                     |
-| t!arEba         | 9114 81544 45342 80776 8586 81544              |
-| s\'oQya\~te     | 22530 22338 80392 22146 41706 81640 9018 80008 |
+| tone | machine |
+| :--- | :--- |
+| txando^ | 20504 24544 7592 14904 9032 16324 |
+| siqk | 19864 11800 16920 12376 |
+| mh!im | 14592 11800 14584 |
+| t!arEba | 20534 7592 17304 1120 7976 7592 |
+| s\'oQya\~te | 19864 0 16312 4000 24800 7616 20504 10664 |
 
 ## Encoding
 
@@ -448,92 +448,100 @@ current gaps are listed in
 [`base/syllable/unsupported.csv`](base/syllable/unsupported.csv)
 (dentals, retroflex plosives, implosives, ejectives, and clicks).
 
-## Token encoding
+## Encodings
 
-Every canonical sound has a **24-bit integer code**, so a word encodes to
-one fixed-width code per effective sound rather than per character.
+There are two NOTATIONS and three TIERS, so six encodings in all. Which
+one you want follows from two questions: does it need to give the sound
+back exactly, and how much detail does it need to carry.
 
-```ts
-import { machine, machineText, machineBytes } from '@cluesurf/talk'
+### The two notations
 
-machine('takw~a') // [131, 1927, 284, 1927]
-machineBytes('takw~a') // Uint8Array(12), three bytes per sound
-machineText('takw~a') // two characters per sound, for a text index
-```
+**`ipa`** is lossless. It reads and writes the source strings, so what
+goes in comes back out. Use it when something downstream will be compared
+to, displayed as, or exported as the original: a dictionary field, a
+conlang's stored inventory, a join against Phoible or Wiktionary.
 
-Three bytes hold 16,777,216 codes against an inventory of 82,335, so the
-space is 0.5% used and has room to grow. The codes live in
-`base/tokens.json` and are APPEND-ONLY: a sound's code is assigned once
-and never changes, so a model trained on one release still reads the
-next.
+**`tone`** is talk's own ASCII notation, the one this readme spends most
+of its length on. It is deliberately COARSER than IPA: `O` covers six IPA
+vowels, `i$` covers `ɨ`, `y` and `ʏ`, `H$` and `x` share a base. That
+coarseness is the point, because it makes the space small enough to be a
+model's vocabulary, but it means `tone` does not round-trip every
+distinction IPA can write.
 
-`machineText` encodes each code as two characters from a contiguous block
-of CJK ideographs (U+4E00 onward). It exists for text indexes: the block
-is printable, has no control characters, no combining marks and no case
-folding, and the fixed two-character width means a match on a character
-boundary is always a match on a sound boundary.
+The LIBRARY is called talk; the NOTATION it defines is called tone.
 
-An earlier release used one Hangul syllable per sound. That capped the
-inventory at the block's 11,172 code points, which stopped being
-theoretical once length and stress could attach to consonants.
-
-### Tiers
-
-The flat code above holds a whole sound. Three TIERS trade detail for a
-smaller space, and each has its own dense integer coding:
+### The three tiers
 
 | tier | holds | `tone` | `ipa` | bytes |
 | :--- | :--- | ---: | ---: | :--- |
-| `seed` | one atomic unit, a base or a single mark | 110 | 168 | 1 |
-| `band` | a base with its segmental marks | 2,161 | 7,432,128 | 2 / 3 |
-| `mesh` | a base with everything, suprasegmentals included | 25,426 | 166,167,936 | 2 / 4 |
+| `seed` | one atomic unit: a base, or a single mark | 110 | 168 | 1 |
+| `band` | a base plus its segmental marks | 2,161 | 7,432,128 | 2 / 3 |
+| `mesh` | a base plus everything, suprasegmentals included | 25,426 | 166,167,936 | 2 / 4 |
+
+`seed` splits a sound into its parts, so `pʰ` becomes two units. Small
+enough to read, and the right shape for a factored model vocabulary.
+
+`band` keeps aspiration, dentality, voicelessness and secondary
+articulation, and drops duration, stress, tone and syllabicity. Note that
+vowel length is phonemic in Finnish, Japanese and Arabic, so this tier is
+narrower than it sounds.
+
+`mesh` keeps everything the notation encodes. This is the default.
+
+### Using them
 
 ```ts
-import { encodeUnit, decodeUnit, pack, byteWidth } from '@cluesurf/talk'
+import {
+  machine,
+  machineText,
+  machineBytes,
+  byteWidth,
+} from '@cluesurf/talk'
 
-const code = encodeUnit({
-  composition: { base: 'k', marks: [/* one per axis */] },
-  notation: 'tone',
-  tier: 'mesh',
-})
+// The flat code: one integer per sound, tone at full detail.
+machine({ text: 'takw~a', type: 'tone', system: 'mesh' })
+// [20504, 7592, 12424, 7592]
+machineText({ text: 'takw~a', type: 'tone', system: 'mesh' })
+// fixed-width characters, for a text index
 
-decodeUnit({ code, notation: 'tone', tier: 'mesh' })
-byteWidth({ notation: 'ipa', tier: 'mesh' }) // 4
-pack({ codes: [code], notation: 'tone', tier: 'mesh' }) // 2 bytes
+// A tier, chosen.
+machine({ text: 'tʰa', type: 'ipa', system: 'seed' }) // [18, 104, 0]
+machine({ text: 'tʰa', type: 'ipa', system: 'mesh' }) // [49710672, 0]
+machine({ text: 'th~a', type: 'tone', system: 'band' }) // [1778, 683]
+
+byteWidth({ type: 'ipa', system: 'mesh' }) // 4
+machineBytes({ text: 'th~a', type: 'tone', system: 'mesh' }) // 4 bytes
 ```
 
-Codes are COMPUTED, not looked up. A table for `ipa mesh` would be over a
-gigabyte, so each code is a mixed-radix index instead: the base picks an
-offset and each axis contributes a digit whose radix is how many marks
-that axis offers that base. The only tables are the bases, the axes and a
-per-base offset, a few thousand integers in total, so this runs in a
-browser as happily as on a server.
+Every code is COMPUTED, not looked up. A table for `ipa mesh` would be
+over a gigabyte, so each code is a mixed-radix index instead: the base
+picks an offset and each axis contributes a digit whose radix is how many
+marks that axis offers that base. The only tables are the bases, the axes
+and a per-base offset, a few thousand integers, so this runs in a browser
+as happily as on a server and the package ships no code registry at all.
 
-`byteWidth` sizes to the tier rather than to one global width, since
-`tone seed` fits in a byte and `ipa mesh` needs four. `pack` and `unpack`
-use it, big-endian, with no framing, so a buffer is exactly
-`codes.length * width`.
+### Choosing a tier
 
-### Choosing a token vocabulary
+The number that decides it is not vocabulary size but how often a tier
+MERGES two sounds some language contrasts. Measured across Phoible's
+3,020 doculects:
 
-The 82,335 figure is the COMBINATORIAL space, every base crossed with
-every legal modifier combination. Attested usage is far smaller: across
-all 2,000+ languages in Phoible there are 3,422 distinct phonemes, 2,134
-distinct talk spellings, and 628 distinct codes. Under 1% of the space is
-ever used.
+| tier | attested | merged pairs | inventories losing a contrast |
+| :--- | ---: | ---: | ---: |
+| `seed` | 953 | 4,003 | 81% |
+| `band` | 1,722 | 1,490 | 56% |
+| `mesh` | 2,161 | 694 | 29% |
+| `ipa mesh` | 3,422 | 0 | 0% |
 
-So a flat code per sound is a poor token vocabulary for a model, on two
-counts. Most of the vocabulary never appears in training, and a flat
-integer throws away the structure: `p` and `pʰ` get unrelated codes,
-leaving a model to rediscover from co-occurrence a relationship the data
-already states.
+Read the last column first: it is the share of documented languages for
+which the encoding destroys a distinction the language depends on. Even
+`tone mesh` costs 29%, because talk's base inventory is deliberately
+coarse and no tier setting recovers that. If a merged contrast would be a
+bug, use `ipa`.
 
-For that use, take the factorization the library already gives you.
-`segment` returns each sound as a base `Phone` plus its `Modifier`s, so a
-caller can emit base and modifiers as separate tokens (a vocabulary of
-roughly 110), or build a feature vector per sound and skip the embedding
-table altogether. The integer code is the right key for a database or an
-index, not for an embedding matrix.
+A note on scale: `tone mesh` holds 25,426 producible sounds and only
+2,161 are attested anywhere. The other 91% are pronounceable and simply
+nobody's, which is the space a constructed language draws from.
 
 ## Normalization
 

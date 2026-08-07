@@ -25,46 +25,6 @@ export function readable(text: string): string {
 }
 
 /**
- * Encode as machine codes, one 24-bit integer per sound.
- *
- * This is the form a model consumes: a fixed-width code per effective
- * sound rather than per character, so a word is as many tokens as it has
- * sounds.
- *
- * A sound outside the enumerated inventory yields `NO_CODE`, so the array
- * always has one entry per sound and a caller can see what failed instead
- * of silently losing a position.
- */
-export function machine(text: string): number[] {
-  return segment(text).map(s => s.machine)
-}
-
-/**
- * Encode as machine codes packed to three bytes each, big-endian.
- *
- * The byte form is what goes on the wire or into a fixed-width index. A
- * code is 24 bits by construction, so the buffer is exactly three times
- * the sound count with no framing or length prefix needed.
- *
- * `NO_CODE` has no three-byte form, so an unassigned sound is written as
- * `CODE_LIMIT`, the one code the generator never assigns.
- */
-export function machineBytes(text: string): Uint8Array {
-  const codes = machine(text)
-  const out = new Uint8Array(codes.length * 3)
-
-  for (let i = 0; i < codes.length; i++) {
-    const code = codes[i]! < 0 ? CODE_LIMIT : codes[i]!
-
-    out[i * 3] = (code >> 16) & 0xff
-    out[i * 3 + 1] = (code >> 8) & 0xff
-    out[i * 3 + 2] = code & 0xff
-  }
-
-  return out
-}
-
-/**
  * The block machine text encodes into: 4,096 contiguous CJK ideographs
  * starting at U+4E00. Chosen because it is printable, has no control
  * characters, no combining marks, and no case folding, so a database can
@@ -75,49 +35,6 @@ const TEXT_BASE = 0x4e00
 /** Half of 24 bits, so each code becomes exactly two characters. */
 const TEXT_SHIFT = 12
 const TEXT_MASK = 0xfff
-
-/**
- * Encode as machine text: two characters per sound, fixed width.
- *
- * The array form is what a model consumes; this is what a text index
- * consumes. A fixed width per sound is what makes prefix and substring
- * search meaningful, since a match on a character boundary is always a
- * match on a sound boundary.
- *
- * Two characters rather than one because 24 bits do not fit in a single
- * BMP code point, and an astral one would be two UTF-16 units anyway.
- */
-export function machineText(text: string): string {
-  const out: string[] = []
-
-  for (const raw of machine(text)) {
-    const code = raw < 0 ? CODE_LIMIT : raw
-
-    out.push(
-      String.fromCodePoint(TEXT_BASE + ((code >> TEXT_SHIFT) & TEXT_MASK)),
-      String.fromCodePoint(TEXT_BASE + (code & TEXT_MASK)),
-    )
-  }
-
-  return out.join('')
-}
-
-/**
- * Decode machine text back into machine codes.
- */
-export function machineTextCodes(text: string): number[] {
-  const out: number[] = []
-  const points = [...text]
-
-  for (let i = 0; i + 1 < points.length; i += 2) {
-    const high = points[i]!.codePointAt(0)! - TEXT_BASE
-    const low = points[i + 1]!.codePointAt(0)! - TEXT_BASE
-
-    out.push((high << TEXT_SHIFT) | low)
-  }
-
-  return out
-}
 
 /**
  * Decode a three-byte-per-code buffer back into machine codes.

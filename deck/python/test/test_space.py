@@ -14,25 +14,25 @@ ALL = [(n, t) for n in NOTATIONS for t in TIERS]
 def test_orders_attested_producible_permitted():
     # A sound can be writable without being pronounceable, and pronounceable
     # without anyone pronouncing it. The counts must reflect that ordering.
-    for notation in NOTATIONS:
-        for tier in ("band", "mesh"):
+    for type in NOTATIONS:
+        for system in ("band", "mesh"):
             producible = talk.count_space(
-                notation=notation, tier=tier, space="producible"
+                type=type, system=system, space="producible"
             )
             permitted = talk.count_space(
-                notation=notation, tier=tier, space="permitted"
+                type=type, system=system, space="permitted"
             )
 
             assert producible < permitted
 
 
 def test_grows_from_seed_to_band_to_mesh():
-    for notation in NOTATIONS:
+    for type in NOTATIONS:
         sizes = [
             talk.count_space(
-                notation=notation, tier=tier, space="producible"
+                type=type, system=system, space="producible"
             )
-            for tier in TIERS
+            for system in TIERS
         ]
 
         assert sizes[0] < sizes[1] < sizes[2]
@@ -40,20 +40,20 @@ def test_grows_from_seed_to_band_to_mesh():
 
 def test_ipa_is_larger_than_tone_past_seed():
     # talk is deliberately coarser, so its space must be the smaller one.
-    for tier in ("band", "mesh"):
+    for system in ("band", "mesh"):
         assert talk.count_space(
-            notation="ipa", tier=tier, space="producible"
+            type="ipa", system=system, space="producible"
         ) > talk.count_space(
-            notation="tone", tier=tier, space="producible"
+            type="tone", system=system, space="producible"
         )
 
 
 def test_attachment_rules_cut_the_permitted_space():
     producible = talk.count_space(
-        notation="ipa", tier="mesh", space="producible"
+        type="ipa", system="mesh", space="producible"
     )
     permitted = talk.count_space(
-        notation="ipa", tier="mesh", space="permitted"
+        type="ipa", system="mesh", space="permitted"
     )
 
     assert permitted / producible > 100
@@ -63,30 +63,30 @@ def test_attachment_rules_cut_the_permitted_space():
 
 
 def test_unit_for_splits_atoms_at_seed():
-    assert talk.unit_for(phoneme="pʰ", notation="ipa", tier="seed") == [
+    assert talk.unit_for(phoneme="pʰ", type="ipa", system="seed") == [
         "p",
         "ʰ",
     ]
 
 
 def test_unit_for_keeps_the_phoneme_whole_at_mesh():
-    assert talk.unit_for(phoneme="pʰ", notation="ipa", tier="mesh") == ["pʰ"]
+    assert talk.unit_for(phoneme="pʰ", type="ipa", system="mesh") == ["pʰ"]
 
 
 def test_unit_for_strips_suprasegmentals_at_band():
-    assert talk.unit_for(phoneme="aː", notation="ipa", tier="band") == ["a"]
-    assert talk.unit_for(phoneme="a˥", notation="ipa", tier="band") == ["a"]
+    assert talk.unit_for(phoneme="aː", type="ipa", system="band") == ["a"]
+    assert talk.unit_for(phoneme="a˥", type="ipa", system="band") == ["a"]
 
 
 def test_unit_for_keeps_segmental_marks_at_band():
-    assert talk.unit_for(phoneme="pʰ", notation="ipa", tier="band") == ["pʰ"]
+    assert talk.unit_for(phoneme="pʰ", type="ipa", system="band") == ["pʰ"]
 
 
 def test_count_attested_counts_distinct_units():
     corpus = ["p", "p", "pʰ", "b"]
 
     assert (
-        talk.count_attested(phonemes=corpus, notation="ipa", tier="mesh")
+        talk.count_attested(phonemes=corpus, type="ipa", system="mesh")
         == 3
     )
 
@@ -99,24 +99,24 @@ def test_tone_seed_and_band_fit_their_hangul_groups():
     # three quarters, which brought `band` back inside its character space.
     # `mesh` is still six times too large.
     assert (
-        talk.count_space(notation="tone", tier="seed", space="producible")
+        talk.count_space(type="tone", system="seed", space="producible")
         < talk.CAPACITY["seed"]
     )
     assert (
-        talk.count_space(notation="tone", tier="band", space="producible")
+        talk.count_space(type="tone", system="band", space="producible")
         < talk.CAPACITY["band"]
     )
     assert (
-        talk.count_space(notation="tone", tier="mesh", space="producible")
+        talk.count_space(type="tone", system="mesh", space="producible")
         > talk.CAPACITY["mesh"]
     )
 
 
 def test_ipa_never_fits_a_character_space():
-    for tier in ("band", "mesh"):
+    for system in ("band", "mesh"):
         assert (
-            talk.count_space(notation="ipa", tier=tier, space="producible")
-            > talk.CAPACITY[tier]
+            talk.count_space(type="ipa", system=system, space="producible")
+            > talk.CAPACITY[system]
         )
 
 
@@ -124,53 +124,53 @@ def test_ipa_never_fits_a_character_space():
 
 
 def test_byte_width_is_sized_per_tier():
-    # The whole reason widths are per tier: `tone seed` is a byte and
+    # The whole reason widths are per system: `tone seed` is a byte and
     # `ipa mesh` is four, so a single width would waste three quarters.
-    assert talk.byte_width(notation="tone", tier="seed") == 1
-    assert talk.byte_width(notation="tone", tier="band") == 2
-    assert talk.byte_width(notation="tone", tier="mesh") == 2
-    assert talk.byte_width(notation="ipa", tier="seed") == 1
-    assert talk.byte_width(notation="ipa", tier="band") == 3
-    assert talk.byte_width(notation="ipa", tier="mesh") == 4
+    assert talk.byte_width(type="tone", system="seed") == 1
+    assert talk.byte_width(type="tone", system="band") == 2
+    assert talk.byte_width(type="tone", system="mesh") == 2
+    assert talk.byte_width(type="ipa", system="seed") == 1
+    assert talk.byte_width(type="ipa", system="band") == 3
+    assert talk.byte_width(type="ipa", system="mesh") == 4
 
 
 def test_every_code_fits_its_declared_width():
-    for notation, tier in ALL:
-        width = talk.byte_width(notation=notation, tier=tier)
+    for type, system in ALL:
+        width = talk.byte_width(type=type, system=system)
 
-        assert talk.size_of(notation=notation, tier=tier) <= 256**width
+        assert talk.size_of(type=type, system=system) <= 256**width
 
 
-@pytest.mark.parametrize("notation,tier", ALL)
-def test_round_trips_the_edges(notation, tier):
-    size = talk.size_of(notation=notation, tier=tier)
+@pytest.mark.parametrize("type,system", ALL)
+def test_round_trips_the_edges(type, system):
+    size = talk.size_of(type=type, system=system)
 
     for code in (0, 1, size - 2, size - 1):
         composition = talk.decode_unit(
-            code=code, notation=notation, tier=tier
+            code=code, type=type, system=system
         )
 
         assert (
             talk.encode_unit(
-                composition=composition, notation=notation, tier=tier
+                composition=composition, type=type, system=system
             )
             == code
         )
 
 
-@pytest.mark.parametrize("notation,tier", ALL)
-def test_round_trips_a_spread(notation, tier):
-    size = talk.size_of(notation=notation, tier=tier)
+@pytest.mark.parametrize("type,system", ALL)
+def test_round_trips_a_spread(type, system):
+    size = talk.size_of(type=type, system=system)
     step = max(1, size // 300)
 
     for code in range(0, size, step):
         composition = talk.decode_unit(
-            code=code, notation=notation, tier=tier
+            code=code, type=type, system=system
         )
 
         assert (
             talk.encode_unit(
-                composition=composition, notation=notation, tier=tier
+                composition=composition, type=type, system=system
             )
             == code
         )
@@ -179,15 +179,15 @@ def test_round_trips_a_spread(notation, tier):
 def test_covers_the_seed_tier_with_no_gaps():
     # Exhaustive where it is cheap, which proves the offsets and radices
     # line up rather than merely sampling well.
-    for notation in NOTATIONS:
-        size = talk.size_of(notation=notation, tier="seed")
+    for type in NOTATIONS:
+        size = talk.size_of(type=type, system="seed")
         seen = {
             talk.encode_unit(
                 composition=talk.decode_unit(
-                    code=code, notation=notation, tier="seed"
+                    code=code, type=type, system="seed"
                 ),
-                notation=notation,
-                tier="seed",
+                type=type,
+                system="seed",
             )
             for code in range(size)
         }
@@ -196,14 +196,14 @@ def test_covers_the_seed_tier_with_no_gaps():
 
 
 def test_is_injective_on_tone_band():
-    size = talk.size_of(notation="tone", tier="band")
+    size = talk.size_of(type="tone", system="band")
     seen = {
         talk.encode_unit(
             composition=talk.decode_unit(
-                code=code, notation="tone", tier="band"
+                code=code, type="tone", system="band"
             ),
-            notation="tone",
-            tier="band",
+            type="tone",
+            system="band",
         )
         for code in range(size)
     }
@@ -211,23 +211,23 @@ def test_is_injective_on_tone_band():
     assert len(seen) == size
 
 
-@pytest.mark.parametrize("notation,tier", ALL)
-def test_refuses_a_code_outside_the_space(notation, tier):
-    size = talk.size_of(notation=notation, tier=tier)
+@pytest.mark.parametrize("type,system", ALL)
+def test_refuses_a_code_outside_the_space(type, system):
+    size = talk.size_of(type=type, system=system)
 
     with pytest.raises(ValueError):
-        talk.decode_unit(code=-1, notation=notation, tier=tier)
+        talk.decode_unit(code=-1, type=type, system=system)
 
     with pytest.raises(ValueError):
-        talk.decode_unit(code=size, notation=notation, tier=tier)
+        talk.decode_unit(code=size, type=type, system=system)
 
 
 def test_refuses_an_unknown_base():
     with pytest.raises(ValueError):
         talk.encode_unit(
             composition=Composition(base="not-a-sound", marks=[]),
-            notation="tone",
-            tier="mesh",
+            type="tone",
+            system="mesh",
         )
 
 
@@ -243,41 +243,41 @@ def test_refuses_a_mark_the_base_cannot_carry():
     with pytest.raises(ValueError):
         talk.encode_unit(
             composition=Composition(base=vowel.key, marks=["h~"]),
-            notation="tone",
-            tier="mesh",
+            type="tone",
+            system="mesh",
         )
 
 
 # ─── pack and unpack ─────────────────────────────────────────────────────
 
 
-@pytest.mark.parametrize("notation,tier", ALL)
-def test_pack_uses_exactly_width_bytes(notation, tier):
-    width = talk.byte_width(notation=notation, tier=tier)
+@pytest.mark.parametrize("type,system", ALL)
+def test_pack_uses_exactly_width_bytes(type, system):
+    width = talk.byte_width(type=type, system=system)
     codes = [0, 1, 2]
 
     assert len(
-        talk.pack(codes=codes, notation=notation, tier=tier)
+        talk.pack(codes=codes, type=type, system=system)
     ) == len(codes) * width
 
 
-@pytest.mark.parametrize("notation,tier", ALL)
-def test_pack_round_trips(notation, tier):
-    size = talk.size_of(notation=notation, tier=tier)
+@pytest.mark.parametrize("type,system", ALL)
+def test_pack_round_trips(type, system):
+    size = talk.size_of(type=type, system=system)
     codes = [0, 1, size // 2, size - 1]
 
     assert (
         talk.unpack(
-            data=talk.pack(codes=codes, notation=notation, tier=tier),
-            notation=notation,
-            tier=tier,
+            data=talk.pack(codes=codes, type=type, system=system),
+            type=type,
+            system=system,
         )
         == codes
     )
 
 
 def test_pack_is_big_endian():
-    data = talk.pack(codes=[0x010203], notation="ipa", tier="band")
+    data = talk.pack(codes=[0x010203], type="ipa", system="band")
 
     assert list(data) == [0x01, 0x02, 0x03]
 
@@ -285,10 +285,10 @@ def test_pack_is_big_endian():
 def test_unpack_ignores_a_trailing_partial_code():
     # A truncated buffer yields the codes it does hold rather than a
     # corrupt final value.
-    data = talk.pack(codes=[5, 6], notation="tone", tier="band")
+    data = talk.pack(codes=[5, 6], type="tone", system="band")
 
     assert talk.unpack(
-        data=data[:-1], notation="tone", tier="band"
+        data=data[:-1], type="tone", system="band"
     ) == [5]
 
 

@@ -18,7 +18,6 @@ def _load(name):
 
 
 PHONES = _load("phones.json")
-TOKENS = _load("tokens.json")
 
 
 def test_maps_every_chart_symbol_to_a_talk_spelling():
@@ -43,22 +42,35 @@ def test_maps_every_phone_ipa_back_to_its_own_talk_spelling():
 
 
 def test_one_code_point_per_phone():
-    bad = [p["talk"] for p in PHONES if len(machine(p["talk"])) != 1]
+    bad = [p["talk"] for p in PHONES if len(machine(text=p["talk"], type="tone", system="mesh")) != 1]
     assert bad == []
 
 
 def test_one_code_point_per_enumerated_sound():
-    bad = [s.talk for s in enumerate_sounds() if len(machine(s.talk)) != 1]
+    bad = [s.talk for s in enumerate_sounds() if len(machine(text=s.talk, type="tone", system="mesh")) != 1]
     assert bad == []
 
 
-def test_never_assigns_the_same_code_point_twice():
-    seen = set()
+def test_never_gives_two_sounds_the_same_code():
+    # The registry is gone, so this checks the COMPUTED codes are still a
+    # bijection: what `tokens.json` used to guarantee by construction now
+    # has to hold by arithmetic.
+    seen = {}
     dupes = []
-    for s in TOKENS:
-        if s["code"] in seen:
-            dupes.append(s["talk"])
-        seen.add(s["code"])
+
+    for sound in talk.enumerate_sounds():
+        codes = talk.machine(text=sound.talk, type="tone", system="mesh")
+
+        if not codes or codes[0] < 0:
+            continue
+
+        prior = seen.get(codes[0])
+
+        if prior is not None and prior != sound.talk:
+            dupes.append(f"{prior} and {sound.talk} both -> {codes[0]}")
+        else:
+            seen[codes[0]] = sound.talk
+
     assert dupes == []
 
 
@@ -76,7 +88,7 @@ def test_default_namespace_exposes_the_conversions():
     assert talk.ipa_to_talk("tʰ") == "th~"
     assert talk.talk_to_ipa("th~") == "tʰ"
     assert talk.readable("th~") == "tʰ"
-    assert len(talk.machine("th~")) == 1
+    assert len(talk.machine(text="th~", type="tone", system="mesh")) == 1
 
 
 def test_tokenizes_into_sounds_with_features():

@@ -3,8 +3,19 @@
 from __future__ import annotations
 
 from .combine import combine
+from ..space.codec import code_of
 from .runtime import R, modifier_attaches, pick_modifier
 from .type import NO_CODE, Modifier, Phone, Sound, SymbolEntry
+
+
+class _Parsed:
+    """The two fields ``code_of`` reads, without building a whole Sound."""
+
+    __slots__ = ("base", "modifiers")
+
+    def __init__(self, base, modifiers):
+        self.base = base
+        self.modifiers = modifiers
 
 
 def make_sound(
@@ -37,7 +48,9 @@ def make_sound(
         talk=talk,
         ipa=ipa,
         simple=simple,
-        machine=R.machine_by_talk.get(talk, NO_CODE),
+        machine=code_of(
+            sound=_Parsed(base, ordered), type="tone", system="mesh"
+        ),
         kind=base.form,
         base=base,
         modifiers=ordered,
@@ -51,7 +64,8 @@ def _raw_sound(entry: SymbolEntry) -> Sound:
         talk=entry.talk,
         ipa=entry.ipa,
         simple=entry.simple,
-        machine=R.machine_by_talk.get(entry.talk, NO_CODE),
+        # A passthrough symbol is not a sound, so it has no code.
+        machine=NO_CODE,
         kind="symbol",
         modifiers=[],
         pre=[],

@@ -90,15 +90,6 @@ class SoundInfo:
 
 
 @dataclass
-class TokenEntry:
-    """A frozen talk-sound to machine code assignment. The code is a 24-bit
-    integer, so it serializes to exactly three bytes."""
-
-    talk: str
-    code: int
-
-
-@dataclass
 class Unit:
     """A unit the scanner can match: a base sound, an affix, or a symbol."""
 

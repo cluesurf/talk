@@ -10,10 +10,8 @@ import talk, {
   talkToIpa,
 } from '../code'
 import PHONES from '../base/phones.json'
-import MACHINE from '../base/tokens.json'
 
 const phones = PHONES as { ipa: string; talk: string }[]
-const sounds = MACHINE as { talk: string; code: number }[]
 
 describe('coverage', () => {
   it('maps every chart symbol to a talk spelling', () => {
@@ -50,7 +48,7 @@ describe('machine encoding', () => {
     const bad: string[] = []
 
     for (const p of phones) {
-      if ([...machine(p.talk)].length !== 1) {
+      if ([...machine({ text: p.talk, type: 'tone', system: 'mesh' })].length !== 1) {
         bad.push(p.talk)
       }
     }
@@ -62,7 +60,7 @@ describe('machine encoding', () => {
     const bad: string[] = []
 
     for (const s of enumerateSounds()) {
-      if ([...machine(s.talk)].length !== 1) {
+      if ([...machine({ text: s.talk, type: 'tone', system: 'mesh' })].length !== 1) {
         bad.push(s.talk)
       }
     }
@@ -70,16 +68,25 @@ describe('machine encoding', () => {
     expect(bad).toEqual([])
   })
 
-  it('never assigns the same code twice', () => {
-    const seen = new Set<number>()
+  it('never gives two sounds the same code', () => {
+    // The registry is gone, so this checks the COMPUTED codes are still a
+    // bijection: what `tokens.json` used to guarantee by construction now
+    // has to hold by arithmetic.
+    const seen = new Map<number, string>()
     const dupes: string[] = []
 
-    for (const s of sounds) {
-      if (seen.has(s.code)) {
-        dupes.push(s.talk)
-      }
+    for (const sound of enumerateSounds()) {
+      const [code] = machine({ text: sound.talk, type: 'tone', system: 'mesh' })
 
-      seen.add(s.code)
+      if (code === undefined || code < 0) continue
+
+      const prior = seen.get(code)
+
+      if (prior !== undefined && prior !== sound.talk) {
+        dupes.push(`${prior} and ${sound.talk} both -> ${code}`)
+      } else {
+        seen.set(code, sound.talk)
+      }
     }
 
     expect(dupes).toEqual([])
@@ -109,7 +116,7 @@ describe('api', () => {
     expect(talk.ipaToTalk('tʰ')).toBe('th~')
     expect(talk.talkToIpa('th~')).toBe('tʰ')
     expect(talk.readable('th~')).toBe('tʰ')
-    expect([...talk.machine('th~')]).toHaveLength(1)
+    expect([...talk.machine({ text: 'th~', type: 'tone', system: 'mesh' })]).toHaveLength(1)
   })
 
   it('tokenizes into sounds with features', () => {

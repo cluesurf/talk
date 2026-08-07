@@ -15,10 +15,9 @@ use std::path::Path;
 
 /// Only what the crate reads. The rest of the shared base/ (the Chinese symbol
 /// tables above all) belongs to other tools and would dwarf the package.
-const WANTED: [&str; 6] = [
+const WANTED: [&str; 5] = [
   "phones.json",
   "modifiers.json",
-  "tokens.json",
   "talk",
   "clusters",
   "ipa",

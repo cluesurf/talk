@@ -8,11 +8,7 @@ import { combine } from './string/combine'
 import {
   ipaToTalk,
   ipaToXsampa,
-  machine,
-  machineBytes,
   machineCodes,
-  machineText,
-  machineTextCodes,
   parseIpa,
   parseXsampa,
   readable,
@@ -23,6 +19,7 @@ import {
   xsampaToTalk,
 } from './string/convert'
 import { enumeratePhones, enumerateSounds } from './string/enumerate'
+import { machine, machineBytes, machineText } from './space/codec'
 import { normalizeIpa } from './string/normalize'
 import { segment } from './string/sound'
 
@@ -34,7 +31,6 @@ export type {
   Sound,
   SoundInfo,
   SymbolEntry,
-  TokenEntry,
   Unit,
 } from './string/type'
 
@@ -42,11 +38,7 @@ export { combine } from './string/combine'
 export {
   ipaToTalk,
   ipaToXsampa,
-  machine,
-  machineBytes,
   machineCodes,
-  machineText,
-  machineTextCodes,
   parseIpa,
   parseXsampa,
   readable,
@@ -73,6 +65,9 @@ export {
 export type { Notation, Space, SpaceReport, Tier } from './space'
 export {
   byteWidth,
+  machine,
+  machineBytes,
+  machineText,
   decodeUnit,
   encodeUnit,
   pack,
@@ -99,13 +94,12 @@ const talk = {
   xsampaToIpa,
   xsampaToTalk,
   tokenize,
-  normalizeIpa,
-  readable,
   machine,
   machineBytes,
-  machineCodes,
   machineText,
-  machineTextCodes,
+  normalizeIpa,
+  readable,
+  machineCodes,
   segment,
   syllables,
   combine,

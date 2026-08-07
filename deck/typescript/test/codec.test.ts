@@ -14,38 +14,38 @@ import type { Notation, Tier } from '../code'
 const NOTATIONS: Notation[] = ['ipa', 'tone']
 const TIERS: Tier[] = ['seed', 'band', 'mesh']
 
-/** Every notation and tier, for the checks that must hold across all six. */
-const ALL = NOTATIONS.flatMap(notation =>
-  TIERS.map(tier => [notation, tier] as const),
+/** Every type and system, for the checks that must hold across all six. */
+const ALL = NOTATIONS.flatMap(type =>
+  TIERS.map(system => [type, system] as const),
 )
 
 describe('code space', () => {
   it('grows from seed to band to mesh', () => {
-    for (const notation of NOTATIONS) {
-      expect(sizeOf({ notation, tier: 'seed' })).toBeLessThan(
-        sizeOf({ notation, tier: 'band' }),
+    for (const type of NOTATIONS) {
+      expect(sizeOf({ type, system: 'seed' })).toBeLessThan(
+        sizeOf({ type, system: 'band' }),
       )
-      expect(sizeOf({ notation, tier: 'band' })).toBeLessThan(
-        sizeOf({ notation, tier: 'mesh' })
+      expect(sizeOf({ type, system: 'band' })).toBeLessThan(
+        sizeOf({ type, system: 'mesh' })
       )
     }
   })
 
-  it('sizes bytes to the tier rather than to one global width', () => {
-    // The whole reason widths are per tier: `tone seed` is a byte and
+  it('sizes bytes to the system rather than to one global width', () => {
+    // The whole reason widths are per system: `tone seed` is a byte and
     // `ipa mesh` is four, so a single width would waste three quarters.
-    expect(byteWidth({ notation: 'tone', tier: 'seed' })).toBe(1)
-    expect(byteWidth({ notation: 'tone', tier: 'band' })).toBe(2)
-    expect(byteWidth({ notation: 'tone', tier: 'mesh' })).toBe(2)
-    expect(byteWidth({ notation: 'ipa', tier: 'seed' })).toBe(1)
-    expect(byteWidth({ notation: 'ipa', tier: 'band' })).toBe(3)
-    expect(byteWidth({ notation: 'ipa', tier: 'mesh' })).toBe(4)
+    expect(byteWidth({ type: 'tone', system: 'seed' })).toBe(1)
+    expect(byteWidth({ type: 'tone', system: 'band' })).toBe(2)
+    expect(byteWidth({ type: 'tone', system: 'mesh' })).toBe(2)
+    expect(byteWidth({ type: 'ipa', system: 'seed' })).toBe(1)
+    expect(byteWidth({ type: 'ipa', system: 'band' })).toBe(3)
+    expect(byteWidth({ type: 'ipa', system: 'mesh' })).toBe(4)
   })
 
   it('keeps every code inside its declared width', () => {
-    for (const [notation, tier] of ALL) {
-      const width = byteWidth({ notation, tier })
-      const size = sizeOf({ notation, tier })
+    for (const [type, system] of ALL) {
+      const width = byteWidth({ type, system })
+      const size = sizeOf({ type, system })
 
       expect(size).toBeLessThanOrEqual(256 ** width)
     }
@@ -53,27 +53,27 @@ describe('code space', () => {
 })
 
 describe('encode and decode', () => {
-  it('round-trips the first and last code of every tier', () => {
-    for (const [notation, tier] of ALL) {
-      const size = sizeOf({ notation, tier })
+  it('round-trips the first and last code of every system', () => {
+    for (const [type, system] of ALL) {
+      const size = sizeOf({ type, system })
 
       for (const code of [0, 1, size - 2, size - 1]) {
-        const composition = decodeUnit({ code, notation, tier })
+        const composition = decodeUnit({ code, type, system })
 
-        expect(encodeUnit({ composition, notation, tier })).toBe(code)
+        expect(encodeUnit({ composition, type, system })).toBe(code)
       }
     }
   })
 
-  it('round-trips a spread across each tier', () => {
-    for (const [notation, tier] of ALL) {
-      const size = sizeOf({ notation, tier })
+  it('round-trips a spread across each system', () => {
+    for (const [type, system] of ALL) {
+      const size = sizeOf({ type, system })
       const step = Math.max(1, Math.floor(size / 500))
 
       for (let code = 0; code < size; code += step) {
-        const composition = decodeUnit({ code, notation, tier })
+        const composition = decodeUnit({ code, type, system })
 
-        expect(encodeUnit({ composition, notation, tier })).toBe(code)
+        expect(encodeUnit({ composition, type, system })).toBe(code)
       }
     }
   })
@@ -81,13 +81,13 @@ describe('encode and decode', () => {
   it('covers the whole space with no gaps, on the small tiers', () => {
     // Exhaustive where it is cheap, which proves the offsets and radices
     // line up rather than merely sampling well.
-    for (const notation of NOTATIONS) {
-      const size = sizeOf({ notation, tier: 'seed' })
+    for (const type of NOTATIONS) {
+      const size = sizeOf({ type, system: 'seed' })
       const seen = new Set<number>()
 
       for (let code = 0; code < size; code++) {
-        const composition = decodeUnit({ code, notation, tier: 'seed' })
-        seen.add(encodeUnit({ composition, notation, tier: 'seed' }))
+        const composition = decodeUnit({ code, type, system: 'seed' })
+        seen.add(encodeUnit({ composition, type, system: 'seed' }))
       }
 
       expect(seen.size).toBe(size)
@@ -95,37 +95,37 @@ describe('encode and decode', () => {
   })
 
   it('is injective on tone band, exhaustively', () => {
-    const size = sizeOf({ notation: 'tone', tier: 'band' })
+    const size = sizeOf({ type: 'tone', system: 'band' })
     const seen = new Set<number>()
 
     for (let code = 0; code < size; code++) {
       const composition = decodeUnit({
         code,
-        notation: 'tone',
-        tier: 'band',
+        type: 'tone',
+        system: 'band',
       })
 
-      seen.add(encodeUnit({ composition, notation: 'tone', tier: 'band' }))
+      seen.add(encodeUnit({ composition, type: 'tone', system: 'band' }))
     }
 
     expect(seen.size).toBe(size)
   })
 
   it('refuses a code outside the space', () => {
-    for (const [notation, tier] of ALL) {
-      const size = sizeOf({ notation, tier })
+    for (const [type, system] of ALL) {
+      const size = sizeOf({ type, system })
 
-      expect(() => decodeUnit({ code: -1, notation, tier })).toThrow()
-      expect(() => decodeUnit({ code: size, notation, tier })).toThrow()
+      expect(() => decodeUnit({ code: -1, type, system })).toThrow()
+      expect(() => decodeUnit({ code: size, type, system })).toThrow()
     }
   })
 
-  it('refuses a base the tier does not hold', () => {
+  it('refuses a base the system does not hold', () => {
     expect(() =>
       encodeUnit({
         composition: { base: 'not-a-sound', marks: [] },
-        notation: 'tone',
-        tier: 'mesh',
+        type: 'tone',
+        system: 'mesh',
       }),
     ).toThrow()
   })
@@ -139,8 +139,8 @@ describe('encode and decode', () => {
     expect(() =>
       encodeUnit({
         composition: { base: vowel.key, marks: ['h~'] },
-        notation: 'tone',
-        tier: 'mesh',
+        type: 'tone',
+        system: 'mesh',
       }),
     ).toThrow()
   })
@@ -148,29 +148,29 @@ describe('encode and decode', () => {
 
 describe('pack and unpack', () => {
   it('uses exactly width bytes per code', () => {
-    for (const [notation, tier] of ALL) {
-      const width = byteWidth({ notation, tier })
+    for (const [type, system] of ALL) {
+      const width = byteWidth({ type, system })
       const codes = [0, 1, 2]
 
-      expect(pack({ codes, notation, tier })).toHaveLength(
+      expect(pack({ codes, type, system })).toHaveLength(
         codes.length * width,
       )
     }
   })
 
   it('round-trips through bytes', () => {
-    for (const [notation, tier] of ALL) {
-      const size = sizeOf({ notation, tier })
+    for (const [type, system] of ALL) {
+      const size = sizeOf({ type, system })
       const codes = [0, 1, Math.floor(size / 2), size - 1]
 
       expect(
-        unpack({ bytes: pack({ codes, notation, tier }), notation, tier }),
+        unpack({ bytes: pack({ codes, type, system }), type, system }),
       ).toEqual(codes)
     }
   })
 
   it('packs big-endian', () => {
-    const bytes = pack({ codes: [0x010203], notation: 'ipa', tier: 'band' })
+    const bytes = pack({ codes: [0x010203], type: 'ipa', system: 'band' })
 
     expect([...bytes]).toEqual([0x01, 0x02, 0x03])
   })
@@ -178,11 +178,11 @@ describe('pack and unpack', () => {
   it('ignores a trailing partial code', () => {
     // A truncated buffer yields the codes it does hold rather than a
     // corrupt final value.
-    const bytes = pack({ codes: [5, 6], notation: 'tone', tier: 'band' })
+    const bytes = pack({ codes: [5, 6], type: 'tone', system: 'band' })
     const short = bytes.slice(0, bytes.length - 1)
 
     expect(
-      unpack({ bytes: short, notation: 'tone', tier: 'band' }),
+      unpack({ bytes: short, type: 'tone', system: 'band' }),
     ).toEqual([5])
   })
 })

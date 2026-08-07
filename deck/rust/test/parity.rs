@@ -11,7 +11,7 @@ use serde::Deserialize;
 
 use talk::syllable::syllable::{Segment, SegmentKind, Tone};
 use talk::syllable::syllables;
-use talk::{
+use talk::{Notation, Tier, 
   enumerate_sounds, ipa_to_talk, machine, readable, segment, talk_to_ipa, Cluster,
   Sound,
 };
@@ -226,7 +226,7 @@ fn astral_passthrough_returns_one_whole_character() {
 
   assert_eq!(talk_to_ipa(astral), astral);
   assert_eq!(readable(astral), astral);
-  assert_eq!(machine(astral), vec![talk::NO_CODE]);
+  assert_eq!(machine(astral, Notation::Tone, Tier::Mesh), vec![talk::NO_CODE]);
 
   assert!(
     syllables(astral).is_err(),
@@ -267,13 +267,13 @@ fn conversions_match_the_typescript_build() {
       case.input
     );
     assert_eq!(
-      machine(&case.input),
+      machine(&case.input, Notation::Tone, Tier::Mesh),
       case.machine,
       "machine({:?})",
       case.input
     );
     assert_eq!(
-      machine(&case.input),
+      machine(&case.input, Notation::Tone, Tier::Mesh),
       case.machine,
       "machine({:?})",
       case.input

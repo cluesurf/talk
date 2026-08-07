@@ -1,13 +1,13 @@
 # @cluesurf/talk (TypeScript)
 
-The TypeScript implementation of **talk**, a phonetic encoding. It
-converts between IPA, talk (an ASCII form), a readable simplified form,
-and a token form that packs each sound into a single Hangul code point
-for compact, one-token-per-sound tokenization.
+The TypeScript implementation of **talk**, a phonetic encoding. It reads
+and writes IPA, converts to and from **tone** (an ASCII notation), and
+turns either into integer codes for compact, one-token-per-sound
+tokenization.
 
-This is the TypeScript version of
-[`@cluesurf/talk`](https://github.com/cluesurf/talk). A Python port
-builds on the same shared data.
+The LIBRARY is called talk; the NOTATION it defines is called tone. This
+is the reference implementation; the Rust and Python ports build on the
+same shared data and are verified against it.
 
 ## Install
 
@@ -23,110 +23,136 @@ import talk from '@cluesurf/talk'
 talk.ipaToTalk('tʰa') // => 'th~a'
 talk.talkToIpa('th~a') // => 'tʰa'
 talk.readable('th~a') // => 'tʰa'   (simplified, human-readable)
-talk.machine('th~a') // => one Hangul code point per sound
+talk.normalizeIpa('ʆ') // => 'ʃʲ'   (folds the many ways IPA is written)
+talk.machine({ text: 'th~a', type: 'tone', system: 'mesh' }) // => [20594, 7592]
 talk.syllables('txando') // => the word split into syllables
 ```
 
 ## API
 
-Every function takes a string and returns a string, except `tokenize`,
-`segment`, and `syllables`, which return structured results.
+Most functions take a string and return a string. `tokenize`, `segment`
+and `syllables` return structured results; `machine` returns integers.
 
-| function                       | direction                                       |
-| :----------------------------- | :---------------------------------------------- |
-| `ipaToTalk(ipa)`               | IPA to talk                                     |
-| `talkToIpa(talk)`              | talk to IPA                                     |
-| `readable(talk)`               | talk to the simplified reading form             |
-| `machine(talk)`                | talk to one Hangul code point per sound         |
-| `machineOutputs(talk)`         | the machine code points as an array             |
-| `tokenize(talk)`               | talk to an array of `Sound`                     |
-| `segment(talk)`                | the same as `tokenize`                          |
-| `syllables(talk)`              | talk to its syllables                           |
-| `combine(baseTalk, modifiers)` | a base and modifiers to canonical talk          |
-| `enumerateSounds()`            | every valid canonical sound (used by the build) |
+| function | direction |
+| :--- | :--- |
+| `ipaToTalk(ipa)` | IPA to tone |
+| `talkToIpa(tone)` | tone to IPA |
+| `readable(tone)` | tone to the simplified reading form |
+| `normalizeIpa(ipa)` | IPA to the one form the parser reads |
+| `machine({ text, type, system })` | to integer codes |
+| `machineText({ text, type, system })` | to fixed-width characters, for indexes |
+| `machineBytes({ text, type, system })` | to fixed-width bytes |
+| `parseIpa(ipa)` | IPA to bases with their modifiers |
+| `segment(tone)` | tone to `Sound`s |
+| `syllables(tone)` | tone to syllables |
+| `enumerateSounds()` | every canonical sound |
 
-A `Sound` carries all four forms plus the phonetic breakdown:
+`machine` and its two siblings take `type` (which notation) and `system`
+(which tier), so the same call shape reaches all six encodings.
+
+## Encodings
+
+Two NOTATIONS crossed with three TIERS, so six encodings. Which one you
+want follows from two questions: does it need to give the sound back
+exactly, and how much detail does it need to carry.
+
+**`ipa`** is lossless, so what goes in comes back out. Use it wherever
+something downstream is compared to, displayed as, or exported as the
+original.
+
+**`tone`** is deliberately coarser: `O` covers six IPA vowels, `i$` covers
+`ɨ`, `y` and `ʏ`. That is what makes the space small enough to be a
+model's vocabulary, and it is why tone does not round-trip every
+distinction IPA can write.
+
+| tier | holds | `tone` | `ipa` | bytes |
+| :--- | :--- | ---: | ---: | :--- |
+| `seed` | one atomic unit: a base, or a single mark | 110 | 168 | 1 |
+| `band` | a base plus its segmental marks | 2,161 | 7,432,128 | 2 / 3 |
+| `mesh` | a base plus everything, suprasegmentals included | 25,426 | 166,167,936 | 2 / 4 |
 
 ```ts
-type Sound = {
-  talk: string
-  ipa: string
-  simple: string
-  machine: string
-  kind: 'consonant' | 'vowel' | 'symbol'
-  base?: Phone // the base sound, absent for passthrough symbols
-  modifiers: Modifier[] // the affixes, in canonical order
-  raw?: boolean // true for passthrough symbols and unknown input
-}
+import { machine, machineBytes, byteWidth, sizeOf } from '@cluesurf/talk'
+
+// Same call shape, all six encodings.
+machine({ text: 'tʰa', type: 'ipa', system: 'seed' }) // [18, 104, 0]
+machine({ text: 'tʰa', type: 'ipa', system: 'mesh' }) // [49710672, 0]
+machine({ text: 'th~a', type: 'tone', system: 'band' }) // [1778, 683]
+machine({ text: 'th~a', type: 'tone', system: 'mesh' }) // [20594, 7592]
+
+machineBytes({ text: 'th~a', type: 'tone', system: 'mesh' }) // 4 bytes
+byteWidth({ type: 'ipa', system: 'mesh' }) // 4
+sizeOf({ type: 'tone', system: 'mesh' }) // 25584
 ```
 
-```ts
-const [sound] = tokenize('th~a')
-sound.base?.talk // => 't'
-sound.modifiers.map(m => m.feature) // => ['aspirated']
-```
+For a single sound rather than a string, `encodeUnit` and `decodeUnit`
+take a `Composition` and the same `type` / `system` pair.
+
+Codes are COMPUTED, never looked up. A table for `ipa mesh` would be over
+a gigabyte, so each code is a mixed-radix index: the base picks an offset
+and each axis contributes a digit whose radix is how many marks that axis
+offers that base. The only tables are the bases, the axes and a per-base
+offset, a few thousand integers, so the package ships no code registry and
+this runs in a browser as happily as on a server.
+
+### Choosing a tier
+
+The number that decides it is not vocabulary size but how often a tier
+MERGES two sounds some language contrasts. Across Phoible's 3,020
+doculects, `tone mesh` still costs 29% of documented languages a
+distinction, because talk's base inventory is deliberately coarse and no
+tier setting recovers that. If a merged contrast would be a bug, use
+`ipa`.
 
 ## Syllables
 
-`syllables` groups a talk string into syllables, each a list of clusters.
-It is also available on its own subpath.
-
 ```ts
-import { syllables } from '@cluesurf/talk/syllable'
+import { syllables } from '@cluesurf/talk'
 
-syllables('txando').syllables // two syllables: txan, do
+syllables('txando') // => marks and clusters, grouped into syllables
 ```
 
 ## How it works
 
-The encoding is entirely data. The code reads three files and scans with
-a trie.
+Everything derives from three data files in `base/` and a double-array
+trie scan, with no runtime dependencies.
 
-- **base/phones.json** is the base sounds.
-- **base/modifiers.json** is the affixes, with the rules for what they
-  attach to.
-- **base/tokens.json** is the frozen sound to Hangul code point map.
+- `phones.json` is the base inventory, one row per IPA symbol with its
+  place, manner and voicing.
+- `modifiers.json` is the affixes, each with the axis it varies and the
+  rule saying where it can attach.
+- The tries are built once at load: one keyed by tone, one by IPA, one by
+  X-SAMPA.
 
-These live in `base/`, copied at build time from the single shared data
-source that every language port of talk is built on.
+Attachment rules are what keep the space honest. Aspiration needs a
+plosive or a fricative and refuses the glottal place, so `hʰ` is never
+generated. A nasal cannot take a nasal release. Those rules are also what
+make the counts above producible rather than merely writable.
 
-A sound is a base plus its modifiers in a fixed slot order, so any set of
-modifiers has exactly one talk spelling. IPA feeds one trie (IPA has no
-base-versus-affix spelling clash). Talk feeds two: a starter trie for
-bases and symbols, and a separate modifier trie, because a base like `h~`
-(ɦ) shares its spelling with the aspiration modifier `h~` and only
-position tells them apart.
+## Code stability
 
-## Token stability
+A code is derived from the model, so it is stable as long as the bases,
+the axes, the marks and their sort order are. Adding a modifier or
+renaming a slot renumbers the space.
 
-`machine()` assigns each canonical sound one Hangul code point from
-`base/tokens.json`. That file is append-only: a code point is never
-renumbered once assigned, so tokens stay stable across releases. Any
-model or index built on them survives an upgrade.
-
-Regenerate it after adding a sound or modifier:
-
-```bash
-npx tsx code/make/tokens.ts
-```
-
-The build keeps every existing assignment and gives new sounds the next
-free code point. A run that adds nothing leaves the file byte for byte
-identical.
+`base/tokens.json` is a committed SNAPSHOT of every code, excluded from
+the published package. `test/tokens.test.ts` compares the live codes
+against it, so a renumbering shows up as a failing test rather than
+silently. When the change is intended, run `pnpm tokens` and commit the
+diff.
 
 ## Development
 
-The data in `base/` is copied from the shared source, so the source of
-truth stays in one place across every language port.
-
 ```bash
-pnpm copy:base   # populate base/ from the shared data
-pnpm build       # copy:base, then bundle to host/ (ESM and CJS)
-pnpm test        # run the suite
+pnpm install
+pnpm test          # 264 tests
+pnpm build         # bundles to host/
+pnpm tokens        # refresh the code snapshot
 ```
 
-The suite checks full chart coverage, one code point per sound, no code
-point assigned twice, round-trip stability, and syllabification parity.
+The shared data lives in the repo-root `base/`, and `pnpm copy:base`
+copies what the runtime reads into this package. Edit the shared copy, not
+this one.
 
 ## License
 
@@ -134,4 +160,4 @@ MIT
 
 ## ClueSurf
 
-Part of the [ClueSurf](https://clue.surf) toolset.
+Built by [ClueSurf](https://clue.surf).

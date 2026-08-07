@@ -4,7 +4,7 @@
 
 use std::collections::HashMap;
 
-use talk::{enumerate_sounds, machine};
+use talk::{Notation, Tier, enumerate_sounds, machine};
 
 #[test]
 fn encodes_each_sound_as_one_hangul_code_point() {
@@ -24,7 +24,7 @@ fn encodes_each_sound_as_one_hangul_code_point() {
   ];
 
   for (talk, want) in cases {
-    assert_eq!(machine(talk).len(), want, "machine({talk})");
+    assert_eq!(machine(talk, Notation::Tone, Tier::Mesh).len(), want, "machine({talk})");
   }
 }
 
@@ -34,7 +34,7 @@ fn distinct_enumerated_sounds_map_to_distinct_codes() {
   let mut collisions: Vec<String> = Vec::new();
 
   for sound in enumerate_sounds() {
-    let codes = machine(&sound.talk);
+    let codes = machine(&sound.talk, Notation::Tone, Tier::Mesh);
 
     let Some(&code) = codes.first() else {
       continue;
@@ -61,7 +61,7 @@ fn distinct_enumerated_sounds_map_to_distinct_codes() {
 fn every_enumerated_sound_encodes_to_exactly_one_code_point() {
   let bad: Vec<String> = enumerate_sounds()
     .into_iter()
-    .filter(|sound| machine(&sound.talk).len() != 1)
+    .filter(|sound| machine(&sound.talk, Notation::Tone, Tier::Mesh).len() != 1)
     .map(|sound| sound.talk)
     .collect();
 

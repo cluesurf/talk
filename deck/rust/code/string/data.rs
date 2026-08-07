@@ -2,7 +2,7 @@
 
 use std::sync::OnceLock;
 
-use crate::string::types::{Modifier, Phone, TokenEntry};
+use crate::string::types::{Modifier, Phone};
 
 macro_rules! dataset {
   ($name:ident, $item:ty, $file:literal) => {
@@ -19,4 +19,3 @@ macro_rules! dataset {
 
 dataset!(phones, Phone, "phones.json");
 dataset!(modifiers, Modifier, "modifiers.json");
-dataset!(token_entries, TokenEntry, "tokens.json");

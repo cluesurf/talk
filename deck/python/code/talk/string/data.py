@@ -6,7 +6,7 @@ import json
 from importlib.resources import files
 from typing import Any
 
-from .type import Attaches, Modifier, Phone, TokenEntry
+from .type import Attaches, Modifier, Phone
 
 
 def _load(name: str) -> Any:
@@ -60,6 +60,6 @@ def _modifier(d: dict[str, Any]) -> Modifier:
 
 phones: list[Phone] = [_phone(d) for d in _load("phones.json")]
 modifiers: list[Modifier] = [_modifier(d) for d in _load("modifiers.json")]
-token_entries: list[TokenEntry] = [
-    TokenEntry(talk=d["talk"], code=d["code"]) for d in _load("tokens.json")
-]
+# `base/tokens.json` is gone. Codes used to be assigned there, 91,332 of
+# them, which loaded 4.5MB for an answer the model can derive. `code_of`
+# in `space.codec` computes them instead.
