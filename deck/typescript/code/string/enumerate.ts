@@ -6,6 +6,21 @@ import { R } from './runtime'
 import { makeSound } from './sound'
 import type { Modifier, Phone, SoundInfo } from './type'
 
+/**
+ * The base phone inventory, one entry per talk spelling.
+ *
+ * Each phone carries its articulatory features (place / manner / voicing
+ * for consonants, height / backness / roundedness for vowels), which is
+ * what a caller needs to score two sounds by how much they share rather
+ * than by string equality.
+ *
+ * Bases only. The modifiers that attach to them are a separate axis, and
+ * `enumerateSounds` is the full cross of the two.
+ */
+export function enumeratePhones(): Phone[] {
+  return R.basePhones
+}
+
 function attaches(base: Phone, mod: Modifier): boolean {
   const a = mod.attaches
 

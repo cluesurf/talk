@@ -3,7 +3,8 @@
 import { combine } from './combine'
 import { R, nfd } from './runtime'
 import { segment } from './sound'
-import type { Modifier, Phone, Sound, SymbolEntry } from './type'
+import type { Trie } from '../trie'
+import type { Modifier, Phone, Sound, SymbolEntry, Unit } from './type'
 
 export function tokenize(text: string): Sound[] {
   return segment(text)
@@ -32,33 +33,37 @@ export function machineOutputs(text: string): string[] {
 }
 
 /**
- * One unit of parsed IPA: a sound, a passthrough symbol, or unknown input.
+ * One unit of parsed input: a sound, a passthrough symbol, or unknown
+ * text.
  *
- * `phone` carries the Phone matched from the IPA trie DIRECTLY, not one
+ * `base` carries the Phone matched from the source trie DIRECTLY, not one
  * recovered from a talk spelling. That distinction matters: talk is a
  * deliberately coarse encoding and several IPA vowels share a code
  * (`ɨ`, `y` and `ʏ` are all `i$`; six vowels are `O`). Going IPA → talk →
  * Phone therefore loses the exact vowel, while this keeps it.
  */
-export type IpaUnit =
+export type ParsedUnit =
   | { role: 'phone'; base: Phone; modifiers: Modifier[] }
   | { role: 'symbol'; symbol: SymbolEntry }
   | { role: 'unknown'; text: string }
 
 /**
- * Parse IPA into base sounds and their modifiers.
- *
- * `kʰ` is one unit: base `k` with the `aspirated` modifier. `iː` is base
- * `i` with `long`. This is what a caller needs to match IPA against a
- * catalog that stores base sounds and modifier flags separately, rather
- * than one row per composed symbol.
- *
- * Unknown input is carried through as `unknown` rather than dropped, so
- * the caller can see what failed instead of silently losing it.
+ * The name `parseIpa` has always returned. Kept because callers import it.
  */
-export function parseIpa(text: string): IpaUnit[] {
-  const input = nfd(text)
-  const out: IpaUnit[] = []
+export type IpaUnit = ParsedUnit
+
+/**
+ * Walk `input` against a unit trie, collecting bases with the modifiers
+ * that attach to them.
+ *
+ * Shared by every notation that spells affixes distinctly from bases (IPA
+ * and X-SAMPA both do), so the two scanners cannot drift apart. Talk
+ * itself needs its own scanner instead, because there a modifier like
+ * `h~` shares its spelling with a base and position decides which is
+ * meant.
+ */
+function scanUnits(input: string, trie: Trie<Unit>): ParsedUnit[] {
+  const out: ParsedUnit[] = []
 
   let base: Phone | null = null
   let mods: Modifier[] = []
@@ -76,7 +81,7 @@ export function parseIpa(text: string): IpaUnit[] {
   let i = 0
 
   while (i < input.length) {
-    const unit = R.ipaUnit.matchAt(input, i)
+    const unit = trie.matchAt(input, i)
 
     if (unit === undefined) {
       flush()
@@ -84,7 +89,7 @@ export function parseIpa(text: string): IpaUnit[] {
       continue
     }
 
-    i += R.ipaUnit.matchedLength
+    i += trie.matchedLength
 
     if (unit.role === 'phone') {
       // A base begins a new sound. A held stress mark belongs on the vowel
@@ -119,13 +124,10 @@ export function parseIpa(text: string): IpaUnit[] {
 }
 
 /**
- * IPA to talk spelling.
- *
- * The same walk as `parseIpa`, rendered. Kept as one scanner so the two
- * cannot drift.
+ * Render parsed units as talk.
  */
-export function ipaToTalk(text: string): string {
-  return parseIpa(text)
+export function unitsToTalk(units: ParsedUnit[]): string {
+  return units
     .map(unit => {
       if (unit.role === 'phone') {
         return combine(unit.base.talk, unit.modifiers)
@@ -133,5 +135,131 @@ export function ipaToTalk(text: string): string {
       if (unit.role === 'symbol') return unit.symbol.talk
       return unit.text
     })
+    .join('')
+}
+
+/**
+ * Parse IPA into base sounds and their modifiers.
+ *
+ * `kʰ` is one unit: base `k` with the `aspirated` modifier. `iː` is base
+ * `i` with `long`. This is what a caller needs to match IPA against a
+ * catalog that stores base sounds and modifier flags separately, rather
+ * than one row per composed symbol.
+ *
+ * Unknown input is carried through as `unknown` rather than dropped, so
+ * the caller can see what failed instead of silently losing it.
+ */
+export function parseIpa(text: string): ParsedUnit[] {
+  return scanUnits(nfd(text), R.ipaUnit)
+}
+
+/**
+ * IPA to talk spelling.
+ *
+ * The same walk as `parseIpa`, rendered. Kept as one scanner so the two
+ * cannot drift.
+ */
+export function ipaToTalk(text: string): string {
+  return unitsToTalk(parseIpa(text))
+}
+
+/**
+ * Parse X-SAMPA into base sounds and their modifiers.
+ *
+ * X-SAMPA is the ASCII transliteration of IPA, so this is the same walk
+ * as `parseIpa` over the X-SAMPA spellings carried on every phone and
+ * modifier. `k_h` is base `k` with `aspirated`, `i:` is base `i` with
+ * `long`.
+ *
+ * X-SAMPA claims the digits for vowels (`1` is ɨ, `9` is œ) and `?` for
+ * the glottal stop, so those are read as sounds here, never as the
+ * passthrough symbols the IPA scanner sees.
+ */
+export function parseXsampa(text: string): ParsedUnit[] {
+  return scanUnits(text, R.xsampaUnit)
+}
+
+/**
+ * X-SAMPA to talk spelling.
+ */
+export function xsampaToTalk(text: string): string {
+  return unitsToTalk(parseXsampa(text))
+}
+
+/**
+ * Spell one base plus its modifiers in a linear notation, prefixes first
+ * and suffixes after, both in the modifiers' declared order.
+ *
+ * This is the same construction `makeSound` uses for a sound's `ipa` and
+ * `simple` spellings, so a sound spells the same whether it was built
+ * from a base or recovered by a scanner.
+ */
+function spell(
+  base: Phone,
+  mods: Modifier[],
+  key: 'ipa' | 'xsampa',
+): string {
+  const ordered = [...mods].sort((a, b) => a.order - b.order)
+
+  return (
+    ordered
+      .filter(m => m.prefix)
+      .map(m => m[key])
+      .join('') +
+    base[key] +
+    ordered
+      .filter(m => !m.prefix)
+      .map(m => m[key])
+      .join('')
+  )
+}
+
+/**
+ * Render parsed units in a linear notation. Passthrough symbols carry
+ * their literal text, which is the same in both notations.
+ */
+function renderUnits(
+  units: ParsedUnit[],
+  key: 'ipa' | 'xsampa',
+): string {
+  return units
+    .map(unit => {
+      if (unit.role === 'phone') {
+        return spell(unit.base, unit.modifiers, key)
+      }
+      if (unit.role === 'symbol') return unit.symbol.ipa
+      return unit.text
+    })
+    .join('')
+}
+
+/**
+ * X-SAMPA to IPA.
+ */
+export function xsampaToIpa(text: string): string {
+  return renderUnits(parseXsampa(text), 'ipa')
+}
+
+/**
+ * IPA to X-SAMPA.
+ */
+export function ipaToXsampa(text: string): string {
+  return renderUnits(parseIpa(text), 'xsampa')
+}
+
+/**
+ * Talk to X-SAMPA.
+ *
+ * Built from the same segmentation as `talkToIpa`, rendering each sound's
+ * X-SAMPA spelling instead of its IPA one. Passthrough symbols carry
+ * their literal text.
+ */
+export function talkToXsampa(text: string): string {
+  return segment(text)
+    .map(sound =>
+      sound.base
+        ? spell(sound.base, sound.modifiers, 'xsampa')
+        : sound.ipa,
+    )
     .join('')
 }

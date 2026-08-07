@@ -7,14 +7,19 @@
 import { combine } from './string/combine'
 import {
   ipaToTalk,
+  ipaToXsampa,
   machine,
   machineOutputs,
   parseIpa,
+  parseXsampa,
   readable,
   talkToIpa,
+  talkToXsampa,
   tokenize,
+  xsampaToIpa,
+  xsampaToTalk,
 } from './string/convert'
-import { enumerateSounds } from './string/enumerate'
+import { enumeratePhones, enumerateSounds } from './string/enumerate'
 import { segment } from './string/sound'
 
 export type {
@@ -32,15 +37,20 @@ export type {
 export { combine } from './string/combine'
 export {
   ipaToTalk,
+  ipaToXsampa,
   machine,
   machineOutputs,
   parseIpa,
+  parseXsampa,
   readable,
   talkToIpa,
+  talkToXsampa,
   tokenize,
+  xsampaToIpa,
+  xsampaToTalk,
 } from './string/convert'
-export type { IpaUnit } from './string/convert'
-export { enumerateSounds } from './string/enumerate'
+export type { IpaUnit, ParsedUnit } from './string/convert'
+export { enumeratePhones, enumerateSounds } from './string/enumerate'
 export { segment } from './string/sound'
 export { syllables } from './syllable'
 export type { Syllable, Cluster } from './syllable'
@@ -51,6 +61,11 @@ const talk = {
   ipaToTalk,
   parseIpa,
   talkToIpa,
+  ipaToXsampa,
+  parseXsampa,
+  talkToXsampa,
+  xsampaToIpa,
+  xsampaToTalk,
   tokenize,
   readable,
   machine,
@@ -58,6 +73,7 @@ const talk = {
   segment,
   syllables,
   combine,
+  enumeratePhones,
   enumerateSounds,
 }
 

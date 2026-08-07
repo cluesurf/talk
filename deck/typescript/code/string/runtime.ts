@@ -7,6 +7,9 @@ import type { Modifier, Phone, SymbolEntry, Unit } from './type'
 
 export type Runtime = {
   symbols: SymbolEntry[]
+  // One phone per talk spelling: the base inventory a talk string can
+  // decompose into, with the articulatory features each base carries.
+  basePhones: Phone[]
   consonantModifiers: Modifier[]
   vowelModifiers: Modifier[]
   // Sound starters (a base or a symbol), keyed by talk.
@@ -18,6 +21,12 @@ export type Runtime = {
   // Every unit keyed by IPA. IPA has no base/affix spelling clash, so one
   // trie scans the whole string.
   ipaUnit: Trie<Unit>
+  // Every unit keyed by X-SAMPA. Like IPA, X-SAMPA spells affixes
+  // distinctly from bases (`_h`, `_>`, `:`), so one trie scans the whole
+  // string. Symbols are only included where X-SAMPA has not already
+  // claimed the spelling for a sound: the digits are vowels there (`1` is
+  // ɨ, `9` is œ) and `?` is the glottal stop.
+  xsampaUnit: Trie<Unit>
   machineByTalk: Map<string, string>
 }
 
@@ -68,9 +77,11 @@ function pickRepresentatives(): Phone[] {
 function bootstrap(): Runtime {
   const symbols = buildSymbols()
 
+  const basePhones = pickRepresentatives()
+
   const starter = new TrieBuilder<Unit>()
 
-  for (const phone of pickRepresentatives()) {
+  for (const phone of basePhones) {
     starter.add(phone.talk, { role: 'phone', phone })
   }
 
@@ -94,6 +105,27 @@ function bootstrap(): Runtime {
     ipa.add(nfd(symbol.ipa), { role: 'symbol', symbol })
   }
 
+  const xsampa = new TrieBuilder<Unit>()
+  const claimed = new Set<string>()
+
+  for (const phone of phones) {
+    xsampa.add(phone.xsampa, { role: 'phone', phone })
+    claimed.add(phone.xsampa)
+  }
+
+  for (const modifier of modifiers) {
+    if (modifier.xsampa) {
+      xsampa.add(modifier.xsampa, { role: 'modifier', modifier })
+      claimed.add(modifier.xsampa)
+    }
+  }
+
+  for (const symbol of symbols) {
+    if (!claimed.has(symbol.ipa)) {
+      xsampa.add(symbol.ipa, { role: 'symbol', symbol })
+    }
+  }
+
   const machineByTalk = new Map<string, string>()
 
   for (const entry of tokenEntries) {
@@ -102,6 +134,7 @@ function bootstrap(): Runtime {
 
   return {
     symbols,
+    basePhones,
     consonantModifiers: modifiers.filter(m => m.base === 'consonant'),
     vowelModifiers: modifiers.filter(m => m.base === 'vowel'),
     talkStarter: starter.build(),
@@ -109,6 +142,7 @@ function bootstrap(): Runtime {
       modifiers.map(m => [m.talk, m] as [string, Modifier]),
     ),
     ipaUnit: ipa.build(),
+    xsampaUnit: xsampa.build(),
     machineByTalk,
   }
 }
