@@ -7,7 +7,7 @@
 <br/>
 
 <p align='center'>
-  <img src='https://github.com/cluesurf/talk/blob/make/view/star.svg?raw=true' height='192'>
+  <img src='https://github.com/cluesurf/talk/blob/make/view/talk.svg?raw=true' height='160'>
 </p>
 
 <h3 align='center'>
