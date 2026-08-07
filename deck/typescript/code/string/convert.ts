@@ -1,9 +1,11 @@
 // The public conversions.
 
 import { combine } from './combine'
-import { R, nfd } from './runtime'
+import { normalizeIpa } from './normalize'
+import { R, modifierAttaches } from './runtime'
 import { segment } from './sound'
 import type { Trie } from '../trie'
+import { CODE_LIMIT } from './type'
 import type { Modifier, Phone, Sound, SymbolEntry, Unit } from './type'
 
 export function tokenize(text: string): Sound[] {
@@ -22,14 +24,112 @@ export function readable(text: string): string {
     .join('')
 }
 
-export function machine(text: string): string {
-  return segment(text)
-    .map(s => s.machine)
-    .join('')
+/**
+ * Encode as machine codes, one 24-bit integer per sound.
+ *
+ * This is the form a model consumes: a fixed-width code per effective
+ * sound rather than per character, so a word is as many tokens as it has
+ * sounds.
+ *
+ * A sound outside the enumerated inventory yields `NO_CODE`, so the array
+ * always has one entry per sound and a caller can see what failed instead
+ * of silently losing a position.
+ */
+export function machine(text: string): number[] {
+  return segment(text).map(s => s.machine)
 }
 
-export function machineOutputs(text: string): string[] {
-  return segment(text).map(s => s.machine)
+/**
+ * Encode as machine codes packed to three bytes each, big-endian.
+ *
+ * The byte form is what goes on the wire or into a fixed-width index. A
+ * code is 24 bits by construction, so the buffer is exactly three times
+ * the sound count with no framing or length prefix needed.
+ *
+ * `NO_CODE` has no three-byte form, so an unassigned sound is written as
+ * `CODE_LIMIT`, the one code the generator never assigns.
+ */
+export function machineBytes(text: string): Uint8Array {
+  const codes = machine(text)
+  const out = new Uint8Array(codes.length * 3)
+
+  for (let i = 0; i < codes.length; i++) {
+    const code = codes[i]! < 0 ? CODE_LIMIT : codes[i]!
+
+    out[i * 3] = (code >> 16) & 0xff
+    out[i * 3 + 1] = (code >> 8) & 0xff
+    out[i * 3 + 2] = code & 0xff
+  }
+
+  return out
+}
+
+/**
+ * The block machine text encodes into: 4,096 contiguous CJK ideographs
+ * starting at U+4E00. Chosen because it is printable, has no control
+ * characters, no combining marks, and no case folding, so a database can
+ * hold it in an ordinary text column and index it with trigrams.
+ */
+const TEXT_BASE = 0x4e00
+
+/** Half of 24 bits, so each code becomes exactly two characters. */
+const TEXT_SHIFT = 12
+const TEXT_MASK = 0xfff
+
+/**
+ * Encode as machine text: two characters per sound, fixed width.
+ *
+ * The array form is what a model consumes; this is what a text index
+ * consumes. A fixed width per sound is what makes prefix and substring
+ * search meaningful, since a match on a character boundary is always a
+ * match on a sound boundary.
+ *
+ * Two characters rather than one because 24 bits do not fit in a single
+ * BMP code point, and an astral one would be two UTF-16 units anyway.
+ */
+export function machineText(text: string): string {
+  const out: string[] = []
+
+  for (const raw of machine(text)) {
+    const code = raw < 0 ? CODE_LIMIT : raw
+
+    out.push(
+      String.fromCodePoint(TEXT_BASE + ((code >> TEXT_SHIFT) & TEXT_MASK)),
+      String.fromCodePoint(TEXT_BASE + (code & TEXT_MASK)),
+    )
+  }
+
+  return out.join('')
+}
+
+/**
+ * Decode machine text back into machine codes.
+ */
+export function machineTextCodes(text: string): number[] {
+  const out: number[] = []
+  const points = [...text]
+
+  for (let i = 0; i + 1 < points.length; i += 2) {
+    const high = points[i]!.codePointAt(0)! - TEXT_BASE
+    const low = points[i + 1]!.codePointAt(0)! - TEXT_BASE
+
+    out.push((high << TEXT_SHIFT) | low)
+  }
+
+  return out
+}
+
+/**
+ * Decode a three-byte-per-code buffer back into machine codes.
+ */
+export function machineCodes(bytes: Uint8Array): number[] {
+  const out: number[] = []
+
+  for (let i = 0; i + 2 < bytes.length; i += 3) {
+    out.push((bytes[i]! << 16) | (bytes[i + 1]! << 8) | bytes[i + 2]!)
+  }
+
+  return out
 }
 
 /**
@@ -43,7 +143,7 @@ export function machineOutputs(text: string): string[] {
  * Phone therefore loses the exact vowel, while this keeps it.
  */
 export type ParsedUnit =
-  | { role: 'phone'; base: Phone; modifiers: Modifier[] }
+  | { role: 'phone'; base: Phone; modifiers: Modifier[]; pre: Modifier[] }
   | { role: 'symbol'; symbol: SymbolEntry }
   | { role: 'unknown'; text: string }
 
@@ -67,15 +167,18 @@ function scanUnits(input: string, trie: Trie<Unit>): ParsedUnit[] {
 
   let base: Phone | null = null
   let mods: Modifier[] = []
+  let pre: Modifier[] = []
   let pending: Modifier[] = [] // prefix modifiers waiting for a base
+  let leading: Modifier[] = [] // pre-modifiers waiting for a base
 
   const flush = () => {
     if (base) {
-      out.push({ role: 'phone', base, modifiers: mods })
+      out.push({ role: 'phone', base, modifiers: mods, pre })
     }
 
     base = null
     mods = []
+    pre = []
   }
 
   let i = 0
@@ -85,7 +188,7 @@ function scanUnits(input: string, trie: Trie<Unit>): ParsedUnit[] {
 
     if (unit === undefined) {
       flush()
-      out.push({ role: 'unknown', text: input[i++]! })
+      out.push({ role: 'unknown', text: input[i++] })
       continue
     }
 
@@ -98,6 +201,9 @@ function scanUnits(input: string, trie: Trie<Unit>): ParsedUnit[] {
       flush()
       base = unit.phone
 
+      pre = leading
+      leading = []
+
       if (base.form === 'vowel') {
         mods = pending
         pending = []
@@ -109,8 +215,21 @@ function scanUnits(input: string, trie: Trie<Unit>): ParsedUnit[] {
         // Attaches to the following base (stress precedes the vowel).
         flush()
         pending.push(unit.modifier)
-      } else if (base) {
+      } else if (
+        base &&
+        (modifierAttaches(base, unit.modifier) ||
+          // Attachment breaks a tie rather than rejecting: without a base
+          // ahead that can carry the mark, it stays here. Otherwise a
+          // phone with incomplete features would lose marks it really has.
+          trie.matchAt(input, i)?.role !== 'phone')
+      ) {
         mods.push(unit.modifier)
+      } else {
+        // Either nothing precedes it, or what precedes it cannot carry it.
+        // Both mean the mark belongs to what FOLLOWS: `ʰk` is
+        // pre-aspirated, `ⁿd` prenasalized, and `aʰk` is `a` then `ʰk`
+        // because a vowel takes no aspiration.
+        leading.push(unit.modifier)
       }
     } else {
       flush()
@@ -130,9 +249,13 @@ export function unitsToTalk(units: ParsedUnit[]): string {
   return units
     .map(unit => {
       if (unit.role === 'phone') {
-        return combine(unit.base.talk, unit.modifiers)
+        return combine(unit.base.talk, unit.modifiers, unit.pre)
       }
-      if (unit.role === 'symbol') return unit.symbol.talk
+
+      if (unit.role === 'symbol') {
+        return unit.symbol.talk
+      }
+
       return unit.text
     })
     .join('')
@@ -150,7 +273,7 @@ export function unitsToTalk(units: ParsedUnit[]): string {
  * the caller can see what failed instead of silently losing it.
  */
 export function parseIpa(text: string): ParsedUnit[] {
-  return scanUnits(nfd(text), R.ipaUnit)
+  return scanUnits(normalizeIpa(text), R.ipaUnit)
 }
 
 /**
@@ -198,10 +321,13 @@ function spell(
   base: Phone,
   mods: Modifier[],
   key: 'ipa' | 'xsampa',
+  pre: Modifier[] = [],
 ): string {
   const ordered = [...mods].sort((a, b) => a.order - b.order)
+  const leading = [...pre].sort((a, b) => b.order - a.order)
 
   return (
+    leading.map(m => m[key]).join('') +
     ordered
       .filter(m => m.prefix)
       .map(m => m[key])
@@ -225,9 +351,13 @@ function renderUnits(
   return units
     .map(unit => {
       if (unit.role === 'phone') {
-        return spell(unit.base, unit.modifiers, key)
+        return spell(unit.base, unit.modifiers, key, unit.pre)
       }
-      if (unit.role === 'symbol') return unit.symbol.ipa
+
+      if (unit.role === 'symbol') {
+        return unit.symbol.ipa
+      }
+
       return unit.text
     })
     .join('')
@@ -258,7 +388,7 @@ export function talkToXsampa(text: string): string {
   return segment(text)
     .map(sound =>
       sound.base
-        ? spell(sound.base, sound.modifiers, 'xsampa')
+        ? spell(sound.base, sound.modifiers, 'xsampa', sound.pre)
         : sound.ipa,
     )
     .join('')

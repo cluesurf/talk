@@ -2,18 +2,22 @@ use std::sync::OnceLock;
 
 use crate::string::types::SymbolEntry;
 
-/// Non-phonetic sounds carried through unchanged. The `=` escape lets a
-/// literal symbol be written in talk (`=.` is a period).
+/// Non-phonetic sounds carried through unchanged. The `\` escape lets a
+/// literal symbol be written in talk (`\.` is a period), the same escape
+/// character every other notation uses for the job.
 pub fn symbols() -> &'static [SymbolEntry] {
   static CELL: OnceLock<Vec<SymbolEntry>> = OnceLock::new();
 
   CELL.get_or_init(|| {
-    let mut symbols: Vec<SymbolEntry> = ["=.", "=?", "=!", "=+", "=-", " "]
+    let mut symbols: Vec<SymbolEntry> = [
+      "\\.", "\\?", "\\!", "\\+", "\\-", "\\*", "\\@", "\\$", "\\~", "\\_", "\\^",
+      "\\\\", " ",
+    ]
       .into_iter()
       .map(|talk| {
         // Every escape spells the character it escapes, and the space
         // spells itself.
-        let plain = talk.trim_start_matches('=');
+        let plain = talk.strip_prefix('\\').unwrap_or(talk);
 
         SymbolEntry {
           talk: talk.to_string(),

@@ -13,18 +13,24 @@ pub enum Kind {
 }
 
 /// The two phonetic forms. `Kind` adds `Symbol` on top of these.
+///
+/// `Any` is only ever a MODIFIER's base, never a phone's: it marks a feature
+/// that is not about articulation and so attaches to either form. Length and
+/// stress are the two, `b_` being a geminate and `b^` a stressed onset.
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Deserialize)]
 #[serde(rename_all = "lowercase")]
 pub enum Form {
   Consonant,
   Vowel,
+  Any,
 }
 
 impl From<Form> for Kind {
   fn from(form: Form) -> Kind {
     match form {
       Form::Consonant => Kind::Consonant,
-      Form::Vowel => Kind::Vowel,
+      // A sound's form is never `Any`; only a modifier's base is.
+      Form::Vowel | Form::Any => Kind::Vowel,
     }
   }
 }
@@ -85,10 +91,14 @@ pub struct Sound {
   pub talk: String,
   pub ipa: String,
   pub simple: String,
-  pub machine: String,
+  pub machine: i64,
   pub kind: Kind,
   pub base: Option<&'static Phone>,
   pub modifiers: Vec<&'static Modifier>,
+  /// Modifiers preceding the base: pre-aspiration, prenasalization and the
+  /// like. Kept apart from `modifiers` because position carries meaning,
+  /// `ʰk` and `kʰ` being different sounds.
+  pub pre: Vec<&'static Modifier>,
   pub raw: bool,
 }
 
@@ -127,12 +137,21 @@ pub struct SoundInfo {
   pub kind: Kind,
 }
 
-/// A frozen talk-sound to Hangul code point (token) assignment.
+/// A frozen talk-sound to machine code assignment. The code is a 24-bit
+/// integer, so it serializes to exactly three bytes.
 #[derive(Debug, Clone, Deserialize)]
 pub struct TokenEntry {
   pub talk: String,
-  pub token: String,
+  pub code: i64,
 }
+
+/// The machine code space: 24 bits, so every code serializes to exactly three
+/// bytes and the inventory has room to grow by two orders of magnitude.
+pub const CODE_LIMIT: i64 = 0xff_ffff;
+
+/// The code for a sound with no assignment, which is anything outside the
+/// enumerated inventory. Distinct from code 0, which is a real sound.
+pub const NO_CODE: i64 = -1;
 
 /// A unit the scanner can match: a base sound, an affix, or a passthrough
 /// symbol.

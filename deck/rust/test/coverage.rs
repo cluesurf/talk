@@ -20,16 +20,23 @@ fn column(raw: &str) -> Vec<&str> {
     .collect()
 }
 
+/// The ring above and the ring below are the same feature; `normalize_ipa`
+/// folds them onto the ring below and phones.json now stores that form, while
+/// the charts still write the ring above where a descender needs it.
+fn fold(text: &str) -> String {
+  nfd(text).replace('\u{030a}', "\u{0325}")
+}
+
 fn supported() -> HashSet<String> {
   phones()
     .iter()
     .filter(|phone| !phone.provisional)
-    .map(|phone| nfd(&phone.ipa))
+    .map(|phone| fold(&phone.ipa))
     .collect()
 }
 
 fn is_supported(symbol: &str) -> bool {
-  supported().contains(&nfd(symbol))
+  supported().contains(&fold(symbol))
 }
 
 fn consonants() -> Vec<&'static str> {

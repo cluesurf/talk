@@ -1,7 +1,7 @@
 [
   {
     "ipa": "̪",
-    "talk": "~",
+    "talk": "$",
     "xsampa": "_d",
     "simple": "",
     "base": "consonant",
@@ -9,7 +9,10 @@
     "slot": "articulation",
     "order": 10,
     "attaches": {
-      "place": ["dental", "alveolar"]
+      "place": [
+        "dental",
+        "alveolar"
+      ]
     }
   },
   {
@@ -22,7 +25,11 @@
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "notPlace": ["palatal", "pharyngeal-epiglottal", "glottal"]
+      "notPlace": [
+        "palatal",
+        "pharyngeal-epiglottal",
+        "glottal"
+      ]
     }
   },
   {
@@ -35,8 +42,14 @@
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "place": ["dental", "alveolar"],
-      "notPlace": ["pharyngeal-epiglottal", "glottal"]
+      "place": [
+        "dental",
+        "alveolar"
+      ],
+      "notPlace": [
+        "pharyngeal-epiglottal",
+        "glottal"
+      ]
     }
   },
   {
@@ -49,8 +62,14 @@
     "slot": "tongue-body",
     "order": 20,
     "attaches": {
-      "place": ["dental", "alveolar"],
-      "notPlace": ["pharyngeal-epiglottal", "glottal"]
+      "place": [
+        "dental",
+        "alveolar"
+      ],
+      "notPlace": [
+        "pharyngeal-epiglottal",
+        "glottal"
+      ]
     }
   },
   {
@@ -81,8 +100,17 @@
     "slot": "laryngeal",
     "order": 40,
     "attaches": {
-      "manner": ["plosive"],
-      "notPlace": ["glottal"]
+      "manner": [
+        "plosive",
+        "affricate",
+        "fricative",
+        "sibilant-fricative",
+        "non-sibilant-fricative",
+        "lateral-fricative"
+      ],
+      "notPlace": [
+        "glottal"
+      ]
     }
   },
   {
@@ -102,8 +130,12 @@
         "non-sibilant-fricative",
         "lateral-fricative"
       ],
-      "voicing": ["voiceless"],
-      "notPlace": ["glottal"]
+      "voicing": [
+        "voiceless"
+      ],
+      "notPlace": [
+        "glottal"
+      ]
     }
   },
   {
@@ -125,12 +157,14 @@
         "lateral-approximant",
         "lateral-tap-flap"
       ],
-      "voicing": ["voiced"]
+      "voicing": [
+        "voiced"
+      ]
     }
   },
   {
     "ipa": "̃",
-    "talk": "&",
+    "talk": "~",
     "xsampa": "_~",
     "simple": "̃",
     "base": "vowel",
@@ -193,7 +227,7 @@
     "talk": "_",
     "xsampa": ":",
     "simple": "ː",
-    "base": "vowel",
+    "base": "any",
     "feature": "long",
     "slot": "duration",
     "order": 18
@@ -203,10 +237,132 @@
     "talk": "^",
     "xsampa": "\"",
     "simple": "ˈ",
-    "base": "vowel",
+    "base": "any",
     "feature": "stress",
     "slot": "stress",
     "order": 22,
     "prefix": true
+  },
+  {
+    "ipa": "ⁿ",
+    "talk": "n~",
+    "xsampa": "_n",
+    "simple": "ⁿ",
+    "base": "consonant",
+    "feature": "nasal-release",
+    "slot": "release",
+    "order": 42,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ]
+    }
+  },
+  {
+    "ipa": "ˡ",
+    "talk": "l~",
+    "xsampa": "_l",
+    "simple": "ˡ",
+    "base": "consonant",
+    "feature": "lateral-release",
+    "slot": "release",
+    "order": 42,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ],
+      "place": [
+        "dental",
+        "alveolar",
+        "postalveolar",
+        "retroflex"
+      ]
+    }
+  },
+  {
+    "ipa": "ᶣ",
+    "talk": "y$~",
+    "xsampa": "_jw",
+    "simple": "ᶣ",
+    "base": "consonant",
+    "feature": "labial-palatalized",
+    "slot": "tongue-body",
+    "order": 20,
+    "attaches": {
+      "notPlace": [
+        "bilabial",
+        "palatal",
+        "pharyngeal-epiglottal",
+        "glottal",
+        "labial-velar",
+        "labial-palatal"
+      ]
+    }
+  },
+  {
+    "ipa": "ˀ",
+    "talk": "g~",
+    "xsampa": "_?",
+    "simple": "ˀ",
+    "base": "consonant",
+    "feature": "glottalized",
+    "slot": "laryngeal",
+    "order": 40,
+    "attaches": {
+      "notPlace": [
+        "glottal"
+      ]
+    }
+  },
+  {
+    "ipa": "̩",
+    "talk": "@",
+    "xsampa": "=",
+    "simple": "̩",
+    "base": "consonant",
+    "feature": "syllabic",
+    "slot": "syllabicity",
+    "order": 14,
+    "attaches": {
+      "manner": [
+        "nasal",
+        "approximant",
+        "fricative-approximant",
+        "trill",
+        "tap-flap",
+        "lateral-approximant",
+        "lateral-tap-flap"
+      ]
+    }
+  },
+  {
+    "ipa": "ˑ",
+    "talk": "_!",
+    "xsampa": ":\\",
+    "simple": "ˑ",
+    "base": "any",
+    "feature": "half-long",
+    "slot": "duration",
+    "order": 18
+  },
+  {
+    "ipa": "̆",
+    "talk": "!!",
+    "xsampa": "_X",
+    "simple": "̆",
+    "base": "any",
+    "feature": "extra-short",
+    "slot": "duration",
+    "order": 18
+  },
+  {
+    "ipa": "˧",
+    "talk": "*",
+    "xsampa": "_M",
+    "simple": "˧",
+    "base": "vowel",
+    "feature": "mid-tone",
+    "slot": "tone",
+    "order": 16
   }
 ]

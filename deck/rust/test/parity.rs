@@ -12,7 +12,7 @@ use serde::Deserialize;
 use talk::syllable::syllable::{Segment, SegmentKind, Tone};
 use talk::syllable::syllables;
 use talk::{
-  enumerate_sounds, ipa_to_talk, machine, machine_outputs, readable, segment, talk_to_ipa, Cluster,
+  enumerate_sounds, ipa_to_talk, machine, readable, segment, talk_to_ipa, Cluster,
   Sound,
 };
 
@@ -39,7 +39,7 @@ struct SoundShape {
   talk: String,
   ipa: String,
   simple: String,
-  machine: String,
+  machine: i64,
   kind: String,
   base: Option<String>,
   modifiers: Vec<String>,
@@ -54,9 +54,7 @@ struct ConvertCase {
   #[serde(rename = "talkToIpa")]
   talk_to_ipa: String,
   readable: String,
-  machine: String,
-  #[serde(rename = "machineOutputs")]
-  machine_outputs: Vec<String>,
+  machine: Vec<i64>,
 }
 
 #[derive(Deserialize)]
@@ -121,7 +119,7 @@ fn sound_shape(sound: &Sound) -> SoundShape {
     talk: sound.talk.clone(),
     ipa: sound.ipa.clone(),
     simple: sound.simple.clone(),
-    machine: sound.machine.clone(),
+    machine: sound.machine,
     kind: sound.kind.as_str().to_string(),
     base: sound.base.map(|phone| phone.talk.clone()),
     modifiers: sound
@@ -228,8 +226,7 @@ fn astral_passthrough_returns_one_whole_character() {
 
   assert_eq!(talk_to_ipa(astral), astral);
   assert_eq!(readable(astral), astral);
-  assert_eq!(machine(astral), "");
-  assert_eq!(machine_outputs(astral), vec![String::new()]);
+  assert_eq!(machine(astral), vec![talk::NO_CODE]);
 
   assert!(
     syllables(astral).is_err(),
@@ -276,9 +273,9 @@ fn conversions_match_the_typescript_build() {
       case.input
     );
     assert_eq!(
-      machine_outputs(&case.input),
-      case.machine_outputs,
-      "machine_outputs({:?})",
+      machine(&case.input),
+      case.machine,
+      "machine({:?})",
       case.input
     );
   }

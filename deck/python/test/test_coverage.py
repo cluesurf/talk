@@ -26,7 +26,10 @@ def _column(name):
 
 
 def _nfd(text):
-    return unicodedata.normalize("NFD", text)
+    # The ring above and the ring below are the same feature; normalize_ipa
+    # folds them onto the ring below and phones.json now stores that form,
+    # while the charts still write the ring above where a descender needs it.
+    return unicodedata.normalize("NFD", text).replace("\u030a", "\u0325")
 
 
 PHONES = json.loads((files("talk") / "base" / "phones.json").read_text("utf-8"))

@@ -2,7 +2,7 @@ import pytest
 
 from talk import enumerate_sounds, machine
 
-# Ported from the v1 machine suite. The Hangul encoding maps each talk sound
+# Ported from the v1 machine suite. The machine encoding maps each talk sound
 # to one code point, and the encoding is both total (every sound has a glyph)
 # and injective (distinct sounds never collide).
 
@@ -23,13 +23,14 @@ def test_encodes_one_code_point_per_sound(talk_text, length):
     assert len(machine(talk_text)) == length
 
 
-def test_distinct_enumerated_sounds_map_to_distinct_hangul():
+def test_distinct_enumerated_sounds_map_to_distinct_codes():
     by_hangul = {}
     collisions = []
     for sound in enumerate_sounds():
-        hangul = machine(sound.talk)
-        if not hangul:
+        codes = machine(sound.talk)
+        if not codes or codes[0] < 0:
             continue
+        hangul = codes[0]
         prior = by_hangul.get(hangul)
         if prior is not None and prior != sound.talk:
             collisions.append(f"{prior} and {sound.talk} both -> {hangul}")

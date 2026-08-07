@@ -4,6 +4,7 @@ import talk, {
   enumerateSounds,
   ipaToTalk,
   machine,
+  normalizeIpa,
   readable,
   segment,
   talkToIpa,
@@ -12,7 +13,7 @@ import PHONES from '../base/phones.json'
 import MACHINE from '../base/tokens.json'
 
 const phones = PHONES as { ipa: string; talk: string }[]
-const sounds = MACHINE as { talk: string; token: string }[]
+const sounds = MACHINE as { talk: string; code: number }[]
 
 describe('coverage', () => {
   it('maps every chart symbol to a talk spelling', () => {
@@ -25,6 +26,14 @@ describe('coverage', () => {
     const drift: string[] = []
 
     for (const p of phones) {
+      // A phone distinguished ONLY by a mark this encoding drops (the
+      // raised `˔` on `ɹ̠˔`, `̝` on `ʟ̝`) collapses onto its plain base by
+      // design, so it has no talk spelling of its own to come back to.
+      // `normalizeIpa` changing the string is exactly that condition.
+      if (normalizeIpa(p.ipa) !== p.ipa.normalize('NFD')) {
+        continue
+      }
+
       const t = ipaToTalk(p.ipa)
 
       if (t !== p.talk) {
@@ -61,16 +70,16 @@ describe('machine encoding', () => {
     expect(bad).toEqual([])
   })
 
-  it('never assigns the same code point twice', () => {
-    const seen = new Set<string>()
+  it('never assigns the same code twice', () => {
+    const seen = new Set<number>()
     const dupes: string[] = []
 
     for (const s of sounds) {
-      if (seen.has(s.token)) {
+      if (seen.has(s.code)) {
         dupes.push(s.talk)
       }
 
-      seen.add(s.token)
+      seen.add(s.code)
     }
 
     expect(dupes).toEqual([])
@@ -111,6 +120,6 @@ describe('api', () => {
   })
 
   it('carries symbols and numerals through', () => {
-    expect(readable('=. 7')).toBe('. 7')
+    expect(readable('\\. 7')).toBe('. 7')
   })
 })

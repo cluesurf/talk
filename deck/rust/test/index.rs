@@ -1,7 +1,8 @@
 use std::collections::HashSet;
 
 use talk::string::data::{phones, token_entries};
-use talk::{enumerate_sounds, ipa_to_talk, machine, readable, segment, talk_to_ipa, Kind};
+use talk::string::runtime::nfd;
+use talk::{enumerate_sounds, normalize_ipa, ipa_to_talk, machine, readable, segment, talk_to_ipa, Kind};
 
 // ─── coverage ────────────────────────────────────────────────────────────────
 
@@ -10,6 +11,14 @@ fn maps_every_phone_ipa_back_to_its_own_talk_spelling() {
   let drift: Vec<String> = phones()
     .iter()
     .filter_map(|phone| {
+      // A phone distinguished ONLY by a mark this encoding drops (the raised
+      // `˔` on `ɹ̠˔`, `̝` on `ʟ̝`) collapses onto its plain base by design, so
+      // it has no talk spelling of its own to come back to. `normalize_ipa`
+      // changing the string is exactly that condition.
+      if normalize_ipa(&phone.ipa) != nfd(&phone.ipa) {
+        return None;
+      }
+
       let got = ipa_to_talk(&phone.ipa);
 
       (got != phone.talk).then(|| format!("{}: {got} != {}", phone.ipa, phone.talk))
@@ -25,7 +34,7 @@ fn maps_every_phone_ipa_back_to_its_own_talk_spelling() {
 fn gives_exactly_one_code_point_per_phone() {
   let bad: Vec<&str> = phones()
     .iter()
-    .filter(|phone| machine(&phone.talk).chars().count() != 1)
+    .filter(|phone| machine(&phone.talk).len() != 1)
     .map(|phone| phone.talk.as_str())
     .collect();
 
@@ -36,7 +45,7 @@ fn gives_exactly_one_code_point_per_phone() {
 fn gives_exactly_one_code_point_per_enumerated_sound() {
   let bad: Vec<String> = enumerate_sounds()
     .into_iter()
-    .filter(|sound| machine(&sound.talk).chars().count() != 1)
+    .filter(|sound| machine(&sound.talk).len() != 1)
     .map(|sound| sound.talk)
     .collect();
 
@@ -45,10 +54,10 @@ fn gives_exactly_one_code_point_per_enumerated_sound() {
 
 #[test]
 fn never_assigns_the_same_code_point_twice() {
-  let mut seen: HashSet<&str> = HashSet::new();
+  let mut seen: HashSet<i64> = HashSet::new();
   let dupes: Vec<&str> = token_entries()
     .iter()
-    .filter(|entry| !seen.insert(entry.token.as_str()))
+    .filter(|entry| !seen.insert(entry.code))
     .map(|entry| entry.talk.as_str())
     .collect();
 
@@ -80,7 +89,7 @@ fn exposes_the_conversions_at_the_crate_root() {
   assert_eq!(ipa_to_talk("tʰ"), "th~");
   assert_eq!(talk_to_ipa("th~"), "tʰ");
   assert_eq!(readable("th~"), "tʰ");
-  assert_eq!(machine("th~").chars().count(), 1);
+  assert_eq!(machine("th~").len(), 1);
 }
 
 #[test]
@@ -101,6 +110,6 @@ fn tokenizes_into_sounds_with_features() {
 
 #[test]
 fn carries_symbols_and_numerals_through() {
-  assert_eq!(readable("=. 7"), ". 7");
-  assert_eq!(segment("=. 7")[0].kind, Kind::Symbol);
+  assert_eq!(readable("\\. 7"), ". 7");
+  assert_eq!(segment("\\. 7")[0].kind, Kind::Symbol);
 }

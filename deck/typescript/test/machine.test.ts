@@ -25,23 +25,23 @@ describe('machine encoding is one Hangul code point per sound', () => {
 })
 
 describe('machine encoding is injective', () => {
-  it('distinct enumerated sounds map to distinct Hangul', () => {
-    const byHangul = new Map<string, string>()
+  it('distinct enumerated sounds map to distinct codes', () => {
+    const byCode = new Map<number, string>()
     const collisions: string[] = []
 
     for (const sound of enumerateSounds()) {
-      const hangul = machine(sound.talk)
+      const [code] = machine(sound.talk)
 
-      if (!hangul) {
+      if (code === undefined || code < 0) {
         continue
       }
 
-      const prior = byHangul.get(hangul)
+      const prior = byCode.get(code)
 
       if (prior !== undefined && prior !== sound.talk) {
-        collisions.push(`${prior} and ${sound.talk} both -> ${hangul}`)
+        collisions.push(`${prior} and ${sound.talk} both -> ${code}`)
       } else {
-        byHangul.set(hangul, sound.talk)
+        byCode.set(code, sound.talk)
       }
     }
 

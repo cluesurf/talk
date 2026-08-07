@@ -23,7 +23,11 @@ function column(file: string): string[] {
     .filter(Boolean)
 }
 
-const nfd = (text: string) => text.normalize('NFD')
+// The ring above and the ring below are the same feature; `normalizeIpa`
+// folds them onto the ring below and phones.json now stores that form,
+// while the charts still write the ring above where a descender needs it.
+const nfd = (text: string) =>
+  text.normalize('NFD').split('\u030a').join('\u0325')
 const supported = new Set(
   (PHONES as { ipa: string; provisional?: boolean }[])
     .filter(p => !p.provisional)

@@ -87,11 +87,7 @@ export type SpaceToken = {
 }
 
 export type Token =
-  | ConsonantToken
-  | VowelToken
-  | SymbolToken
-  | NumeralToken
-  | SpaceToken
+  ConsonantToken | VowelToken | SymbolToken | NumeralToken | SpaceToken
 
 // ─── Constants ──────────────────────────────────────────
 
@@ -155,13 +151,20 @@ const TONE_MAP: Record<string, Tone> = {
   '\\/': 'falling-rising',
 }
 
+/** Symbols the `\\` escape can introduce, so a backslash before one of
+    them is an escape rather than the falling-tone mark. */
+const ESCAPABLE = new Set([
+  '.', '?', '!', '+', '-', '*', '@', '$', '~', '_', '^',
+])
+
 /** Two-char tone prefixes, checked before single-char. */
 const TWO_CHAR_TONES = new Set(['++', '--', '//', '\\\\', '/\\', '\\/'])
 
 // ─── Tokenizer ──────────────────────────────────────────
 
-export function tokenize(input: string): Array<Token> {
-  const tokens: Array<Token> = []
+export function tokenize(input: string): Token[] {
+  const tokens: Token[] = []
+
   let i = 0
 
   while (i < input.length) {
@@ -175,8 +178,8 @@ export function tokenize(input: string): Array<Token> {
       continue
     }
 
-    /** Symbol escape: =. =? =! =+ =- etc. */
-    if (ch === '=' && next) {
+    /** Symbol escape: \. \? \! \+ \- etc. */
+    if (ch === '\\' && next) {
       tokens.push({ form: 'symbol', text: next })
       i += 2
       continue
@@ -215,6 +218,7 @@ export function tokenize(input: string): Array<Token> {
     if (ch && (BASE_CONSONANTS.has(ch) || VARIANT_CONSONANTS.has(ch))) {
       const isVariant = VARIANT_CONSONANTS.has(ch)
       const baseLetter = ch
+
       i++
 
       const token: ConsonantToken = {
@@ -226,8 +230,7 @@ export function tokenize(input: string): Array<Token> {
       /** Consume trailing consonant modifiers. */
       while (i < input.length) {
         const mod = input[i]
-        const mod2 =
-          i + 1 < input.length ? input[i]! + input[i + 1]! : ''
+        const mod2 = i + 1 < input.length ? input[i] + input[i + 1] : ''
 
         if (mod2 === 'h~') {
           token.aspirated = true
@@ -247,8 +250,9 @@ export function tokenize(input: string): Array<Token> {
         } else if (mod2 === 'n~') {
           /** n~ is its own consonant, not a modifier. Break. */
           break
-        } else if (mod === '~') {
-          /** Stray tilde after dental d~, t~ etc. */
+        } else if (mod === '$') {
+          /** Dental d$, t$ etc. `$` replaced `~` so `~` could form
+              superscripts on consonants and mark nasality on vowels. */
           token.dental = true
           i++
         } else if (mod === '!') {
@@ -279,6 +283,7 @@ export function tokenize(input: string): Array<Token> {
     if (ch && (BASE_VOWELS.has(ch) || VARIANT_VOWELS.has(ch))) {
       const isVariant = VARIANT_VOWELS.has(ch)
       const baseLetter = ch
+
       i++
 
       const token: VowelToken = {
@@ -290,15 +295,25 @@ export function tokenize(input: string): Array<Token> {
       /** Consume trailing vowel modifiers. */
       while (i < input.length) {
         const mod = input[i]
+        const next = input[i + 1]
 
-        /** Check two-char tones first. */
+        /** Check two-char tones first, so `\\\\` stays falling-2 rather
+            than reading as an escaped backslash. */
         if (i + 1 < input.length) {
-          const twoChar = input[i]! + input[i + 1]!
+          const twoChar = input[i] + input[i + 1]
+
           if (TWO_CHAR_TONES.has(twoChar)) {
             token.tone = TONE_MAP[twoChar]
             i += 2
             continue
           }
+        }
+
+        /** A single `\\` before a symbol is the escape, not falling tone.
+            `a\\.` is `a` then a literal period. The two-char tones above
+            already claimed the sequences that are unambiguously tones. */
+        if (mod === '\\' && next !== undefined && ESCAPABLE.has(next)) {
+          break
         }
 
         if (mod === '$') {
@@ -313,7 +328,7 @@ export function tokenize(input: string): Array<Token> {
         } else if (mod === '!') {
           token.short = true
           i++
-        } else if (mod === '&') {
+        } else if (mod === '~') {
           token.nasal = true
           i++
         } else if (mod === '@') {
@@ -357,9 +372,11 @@ export function serializeToken(token: Token): string {
   if (token.form === 'space') {
     return ' '
   }
+
   if (token.form === 'symbol') {
     return `=${token.text}`
   }
+
   if (token.form === 'numeral') {
     return token.text
   }
@@ -367,30 +384,82 @@ export function serializeToken(token: Token): string {
   const parts: string[] = [token.text]
 
   if (token.form === 'consonant') {
-    if (token.click) parts.push('*')
-    if (token.ejective) parts.push('!')
-    if (token.implosive) parts.push('?')
-    if (token.dental) parts.push('~')
-    if (token.pharyngealized) parts.push('Q~')
-    if (token.velarized) parts.push('G~')
-    if (token.palatalized) parts.push('y~')
-    if (token.labialized) parts.push('w~')
-    if (token.aspirated) parts.push('h~')
-    if (token.stop) parts.push('.')
-    if (token.tense) parts.push('@')
+    if (token.click) {
+      parts.push('*')
+    }
+
+    if (token.ejective) {
+      parts.push('!')
+    }
+
+    if (token.implosive) {
+      parts.push('?')
+    }
+
+    if (token.dental) {
+      parts.push('$')
+    }
+
+    if (token.pharyngealized) {
+      parts.push('Q~')
+    }
+
+    if (token.velarized) {
+      parts.push('G~')
+    }
+
+    if (token.palatalized) {
+      parts.push('y~')
+    }
+
+    if (token.labialized) {
+      parts.push('w~')
+    }
+
+    if (token.aspirated) {
+      parts.push('h~')
+    }
+
+    if (token.stop) {
+      parts.push('.')
+    }
+
+    if (token.tense) {
+      parts.push('@')
+    }
+
     return parts.join('')
   }
 
   // vowel
-  if (token.rounded) parts.push('$')
-  if (token.nasal) parts.push('&')
-  if (token.long) parts.push('_')
-  if (token.short) parts.push('!')
-  if (token.nonsyllabic) parts.push('@')
-  if (token.stressed) parts.push('^')
+  if (token.rounded) {
+    parts.push('$')
+  }
+
+  if (token.nasal) {
+    parts.push('~')
+  }
+
+  if (token.long) {
+    parts.push('_')
+  }
+
+  if (token.short) {
+    parts.push('!')
+  }
+
+  if (token.nonsyllabic) {
+    parts.push('@')
+  }
+
+  if (token.stressed) {
+    parts.push('^')
+  }
+
   if (token.tone) {
     parts.push(serializeTone(token.tone))
   }
+
   return parts.join('')
 }
 
@@ -431,8 +500,10 @@ export function serializeTone(tone: Tone): string {
  */
 export function serialize(tokens: Token[]): string {
   let out = ''
+
   for (const token of tokens) {
     out += serializeToken(token)
   }
+
   return out
 }

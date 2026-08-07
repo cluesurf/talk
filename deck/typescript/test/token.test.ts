@@ -191,7 +191,7 @@ describe('tokenize', () => {
   })
 
   it('parses nasal vowel', () => {
-    const tokens = tokenize('a&')
+    const tokens = tokenize('a~')
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -285,7 +285,7 @@ describe('tokenize', () => {
   // ─── Combined flags ───────────────────────────────────
 
   it('parses vowel with multiple flags', () => {
-    const tokens = tokenize('a&^_+')
+    const tokens = tokenize('a~^_+')
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({
       form: 'vowel',
@@ -329,7 +329,7 @@ describe('tokenize', () => {
   // ─── Symbols and numerals ─────────────────────────────
 
   it('parses symbol escape', () => {
-    const tokens = tokenize('=.')
+    const tokens = tokenize('\\.')
     expect(tokens).toHaveLength(1)
     expect(tokens[0]).toMatchObject({ form: 'symbol', text: '.' })
   })
@@ -341,7 +341,7 @@ describe('tokenize', () => {
   })
 
   it('parses mixed content', () => {
-    const tokens = tokenize('ma=.3')
+    const tokens = tokenize('ma\\.3')
     expect(tokens).toHaveLength(4)
     expect(tokens[0]).toMatchObject({ form: 'consonant', text: 'm' })
     expect(tokens[1]).toMatchObject({ form: 'vowel', text: 'a' })

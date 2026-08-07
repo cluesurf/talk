@@ -7,6 +7,14 @@ from typing import Literal, Optional
 
 Kind = Literal["consonant", "vowel", "symbol"]
 
+# The machine code space: 24 bits, so every code serializes to exactly three
+# bytes and the inventory has room to grow by two orders of magnitude.
+CODE_LIMIT = 0xFFFFFF
+
+# The code for a sound with no assignment, which is anything outside the
+# enumerated inventory. Distinct from code 0, which is a real sound.
+NO_CODE = -1
+
 
 @dataclass
 class Phone:
@@ -38,7 +46,7 @@ class Modifier:
     talk: str
     xsampa: str
     simple: str
-    base: Literal["consonant", "vowel"]
+    base: Literal["consonant", "vowel", "any"]
     feature: str
     slot: str
     order: int
@@ -51,9 +59,13 @@ class Sound:
     talk: str
     ipa: str
     simple: str
-    machine: str
+    machine: int
     kind: Kind
     modifiers: list[Modifier] = field(default_factory=list)
+    #: Modifiers preceding the base: pre-aspiration, prenasalization and
+    #: the like. Kept apart from ``modifiers`` because position carries
+    #: meaning, ``ʰk`` and ``kʰ`` being different sounds.
+    pre: list[Modifier] = field(default_factory=list)
     base: Optional[Phone] = None
     raw: Optional[bool] = None
 
@@ -79,10 +91,11 @@ class SoundInfo:
 
 @dataclass
 class TokenEntry:
-    """A frozen talk-sound to Hangul code point (token) assignment."""
+    """A frozen talk-sound to machine code assignment. The code is a 24-bit
+    integer, so it serializes to exactly three bytes."""
 
     talk: str
-    token: str
+    code: int
 
 
 @dataclass

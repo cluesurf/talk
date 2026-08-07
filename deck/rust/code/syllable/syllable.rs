@@ -284,7 +284,8 @@ fn base_letters(want: Form) -> Vec<String> {
 
   for phone in phones() {
     let glyph = match want {
-      Form::Vowel => phone.talk.replacen('$', "", 1),
+      // `Any` never reaches here: it is a modifier's base, not a phone's.
+      Form::Vowel | Form::Any => phone.talk.replacen('$', "", 1),
       Form::Consonant => phone.talk.clone(),
     };
 

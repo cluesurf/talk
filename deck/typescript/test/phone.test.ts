@@ -63,15 +63,20 @@ describe('phone inventory', () => {
 })
 
 describe('phone inventory matches what the scanner reads', () => {
-  it('reads every base back to its own inventory entry', () => {
+  it('reads every base back to one sound with the same spelling', () => {
     const broken: string[] = []
 
+    // A phone spelled compositionally (`mh!` is `m` plus voiceless) is not
+    // a sound STARTER, so the scanner returns the plain base carrying a
+    // modifier rather than the composed phone. That is the same sound and
+    // the same talk, which is what has to hold; the base underneath it is
+    // deliberately the simpler one.
     for (const phone of phones) {
       const sounds = segment(phone.talk)
-      const base = sounds[0]?.base
+      const sound = sounds[0]
 
-      if (sounds.length !== 1 || base?.talk !== phone.talk) {
-        broken.push(`${phone.talk} read as ${base?.talk ?? 'nothing'}`)
+      if (sounds.length !== 1 || sound?.talk !== phone.talk) {
+        broken.push(`${phone.talk} read as ${sound?.talk ?? 'nothing'}`)
       }
     }
 

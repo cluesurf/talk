@@ -1,8 +1,7 @@
 // Every valid canonical sound. Used by the machine build and available to
 // consumers who want the full inventory.
 
-import { phones } from './data'
-import { R } from './runtime'
+import { R, modifierAttaches } from './runtime'
 import { makeSound } from './sound'
 import type { Modifier, Phone, SoundInfo } from './type'
 
@@ -19,32 +18,6 @@ import type { Modifier, Phone, SoundInfo } from './type'
  */
 export function enumeratePhones(): Phone[] {
   return R.basePhones
-}
-
-function attaches(base: Phone, mod: Modifier): boolean {
-  const a = mod.attaches
-
-  if (!a) {
-    return true
-  }
-
-  if (a.place && !a.place.includes(base.place ?? '')) {
-    return false
-  }
-
-  if (a.notPlace?.includes(base.place ?? '')) {
-    return false
-  }
-
-  if (a.manner && !a.manner.includes(base.manner ?? '')) {
-    return false
-  }
-
-  if (a.voicing && !a.voicing.includes(base.voicing ?? '')) {
-    return false
-  }
-
-  return true
 }
 
 // Choose none or one modifier from each slot, in every combination.
@@ -77,8 +50,23 @@ function slotCombos(mods: Modifier[]): Modifier[][] {
   return combos
 }
 
+/**
+ * Cached, because the result is derived entirely from static data and the
+ * inventory is now large enough that rebuilding it per call is the
+ * dominant cost for anything that walks it more than once.
+ */
+let cached: SoundInfo[] | null = null
+
 // Every valid canonical sound, in a stable order. Deduped by talk.
 export function enumerateSounds(): SoundInfo[] {
+  if (cached) return cached
+
+  cached = buildSounds()
+
+  return cached
+}
+
+function buildSounds(): SoundInfo[] {
   const seen = new Set<string>()
   const out: SoundInfo[] = []
 
@@ -98,12 +86,12 @@ export function enumerateSounds(): SoundInfo[] {
     })
   }
 
-  for (const base of phones) {
+  for (const base of R.starterPhones) {
     const pool =
       base.form === 'consonant'
         ? R.consonantModifiers
         : R.vowelModifiers
-    const usable = pool.filter(m => attaches(base, m))
+    const usable = pool.filter(m => modifierAttaches(base, m))
 
     for (const combo of slotCombos(usable)) {
       add(base, combo)

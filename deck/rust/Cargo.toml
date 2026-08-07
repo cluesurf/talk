@@ -73,5 +73,9 @@ name = "index"
 path = "test/index.rs"
 
 [[test]]
+name = "space"
+path = "test/space.rs"
+
+[[test]]
 name = "parity"
 path = "test/parity.rs"

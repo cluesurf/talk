@@ -126,9 +126,9 @@ l̠,postalveolar,lateral-approximant,voiced
 𝼈,retroflex,lateral-tap-flap,voiced
 ʎ̮,palatal,lateral-tap-flap,voiced
 ʟ̆,velar,lateral-tap-flap,voiced
-ʍ,,fricative-approximant,voiceless
-w,,fricative-approximant,voiced
-ɥ,,fricative-approximant,voiced
+ʍ,labial-velar,fricative-approximant,voiceless
+w,labial-velar,fricative-approximant,voiced
+ɥ,labial-palatal,fricative-approximant,voiced
 ɧ,,,voiceless
 ɫ,,,voiced
 ɓ,,voiced,voiced

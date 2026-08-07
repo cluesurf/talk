@@ -1,0 +1,63 @@
+"""How big the sound space is, and dense integer codes for every tier."""
+
+from .axis import (
+    BACK_PLACES,
+    CORONAL,
+    IPA_AXES,
+    OBSTRUENT,
+    SONORANT,
+    SUPRASEGMENTAL,
+    Attachment,
+    MarkGroup,
+    attaches,
+)
+from .codec import (
+    Composition,
+    byte_width,
+    decode_unit,
+    encode_unit,
+    pack,
+    size_of,
+    unpack,
+)
+from .count import (
+    CAPACITY,
+    SpaceReport,
+    bytes_for,
+    count_attested,
+    count_space,
+    report_space,
+    unit_for,
+)
+from .model import Model, ModelAxis, ModelBase, axes_for, model_for
+
+__all__ = [
+    "BACK_PLACES",
+    "CAPACITY",
+    "CORONAL",
+    "IPA_AXES",
+    "OBSTRUENT",
+    "SONORANT",
+    "SUPRASEGMENTAL",
+    "Attachment",
+    "Composition",
+    "MarkGroup",
+    "Model",
+    "ModelAxis",
+    "ModelBase",
+    "SpaceReport",
+    "attaches",
+    "axes_for",
+    "byte_width",
+    "bytes_for",
+    "count_attested",
+    "count_space",
+    "decode_unit",
+    "encode_unit",
+    "model_for",
+    "pack",
+    "report_space",
+    "size_of",
+    "unit_for",
+    "unpack",
+]

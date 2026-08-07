@@ -1,10 +1,18 @@
-// Generate base/tokens.json: one Hangul code point per canonical sound.
+// Generate base/tokens.json: one 24-bit integer per canonical sound.
 //
 // Append-only. Existing assignments are kept exactly, new sounds take the
-// next free code point. A sound's code point never changes once assigned,
-// so tokens tokens stay stable across releases.
+// next free code, so a sound's code never changes once assigned and a
+// model trained on one release still reads the next.
 //
-//   npx tsx code/make/tokens.ts
+// WHY 24 BITS. The encoding used to be one Hangul syllable per sound,
+// which capped the inventory at the block's 11,172 code points. Letting
+// length and stress attach to consonants, and adding the release and
+// syllabicity slots, took the enumerated space past 120,000, so the cap
+// stopped being theoretical. Three bytes hold 16,777,216 codes, which is
+// two orders of magnitude beyond the inventory and still a fixed, compact
+// width to serialize.
+//
+//   pnpm tokens
 
 import { readFileSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
@@ -14,45 +22,62 @@ import { enumerateSounds } from '..'
 const HERE = dirname(fileURLToPath(import.meta.url))
 const FILE = resolve(HERE, '../../../../base/tokens.json')
 
-// Hangul Syllables block.
-const START = 0xac00
-const END = 0xd7a3
+/** Three bytes, so the highest assignable code. */
+const LIMIT = 0xffffff
 
-type Entry = { talk: string; token: string }
+type Entry = { talk: string; code: number }
 
-const existing = JSON.parse(readFileSync(FILE, 'utf8')) as Entry[]
+/**
+ * The file as it was, in its recorded order.
+ *
+ * Rows are read positionally when they predate the integer format: the
+ * first release keyed sounds by a Hangul character, and rewriting those to
+ * integers by position keeps every sound's identity in the same order it
+ * already had.
+ */
 
-const byTalk = new Map<string, string>()
+type StoredEntry = { talk: string; code?: number; token?: string }
+
+const stored = JSON.parse(readFileSync(FILE, 'utf8')) as StoredEntry[]
+
+const byTalk = new Map<string, number>()
 const used = new Set<number>()
+const out: Entry[] = []
 
-for (const entry of existing) {
-  byTalk.set(entry.talk, entry.token)
-  used.add(entry.token.codePointAt(0)!)
+let migrated = 0
+
+for (const [index, entry] of stored.entries()) {
+  const code = entry.code ?? index
+
+  if (entry.code === undefined) {
+    migrated += 1
+  }
+
+  byTalk.set(entry.talk, code)
+  used.add(code)
+  out.push({ talk: entry.talk, code })
 }
 
-let cursor = START
+let cursor = 0
 
-function nextCodePoint(): number {
+function nextCode(): number {
   while (used.has(cursor)) {
     cursor++
   }
 
-  if (cursor > END) {
-    throw new Error(
-      `ran out of Hangul code points (past U+${END.toString(16)})`,
-    )
+  if (cursor > LIMIT) {
+    throw new Error(`ran out of codes (past ${LIMIT})`)
   }
 
-  const point = cursor
+  const code = cursor
 
-  used.add(point)
+  used.add(code)
   cursor++
 
-  return point
+  return code
 }
 
 const sounds = enumerateSounds()
-const out: Entry[] = [...existing]
 
 let added = 0
 
@@ -61,10 +86,10 @@ for (const sound of sounds) {
     continue
   }
 
-  const token = String.fromCodePoint(nextCodePoint())
+  const code = nextCode()
 
-  byTalk.set(sound.talk, token)
-  out.push({ talk: sound.talk, token })
+  byTalk.set(sound.talk, code)
+  out.push({ talk: sound.talk, code })
   added++
 }
 
@@ -74,6 +99,12 @@ console.log(`[build-tokens] wrote ${FILE}`)
 console.log(`  sounds enumerated: ${sounds.length}`)
 console.log(`  total assigned:    ${out.length}`)
 console.log(`  newly added:       ${added}`)
-console.log(
-  `  code points used:  U+${START.toString(16)}..U+${(cursor - 1).toString(16)}`,
-)
+console.log(`  migrated to int:   ${migrated}`)
+// Reduced rather than spread: `Math.max(...used)` overflows the call
+// stack once the inventory runs to six figures.
+let highest = 0
+for (const code of used) {
+  if (code > highest) highest = code
+}
+
+console.log(`  highest code:      ${highest} of ${LIMIT}`)

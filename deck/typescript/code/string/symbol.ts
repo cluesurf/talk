@@ -1,14 +1,22 @@
 import type { SymbolEntry } from './type'
 
-// Non-phonetic sounds carried through unchanged. The `=` escape lets a
-// literal symbol be written in talk (`=.` is a period).
+// Non-phonetic sounds carried through unchanged. The `\` escape lets a
+// literal symbol be written in talk (`\.` is a period), the same escape
+// character every other notation uses for the job.
 export function buildSymbols(): SymbolEntry[] {
   const symbols: SymbolEntry[] = [
-    { talk: '=.', ipa: '.', simple: '.' },
-    { talk: '=?', ipa: '?', simple: '?' },
-    { talk: '=!', ipa: '!', simple: '!' },
-    { talk: '=+', ipa: '+', simple: '+' },
-    { talk: '=-', ipa: '-', simple: '-' },
+    { talk: '\\.', ipa: '.', simple: '.' },
+    { talk: '\\?', ipa: '?', simple: '?' },
+    { talk: '\\!', ipa: '!', simple: '!' },
+    { talk: '\\+', ipa: '+', simple: '+' },
+    { talk: '\\-', ipa: '-', simple: '-' },
+    { talk: '\\*', ipa: '*', simple: '*' },
+    { talk: '\\@', ipa: '@', simple: '@' },
+    { talk: '\\$', ipa: '$', simple: '$' },
+    { talk: '\\~', ipa: '~', simple: '~' },
+    { talk: '\\_', ipa: '_', simple: '_' },
+    { talk: '\\^', ipa: '^', simple: '^' },
+    { talk: '\\\\', ipa: '\\', simple: '\\' },
     { talk: ' ', ipa: ' ', simple: ' ' },
   ]
 

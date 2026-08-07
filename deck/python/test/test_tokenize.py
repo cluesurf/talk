@@ -51,7 +51,7 @@ def test_a_vowel_keeps_its_stress_mark():
 
 
 def test_a_vowel_keeps_tone_length_and_nasal_marks_in_one_chunk():
-    assert chunks("a&+_") == ["a&+_"]
+    assert chunks("a~+_") == ["a~+_"]
     assert chunks("txya@+a-a++u") == ["t", "x", "y", "a@+", "a-", "a++", "u"]
 
 
@@ -68,8 +68,8 @@ def test_does_not_split_a_click_off_its_base_letter():
 
 
 def test_passes_symbols_numerals_and_space_through():
-    assert chunks("=. 7") == ["=.", " ", "7"]
-    dot, space, seven = segment("=. 7")
+    assert chunks("\\. 7") == ["\\.", " ", "7"]
+    dot, space, seven = segment("\\. 7")
     assert dot.kind == "symbol"
     assert space.kind == "symbol"
     assert seven.kind == "symbol"
@@ -84,7 +84,7 @@ def test_passes_symbols_numerals_and_space_through():
         ("siqk", ["s", "i", "q", "k"]),
         ("aiyuQaK", ["a", "i", "y", "u", "Q", "a", "K"]),
         ("HEth~Ah", ["H", "E", "th~", "A", "h"]),
-        ("s'oQya&te", ["s", "'", "o", "Q", "y", "a&", "t", "e"]),
+        ("s'oQya~te", ["s", "'", "o", "Q", "y", "a~", "t", "e"]),
         ("batO_'aH", ["b", "a", "t", "O_", "'", "a", "H"]),
     ],
 )
@@ -103,7 +103,7 @@ def test_exposes_the_base_and_modifier_features():
 
 
 def test_exposes_vowel_modifier_features():
-    sound = segment("a&+_")[0]
+    sound = segment("a~+_")[0]
     assert sound.kind == "vowel"
     assert sound.base.talk == "a"
     assert {m.feature for m in sound.modifiers} == {
@@ -123,7 +123,7 @@ def test_every_non_raw_chunk_equals_base_plus_modifiers():
 
 
 def test_tokenizing_is_idempotent_on_canonical_talk():
-    for word in ["th~a", "kw~asQ~o", "a&+_", "p*at*", "mh!im"]:
+    for word in ["th~a", "kw~asQ~o", "a~+_", "p*at*", "mh!im"]:
         assert "".join(chunks(word)) == word
 
 
@@ -169,14 +169,17 @@ def test_decomposes_a_consonant_secondary_articulation():
     ]
 
 
-def test_keeps_a_pre_composed_chart_phone_as_its_own_base():
-    # Clicks, ejectives, the palatal nasal, retroflex, implosives, and the
-    # rounded front vowels are single chart phones, not base+modifier.
-    for talk_text in ["t!", "ny~", "lG~", "k*", "b?", "i$", "D"]:
-        sound = segment(talk_text)[0]
-        assert sound.talk == talk_text
-        assert sound.base.talk == talk_text
-        assert sound.modifiers == []
+def test_reads_a_chart_phone_back_as_one_sound_with_the_same_spelling():
+    # Clicks, ejectives, the palatal nasal, retroflex, implosives and the
+    # rounded front vowels are single chart phones. Some are ALSO spelled
+    # compositionally (`t!` is `t` plus the ejective affix), and those are
+    # read as base plus modifier so the affix stays visible to a longer
+    # string. Either way it is one sound and it spells the same.
+    for talk_text in ["t!", "ny~", "lQ~", "k*", "b?", "i$", "D"]:
+        sounds = segment(talk_text)
+        assert len(sounds) == 1
+        assert sounds[0].talk == talk_text
+        assert sounds[0].base is not None
 
 
 def test_parses_vowel_suprasegmentals_as_base_plus_feature():
@@ -186,8 +189,8 @@ def test_parses_vowel_suprasegmentals_as_base_plus_feature():
     assert shape("a_") == [
         {"talk": "a_", "kind": "vowel", "base": "a", "features": ["long"]}
     ]
-    assert shape("a&") == [
-        {"talk": "a&", "kind": "vowel", "base": "a", "features": ["nasalized"]}
+    assert shape("a~") == [
+        {"talk": "a~", "kind": "vowel", "base": "a", "features": ["nasalized"]}
     ]
     assert shape("i@") == [
         {"talk": "i@", "kind": "vowel", "base": "i", "features": ["non-syllabic"]}
@@ -202,7 +205,7 @@ def test_parses_the_four_register_tones():
 
 
 def test_stacks_multiple_vowel_features_in_one_chunk():
-    sound = segment("a&^_+")[0]
+    sound = segment("a~^_+")[0]
     assert sound.base.talk == "a"
     assert {m.feature for m in sound.modifiers} == {
         "nasalized",
@@ -221,9 +224,9 @@ def test_parses_sequences_spaces_symbols_and_numerals():
         "consonant",
         "vowel",
     ]
-    assert segment("=.")[0].kind == "symbol"
+    assert segment("\\.")[0].kind == "symbol"
     assert segment("3")[0].kind == "symbol"
-    assert [s.kind for s in segment("ma=.3")] == [
+    assert [s.kind for s in segment("ma\\.3")] == [
         "consonant",
         "vowel",
         "symbol",

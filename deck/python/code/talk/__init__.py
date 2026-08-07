@@ -9,18 +9,39 @@ trie scan. No runtime dependencies.
     talk.ipa_to_talk("tʰa")   # -> "th~a"
     talk.talk_to_ipa("th~a")  # -> "tʰa"
     talk.readable("th~a")     # -> "tʰa"
-    talk.machine("th~a")      # -> one Hangul code point per sound
+    talk.machine("th~a")      # -> one 24-bit integer per sound
 """
 
 from __future__ import annotations
 
 from .string.combine import combine
+from .space import (
+    CAPACITY,
+    Composition,
+    SpaceReport,
+    byte_width,
+    bytes_for,
+    count_attested,
+    count_space,
+    decode_unit,
+    encode_unit,
+    model_for,
+    pack,
+    report_space,
+    size_of,
+    unit_for,
+    unpack,
+)
+from .string.normalize import normalize_ipa
 from .string.convert import (
     IpaUnit,
     ipa_to_talk,
     parse_ipa,
     machine,
-    machine_outputs,
+    machine_bytes,
+    machine_codes,
+    machine_text,
+    machine_text_codes,
     readable,
     talk_to_ipa,
     tokenize,
@@ -50,7 +71,26 @@ __all__ = [
     "tokenize",
     "readable",
     "machine",
-    "machine_outputs",
+    "machine_bytes",
+    "machine_codes",
+    "machine_text",
+    "machine_text_codes",
+    "CAPACITY",
+    "Composition",
+    "SpaceReport",
+    "byte_width",
+    "bytes_for",
+    "count_attested",
+    "count_space",
+    "decode_unit",
+    "encode_unit",
+    "model_for",
+    "normalize_ipa",
+    "pack",
+    "report_space",
+    "size_of",
+    "unit_for",
+    "unpack",
     "segment",
     "enumerate_sounds",
     "Attaches",

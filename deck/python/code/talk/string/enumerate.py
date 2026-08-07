@@ -3,7 +3,6 @@ consumers who want the full inventory."""
 
 from __future__ import annotations
 
-from .data import phones
 from .runtime import R
 from .sound import make_sound
 from .type import Modifier, Phone, SoundInfo
@@ -74,7 +73,7 @@ def enumerate_sounds() -> list[SoundInfo]:
             )
         )
 
-    for base in phones:
+    for base in R.starter_phones:
         pool = (
             R.consonant_modifiers
             if base.form == "consonant"

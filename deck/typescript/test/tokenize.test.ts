@@ -35,7 +35,7 @@ describe('chunking keeps each base with its modifiers', () => {
   })
 
   it('a vowel keeps tone, length, and nasal marks in one chunk', () => {
-    expect(chunks('a&+_')).toEqual(['a&+_'])
+    expect(chunks('a~+_')).toEqual(['a~+_'])
     expect(chunks('txya@+a-a++u')).toEqual([
       't',
       'x',
@@ -58,11 +58,11 @@ describe('clicks are single chunks', () => {
 
 describe('symbols, numerals, and space', () => {
   it('passes them through as their own chunks', () => {
-    expect(chunks('=. 7')).toEqual(['=.', ' ', '7'])
+    expect(chunks('\\. 7')).toEqual(['\\.', ' ', '7'])
   })
 
   it('marks them as symbol sounds', () => {
-    const [dot, space, seven] = segment('=. 7')
+    const [dot, space, seven] = segment('\\. 7')
 
     expect(dot?.kind).toBe('symbol')
     expect(space?.kind).toBe('symbol')
@@ -75,7 +75,7 @@ describe('real words', () => {
     ['siqk', ['s', 'i', 'q', 'k']],
     ['aiyuQaK', ['a', 'i', 'y', 'u', 'Q', 'a', 'K']],
     ['HEth~Ah', ['H', 'E', 'th~', 'A', 'h']],
-    ["s'oQya&te", ['s', "'", 'o', 'Q', 'y', 'a&', 't', 'e']],
+    ["s'oQya~te", ['s', "'", 'o', 'Q', 'y', 'a~', 't', 'e']],
     ["batO_'aH", ['b', 'a', 't', 'O_', "'", 'a', 'H']],
   ]
 
@@ -96,7 +96,7 @@ describe('sound structure', () => {
   })
 
   it('exposes vowel modifier features', () => {
-    const [sound] = segment('a&+_')
+    const [sound] = segment('a~+_')
 
     expect(sound?.kind).toBe('vowel')
     expect(sound?.base?.talk).toBe('a')
@@ -118,7 +118,7 @@ describe('sound structure', () => {
 
 describe('canonicalization', () => {
   it('tokenizing is idempotent on canonical talk', () => {
-    for (const word of ['th~a', 'kw~asQ~o', 'a&+_', 'p*at*', 'mh!im']) {
+    for (const word of ['th~a', 'kw~asQ~o', 'a~+_', 'p*at*', 'mh!im']) {
       expect(chunks(word).join('')).toBe(word)
     }
   })
@@ -174,15 +174,18 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
     ])
   })
 
-  it('keeps a pre-composed chart phone as its own base', () => {
-    // Clicks, ejectives, the palatal nasal, retroflex, implosives, and
-    // the rounded front vowels are single chart phones, not base+modifier.
-    for (const talk of ['t!', 'ny~', 'lG~', 'k*', 'b?', 'i$', 'D']) {
-      const [sound] = segment(talk)
+  it('reads a chart phone back as one sound with the same spelling', () => {
+    // Clicks, ejectives, the palatal nasal, retroflex, implosives and the
+    // rounded front vowels are single chart phones. Some are ALSO spelled
+    // compositionally (`t!` is `t` plus the ejective affix), and those are
+    // read as base plus modifier so that the affix stays visible to a
+    // longer string. Either way it is one sound and it spells the same.
+    for (const talk of ['t!', 'ny~', 'lQ~', 'k*', 'b?', 'i$', 'D']) {
+      const sounds = segment(talk)
 
-      expect(sound?.talk).toBe(talk)
-      expect(sound?.base?.talk).toBe(talk)
-      expect(sound?.modifiers).toEqual([])
+      expect(sounds).toHaveLength(1)
+      expect(sounds[0]?.talk).toBe(talk)
+      expect(sounds[0]?.base).toBeDefined()
     }
   })
 
@@ -193,8 +196,8 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
     expect(shape('a_')).toEqual([
       { talk: 'a_', kind: 'vowel', base: 'a', features: ['long'] },
     ])
-    expect(shape('a&')).toEqual([
-      { talk: 'a&', kind: 'vowel', base: 'a', features: ['nasalized'] },
+    expect(shape('a~')).toEqual([
+      { talk: 'a~', kind: 'vowel', base: 'a', features: ['nasalized'] },
     ])
     expect(shape('i@')).toEqual([
       { talk: 'i@', kind: 'vowel', base: 'i', features: ['non-syllabic'] },
@@ -209,7 +212,7 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
   })
 
   it('stacks multiple vowel features in one chunk', () => {
-    const [sound] = segment('a&^_+')
+    const [sound] = segment('a~^_+')
 
     expect(sound?.base?.talk).toBe('a')
     expect(new Set(sound?.modifiers.map(m => m.feature))).toEqual(
@@ -226,9 +229,9 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
       'consonant',
       'vowel',
     ])
-    expect(segment('=.')[0]?.kind).toBe('symbol')
+    expect(segment('\\.')[0]?.kind).toBe('symbol')
     expect(segment('3')[0]?.kind).toBe('symbol')
-    expect(shape('ma=.3').map(s => s.kind)).toEqual([
+    expect(shape('ma\\.3').map(s => s.kind)).toEqual([
       'consonant',
       'vowel',
       'symbol',

@@ -61,5 +61,5 @@ def _modifier(d: dict[str, Any]) -> Modifier:
 phones: list[Phone] = [_phone(d) for d in _load("phones.json")]
 modifiers: list[Modifier] = [_modifier(d) for d in _load("modifiers.json")]
 token_entries: list[TokenEntry] = [
-    TokenEntry(talk=d["talk"], token=d["token"]) for d in _load("tokens.json")
+    TokenEntry(talk=d["talk"], code=d["code"]) for d in _load("tokens.json")
 ]

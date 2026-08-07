@@ -61,7 +61,7 @@ fn a_vowel_keeps_its_stress_mark() {
 
 #[test]
 fn a_vowel_keeps_tone_length_and_nasal_marks_in_one_chunk() {
-  expect(chunks("a&+_"), &["a&+_"]);
+  expect(chunks("a~+_"), &["a~+_"]);
   expect(
     chunks("txya@+a-a++u"),
     &["t", "x", "y", "a@+", "a-", "a++", "u"],
@@ -81,12 +81,12 @@ fn does_not_split_a_click_off_its_base_letter() {
 
 #[test]
 fn passes_symbols_through_as_their_own_chunks() {
-  expect(chunks("=. 7"), &["=.", " ", "7"]);
+  expect(chunks("\\. 7"), &["\\.", " ", "7"]);
 }
 
 #[test]
 fn marks_symbols_as_symbol_sounds() {
-  let sounds = segment("=. 7");
+  let sounds = segment("\\. 7");
 
   assert!(sounds.iter().all(|sound| sound.kind == Kind::Symbol));
 }
@@ -99,7 +99,7 @@ fn chunks_real_words() {
     ("siqk", &["s", "i", "q", "k"]),
     ("aiyuQaK", &["a", "i", "y", "u", "Q", "a", "K"]),
     ("HEth~Ah", &["H", "E", "th~", "A", "h"]),
-    ("s'oQya&te", &["s", "'", "o", "Q", "y", "a&", "t", "e"]),
+    ("s'oQya~te", &["s", "'", "o", "Q", "y", "a~", "t", "e"]),
     ("batO_'aH", &["b", "a", "t", "O_", "'", "a", "H"]),
   ];
 
@@ -122,13 +122,13 @@ fn exposes_the_base_and_modifier_features() {
 
 #[test]
 fn exposes_vowel_modifier_features() {
-  let sounds = segment("a&+_");
+  let sounds = segment("a~+_");
   let first = &sounds[0];
 
   assert_eq!(first.kind, Kind::Vowel);
   assert_eq!(first.base.map(|phone| phone.talk.as_str()), Some("a"));
 
-  let mut got = features("a&+_")[0].clone();
+  let mut got = features("a~+_")[0].clone();
 
   got.sort();
 
@@ -139,7 +139,7 @@ fn exposes_vowel_modifier_features() {
 fn every_non_raw_chunk_equals_its_base_plus_modifiers_in_canonical_order() {
   for sound in segment("txya@+a-a++u th~a p*a") {
     if let (false, Some(base)) = (sound.raw, sound.base) {
-      assert_eq!(sound.talk, combine(&base.talk, &sound.modifiers));
+      assert_eq!(sound.talk, combine(&base.talk, &sound.modifiers, &sound.pre));
     }
   }
 }
@@ -148,7 +148,7 @@ fn every_non_raw_chunk_equals_its_base_plus_modifiers_in_canonical_order() {
 
 #[test]
 fn tokenizing_is_idempotent_on_canonical_talk() {
-  for word in ["th~a", "kw~asQ~o", "a&+_", "p*at*", "mh!im"] {
+  for word in ["th~a", "kw~asQ~o", "a~+_", "p*at*", "mh!im"] {
     assert_eq!(chunks(word).concat(), word);
   }
 }
@@ -226,16 +226,18 @@ fn decomposes_a_consonant_secondary_articulation_into_base_and_feature() {
 }
 
 #[test]
-fn keeps_a_precomposed_chart_phone_as_its_own_base() {
-  // Clicks, ejectives, the palatal nasal, retroflex, implosives, and the
-  // rounded front vowels are single chart phones, not base plus modifier.
-  for talk in ["t!", "ny~", "lG~", "k*", "b?", "i$", "D"] {
+fn reads_a_chart_phone_back_as_one_sound_with_the_same_spelling() {
+  // Clicks, ejectives, the palatal nasal, retroflex, implosives and the
+  // rounded front vowels are single chart phones. Some are ALSO spelled
+  // compositionally (`t!` is `t` plus the ejective affix), and those are read
+  // as base plus modifier so the affix stays visible to a longer string.
+  // Either way it is one sound and it spells the same.
+  for talk in ["t!", "ny~", "lQ~", "k*", "b?", "i$", "D"] {
     let sounds = segment(talk);
-    let first = &sounds[0];
 
-    assert_eq!(first.talk, talk);
-    assert_eq!(first.base.map(|phone| phone.talk.as_str()), Some(talk));
-    assert!(first.modifiers.is_empty());
+    assert_eq!(sounds.len(), 1, "segment({talk})");
+    assert_eq!(sounds[0].talk, talk);
+    assert!(sounds[0].base.is_some());
   }
 }
 
@@ -243,7 +245,7 @@ fn keeps_a_precomposed_chart_phone_as_its_own_base() {
 fn parses_vowel_suprasegmentals_as_base_plus_feature() {
   assert_eq!(shape("a^"), one("a^", Kind::Vowel, "a", &["stress"]));
   assert_eq!(shape("a_"), one("a_", Kind::Vowel, "a", &["long"]));
-  assert_eq!(shape("a&"), one("a&", Kind::Vowel, "a", &["nasalized"]));
+  assert_eq!(shape("a~"), one("a~", Kind::Vowel, "a", &["nasalized"]));
   assert_eq!(shape("i@"), one("i@", Kind::Vowel, "i", &["non-syllabic"]));
 }
 
@@ -261,11 +263,11 @@ fn parses_the_four_register_tones() {
 
 #[test]
 fn stacks_multiple_vowel_features_in_one_chunk() {
-  let sounds = segment("a&^_+");
+  let sounds = segment("a~^_+");
 
   assert_eq!(sounds[0].base.map(|phone| phone.talk.as_str()), Some("a"));
 
-  let mut got = features("a&^_+")[0].clone();
+  let mut got = features("a~^_+")[0].clone();
 
   got.sort();
 
@@ -291,10 +293,10 @@ fn parses_sequences_spaces_symbols_and_numerals() {
       Kind::Vowel
     ]
   );
-  assert_eq!(segment("=.")[0].kind, Kind::Symbol);
+  assert_eq!(segment("\\.")[0].kind, Kind::Symbol);
   assert_eq!(segment("3")[0].kind, Kind::Symbol);
   assert_eq!(
-    segment("ma=.3").iter().map(|s| s.kind).collect::<Vec<_>>(),
+    segment("ma\\.3").iter().map(|s| s.kind).collect::<Vec<_>>(),
     vec![Kind::Consonant, Kind::Vowel, Kind::Symbol, Kind::Symbol]
   );
 }

@@ -1,4 +1,4 @@
-//! Ported from the v1 machine suite. The Hangul encoding maps each talk sound
+//! Ported from the v1 machine suite. The machine encoding maps each talk sound
 //! to one code point, and the encoding is both total (every sound has a glyph)
 //! and injective (distinct sounds never collide).
 
@@ -24,28 +24,32 @@ fn encodes_each_sound_as_one_hangul_code_point() {
   ];
 
   for (talk, want) in cases {
-    assert_eq!(machine(talk).chars().count(), want, "machine({talk})");
+    assert_eq!(machine(talk).len(), want, "machine({talk})");
   }
 }
 
 #[test]
-fn distinct_enumerated_sounds_map_to_distinct_hangul() {
-  let mut by_hangul: HashMap<String, String> = HashMap::new();
+fn distinct_enumerated_sounds_map_to_distinct_codes() {
+  let mut by_code: HashMap<i64, String> = HashMap::new();
   let mut collisions: Vec<String> = Vec::new();
 
   for sound in enumerate_sounds() {
-    let hangul = machine(&sound.talk);
+    let codes = machine(&sound.talk);
 
-    if hangul.is_empty() {
+    let Some(&code) = codes.first() else {
+      continue;
+    };
+
+    if code < 0 {
       continue;
     }
 
-    match by_hangul.get(&hangul) {
+    match by_code.get(&code) {
       Some(prior) if *prior != sound.talk => {
-        collisions.push(format!("{prior} and {} both -> {hangul}", sound.talk));
+        collisions.push(format!("{prior} and {} both -> {code}", sound.talk));
       }
       _ => {
-        by_hangul.insert(hangul, sound.talk);
+        by_code.insert(code, sound.talk);
       }
     }
   }
@@ -57,7 +61,7 @@ fn distinct_enumerated_sounds_map_to_distinct_hangul() {
 fn every_enumerated_sound_encodes_to_exactly_one_code_point() {
   let bad: Vec<String> = enumerate_sounds()
     .into_iter()
-    .filter(|sound| machine(&sound.talk).chars().count() != 1)
+    .filter(|sound| machine(&sound.talk).len() != 1)
     .map(|sound| sound.talk)
     .collect();
 

@@ -3,7 +3,6 @@
 
 use std::collections::HashSet;
 
-use crate::string::data::phones;
 use crate::string::runtime::runtime;
 use crate::string::sound::make_sound;
 use crate::string::types::{Form, Kind, Modifier, Phone, SoundInfo};
@@ -86,10 +85,12 @@ pub fn enumerate_sounds() -> Vec<SoundInfo> {
   let mut seen: HashSet<String> = HashSet::new();
   let mut out: Vec<SoundInfo> = Vec::new();
 
-  for base in phones() {
+  for base in &runtime().starter_phones {
+    // A phone's form is only ever Consonant or Vowel; `Any` is a modifier's
+    // base, never a phone's.
     let pool = match base.form {
       Form::Consonant => &state.consonant_modifiers,
-      Form::Vowel => &state.vowel_modifiers,
+      Form::Vowel | Form::Any => &state.vowel_modifiers,
     };
 
     let usable: Vec<&'static Modifier> = pool
@@ -99,7 +100,7 @@ pub fn enumerate_sounds() -> Vec<SoundInfo> {
       .collect();
 
     for combo in slot_combos(&usable) {
-      let sound = make_sound(base, combo);
+      let sound = make_sound(base, combo, Vec::new());
 
       if !seen.insert(sound.talk.clone()) {
         continue;
