@@ -9,6 +9,7 @@ import {
   ipaToTalk,
   machine,
   machineOutputs,
+  parseIpa,
   readable,
   talkToIpa,
   tokenize,
@@ -33,10 +34,12 @@ export {
   ipaToTalk,
   machine,
   machineOutputs,
+  parseIpa,
   readable,
   talkToIpa,
   tokenize,
 } from './string/convert'
+export type { IpaUnit } from './string/convert'
 export { enumerateSounds } from './string/enumerate'
 export { segment } from './string/sound'
 export { syllables } from './syllable'
@@ -46,6 +49,7 @@ import { syllables } from './syllable'
 
 const talk = {
   ipaToTalk,
+  parseIpa,
   talkToIpa,
   tokenize,
   readable,
