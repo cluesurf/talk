@@ -96,10 +96,16 @@
     "talk": "ao"
   },
   {
+    "talk": "aO"
+  },
+  {
     "talk": "Ao"
   },
   {
     "talk": "au"
+  },
+  {
+    "talk": "aU"
   },
   {
     "talk": "Au"
@@ -129,6 +135,9 @@
     "talk": "Eo"
   },
   {
+    "talk": "eU"
+  },
+  {
     "talk": "Eu"
   },
   {
@@ -145,6 +154,9 @@
   },
   {
     "talk": "Iu"
+  },
+  {
+    "talk": "IU"
   },
   {
     "talk": "o$"
@@ -168,7 +180,16 @@
     "talk": "Oi"
   },
   {
+    "talk": "OI"
+  },
+  {
+    "talk": "oO"
+  },
+  {
     "talk": "ou"
+  },
+  {
+    "talk": "oU"
   },
   {
     "talk": "OU"
@@ -193,6 +214,9 @@
   },
   {
     "talk": "uo"
+  },
+  {
+    "talk": "uU"
   },
   {
     "talk": "a"

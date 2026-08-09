@@ -19,7 +19,18 @@ import {
   xsampaToTalk,
 } from './string/convert'
 import { enumeratePhones, enumerateSounds } from './string/enumerate'
-import { machine, machineBytes, machineText } from './space/codec'
+import {
+  byteWidth,
+  decodeUnit,
+  encodeUnit,
+  machine,
+  machineBytes,
+  machineText,
+  pack,
+  sizeOf,
+  unpack,
+} from './space/codec'
+import { countAttested, countSpace, reportSpace } from './space'
 import { normalizeIpa } from './string/normalize'
 import { segment } from './string/sound'
 
@@ -105,6 +116,15 @@ const talk = {
   combine,
   enumeratePhones,
   enumerateSounds,
+  byteWidth,
+  sizeOf,
+  encodeUnit,
+  decodeUnit,
+  pack,
+  unpack,
+  countSpace,
+  countAttested,
+  reportSpace,
 }
 
 export default talk

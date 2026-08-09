@@ -916,6 +916,12 @@ prvsk
     .sort(sortLength),
 )
 
+// The list below includes the falling-diphthong spellings ending in the
+// carrier vowels I / O / U (aO oO OI aU oU eU IU uU joined 2026-08-08):
+// eI was always one cluster while oU and aU split into two, so "brown"
+// and "program" chunked their nucleus as two vowels, and the
+// syllabifier then placed the offglide in the NEXT syllable
+// (pr.r.o | U.gr). One inventory entry fixes both.
 export const vowels = uniq(
   `u$i
 u$e
@@ -992,7 +998,15 @@ Iu
 Ui
 AI
 aI
-eI`
+eI
+aO
+oO
+OI
+aU
+oU
+eU
+IU
+uU`
     .trim()
     .split(/\n+/)
     .filter(noDuplicateSounds)

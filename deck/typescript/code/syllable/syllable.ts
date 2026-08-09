@@ -460,9 +460,18 @@ export function readSegments(string: string) {
     }
 
     if (!matched) {
-      console.error(string, string.slice(i))
-
-      throw new Error('Invalid characters found')
+      // The detail belongs in the error, not on stderr. Printing it
+      // first meant a caller that catches this (a caller probing
+      // whether a token is syllable-parseable at all, which is a
+      // reasonable thing to do) still spewed a line per failure, while
+      // a caller that did not catch got `Invalid characters found` with
+      // no clue which characters. Carrying the input and the unmatched
+      // remainder on the message serves both.
+      throw new Error(
+        `Invalid characters found in "${string}" at index ${i}: "${string.slice(
+          i,
+        )}"`,
+      )
     }
   }
 
