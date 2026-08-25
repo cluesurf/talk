@@ -32,27 +32,32 @@ const REPLACE: Record<string, string> = {
   "'": 'ʼ', // apostrophe -> ejective
   '?': 'ʔ', // question mark -> glottal stop
   ',': '̩', // comma -> syllabic (some sources write it inline)
-  // Pre-aspiration, which this encoding does not separate from
-  // aspiration. Phoible writes `ʱ` for a pre-aspirated voiced segment.
-  ʱ: 'ʰ',
-  // Sinological letters for the alveolo-palatal series. The equivalence
-  // is approximate: `ȵ` is nearer `ɲ̟` than `ɲ`, and the advancing mark
-  // is dropped anyway, so it resolves to the plain palatal.
-  ȵ: 'ɲ',
-  ȶ: 'c',
-  ȡ: 'ɟ',
-  ȴ: 'ʎ',
-  // ARCHIPHONEMES, and the one lossy choice in this table.
-  //
-  // `R` is an underspecified rhotic, `N` a placeless nasal, `ᴅ` an
-  // underspecified stop. Each stands for a SET of realizations the source
-  // declined to choose between, so picking one asserts what the
-  // description refused to. They are mapped anyway, because a caller
-  // matching against a catalog needs a segment rather than a failure, and
-  // the plainest member of each set is the least wrong choice available.
-  //
-  // A caller that must not make this assumption should look for these
-  // characters before normalizing.
+  // Sinological letters for the alveolo-palatal series, written as the
+  // palatal plus the advancing mark. `ȵ` is nearer `ɲ̟` than `ɲ`, and the
+  // advancement now has a modifier to land on, so it is kept.
+  ȵ: 'ɲ̟',
+  ȶ: 'c̟',
+  ȡ: 'ɟ̟',
+  ȴ: 'ʎ̟',
+}
+
+/**
+ * ARCHIPHONEMES, the replacements that assert something the source did
+ * not.
+ *
+ * `R` is an underspecified rhotic, `N` a placeless nasal, `ᴅ` an
+ * underspecified stop. Each stands for a SET of realizations the source
+ * declined to choose between, so picking one member states what the
+ * description refused to.
+ *
+ * They are mapped by default, because a caller matching against a catalog
+ * needs a segment rather than a failure and the plainest member of each
+ * set is the least wrong choice available. Pass `keepDetail` to leave them
+ * alone and have the parser report them, which is what a caller that must
+ * not inherit the assumption wants.
+ */
+
+const APPROXIMATE: Record<string, string> = {
   R: 'r',
   N: 'n',
   ᴅ: 'd',
@@ -103,53 +108,20 @@ const RING_BELOW = '̥'
 const DROP = new Set(['͡', '͜', '.', '‿'])
 
 /**
- * Fine phonetic detail talk does not encode, removed so the segment
- * underneath still resolves.
+ * Fine phonetic detail used to be stripped here so the segment underneath
+ * still resolved. It no longer is.
  *
- * This is LOSSY and deliberately so. `b̤` becomes `b`, which is a real
- * loss: breathy voice is contrastive in many South Asian languages. The
- * trade is that a source carrying the mark still yields its base sound
- * rather than failing outright, which is the right default for matching
- * against a catalog that has no place to put the feature anyway.
+ * Every mark that was dropped now has an entry in `modifiers.json`, so
+ * `b̤` reads as `b` plus breathy rather than as `b`, and a caller sees the
+ * feature instead of losing it. Breathy voice is contrastive across South
+ * Asia and creaky voice across Mesoamerica, so the old default quietly
+ * merged phonemes that contrast.
  *
- * Pass `keepDetail` to leave them in place and let the parser report them
- * as unknown, which is what a caller auditing coverage wants.
- *
- * Voicing is the odd one: `̬` marks a voiced release on a segment whose
- * base already carries voicing, so it is redundant in a notation that
- * encodes voicing in the base rather than as a diacritic.
+ * The spacing raised and lowered marks `˔` and `˕` are the exception, and
+ * are deliberately left alone rather than folded into their combining
+ * equivalents: four phones spell themselves with them (`ɹ̠˔`, `ɻ˔`), and
+ * the tries key on a phone's own spelling.
  */
-
-const DETAIL = new Set([
-  '̤', // U+0324 breathy
-  '̠', // U+0320 retracted
-  '̰', // U+0330 creaky
-  '̟', // U+031F advanced
-  '̺', // U+033A apical
-  '̻', // U+033B laminal
-  '̞', // U+031E lowered
-  '̈', // U+0308 centralized
-  '˞', // U+02DE rhotic
-  '̙', // U+0319 retracted tongue root
-  '̝', // U+031D raised
-  '˔', // U+02D4 raised, the spacing form of the same mark
-  '˕', // U+02D5 lowered, likewise
-  '̜', // U+031C less rounded
-  '↓', // U+2193 downstep
-  '̽', // U+033D mid-centralized
-  '̹', // U+0339 more rounded
-  '̘', // U+0318 advanced tongue root
-  '̬', // U+032C voiced, redundant against the base
-  '̚', // U+031A no audible release
-  '̼', // U+033C linguolabial
-  // Phoible's own extensions, defined on its conventions page. Real
-  // distinctions, but ones this encoding has no slot for.
-  '͈', // U+0348 fortis
-  '͉', // U+0349 lenis
-  '͓', // U+0353 frictionalized
-  '͇', // U+0347 non-sibilant coronal
-  'ᴱ', // U+1D31 sphincteric phonation
-])
 
 /**
  * The canonical order for the marks that follow a base, by articulatory
@@ -169,6 +141,11 @@ const DETAIL = new Set([
  */
 
 const MARK_ORDER = [
+  // Part of a base's own spelling rather than a mark on it, so it sorts
+  // innermost and stays next to the letter it belongs to. `ç` is one
+  // phone, and sorting any other mark inside it splits it into `c` plus a
+  // cedilla the tries have never heard of.
+  '\u{0327}', // cedilla
   // Place detail, closest to the articulation itself.
   '\u{032a}', // dental
   '\u{033c}', // linguolabial
@@ -200,6 +177,7 @@ const MARK_ORDER = [
   '\u{032c}', // voiced
   '\u{0324}', // breathy
   '\u{0330}', // creaky
+  'ᴱ', // sphincteric
   // Manner detail and release.
   '\u{0348}', // fortis
   '\u{0349}', // lenis
@@ -221,6 +199,7 @@ const MARK_ORDER = [
   '˧',
   '˨',
   '˩',
+  '↓', // downstep, which lowers the register of everything after it
 ]
 
 const MARK_RANK = new Map(MARK_ORDER.map((mark, index) => [mark, index]))
@@ -278,9 +257,10 @@ export type NormalizeIpaOptions = {
    */
   bareDigitTone?: boolean
   /**
-   * Keep the fine phonetic detail talk does not encode, rather than
-   * stripping it. Off by default. Turn it on to audit what a source
-   * carries that this encoding drops.
+   * Leave the archiphonemes `R`, `N` and `ᴅ` alone rather than resolving
+   * each to the plainest member of the set it stands for. Off by default.
+   * Turn it on when inheriting that assumption would be wrong, and the
+   * parser reports them instead.
    */
   keepDetail?: boolean
 }
@@ -301,10 +281,10 @@ export function normalizeIpa(
   const out: string[] = []
 
   // Two passes, because a replacement can itself contain something the
-  // second pass acts on: `ɚ` expands to `ə˞`, and the rhoticity hook is
-  // then dropped like any other unencoded detail. Doing both in one walk
-  // would let a replacement smuggle through a character that a literal
-  // occurrence would have been filtered.
+  // second pass acts on: `ȵ` expands to `ɲ̟`, and the advancing mark then
+  // has to decompose and sort with the rest of its run. Doing both in one
+  // walk would leave a replacement's own marks in input order while a
+  // literal occurrence got sorted.
   let source = ''
 
   for (const character of text) {
@@ -315,15 +295,15 @@ export function normalizeIpa(
       continue
     }
 
-    source += REPLACE[character] ?? character
+    const approximate = options.keepDetail
+      ? undefined
+      : APPROXIMATE[character]
+
+    source += REPLACE[character] ?? approximate ?? character
   }
 
   for (const character of source.normalize('NFD')) {
     if (DROP.has(character)) {
-      continue
-    }
-
-    if (!options.keepDetail && DETAIL.has(character)) {
       continue
     }
 

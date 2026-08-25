@@ -364,5 +364,309 @@
     "feature": "mid-tone",
     "slot": "tone",
     "order": 16
+  },
+  {
+    "ipa": "̤",
+    "talk": "%b",
+    "xsampa": "_t",
+    "simple": "̤",
+    "base": "any",
+    "feature": "breathy",
+    "slot": "phonation",
+    "order": 50,
+    "detail": true
+  },
+  {
+    "ipa": "̰",
+    "talk": "%k",
+    "xsampa": "_k",
+    "simple": "̰",
+    "base": "any",
+    "feature": "creaky",
+    "slot": "phonation",
+    "order": 50,
+    "detail": true
+  },
+  {
+    "ipa": "̬",
+    "talk": "%v",
+    "xsampa": "_v",
+    "simple": "̬",
+    "base": "consonant",
+    "feature": "voiced",
+    "slot": "phonation",
+    "order": 50,
+    "attaches": {
+      "voicing": [
+        "voiceless"
+      ]
+    },
+    "detail": true
+  },
+  {
+    "ipa": "ᴱ",
+    "talk": "%s",
+    "xsampa": "_E\\",
+    "simple": "ᴱ",
+    "base": "any",
+    "feature": "sphincteric",
+    "slot": "phonation",
+    "order": 50,
+    "detail": true
+  },
+  {
+    "ipa": "ʱ",
+    "talk": "%h",
+    "xsampa": "_h_t",
+    "simple": "ʱ",
+    "base": "consonant",
+    "feature": "murmured",
+    "slot": "laryngeal",
+    "order": 40,
+    "attaches": {
+      "voicing": [
+        "voiced"
+      ],
+      "notPlace": [
+        "glottal"
+      ]
+    },
+    "detail": true
+  },
+  {
+    "ipa": "͈",
+    "talk": "%f",
+    "xsampa": "_F\\",
+    "simple": "͈",
+    "base": "consonant",
+    "feature": "fortis",
+    "slot": "tension",
+    "order": 44,
+    "detail": true
+  },
+  {
+    "ipa": "͉",
+    "talk": "%l",
+    "xsampa": "_L\\",
+    "simple": "͉",
+    "base": "consonant",
+    "feature": "lenis",
+    "slot": "tension",
+    "order": 44,
+    "detail": true
+  },
+  {
+    "ipa": "̺",
+    "talk": "%a",
+    "xsampa": "_a",
+    "simple": "̺",
+    "base": "consonant",
+    "feature": "apical",
+    "slot": "tongue-blade",
+    "order": 10,
+    "attaches": {
+      "place": [
+        "dental",
+        "alveolar",
+        "postalveolar",
+        "retroflex"
+      ]
+    },
+    "detail": true
+  },
+  {
+    "ipa": "̻",
+    "talk": "%m",
+    "xsampa": "_m",
+    "simple": "̻",
+    "base": "consonant",
+    "feature": "laminal",
+    "slot": "tongue-blade",
+    "order": 10,
+    "attaches": {
+      "place": [
+        "dental",
+        "alveolar",
+        "postalveolar",
+        "retroflex"
+      ]
+    },
+    "detail": true
+  },
+  {
+    "ipa": "̼",
+    "talk": "%n",
+    "xsampa": "_N",
+    "simple": "̼",
+    "base": "consonant",
+    "feature": "linguolabial",
+    "slot": "articulation",
+    "order": 10,
+    "detail": true
+  },
+  {
+    "ipa": "̟",
+    "talk": "%+",
+    "xsampa": "_+",
+    "simple": "̟",
+    "base": "any",
+    "feature": "advanced",
+    "slot": "tongue-shape",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̠",
+    "talk": "%-",
+    "xsampa": "_-",
+    "simple": "̠",
+    "base": "any",
+    "feature": "retracted",
+    "slot": "tongue-shape",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̝",
+    "talk": "%^",
+    "xsampa": "_r",
+    "simple": "̝",
+    "base": "any",
+    "feature": "raised",
+    "slot": "tongue-shape",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̞",
+    "talk": "%_",
+    "xsampa": "_o",
+    "simple": "̞",
+    "base": "any",
+    "feature": "lowered",
+    "slot": "tongue-shape",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̈",
+    "talk": "%\"",
+    "xsampa": "_C\\",
+    "simple": "̈",
+    "base": "vowel",
+    "feature": "centralized",
+    "slot": "tongue-shape",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̽",
+    "talk": "%x",
+    "xsampa": "_x",
+    "simple": "̽",
+    "base": "vowel",
+    "feature": "mid-centralized",
+    "slot": "tongue-shape",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̘",
+    "talk": "%A",
+    "xsampa": "_A",
+    "simple": "̘",
+    "base": "vowel",
+    "feature": "advanced-tongue-root",
+    "slot": "tongue-root",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̙",
+    "talk": "%q",
+    "xsampa": "_q",
+    "simple": "̙",
+    "base": "vowel",
+    "feature": "retracted-tongue-root",
+    "slot": "tongue-root",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̹",
+    "talk": "%o",
+    "xsampa": "_O",
+    "simple": "̹",
+    "base": "any",
+    "feature": "more-rounded",
+    "slot": "rounding",
+    "order": 30,
+    "detail": true
+  },
+  {
+    "ipa": "̜",
+    "talk": "%c",
+    "xsampa": "_c",
+    "simple": "̜",
+    "base": "any",
+    "feature": "less-rounded",
+    "slot": "rounding",
+    "order": 30,
+    "detail": true
+  },
+  {
+    "ipa": "̚",
+    "talk": "%u",
+    "xsampa": "_}",
+    "simple": "̚",
+    "base": "consonant",
+    "feature": "unreleased",
+    "slot": "release",
+    "order": 42,
+    "detail": true
+  },
+  {
+    "ipa": "˞",
+    "talk": "%r",
+    "xsampa": "`",
+    "simple": "˞",
+    "base": "any",
+    "feature": "rhotic",
+    "slot": "rhoticity",
+    "order": 43,
+    "detail": true
+  },
+  {
+    "ipa": "͓",
+    "talk": "%F",
+    "xsampa": "_v\\",
+    "simple": "͓",
+    "base": "consonant",
+    "feature": "frictionalized",
+    "slot": "frication",
+    "order": 44,
+    "detail": true
+  },
+  {
+    "ipa": "͇",
+    "talk": "%S",
+    "xsampa": "_s\\",
+    "simple": "͇",
+    "base": "consonant",
+    "feature": "non-sibilant",
+    "slot": "frication",
+    "order": 44,
+    "detail": true
+  },
+  {
+    "ipa": "↓",
+    "talk": "%d",
+    "xsampa": "!",
+    "simple": "↓",
+    "base": "any",
+    "feature": "downstep",
+    "slot": "tone",
+    "order": 16,
+    "detail": true
   }
 ]

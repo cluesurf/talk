@@ -275,7 +275,19 @@ export function compositionOf({
     base: keyOf(sound.base),
     marks: axes.map(axis => {
       const found = sound.modifiers.find(
-        modifier => modifier.slot === axis.name,
+        modifier =>
+          modifier.slot === axis.name &&
+          // Fine detail contributes no digit to the TONE space, which is
+          // deliberately coarser and does not hold these marks. It has to
+          // be skipped rather than left to fail: `encodeUnit` throws on a
+          // mark its axis does not offer, so a breathy `b` would have no
+          // code at all instead of encoding as the `b` it coarsens to.
+          // That is what every phonetic index built on these codes has
+          // always meant by it, back when the mark was stripped upstream.
+          //
+          // The IPA space is lossless and keys its axes off the IPA marks
+          // themselves, so it still encodes the detail it can hold.
+          !(type === 'tone' && modifier.detail),
       )
 
       return found ? keyOf(found) : null

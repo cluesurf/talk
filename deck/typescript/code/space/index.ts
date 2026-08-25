@@ -93,7 +93,9 @@ function toneAttaches(base: Phone, mod: Modifier): boolean {
 
 function toneProducible(system: Tier): number {
   if (system === 'seed') {
-    return R.starterPhones.length + modifiers.length
+    return (
+      R.starterPhones.length + modifiers.filter(mod => !mod.detail).length
+    )
   }
 
   const seen = new Set<string>()
@@ -103,6 +105,10 @@ function toneProducible(system: Tier): number {
       base.form === 'consonant' ? R.consonantModifiers : R.vowelModifiers
     ).filter(
       mod =>
+        // Fine detail is spelled but not encoded, so it is not part of
+        // what the tone space can produce. Counting it here would also
+        // cross nineteen slots, which overflows a Set before it finishes.
+        !mod.detail &&
         toneAttaches(base, mod) &&
         (system === 'mesh' || !TONE_SUPRA.has(mod.slot)),
     )

@@ -63,8 +63,15 @@ function toneModel(): Model {
     }))
     .sort((a, b) => (a.key < b.key ? -1 : a.key > b.key ? 1 : 0))
 
+  // Fine detail is spelled but not encoded. The tone space is budgeted at
+  // two bytes and every slot multiplies it, so the marks that exist to be
+  // reported rather than compared stay out of the axes and out of the
+  // atoms. `codeOf` then returns no code for a sound carrying one, which
+  // is the honest answer for a notation that does not hold it.
+  const coded = modifiers.filter(mod => !mod.detail)
+
   const bySlot = new Map<string, typeof modifiers>()
-  for (const mod of modifiers) {
+  for (const mod of coded) {
     bySlot.set(mod.slot, [...(bySlot.get(mod.slot) ?? []), mod])
   }
 
@@ -102,7 +109,7 @@ function toneModel(): Model {
     axes,
     units: [
       ...bases.map(base => base.key),
-      ...[...new Set(modifiers.map(mod => mod.talk))].sort(),
+      ...[...new Set(coded.map(mod => mod.talk))].sort(),
     ],
   }
 }

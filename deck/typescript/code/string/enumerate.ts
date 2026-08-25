@@ -91,7 +91,12 @@ function buildSounds(): SoundInfo[] {
       base.form === 'consonant'
         ? R.consonantModifiers
         : R.vowelModifiers
-    const usable = pool.filter(m => modifierAttaches(base, m))
+    // Fine detail is left out, for the same reason it is left out of the
+    // tone axes: this is the ENCODED inventory, and each detail slot
+    // multiplies the cross product rather than adding to it. Nineteen
+    // slots crossed is not an inventory, it is an out-of-memory error.
+    // A detail mark is still parsed, still spelled, and still reported.
+    const usable = pool.filter(m => !m.detail && modifierAttaches(base, m))
 
     for (const combo of slotCombos(usable)) {
       add(base, combo)

@@ -145,7 +145,17 @@ export const IPA_AXES: Record<string, MarkGroup[]> = {
     },
     { marks: ['\u{032c}'], rule: { voicing: ['voiceless'] } },
     // Breathy and creaky are kinds of voicing, so they need voicing.
-    { marks: ['\u{0324}', '\u{0330}'], rule: { voicing: ['voiced'] } },
+    //
+    // Stated twice, because a vowel carries no `voicing` field and the
+    // one-rule form read that absence as "not voiced". Every breathy and
+    // creaky VOWEL was refused for it, which is most of them: `ḭ`, `ṵ`,
+    // `ḛ`, `o̰`, `ɔ̰` and `ɛ̰` between them are hundreds of inventory rows
+    // across Mesoamerica and South Asia.
+    {
+      marks: ['\u{0324}', '\u{0330}'],
+      rule: { form: 'consonant', voicing: ['voiced'] },
+    },
+    { marks: ['\u{0324}', '\u{0330}'], rule: { form: 'vowel' } },
   ],
   tension: [
     { marks: ['\u{0348}', '\u{0349}'], rule: { form: 'consonant' } },
