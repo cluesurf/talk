@@ -152,7 +152,16 @@ IPA_AXES: dict[str, list[MarkGroup]] = {
         ),
         MarkGroup(["̬"], Attachment(voicing=["voiceless"])),
         # Breathy and creaky are kinds of voicing, so they need voicing.
-        MarkGroup(["̤", "̰"], Attachment(voicing=["voiced"])),
+        #
+        # Stated twice, because a vowel carries no `voicing` field and the
+        # one-rule form read that absence as "not voiced". Every breathy
+        # and creaky VOWEL was refused for it, which is most of them:
+        # `ḭ`, `ṵ`, `ḛ`, `o̰`, `ɔ̰` and `ɛ̰` between them are hundreds of
+        # inventory rows across Mesoamerica and South Asia.
+        MarkGroup(
+            ["̤", "̰"], Attachment(form="consonant", voicing=["voiced"])
+        ),
+        MarkGroup(["̤", "̰"], Attachment(form="vowel")),
     ],
     "tension": [
         MarkGroup(["͈", "͉"], Attachment(form="consonant")),

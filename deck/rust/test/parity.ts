@@ -218,7 +218,7 @@ const fixture = {
     input,
     talkToIpa: talkToIpa(input),
     readable: readable(input),
-    machine: machine(input),
+    machine: machine({ text: input, type: 'tone', system: 'mesh' }),
   })),
   ipaToTalk: ipaInputs.map(input => ({ input, output: ipaToTalk(input) })),
   enumerate: enumerateSounds(),

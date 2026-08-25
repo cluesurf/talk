@@ -180,10 +180,24 @@ pub fn ipa_axes() -> &'static Vec<(&'static str, Vec<MarkGroup>)> {
             },
           ),
           // Breathy and creaky are kinds of voicing, so they need voicing.
+          //
+          // Stated twice, because a vowel carries no `voicing` field and
+          // the one-rule form read that absence as "not voiced". Every
+          // breathy and creaky VOWEL was refused for it, which is most of
+          // them: `ḭ`, `ṵ`, `ḛ`, `o̰`, `ɔ̰` and `ɛ̰` between them are
+          // hundreds of inventory rows across Mesoamerica and South Asia.
           group(
             &["\u{0324}", "\u{0330}"],
             Attachment {
+              form: Some(Form::Consonant),
               voicing: Some(vec!["voiced"]),
+              ..Default::default()
+            },
+          ),
+          group(
+            &["\u{0324}", "\u{0330}"],
+            Attachment {
+              form: Some(Form::Vowel),
               ..Default::default()
             },
           ),

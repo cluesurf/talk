@@ -84,6 +84,17 @@ pub struct Modifier {
   #[serde(default)]
   pub prefix: bool,
   pub attaches: Option<Attaches>,
+  /// Fine phonetic detail: parsed and spelled, but outside the tone code
+  /// space.
+  ///
+  /// The IPA notation is lossless and the tone notation deliberately
+  /// coarser. Every mark here is real and gets reported by `parse_ipa`, but
+  /// the tone codes are budgeted at one byte for `seed` and two for `band`
+  /// and `mesh`, and twenty-five more axes would multiply that space past
+  /// both. So they contribute a spelling and never a digit, and a tone
+  /// string carrying one has no tone code.
+  #[serde(default)]
+  pub detail: bool,
 }
 
 #[derive(Debug, Clone, PartialEq, Eq)]

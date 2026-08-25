@@ -96,7 +96,9 @@ fn tone_producible(tier: Tier) -> u64 {
   let state = runtime();
 
   if tier == Tier::Seed {
-    return (state.starter_phones.len() + modifiers().len()) as u64;
+    return (state.starter_phones.len()
+      + modifiers().iter().filter(|one| !one.detail).count())
+      as u64;
   }
 
   let mut seen: HashSet<String> = HashSet::new();
@@ -109,7 +111,11 @@ fn tone_producible(tier: Tier) -> u64 {
     }
     .into_iter()
     .filter(|modifier| {
-      modifier_attaches(base, modifier)
+      // Fine detail is spelled but not encoded, so it is not part of what
+      // the tone space can produce. Counting it here would also cross
+      // nineteen slots, which does not finish.
+      !modifier.detail
+        && modifier_attaches(base, modifier)
         && (tier == Tier::Mesh
           || !TONE_SUPRA.contains(&modifier.slot.as_str()))
     })
@@ -182,7 +188,9 @@ fn tone_permitted(tier: Tier) -> u64 {
   let state = runtime();
 
   if tier == Tier::Seed {
-    return (state.starter_phones.len() + modifiers().len()) as u64;
+    return (state.starter_phones.len()
+      + modifiers().iter().filter(|one| !one.detail).count())
+      as u64;
   }
 
   let mut by_slot: HashMap<&str, u64> = HashMap::new();
@@ -190,6 +198,13 @@ fn tone_permitted(tier: Tier) -> u64 {
   for modifier in
     state.consonant_modifiers.iter().chain(&state.vowel_modifiers)
   {
+    // Fine detail is spelled but not encoded, so it is not part of the
+    // space this counts the ceiling of. Leaving it in multiplied the
+    // ceiling by every detail slot.
+    if modifier.detail {
+      continue;
+    }
+
     if tier == Tier::Band && TONE_SUPRA.contains(&modifier.slot.as_str()) {
       continue;
     }

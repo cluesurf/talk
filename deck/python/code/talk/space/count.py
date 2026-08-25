@@ -84,7 +84,9 @@ def _slot_combos(mods: list) -> list[list]:
 
 def _tone_producible(system: Tier) -> int:
     if system == "seed":
-        return len(R.starter_phones) + len(modifiers)
+        return len(R.starter_phones) + len(
+            [mod for mod in modifiers if not mod.detail]
+        )
 
     seen: set[str] = set()
 
@@ -96,7 +98,11 @@ def _tone_producible(system: Tier) -> int:
                 if base.form == "consonant"
                 else R.vowel_modifiers
             )
-            if modifier_attaches(base, mod)
+            # Fine detail is spelled but not encoded, so it is not part
+            # of what the tone space can produce. Counting it here would
+            # also cross nineteen slots, which does not finish.
+            if not mod.detail
+            and modifier_attaches(base, mod)
             and (system == "mesh" or mod.slot not in TONE_SUPRA)
         ]
 
@@ -148,11 +154,18 @@ def _ipa_producible(system: Tier) -> int:
 
 def _tone_permitted(system: Tier) -> int:
     if system == "seed":
-        return len(R.starter_phones) + len(modifiers)
+        return len(R.starter_phones) + len(
+            [mod for mod in modifiers if not mod.detail]
+        )
 
     by_slot: dict[str, int] = {}
 
     for mod in list(R.consonant_modifiers) + list(R.vowel_modifiers):
+        # Fine detail is spelled but not encoded, so it is not part of the
+        # space this counts the ceiling of. Leaving it in multiplied the
+        # ceiling by every detail slot.
+        if mod.detail:
+            continue
         if system == "band" and mod.slot in TONE_SUPRA:
             continue
         by_slot[mod.slot] = by_slot.get(mod.slot, 0) + 1

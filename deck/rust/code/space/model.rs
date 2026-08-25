@@ -152,9 +152,17 @@ fn tone_model() -> Model {
 
   bases.sort_by(|a, b| a.key.cmp(&b.key));
 
+  // Fine detail is spelled but not encoded. The tone space is budgeted at
+  // two bytes and every slot multiplies it, so the marks that exist to be
+  // reported rather than compared stay out of the axes and out of the
+  // atoms. `code_of` then returns no code for a sound carrying one, which
+  // is the honest answer for a notation that does not hold it.
+  let coded: Vec<&'static Modifier> =
+    modifiers().iter().filter(|one| !one.detail).collect();
+
   let mut by_slot: BTreeMap<&str, Vec<&'static Modifier>> = BTreeMap::new();
 
-  for modifier in modifiers() {
+  for modifier in &coded {
     by_slot.entry(&modifier.slot).or_default().push(modifier);
   }
 
@@ -180,7 +188,7 @@ fn tone_model() -> Model {
   let mut units: Vec<String> =
     bases.iter().map(|base| base.key.clone()).collect();
   let mut marks: Vec<String> =
-    modifiers().iter().map(|m| m.talk.clone()).collect();
+    coded.iter().map(|m| m.talk.clone()).collect();
 
   marks.sort();
   marks.dedup();

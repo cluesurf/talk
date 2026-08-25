@@ -1,5 +1,5 @@
 {
-  "version": "3.4.0",
+  "version": "3.4.2",
   "name": "@cluesurf/talk",
   "description": "Tokenized IPA for AI and NLP, a keyboard-friendly ASCII phonetic encoding that converts to and from IPA with one token per effective sound.",
   "author": "Lance Pollard <lancejpollard@gmail.com>",

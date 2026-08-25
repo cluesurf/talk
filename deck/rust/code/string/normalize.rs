@@ -2,7 +2,7 @@
 //!
 //! Mirrors `code/string/normalize.ts` in the TypeScript port.
 
-use std::collections::{HashMap, HashSet};
+use std::collections::HashMap;
 use std::sync::OnceLock;
 
 use unicode_normalization::UnicodeNormalization;
@@ -35,23 +35,42 @@ fn replace() -> &'static HashMap<char, &'static str> {
       ('\'', "ʼ"),
       ('?', "ʔ"),
       (',', "\u{0329}"),
-      // Pre-aspiration, which this encoding does not separate from
-      // aspiration.
-      ('ʱ', "ʰ"),
-      // Sinological letters for the alveolo-palatal series, approximate.
-      ('ȵ', "ɲ"),
-      ('ȶ', "c"),
-      ('ȡ', "ɟ"),
-      ('ȴ', "ʎ"),
-      // ARCHIPHONEMES, the one lossy choice in this table. `R` is an
-      // underspecified rhotic, `N` a placeless nasal, `ᴅ` an underspecified
-      // stop. Each stands for a SET of realizations the source declined to
-      // choose between, so picking one asserts what the description refused
-      // to. Mapped anyway, because a caller matching against a catalog needs
-      // a segment rather than a failure.
-      ('R', "r"),
-      ('N', "n"),
-      ('ᴅ', "d"),
+      // Sinological letters for the alveolo-palatal series, written as the
+      // palatal plus the advancing mark. `ȵ` is nearer `ɲ̟` than `ɲ`, and
+      // the advancement now has a modifier to land on, so it is kept.
+      ('ȵ', "ɲ\u{031f}"),
+      ('ȶ', "c\u{031f}"),
+      ('ȡ', "ɟ\u{031f}"),
+      ('ȴ', "ʎ\u{031f}"),
+      // GREEK LETTERS THAT ARE NOT IPA.
+      //
+      // Three Greek letters ARE official IPA and are deliberately absent:
+      // β the voiced bilabial fricative, θ the voiceless dental, and χ the
+      // voiceless uvular. Together they account for 166,790 uses across
+      // 171 languages, so folding them would rewrite correct
+      // transcription.
+      ('γ', "ɣ"), // U+03B3 -> U+0263, 26 uses
+      ('δ', "ð"), // U+03B4 -> U+00F0, 77 uses
+      ('ϕ', "ɸ"), // U+03D5 -> U+0278
+      ('ε', "ɛ"), // U+03B5 -> U+025B
+      ('ι', "ɪ"), // U+03B9 -> U+026A
+      ('υ', "ʊ"), // U+03C5 -> U+028A
+      ('α', "ɑ"), // U+03B1 -> U+0251
+      // φ is the ambiguous one and IS folded: every observed use is the
+      // bilabial fricative. λ is deliberately NOT folded, because
+      // Americanist notation uses it for `tɬ` and other sources for `ʎ`.
+      ('φ', "ɸ"),
+      // CYRILLIC LOOKALIKES. `ӕ` renders identically to the Latin `æ` IPA
+      // wants. 83 uses, all in one language.
+      ('ӕ', "æ"), // U+04D5 -> U+00E6
+      ('Ӕ', "Æ"),
+      // TYPOGRAPHIC QUOTES. A source that ran through a word processor has
+      // the curly apostrophe where IPA wants the ejective mark. 570 uses.
+      ('\u{2019}', "ʼ"),
+      ('\u{2018}', "ʼ"),
+      ('`', "ʼ"),
+      ('´', "ʼ"),
+      ('"', "ˈ"), // ASCII double quote -> primary stress
     ]
     .into_iter()
     .collect()
@@ -83,44 +102,50 @@ const RING_BELOW: char = '\u{0325}';
 /// sources use for syllable and morpheme edges.
 const DROP: [char; 4] = ['\u{0361}', '\u{035c}', '.', '\u{203f}'];
 
-/// Fine phonetic detail talk does not encode, removed so the segment
-/// underneath still resolves. LOSSY and deliberately so.
-fn detail() -> &'static HashSet<char> {
-  static CELL: OnceLock<HashSet<char>> = OnceLock::new();
+/// Fine phonetic detail used to be stripped here so the segment underneath
+/// still resolved. It no longer is, and there is no option to bring it back.
+///
+/// Every mark that was dropped now has an entry in `modifiers.json`, so `b̤`
+/// reads as `b` plus breathy and a caller sees the feature instead of losing
+/// it. Breathy voice is contrastive across South Asia and creaky voice across
+/// Mesoamerica, so the old default merged phonemes that contrast.
+///
+/// A caller wanting `b̤` to MATCH `b` wants the tone encoding, which is coarse
+/// by design and gives both the same code.
 
-  CELL.get_or_init(|| {
-    [
-      '\u{0324}', // breathy
-      '\u{0320}', // retracted
-      '\u{0330}', // creaky
-      '\u{031f}', // advanced
-      '\u{033a}', // apical
-      '\u{033b}', // laminal
-      '\u{031e}', // lowered
-      '\u{0308}', // centralized
-      '\u{02de}', // rhotic
-      '\u{0319}', // retracted tongue root
-      '\u{031d}', // raised
-      '\u{02d4}', // raised, spacing form
-      '\u{02d5}', // lowered, spacing form
-      '\u{031c}', // less rounded
-      '\u{2193}', // downstep
-      '\u{033d}', // mid-centralized
-      '\u{0339}', // more rounded
-      '\u{0318}', // advanced tongue root
-      '\u{032c}', // voiced, redundant against the base
-      '\u{031a}', // no audible release
-      '\u{033c}', // linguolabial
-      // Phoible's own extensions, defined on its conventions page.
-      '\u{0348}', // fortis
-      '\u{0349}', // lenis
-      '\u{0353}', // frictionalized
-      '\u{0347}', // non-sibilant coronal
-      '\u{1d31}', // sphincteric phonation
-    ]
-    .into_iter()
-    .collect()
-  })
+/// Characters carrying nothing recoverable, removed before anything else.
+///
+/// PRIVATE USE AREA. A font assigns these whatever glyph it likes and no two
+/// agree, so a source using one meant a symbol its own font drew and nothing
+/// downstream can know which. 98 such characters were observed in five
+/// languages.
+fn is_private_use(character: char) -> bool {
+  matches!(
+    character,
+    '\u{e000}'..='\u{f8ff}'
+      | '\u{f0000}'..='\u{ffffd}'
+      | '\u{100000}'..='\u{10fffd}'
+  )
+}
+
+/// Strip the delimiters WRAPPING a whole string, which say what kind of
+/// transcription it is rather than form part of it. 6,903 uses across four
+/// languages.
+///
+/// Only when they wrap. A slash INSIDE a string separates two readings, and
+/// cutting it would join them into a word that is neither.
+fn unwrap_delimiters(text: &str) -> &str {
+  let trimmed = text.trim();
+  let mut characters = trimmed.chars();
+
+  match (characters.next(), characters.next_back()) {
+    (Some('/'), Some('/')) | (Some('['), Some(']'))
+      if trimmed.chars().count() > 2 =>
+    {
+      characters.as_str()
+    }
+    _ => trimmed,
+  }
 }
 
 /// The canonical order for the marks that follow a base, by articulatory
@@ -135,6 +160,11 @@ fn detail() -> &'static HashSet<char> {
 /// spelling agree on sequence. A mark absent here sorts last, by
 /// codepoint.
 const MARK_ORDER: &[char] = &[
+  // Part of a base's own spelling rather than a mark on it, so it sorts
+  // innermost and stays next to the letter it belongs to. `ç` is one phone,
+  // and sorting any other mark inside it splits it into `c` plus a cedilla
+  // the tries have never heard of.
+  '\u{0327}', // cedilla
   // Place detail, closest to the articulation itself.
   '\u{032a}', '\u{033c}', '\u{033a}', '\u{033b}', '\u{031f}', '\u{0320}',
   '\u{031d}', '\u{031e}', '\u{0308}', '\u{033d}', '\u{0318}', '\u{0319}',
@@ -143,13 +173,13 @@ const MARK_ORDER: &[char] = &[
   // Laryngeal.
   'ʰ', 'ʱ', 'ʼ', 'ˀ',
   // Phonation.
-  '\u{0325}', '\u{032c}', '\u{0324}', '\u{0330}',
+  '\u{0325}', '\u{032c}', '\u{0324}', '\u{0330}', 'ᴱ',
   // Manner detail and release.
   '\u{0348}', '\u{0349}', '\u{0353}', '\u{0347}', 'ⁿ', 'ˡ', '\u{031a}',
   '\u{02de}',
   // Nasality, then the suprasegmentals last.
   '\u{0303}', '\u{0329}', '\u{032f}', 'ː', 'ˑ', '\u{0306}', '˥', '˦',
-  '˧', '˨', '˩',
+  '˧', '˨', '˩', '\u{2193}',
 ];
 
 fn rank_of(character: char) -> usize {
@@ -175,8 +205,7 @@ fn is_affix(character: char) -> bool {
         | '\u{1d78}'
         | '\u{1d9b}'..='\u{1dbf}'
         | '\u{2071}'
-        | '\u{207f}'
-        | '\u{2193}')
+        | '\u{207f}')
 }
 
 fn is_base(character: char) -> bool {
@@ -222,12 +251,11 @@ fn order_marks(text: &str) -> String {
 }
 
 /// `bare_digit_tone` reads bare digits as tone, off by default because a bare
-/// digit is ambiguous. `keep_detail` leaves the unencoded detail in place so a
+/// digit is ambiguous.
 /// caller can audit what this encoding drops.
 #[derive(Debug, Clone, Copy, Default)]
 pub struct NormalizeIpaOptions {
   pub bare_digit_tone: bool,
-  pub keep_detail: bool,
 }
 
 /// Normalize an IPA string into the form the parser reads.
@@ -235,12 +263,19 @@ pub struct NormalizeIpaOptions {
 /// Idempotent, and returns NFD because every combining mark in the tries is
 /// stored decomposed.
 pub fn normalize_ipa_with(text: &str, options: NormalizeIpaOptions) -> String {
-  // Two passes, because a replacement can itself contain something the second
-  // pass acts on: `ɚ` expands to `ə˞`, and the rhoticity hook is then dropped
-  // like any other unencoded detail.
-  let mut source = String::with_capacity(text.len());
+  // Before anything else: drop the private-use characters no reader can
+  // resolve, and unwrap the delimiters that say what kind of transcription
+  // this is. Both are about the string rather than in it.
+  let stripped: String =
+    text.chars().filter(|one| !is_private_use(*one)).collect();
+  let bare = unwrap_delimiters(&stripped);
 
-  for character in text.chars() {
+  // Two passes, because a replacement can itself contain something the second
+  // pass acts on: `ȵ` expands to `ɲ̟`, and the advancing mark then has to
+  // decompose and sort with the rest of its run.
+  let mut source = String::with_capacity(bare.len());
+
+  for character in bare.chars() {
     if let Some((_, digit)) =
       SUPERSCRIPT_DIGIT.iter().find(|(from, _)| *from == character)
     {
@@ -260,10 +295,6 @@ pub fn normalize_ipa_with(text: &str, options: NormalizeIpaOptions) -> String {
 
   for character in source.nfd() {
     if DROP.contains(&character) {
-      continue;
-    }
-
-    if !options.keep_detail && detail().contains(&character) {
       continue;
     }
 

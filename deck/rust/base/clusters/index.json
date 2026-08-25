@@ -4412,12 +4412,20 @@
     "token": "㡑"
   },
   {
+    "talk": "aO",
+    "token": "㩮"
+  },
+  {
     "talk": "Ao",
     "token": "㡒"
   },
   {
     "talk": "au",
     "token": "㡓"
+  },
+  {
+    "talk": "aU",
+    "token": "㩯"
   },
   {
     "talk": "Au",
@@ -4658,6 +4666,10 @@
   {
     "talk": "Eo",
     "token": "㢏"
+  },
+  {
+    "talk": "eU",
+    "token": "㩰"
   },
   {
     "talk": "Eu",
@@ -4958,6 +4970,10 @@
   {
     "talk": "Iu",
     "token": "㣚"
+  },
+  {
+    "talk": "IU",
+    "token": "㩱"
   },
   {
     "talk": "jb",
@@ -5508,8 +5524,20 @@
     "token": "㥣"
   },
   {
+    "talk": "OI",
+    "token": "㩲"
+  },
+  {
+    "talk": "oO",
+    "token": "㩳"
+  },
+  {
     "talk": "ou",
     "token": "㥤"
+  },
+  {
+    "talk": "oU",
+    "token": "㩴"
   },
   {
     "talk": "OU",
@@ -5926,6 +5954,10 @@
   {
     "talk": "uo",
     "token": "㧌"
+  },
+  {
+    "talk": "uU",
+    "token": "㩵"
   },
   {
     "talk": "v'",

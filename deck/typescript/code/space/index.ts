@@ -170,12 +170,19 @@ function ipaProducible(system: Tier): number {
 
 function tonePermitted(system: Tier): number {
   if (system === 'seed') {
-    return R.starterPhones.length + modifiers.length
+    return (
+      R.starterPhones.length + modifiers.filter(mod => !mod.detail).length
+    )
   }
 
   const bySlot = new Map<string, number>()
 
   for (const mod of [...R.consonantModifiers, ...R.vowelModifiers]) {
+    // Fine detail is spelled but not encoded, so it is not part of the
+    // space this counts the ceiling of. Leaving it in multiplied the
+    // ceiling by every detail slot and reported a tone space of six
+    // trillion against a producible twenty-five thousand.
+    if (mod.detail) continue
     if (system === 'band' && TONE_SUPRA.has(mod.slot)) continue
     bySlot.set(mod.slot, (bySlot.get(mod.slot) ?? 0) + 1)
   }

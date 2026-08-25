@@ -263,7 +263,20 @@ pub fn composition_of(
       .map(|axis| {
         modifiers
           .iter()
-          .find(|modifier| modifier.slot == axis.name)
+          // Fine detail contributes no digit to the TONE space, which is
+          // deliberately coarser and does not hold these marks. It has to
+          // be skipped rather than left to fail: `encode_unit` refuses a
+          // mark its axis does not offer, so a breathy `b` would have no
+          // code at all instead of encoding as the `b` it coarsens to.
+          // That is what every phonetic index built on these codes has
+          // always meant by it.
+          //
+          // The IPA space is lossless and keys its axes off the IPA marks
+          // themselves, so it still encodes the detail it can hold.
+          .find(|modifier| {
+            modifier.slot == axis.name
+              && !(notation == Notation::Tone && modifier.detail)
+          })
           .map(|modifier| key_of(&modifier.ipa, &modifier.talk))
       })
       .collect(),

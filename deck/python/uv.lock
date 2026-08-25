@@ -8,7 +8,7 @@ resolution-markers = [
 
 [[package]]
 name = "cluesurf-talk"
-version = "2.0.0"
+version = "3.0.0"
 source = { editable = "." }
 
 [package.dev-dependencies]

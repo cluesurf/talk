@@ -79,7 +79,11 @@ def enumerate_sounds() -> list[SoundInfo]:
             if base.form == "consonant"
             else R.vowel_modifiers
         )
-        usable = [m for m in pool if _attaches(base, m)]
+        # Fine detail is left out, for the same reason it is left out of
+        # the tone axes: this is the ENCODED inventory, and each detail
+        # slot multiplies the cross product rather than adding to it. A
+        # detail mark is still parsed, still spelled, and still reported.
+        usable = [m for m in pool if not m.detail and _attaches(base, m)]
 
         for combo in _slot_combos(usable):
             add(base, combo)

@@ -5,7 +5,7 @@ from __future__ import annotations
 from dataclasses import dataclass
 
 from .combine import combine
-from .normalize import normalize_ipa
+from .normalize import NormalizeIpaOptions, normalize_ipa
 from .runtime import R, modifier_attaches, nfd
 from .sound import segment
 from .type import CODE_LIMIT, Modifier, Phone, Sound, SymbolEntry
@@ -121,7 +121,9 @@ class IpaUnit:
 _NOT_PHONE = IpaUnit(role="unknown")
 
 
-def parse_ipa(text: str) -> list[IpaUnit]:
+def parse_ipa(
+    text: str, options: NormalizeIpaOptions | None = None
+) -> list[IpaUnit]:
     """Parse IPA into base sounds and their modifiers.
 
     ``kʰ`` is one unit: base ``k`` with the ``aspirated`` modifier. ``iː``
@@ -131,8 +133,10 @@ def parse_ipa(text: str) -> list[IpaUnit]:
 
     Unknown input is carried through as ``unknown`` rather than dropped,
     so the caller can see what failed instead of silently losing it.
+
+    ``options`` is passed to ``normalize_ipa``.
     """
-    input_text = normalize_ipa(text)
+    input_text = normalize_ipa(text, options)
     out: list[IpaUnit] = []
 
     base: Phone | None = None

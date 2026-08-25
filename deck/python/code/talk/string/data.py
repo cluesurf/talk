@@ -55,6 +55,7 @@ def _modifier(d: dict[str, Any]) -> Modifier:
         order=d["order"],
         prefix=d.get("prefix"),
         attaches=_attaches(d.get("attaches")),
+        detail=d.get("detail"),
     )
 
 

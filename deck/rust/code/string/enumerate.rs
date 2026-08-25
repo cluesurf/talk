@@ -96,7 +96,11 @@ pub fn enumerate_sounds() -> Vec<SoundInfo> {
     let usable: Vec<&'static Modifier> = pool
       .iter()
       .copied()
-      .filter(|modifier| attaches(base, modifier))
+      // Fine detail is left out, for the same reason it is left out of the
+      // tone axes: this is the ENCODED inventory, and each detail slot
+      // multiplies the cross product rather than adding to it. A detail
+      // mark is still parsed, still spelled, and still reported.
+      .filter(|modifier| !modifier.detail && attaches(base, modifier))
       .collect();
 
     for combo in slot_combos(&usable) {
