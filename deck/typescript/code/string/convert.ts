@@ -190,9 +190,7 @@ export function unitsToTalk(units: ParsedUnit[]): string {
  * Unknown input is carried through as `unknown` rather than dropped, so
  * the caller can see what failed instead of silently losing it.
  *
- * `options` is passed to `normalizeIpa`. Pass `keepDetail` to have the
- * archiphonemes reported rather than resolved, which is what a caller
- * that must not inherit that assumption wants.
+ * `options` is passed to `normalizeIpa`.
  */
 export function parseIpa(
   text: string,

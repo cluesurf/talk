@@ -1,10 +1,19 @@
 // Fold the many ways IPA gets written down into the one this library reads.
+//
+// The tables here are the whole of it. A caller reading IPA from many
+// sources needs the same folding a caller reading one source needs, plus
+// the things only a messy source does, and splitting those across two
+// implementations is how they drift: a second copy of this file went on
+// merging `ʱ` into `ʰ` for months after this one stopped.
+//
+// Where a comment gives a count, it was measured across 3,896,910 IPA
+// strings drawn from several hundred sources rather than reasoned about.
 
 /**
  * Characters that mean the same thing as a character the parser knows,
  * and are replaced one for one.
  *
- * Three kinds of thing end up here.
+ * Four kinds of thing end up here.
  *
  * WITHDRAWN SYMBOLS. `ʆ` and `ʓ` carried the palatal hook, which the IPA
  * withdrew in 1989 in favour of a following superscript j. The mapping is
@@ -17,6 +26,19 @@
  * ASCII `g`, `:` and `'` where the IPA wants `ɡ`, `ː` and `ʼ`. These are
  * different codepoints that render near-identically, so a reader cannot
  * see the difference and a parser cannot miss it.
+ *
+ * FOREIGN-BLOCK LOOKALIKES. The same mistake made with a Greek or
+ * Cyrillic keyboard, or by a word processor that curls a quote.
+ *
+ * Every entry is LOSSLESS: two codepoints for one sound, and picking one
+ * gives nothing up. Nothing that would assert something the source did
+ * not say belongs here, or anywhere in this file.
+ *
+ * That rules out the archiphonemes. `R` is an underspecified rhotic, `N`
+ * a placeless nasal, `ᴅ` an underspecified stop, and each stands for a
+ * SET of realizations the source declined to choose between. This used to
+ * map them to `r`, `n` and `d`, which stated what the description
+ * refused to. They now pass through and the parser reports them.
  */
 
 const REPLACE: Record<string, string> = {
@@ -39,29 +61,83 @@ const REPLACE: Record<string, string> = {
   ȶ: 'c̟',
   ȡ: 'ɟ̟',
   ȴ: 'ʎ̟',
+
+  // GREEK LETTERS THAT ARE NOT IPA.
+  //
+  // Three Greek letters ARE official IPA and are deliberately absent from
+  // this table: β U+03B2 the voiced bilabial fricative, θ U+03B8 the
+  // voiceless dental, and χ U+03C7 the voiceless uvular. Together they
+  // account for 166,790 uses across 171 languages, so folding them would
+  // be rewriting correct transcription.
+  //
+  // These are not IPA. Each has a Latin-block IPA letter that looks
+  // almost the same, and a source reaching for the Greek keyboard key
+  // produces a codepoint no IPA reader indexes.
+  γ: 'ɣ', // U+03B3 -> U+0263 voiced velar fricative, 26 uses
+  δ: 'ð', // U+03B4 -> U+00F0 voiced dental fricative, 77 uses
+  ϕ: 'ɸ', // U+03D5 -> U+0278 voiceless bilabial fricative
+  ε: 'ɛ', // U+03B5 -> U+025B open-mid front unrounded
+  ι: 'ɪ', // U+03B9 -> U+026A near-close near-front unrounded
+  υ: 'ʊ', // U+03C5 -> U+028A near-close near-back rounded
+  α: 'ɑ', // U+03B1 -> U+0251 open back unrounded
+  // φ U+03C6 is the ambiguous one and IS folded: it renders as a Greek
+  // phi and every observed use is the bilabial fricative, which IPA
+  // writes ɸ.
+  //
+  // λ U+03BB is deliberately NOT folded. In the Americanist tradition it
+  // is the lateral affricate, IPA `tɬ`, and in other sources it is the
+  // palatal lateral ʎ, so a mapping would have to pick one and be wrong
+  // for the other half of the corpus.
+  φ: 'ɸ',
+
+  // CYRILLIC LOOKALIKES.
+  //
+  // `ӕ` is CYRILLIC SMALL LIGATURE A IE, which renders identically to the
+  // Latin `æ` IPA wants. 83 uses, all in one language, all of them vowels
+  // in a Latin-script transcription.
+  ӕ: 'æ', // U+04D5 -> U+00E6
+  Ӕ: 'Æ',
+
+  // TYPOGRAPHIC QUOTES.
+  //
+  // The straight apostrophe is folded to the ejective mark above. A
+  // source that ran through a word processor has the curly one instead,
+  // and it renders the same. 570 uses.
+  '’': 'ʼ', // U+2019 -> U+02BC
+  '‘': 'ʼ', // U+2018
+  '`': 'ʼ', // U+0060
+  '´': 'ʼ', // U+00B4
+  // The primary stress mark, typed as ASCII.
+  '"': 'ˈ', // U+0022 -> U+02C8
 }
 
 /**
- * ARCHIPHONEMES, the replacements that assert something the source did
- * not.
+ * Characters carrying nothing recoverable, removed before anything else.
  *
- * `R` is an underspecified rhotic, `N` a placeless nasal, `ᴅ` an
- * underspecified stop. Each stands for a SET of realizations the source
- * declined to choose between, so picking one member states what the
- * description refused to.
- *
- * They are mapped by default, because a caller matching against a catalog
- * needs a segment rather than a failure and the plainest member of each
- * set is the least wrong choice available. Pass `keepDetail` to leave them
- * alone and have the parser report them, which is what a caller that must
- * not inherit the assumption wants.
+ * PRIVATE USE AREA. A font assigns these whatever glyph it likes and no
+ * two agree, so a source using one meant a symbol its own font drew and
+ * nothing downstream can know which. 98 such characters were observed,
+ * as U+F19D, U+F179, U+F1BB, U+F1BC and U+F1C8, in five languages.
  */
 
-const APPROXIMATE: Record<string, string> = {
-  R: 'r',
-  N: 'n',
-  ᴅ: 'd',
-}
+const PRIVATE_USE =
+  /[\uE000-\uF8FF]|[\u{F0000}-\u{FFFFD}]|[\u{100000}-\u{10FFFD}]/gu
+
+/**
+ * Delimiters WRAPPING the whole string, which say what kind of
+ * transcription it is rather than form part of it.
+ *
+ * `/lɛwɨz/` is a phonemic transcription written with the slashes that say
+ * so, in a field that already means IPA. 6,903 uses across four
+ * languages. Square brackets are the phonetic equivalent and go for the
+ * same reason.
+ *
+ * Stripped only when they wrap. A slash INSIDE a string is doing
+ * something else, separating two readings most often, and cutting it
+ * would join them into one word that is neither.
+ */
+
+const WRAPPING_DELIMITER = /^\s*([/[])(.+)([/\]])\s*$/u
 
 /**
  * Superscript digits, which several sources use for tone instead of Chao
@@ -109,7 +185,8 @@ const DROP = new Set(['͡', '͜', '.', '‿'])
 
 /**
  * Fine phonetic detail used to be stripped here so the segment underneath
- * still resolved. It no longer is.
+ * still resolved. It no longer is, and there is no option to bring that
+ * back.
  *
  * Every mark that was dropped now has an entry in `modifiers.json`, so
  * `b̤` reads as `b` plus breathy rather than as `b`, and a caller sees the
@@ -117,10 +194,14 @@ const DROP = new Set(['͡', '͜', '.', '‿'])
  * Asia and creaky voice across Mesoamerica, so the old default quietly
  * merged phonemes that contrast.
  *
- * The spacing raised and lowered marks `˔` and `˕` are the exception, and
- * are deliberately left alone rather than folded into their combining
- * equivalents: four phones spell themselves with them (`ɹ̠˔`, `ɻ˔`), and
- * the tries key on a phone's own spelling.
+ * A caller wanting `b̤` to MATCH `b` wants the tone encoding, which is
+ * coarse by design and gives both the same code. Normalizing is not the
+ * place to throw a distinction away.
+ *
+ * The spacing raised and lowered marks `˔` and `˕` are left alone rather
+ * than folded into their combining equivalents: four phones spell
+ * themselves with them (`ɹ̠˔`, `ɻ˔`), and the tries key on a phone's own
+ * spelling.
  */
 
 /**
@@ -256,13 +337,6 @@ export type NormalizeIpaOptions = {
    * another. Superscript digits are unambiguous and always converted.
    */
   bareDigitTone?: boolean
-  /**
-   * Leave the archiphonemes `R`, `N` and `ᴅ` alone rather than resolving
-   * each to the plainest member of the set it stands for. Off by default.
-   * Turn it on when inheriting that assumption would be wrong, and the
-   * parser reports them instead.
-   */
-  keepDetail?: boolean
 }
 
 /**
@@ -280,6 +354,15 @@ export function normalizeIpa(
 ): string {
   const out: string[] = []
 
+  // Before anything else: drop the private-use characters no reader can
+  // resolve, and unwrap the delimiters that say what kind of
+  // transcription this is. Both are about the string rather than in it,
+  // so they go before the walk that folds what the string is made of, and
+  // the unwrap runs on the stripped text so a private-use character
+  // between a slash and the end cannot hide the wrap.
+  const stripped = text.replace(PRIVATE_USE, '')
+  const bare = WRAPPING_DELIMITER.exec(stripped)?.[2] ?? stripped
+
   // Two passes, because a replacement can itself contain something the
   // second pass acts on: `ȵ` expands to `ɲ̟`, and the advancing mark then
   // has to decompose and sort with the rest of its run. Doing both in one
@@ -287,7 +370,7 @@ export function normalizeIpa(
   // literal occurrence got sorted.
   let source = ''
 
-  for (const character of text) {
+  for (const character of bare) {
     const digit = SUPERSCRIPT_DIGIT[character]
 
     if (digit) {
@@ -295,11 +378,7 @@ export function normalizeIpa(
       continue
     }
 
-    const approximate = options.keepDetail
-      ? undefined
-      : APPROXIMATE[character]
-
-    source += REPLACE[character] ?? approximate ?? character
+    source += REPLACE[character] ?? character
   }
 
   for (const character of source.normalize('NFD')) {
