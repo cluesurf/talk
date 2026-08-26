@@ -63,153 +63,36 @@ const noDuplicateSounds = (s: string) => {
 // for its neighbours. Listing every combination by hand is how the arrays
 // below drifted out of date in the first place.
 const VARIANTS: Record<string, string[]> = {
-  "'": [
-    "$'",
-    "'"
-  ],
-  "a": [
-    "$A",
-    "$a",
-    "A",
-    "a",
-    "~A",
-    "~a"
-  ],
-  "e": [
-    "$E",
-    "$e",
-    "E",
-    "e",
-    "~E",
-    "~e"
-  ],
-  "g": [
-    "$G",
-    "$g",
-    "G",
-    "g"
-  ],
-  "h": [
-    "$H",
-    "$h",
-    "H",
-    "h"
-  ],
-  "i": [
-    "$I",
-    "$i",
-    "I",
-    "i",
-    "~I",
-    "~i"
-  ],
-  "n": [
-    "$N",
-    "$n",
-    "N",
-    "n"
-  ],
-  "o": [
-    "$O",
-    "$o",
-    "O",
-    "o",
-    "~O",
-    "~o"
-  ],
-  "r": [
-    "$R",
-    "$r",
-    "r"
-  ],
-  "s": [
-    "$S",
-    "S",
-    "s"
-  ],
-  "u": [
-    "$U",
-    "U",
-    "u",
-    "~U",
-    "~u"
-  ],
-  "z": [
-    "$Z",
-    "Z",
-    "z"
-  ],
-  "d": [
-    "$d",
-    "D",
-    "d"
-  ],
-  "m": [
-    "$m",
-    "m"
-  ],
-  "t": [
-    "$t",
-    "T",
-    "t"
-  ],
-  "v": [
-    "$v",
-    "V",
-    "v"
-  ],
-  "x": [
-    "$x",
-    "X",
-    "x"
-  ],
-  "f": [
-    "F",
-    "f"
-  ],
-  "j": [
-    "J",
-    "j"
-  ],
-  "k": [
-    "K",
-    "k"
-  ],
-  "k!": [
-    "K!",
-    "k!"
-  ],
-  "l": [
-    "L",
-    "l"
-  ],
-  "t!": [
-    "T!",
-    "t!"
-  ],
-  "w": [
-    "W",
-    "w"
-  ],
-  "y": [
-    "Y",
-    "y"
-  ],
-  "b": [
-    "b"
-  ],
-  "d!": [
-    "d!"
-  ],
-  "l!": [
-    "l!"
-  ],
-  "p": [
-    "p"
-  ],
-  "p!": [
-    "p!"
-  ]
+  "'": ["$'", "'"],
+  a: ['$A', '$a', 'A', 'a', '~A', '~a'],
+  e: ['$E', '$e', 'E', 'e', '~E', '~e'],
+  g: ['$G', '$g', 'G', 'g'],
+  h: ['$H', '$h', 'H', 'h'],
+  i: ['$I', '$i', 'I', 'i', '~I', '~i'],
+  n: ['$N', '$n', 'N', 'n'],
+  o: ['$O', '$o', 'O', 'o', '~O', '~o'],
+  r: ['$R', '$r', 'r'],
+  s: ['$S', 'S', 's'],
+  u: ['$U', 'U', 'u', '~U', '~u'],
+  z: ['$Z', 'Z', 'z'],
+  d: ['$d', 'D', 'd'],
+  m: ['$m', 'm'],
+  t: ['$t', 'T', 't'],
+  v: ['$v', 'V', 'v'],
+  x: ['$x', 'X', 'x'],
+  f: ['F', 'f'],
+  j: ['J', 'j'],
+  k: ['K', 'k'],
+  'k!': ['K!', 'k!'],
+  l: ['L', 'l'],
+  't!': ['T!', 't!'],
+  w: ['W', 'w'],
+  y: ['Y', 'y'],
+  b: ['b'],
+  'd!': ['d!'],
+  'l!': ['l!'],
+  p: ['p'],
+  'p!': ['p!'],
 }
 
 // One cluster, written every way its letters can be spelled.
@@ -234,7 +117,8 @@ export function expand(cluster: string): string[] {
     // walk takes the marker WITH its letter. Reading a bare `$` and then
     // looking up the family for `d` writes `$$d`, a marker on a letter that
     // already carries one.
-    const marker = cluster[at] === '$' || cluster[at] === '~' ? cluster[at] : ''
+    const marker =
+      cluster[at] === '$' || cluster[at] === '~' ? cluster[at] : ''
     const from = at + marker.length
     const letter = LETTERS.find(one => cluster.startsWith(one, from))
 
@@ -384,8 +268,7 @@ ${prefix}:j
 `
 
 export const startConsonants = uniq(
-  expandAll(`u$
-'
+  expandAll(`'
 dj:r
 bl
 bj

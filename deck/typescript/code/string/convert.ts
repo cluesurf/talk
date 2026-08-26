@@ -362,7 +362,7 @@ function renderUnits(
       if (unit.role === 'bound') {
         // Written back the way a tie is written: between each pair of
         // letters, with anything the parts carry left where it sits.
-        return unit.parts.map(one => unitsToIpa([one], key)).join('\u{0361}')
+        return unit.parts.map(one => renderUnits([one], key)).join('\u{0361}')
       }
 
       return unit.text
