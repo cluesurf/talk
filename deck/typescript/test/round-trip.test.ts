@@ -32,13 +32,13 @@ describe('talk -> ipa -> talk is the identity', () => {
 })
 
 describe('the rounded front-vowel pair is consistent both directions', () => {
-  it('a$ <-> ø round-trips', () => {
-    expect(talkToIpa('a$')).toBe('ø')
-    expect(ipaToTalk('ø')).toBe('a$')
+  it('$e <-> ø round-trips', () => {
+    expect(talkToIpa('$e')).toBe('ø')
+    expect(ipaToTalk('ø')).toBe('$e')
   })
 
-  it('e$ <-> œ round-trips', () => {
-    expect(talkToIpa('e$')).toBe('œ')
-    expect(ipaToTalk('œ')).toBe('e$')
+  it('~e <-> œ round-trips', () => {
+    expect(talkToIpa('~e')).toBe('œ')
+    expect(ipaToTalk('œ')).toBe('~e')
   })
 })

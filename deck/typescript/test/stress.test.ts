@@ -6,7 +6,7 @@ describe('stress placement', () => {
   it('lands on the syllable vowel, not an onset consonant', () => {
     // IPA marks the stressed syllable with a leading tick. Talk puts the
     // stress on that syllable's vowel, past any onset consonants.
-    expect(ipaToTalk('ʔeˈmet')).toBe("'eme^t")
+    expect(ipaToTalk('ʔeˈmet')).toBe("'eme<^>t")
     expect(ipaToTalk('ˈmama')).toBe('ma^ma')
   })
 

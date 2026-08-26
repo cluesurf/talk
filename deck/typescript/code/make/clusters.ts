@@ -55,8 +55,8 @@ const noDuplicateSounds = (s: string) => {
 }
 
 const consonantSuffix = (suffix: string, colon = '') => `b${suffix}
-c${colon}${suffix}
-C${colon}${suffix}
+$t${colon}${suffix}
+$d${colon}${suffix}
 d${colon}${suffix}
 f${colon}${suffix}
 g${colon}${suffix}
@@ -76,8 +76,9 @@ w${colon}${suffix}
 x${colon}${suffix}
 y${colon}${suffix}
 z${colon}${suffix}
-G${colon}${suffix}
-Q${colon}${suffix}
+$G${colon}${suffix}
+$g${colon}${suffix}
+$'${colon}${suffix}
 B${colon}${suffix}
 D${colon}${suffix}
 F${colon}${suffix}
@@ -94,7 +95,29 @@ X${colon}${suffix}
 Z${colon}${suffix}
 dj${colon}${suffix}
 dx${colon}${suffix}
-tx${colon}${suffix}`
+tx${colon}${suffix}
+$H${colon}${suffix}
+$N${colon}${suffix}
+$R${colon}${suffix}
+$S${colon}${suffix}
+$Z${colon}${suffix}
+$h${colon}${suffix}
+$m${colon}${suffix}
+$n${colon}${suffix}
+$r${colon}${suffix}
+$v${colon}${suffix}
+$x${colon}${suffix}
+'${colon}${suffix}
+G${colon}${suffix}
+W${colon}${suffix}
+Y${colon}${suffix}
+p!${colon}${suffix}
+t!${colon}${suffix}
+k!${colon}${suffix}
+d!${colon}${suffix}
+l!${colon}${suffix}
+T!${colon}${suffix}
+K!${colon}${suffix}`
 
 const sStart = (prefix = 's') => `${prefix}br
 ${prefix}b:w
@@ -110,9 +133,9 @@ ${prefix}f:w
 ${prefix}g:r
 ${prefix}g:w
 ${prefix}g:y
-${prefix}:c
-${prefix}c:w
-${prefix}c:y
+${prefix}:$t
+${prefix}$t:w
+${prefix}$t:y
 ${prefix}:k
 ${prefix}k:l
 ${prefix}k:r
@@ -156,14 +179,14 @@ bs
 br
 bw
 by
-cl
-cr
-cw
-cy
-Cl
-Cr
-Cw
-Cy
+$tl
+$tr
+$tw
+$ty
+$dl
+$dr
+$dw
+$dy
 dj
 dl
 dr
@@ -178,8 +201,8 @@ fs
 fv
 fm
 fn
-fc
-fC
+f$t
+f$d
 gl
 gr
 gw
@@ -187,7 +210,7 @@ gy
 gz
 gs
 gj
-gC
+g$d
 h:r
 h:l
 h:w
@@ -203,8 +226,8 @@ kr
 kw
 ky
 kx
-kc
-kC
+k$t
+k$d
 ks
 mr
 mw
@@ -222,8 +245,8 @@ pj
 px
 ps
 pz
-pc
-pC
+p$t
+p$d
 qr
 q:l
 qw
@@ -264,7 +287,7 @@ xd
 xg
 jw
 djz
-txc
+tx$t
 txs
 st
 str
@@ -307,15 +330,15 @@ ${prefix}b:x
 ${prefix}b:X
 ${prefix}b:j
 ${prefix}b:J
-${prefix}b:c
-${prefix}bc:t
-${prefix}bc:T
-${prefix}bc:k
-${prefix}bc:K
-${prefix}b:C
-${prefix}bC:d
-${prefix}bC:k
-${prefix}bC:K
+${prefix}b:$t
+${prefix}b$t:t
+${prefix}b$t:T
+${prefix}b$t:k
+${prefix}b$t:K
+${prefix}b:$d
+${prefix}b$d:d
+${prefix}b$d:k
+${prefix}b$d:K
 ${prefix}:v
 ${prefix}:V
 ${prefix}:f
@@ -328,16 +351,16 @@ ${prefix}:x
 ${prefix}:X
 ${prefix}:j
 ${prefix}:J
-${prefix}:c
-${prefix}c:t
-${prefix}c:T
-${prefix}c:k
-${prefix}c:K
-${prefix}:C
-${prefix}C:d
-${prefix}C:D
-${prefix}C:k
-${prefix}C:K`
+${prefix}:$t
+${prefix}$t:t
+${prefix}$t:T
+${prefix}$t:k
+${prefix}$t:K
+${prefix}:$d
+${prefix}$d:d
+${prefix}$d:D
+${prefix}$d:k
+${prefix}$d:K`
 
 const bEnd = (prefix: string) => `${prefix}v
 ${prefix}:f
@@ -353,16 +376,16 @@ ${prefix}:Z
 ${prefix}:S
 ${prefix}:X
 ${prefix}:J
-${prefix}:c
-${prefix}c:t
-${prefix}c:k
-${prefix}c:T
-${prefix}c:K
-${prefix}:C
-${prefix}C:d
-${prefix}C:k
-${prefix}C:D
-${prefix}C:K
+${prefix}:$t
+${prefix}$t:t
+${prefix}$t:k
+${prefix}$t:T
+${prefix}$t:K
+${prefix}:$d
+${prefix}$d:d
+${prefix}$d:k
+${prefix}$d:D
+${prefix}$d:K
 ${prefix}:'`
 
 const gEnd = (prefix: string) => `${prefix}j
@@ -435,9 +458,9 @@ ${prefix}t:x
 ${prefix}:p
 ${prefix}p:s
 ${prefix}p:x
-${prefix}:c
-${prefix}c:s
-${prefix}c:x
+${prefix}:$t
+${prefix}$t:s
+${prefix}$t:x
 ${prefix}:'`
 
 const vEnd = (prefix: string) => `${prefix}j
@@ -460,16 +483,16 @@ ${prefix}:p
 ${prefix}p:s
 ${prefix}:b
 ${prefix}b:z
-${prefix}:c
-${prefix}c:s
-${prefix}c:x
-${prefix}:C
-${prefix}C:z
-${prefix}C:j`
+${prefix}:$t
+${prefix}$t:s
+${prefix}$t:x
+${prefix}:$d
+${prefix}$d:z
+${prefix}$d:j`
 
 const glottalFull = (prefix = "'") => `${prefix}b
-${prefix}c
-${prefix}C
+${prefix}$t
+${prefix}$d
 ${prefix}d
 ${prefix}f
 ${prefix}g
@@ -508,8 +531,8 @@ ${prefix}dx
 ${prefix}tx`
 
 export const consonants = `b
-c
-C
+$t
+$d
 d
 f
 g
@@ -574,11 +597,11 @@ y:j
 y:x
 w:j
 w:x
-y:C
-y:c
+y:$d
+y:$t
 w:r
-w:C
-w:c
+w:$d
+w:$t
 w:l
 tx:s
 s:tx
@@ -669,8 +692,8 @@ ${vEnd('rv')}
 ${vEnd('lv')}
 
 b:b
-c:c
-C:C
+$t:$t
+$d:$d
 d:d
 f:f
 g:g
@@ -709,8 +732,8 @@ W:W
 X:X
 Y:Y
 Z:Z
-c:c
-C:C
+$t:$t
+$d:$d
 d:d
 f:f
 g:g
@@ -749,7 +772,7 @@ Z:Z
 
 l:kt
 l:tx
-l:txc
+l:tx$t
 l:txs
 l:dj
 l:djz
@@ -760,7 +783,7 @@ l:s
 ls:t
 ls:p
 ls:f
-ls:c
+ls:$t
 lz:v
 m:f
 mf:t
@@ -854,8 +877,8 @@ export const fullConsonants = uniq(
 'l:d
 'l:dj
 'l:x
-'l:c
-'l:C
+'l:$t
+'l:$d
 'l:v
 'l:f
 'l
@@ -888,8 +911,8 @@ brvz
 brvzd
 brvzt
 brvs
-brvc
-brvC
+brv$t
+brv$d
 brvsts
 brvst
 brvsk
@@ -899,8 +922,8 @@ prvzd
 prvzt
 prvs
 prvt
-prvc
-prvC
+prv$t
+prv$d
 prvsts
 prvst
 prvsks
@@ -923,26 +946,26 @@ prvsk
 // syllabifier then placed the offglide in the NEXT syllable
 // (pr.r.o | U.gr). One inventory entry fixes both.
 export const vowels = uniq(
-  `u$i
-u$e
-u$a
-u$o
+  `$ui
+$ue
+$ua
+$uo
+$uu
+$uI
+$uE
+$uA
+$uO
+$uU
+i$u
+e$u
+a$u
+o$u
 u$u
-u$I
-u$E
-u$A
-u$O
-u$U
-iu$
-eu$
-au$
-ou$
-uu$
-Iu$
-Eu$
-Au$
-Ou$
-Uu$
+I$u
+E$u
+A$u
+O$u
+U$u
 i
 e
 a
@@ -953,14 +976,14 @@ E
 A
 O
 U
-i$
-e$
-a$
-o$
-u$
-o$u
-o$i
-o$a
+$i
+$e
+$a
+$o
+$u
+$ou
+$oi
+$oa
 ai
 au
 ei
@@ -993,7 +1016,7 @@ uo
 ea
 eo
 oe
-e$i
+$ei
 Iu
 Ui
 AI

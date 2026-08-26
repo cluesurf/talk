@@ -1,75 +1,87 @@
 [
   {
-    "talk": "au$"
+    "talk": "$ei"
   },
   {
-    "talk": "Au$"
+    "talk": "$oa"
   },
   {
-    "talk": "e$i"
+    "talk": "$oi"
   },
   {
-    "talk": "eu$"
+    "talk": "$ou"
   },
   {
-    "talk": "Eu$"
+    "talk": "$ua"
   },
   {
-    "talk": "iu$"
+    "talk": "$uA"
   },
   {
-    "talk": "Iu$"
+    "talk": "$ue"
   },
   {
-    "talk": "o$a"
+    "talk": "$uE"
   },
   {
-    "talk": "o$i"
+    "talk": "$ui"
+  },
+  {
+    "talk": "$uI"
+  },
+  {
+    "talk": "$uo"
+  },
+  {
+    "talk": "$uO"
+  },
+  {
+    "talk": "$uU"
+  },
+  {
+    "talk": "a$u"
+  },
+  {
+    "talk": "A$u"
+  },
+  {
+    "talk": "e$u"
+  },
+  {
+    "talk": "E$u"
+  },
+  {
+    "talk": "i$u"
+  },
+  {
+    "talk": "I$u"
   },
   {
     "talk": "o$u"
   },
   {
-    "talk": "ou$"
-  },
-  {
-    "talk": "Ou$"
-  },
-  {
-    "talk": "u$a"
-  },
-  {
-    "talk": "u$A"
-  },
-  {
-    "talk": "u$e"
-  },
-  {
-    "talk": "u$E"
-  },
-  {
-    "talk": "u$i"
-  },
-  {
-    "talk": "u$I"
-  },
-  {
-    "talk": "u$o"
-  },
-  {
-    "talk": "u$O"
+    "talk": "O$u"
   },
   {
     "talk": "u$u"
   },
   {
-    "talk": "u$U"
+    "talk": "U$u"
   },
   {
-    "talk": "Uu$"
+    "talk": "$a"
   },
   {
-    "talk": "a$"
+    "talk": "$e"
+  },
+  {
+    "talk": "$i"
+  },
+  {
+    "talk": "$o"
+  },
+  {
+    "talk": "$u"
   },
   {
     "talk": "Aa"
@@ -111,9 +123,6 @@
     "talk": "Au"
   },
   {
-    "talk": "e$"
-  },
-  {
     "talk": "ea"
   },
   {
@@ -141,9 +150,6 @@
     "talk": "Eu"
   },
   {
-    "talk": "i$"
-  },
-  {
     "talk": "Ii"
   },
   {
@@ -157,9 +163,6 @@
   },
   {
     "talk": "IU"
-  },
-  {
-    "talk": "o$"
   },
   {
     "talk": "oa"
@@ -193,9 +196,6 @@
   },
   {
     "talk": "OU"
-  },
-  {
-    "talk": "u$"
   },
   {
     "talk": "ua"

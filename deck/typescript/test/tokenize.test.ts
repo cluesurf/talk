@@ -36,13 +36,13 @@ describe('chunking keeps each base with its modifiers', () => {
 
   it('a vowel keeps tone, length, and nasal marks in one chunk', () => {
     expect(chunks('a<np4_>')).toEqual(['a<np4_>'])
-    expect(chunks('txya@+a-a++u')).toEqual([
+    expect(chunks('txya<s-p4>a<p2>a<p5>u')).toEqual([
       't',
       'x',
       'y',
-      'a@+',
-      'a-',
-      'a++',
+      'a<s-p4>',
+      'a<p2>',
+      'a<p5>',
       'u',
     ])
   })
@@ -74,9 +74,9 @@ describe('real words', () => {
   const cases: [string, string[]][] = [
     ['siqk', ['s', 'i', 'q', 'k']],
     ['aiyuQaK', ['a', 'i', 'y', 'u', 'Q', 'a', 'K']],
-    ['HEth~Ah', ['H', 'E', 't<h>', 'A', 'h']],
+    ['HEt<h>Ah', ['H', 'E', 't<h>', 'A', 'h']],
     ["s'oQya~te", ['s', "'", 'o', 'Q', 'y', 'a~', 't', 'e']],
-    ["batO_'aH", ['b', 'a', 't', 'O_', "'", 'a', 'H']],
+    ["batO<_>'aH", ['b', 'a', 't', 'O<_>', "'", 'a', 'H']],
   ]
 
   for (const [word, expected] of cases) {
@@ -106,7 +106,7 @@ describe('sound structure', () => {
   })
 
   it('every non-raw chunk equals its base plus modifiers, in canonical order', () => {
-    for (const sound of segment('txya@+a-a++u th~a p*a')) {
+    for (const sound of segment('txya<s-p4>a<p2>a<p5>u t<h>a p<p3>a')) {
       if (!sound.raw && sound.base) {
         expect(sound.talk).toBe(
           combine(sound.base.talk, sound.modifiers),
@@ -118,7 +118,7 @@ describe('sound structure', () => {
 
 describe('canonicalization', () => {
   it('tokenizing is idempotent on canonical talk', () => {
-    for (const word of ['t<h>a', 'kw~asQ~o', 'a<np4_>', 'p<p3>at<p3>', 'm<v->im']) {
+    for (const word of ['t<h>a', 'k<w>as<q>o', 'a<np4_>', 'p<p3>at<p3>', 'm<v->im']) {
       expect(chunks(word).join('')).toBe(word)
     }
   })
@@ -164,9 +164,9 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
     expect(shape('k<w>')).toEqual([
       { talk: 'k<w>', kind: 'consonant', base: 'k', features: ['labialized'] },
     ])
-    expect(shape('dQ~')).toEqual([
+    expect(shape('d<q>')).toEqual([
       {
-        talk: 'dQ~',
+        talk: 'd<q>',
         kind: 'consonant',
         base: 'd',
         features: ['pharyngealized'],
@@ -190,11 +190,11 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
   })
 
   it('parses vowel suprasegmentals as base + feature', () => {
-    expect(shape('a^')).toEqual([
-      { talk: 'a^', kind: 'vowel', base: 'a', features: ['stress'] },
+    expect(shape('a<^>')).toEqual([
+      { talk: 'a<^>', kind: 'vowel', base: 'a', features: ['stress'] },
     ])
-    expect(shape('a_')).toEqual([
-      { talk: 'a_', kind: 'vowel', base: 'a', features: ['long'] },
+    expect(shape('a<_>')).toEqual([
+      { talk: 'a<_>', kind: 'vowel', base: 'a', features: ['long'] },
     ])
     expect(shape('a~')).toEqual([
       { talk: 'a~', kind: 'vowel', base: 'a', features: ['nasalized'] },
@@ -206,8 +206,8 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
 
   it('parses the four register tones', () => {
     expect(segment('a+')[0]?.modifiers[0]?.feature).toBe('high-tone')
-    expect(segment('a++')[0]?.modifiers[0]?.feature).toBe('extra-high-tone')
-    expect(segment('a-')[0]?.modifiers[0]?.feature).toBe('low-tone')
+    expect(segment('a<p5>')[0]?.modifiers[0]?.feature).toBe('extra-high-tone')
+    expect(segment('a<p2>')[0]?.modifiers[0]?.feature).toBe('low-tone')
     expect(segment('a--')[0]?.modifiers[0]?.feature).toBe('extra-low-tone')
   })
 

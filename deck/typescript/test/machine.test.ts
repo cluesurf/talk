@@ -9,12 +9,12 @@ import { enumerateSounds, machine } from '../code'
 describe('machine encoding is one Hangul code point per sound', () => {
   const cases: [string, number][] = [
     ['g', 1],
-    ['mh!', 1], // voiceless m (m̥), one sound
-    ['ny~', 1], // palatal nasal (ɲ), one sound
-    ['bbh!', 1], // voiceless bilabial trill (ʙ̥), one sound
-    ['u$', 1],
+    ['m<v->', 1], // voiceless m (m̥), one sound
+    ['n<y>', 1], // palatal nasal (ɲ), one sound
+    ['b<rv->', 1], // voiceless bilabial trill (ʙ̥), one sound
+    ['$r', 1],
     ['tak', 3], // t + a + k
-    ['many~a', 4], // m + a + ny~ + a
+    ['man<y>a', 4], // m + a + ny~ + a
   ]
 
   for (const [talk, len] of cases) {

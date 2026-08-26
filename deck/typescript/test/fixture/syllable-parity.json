@@ -2,544 +2,1123 @@
   {
     "word": "mama",
     "syllables": [
-      ["consonant:m", "vowel:a"],
-      ["consonant:m", "vowel:a"]
+      [
+        "consonant:m",
+        "vowel:a"
+      ],
+      [
+        "consonant:m",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "papa",
     "syllables": [
-      ["consonant:p", "vowel:a"],
-      ["consonant:p", "vowel:a"]
+      [
+        "consonant:p",
+        "vowel:a"
+      ],
+      [
+        "consonant:p",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "bata",
     "syllables": [
-      ["consonant:b", "vowel:a"],
-      ["consonant:t", "vowel:a"]
+      [
+        "consonant:b",
+        "vowel:a"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "kala",
     "syllables": [
-      ["consonant:k", "vowel:a"],
-      ["consonant:l", "vowel:a"]
+      [
+        "consonant:k",
+        "vowel:a"
+      ],
+      [
+        "consonant:l",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "nunu",
     "syllables": [
-      ["consonant:n", "vowel:u"],
-      ["consonant:n", "vowel:u"]
+      [
+        "consonant:n",
+        "vowel:u"
+      ],
+      [
+        "consonant:n",
+        "vowel:u"
+      ]
     ]
   },
   {
     "word": "sisi",
     "syllables": [
-      ["consonant:s", "vowel:i"],
-      ["consonant:s", "vowel:i"]
+      [
+        "consonant:s",
+        "vowel:i"
+      ],
+      [
+        "consonant:s",
+        "vowel:i"
+      ]
     ]
   },
   {
     "word": "lolo",
     "syllables": [
-      ["consonant:l", "vowel:o"],
-      ["consonant:l", "vowel:o"]
+      [
+        "consonant:l",
+        "vowel:o"
+      ],
+      [
+        "consonant:l",
+        "vowel:o"
+      ]
     ]
   },
   {
     "word": "riri",
     "syllables": [
-      ["consonant:r", "vowel:i"],
-      ["consonant:r", "vowel:i"]
+      [
+        "consonant:r",
+        "vowel:i"
+      ],
+      [
+        "consonant:r",
+        "vowel:i"
+      ]
     ]
   },
   {
     "word": "bant",
-    "syllables": [["consonant:b", "vowel:a", "end-consonant:nt"]]
+    "syllables": [
+      [
+        "consonant:b",
+        "vowel:a",
+        "end-consonant:nt"
+      ]
+    ]
   },
   {
     "word": "milk",
     "syllables": [
-      ["consonant:m", "vowel:i", "consonant:l", "consonant:k"]
+      [
+        "consonant:m",
+        "vowel:i",
+        "consonant:l",
+        "consonant:k"
+      ]
     ]
   },
   {
     "word": "help",
-    "syllables": [["consonant:h", "vowel:e", "end-consonant:lp"]]
+    "syllables": [
+      [
+        "consonant:h",
+        "vowel:e",
+        "end-consonant:lp"
+      ]
+    ]
   },
   {
     "word": "kamp",
-    "syllables": [["consonant:k", "vowel:a", "end-consonant:mp"]]
+    "syllables": [
+      [
+        "consonant:k",
+        "vowel:a",
+        "end-consonant:mp"
+      ]
+    ]
   },
   {
     "word": "lont",
-    "syllables": [["consonant:l", "vowel:o", "end-consonant:nt"]]
+    "syllables": [
+      [
+        "consonant:l",
+        "vowel:o",
+        "end-consonant:nt"
+      ]
+    ]
   },
   {
     "word": "rist",
-    "syllables": [["consonant:r", "vowel:i", "end-consonant:st"]]
+    "syllables": [
+      [
+        "consonant:r",
+        "vowel:i",
+        "end-consonant:st"
+      ]
+    ]
   },
   {
     "word": "fakt",
-    "syllables": [["consonant:f", "vowel:a", "end-consonant:kt"]]
+    "syllables": [
+      [
+        "consonant:f",
+        "vowel:a",
+        "end-consonant:kt"
+      ]
+    ]
   },
   {
     "word": "sant",
-    "syllables": [["consonant:s", "vowel:a", "end-consonant:nt"]]
+    "syllables": [
+      [
+        "consonant:s",
+        "vowel:a",
+        "end-consonant:nt"
+      ]
+    ]
   },
   {
     "word": "holp",
-    "syllables": [["consonant:h", "vowel:o", "end-consonant:lp"]]
+    "syllables": [
+      [
+        "consonant:h",
+        "vowel:o",
+        "end-consonant:lp"
+      ]
+    ]
   },
   {
     "word": "kard",
     "syllables": [
-      ["consonant:k", "vowel:a", "consonant:r", "consonant:d"]
+      [
+        "consonant:k",
+        "vowel:a",
+        "consonant:r",
+        "consonant:d"
+      ]
     ]
   },
   {
     "word": "wolf",
-    "syllables": [["consonant:w", "vowel:o", "end-consonant:lf"]]
+    "syllables": [
+      [
+        "consonant:w",
+        "vowel:o",
+        "end-consonant:lf"
+      ]
+    ]
   },
   {
     "word": "mund",
-    "syllables": [["consonant:m", "vowel:u", "end-consonant:nd"]]
+    "syllables": [
+      [
+        "consonant:m",
+        "vowel:u",
+        "end-consonant:nd"
+      ]
+    ]
   },
   {
     "word": "tomp",
-    "syllables": [["consonant:t", "vowel:o", "end-consonant:mp"]]
+    "syllables": [
+      [
+        "consonant:t",
+        "vowel:o",
+        "end-consonant:mp"
+      ]
+    ]
   },
   {
     "word": "sink",
-    "syllables": [["consonant:s", "vowel:i", "end-consonant:nk"]]
+    "syllables": [
+      [
+        "consonant:s",
+        "vowel:i",
+        "end-consonant:nk"
+      ]
+    ]
   },
   {
     "word": "banks",
-    "syllables": [["consonant:b", "vowel:a", "end-consonant:nks"]]
+    "syllables": [
+      [
+        "consonant:b",
+        "vowel:a",
+        "end-consonant:nks"
+      ]
+    ]
   },
   {
     "word": "tents",
     "syllables": [
-      ["consonant:t", "vowel:e", "end-consonant:nt"],
-      ["consonant:s"]
+      [
+        "consonant:t",
+        "vowel:e",
+        "end-consonant:nt"
+      ],
+      [
+        "consonant:s"
+      ]
     ]
   },
   {
     "word": "milks",
-    "syllables": [["consonant:m", "vowel:i", "end-consonant:lks"]]
+    "syllables": [
+      [
+        "consonant:m",
+        "vowel:i",
+        "end-consonant:lks"
+      ]
+    ]
   },
   {
     "word": "brata",
     "syllables": [
-      ["start-consonant:br", "vowel:a"],
-      ["consonant:t", "vowel:a"]
+      [
+        "start-consonant:br",
+        "vowel:a"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "krono",
     "syllables": [
-      ["start-consonant:kr", "vowel:o"],
-      ["consonant:n", "vowel:o"]
+      [
+        "start-consonant:kr",
+        "vowel:o"
+      ],
+      [
+        "consonant:n",
+        "vowel:o"
+      ]
     ]
   },
   {
     "word": "grima",
     "syllables": [
-      ["start-consonant:gr", "vowel:i"],
-      ["consonant:m", "vowel:a"]
+      [
+        "start-consonant:gr",
+        "vowel:i"
+      ],
+      [
+        "consonant:m",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "prima",
     "syllables": [
-      ["start-consonant:pr", "vowel:i"],
-      ["consonant:m", "vowel:a"]
+      [
+        "start-consonant:pr",
+        "vowel:i"
+      ],
+      [
+        "consonant:m",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "trono",
     "syllables": [
-      ["start-consonant:tr", "vowel:o"],
-      ["consonant:n", "vowel:o"]
+      [
+        "start-consonant:tr",
+        "vowel:o"
+      ],
+      [
+        "consonant:n",
+        "vowel:o"
+      ]
     ]
   },
   {
     "word": "drama",
     "syllables": [
-      ["start-consonant:dr", "vowel:a"],
-      ["consonant:m", "vowel:a"]
+      [
+        "start-consonant:dr",
+        "vowel:a"
+      ],
+      [
+        "consonant:m",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "flora",
     "syllables": [
-      ["start-consonant:fl", "vowel:o"],
-      ["consonant:r", "vowel:a"]
+      [
+        "start-consonant:fl",
+        "vowel:o"
+      ],
+      [
+        "consonant:r",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "klara",
     "syllables": [
-      ["start-consonant:kl", "vowel:a"],
-      ["consonant:r", "vowel:a"]
+      [
+        "start-consonant:kl",
+        "vowel:a"
+      ],
+      [
+        "consonant:r",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "straka",
     "syllables": [
-      ["start-consonant:str", "vowel:a"],
-      ["consonant:k", "vowel:a"]
+      [
+        "start-consonant:str",
+        "vowel:a"
+      ],
+      [
+        "consonant:k",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "splata",
     "syllables": [
-      ["start-consonant:spl", "vowel:a"],
-      ["consonant:t", "vowel:a"]
+      [
+        "start-consonant:spl",
+        "vowel:a"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "sprita",
     "syllables": [
-      ["start-consonant:spr", "vowel:i"],
-      ["consonant:t", "vowel:a"]
+      [
+        "start-consonant:spr",
+        "vowel:i"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "skrima",
     "syllables": [
-      ["start-consonant:skr", "vowel:i"],
-      ["consonant:m", "vowel:a"]
+      [
+        "start-consonant:skr",
+        "vowel:i"
+      ],
+      [
+        "consonant:m",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "skwira",
     "syllables": [
-      ["start-consonant:skw", "vowel:i"],
-      ["consonant:r", "vowel:a"]
+      [
+        "start-consonant:skw",
+        "vowel:i"
+      ],
+      [
+        "consonant:r",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "snwela",
     "syllables": [
-      ["start-consonant:snw", "vowel:e"],
-      ["consonant:l", "vowel:a"]
+      [
+        "start-consonant:snw",
+        "vowel:e"
+      ],
+      [
+        "consonant:l",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "smwela",
     "syllables": [
-      ["start-consonant:smw", "vowel:e"],
-      ["consonant:l", "vowel:a"]
+      [
+        "start-consonant:smw",
+        "vowel:e"
+      ],
+      [
+        "consonant:l",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "strabrvst",
     "syllables": [
-      ["start-consonant:str", "vowel:a"],
-      ["full-consonant:brvst"]
+      [
+        "start-consonant:str",
+        "vowel:a"
+      ],
+      [
+        "full-consonant:brvst"
+      ]
     ]
   },
   {
     "word": "lmbanta",
     "syllables": [
-      ["end-consonant:lm"],
-      ["consonant:b", "vowel:a", "end-consonant:n"],
-      ["consonant:t", "vowel:a"]
+      [
+        "end-consonant:lm"
+      ],
+      [
+        "consonant:b",
+        "vowel:a",
+        "end-consonant:n"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "kristn",
     "syllables": [
-      ["start-consonant:kr", "vowel:i", "end-consonant:st"],
-      ["consonant:n"]
+      [
+        "start-consonant:kr",
+        "vowel:i",
+        "end-consonant:st"
+      ],
+      [
+        "consonant:n"
+      ]
     ]
   },
   {
     "word": "holsts",
     "syllables": [
-      ["consonant:h", "vowel:o", "end-consonant:lst"],
-      ["consonant:s"]
+      [
+        "consonant:h",
+        "vowel:o",
+        "end-consonant:lst"
+      ],
+      [
+        "consonant:s"
+      ]
     ]
   },
   {
     "word": "ai",
-    "syllables": [["vowel:ai"]]
+    "syllables": [
+      [
+        "vowel:ai"
+      ]
+    ]
   },
   {
     "word": "au",
-    "syllables": [["vowel:au"]]
+    "syllables": [
+      [
+        "vowel:au"
+      ]
+    ]
   },
   {
     "word": "ei",
-    "syllables": [["vowel:ei"]]
+    "syllables": [
+      [
+        "vowel:ei"
+      ]
+    ]
   },
   {
     "word": "oi",
-    "syllables": [["vowel:oi"]]
+    "syllables": [
+      [
+        "vowel:oi"
+      ]
+    ]
   },
   {
     "word": "iu",
-    "syllables": [["vowel:iu"]]
+    "syllables": [
+      [
+        "vowel:iu"
+      ]
+    ]
   },
   {
     "word": "aeiou",
-    "syllables": [["vowel:ae"], ["vowel:io"], ["vowel:u"]]
+    "syllables": [
+      [
+        "vowel:ae"
+      ],
+      [
+        "vowel:io"
+      ],
+      [
+        "vowel:u"
+      ]
+    ]
   },
   {
     "word": "oia",
-    "syllables": [["vowel:oi"], ["vowel:a"]]
+    "syllables": [
+      [
+        "vowel:oi"
+      ],
+      [
+        "vowel:a"
+      ]
+    ]
   },
   {
     "word": "uao",
-    "syllables": [["vowel:ua"], ["vowel:o"]]
+    "syllables": [
+      [
+        "vowel:ua"
+      ],
+      [
+        "vowel:o"
+      ]
+    ]
   },
   {
     "word": "'a",
-    "syllables": [["start-consonant:'", "vowel:a"]]
+    "syllables": [
+      [
+        "start-consonant:'",
+        "vowel:a"
+      ]
+    ]
   },
   {
     "word": "ba'a",
     "syllables": [
-      ["consonant:b", "vowel:a"],
-      ["start-consonant:'", "vowel:a"]
+      [
+        "consonant:b",
+        "vowel:a"
+      ],
+      [
+        "start-consonant:'",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "'ala",
     "syllables": [
-      ["start-consonant:'", "vowel:a"],
-      ["consonant:l", "vowel:a"]
+      [
+        "start-consonant:'",
+        "vowel:a"
+      ],
+      [
+        "consonant:l",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "ta'",
-    "syllables": [["consonant:t", "vowel:a", "start-consonant:'"]]
+    "syllables": [
+      [
+        "consonant:t",
+        "vowel:a",
+        "start-consonant:'"
+      ]
+    ]
   },
   {
     "word": "ki'o",
     "syllables": [
-      ["consonant:k", "vowel:i"],
-      ["start-consonant:'", "vowel:o"]
+      [
+        "consonant:k",
+        "vowel:i"
+      ],
+      [
+        "start-consonant:'",
+        "vowel:o"
+      ]
     ]
   },
   {
     "word": "txando",
     "syllables": [
-      ["start-consonant:tx", "vowel:a", "end-consonant:n"],
-      ["consonant:d", "vowel:o"]
+      [
+        "start-consonant:tx",
+        "vowel:a",
+        "end-consonant:n"
+      ],
+      [
+        "consonant:d",
+        "vowel:o"
+      ]
     ]
   },
   {
     "word": "surdjyo",
     "syllables": [
-      ["consonant:s", "vowel:u", "consonant:r"],
-      ["start-consonant:djy", "vowel:o"]
+      [
+        "consonant:s",
+        "vowel:u",
+        "consonant:r"
+      ],
+      [
+        "start-consonant:djy",
+        "vowel:o"
+      ]
     ]
   },
   {
-    "word": "siqk",
-    "syllables": [["consonant:s", "vowel:i", "end-consonant:qk"]]
+    "word": "si$nk",
+    "syllables": [
+      [
+        "consonant:s",
+        "vowel:i",
+        "end-consonant:qk"
+      ]
+    ]
   },
   {
     "word": "sinhorEsi",
     "syllables": [
-      ["consonant:s", "vowel:i", "end-consonant:n"],
-      ["consonant:h", "vowel:o"],
-      ["consonant:r", "vowel:E"],
-      ["consonant:s", "vowel:i"]
+      [
+        "consonant:s",
+        "vowel:i",
+        "end-consonant:n"
+      ],
+      [
+        "consonant:h",
+        "vowel:o"
+      ],
+      [
+        "consonant:r",
+        "vowel:E"
+      ],
+      [
+        "consonant:s",
+        "vowel:i"
+      ]
     ]
   },
   {
     "word": "batOaH",
     "syllables": [
-      ["consonant:b", "vowel:a"],
-      ["consonant:t", "vowel:Oa", "consonant:H"]
+      [
+        "consonant:b",
+        "vowel:a"
+      ],
+      [
+        "consonant:t",
+        "vowel:Oa",
+        "consonant:H"
+      ]
     ]
   },
   {
-    "word": "aiyuQaK",
+    "word": "aiyu$'aK",
     "syllables": [
-      ["vowel:ai"],
-      ["consonant:y", "vowel:u"],
-      ["consonant:Q", "vowel:a", "consonant:K"]
+      [
+        "vowel:ai"
+      ],
+      [
+        "consonant:y",
+        "vowel:u"
+      ],
+      [
+        "consonant:Q",
+        "vowel:a",
+        "consonant:K"
+      ]
     ]
   },
   {
-    "word": "soQyate",
+    "word": "so$'yate",
     "syllables": [
-      ["consonant:s", "vowel:o", "end-consonant:Q"],
-      ["consonant:y", "vowel:a"],
-      ["consonant:t", "vowel:e"]
+      [
+        "consonant:s",
+        "vowel:o",
+        "end-consonant:Q"
+      ],
+      [
+        "consonant:y",
+        "vowel:a"
+      ],
+      [
+        "consonant:t",
+        "vowel:e"
+      ]
     ]
   },
   {
     "word": "tareba",
     "syllables": [
-      ["consonant:t", "vowel:a"],
-      ["consonant:r", "vowel:e"],
-      ["consonant:b", "vowel:a"]
+      [
+        "consonant:t",
+        "vowel:a"
+      ],
+      [
+        "consonant:r",
+        "vowel:e"
+      ],
+      [
+        "consonant:b",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "fOlasOfi",
     "syllables": [
-      ["consonant:f", "vowel:O"],
-      ["consonant:l", "vowel:a"],
-      ["consonant:s", "vowel:O"],
-      ["consonant:f", "vowel:i"]
+      [
+        "consonant:f",
+        "vowel:O"
+      ],
+      [
+        "consonant:l",
+        "vowel:a"
+      ],
+      [
+        "consonant:s",
+        "vowel:O"
+      ],
+      [
+        "consonant:f",
+        "vowel:i"
+      ]
     ]
   },
   {
     "word": "hEthAh",
     "syllables": [
-      ["consonant:h", "vowel:E", "end-consonant:t"],
-      ["consonant:h", "vowel:A", "consonant:h"]
+      [
+        "consonant:h",
+        "vowel:E",
+        "end-consonant:t"
+      ],
+      [
+        "consonant:h",
+        "vowel:A",
+        "consonant:h"
+      ]
     ]
   },
   {
     "word": "djuro",
     "syllables": [
-      ["start-consonant:dj", "vowel:u"],
-      ["consonant:r", "vowel:o"]
+      [
+        "start-consonant:dj",
+        "vowel:u"
+      ],
+      [
+        "consonant:r",
+        "vowel:o"
+      ]
     ]
   },
   {
     "word": "txiku",
     "syllables": [
-      ["start-consonant:tx", "vowel:i"],
-      ["consonant:k", "vowel:u"]
+      [
+        "start-consonant:tx",
+        "vowel:i"
+      ],
+      [
+        "consonant:k",
+        "vowel:u"
+      ]
     ]
   },
   {
     "word": "th~ima",
     "syllables": [
-      ["consonant:th~", "vowel:i"],
-      ["consonant:m", "vowel:a"]
+      [
+        "consonant:th~",
+        "vowel:i"
+      ],
+      [
+        "consonant:m",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "kw~asa",
     "syllables": [
-      ["consonant:kw~", "vowel:a"],
-      ["consonant:s", "vowel:a"]
+      [
+        "consonant:kw~",
+        "vowel:a"
+      ],
+      [
+        "consonant:s",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "mh!ima",
     "syllables": [
-      ["consonant:m", "vowel:i"],
-      ["consonant:m", "vowel:a"]
+      [
+        "consonant:m",
+        "vowel:i"
+      ],
+      [
+        "consonant:m",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "p*ata",
     "syllables": [
-      ["consonant:p*", "vowel:a"],
-      ["consonant:t", "vowel:a"]
+      [
+        "consonant:p*",
+        "vowel:a"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "t*ak*a",
     "syllables": [
-      ["consonant:t*", "vowel:a"],
-      ["consonant:k*", "vowel:a"]
+      [
+        "consonant:t*",
+        "vowel:a"
+      ],
+      [
+        "consonant:k*",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "say~ta",
     "syllables": [
-      ["consonant:s", "vowel:ay~"],
-      ["consonant:t", "vowel:a"]
+      [
+        "consonant:s",
+        "vowel:ay~"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "naG~a",
-    "syllables": [["consonant:n", "vowel:aG~"], ["vowel:a"]]
+    "syllables": [
+      [
+        "consonant:n",
+        "vowel:aG~"
+      ],
+      [
+        "vowel:a"
+      ]
+    ]
   },
   {
     "word": "ma+ta",
     "syllables": [
-      ["consonant:m", "vowel:a+"],
-      ["consonant:t", "vowel:a"]
+      [
+        "consonant:m",
+        "vowel:a+"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "ba--ka",
     "syllables": [
-      ["consonant:b", "vowel:a--"],
-      ["consonant:k", "vowel:a"]
+      [
+        "consonant:b",
+        "vowel:a--"
+      ],
+      [
+        "consonant:k",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "to^na",
     "syllables": [
-      ["consonant:t", "vowel:o^"],
-      ["consonant:n", "vowel:a"]
+      [
+        "consonant:t",
+        "vowel:o^"
+      ],
+      [
+        "consonant:n",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "nu&la",
     "syllables": [
-      ["consonant:n", "vowel:u&"],
-      ["consonant:l", "vowel:a"]
+      [
+        "consonant:n",
+        "vowel:u&"
+      ],
+      [
+        "consonant:l",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "ka_ta",
     "syllables": [
-      ["consonant:k", "vowel:a_"],
-      ["consonant:t", "vowel:a"]
+      [
+        "consonant:k",
+        "vowel:a_"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "fotografia",
     "syllables": [
-      ["consonant:f", "vowel:o"],
-      ["consonant:t", "vowel:o"],
-      ["start-consonant:gr", "vowel:a"],
-      ["consonant:f", "vowel:i"],
-      ["vowel:a"]
+      [
+        "consonant:f",
+        "vowel:o"
+      ],
+      [
+        "consonant:t",
+        "vowel:o"
+      ],
+      [
+        "start-consonant:gr",
+        "vowel:a"
+      ],
+      [
+        "consonant:f",
+        "vowel:i"
+      ],
+      [
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "telefono",
     "syllables": [
-      ["consonant:t", "vowel:e"],
-      ["consonant:l", "vowel:e"],
-      ["consonant:f", "vowel:o"],
-      ["consonant:n", "vowel:o"]
+      [
+        "consonant:t",
+        "vowel:e"
+      ],
+      [
+        "consonant:l",
+        "vowel:e"
+      ],
+      [
+        "consonant:f",
+        "vowel:o"
+      ],
+      [
+        "consonant:n",
+        "vowel:o"
+      ]
     ]
   },
   {
     "word": "komputera",
     "syllables": [
-      ["consonant:k", "vowel:o", "end-consonant:m"],
-      ["consonant:p", "vowel:u"],
-      ["consonant:t", "vowel:e"],
-      ["consonant:r", "vowel:a"]
+      [
+        "consonant:k",
+        "vowel:o",
+        "end-consonant:m"
+      ],
+      [
+        "consonant:p",
+        "vowel:u"
+      ],
+      [
+        "consonant:t",
+        "vowel:e"
+      ],
+      [
+        "consonant:r",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "universita",
     "syllables": [
-      ["vowel:u"],
-      ["consonant:n", "vowel:i"],
-      ["consonant:v", "vowel:e", "end-consonant:r"],
-      ["consonant:s", "vowel:i"],
-      ["consonant:t", "vowel:a"]
+      [
+        "vowel:u"
+      ],
+      [
+        "consonant:n",
+        "vowel:i"
+      ],
+      [
+        "consonant:v",
+        "vowel:e",
+        "end-consonant:r"
+      ],
+      [
+        "consonant:s",
+        "vowel:i"
+      ],
+      [
+        "consonant:t",
+        "vowel:a"
+      ]
     ]
   },
   {
     "word": "fonolodjia",
     "syllables": [
-      ["consonant:f", "vowel:o"],
-      ["consonant:n", "vowel:o"],
-      ["consonant:l", "vowel:o"],
-      ["start-consonant:dj", "vowel:i"],
-      ["vowel:a"]
+      [
+        "consonant:f",
+        "vowel:o"
+      ],
+      [
+        "consonant:n",
+        "vowel:o"
+      ],
+      [
+        "consonant:l",
+        "vowel:o"
+      ],
+      [
+        "start-consonant:dj",
+        "vowel:i"
+      ],
+      [
+        "vowel:a"
+      ]
     ]
   }
 ]

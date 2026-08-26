@@ -24,7 +24,13 @@
     "talk": "sprdjd"
   },
   {
+    "talk": "'l:$d"
+  },
+  {
     "talk": "'l:dj"
+  },
+  {
+    "talk": "brv$d"
   },
   {
     "talk": "brvsk"
@@ -37,6 +43,9 @@
   },
   {
     "talk": "brvzt"
+  },
+  {
+    "talk": "prv$d"
   },
   {
     "talk": "prvsk"
@@ -58,9 +67,6 @@
   },
   {
     "talk": "'l:c"
-  },
-  {
-    "talk": "'l:C"
   },
   {
     "talk": "'l:d"
@@ -96,9 +102,6 @@
     "talk": "brvc"
   },
   {
-    "talk": "brvC"
-  },
-  {
     "talk": "brvs"
   },
   {
@@ -106,9 +109,6 @@
   },
   {
     "talk": "prvc"
-  },
-  {
-    "talk": "prvC"
   },
   {
     "talk": "prvs"

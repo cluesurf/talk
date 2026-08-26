@@ -1,6 +1,78 @@
 [
   {
-    "talk": "lmbC:d"
+    "talk": "lmb$d:d"
+  },
+  {
+    "talk": "lmb$d:k"
+  },
+  {
+    "talk": "lmb$d:K"
+  },
+  {
+    "talk": "lnb$d:d"
+  },
+  {
+    "talk": "lnb$d:k"
+  },
+  {
+    "talk": "lnb$d:K"
+  },
+  {
+    "talk": "rmb$d:d"
+  },
+  {
+    "talk": "rmb$d:k"
+  },
+  {
+    "talk": "rmb$d:K"
+  },
+  {
+    "talk": "rnb$d:d"
+  },
+  {
+    "talk": "rnb$d:k"
+  },
+  {
+    "talk": "rnb$d:K"
+  },
+  {
+    "talk": "lb$d:d"
+  },
+  {
+    "talk": "lb$d:D"
+  },
+  {
+    "talk": "lb$d:k"
+  },
+  {
+    "talk": "lb$d:K"
+  },
+  {
+    "talk": "lf$d:d"
+  },
+  {
+    "talk": "lf$d:D"
+  },
+  {
+    "talk": "lf$d:k"
+  },
+  {
+    "talk": "lf$d:K"
+  },
+  {
+    "talk": "lm$d:d"
+  },
+  {
+    "talk": "lm$d:D"
+  },
+  {
+    "talk": "lm$d:k"
+  },
+  {
+    "talk": "lm$d:K"
+  },
+  {
+    "talk": "lmb:$d"
   },
   {
     "talk": "lmbc:k"
@@ -9,19 +81,25 @@
     "talk": "lmbc:K"
   },
   {
-    "talk": "lmbC:k"
-  },
-  {
-    "talk": "lmbC:K"
-  },
-  {
     "talk": "lmbc:t"
   },
   {
     "talk": "lmbc:T"
   },
   {
-    "talk": "lnbC:d"
+    "talk": "ln$d:d"
+  },
+  {
+    "talk": "ln$d:D"
+  },
+  {
+    "talk": "ln$d:k"
+  },
+  {
+    "talk": "ln$d:K"
+  },
+  {
+    "talk": "lnb:$d"
   },
   {
     "talk": "lnbc:k"
@@ -30,19 +108,97 @@
     "talk": "lnbc:K"
   },
   {
-    "talk": "lnbC:k"
-  },
-  {
-    "talk": "lnbC:K"
-  },
-  {
     "talk": "lnbc:t"
   },
   {
     "talk": "lnbc:T"
   },
   {
-    "talk": "rmbC:d"
+    "talk": "lp$d:d"
+  },
+  {
+    "talk": "lp$d:D"
+  },
+  {
+    "talk": "lp$d:k"
+  },
+  {
+    "talk": "lp$d:K"
+  },
+  {
+    "talk": "lv$d:d"
+  },
+  {
+    "talk": "lv$d:D"
+  },
+  {
+    "talk": "lv$d:j"
+  },
+  {
+    "talk": "lv$d:k"
+  },
+  {
+    "talk": "lv$d:K"
+  },
+  {
+    "talk": "lv$d:z"
+  },
+  {
+    "talk": "mb$d:d"
+  },
+  {
+    "talk": "mb$d:k"
+  },
+  {
+    "talk": "mb$d:K"
+  },
+  {
+    "talk": "nb$d:d"
+  },
+  {
+    "talk": "nb$d:k"
+  },
+  {
+    "talk": "nb$d:K"
+  },
+  {
+    "talk": "rb$d:d"
+  },
+  {
+    "talk": "rb$d:D"
+  },
+  {
+    "talk": "rb$d:k"
+  },
+  {
+    "talk": "rb$d:K"
+  },
+  {
+    "talk": "rf$d:d"
+  },
+  {
+    "talk": "rf$d:D"
+  },
+  {
+    "talk": "rf$d:k"
+  },
+  {
+    "talk": "rf$d:K"
+  },
+  {
+    "talk": "rm$d:d"
+  },
+  {
+    "talk": "rm$d:D"
+  },
+  {
+    "talk": "rm$d:k"
+  },
+  {
+    "talk": "rm$d:K"
+  },
+  {
+    "talk": "rmb:$d"
   },
   {
     "talk": "rmbc:k"
@@ -51,19 +207,25 @@
     "talk": "rmbc:K"
   },
   {
-    "talk": "rmbC:k"
-  },
-  {
-    "talk": "rmbC:K"
-  },
-  {
     "talk": "rmbc:t"
   },
   {
     "talk": "rmbc:T"
   },
   {
-    "talk": "rnbC:d"
+    "talk": "rn$d:d"
+  },
+  {
+    "talk": "rn$d:D"
+  },
+  {
+    "talk": "rn$d:k"
+  },
+  {
+    "talk": "rn$d:K"
+  },
+  {
+    "talk": "rnb:$d"
   },
   {
     "talk": "rnbc:k"
@@ -72,22 +234,73 @@
     "talk": "rnbc:K"
   },
   {
-    "talk": "rnbC:k"
-  },
-  {
-    "talk": "rnbC:K"
-  },
-  {
     "talk": "rnbc:t"
   },
   {
     "talk": "rnbc:T"
   },
   {
+    "talk": "rp$d:d"
+  },
+  {
+    "talk": "rp$d:D"
+  },
+  {
+    "talk": "rp$d:k"
+  },
+  {
+    "talk": "rp$d:K"
+  },
+  {
+    "talk": "rv$d:d"
+  },
+  {
+    "talk": "rv$d:D"
+  },
+  {
+    "talk": "rv$d:j"
+  },
+  {
+    "talk": "rv$d:k"
+  },
+  {
+    "talk": "rv$d:K"
+  },
+  {
+    "talk": "rv$d:z"
+  },
+  {
+    "talk": "$d:$d"
+  },
+  {
+    "talk": "b$d:d"
+  },
+  {
+    "talk": "b$d:D"
+  },
+  {
+    "talk": "b$d:k"
+  },
+  {
+    "talk": "b$d:K"
+  },
+  {
     "talk": "dj:dj"
   },
   {
     "talk": "DJ:DJ"
+  },
+  {
+    "talk": "f$d:d"
+  },
+  {
+    "talk": "f$d:D"
+  },
+  {
+    "talk": "f$d:k"
+  },
+  {
+    "talk": "f$d:K"
   },
   {
     "talk": "l:djz"
@@ -99,10 +312,19 @@
     "talk": "l:txs"
   },
   {
-    "talk": "lbC:d"
+    "talk": "l$d:d"
   },
   {
-    "talk": "lbC:D"
+    "talk": "l$d:D"
+  },
+  {
+    "talk": "l$d:k"
+  },
+  {
+    "talk": "l$d:K"
+  },
+  {
+    "talk": "lb:$d"
   },
   {
     "talk": "lbc:k"
@@ -111,34 +333,19 @@
     "talk": "lbc:K"
   },
   {
-    "talk": "lbC:k"
-  },
-  {
-    "talk": "lbC:K"
-  },
-  {
     "talk": "lbc:t"
   },
   {
     "talk": "lbc:T"
   },
   {
-    "talk": "lfC:d"
-  },
-  {
-    "talk": "lfC:D"
+    "talk": "lf:$d"
   },
   {
     "talk": "lfc:k"
   },
   {
     "talk": "lfc:K"
-  },
-  {
-    "talk": "lfC:k"
-  },
-  {
-    "talk": "lfC:K"
   },
   {
     "talk": "lfc:s"
@@ -258,10 +465,10 @@
     "talk": "lkX:T"
   },
   {
-    "talk": "lmb:c"
+    "talk": "lm:$d"
   },
   {
-    "talk": "lmb:C"
+    "talk": "lmb:c"
   },
   {
     "talk": "lmb:F"
@@ -297,22 +504,10 @@
     "talk": "lmb:Z"
   },
   {
-    "talk": "lmC:d"
-  },
-  {
-    "talk": "lmC:D"
-  },
-  {
     "talk": "lmc:k"
   },
   {
     "talk": "lmc:K"
-  },
-  {
-    "talk": "lmC:k"
-  },
-  {
-    "talk": "lmC:K"
   },
   {
     "talk": "lmc:t"
@@ -321,10 +516,10 @@
     "talk": "lmc:T"
   },
   {
-    "talk": "lnb:c"
+    "talk": "ln:$d"
   },
   {
-    "talk": "lnb:C"
+    "talk": "lnb:c"
   },
   {
     "talk": "lnb:F"
@@ -360,22 +555,10 @@
     "talk": "lnb:Z"
   },
   {
-    "talk": "lnC:d"
-  },
-  {
-    "talk": "lnC:D"
-  },
-  {
     "talk": "lnc:k"
   },
   {
     "talk": "lnc:K"
-  },
-  {
-    "talk": "lnC:k"
-  },
-  {
-    "talk": "lnC:K"
   },
   {
     "talk": "lnc:t"
@@ -384,10 +567,7 @@
     "talk": "lnc:T"
   },
   {
-    "talk": "lpC:d"
-  },
-  {
-    "talk": "lpC:D"
+    "talk": "lp:$d"
   },
   {
     "talk": "lpc:k"
@@ -396,16 +576,13 @@
     "talk": "lpc:K"
   },
   {
-    "talk": "lpC:k"
-  },
-  {
-    "talk": "lpC:K"
-  },
-  {
     "talk": "lpc:t"
   },
   {
     "talk": "lpc:T"
+  },
+  {
+    "talk": "lv:$d"
   },
   {
     "talk": "lv:dj"
@@ -414,25 +591,10 @@
     "talk": "lvb:z"
   },
   {
-    "talk": "lvC:d"
-  },
-  {
-    "talk": "lvC:D"
-  },
-  {
-    "talk": "lvC:j"
-  },
-  {
     "talk": "lvc:k"
   },
   {
     "talk": "lvc:K"
-  },
-  {
-    "talk": "lvC:k"
-  },
-  {
-    "talk": "lvC:K"
   },
   {
     "talk": "lvc:s"
@@ -445,9 +607,6 @@
   },
   {
     "talk": "lvc:x"
-  },
-  {
-    "talk": "lvC:z"
   },
   {
     "talk": "lvd:s"
@@ -477,19 +636,25 @@
     "talk": "lvt:x"
   },
   {
-    "talk": "mbC:d"
+    "talk": "m$d:d"
+  },
+  {
+    "talk": "m$d:D"
+  },
+  {
+    "talk": "m$d:k"
+  },
+  {
+    "talk": "m$d:K"
+  },
+  {
+    "talk": "mb:$d"
   },
   {
     "talk": "mbc:k"
   },
   {
     "talk": "mbc:K"
-  },
-  {
-    "talk": "mbC:k"
-  },
-  {
-    "talk": "mbC:K"
   },
   {
     "talk": "mbc:t"
@@ -531,19 +696,25 @@
     "talk": "mpf:t"
   },
   {
-    "talk": "nbC:d"
+    "talk": "n$d:d"
+  },
+  {
+    "talk": "n$d:D"
+  },
+  {
+    "talk": "n$d:k"
+  },
+  {
+    "talk": "n$d:K"
+  },
+  {
+    "talk": "nb:$d"
   },
   {
     "talk": "nbc:k"
   },
   {
     "talk": "nbc:K"
-  },
-  {
-    "talk": "nbC:k"
-  },
-  {
-    "talk": "nbC:K"
   },
   {
     "talk": "nbc:t"
@@ -579,6 +750,18 @@
     "talk": "nkX:T"
   },
   {
+    "talk": "p$d:d"
+  },
+  {
+    "talk": "p$d:D"
+  },
+  {
+    "talk": "p$d:k"
+  },
+  {
+    "talk": "p$d:K"
+  },
+  {
     "talk": "qkx:k"
   },
   {
@@ -603,10 +786,19 @@
     "talk": "qkX:T"
   },
   {
-    "talk": "rbC:d"
+    "talk": "r$d:d"
   },
   {
-    "talk": "rbC:D"
+    "talk": "r$d:D"
+  },
+  {
+    "talk": "r$d:k"
+  },
+  {
+    "talk": "r$d:K"
+  },
+  {
+    "talk": "rb:$d"
   },
   {
     "talk": "rbc:k"
@@ -615,34 +807,19 @@
     "talk": "rbc:K"
   },
   {
-    "talk": "rbC:k"
-  },
-  {
-    "talk": "rbC:K"
-  },
-  {
     "talk": "rbc:t"
   },
   {
     "talk": "rbc:T"
   },
   {
-    "talk": "rfC:d"
-  },
-  {
-    "talk": "rfC:D"
+    "talk": "rf:$d"
   },
   {
     "talk": "rfc:k"
   },
   {
     "talk": "rfc:K"
-  },
-  {
-    "talk": "rfC:k"
-  },
-  {
-    "talk": "rfC:K"
   },
   {
     "talk": "rfc:s"
@@ -747,10 +924,10 @@
     "talk": "rkX:T"
   },
   {
-    "talk": "rmb:c"
+    "talk": "rm:$d"
   },
   {
-    "talk": "rmb:C"
+    "talk": "rmb:c"
   },
   {
     "talk": "rmb:F"
@@ -786,22 +963,10 @@
     "talk": "rmb:Z"
   },
   {
-    "talk": "rmC:d"
-  },
-  {
-    "talk": "rmC:D"
-  },
-  {
     "talk": "rmc:k"
   },
   {
     "talk": "rmc:K"
-  },
-  {
-    "talk": "rmC:k"
-  },
-  {
-    "talk": "rmC:K"
   },
   {
     "talk": "rmc:t"
@@ -810,10 +975,10 @@
     "talk": "rmc:T"
   },
   {
-    "talk": "rnb:c"
+    "talk": "rn:$d"
   },
   {
-    "talk": "rnb:C"
+    "talk": "rnb:c"
   },
   {
     "talk": "rnb:F"
@@ -849,22 +1014,10 @@
     "talk": "rnb:Z"
   },
   {
-    "talk": "rnC:d"
-  },
-  {
-    "talk": "rnC:D"
-  },
-  {
     "talk": "rnc:k"
   },
   {
     "talk": "rnc:K"
-  },
-  {
-    "talk": "rnC:k"
-  },
-  {
-    "talk": "rnC:K"
   },
   {
     "talk": "rnc:t"
@@ -873,10 +1026,7 @@
     "talk": "rnc:T"
   },
   {
-    "talk": "rpC:d"
-  },
-  {
-    "talk": "rpC:D"
+    "talk": "rp:$d"
   },
   {
     "talk": "rpc:k"
@@ -885,16 +1035,13 @@
     "talk": "rpc:K"
   },
   {
-    "talk": "rpC:k"
-  },
-  {
-    "talk": "rpC:K"
-  },
-  {
     "talk": "rpc:t"
   },
   {
     "talk": "rpc:T"
+  },
+  {
+    "talk": "rv:$d"
   },
   {
     "talk": "rv:dj"
@@ -903,25 +1050,10 @@
     "talk": "rvb:z"
   },
   {
-    "talk": "rvC:d"
-  },
-  {
-    "talk": "rvC:D"
-  },
-  {
-    "talk": "rvC:j"
-  },
-  {
     "talk": "rvc:k"
   },
   {
     "talk": "rvc:K"
-  },
-  {
-    "talk": "rvC:k"
-  },
-  {
-    "talk": "rvC:K"
   },
   {
     "talk": "rvc:s"
@@ -934,9 +1066,6 @@
   },
   {
     "talk": "rvc:x"
-  },
-  {
-    "talk": "rvC:z"
   },
   {
     "talk": "rvd:s"
@@ -966,22 +1095,175 @@
     "talk": "rvt:x"
   },
   {
-    "talk": "bC:d"
+    "talk": "v$d:d"
   },
   {
-    "talk": "bC:D"
+    "talk": "v$d:D"
+  },
+  {
+    "talk": "v$d:j"
+  },
+  {
+    "talk": "v$d:k"
+  },
+  {
+    "talk": "v$d:K"
+  },
+  {
+    "talk": "v$d:z"
+  },
+  {
+    "talk": "$':h"
+  },
+  {
+    "talk": "$':w"
+  },
+  {
+    "talk": "$':y"
+  },
+  {
+    "talk": "$d:h"
+  },
+  {
+    "talk": "$d:w"
+  },
+  {
+    "talk": "$d:y"
+  },
+  {
+    "talk": "$g:h"
+  },
+  {
+    "talk": "$G:h"
+  },
+  {
+    "talk": "$g:w"
+  },
+  {
+    "talk": "$G:w"
+  },
+  {
+    "talk": "$g:y"
+  },
+  {
+    "talk": "$G:y"
+  },
+  {
+    "talk": "$h:h"
+  },
+  {
+    "talk": "$H:h"
+  },
+  {
+    "talk": "$h:w"
+  },
+  {
+    "talk": "$H:w"
+  },
+  {
+    "talk": "$h:y"
+  },
+  {
+    "talk": "$H:y"
+  },
+  {
+    "talk": "$m:h"
+  },
+  {
+    "talk": "$m:w"
+  },
+  {
+    "talk": "$m:y"
+  },
+  {
+    "talk": "$n:h"
+  },
+  {
+    "talk": "$N:h"
+  },
+  {
+    "talk": "$n:w"
+  },
+  {
+    "talk": "$N:w"
+  },
+  {
+    "talk": "$n:y"
+  },
+  {
+    "talk": "$N:y"
+  },
+  {
+    "talk": "$r:h"
+  },
+  {
+    "talk": "$R:h"
+  },
+  {
+    "talk": "$r:w"
+  },
+  {
+    "talk": "$R:w"
+  },
+  {
+    "talk": "$r:y"
+  },
+  {
+    "talk": "$R:y"
+  },
+  {
+    "talk": "$S:h"
+  },
+  {
+    "talk": "$S:w"
+  },
+  {
+    "talk": "$S:y"
+  },
+  {
+    "talk": "$t:h"
+  },
+  {
+    "talk": "$t:w"
+  },
+  {
+    "talk": "$t:y"
+  },
+  {
+    "talk": "$v:h"
+  },
+  {
+    "talk": "$v:w"
+  },
+  {
+    "talk": "$v:y"
+  },
+  {
+    "talk": "$x:h"
+  },
+  {
+    "talk": "$x:w"
+  },
+  {
+    "talk": "$x:y"
+  },
+  {
+    "talk": "$Z:h"
+  },
+  {
+    "talk": "$Z:w"
+  },
+  {
+    "talk": "$Z:y"
+  },
+  {
+    "talk": "b:$d"
   },
   {
     "talk": "bc:k"
   },
   {
     "talk": "bc:K"
-  },
-  {
-    "talk": "bC:k"
-  },
-  {
-    "talk": "bC:K"
   },
   {
     "talk": "bc:t"
@@ -994,6 +1276,15 @@
   },
   {
     "talk": "D:DJ"
+  },
+  {
+    "talk": "d!:h"
+  },
+  {
+    "talk": "d!:w"
+  },
+  {
+    "talk": "d!:y"
   },
   {
     "talk": "dj:h"
@@ -1014,22 +1305,13 @@
     "talk": "dx:y"
   },
   {
-    "talk": "fC:d"
-  },
-  {
-    "talk": "fC:D"
+    "talk": "f:$d"
   },
   {
     "talk": "fc:k"
   },
   {
     "talk": "fc:K"
-  },
-  {
-    "talk": "fC:k"
-  },
-  {
-    "talk": "fC:K"
   },
   {
     "talk": "fc:s"
@@ -1113,6 +1395,24 @@
     "talk": "gX:T"
   },
   {
+    "talk": "k!:h"
+  },
+  {
+    "talk": "K!:h"
+  },
+  {
+    "talk": "k!:w"
+  },
+  {
+    "talk": "K!:w"
+  },
+  {
+    "talk": "k!:y"
+  },
+  {
+    "talk": "K!:y"
+  },
+  {
     "talk": "kx:k"
   },
   {
@@ -1137,6 +1437,9 @@
     "talk": "kX:T"
   },
   {
+    "talk": "l:$d"
+  },
+  {
     "talk": "l:dj"
   },
   {
@@ -1146,13 +1449,19 @@
     "talk": "l:tx"
   },
   {
+    "talk": "l!:h"
+  },
+  {
+    "talk": "l!:w"
+  },
+  {
+    "talk": "l!:y"
+  },
+  {
     "talk": "lb:'"
   },
   {
     "talk": "lb:c"
-  },
-  {
-    "talk": "lb:C"
   },
   {
     "talk": "lb:f"
@@ -1191,22 +1500,10 @@
     "talk": "lb:Z"
   },
   {
-    "talk": "lC:d"
-  },
-  {
-    "talk": "lC:D"
-  },
-  {
     "talk": "lc:k"
   },
   {
     "talk": "lc:K"
-  },
-  {
-    "talk": "lC:k"
-  },
-  {
-    "talk": "lC:K"
   },
   {
     "talk": "lc:t"
@@ -1219,9 +1516,6 @@
   },
   {
     "talk": "lf:c"
-  },
-  {
-    "talk": "lf:C"
   },
   {
     "talk": "lf:f"
@@ -1365,9 +1659,6 @@
     "talk": "lm:c"
   },
   {
-    "talk": "lm:C"
-  },
-  {
     "talk": "lm:f"
   },
   {
@@ -1413,9 +1704,6 @@
     "talk": "ln:c"
   },
   {
-    "talk": "ln:C"
-  },
-  {
     "talk": "ln:f"
   },
   {
@@ -1459,9 +1747,6 @@
   },
   {
     "talk": "lp:c"
-  },
-  {
-    "talk": "lp:C"
   },
   {
     "talk": "lp:f"
@@ -1521,9 +1806,6 @@
     "talk": "lv:c"
   },
   {
-    "talk": "lv:C"
-  },
-  {
     "talk": "lv:d"
   },
   {
@@ -1578,13 +1860,13 @@
     "talk": "lz:v"
   },
   {
+    "talk": "m:$d"
+  },
+  {
     "talk": "m:xt"
   },
   {
     "talk": "mb:c"
-  },
-  {
-    "talk": "mb:C"
   },
   {
     "talk": "mb:F"
@@ -1620,22 +1902,10 @@
     "talk": "mb:Z"
   },
   {
-    "talk": "mC:d"
-  },
-  {
-    "talk": "mC:D"
-  },
-  {
     "talk": "mc:k"
   },
   {
     "talk": "mc:K"
-  },
-  {
-    "talk": "mC:k"
-  },
-  {
-    "talk": "mC:K"
   },
   {
     "talk": "mc:t"
@@ -1731,6 +2001,9 @@
     "talk": "mz:t"
   },
   {
+    "talk": "n:$d"
+  },
+  {
     "talk": "n:sk"
   },
   {
@@ -1741,9 +2014,6 @@
   },
   {
     "talk": "nb:c"
-  },
-  {
-    "talk": "nb:C"
   },
   {
     "talk": "nb:F"
@@ -1779,22 +2049,10 @@
     "talk": "nb:Z"
   },
   {
-    "talk": "nC:d"
-  },
-  {
-    "talk": "nC:D"
-  },
-  {
     "talk": "nc:k"
   },
   {
     "talk": "nc:K"
-  },
-  {
-    "talk": "nC:k"
-  },
-  {
-    "talk": "nC:K"
   },
   {
     "talk": "nc:t"
@@ -1863,22 +2121,22 @@
     "talk": "nz:d"
   },
   {
-    "talk": "pC:d"
+    "talk": "p:$d"
   },
   {
-    "talk": "pC:D"
+    "talk": "p!:h"
+  },
+  {
+    "talk": "p!:w"
+  },
+  {
+    "talk": "p!:y"
   },
   {
     "talk": "pc:k"
   },
   {
     "talk": "pc:K"
-  },
-  {
-    "talk": "pC:k"
-  },
-  {
-    "talk": "pC:K"
   },
   {
     "talk": "pc:t"
@@ -1926,13 +2184,13 @@
     "talk": "qk:z"
   },
   {
+    "talk": "r:$d"
+  },
+  {
     "talk": "rb:'"
   },
   {
     "talk": "rb:c"
-  },
-  {
-    "talk": "rb:C"
   },
   {
     "talk": "rb:f"
@@ -1971,22 +2229,10 @@
     "talk": "rb:Z"
   },
   {
-    "talk": "rC:d"
-  },
-  {
-    "talk": "rC:D"
-  },
-  {
     "talk": "rc:k"
   },
   {
     "talk": "rc:K"
-  },
-  {
-    "talk": "rC:k"
-  },
-  {
-    "talk": "rC:K"
   },
   {
     "talk": "rc:t"
@@ -1999,9 +2245,6 @@
   },
   {
     "talk": "rf:c"
-  },
-  {
-    "talk": "rf:C"
   },
   {
     "talk": "rf:f"
@@ -2145,9 +2388,6 @@
     "talk": "rm:c"
   },
   {
-    "talk": "rm:C"
-  },
-  {
     "talk": "rm:f"
   },
   {
@@ -2191,9 +2431,6 @@
   },
   {
     "talk": "rn:c"
-  },
-  {
-    "talk": "rn:C"
   },
   {
     "talk": "rn:f"
@@ -2244,9 +2481,6 @@
     "talk": "rp:c"
   },
   {
-    "talk": "rp:C"
-  },
-  {
     "talk": "rp:f"
   },
   {
@@ -2290,9 +2524,6 @@
   },
   {
     "talk": "rv:c"
-  },
-  {
-    "talk": "rv:C"
   },
   {
     "talk": "rv:d"
@@ -2361,6 +2592,24 @@
     "talk": "sn:t"
   },
   {
+    "talk": "t!:h"
+  },
+  {
+    "talk": "T!:h"
+  },
+  {
+    "talk": "t!:w"
+  },
+  {
+    "talk": "T!:w"
+  },
+  {
+    "talk": "t!:y"
+  },
+  {
+    "talk": "T!:y"
+  },
+  {
     "talk": "tx:h"
   },
   {
@@ -2373,31 +2622,19 @@
     "talk": "tx:y"
   },
   {
+    "talk": "v:$d"
+  },
+  {
     "talk": "v:dj"
   },
   {
     "talk": "vb:z"
   },
   {
-    "talk": "vC:d"
-  },
-  {
-    "talk": "vC:D"
-  },
-  {
-    "talk": "vC:j"
-  },
-  {
     "talk": "vc:k"
   },
   {
     "talk": "vc:K"
-  },
-  {
-    "talk": "vC:k"
-  },
-  {
-    "talk": "vC:K"
   },
   {
     "talk": "vc:s"
@@ -2410,9 +2647,6 @@
   },
   {
     "talk": "vc:x"
-  },
-  {
-    "talk": "vC:z"
   },
   {
     "talk": "vd:s"
@@ -2445,10 +2679,25 @@
     "talk": "vt:x"
   },
   {
+    "talk": "w:$d"
+  },
+  {
     "talk": "xk:z"
   },
   {
+    "talk": "y:$d"
+  },
+  {
     "talk": "zs:t"
+  },
+  {
+    "talk": "':h"
+  },
+  {
+    "talk": "':w"
+  },
+  {
+    "talk": "':y"
   },
   {
     "talk": "b:'"
@@ -2461,9 +2710,6 @@
   },
   {
     "talk": "b:c"
-  },
-  {
-    "talk": "b:C"
   },
   {
     "talk": "b:f"
@@ -2514,27 +2760,6 @@
     "talk": "c:c"
   },
   {
-    "talk": "C:C"
-  },
-  {
-    "talk": "c:h"
-  },
-  {
-    "talk": "C:h"
-  },
-  {
-    "talk": "c:w"
-  },
-  {
-    "talk": "C:w"
-  },
-  {
-    "talk": "c:y"
-  },
-  {
-    "talk": "C:y"
-  },
-  {
     "talk": "d:d"
   },
   {
@@ -2563,9 +2788,6 @@
   },
   {
     "talk": "f:c"
-  },
-  {
-    "talk": "f:C"
   },
   {
     "talk": "f:f"
@@ -2823,9 +3045,6 @@
     "talk": "l:c"
   },
   {
-    "talk": "l:C"
-  },
-  {
     "talk": "l:d"
   },
   {
@@ -2937,9 +3156,6 @@
     "talk": "m:c"
   },
   {
-    "talk": "m:C"
-  },
-  {
     "talk": "m:f"
   },
   {
@@ -3007,9 +3223,6 @@
   },
   {
     "talk": "n:c"
-  },
-  {
-    "talk": "n:C"
   },
   {
     "talk": "n:d"
@@ -3093,9 +3306,6 @@
     "talk": "p:c"
   },
   {
-    "talk": "p:C"
-  },
-  {
     "talk": "p:f"
   },
   {
@@ -3147,9 +3357,6 @@
     "talk": "q:h"
   },
   {
-    "talk": "Q:h"
-  },
-  {
     "talk": "q:k"
   },
   {
@@ -3162,13 +3369,7 @@
     "talk": "q:w"
   },
   {
-    "talk": "Q:w"
-  },
-  {
     "talk": "q:y"
-  },
-  {
-    "talk": "Q:y"
   },
   {
     "talk": "qkj"
@@ -3178,9 +3379,6 @@
   },
   {
     "talk": "r:c"
-  },
-  {
-    "talk": "r:C"
   },
   {
     "talk": "r:f"
@@ -3360,9 +3558,6 @@
     "talk": "v:c"
   },
   {
-    "talk": "v:C"
-  },
-  {
     "talk": "v:d"
   },
   {
@@ -3441,9 +3636,6 @@
     "talk": "w:c"
   },
   {
-    "talk": "w:C"
-  },
-  {
     "talk": "w:d"
   },
   {
@@ -3451,6 +3643,9 @@
   },
   {
     "talk": "w:h"
+  },
+  {
+    "talk": "W:h"
   },
   {
     "talk": "w:j"
@@ -3477,6 +3672,9 @@
     "talk": "w:w"
   },
   {
+    "talk": "W:w"
+  },
+  {
     "talk": "W:W"
   },
   {
@@ -3484,6 +3682,9 @@
   },
   {
     "talk": "w:y"
+  },
+  {
+    "talk": "W:y"
   },
   {
     "talk": "w:z"
@@ -3522,9 +3723,6 @@
     "talk": "y:c"
   },
   {
-    "talk": "y:C"
-  },
-  {
     "talk": "y:d"
   },
   {
@@ -3532,6 +3730,9 @@
   },
   {
     "talk": "y:h"
+  },
+  {
+    "talk": "Y:h"
   },
   {
     "talk": "y:j"
@@ -3552,10 +3753,16 @@
     "talk": "y:w"
   },
   {
+    "talk": "Y:w"
+  },
+  {
     "talk": "y:x"
   },
   {
     "talk": "y:y"
+  },
+  {
+    "talk": "Y:y"
   },
   {
     "talk": "Y:Y"

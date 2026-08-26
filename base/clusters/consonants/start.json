@@ -441,6 +441,114 @@
     "talk": "zt:y"
   },
   {
+    "talk": "$'h"
+  },
+  {
+    "talk": "$'y"
+  },
+  {
+    "talk": "$dh"
+  },
+  {
+    "talk": "$dl"
+  },
+  {
+    "talk": "$dr"
+  },
+  {
+    "talk": "$dw"
+  },
+  {
+    "talk": "$dy"
+  },
+  {
+    "talk": "$gh"
+  },
+  {
+    "talk": "$Gh"
+  },
+  {
+    "talk": "$gy"
+  },
+  {
+    "talk": "$Gy"
+  },
+  {
+    "talk": "$Hh"
+  },
+  {
+    "talk": "$hy"
+  },
+  {
+    "talk": "$Hy"
+  },
+  {
+    "talk": "$mh"
+  },
+  {
+    "talk": "$my"
+  },
+  {
+    "talk": "$nh"
+  },
+  {
+    "talk": "$Nh"
+  },
+  {
+    "talk": "$ny"
+  },
+  {
+    "talk": "$Ny"
+  },
+  {
+    "talk": "$rh"
+  },
+  {
+    "talk": "$Rh"
+  },
+  {
+    "talk": "$ry"
+  },
+  {
+    "talk": "$Ry"
+  },
+  {
+    "talk": "$Sh"
+  },
+  {
+    "talk": "$Sy"
+  },
+  {
+    "talk": "$th"
+  },
+  {
+    "talk": "$ty"
+  },
+  {
+    "talk": "$vh"
+  },
+  {
+    "talk": "$vy"
+  },
+  {
+    "talk": "$xh"
+  },
+  {
+    "talk": "$xy"
+  },
+  {
+    "talk": "$Zh"
+  },
+  {
+    "talk": "$Zy"
+  },
+  {
+    "talk": "d!h"
+  },
+  {
+    "talk": "d!y"
+  },
+  {
     "talk": "djh"
   },
   {
@@ -454,6 +562,12 @@
   },
   {
     "talk": "dxy"
+  },
+  {
+    "talk": "f$d"
+  },
+  {
+    "talk": "g$d"
   },
   {
     "talk": "h:l"
@@ -505,6 +619,36 @@
   },
   {
     "talk": "jbr"
+  },
+  {
+    "talk": "k!h"
+  },
+  {
+    "talk": "K!h"
+  },
+  {
+    "talk": "k!y"
+  },
+  {
+    "talk": "K!y"
+  },
+  {
+    "talk": "k$d"
+  },
+  {
+    "talk": "l!h"
+  },
+  {
+    "talk": "l!y"
+  },
+  {
+    "talk": "p!h"
+  },
+  {
+    "talk": "p!y"
+  },
+  {
+    "talk": "p$d"
   },
   {
     "talk": "q:l"
@@ -565,6 +709,18 @@
   },
   {
     "talk": "str"
+  },
+  {
+    "talk": "t!h"
+  },
+  {
+    "talk": "T!h"
+  },
+  {
+    "talk": "t!y"
+  },
+  {
+    "talk": "T!y"
   },
   {
     "talk": "txc"
@@ -645,6 +801,12 @@
     "talk": "zbr"
   },
   {
+    "talk": "'h"
+  },
+  {
+    "talk": "'y"
+  },
+  {
     "talk": "bh"
   },
   {
@@ -675,34 +837,16 @@
     "talk": "bz"
   },
   {
-    "talk": "ch"
-  },
-  {
-    "talk": "Ch"
-  },
-  {
     "talk": "cl"
-  },
-  {
-    "talk": "Cl"
   },
   {
     "talk": "cr"
   },
   {
-    "talk": "Cr"
-  },
-  {
     "talk": "cw"
   },
   {
-    "talk": "Cw"
-  },
-  {
     "talk": "cy"
-  },
-  {
-    "talk": "Cy"
   },
   {
     "talk": "dh"
@@ -733,9 +877,6 @@
   },
   {
     "talk": "fc"
-  },
-  {
-    "talk": "fC"
   },
   {
     "talk": "fh"
@@ -769,9 +910,6 @@
   },
   {
     "talk": "Fy"
-  },
-  {
-    "talk": "gC"
   },
   {
     "talk": "gh"
@@ -841,9 +979,6 @@
   },
   {
     "talk": "kc"
-  },
-  {
-    "talk": "kC"
   },
   {
     "talk": "kh"
@@ -924,9 +1059,6 @@
     "talk": "pc"
   },
   {
-    "talk": "pC"
-  },
-  {
     "talk": "ph"
   },
   {
@@ -957,9 +1089,6 @@
     "talk": "qh"
   },
   {
-    "talk": "Qh"
-  },
-  {
     "talk": "qr"
   },
   {
@@ -967,9 +1096,6 @@
   },
   {
     "talk": "qy"
-  },
-  {
-    "talk": "Qy"
   },
   {
     "talk": "rh"
@@ -1077,10 +1203,16 @@
     "talk": "wh"
   },
   {
+    "talk": "Wh"
+  },
+  {
     "talk": "wr"
   },
   {
     "talk": "wy"
+  },
+  {
+    "talk": "Wy"
   },
   {
     "talk": "xb"
@@ -1123,6 +1255,12 @@
   },
   {
     "talk": "yh"
+  },
+  {
+    "talk": "Yh"
+  },
+  {
+    "talk": "Yy"
   },
   {
     "talk": "zb"
