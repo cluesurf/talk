@@ -76,6 +76,11 @@ REPLACE: dict[str, str] = {
     "`": "ʼ",
     "´": "ʼ",
     '"': "ˈ",  # ASCII double quote -> primary stress
+    # THE TIE, ABOVE OR BELOW. U+035C is the same tie as U+0361, written
+    # underneath when a descender leaves no room above. One thing, two
+    # spellings, which is what this table is for. The tie itself is kept:
+    # `t͡ʃ` is one affricate and `tʃ` may be two segments meeting.
+    "\u035c": "\u0361",
 }
 
 # Characters carrying nothing recoverable, removed before anything else.
@@ -119,9 +124,18 @@ SUPERSCRIPT_DIGIT: dict[str, str] = {
 RING_ABOVE = "̊"
 RING_BELOW = "̥"
 
-# Not phonetic content: the ties binding an affricate, and the marks some
-# sources use for syllable and morpheme edges.
-DROP = frozenset(["͡", "͜", ".", "‿"])
+# NOTHING IS DROPPED ANY MORE.
+#
+# This held U+0361, U+035C, `.` and U+203F, and deleting them was a category
+# error. Normalizing folds the several ways of writing ONE thing into one of
+# them. It does not decide a thing is unimportant. The syllable boundary, the
+# link between two words spoken as one, and the tie binding two letters into a
+# single segment each say something the source meant, and `t͡ʃ` is one
+# affricate where `tʃ` may be a stop meeting a fricative across a boundary.
+#
+# They pass through now and the parser reports them as symbols. The one genuine
+# fold among the four is in `REPLACE`: the tie below is the tie above, chosen
+# by whether a descender leaves room.
 
 # Fine phonetic detail used to be stripped here so the segment underneath
 # still resolved. It no longer is, and there is no option to bring it back.
@@ -352,9 +366,6 @@ def normalize_ipa(
     out: list[str] = []
 
     for character in unicodedata.normalize("NFD", "".join(source)):
-        if character in DROP:
-            continue
-
         if character == RING_ABOVE:
             out.append(RING_BELOW)
             continue

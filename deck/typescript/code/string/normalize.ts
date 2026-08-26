@@ -109,6 +109,11 @@ const REPLACE: Record<string, string> = {
   '´': 'ʼ', // U+00B4
   // The primary stress mark, typed as ASCII.
   '"': 'ˈ', // U+0022 -> U+02C8
+  // THE TIE, ABOVE OR BELOW. U+035C is the same tie as U+0361, written
+  // underneath when a descender leaves no room above. One thing, two
+  // spellings, which is exactly what this table is for. The tie itself is
+  // kept: `t͡ʃ` is one affricate and `tʃ` may be two segments meeting.
+  '\u{035c}': '\u{0361}',
 }
 
 /**
@@ -176,12 +181,28 @@ const RING_ABOVE = '̊'
 const RING_BELOW = '̥'
 
 /**
- * Characters that are not phonetic content and are dropped: the ties
- * binding an affricate or a doubly-articulated stop, and the marks some
- * sources use for syllable and morpheme edges.
+ * NOTHING IS DROPPED ANY MORE.
+ *
+ * This held `͡`, `͜`, `.` and `‿`, and deleting them was a category error.
+ * Normalizing folds the several ways of writing ONE thing into one of them.
+ * It does not decide that a thing is unimportant. Every character here said
+ * something the source meant:
+ *
+ *   `.`   the syllable boundary. `ʔeː˧.t͡ɕʰia̯˧.buː˧` states three
+ *         syllables, and without it a reader has to guess. Measured at
+ *         14,271 deletions in Thai alone.
+ *   `‿`   the link between two words spoken as one.
+ *   `͡ ͜`  the tie binding two letters into a single segment. `t͡ʃ` is one
+ *         affricate and `tʃ` may be a stop meeting a fricative across a
+ *         boundary, so dropping the tie merges a distinction the writer
+ *         took the trouble to make.
+ *
+ * They pass through now and the parser reports them, `.` and `‿` as symbols
+ * and the tie likewise. The one genuine fold among the four is in `REPLACE`:
+ * `͜` and `͡` are two spellings of the same tie, above and below, chosen by
+ * whether a descender leaves room. That is the ring-above and ring-below
+ * case exactly, and folding it loses nothing.
  */
-
-const DROP = new Set(['͡', '͜', '.', '‿'])
 
 /**
  * Fine phonetic detail used to be stripped here so the segment underneath
@@ -439,10 +460,6 @@ export function normalizeIpa(
   }
 
   for (const character of source.normalize('NFD')) {
-    if (DROP.has(character)) {
-      continue
-    }
-
     if (character === RING_ABOVE) {
       out.push(RING_BELOW)
       continue

@@ -9,7 +9,7 @@
  */
 
 import { describe, expect, it } from 'vitest'
-import { normalizeIpa } from '../code'
+import { ipaToTalk, normalizeIpa, talkToIpa } from '../code'
 
 /** Compared composed, since the normalizer returns NFD by design. */
 
@@ -188,6 +188,38 @@ describe('idempotence', () => {
       const once = normalizeIpa(one)
 
       expect(normalizeIpa(once)).toBe(once)
+    }
+  })
+})
+
+describe('nothing is dropped', () => {
+  it('keeps the syllable boundary', () => {
+    // 14,271 deletions in Thai alone. `ʔeː˧.t͡ɕʰia̯˧.buː˧` states three
+    // syllables and without the marks a reader has to guess.
+    expect(normalized('a.b')).toBe('a.b')
+    expect(normalized('ʔeː˧.t͡ɕʰia̯˧.buː˧')).toBe('ʔeː˧.t͡ɕʰia̯˧.buː˧')
+  })
+
+  it('keeps the link between two words spoken as one', () => {
+    expect(normalized('a‿b')).toBe('a‿b')
+  })
+
+  it('keeps the tie, which says two letters are one segment', () => {
+    // `t͡ʃ` is one affricate. `tʃ` may be a stop meeting a fricative across
+    // a boundary. Dropping the tie merged the two.
+    expect(normalized('t͡ʃ')).toBe('t͡ʃ')
+    expect(normalized('k͡p')).toBe('k͡p')
+  })
+
+  it('folds the tie below onto the tie above, which IS one thing twice', () => {
+    // The only genuine fold of the four. U+035C is written underneath when
+    // a descender leaves no room, exactly as the ring below is.
+    expect(normalizeIpa('t͜ʃ')).toBe(normalizeIpa('t͡ʃ'))
+  })
+
+  it('round-trips all three through talk', () => {
+    for (const one of ['t͡ʃa', 'a.b', 'a‿b']) {
+      expect(talkToIpa(ipaToTalk(one))).toBe(one)
     }
   })
 })

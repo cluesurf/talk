@@ -27,6 +27,24 @@ pub fn symbols() -> &'static [SymbolEntry] {
       })
       .collect();
 
+    // THE TIE AND THE LINK, which `normalize_ipa` used to delete.
+    //
+    // `t͡ʃ` is one affricate where `tʃ` may be a stop meeting a fricative
+    // across a boundary, and `‿` says two words were spoken as one. Both
+    // state something the writer chose to state, so both survive the
+    // normalizer now and both need a talk spelling to come back through.
+    //
+    // Spelled out rather than derived, because the loop above builds each
+    // entry by stripping the backslash off its own escape and neither of
+    // these spells the character it escapes.
+    for (talk, ipa) in [("\\=", '\u{0361}'), ("\\&", '\u{203f}')] {
+      symbols.push(SymbolEntry {
+        talk: talk.to_string(),
+        ipa: ipa.to_string(),
+        simple: ipa.to_string(),
+      });
+    }
+
     for digit in 0..=9 {
       let digit = digit.to_string();
 

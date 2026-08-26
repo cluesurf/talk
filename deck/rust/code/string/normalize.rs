@@ -71,6 +71,12 @@ fn replace() -> &'static HashMap<char, &'static str> {
       ('`', "ʼ"),
       ('´', "ʼ"),
       ('"', "ˈ"), // ASCII double quote -> primary stress
+      // THE TIE, ABOVE OR BELOW. U+035C is the same tie as U+0361,
+      // written underneath when a descender leaves no room above. One
+      // thing, two spellings, which is what this table is for. The tie
+      // itself is kept: `t͡ʃ` is one affricate and `tʃ` may be two
+      // segments meeting.
+      ('\u{035c}', "\u{0361}"),
     ]
     .into_iter()
     .collect()
@@ -98,9 +104,18 @@ fn tone_for(digit: char) -> Option<char> {
 const RING_ABOVE: char = '\u{030a}';
 const RING_BELOW: char = '\u{0325}';
 
-/// Not phonetic content: the ties binding an affricate, and the marks some
-/// sources use for syllable and morpheme edges.
-const DROP: [char; 4] = ['\u{0361}', '\u{035c}', '.', '\u{203f}'];
+/// NOTHING IS DROPPED ANY MORE.
+///
+/// This held `\u{0361}`, `\u{035c}`, `.` and `\u{203f}`, and deleting them was a
+/// category error. Normalizing folds the several ways of writing ONE thing
+/// into one of them. It does not decide a thing is unimportant. The syllable
+/// boundary, the link between two words spoken as one, and the tie binding
+/// two letters into a single segment each say something the source meant,
+/// and `t͡ʃ` is one affricate where `tʃ` may be a stop meeting a fricative.
+///
+/// They pass through now and the parser reports them as symbols. The one
+/// genuine fold among the four is in `replace`: the tie below is the tie
+/// above, chosen by whether a descender leaves room.
 
 /// Fine phonetic detail used to be stripped here so the segment underneath
 /// still resolved. It no longer is, and there is no option to bring it back.
@@ -345,10 +360,6 @@ pub fn normalize_ipa_with(text: &str, options: NormalizeIpaOptions) -> String {
   let mut out = String::with_capacity(source.len());
 
   for character in source.nfd() {
-    if DROP.contains(&character) {
-      continue;
-    }
-
     if character == RING_ABOVE {
       out.push(RING_BELOW);
       continue;

@@ -184,3 +184,39 @@ fn tone_normalizing_is_idempotent() {
     assert_eq!(normalize_ipa(&once), once);
   }
 }
+
+/// Normalizing folds duplicate spellings. It does not delete information.
+///
+/// `DROP` used to hold the tie above, the tie below, the syllable boundary
+/// and the link, and every one of them said something the source meant.
+#[test]
+fn drops_nothing() {
+  // The syllable boundary. 14,271 deletions in Thai alone.
+  assert_eq!(normalize_ipa("a.b"), "a.b");
+
+  // The link between two words spoken as one.
+  assert_eq!(normalize_ipa("a\u{203f}b"), "a\u{203f}b");
+
+  // The tie. `t͡ʃ` is one affricate where `tʃ` may be a stop meeting a
+  // fricative across a boundary, so dropping it merged the two.
+  assert_eq!(normalize_ipa("t\u{0361}\u{0283}"), "t\u{0361}\u{0283}");
+  assert_eq!(normalize_ipa("k\u{0361}p"), "k\u{0361}p");
+}
+
+/// The one genuine fold of the four: the tie below IS the tie above, written
+/// underneath when a descender leaves no room, exactly as the ring below is.
+#[test]
+fn folds_the_tie_below_onto_the_tie_above() {
+  assert_eq!(
+    normalize_ipa("t\u{035c}\u{0283}"),
+    normalize_ipa("t\u{0361}\u{0283}")
+  );
+}
+
+/// Keeping them is only half the job. They have to come back out too.
+#[test]
+fn round_trips_the_tie_and_the_boundaries() {
+  for one in ["t\u{0361}\u{0283}a", "a.b", "a\u{203f}b"] {
+    assert_eq!(talk_to_ipa(&ipa_to_talk(one)), one);
+  }
+}

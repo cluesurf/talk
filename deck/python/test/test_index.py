@@ -145,3 +145,33 @@ def test_tone_normalizing_is_idempotent():
     for one in ["ma˨˩˦", "tʰaːn˩˩˦", "a↓˥", "maː˧˩˧"]:
         once = normalize_ipa(one)
         assert normalize_ipa(once) == once
+
+
+def test_drops_nothing():
+    """Normalizing folds duplicate spellings. It does not delete information.
+
+    ``DROP`` used to hold the tie above, the tie below, the syllable boundary
+    and the link, and every one of them said something the source meant.
+    """
+    # The syllable boundary. 14,271 deletions in Thai alone.
+    assert normalize_ipa("a.b") == "a.b"
+
+    # The link between two words spoken as one.
+    assert normalize_ipa("a‿b") == "a‿b"
+
+    # The tie. `t͡ʃ` is one affricate where `tʃ` may be a stop meeting a
+    # fricative across a boundary, so dropping it merged the two.
+    assert normalize_ipa("t͡ʃ") == "t͡ʃ"
+    assert normalize_ipa("k͡p") == "k͡p"
+
+
+def test_folds_the_tie_below_onto_the_tie_above():
+    """The one genuine fold of the four: the tie below IS the tie above,
+    written underneath when a descender leaves no room."""
+    assert normalize_ipa("t͜ʃ") == normalize_ipa("t͡ʃ")
+
+
+def test_round_trips_the_tie_and_the_boundaries():
+    """Keeping them is only half the job. They have to come back out too."""
+    for one in ["t͡ʃa", "a.b", "a‿b"]:
+        assert talk_to_ipa(ipa_to_talk(one)) == one
