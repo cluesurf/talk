@@ -81,6 +81,44 @@ REPLACE: dict[str, str] = {
     # spellings, which is what this table is for. The tie itself is kept:
     # `t͡ʃ` is one affricate and `tʃ` may be two segments meeting.
     "\u035c": "\u0361",
+    # THE RETROFLEX CLICK, IN THE NOTATION THAT PREDATES ITS LETTER.
+    # Khoisanist work wrote it U+203C because no letter existed; Unicode
+    # encoded U+1DF0A in 2021 and the catalog spells it that way. phoible
+    # still writes the old form, in !Xun alone, so its 12 spellings matched
+    # nothing. One sound, two spellings.
+    "\u203c": "\U0001df0a",
+    # SYMBOLS THE IPA WITHDREW, AND THE SPELLINGS THAT REPLACED THEM.
+    #
+    # Each was current notation once and every one is EXACTLY equal to what
+    # it maps to, so folding gives nothing up. Until now all eighteen parsed
+    # as `unknown`: the parser did not reject them, it simply had no phone to
+    # offer, so a reader saw a gap where a sound was written.
+    #
+    # The affricate ligatures expand to the two letters and the tie. That is
+    # only correct because the tie now SURVIVES normalizing: expanding `ʤ` to
+    # a bare `dʒ` would turn one segment into two, which is the distinction
+    # the tie exists to make.
+    #
+    # The withdrawn voiceless implosives take the voiced letter plus the
+    # voiceless ring, which is what the IPA recommended when it retired them.
+    "\u02a3": "\u0064\u0361\u007a",  # ligature, withdrawn 1989
+    "\u02a4": "\u0064\u0361\u0292",  # ligature, withdrawn 1989
+    "\u02a5": "\u0064\u0361\u0291",  # ligature, withdrawn 1989
+    "\u02a6": "\u0074\u0361\u0073",  # ligature, withdrawn 1989
+    "\u02a7": "\u0074\u0361\u0283",  # ligature, withdrawn 1989. 4 uses
+    "\u02a8": "\u0074\u0361\u0255",  # ligature, withdrawn 1989
+    "\u0287": "\u01c0",  # old dental click, withdrawn 1989
+    "\u0297": "\u01c3",  # old alveolar click, withdrawn 1989
+    "\u0296": "\u01c1",  # old lateral click, withdrawn 1989
+    "\u0269": "\u026a",  # old iota, withdrawn 1989. 76 uses in 5 languages
+    "\u0277": "\u028a",  # old closed omega, withdrawn 1989. 74 uses in 7 languages
+    "\u029a": "\u025e",  # closed open-e, a variant spelling
+    "\u027c": "\u0072\u031d",  # r with long leg, withdrawn 1989
+    "\u01a5": "\u0253\u0325",  # hooktop p, withdrawn 1993
+    "\u01ad": "\u0257\u0325",  # hooktop t, withdrawn 1993
+    "\u0188": "\u0284\u0325",  # hooktop c, withdrawn 1993
+    "\u0199": "\u0260\u0325",  # hooktop k, withdrawn 1993
+    "\u02a0": "\u029b\u0325",  # hooktop q, withdrawn 1993
 }
 
 # Characters carrying nothing recoverable, removed before anything else.

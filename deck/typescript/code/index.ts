@@ -62,6 +62,7 @@ export {
 export type { IpaUnit, ParsedUnit } from './string/convert'
 export { CODE_LIMIT, NO_CODE } from './string/type'
 export { normalizeIpa } from './string/normalize'
+export { isValidIpa, invalidIpaCharacters } from './string/valid'
 export type { NormalizeIpaOptions } from './string/normalize'
 export { enumeratePhones, enumerateSounds } from './string/enumerate'
 export { segment } from './string/sound'

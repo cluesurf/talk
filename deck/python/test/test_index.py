@@ -203,3 +203,11 @@ def test_round_trips_the_tie_and_the_boundaries():
     """Keeping them is only half the job. They have to come back out too."""
     for one in ["t͡ʃa", "a.b", "a‿b"]:
         assert talk_to_ipa(ipa_to_talk(one)) == one
+
+
+def test_folds_the_doubled_exclamation_onto_the_retroflex_click_letter():
+    """Khoisanist work wrote the retroflex click U+203C because no letter
+    existed. Unicode encoded U+1DF0A in 2021 and the catalog spells it that
+    way, so phoible's 12 spellings, all in !Xun, matched no catalog entry."""
+    assert normalize_ipa("k‼") == "k\U0001df0a"
+    assert normalize_ipa("ɡ‼x") == "ɡ\U0001df0ax"

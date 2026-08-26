@@ -2018,15 +2018,5 @@
     "height": "open",
     "backness": "back",
     "roundedness": "rounded"
-  },
-  {
-    "ipa": "‼",
-    "talk": "R*",
-    "xsampa": "!!",
-    "simple": "‼",
-    "form": "consonant",
-    "place": "retroflex",
-    "manner": "click",
-    "voicing": "voiceless"
   }
 ]

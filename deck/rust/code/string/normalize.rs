@@ -77,6 +77,44 @@ fn replace() -> &'static HashMap<char, &'static str> {
       // itself is kept: `t͡ʃ` is one affricate and `tʃ` may be two
       // segments meeting.
       ('\u{035c}', "\u{0361}"),
+      // THE RETROFLEX CLICK, IN THE NOTATION THAT PREDATES ITS LETTER.
+      // Khoisanist work wrote it `‼` because no letter existed; Unicode
+      // encoded U+1DF0A in 2021 and the catalog spells it that way. phoible
+      // still writes the old form, in !Xun alone, so its 12 spellings
+      // matched nothing. One sound, two spellings.
+      ('\u{203c}', "\u{1df0a}"),
+      // SYMBOLS THE IPA WITHDREW, AND THE SPELLINGS THAT REPLACED THEM.
+      //
+      // Each was current notation once and every one is EXACTLY equal to what
+      // it maps to, so folding gives nothing up. Until now all eighteen parsed
+      // as `unknown`: the parser did not reject them, it simply had no phone to
+      // offer, so a reader saw a gap where a sound was written.
+      //
+      // The affricate ligatures expand to the two letters and the tie. That is
+      // only correct because the tie now SURVIVES normalizing: expanding `ʤ` to
+      // a bare `dʒ` would turn one segment into two, which is the distinction
+      // the tie exists to make.
+      //
+      // The withdrawn voiceless implosives take the voiced letter plus the
+      // voiceless ring, which is what the IPA recommended when it retired them.
+      ('\u{02a3}', "\u{0064}\u{0361}\u{007a}"), // ligature, withdrawn 1989
+      ('\u{02a4}', "\u{0064}\u{0361}\u{0292}"), // ligature, withdrawn 1989
+      ('\u{02a5}', "\u{0064}\u{0361}\u{0291}"), // ligature, withdrawn 1989
+      ('\u{02a6}', "\u{0074}\u{0361}\u{0073}"), // ligature, withdrawn 1989
+      ('\u{02a7}', "\u{0074}\u{0361}\u{0283}"), // ligature, withdrawn 1989. 4 uses
+      ('\u{02a8}', "\u{0074}\u{0361}\u{0255}"), // ligature, withdrawn 1989
+      ('\u{0287}', "\u{01c0}"), // old dental click, withdrawn 1989
+      ('\u{0297}', "\u{01c3}"), // old alveolar click, withdrawn 1989
+      ('\u{0296}', "\u{01c1}"), // old lateral click, withdrawn 1989
+      ('\u{0269}', "\u{026a}"), // old iota, withdrawn 1989. 76 uses in 5 languages
+      ('\u{0277}', "\u{028a}"), // old closed omega, withdrawn 1989. 74 uses in 7 languages
+      ('\u{029a}', "\u{025e}"), // closed open-e, a variant spelling
+      ('\u{027c}', "\u{0072}\u{031d}"), // r with long leg, withdrawn 1989
+      ('\u{01a5}', "\u{0253}\u{0325}"), // hooktop p, withdrawn 1993
+      ('\u{01ad}', "\u{0257}\u{0325}"), // hooktop t, withdrawn 1993
+      ('\u{0188}', "\u{0284}\u{0325}"), // hooktop c, withdrawn 1993
+      ('\u{0199}', "\u{0260}\u{0325}"), // hooktop k, withdrawn 1993
+      ('\u{02a0}', "\u{029b}\u{0325}"), // hooktop q, withdrawn 1993
     ]
     .into_iter()
     .collect()

@@ -252,3 +252,14 @@ fn round_trips_the_tie_and_the_boundaries() {
     assert_eq!(talk_to_ipa(&ipa_to_talk(one)), one);
   }
 }
+
+/// The retroflex click has one spelling.
+///
+/// Khoisanist work wrote it `‼` because no letter existed. Unicode encoded
+/// U+1DF0A in 2021 and the curated catalog spells it that way, so phoible's
+/// 12 spellings, all in !Xun, matched no catalog entry and were refused.
+#[test]
+fn folds_the_doubled_exclamation_onto_the_retroflex_click_letter() {
+  assert_eq!(normalize_ipa("k\u{203c}"), "k\u{1df0a}");
+  assert_eq!(normalize_ipa("\u{261}\u{203c}x"), "\u{261}\u{1df0a}x");
+}
