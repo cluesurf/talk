@@ -1,87 +1,1731 @@
 [
   {
+    "talk": "~a~e"
+  },
+  {
+    "talk": "~a~E"
+  },
+  {
+    "talk": "~A~e"
+  },
+  {
+    "talk": "~A~E"
+  },
+  {
+    "talk": "~a~i"
+  },
+  {
+    "talk": "~a~I"
+  },
+  {
+    "talk": "~A~i"
+  },
+  {
+    "talk": "~A~I"
+  },
+  {
+    "talk": "~a~o"
+  },
+  {
+    "talk": "~a~O"
+  },
+  {
+    "talk": "~A~o"
+  },
+  {
+    "talk": "~A~O"
+  },
+  {
+    "talk": "~a~u"
+  },
+  {
+    "talk": "~a~U"
+  },
+  {
+    "talk": "~A~u"
+  },
+  {
+    "talk": "~A~U"
+  },
+  {
+    "talk": "~a$e"
+  },
+  {
+    "talk": "~a$E"
+  },
+  {
+    "talk": "~A$e"
+  },
+  {
+    "talk": "~A$E"
+  },
+  {
+    "talk": "~a$i"
+  },
+  {
+    "talk": "~a$I"
+  },
+  {
+    "talk": "~A$i"
+  },
+  {
+    "talk": "~A$I"
+  },
+  {
+    "talk": "~a$o"
+  },
+  {
+    "talk": "~a$O"
+  },
+  {
+    "talk": "~A$o"
+  },
+  {
+    "talk": "~A$O"
+  },
+  {
+    "talk": "~a$r"
+  },
+  {
+    "talk": "~A$r"
+  },
+  {
+    "talk": "~a$U"
+  },
+  {
+    "talk": "~A$U"
+  },
+  {
+    "talk": "~e~a"
+  },
+  {
+    "talk": "~e~A"
+  },
+  {
+    "talk": "~E~a"
+  },
+  {
+    "talk": "~E~A"
+  },
+  {
+    "talk": "~e~i"
+  },
+  {
+    "talk": "~e~I"
+  },
+  {
+    "talk": "~E~i"
+  },
+  {
+    "talk": "~E~I"
+  },
+  {
+    "talk": "~e~o"
+  },
+  {
+    "talk": "~e~O"
+  },
+  {
+    "talk": "~E~o"
+  },
+  {
+    "talk": "~E~O"
+  },
+  {
+    "talk": "~e$a"
+  },
+  {
+    "talk": "~e$A"
+  },
+  {
+    "talk": "~E$a"
+  },
+  {
+    "talk": "~E$A"
+  },
+  {
+    "talk": "~e$i"
+  },
+  {
+    "talk": "~e$I"
+  },
+  {
+    "talk": "~E$i"
+  },
+  {
+    "talk": "~E$I"
+  },
+  {
+    "talk": "~e$o"
+  },
+  {
+    "talk": "~e$O"
+  },
+  {
+    "talk": "~E$o"
+  },
+  {
+    "talk": "~E$O"
+  },
+  {
+    "talk": "~e$r"
+  },
+  {
+    "talk": "~E$r"
+  },
+  {
+    "talk": "~i~o"
+  },
+  {
+    "talk": "~i~O"
+  },
+  {
+    "talk": "~I~o"
+  },
+  {
+    "talk": "~I~O"
+  },
+  {
+    "talk": "~i~u"
+  },
+  {
+    "talk": "~i~U"
+  },
+  {
+    "talk": "~I~u"
+  },
+  {
+    "talk": "~I~U"
+  },
+  {
+    "talk": "~i$o"
+  },
+  {
+    "talk": "~i$O"
+  },
+  {
+    "talk": "~I$o"
+  },
+  {
+    "talk": "~I$O"
+  },
+  {
+    "talk": "~i$r"
+  },
+  {
+    "talk": "~I$r"
+  },
+  {
+    "talk": "~i$U"
+  },
+  {
+    "talk": "~I$U"
+  },
+  {
+    "talk": "~o~a"
+  },
+  {
+    "talk": "~o~A"
+  },
+  {
+    "talk": "~O~a"
+  },
+  {
+    "talk": "~O~A"
+  },
+  {
+    "talk": "~o~e"
+  },
+  {
+    "talk": "~o~E"
+  },
+  {
+    "talk": "~O~e"
+  },
+  {
+    "talk": "~O~E"
+  },
+  {
+    "talk": "~o~i"
+  },
+  {
+    "talk": "~o~I"
+  },
+  {
+    "talk": "~O~i"
+  },
+  {
+    "talk": "~O~I"
+  },
+  {
+    "talk": "~o~u"
+  },
+  {
+    "talk": "~o~U"
+  },
+  {
+    "talk": "~O~u"
+  },
+  {
+    "talk": "~O~U"
+  },
+  {
+    "talk": "~o$a"
+  },
+  {
+    "talk": "~o$A"
+  },
+  {
+    "talk": "~O$a"
+  },
+  {
+    "talk": "~O$A"
+  },
+  {
+    "talk": "~o$e"
+  },
+  {
+    "talk": "~o$E"
+  },
+  {
+    "talk": "~O$e"
+  },
+  {
+    "talk": "~O$E"
+  },
+  {
+    "talk": "~o$i"
+  },
+  {
+    "talk": "~o$I"
+  },
+  {
+    "talk": "~O$i"
+  },
+  {
+    "talk": "~O$I"
+  },
+  {
+    "talk": "~o$r"
+  },
+  {
+    "talk": "~O$r"
+  },
+  {
+    "talk": "~o$U"
+  },
+  {
+    "talk": "~O$U"
+  },
+  {
+    "talk": "~u~a"
+  },
+  {
+    "talk": "~u~A"
+  },
+  {
+    "talk": "~U~a"
+  },
+  {
+    "talk": "~U~A"
+  },
+  {
+    "talk": "~u~i"
+  },
+  {
+    "talk": "~u~I"
+  },
+  {
+    "talk": "~U~i"
+  },
+  {
+    "talk": "~U~I"
+  },
+  {
+    "talk": "~u~o"
+  },
+  {
+    "talk": "~u~O"
+  },
+  {
+    "talk": "~U~o"
+  },
+  {
+    "talk": "~U~O"
+  },
+  {
+    "talk": "~u$a"
+  },
+  {
+    "talk": "~u$A"
+  },
+  {
+    "talk": "~U$a"
+  },
+  {
+    "talk": "~U$A"
+  },
+  {
+    "talk": "~u$i"
+  },
+  {
+    "talk": "~u$I"
+  },
+  {
+    "talk": "~U$i"
+  },
+  {
+    "talk": "~U$I"
+  },
+  {
+    "talk": "~u$o"
+  },
+  {
+    "talk": "~u$O"
+  },
+  {
+    "talk": "~U$o"
+  },
+  {
+    "talk": "~U$O"
+  },
+  {
+    "talk": "~u$r"
+  },
+  {
+    "talk": "~U$r"
+  },
+  {
+    "talk": "$a~e"
+  },
+  {
+    "talk": "$a~E"
+  },
+  {
+    "talk": "$A~e"
+  },
+  {
+    "talk": "$A~E"
+  },
+  {
+    "talk": "$a~i"
+  },
+  {
+    "talk": "$a~I"
+  },
+  {
+    "talk": "$A~i"
+  },
+  {
+    "talk": "$A~I"
+  },
+  {
+    "talk": "$a~o"
+  },
+  {
+    "talk": "$a~O"
+  },
+  {
+    "talk": "$A~o"
+  },
+  {
+    "talk": "$A~O"
+  },
+  {
+    "talk": "$a~u"
+  },
+  {
+    "talk": "$a~U"
+  },
+  {
+    "talk": "$A~u"
+  },
+  {
+    "talk": "$A~U"
+  },
+  {
+    "talk": "$a$e"
+  },
+  {
+    "talk": "$a$E"
+  },
+  {
+    "talk": "$A$e"
+  },
+  {
+    "talk": "$A$E"
+  },
+  {
+    "talk": "$a$i"
+  },
+  {
+    "talk": "$a$I"
+  },
+  {
+    "talk": "$A$i"
+  },
+  {
+    "talk": "$A$I"
+  },
+  {
+    "talk": "$a$o"
+  },
+  {
+    "talk": "$a$O"
+  },
+  {
+    "talk": "$A$o"
+  },
+  {
+    "talk": "$A$O"
+  },
+  {
+    "talk": "$a$r"
+  },
+  {
+    "talk": "$A$r"
+  },
+  {
+    "talk": "$a$U"
+  },
+  {
+    "talk": "$A$U"
+  },
+  {
+    "talk": "$e~a"
+  },
+  {
+    "talk": "$e~A"
+  },
+  {
+    "talk": "$E~a"
+  },
+  {
+    "talk": "$E~A"
+  },
+  {
+    "talk": "$e~i"
+  },
+  {
+    "talk": "$e~I"
+  },
+  {
+    "talk": "$E~i"
+  },
+  {
+    "talk": "$E~I"
+  },
+  {
+    "talk": "$e~o"
+  },
+  {
+    "talk": "$e~O"
+  },
+  {
+    "talk": "$E~o"
+  },
+  {
+    "talk": "$E~O"
+  },
+  {
+    "talk": "$e$a"
+  },
+  {
+    "talk": "$e$A"
+  },
+  {
+    "talk": "$E$a"
+  },
+  {
+    "talk": "$E$A"
+  },
+  {
+    "talk": "$e$i"
+  },
+  {
+    "talk": "$e$I"
+  },
+  {
+    "talk": "$E$i"
+  },
+  {
+    "talk": "$E$I"
+  },
+  {
+    "talk": "$e$o"
+  },
+  {
+    "talk": "$e$O"
+  },
+  {
+    "talk": "$E$o"
+  },
+  {
+    "talk": "$E$O"
+  },
+  {
+    "talk": "$e$r"
+  },
+  {
+    "talk": "$E$r"
+  },
+  {
+    "talk": "$i~o"
+  },
+  {
+    "talk": "$i~O"
+  },
+  {
+    "talk": "$I~o"
+  },
+  {
+    "talk": "$I~O"
+  },
+  {
+    "talk": "$i~u"
+  },
+  {
+    "talk": "$i~U"
+  },
+  {
+    "talk": "$I~u"
+  },
+  {
+    "talk": "$I~U"
+  },
+  {
+    "talk": "$i$o"
+  },
+  {
+    "talk": "$i$O"
+  },
+  {
+    "talk": "$I$o"
+  },
+  {
+    "talk": "$I$O"
+  },
+  {
+    "talk": "$i$r"
+  },
+  {
+    "talk": "$I$r"
+  },
+  {
+    "talk": "$i$U"
+  },
+  {
+    "talk": "$I$U"
+  },
+  {
+    "talk": "$o~a"
+  },
+  {
+    "talk": "$o~A"
+  },
+  {
+    "talk": "$O~a"
+  },
+  {
+    "talk": "$O~A"
+  },
+  {
+    "talk": "$o~e"
+  },
+  {
+    "talk": "$o~E"
+  },
+  {
+    "talk": "$O~e"
+  },
+  {
+    "talk": "$O~E"
+  },
+  {
+    "talk": "$o~i"
+  },
+  {
+    "talk": "$o~I"
+  },
+  {
+    "talk": "$O~i"
+  },
+  {
+    "talk": "$O~I"
+  },
+  {
+    "talk": "$o~u"
+  },
+  {
+    "talk": "$o~U"
+  },
+  {
+    "talk": "$O~u"
+  },
+  {
+    "talk": "$O~U"
+  },
+  {
+    "talk": "$o$a"
+  },
+  {
+    "talk": "$o$A"
+  },
+  {
+    "talk": "$O$a"
+  },
+  {
+    "talk": "$O$A"
+  },
+  {
+    "talk": "$o$e"
+  },
+  {
+    "talk": "$o$E"
+  },
+  {
+    "talk": "$O$e"
+  },
+  {
+    "talk": "$O$E"
+  },
+  {
+    "talk": "$o$i"
+  },
+  {
+    "talk": "$o$I"
+  },
+  {
+    "talk": "$O$i"
+  },
+  {
+    "talk": "$O$I"
+  },
+  {
+    "talk": "$o$r"
+  },
+  {
+    "talk": "$O$r"
+  },
+  {
+    "talk": "$o$U"
+  },
+  {
+    "talk": "$O$U"
+  },
+  {
+    "talk": "$r~a"
+  },
+  {
+    "talk": "$r~A"
+  },
+  {
+    "talk": "$r~e"
+  },
+  {
+    "talk": "$r~E"
+  },
+  {
+    "talk": "$r~i"
+  },
+  {
+    "talk": "$r~I"
+  },
+  {
+    "talk": "$r~o"
+  },
+  {
+    "talk": "$r~O"
+  },
+  {
+    "talk": "$r~u"
+  },
+  {
+    "talk": "$r~U"
+  },
+  {
+    "talk": "$r$a"
+  },
+  {
+    "talk": "$r$A"
+  },
+  {
+    "talk": "$r$e"
+  },
+  {
+    "talk": "$r$E"
+  },
+  {
+    "talk": "$r$i"
+  },
+  {
+    "talk": "$r$I"
+  },
+  {
+    "talk": "$r$o"
+  },
+  {
+    "talk": "$r$O"
+  },
+  {
+    "talk": "$r$U"
+  },
+  {
+    "talk": "$U~a"
+  },
+  {
+    "talk": "$U~A"
+  },
+  {
+    "talk": "$U~i"
+  },
+  {
+    "talk": "$U~I"
+  },
+  {
+    "talk": "$U~o"
+  },
+  {
+    "talk": "$U~O"
+  },
+  {
+    "talk": "$U$a"
+  },
+  {
+    "talk": "$U$A"
+  },
+  {
+    "talk": "$U$i"
+  },
+  {
+    "talk": "$U$I"
+  },
+  {
+    "talk": "$U$o"
+  },
+  {
+    "talk": "$U$O"
+  },
+  {
+    "talk": "$U$r"
+  },
+  {
+    "talk": "~ae"
+  },
+  {
+    "talk": "~aE"
+  },
+  {
+    "talk": "~Ae"
+  },
+  {
+    "talk": "~AE"
+  },
+  {
+    "talk": "~ai"
+  },
+  {
+    "talk": "~aI"
+  },
+  {
+    "talk": "~Ai"
+  },
+  {
+    "talk": "~AI"
+  },
+  {
+    "talk": "~ao"
+  },
+  {
+    "talk": "~aO"
+  },
+  {
+    "talk": "~Ao"
+  },
+  {
+    "talk": "~AO"
+  },
+  {
+    "talk": "~au"
+  },
+  {
+    "talk": "~aU"
+  },
+  {
+    "talk": "~Au"
+  },
+  {
+    "talk": "~AU"
+  },
+  {
+    "talk": "~ea"
+  },
+  {
+    "talk": "~eA"
+  },
+  {
+    "talk": "~Ea"
+  },
+  {
+    "talk": "~EA"
+  },
+  {
+    "talk": "~ei"
+  },
+  {
+    "talk": "~eI"
+  },
+  {
+    "talk": "~Ei"
+  },
+  {
+    "talk": "~EI"
+  },
+  {
+    "talk": "~eo"
+  },
+  {
+    "talk": "~eO"
+  },
+  {
+    "talk": "~Eo"
+  },
+  {
+    "talk": "~EO"
+  },
+  {
+    "talk": "~eU"
+  },
+  {
+    "talk": "~EU"
+  },
+  {
+    "talk": "~io"
+  },
+  {
+    "talk": "~iO"
+  },
+  {
+    "talk": "~Io"
+  },
+  {
+    "talk": "~IO"
+  },
+  {
+    "talk": "~iu"
+  },
+  {
+    "talk": "~iU"
+  },
+  {
+    "talk": "~Iu"
+  },
+  {
+    "talk": "~IU"
+  },
+  {
+    "talk": "~oa"
+  },
+  {
+    "talk": "~oA"
+  },
+  {
+    "talk": "~Oa"
+  },
+  {
+    "talk": "~OA"
+  },
+  {
+    "talk": "~oe"
+  },
+  {
+    "talk": "~oE"
+  },
+  {
+    "talk": "~Oe"
+  },
+  {
+    "talk": "~OE"
+  },
+  {
+    "talk": "~oi"
+  },
+  {
+    "talk": "~oI"
+  },
+  {
+    "talk": "~Oi"
+  },
+  {
+    "talk": "~OI"
+  },
+  {
+    "talk": "~oO"
+  },
+  {
+    "talk": "~ou"
+  },
+  {
+    "talk": "~oU"
+  },
+  {
+    "talk": "~Ou"
+  },
+  {
+    "talk": "~OU"
+  },
+  {
+    "talk": "~ua"
+  },
+  {
+    "talk": "~uA"
+  },
+  {
+    "talk": "~Ua"
+  },
+  {
+    "talk": "~UA"
+  },
+  {
+    "talk": "~ui"
+  },
+  {
+    "talk": "~uI"
+  },
+  {
+    "talk": "~Ui"
+  },
+  {
+    "talk": "~UI"
+  },
+  {
+    "talk": "~uo"
+  },
+  {
+    "talk": "~uO"
+  },
+  {
+    "talk": "~Uo"
+  },
+  {
+    "talk": "~UO"
+  },
+  {
+    "talk": "~uU"
+  },
+  {
+    "talk": "$ae"
+  },
+  {
+    "talk": "$aE"
+  },
+  {
+    "talk": "$Ae"
+  },
+  {
+    "talk": "$AE"
+  },
+  {
+    "talk": "$ai"
+  },
+  {
+    "talk": "$aI"
+  },
+  {
+    "talk": "$Ai"
+  },
+  {
+    "talk": "$AI"
+  },
+  {
+    "talk": "$ao"
+  },
+  {
+    "talk": "$aO"
+  },
+  {
+    "talk": "$Ao"
+  },
+  {
+    "talk": "$AO"
+  },
+  {
+    "talk": "$au"
+  },
+  {
+    "talk": "$aU"
+  },
+  {
+    "talk": "$Au"
+  },
+  {
+    "talk": "$AU"
+  },
+  {
+    "talk": "$ea"
+  },
+  {
+    "talk": "$eA"
+  },
+  {
+    "talk": "$Ea"
+  },
+  {
+    "talk": "$EA"
+  },
+  {
     "talk": "$ei"
+  },
+  {
+    "talk": "$eI"
+  },
+  {
+    "talk": "$Ei"
+  },
+  {
+    "talk": "$EI"
+  },
+  {
+    "talk": "$eo"
+  },
+  {
+    "talk": "$eO"
+  },
+  {
+    "talk": "$Eo"
+  },
+  {
+    "talk": "$EO"
+  },
+  {
+    "talk": "$eU"
+  },
+  {
+    "talk": "$EU"
+  },
+  {
+    "talk": "$io"
+  },
+  {
+    "talk": "$iO"
+  },
+  {
+    "talk": "$Io"
+  },
+  {
+    "talk": "$IO"
+  },
+  {
+    "talk": "$iu"
+  },
+  {
+    "talk": "$iU"
+  },
+  {
+    "talk": "$Iu"
+  },
+  {
+    "talk": "$IU"
   },
   {
     "talk": "$oa"
   },
   {
+    "talk": "$oA"
+  },
+  {
+    "talk": "$Oa"
+  },
+  {
+    "talk": "$OA"
+  },
+  {
+    "talk": "$oe"
+  },
+  {
+    "talk": "$oE"
+  },
+  {
+    "talk": "$Oe"
+  },
+  {
+    "talk": "$OE"
+  },
+  {
     "talk": "$oi"
+  },
+  {
+    "talk": "$oI"
+  },
+  {
+    "talk": "$Oi"
+  },
+  {
+    "talk": "$OI"
+  },
+  {
+    "talk": "$oO"
   },
   {
     "talk": "$ou"
   },
   {
-    "talk": "$ua"
+    "talk": "$oU"
   },
   {
-    "talk": "$uA"
+    "talk": "$Ou"
   },
   {
-    "talk": "$ue"
+    "talk": "$OU"
   },
   {
-    "talk": "$uE"
+    "talk": "$ra"
   },
   {
-    "talk": "$ui"
+    "talk": "$rA"
   },
   {
-    "talk": "$uI"
+    "talk": "$re"
   },
   {
-    "talk": "$uo"
+    "talk": "$rE"
   },
   {
-    "talk": "$uO"
+    "talk": "$ri"
   },
   {
-    "talk": "$uU"
+    "talk": "$rI"
   },
   {
-    "talk": "a$u"
+    "talk": "$ro"
   },
   {
-    "talk": "A$u"
+    "talk": "$rO"
   },
   {
-    "talk": "e$u"
+    "talk": "$ru"
   },
   {
-    "talk": "E$u"
+    "talk": "$rU"
   },
   {
-    "talk": "i$u"
+    "talk": "$Ua"
   },
   {
-    "talk": "I$u"
+    "talk": "$UA"
   },
   {
-    "talk": "o$u"
+    "talk": "$Ui"
   },
   {
-    "talk": "O$u"
+    "talk": "$UI"
   },
   {
-    "talk": "u$u"
+    "talk": "$Uo"
   },
   {
-    "talk": "U$u"
+    "talk": "$UO"
+  },
+  {
+    "talk": "A~a"
+  },
+  {
+    "talk": "A~A"
+  },
+  {
+    "talk": "a~e"
+  },
+  {
+    "talk": "a~E"
+  },
+  {
+    "talk": "A~e"
+  },
+  {
+    "talk": "A~E"
+  },
+  {
+    "talk": "a~i"
+  },
+  {
+    "talk": "a~I"
+  },
+  {
+    "talk": "A~i"
+  },
+  {
+    "talk": "A~I"
+  },
+  {
+    "talk": "a~o"
+  },
+  {
+    "talk": "a~O"
+  },
+  {
+    "talk": "A~o"
+  },
+  {
+    "talk": "A~O"
+  },
+  {
+    "talk": "a~u"
+  },
+  {
+    "talk": "a~U"
+  },
+  {
+    "talk": "A~u"
+  },
+  {
+    "talk": "A~U"
+  },
+  {
+    "talk": "A$a"
+  },
+  {
+    "talk": "A$A"
+  },
+  {
+    "talk": "a$e"
+  },
+  {
+    "talk": "a$E"
+  },
+  {
+    "talk": "A$e"
+  },
+  {
+    "talk": "A$E"
+  },
+  {
+    "talk": "a$i"
+  },
+  {
+    "talk": "a$I"
+  },
+  {
+    "talk": "A$i"
+  },
+  {
+    "talk": "A$I"
+  },
+  {
+    "talk": "a$o"
+  },
+  {
+    "talk": "a$O"
+  },
+  {
+    "talk": "A$o"
+  },
+  {
+    "talk": "A$O"
+  },
+  {
+    "talk": "a$r"
+  },
+  {
+    "talk": "A$r"
+  },
+  {
+    "talk": "a$U"
+  },
+  {
+    "talk": "A$U"
+  },
+  {
+    "talk": "e~a"
+  },
+  {
+    "talk": "e~A"
+  },
+  {
+    "talk": "E~a"
+  },
+  {
+    "talk": "E~A"
+  },
+  {
+    "talk": "E~e"
+  },
+  {
+    "talk": "E~E"
+  },
+  {
+    "talk": "e~i"
+  },
+  {
+    "talk": "e~I"
+  },
+  {
+    "talk": "E~i"
+  },
+  {
+    "talk": "E~I"
+  },
+  {
+    "talk": "e~o"
+  },
+  {
+    "talk": "e~O"
+  },
+  {
+    "talk": "E~o"
+  },
+  {
+    "talk": "E~O"
+  },
+  {
+    "talk": "E~u"
+  },
+  {
+    "talk": "E~U"
+  },
+  {
+    "talk": "e$a"
+  },
+  {
+    "talk": "e$A"
+  },
+  {
+    "talk": "E$a"
+  },
+  {
+    "talk": "E$A"
+  },
+  {
+    "talk": "E$e"
+  },
+  {
+    "talk": "E$E"
+  },
+  {
+    "talk": "e$i"
+  },
+  {
+    "talk": "e$I"
+  },
+  {
+    "talk": "E$i"
+  },
+  {
+    "talk": "E$I"
+  },
+  {
+    "talk": "e$o"
+  },
+  {
+    "talk": "e$O"
+  },
+  {
+    "talk": "E$o"
+  },
+  {
+    "talk": "E$O"
+  },
+  {
+    "talk": "e$r"
+  },
+  {
+    "talk": "E$r"
+  },
+  {
+    "talk": "E$U"
+  },
+  {
+    "talk": "I~i"
+  },
+  {
+    "talk": "I~I"
+  },
+  {
+    "talk": "i~o"
+  },
+  {
+    "talk": "i~O"
+  },
+  {
+    "talk": "I~o"
+  },
+  {
+    "talk": "I~O"
+  },
+  {
+    "talk": "i~u"
+  },
+  {
+    "talk": "i~U"
+  },
+  {
+    "talk": "I~u"
+  },
+  {
+    "talk": "I~U"
+  },
+  {
+    "talk": "I$i"
+  },
+  {
+    "talk": "I$I"
+  },
+  {
+    "talk": "i$o"
+  },
+  {
+    "talk": "i$O"
+  },
+  {
+    "talk": "I$o"
+  },
+  {
+    "talk": "I$O"
+  },
+  {
+    "talk": "i$r"
+  },
+  {
+    "talk": "I$r"
+  },
+  {
+    "talk": "i$U"
+  },
+  {
+    "talk": "I$U"
+  },
+  {
+    "talk": "o~a"
+  },
+  {
+    "talk": "o~A"
+  },
+  {
+    "talk": "O~a"
+  },
+  {
+    "talk": "O~A"
+  },
+  {
+    "talk": "o~e"
+  },
+  {
+    "talk": "o~E"
+  },
+  {
+    "talk": "O~e"
+  },
+  {
+    "talk": "O~E"
+  },
+  {
+    "talk": "o~i"
+  },
+  {
+    "talk": "o~I"
+  },
+  {
+    "talk": "O~i"
+  },
+  {
+    "talk": "O~I"
+  },
+  {
+    "talk": "o~u"
+  },
+  {
+    "talk": "o~U"
+  },
+  {
+    "talk": "O~u"
+  },
+  {
+    "talk": "O~U"
+  },
+  {
+    "talk": "o$a"
+  },
+  {
+    "talk": "o$A"
+  },
+  {
+    "talk": "O$a"
+  },
+  {
+    "talk": "O$A"
+  },
+  {
+    "talk": "o$e"
+  },
+  {
+    "talk": "o$E"
+  },
+  {
+    "talk": "O$e"
+  },
+  {
+    "talk": "O$E"
+  },
+  {
+    "talk": "o$i"
+  },
+  {
+    "talk": "o$I"
+  },
+  {
+    "talk": "O$i"
+  },
+  {
+    "talk": "O$I"
+  },
+  {
+    "talk": "o$r"
+  },
+  {
+    "talk": "O$r"
+  },
+  {
+    "talk": "o$U"
+  },
+  {
+    "talk": "O$U"
+  },
+  {
+    "talk": "u~a"
+  },
+  {
+    "talk": "u~A"
+  },
+  {
+    "talk": "U~a"
+  },
+  {
+    "talk": "U~A"
+  },
+  {
+    "talk": "u~i"
+  },
+  {
+    "talk": "u~I"
+  },
+  {
+    "talk": "U~i"
+  },
+  {
+    "talk": "U~I"
+  },
+  {
+    "talk": "u~o"
+  },
+  {
+    "talk": "u~O"
+  },
+  {
+    "talk": "U~o"
+  },
+  {
+    "talk": "U~O"
+  },
+  {
+    "talk": "u$a"
+  },
+  {
+    "talk": "u$A"
+  },
+  {
+    "talk": "U$a"
+  },
+  {
+    "talk": "U$A"
+  },
+  {
+    "talk": "u$i"
+  },
+  {
+    "talk": "u$I"
+  },
+  {
+    "talk": "U$i"
+  },
+  {
+    "talk": "U$I"
+  },
+  {
+    "talk": "u$o"
+  },
+  {
+    "talk": "u$O"
+  },
+  {
+    "talk": "U$o"
+  },
+  {
+    "talk": "U$O"
+  },
+  {
+    "talk": "u$r"
+  },
+  {
+    "talk": "U$r"
+  },
+  {
+    "talk": "~a"
+  },
+  {
+    "talk": "~A"
+  },
+  {
+    "talk": "~e"
+  },
+  {
+    "talk": "~E"
+  },
+  {
+    "talk": "~i"
+  },
+  {
+    "talk": "~I"
+  },
+  {
+    "talk": "~o"
+  },
+  {
+    "talk": "~O"
+  },
+  {
+    "talk": "~u"
+  },
+  {
+    "talk": "~U"
   },
   {
     "talk": "$a"
   },
   {
+    "talk": "$A"
+  },
+  {
     "talk": "$e"
+  },
+  {
+    "talk": "$E"
   },
   {
     "talk": "$i"
   },
   {
+    "talk": "$I"
+  },
+  {
     "talk": "$o"
   },
   {
-    "talk": "$u"
+    "talk": "$O"
+  },
+  {
+    "talk": "$r"
+  },
+  {
+    "talk": "$U"
   },
   {
     "talk": "Aa"
@@ -90,7 +1734,13 @@
     "talk": "ae"
   },
   {
+    "talk": "aE"
+  },
+  {
     "talk": "Ae"
+  },
+  {
+    "talk": "AE"
   },
   {
     "talk": "ai"
@@ -114,6 +1764,9 @@
     "talk": "Ao"
   },
   {
+    "talk": "AO"
+  },
+  {
     "talk": "au"
   },
   {
@@ -123,7 +1776,19 @@
     "talk": "Au"
   },
   {
+    "talk": "AU"
+  },
+  {
     "talk": "ea"
+  },
+  {
+    "talk": "eA"
+  },
+  {
+    "talk": "Ea"
+  },
+  {
+    "talk": "EA"
   },
   {
     "talk": "Ee"
@@ -138,10 +1803,19 @@
     "talk": "Ei"
   },
   {
+    "talk": "EI"
+  },
+  {
     "talk": "eo"
   },
   {
+    "talk": "eO"
+  },
+  {
     "talk": "Eo"
+  },
+  {
+    "talk": "EO"
   },
   {
     "talk": "eU"
@@ -150,13 +1824,28 @@
     "talk": "Eu"
   },
   {
+    "talk": "EU"
+  },
+  {
     "talk": "Ii"
   },
   {
     "talk": "io"
   },
   {
+    "talk": "iO"
+  },
+  {
+    "talk": "Io"
+  },
+  {
+    "talk": "IO"
+  },
+  {
     "talk": "iu"
+  },
+  {
+    "talk": "iU"
   },
   {
     "talk": "Iu"
@@ -168,16 +1857,31 @@
     "talk": "oa"
   },
   {
+    "talk": "oA"
+  },
+  {
     "talk": "Oa"
+  },
+  {
+    "talk": "OA"
   },
   {
     "talk": "oe"
   },
   {
+    "talk": "oE"
+  },
+  {
     "talk": "Oe"
   },
   {
+    "talk": "OE"
+  },
+  {
     "talk": "oi"
+  },
+  {
+    "talk": "oI"
   },
   {
     "talk": "Oi"
@@ -195,13 +1899,22 @@
     "talk": "oU"
   },
   {
+    "talk": "Ou"
+  },
+  {
     "talk": "OU"
   },
   {
     "talk": "ua"
   },
   {
+    "talk": "uA"
+  },
+  {
     "talk": "Ua"
+  },
+  {
+    "talk": "UA"
   },
   {
     "talk": "UE"
@@ -210,10 +1923,25 @@
     "talk": "ui"
   },
   {
+    "talk": "uI"
+  },
+  {
     "talk": "Ui"
   },
   {
+    "talk": "UI"
+  },
+  {
     "talk": "uo"
+  },
+  {
+    "talk": "uO"
+  },
+  {
+    "talk": "Uo"
+  },
+  {
+    "talk": "UO"
   },
   {
     "talk": "uU"

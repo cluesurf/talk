@@ -302,9 +302,19 @@ function buildClusterTrie(
 
   for (const cluster of list) {
     const key = vowel ? cluster : cluster.replace(/:/g, '')
+    // COUNTED IN SOUNDS, NOT CHARACTERS. `count` says how many chunks the
+    // cluster consumes, and a chunk is a sound. That was the string length,
+    // which held only while every sound was one letter: `nk` was two of
+    // each. A sound is now written with a marker where it needs one, so
+    // `$nk` is three characters and two sounds, and counting characters
+    // asked for one chunk too many and never matched.
+    //
+    // The markers are `$` and `~`, which choose among a letter's variants,
+    // and `!` which makes a click. None is a sound on its own, so removing
+    // them leaves one character per sound.
     const count = vowel
-      ? cluster.replace(/\$/g, '').length
-      : cluster.replace(/:/g, '').length
+      ? cluster.replace(/[$~!]/g, '').length
+      : cluster.replace(/:/g, '').replace(/[$~!]/g, '').length
     const group = byKey.get(key) ?? []
 
     group.push({ cluster, count })

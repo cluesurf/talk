@@ -1,5 +1,41 @@
 [
   {
+    "talk": "$d$x"
+  },
+  {
+    "talk": "$t$x"
+  },
+  {
+    "talk": "$dj"
+  },
+  {
+    "talk": "$dJ"
+  },
+  {
+    "talk": "$dx"
+  },
+  {
+    "talk": "$dX"
+  },
+  {
+    "talk": "$tx"
+  },
+  {
+    "talk": "$tX"
+  },
+  {
+    "talk": "d$x"
+  },
+  {
+    "talk": "D$x"
+  },
+  {
+    "talk": "t$x"
+  },
+  {
+    "talk": "T$x"
+  },
+  {
     "talk": "$'"
   },
   {
@@ -48,43 +84,43 @@
     "talk": "$Z"
   },
   {
-    "talk": "d!"
+    "talk": "dj"
   },
   {
-    "talk": "dj"
+    "talk": "dJ"
+  },
+  {
+    "talk": "Dj"
+  },
+  {
+    "talk": "DJ"
   },
   {
     "talk": "dx"
   },
   {
-    "talk": "k!"
+    "talk": "dX"
   },
   {
-    "talk": "K!"
+    "talk": "Dx"
   },
   {
-    "talk": "l!"
-  },
-  {
-    "talk": "p!"
-  },
-  {
-    "talk": "t!"
-  },
-  {
-    "talk": "T!"
+    "talk": "DX"
   },
   {
     "talk": "tx"
   },
   {
-    "talk": "'"
+    "talk": "tX"
+  },
+  {
+    "talk": "Tx"
+  },
+  {
+    "talk": "TX"
   },
   {
     "talk": "b"
-  },
-  {
-    "talk": "B"
   },
   {
     "talk": "d"
@@ -139,12 +175,6 @@
   },
   {
     "talk": "p"
-  },
-  {
-    "talk": "q"
-  },
-  {
-    "talk": "Q"
   },
   {
     "talk": "r"

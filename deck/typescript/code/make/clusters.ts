@@ -54,6 +54,100 @@ const noDuplicateSounds = (s: string) => {
   }
 }
 
+// Every spelling of one letter: the plain form, the `$` back series, the
+// `~` centralized series, and the capital retroflex, wherever each exists.
+//
+// DERIVED FROM THE PHONE TABLE, not written out. `g` is a velar plosive and
+// `$g` the velar fricative, `G` the uvular plosive and `$G` the uvular
+// fricative, so a cluster attested for one of them is very often attested
+// for its neighbours. Listing every combination by hand is how the arrays
+// below drifted out of date in the first place.
+const VARIANTS: Record<string, string[]> = {
+  r: ['$R', '$r', 'r'],
+  i: ['$I', '$i', 'I', 'i', '~I', '~i'],
+  e: ['$E', '$e', 'E', 'e', '~E', '~e'],
+  a: ['$A', '$a', 'A', 'a', '~A', '~a'],
+  u: ['$U', 'U', 'u', '~U', '~u'],
+  o: ['$O', '$o', 'O', 'o', '~O', '~o'],
+  m: ['$m', 'm'],
+  h: ['$H', '$h', 'H', 'h'],
+  "'": ["$'", "'"],
+  x: ['$x', 'X', 'x'],
+  t: ['$t', 'T', 't'],
+  'k!': ['K!', 'k!'],
+  v: ['$v', 'V', 'v'],
+  s: ['$S', 'S', 's'],
+  't!': ['T!', 't!'],
+  z: ['$Z', 'Z', 'z'],
+  g: ['$G', '$g', 'G', 'g'],
+  d: ['$d', 'D', 'd'],
+  n: ['$N', '$n', 'N', 'n'],
+  y: ['Y', 'y'],
+  f: ['F', 'f'],
+  w: ['W', 'w'],
+  j: ['J', 'j'],
+  k: ['K', 'k'],
+  l: ['L', 'l'],
+}
+
+// One cluster, written every way its letters can be spelled.
+//
+// `gx` yields `gx`, `$gx`, `Gx`, `$Gx` and so on across both positions.
+// This EXPANDS what is already there rather than inventing new shapes: if a
+// sequence was not attested before, no variant of it appears now.
+//
+// Longest letter first, so `k!` is read as the click rather than `k` then a
+// stray `!`, and a colon passes through untouched since it marks the split
+// inside a cluster rather than a sound.
+const LETTERS = Object.keys(VARIANTS).sort(
+  (a, b) => b.length - a.length,
+)
+
+export function expand(cluster: string): string[] {
+  let out: string[] = ['']
+  let at = 0
+
+  while (at < cluster.length) {
+    // THE MARKER BELONGS TO THE LETTER AFTER IT. `$d` is one sound, so the
+    // walk takes the marker WITH its letter. Reading a bare `$` and then
+    // looking up the family for `d` writes `$$d`, a marker on a letter that
+    // already carries one.
+    const marker = cluster[at] === '$' || cluster[at] === '~' ? cluster[at] : ''
+    const from = at + marker.length
+    const letter = LETTERS.find(one => cluster.startsWith(one, from))
+
+    if (!letter) {
+      out = out.map(held => held + cluster[at])
+      at += 1
+      continue
+    }
+
+    // A letter already spelled with a marker keeps that spelling; only a
+    // bare one fans out across its family.
+    const forms = marker ? [marker + letter] : VARIANTS[letter]
+
+    out = out.flatMap(held => forms.map(one => held + one))
+    at = from + letter.length
+  }
+
+  return out
+}
+
+/** Every cluster in a newline list, expanded across its letter variants. */
+export function expandAll(list: string): string {
+  const seen = new Set<string>()
+
+  for (const one of list.split('\n')) {
+    if (one.trim()) {
+      for (const variant of expand(one.trim())) {
+        seen.add(variant)
+      }
+    }
+  }
+
+  return [...seen].join('\n')
+}
+
 const consonantSuffix = (suffix: string, colon = '') => `b${suffix}
 $t${colon}${suffix}
 $d${colon}${suffix}
@@ -67,7 +161,7 @@ l${colon}${suffix}
 m${colon}${suffix}
 n${colon}${suffix}
 p${colon}${suffix}
-q${colon}${suffix}
+$n${colon}${suffix}
 r${colon}${suffix}
 s${colon}${suffix}
 t${colon}${suffix}
@@ -79,7 +173,6 @@ z${colon}${suffix}
 $G${colon}${suffix}
 $g${colon}${suffix}
 $'${colon}${suffix}
-B${colon}${suffix}
 D${colon}${suffix}
 F${colon}${suffix}
 H${colon}${suffix}
@@ -169,7 +262,7 @@ ${prefix}:j
 `
 
 export const startConsonants = uniq(
-  `u$
+  expandAll(`u$
 '
 dj:r
 bl
@@ -247,10 +340,10 @@ ps
 pz
 p$t
 p$d
-qr
-q:l
-qw
-qy
+$nr
+$n:l
+$nw
+$ny
 tr
 ts
 tz
@@ -311,7 +404,7 @@ ${sStart('s')}
 ${sStart('z')}
 ${sStart('x')}
 ${sStart('j')}
-`
+`)
     .trim()
     .split(/\n+/)
     .filter(noDuplicateSounds)
@@ -503,7 +596,7 @@ ${prefix}l
 ${prefix}m
 ${prefix}n
 ${prefix}p
-${prefix}q
+${prefix}$n
 ${prefix}r
 ${prefix}s
 ${prefix}t
@@ -512,7 +605,6 @@ ${prefix}w
 ${prefix}x
 ${prefix}y
 ${prefix}z
-${prefix}B
 ${prefix}D
 ${prefix}F
 ${prefix}H
@@ -530,7 +622,7 @@ ${prefix}dj
 ${prefix}dx
 ${prefix}tx`
 
-export const consonants = `b
+export const consonants = expandAll(`b
 $t
 $d
 d
@@ -543,7 +635,7 @@ l
 m
 n
 p
-q
+$n
 r
 s
 t
@@ -552,9 +644,9 @@ w
 x
 y
 z
-G
-Q
-B
+$g
+$G
+$'
 D
 F
 H
@@ -570,12 +662,12 @@ X
 Z
 dj
 dx
-tx`
+tx`)
   .split(/\n+/)
   .sort(sortLength)
 
 export const endConsonants = uniq(
-  `y:g
+  expandAll(`y:g
 w:g
 y:k
 w:k
@@ -680,8 +772,8 @@ ${kEnd('mk')}
 m:k
 ${kEnd('nk')}
 n:k
-${kEnd('qk')}
-q:k
+${kEnd('$nk')}
+$n:k
 
 ${fEnd('f')}
 ${fEnd('rf')}
@@ -705,7 +797,7 @@ dj:dj
 m:m
 n:n
 p:p
-q:q
+$n:$n
 r:r
 s:s
 t:t
@@ -723,7 +815,7 @@ L:L
 D:DJ
 DJ:DJ
 N:N
-Q:Q
+$':$'
 R:R
 S:S
 T:T
@@ -744,7 +836,7 @@ l:l
 m:m
 n:n
 p:p
-q:q
+$n:$n
 r:r
 s:s
 t:t
@@ -754,8 +846,7 @@ x:x
 y:y
 z:z
 G:G
-Q:Q
-B:B
+$':$'
 D:D
 F:F
 H:H
@@ -860,7 +951,7 @@ m:z
 r:b
 r:f
 s:j
-`
+`)
     .trim()
     .split(/\n+/)
     .filter(noDuplicateSounds)
@@ -868,7 +959,7 @@ s:j
 )
 
 export const fullConsonants = uniq(
-  `'l:s
+  expandAll(`'l:s
 'l:p
 'l:z
 'l:n
@@ -886,7 +977,7 @@ export const fullConsonants = uniq(
 ${glottalFull("'")}
 txm
 txn
-txq
+tx$n
 spldj
 sprdj
 sprdjd
@@ -895,16 +986,16 @@ spldjt
 spltxt
 spltxp
 brn
-brq
+br$n
 brm
 prn
-prq
+pr$n
 prm
 krn
-krq
+kr$n
 krm
 trn
-trq
+tr$n
 trm
 brv
 brvz
@@ -932,7 +1023,7 @@ prvsk
 'l
 'w
 'y
-`
+`)
     .trim()
     .split(/\n+/)
     .filter(noDuplicateSounds)
@@ -946,26 +1037,26 @@ prvsk
 // syllabifier then placed the offglide in the NEXT syllable
 // (pr.r.o | U.gr). One inventory entry fixes both.
 export const vowels = uniq(
-  `$ui
-$ue
-$ua
-$uo
-$uu
-$uI
-$uE
-$uA
-$uO
-$uU
-i$u
-e$u
-a$u
-o$u
-u$u
-I$u
-E$u
-A$u
-O$u
-U$u
+  expandAll(`$ri
+$re
+$ra
+$ro
+$ru
+$rI
+$rE
+$rA
+$rO
+$rU
+i$r
+e$r
+a$r
+o$r
+u$r
+I$r
+E$r
+A$r
+O$r
+U$r
 i
 e
 a
@@ -980,7 +1071,7 @@ $i
 $e
 $a
 $o
-$u
+$r
 $ou
 $oi
 $oa
@@ -1029,7 +1120,7 @@ aU
 oU
 eU
 IU
-uU`
+uU`)
     .trim()
     .split(/\n+/)
     .filter(noDuplicateSounds)

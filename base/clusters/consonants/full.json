@@ -1,132 +1,7494 @@
 [
   {
+    "talk": "b$r$v$S$t$S"
+  },
+  {
+    "talk": "b$R$v$S$t$S"
+  },
+  {
+    "talk": "p$r$v$S$t$S"
+  },
+  {
+    "talk": "p$R$v$S$t$S"
+  },
+  {
+    "talk": "$Sp$r$dj$d"
+  },
+  {
+    "talk": "$Sp$r$dJ$d"
+  },
+  {
+    "talk": "$Sp$R$dj$d"
+  },
+  {
+    "talk": "$Sp$R$dJ$d"
+  },
+  {
+    "talk": "$Spl$t$x$t"
+  },
+  {
+    "talk": "$SpL$t$x$t"
+  },
+  {
+    "talk": "b$r$v$S$ts"
+  },
+  {
+    "talk": "b$r$v$S$tS"
+  },
+  {
+    "talk": "b$R$v$S$ts"
+  },
+  {
+    "talk": "b$R$v$S$tS"
+  },
+  {
+    "talk": "b$r$v$St$S"
+  },
+  {
+    "talk": "b$r$v$ST$S"
+  },
+  {
+    "talk": "b$R$v$St$S"
+  },
+  {
+    "talk": "b$R$v$ST$S"
+  },
+  {
+    "talk": "b$r$vs$t$S"
+  },
+  {
+    "talk": "b$r$vS$t$S"
+  },
+  {
+    "talk": "b$R$vs$t$S"
+  },
+  {
+    "talk": "b$R$vS$t$S"
+  },
+  {
+    "talk": "b$rv$S$t$S"
+  },
+  {
+    "talk": "b$rV$S$t$S"
+  },
+  {
+    "talk": "b$Rv$S$t$S"
+  },
+  {
+    "talk": "b$RV$S$t$S"
+  },
+  {
+    "talk": "br$v$S$t$S"
+  },
+  {
+    "talk": "p$r$v$S$ts"
+  },
+  {
+    "talk": "p$r$v$S$tS"
+  },
+  {
+    "talk": "p$R$v$S$ts"
+  },
+  {
+    "talk": "p$R$v$S$tS"
+  },
+  {
+    "talk": "p$r$v$Sk$S"
+  },
+  {
+    "talk": "p$r$v$SK$S"
+  },
+  {
+    "talk": "p$R$v$Sk$S"
+  },
+  {
+    "talk": "p$R$v$SK$S"
+  },
+  {
+    "talk": "p$r$v$St$S"
+  },
+  {
+    "talk": "p$r$v$ST$S"
+  },
+  {
+    "talk": "p$R$v$St$S"
+  },
+  {
+    "talk": "p$R$v$ST$S"
+  },
+  {
+    "talk": "p$r$vs$t$S"
+  },
+  {
+    "talk": "p$r$vS$t$S"
+  },
+  {
+    "talk": "p$R$vs$t$S"
+  },
+  {
+    "talk": "p$R$vS$t$S"
+  },
+  {
+    "talk": "p$rv$S$t$S"
+  },
+  {
+    "talk": "p$rV$S$t$S"
+  },
+  {
+    "talk": "p$Rv$S$t$S"
+  },
+  {
+    "talk": "p$RV$S$t$S"
+  },
+  {
+    "talk": "pr$v$S$t$S"
+  },
+  {
+    "talk": "$Sp$r$djd"
+  },
+  {
+    "talk": "$Sp$r$djD"
+  },
+  {
+    "talk": "$Sp$r$dJd"
+  },
+  {
+    "talk": "$Sp$r$dJD"
+  },
+  {
+    "talk": "$Sp$R$djd"
+  },
+  {
+    "talk": "$Sp$R$djD"
+  },
+  {
+    "talk": "$Sp$R$dJd"
+  },
+  {
+    "talk": "$Sp$R$dJD"
+  },
+  {
+    "talk": "$Sp$rdj$d"
+  },
+  {
+    "talk": "$Sp$rdJ$d"
+  },
+  {
+    "talk": "$Sp$rDj$d"
+  },
+  {
+    "talk": "$Sp$rDJ$d"
+  },
+  {
+    "talk": "$Sp$Rdj$d"
+  },
+  {
+    "talk": "$Sp$RdJ$d"
+  },
+  {
+    "talk": "$Sp$RDj$d"
+  },
+  {
+    "talk": "$Sp$RDJ$d"
+  },
+  {
+    "talk": "$Spl$dj$d"
+  },
+  {
+    "talk": "$Spl$dJ$d"
+  },
+  {
+    "talk": "$SpL$dj$d"
+  },
+  {
+    "talk": "$SpL$dJ$d"
+  },
+  {
+    "talk": "$Spl$dj$t"
+  },
+  {
+    "talk": "$Spl$dJ$t"
+  },
+  {
+    "talk": "$SpL$dj$t"
+  },
+  {
+    "talk": "$SpL$dJ$t"
+  },
+  {
+    "talk": "$Spl$t$xp"
+  },
+  {
+    "talk": "$SpL$t$xp"
+  },
+  {
+    "talk": "$Spl$t$xt"
+  },
+  {
+    "talk": "$Spl$t$xT"
+  },
+  {
+    "talk": "$SpL$t$xt"
+  },
+  {
+    "talk": "$SpL$t$xT"
+  },
+  {
+    "talk": "$Spl$tx$t"
+  },
+  {
+    "talk": "$Spl$tX$t"
+  },
+  {
+    "talk": "$SpL$tx$t"
+  },
+  {
+    "talk": "$SpL$tX$t"
+  },
+  {
+    "talk": "$Splt$x$t"
+  },
+  {
+    "talk": "$SplT$x$t"
+  },
+  {
+    "talk": "$SpLt$x$t"
+  },
+  {
+    "talk": "$SpLT$x$t"
+  },
+  {
+    "talk": "$Spr$dj$d"
+  },
+  {
+    "talk": "$Spr$dJ$d"
+  },
+  {
+    "talk": "b$r$v$S$t"
+  },
+  {
+    "talk": "b$R$v$S$t"
+  },
+  {
+    "talk": "b$r$v$Sts"
+  },
+  {
+    "talk": "b$r$v$StS"
+  },
+  {
+    "talk": "b$r$v$STs"
+  },
+  {
+    "talk": "b$r$v$STS"
+  },
+  {
+    "talk": "b$R$v$Sts"
+  },
+  {
+    "talk": "b$R$v$StS"
+  },
+  {
+    "talk": "b$R$v$STs"
+  },
+  {
+    "talk": "b$R$v$STS"
+  },
+  {
+    "talk": "b$r$v$Z$d"
+  },
+  {
+    "talk": "b$R$v$Z$d"
+  },
+  {
+    "talk": "b$r$v$Z$t"
+  },
+  {
+    "talk": "b$R$v$Z$t"
+  },
+  {
+    "talk": "b$r$vs$ts"
+  },
+  {
+    "talk": "b$r$vs$tS"
+  },
+  {
+    "talk": "b$r$vS$ts"
+  },
+  {
+    "talk": "b$r$vS$tS"
+  },
+  {
+    "talk": "b$R$vs$ts"
+  },
+  {
+    "talk": "b$R$vs$tS"
+  },
+  {
+    "talk": "b$R$vS$ts"
+  },
+  {
+    "talk": "b$R$vS$tS"
+  },
+  {
+    "talk": "b$r$vst$S"
+  },
+  {
+    "talk": "b$r$vsT$S"
+  },
+  {
+    "talk": "b$r$vSt$S"
+  },
+  {
+    "talk": "b$r$vST$S"
+  },
+  {
+    "talk": "b$R$vst$S"
+  },
+  {
+    "talk": "b$R$vsT$S"
+  },
+  {
+    "talk": "b$R$vSt$S"
+  },
+  {
+    "talk": "b$R$vST$S"
+  },
+  {
+    "talk": "b$rv$S$ts"
+  },
+  {
+    "talk": "b$rv$S$tS"
+  },
+  {
+    "talk": "b$rV$S$ts"
+  },
+  {
+    "talk": "b$rV$S$tS"
+  },
+  {
+    "talk": "b$Rv$S$ts"
+  },
+  {
+    "talk": "b$Rv$S$tS"
+  },
+  {
+    "talk": "b$RV$S$ts"
+  },
+  {
+    "talk": "b$RV$S$tS"
+  },
+  {
+    "talk": "b$rv$St$S"
+  },
+  {
+    "talk": "b$rv$ST$S"
+  },
+  {
+    "talk": "b$rV$St$S"
+  },
+  {
+    "talk": "b$rV$ST$S"
+  },
+  {
+    "talk": "b$Rv$St$S"
+  },
+  {
+    "talk": "b$Rv$ST$S"
+  },
+  {
+    "talk": "b$RV$St$S"
+  },
+  {
+    "talk": "b$RV$ST$S"
+  },
+  {
+    "talk": "b$rvs$t$S"
+  },
+  {
+    "talk": "b$rvS$t$S"
+  },
+  {
+    "talk": "b$rVs$t$S"
+  },
+  {
+    "talk": "b$rVS$t$S"
+  },
+  {
+    "talk": "b$Rvs$t$S"
+  },
+  {
+    "talk": "b$RvS$t$S"
+  },
+  {
+    "talk": "b$RVs$t$S"
+  },
+  {
+    "talk": "b$RVS$t$S"
+  },
+  {
+    "talk": "br$v$S$ts"
+  },
+  {
+    "talk": "br$v$S$tS"
+  },
+  {
+    "talk": "br$v$St$S"
+  },
+  {
+    "talk": "br$v$ST$S"
+  },
+  {
+    "talk": "br$vs$t$S"
+  },
+  {
+    "talk": "br$vS$t$S"
+  },
+  {
+    "talk": "brv$S$t$S"
+  },
+  {
+    "talk": "brV$S$t$S"
+  },
+  {
+    "talk": "p$r$v$S$t"
+  },
+  {
+    "talk": "p$R$v$S$t"
+  },
+  {
+    "talk": "p$r$v$Sks"
+  },
+  {
+    "talk": "p$r$v$SkS"
+  },
+  {
+    "talk": "p$r$v$SKs"
+  },
+  {
+    "talk": "p$r$v$SKS"
+  },
+  {
+    "talk": "p$R$v$Sks"
+  },
+  {
+    "talk": "p$R$v$SkS"
+  },
+  {
+    "talk": "p$R$v$SKs"
+  },
+  {
+    "talk": "p$R$v$SKS"
+  },
+  {
+    "talk": "p$r$v$Sts"
+  },
+  {
+    "talk": "p$r$v$StS"
+  },
+  {
+    "talk": "p$r$v$STs"
+  },
+  {
+    "talk": "p$r$v$STS"
+  },
+  {
+    "talk": "p$R$v$Sts"
+  },
+  {
+    "talk": "p$R$v$StS"
+  },
+  {
+    "talk": "p$R$v$STs"
+  },
+  {
+    "talk": "p$R$v$STS"
+  },
+  {
+    "talk": "p$r$v$Z$d"
+  },
+  {
+    "talk": "p$R$v$Z$d"
+  },
+  {
+    "talk": "p$r$v$Z$t"
+  },
+  {
+    "talk": "p$R$v$Z$t"
+  },
+  {
+    "talk": "p$r$vs$ts"
+  },
+  {
+    "talk": "p$r$vs$tS"
+  },
+  {
+    "talk": "p$r$vS$ts"
+  },
+  {
+    "talk": "p$r$vS$tS"
+  },
+  {
+    "talk": "p$R$vs$ts"
+  },
+  {
+    "talk": "p$R$vs$tS"
+  },
+  {
+    "talk": "p$R$vS$ts"
+  },
+  {
+    "talk": "p$R$vS$tS"
+  },
+  {
+    "talk": "p$r$vsk$S"
+  },
+  {
+    "talk": "p$r$vsK$S"
+  },
+  {
+    "talk": "p$r$vSk$S"
+  },
+  {
+    "talk": "p$r$vSK$S"
+  },
+  {
+    "talk": "p$R$vsk$S"
+  },
+  {
+    "talk": "p$R$vsK$S"
+  },
+  {
+    "talk": "p$R$vSk$S"
+  },
+  {
+    "talk": "p$R$vSK$S"
+  },
+  {
+    "talk": "p$r$vst$S"
+  },
+  {
+    "talk": "p$r$vsT$S"
+  },
+  {
+    "talk": "p$r$vSt$S"
+  },
+  {
+    "talk": "p$r$vST$S"
+  },
+  {
+    "talk": "p$R$vst$S"
+  },
+  {
+    "talk": "p$R$vsT$S"
+  },
+  {
+    "talk": "p$R$vSt$S"
+  },
+  {
+    "talk": "p$R$vST$S"
+  },
+  {
+    "talk": "p$rv$S$ts"
+  },
+  {
+    "talk": "p$rv$S$tS"
+  },
+  {
+    "talk": "p$rV$S$ts"
+  },
+  {
+    "talk": "p$rV$S$tS"
+  },
+  {
+    "talk": "p$Rv$S$ts"
+  },
+  {
+    "talk": "p$Rv$S$tS"
+  },
+  {
+    "talk": "p$RV$S$ts"
+  },
+  {
+    "talk": "p$RV$S$tS"
+  },
+  {
+    "talk": "p$rv$Sk$S"
+  },
+  {
+    "talk": "p$rv$SK$S"
+  },
+  {
+    "talk": "p$rV$Sk$S"
+  },
+  {
+    "talk": "p$rV$SK$S"
+  },
+  {
+    "talk": "p$Rv$Sk$S"
+  },
+  {
+    "talk": "p$Rv$SK$S"
+  },
+  {
+    "talk": "p$RV$Sk$S"
+  },
+  {
+    "talk": "p$RV$SK$S"
+  },
+  {
+    "talk": "p$rv$St$S"
+  },
+  {
+    "talk": "p$rv$ST$S"
+  },
+  {
+    "talk": "p$rV$St$S"
+  },
+  {
+    "talk": "p$rV$ST$S"
+  },
+  {
+    "talk": "p$Rv$St$S"
+  },
+  {
+    "talk": "p$Rv$ST$S"
+  },
+  {
+    "talk": "p$RV$St$S"
+  },
+  {
+    "talk": "p$RV$ST$S"
+  },
+  {
+    "talk": "p$rvs$t$S"
+  },
+  {
+    "talk": "p$rvS$t$S"
+  },
+  {
+    "talk": "p$rVs$t$S"
+  },
+  {
+    "talk": "p$rVS$t$S"
+  },
+  {
+    "talk": "p$Rvs$t$S"
+  },
+  {
+    "talk": "p$RvS$t$S"
+  },
+  {
+    "talk": "p$RVs$t$S"
+  },
+  {
+    "talk": "p$RVS$t$S"
+  },
+  {
+    "talk": "pr$v$S$ts"
+  },
+  {
+    "talk": "pr$v$S$tS"
+  },
+  {
+    "talk": "pr$v$Sk$S"
+  },
+  {
+    "talk": "pr$v$SK$S"
+  },
+  {
+    "talk": "pr$v$St$S"
+  },
+  {
+    "talk": "pr$v$ST$S"
+  },
+  {
+    "talk": "pr$vs$t$S"
+  },
+  {
+    "talk": "pr$vS$t$S"
+  },
+  {
+    "talk": "prv$S$t$S"
+  },
+  {
+    "talk": "prV$S$t$S"
+  },
+  {
+    "talk": "sp$r$dj$d"
+  },
+  {
+    "talk": "sp$r$dJ$d"
+  },
+  {
+    "talk": "sp$R$dj$d"
+  },
+  {
+    "talk": "sp$R$dJ$d"
+  },
+  {
+    "talk": "Sp$r$dj$d"
+  },
+  {
+    "talk": "Sp$r$dJ$d"
+  },
+  {
+    "talk": "Sp$R$dj$d"
+  },
+  {
+    "talk": "Sp$R$dJ$d"
+  },
+  {
+    "talk": "spl$t$x$t"
+  },
+  {
+    "talk": "spL$t$x$t"
+  },
+  {
+    "talk": "Spl$t$x$t"
+  },
+  {
+    "talk": "SpL$t$x$t"
+  },
+  {
+    "talk": "$Sp$r$dj"
+  },
+  {
+    "talk": "$Sp$r$dJ"
+  },
+  {
+    "talk": "$Sp$R$dj"
+  },
+  {
+    "talk": "$Sp$R$dJ"
+  },
+  {
+    "talk": "$Sp$rdjd"
+  },
+  {
+    "talk": "$Sp$rdjD"
+  },
+  {
+    "talk": "$Sp$rdJd"
+  },
+  {
+    "talk": "$Sp$rdJD"
+  },
+  {
+    "talk": "$Sp$rDjd"
+  },
+  {
+    "talk": "$Sp$rDjD"
+  },
+  {
+    "talk": "$Sp$rDJd"
+  },
+  {
+    "talk": "$Sp$rDJD"
+  },
+  {
+    "talk": "$Sp$Rdjd"
+  },
+  {
+    "talk": "$Sp$RdjD"
+  },
+  {
+    "talk": "$Sp$RdJd"
+  },
+  {
+    "talk": "$Sp$RdJD"
+  },
+  {
+    "talk": "$Sp$RDjd"
+  },
+  {
+    "talk": "$Sp$RDjD"
+  },
+  {
+    "talk": "$Sp$RDJd"
+  },
+  {
+    "talk": "$Sp$RDJD"
+  },
+  {
+    "talk": "$Spl$djd"
+  },
+  {
+    "talk": "$Spl$djD"
+  },
+  {
+    "talk": "$Spl$dJd"
+  },
+  {
+    "talk": "$Spl$dJD"
+  },
+  {
+    "talk": "$SpL$djd"
+  },
+  {
+    "talk": "$SpL$djD"
+  },
+  {
+    "talk": "$SpL$dJd"
+  },
+  {
+    "talk": "$SpL$dJD"
+  },
+  {
+    "talk": "$Spl$djt"
+  },
+  {
+    "talk": "$Spl$djT"
+  },
+  {
+    "talk": "$Spl$dJt"
+  },
+  {
+    "talk": "$Spl$dJT"
+  },
+  {
+    "talk": "$SpL$djt"
+  },
+  {
+    "talk": "$SpL$djT"
+  },
+  {
+    "talk": "$SpL$dJt"
+  },
+  {
+    "talk": "$SpL$dJT"
+  },
+  {
+    "talk": "$Spl$txp"
+  },
+  {
+    "talk": "$Spl$tXp"
+  },
+  {
+    "talk": "$SpL$txp"
+  },
+  {
+    "talk": "$SpL$tXp"
+  },
+  {
+    "talk": "$Spl$txt"
+  },
+  {
+    "talk": "$Spl$txT"
+  },
+  {
+    "talk": "$Spl$tXt"
+  },
+  {
+    "talk": "$Spl$tXT"
+  },
+  {
+    "talk": "$SpL$txt"
+  },
+  {
+    "talk": "$SpL$txT"
+  },
+  {
+    "talk": "$SpL$tXt"
+  },
+  {
+    "talk": "$SpL$tXT"
+  },
+  {
+    "talk": "$Spldj$d"
+  },
+  {
+    "talk": "$SpldJ$d"
+  },
+  {
+    "talk": "$SplDj$d"
+  },
+  {
+    "talk": "$SplDJ$d"
+  },
+  {
+    "talk": "$SpLdj$d"
+  },
+  {
+    "talk": "$SpLdJ$d"
+  },
+  {
+    "talk": "$SpLDj$d"
+  },
+  {
+    "talk": "$SpLDJ$d"
+  },
+  {
+    "talk": "$Spldj$t"
+  },
+  {
+    "talk": "$SpldJ$t"
+  },
+  {
+    "talk": "$SplDj$t"
+  },
+  {
+    "talk": "$SplDJ$t"
+  },
+  {
+    "talk": "$SpLdj$t"
+  },
+  {
+    "talk": "$SpLdJ$t"
+  },
+  {
+    "talk": "$SpLDj$t"
+  },
+  {
+    "talk": "$SpLDJ$t"
+  },
+  {
+    "talk": "$Splt$xp"
+  },
+  {
+    "talk": "$SplT$xp"
+  },
+  {
+    "talk": "$SpLt$xp"
+  },
+  {
+    "talk": "$SpLT$xp"
+  },
+  {
+    "talk": "$Splt$xt"
+  },
+  {
+    "talk": "$Splt$xT"
+  },
+  {
+    "talk": "$SplT$xt"
+  },
+  {
+    "talk": "$SplT$xT"
+  },
+  {
+    "talk": "$SpLt$xt"
+  },
+  {
+    "talk": "$SpLt$xT"
+  },
+  {
+    "talk": "$SpLT$xt"
+  },
+  {
+    "talk": "$SpLT$xT"
+  },
+  {
+    "talk": "$Spltx$t"
+  },
+  {
+    "talk": "$SpltX$t"
+  },
+  {
+    "talk": "$SplTx$t"
+  },
+  {
+    "talk": "$SplTX$t"
+  },
+  {
+    "talk": "$SpLtx$t"
+  },
+  {
+    "talk": "$SpLtX$t"
+  },
+  {
+    "talk": "$SpLTx$t"
+  },
+  {
+    "talk": "$SpLTX$t"
+  },
+  {
+    "talk": "$Spr$djd"
+  },
+  {
+    "talk": "$Spr$djD"
+  },
+  {
+    "talk": "$Spr$dJd"
+  },
+  {
+    "talk": "$Spr$dJD"
+  },
+  {
+    "talk": "$Sprdj$d"
+  },
+  {
+    "talk": "$SprdJ$d"
+  },
+  {
+    "talk": "$SprDj$d"
+  },
+  {
+    "talk": "$SprDJ$d"
+  },
+  {
+    "talk": "b$r$v$Sk"
+  },
+  {
+    "talk": "b$r$v$SK"
+  },
+  {
+    "talk": "b$R$v$Sk"
+  },
+  {
+    "talk": "b$R$v$SK"
+  },
+  {
+    "talk": "b$r$v$St"
+  },
+  {
+    "talk": "b$r$v$ST"
+  },
+  {
+    "talk": "b$R$v$St"
+  },
+  {
+    "talk": "b$R$v$ST"
+  },
+  {
+    "talk": "b$r$v$Zd"
+  },
+  {
+    "talk": "b$r$v$ZD"
+  },
+  {
+    "talk": "b$R$v$Zd"
+  },
+  {
+    "talk": "b$R$v$ZD"
+  },
+  {
+    "talk": "b$r$v$Zt"
+  },
+  {
+    "talk": "b$r$v$ZT"
+  },
+  {
+    "talk": "b$R$v$Zt"
+  },
+  {
+    "talk": "b$R$v$ZT"
+  },
+  {
+    "talk": "b$r$vs$t"
+  },
+  {
+    "talk": "b$r$vS$t"
+  },
+  {
+    "talk": "b$R$vs$t"
+  },
+  {
+    "talk": "b$R$vS$t"
+  },
+  {
+    "talk": "b$r$vsts"
+  },
+  {
+    "talk": "b$r$vstS"
+  },
+  {
+    "talk": "b$r$vsTs"
+  },
+  {
+    "talk": "b$r$vsTS"
+  },
+  {
+    "talk": "b$r$vSts"
+  },
+  {
+    "talk": "b$r$vStS"
+  },
+  {
+    "talk": "b$r$vSTs"
+  },
+  {
+    "talk": "b$r$vSTS"
+  },
+  {
+    "talk": "b$R$vsts"
+  },
+  {
+    "talk": "b$R$vstS"
+  },
+  {
+    "talk": "b$R$vsTs"
+  },
+  {
+    "talk": "b$R$vsTS"
+  },
+  {
+    "talk": "b$R$vSts"
+  },
+  {
+    "talk": "b$R$vStS"
+  },
+  {
+    "talk": "b$R$vSTs"
+  },
+  {
+    "talk": "b$R$vSTS"
+  },
+  {
+    "talk": "b$r$vz$d"
+  },
+  {
+    "talk": "b$r$vZ$d"
+  },
+  {
+    "talk": "b$R$vz$d"
+  },
+  {
+    "talk": "b$R$vZ$d"
+  },
+  {
+    "talk": "b$r$vz$t"
+  },
+  {
+    "talk": "b$r$vZ$t"
+  },
+  {
+    "talk": "b$R$vz$t"
+  },
+  {
+    "talk": "b$R$vZ$t"
+  },
+  {
+    "talk": "b$rv$S$t"
+  },
+  {
+    "talk": "b$rV$S$t"
+  },
+  {
+    "talk": "b$Rv$S$t"
+  },
+  {
+    "talk": "b$RV$S$t"
+  },
+  {
+    "talk": "b$rv$Sts"
+  },
+  {
+    "talk": "b$rv$StS"
+  },
+  {
+    "talk": "b$rv$STs"
+  },
+  {
+    "talk": "b$rv$STS"
+  },
+  {
+    "talk": "b$rV$Sts"
+  },
+  {
+    "talk": "b$rV$StS"
+  },
+  {
+    "talk": "b$rV$STs"
+  },
+  {
+    "talk": "b$rV$STS"
+  },
+  {
+    "talk": "b$Rv$Sts"
+  },
+  {
+    "talk": "b$Rv$StS"
+  },
+  {
+    "talk": "b$Rv$STs"
+  },
+  {
+    "talk": "b$Rv$STS"
+  },
+  {
+    "talk": "b$RV$Sts"
+  },
+  {
+    "talk": "b$RV$StS"
+  },
+  {
+    "talk": "b$RV$STs"
+  },
+  {
+    "talk": "b$RV$STS"
+  },
+  {
+    "talk": "b$rv$Z$d"
+  },
+  {
+    "talk": "b$rV$Z$d"
+  },
+  {
+    "talk": "b$Rv$Z$d"
+  },
+  {
+    "talk": "b$RV$Z$d"
+  },
+  {
+    "talk": "b$rv$Z$t"
+  },
+  {
+    "talk": "b$rV$Z$t"
+  },
+  {
+    "talk": "b$Rv$Z$t"
+  },
+  {
+    "talk": "b$RV$Z$t"
+  },
+  {
+    "talk": "b$rvs$ts"
+  },
+  {
+    "talk": "b$rvs$tS"
+  },
+  {
+    "talk": "b$rvS$ts"
+  },
+  {
+    "talk": "b$rvS$tS"
+  },
+  {
+    "talk": "b$rVs$ts"
+  },
+  {
+    "talk": "b$rVs$tS"
+  },
+  {
+    "talk": "b$rVS$ts"
+  },
+  {
+    "talk": "b$rVS$tS"
+  },
+  {
+    "talk": "b$Rvs$ts"
+  },
+  {
+    "talk": "b$Rvs$tS"
+  },
+  {
+    "talk": "b$RvS$ts"
+  },
+  {
+    "talk": "b$RvS$tS"
+  },
+  {
+    "talk": "b$RVs$ts"
+  },
+  {
+    "talk": "b$RVs$tS"
+  },
+  {
+    "talk": "b$RVS$ts"
+  },
+  {
+    "talk": "b$RVS$tS"
+  },
+  {
+    "talk": "b$rvst$S"
+  },
+  {
+    "talk": "b$rvsT$S"
+  },
+  {
+    "talk": "b$rvSt$S"
+  },
+  {
+    "talk": "b$rvST$S"
+  },
+  {
+    "talk": "b$rVst$S"
+  },
+  {
+    "talk": "b$rVsT$S"
+  },
+  {
+    "talk": "b$rVSt$S"
+  },
+  {
+    "talk": "b$rVST$S"
+  },
+  {
+    "talk": "b$Rvst$S"
+  },
+  {
+    "talk": "b$RvsT$S"
+  },
+  {
+    "talk": "b$RvSt$S"
+  },
+  {
+    "talk": "b$RvST$S"
+  },
+  {
+    "talk": "b$RVst$S"
+  },
+  {
+    "talk": "b$RVsT$S"
+  },
+  {
+    "talk": "b$RVSt$S"
+  },
+  {
+    "talk": "b$RVST$S"
+  },
+  {
+    "talk": "br$v$S$t"
+  },
+  {
+    "talk": "br$v$Sts"
+  },
+  {
+    "talk": "br$v$StS"
+  },
+  {
+    "talk": "br$v$STs"
+  },
+  {
+    "talk": "br$v$STS"
+  },
+  {
+    "talk": "br$v$Z$d"
+  },
+  {
+    "talk": "br$v$Z$t"
+  },
+  {
+    "talk": "br$vs$ts"
+  },
+  {
+    "talk": "br$vs$tS"
+  },
+  {
+    "talk": "br$vS$ts"
+  },
+  {
+    "talk": "br$vS$tS"
+  },
+  {
+    "talk": "br$vst$S"
+  },
+  {
+    "talk": "br$vsT$S"
+  },
+  {
+    "talk": "br$vSt$S"
+  },
+  {
+    "talk": "br$vST$S"
+  },
+  {
+    "talk": "brv$S$ts"
+  },
+  {
+    "talk": "brv$S$tS"
+  },
+  {
+    "talk": "brV$S$ts"
+  },
+  {
+    "talk": "brV$S$tS"
+  },
+  {
+    "talk": "brv$St$S"
+  },
+  {
+    "talk": "brv$ST$S"
+  },
+  {
+    "talk": "brV$St$S"
+  },
+  {
+    "talk": "brV$ST$S"
+  },
+  {
+    "talk": "brvs$t$S"
+  },
+  {
+    "talk": "brvS$t$S"
+  },
+  {
+    "talk": "brVs$t$S"
+  },
+  {
+    "talk": "brVS$t$S"
+  },
+  {
+    "talk": "p$r$v$Sk"
+  },
+  {
+    "talk": "p$r$v$SK"
+  },
+  {
+    "talk": "p$R$v$Sk"
+  },
+  {
+    "talk": "p$R$v$SK"
+  },
+  {
+    "talk": "p$r$v$St"
+  },
+  {
+    "talk": "p$r$v$ST"
+  },
+  {
+    "talk": "p$R$v$St"
+  },
+  {
+    "talk": "p$R$v$ST"
+  },
+  {
+    "talk": "p$r$v$Zd"
+  },
+  {
+    "talk": "p$r$v$ZD"
+  },
+  {
+    "talk": "p$R$v$Zd"
+  },
+  {
+    "talk": "p$R$v$ZD"
+  },
+  {
+    "talk": "p$r$v$Zt"
+  },
+  {
+    "talk": "p$r$v$ZT"
+  },
+  {
+    "talk": "p$R$v$Zt"
+  },
+  {
+    "talk": "p$R$v$ZT"
+  },
+  {
+    "talk": "p$r$vs$t"
+  },
+  {
+    "talk": "p$r$vS$t"
+  },
+  {
+    "talk": "p$R$vs$t"
+  },
+  {
+    "talk": "p$R$vS$t"
+  },
+  {
+    "talk": "p$r$vsks"
+  },
+  {
+    "talk": "p$r$vskS"
+  },
+  {
+    "talk": "p$r$vsKs"
+  },
+  {
+    "talk": "p$r$vsKS"
+  },
+  {
+    "talk": "p$r$vSks"
+  },
+  {
+    "talk": "p$r$vSkS"
+  },
+  {
+    "talk": "p$r$vSKs"
+  },
+  {
+    "talk": "p$r$vSKS"
+  },
+  {
+    "talk": "p$R$vsks"
+  },
+  {
+    "talk": "p$R$vskS"
+  },
+  {
+    "talk": "p$R$vsKs"
+  },
+  {
+    "talk": "p$R$vsKS"
+  },
+  {
+    "talk": "p$R$vSks"
+  },
+  {
+    "talk": "p$R$vSkS"
+  },
+  {
+    "talk": "p$R$vSKs"
+  },
+  {
+    "talk": "p$R$vSKS"
+  },
+  {
+    "talk": "p$r$vsts"
+  },
+  {
+    "talk": "p$r$vstS"
+  },
+  {
+    "talk": "p$r$vsTs"
+  },
+  {
+    "talk": "p$r$vsTS"
+  },
+  {
+    "talk": "p$r$vSts"
+  },
+  {
+    "talk": "p$r$vStS"
+  },
+  {
+    "talk": "p$r$vSTs"
+  },
+  {
+    "talk": "p$r$vSTS"
+  },
+  {
+    "talk": "p$R$vsts"
+  },
+  {
+    "talk": "p$R$vstS"
+  },
+  {
+    "talk": "p$R$vsTs"
+  },
+  {
+    "talk": "p$R$vsTS"
+  },
+  {
+    "talk": "p$R$vSts"
+  },
+  {
+    "talk": "p$R$vStS"
+  },
+  {
+    "talk": "p$R$vSTs"
+  },
+  {
+    "talk": "p$R$vSTS"
+  },
+  {
+    "talk": "p$r$vz$d"
+  },
+  {
+    "talk": "p$r$vZ$d"
+  },
+  {
+    "talk": "p$R$vz$d"
+  },
+  {
+    "talk": "p$R$vZ$d"
+  },
+  {
+    "talk": "p$r$vz$t"
+  },
+  {
+    "talk": "p$r$vZ$t"
+  },
+  {
+    "talk": "p$R$vz$t"
+  },
+  {
+    "talk": "p$R$vZ$t"
+  },
+  {
+    "talk": "p$rv$S$t"
+  },
+  {
+    "talk": "p$rV$S$t"
+  },
+  {
+    "talk": "p$Rv$S$t"
+  },
+  {
+    "talk": "p$RV$S$t"
+  },
+  {
+    "talk": "p$rv$Sks"
+  },
+  {
+    "talk": "p$rv$SkS"
+  },
+  {
+    "talk": "p$rv$SKs"
+  },
+  {
+    "talk": "p$rv$SKS"
+  },
+  {
+    "talk": "p$rV$Sks"
+  },
+  {
+    "talk": "p$rV$SkS"
+  },
+  {
+    "talk": "p$rV$SKs"
+  },
+  {
+    "talk": "p$rV$SKS"
+  },
+  {
+    "talk": "p$Rv$Sks"
+  },
+  {
+    "talk": "p$Rv$SkS"
+  },
+  {
+    "talk": "p$Rv$SKs"
+  },
+  {
+    "talk": "p$Rv$SKS"
+  },
+  {
+    "talk": "p$RV$Sks"
+  },
+  {
+    "talk": "p$RV$SkS"
+  },
+  {
+    "talk": "p$RV$SKs"
+  },
+  {
+    "talk": "p$RV$SKS"
+  },
+  {
+    "talk": "p$rv$Sts"
+  },
+  {
+    "talk": "p$rv$StS"
+  },
+  {
+    "talk": "p$rv$STs"
+  },
+  {
+    "talk": "p$rv$STS"
+  },
+  {
+    "talk": "p$rV$Sts"
+  },
+  {
+    "talk": "p$rV$StS"
+  },
+  {
+    "talk": "p$rV$STs"
+  },
+  {
+    "talk": "p$rV$STS"
+  },
+  {
+    "talk": "p$Rv$Sts"
+  },
+  {
+    "talk": "p$Rv$StS"
+  },
+  {
+    "talk": "p$Rv$STs"
+  },
+  {
+    "talk": "p$Rv$STS"
+  },
+  {
+    "talk": "p$RV$Sts"
+  },
+  {
+    "talk": "p$RV$StS"
+  },
+  {
+    "talk": "p$RV$STs"
+  },
+  {
+    "talk": "p$RV$STS"
+  },
+  {
+    "talk": "p$rv$Z$d"
+  },
+  {
+    "talk": "p$rV$Z$d"
+  },
+  {
+    "talk": "p$Rv$Z$d"
+  },
+  {
+    "talk": "p$RV$Z$d"
+  },
+  {
+    "talk": "p$rv$Z$t"
+  },
+  {
+    "talk": "p$rV$Z$t"
+  },
+  {
+    "talk": "p$Rv$Z$t"
+  },
+  {
+    "talk": "p$RV$Z$t"
+  },
+  {
+    "talk": "p$rvs$ts"
+  },
+  {
+    "talk": "p$rvs$tS"
+  },
+  {
+    "talk": "p$rvS$ts"
+  },
+  {
+    "talk": "p$rvS$tS"
+  },
+  {
+    "talk": "p$rVs$ts"
+  },
+  {
+    "talk": "p$rVs$tS"
+  },
+  {
+    "talk": "p$rVS$ts"
+  },
+  {
+    "talk": "p$rVS$tS"
+  },
+  {
+    "talk": "p$Rvs$ts"
+  },
+  {
+    "talk": "p$Rvs$tS"
+  },
+  {
+    "talk": "p$RvS$ts"
+  },
+  {
+    "talk": "p$RvS$tS"
+  },
+  {
+    "talk": "p$RVs$ts"
+  },
+  {
+    "talk": "p$RVs$tS"
+  },
+  {
+    "talk": "p$RVS$ts"
+  },
+  {
+    "talk": "p$RVS$tS"
+  },
+  {
+    "talk": "p$rvsk$S"
+  },
+  {
+    "talk": "p$rvsK$S"
+  },
+  {
+    "talk": "p$rvSk$S"
+  },
+  {
+    "talk": "p$rvSK$S"
+  },
+  {
+    "talk": "p$rVsk$S"
+  },
+  {
+    "talk": "p$rVsK$S"
+  },
+  {
+    "talk": "p$rVSk$S"
+  },
+  {
+    "talk": "p$rVSK$S"
+  },
+  {
+    "talk": "p$Rvsk$S"
+  },
+  {
+    "talk": "p$RvsK$S"
+  },
+  {
+    "talk": "p$RvSk$S"
+  },
+  {
+    "talk": "p$RvSK$S"
+  },
+  {
+    "talk": "p$RVsk$S"
+  },
+  {
+    "talk": "p$RVsK$S"
+  },
+  {
+    "talk": "p$RVSk$S"
+  },
+  {
+    "talk": "p$RVSK$S"
+  },
+  {
+    "talk": "p$rvst$S"
+  },
+  {
+    "talk": "p$rvsT$S"
+  },
+  {
+    "talk": "p$rvSt$S"
+  },
+  {
+    "talk": "p$rvST$S"
+  },
+  {
+    "talk": "p$rVst$S"
+  },
+  {
+    "talk": "p$rVsT$S"
+  },
+  {
+    "talk": "p$rVSt$S"
+  },
+  {
+    "talk": "p$rVST$S"
+  },
+  {
+    "talk": "p$Rvst$S"
+  },
+  {
+    "talk": "p$RvsT$S"
+  },
+  {
+    "talk": "p$RvSt$S"
+  },
+  {
+    "talk": "p$RvST$S"
+  },
+  {
+    "talk": "p$RVst$S"
+  },
+  {
+    "talk": "p$RVsT$S"
+  },
+  {
+    "talk": "p$RVSt$S"
+  },
+  {
+    "talk": "p$RVST$S"
+  },
+  {
+    "talk": "pr$v$S$t"
+  },
+  {
+    "talk": "pr$v$Sks"
+  },
+  {
+    "talk": "pr$v$SkS"
+  },
+  {
+    "talk": "pr$v$SKs"
+  },
+  {
+    "talk": "pr$v$SKS"
+  },
+  {
+    "talk": "pr$v$Sts"
+  },
+  {
+    "talk": "pr$v$StS"
+  },
+  {
+    "talk": "pr$v$STs"
+  },
+  {
+    "talk": "pr$v$STS"
+  },
+  {
+    "talk": "pr$v$Z$d"
+  },
+  {
+    "talk": "pr$v$Z$t"
+  },
+  {
+    "talk": "pr$vs$ts"
+  },
+  {
+    "talk": "pr$vs$tS"
+  },
+  {
+    "talk": "pr$vS$ts"
+  },
+  {
+    "talk": "pr$vS$tS"
+  },
+  {
+    "talk": "pr$vsk$S"
+  },
+  {
+    "talk": "pr$vsK$S"
+  },
+  {
+    "talk": "pr$vSk$S"
+  },
+  {
+    "talk": "pr$vSK$S"
+  },
+  {
+    "talk": "pr$vst$S"
+  },
+  {
+    "talk": "pr$vsT$S"
+  },
+  {
+    "talk": "pr$vSt$S"
+  },
+  {
+    "talk": "pr$vST$S"
+  },
+  {
+    "talk": "prv$S$ts"
+  },
+  {
+    "talk": "prv$S$tS"
+  },
+  {
+    "talk": "prV$S$ts"
+  },
+  {
+    "talk": "prV$S$tS"
+  },
+  {
+    "talk": "prv$Sk$S"
+  },
+  {
+    "talk": "prv$SK$S"
+  },
+  {
+    "talk": "prV$Sk$S"
+  },
+  {
+    "talk": "prV$SK$S"
+  },
+  {
+    "talk": "prv$St$S"
+  },
+  {
+    "talk": "prv$ST$S"
+  },
+  {
+    "talk": "prV$St$S"
+  },
+  {
+    "talk": "prV$ST$S"
+  },
+  {
+    "talk": "prvs$t$S"
+  },
+  {
+    "talk": "prvS$t$S"
+  },
+  {
+    "talk": "prVs$t$S"
+  },
+  {
+    "talk": "prVS$t$S"
+  },
+  {
+    "talk": "sp$r$djd"
+  },
+  {
+    "talk": "sp$r$djD"
+  },
+  {
+    "talk": "sp$r$dJd"
+  },
+  {
+    "talk": "sp$r$dJD"
+  },
+  {
+    "talk": "sp$R$djd"
+  },
+  {
+    "talk": "sp$R$djD"
+  },
+  {
+    "talk": "sp$R$dJd"
+  },
+  {
+    "talk": "sp$R$dJD"
+  },
+  {
+    "talk": "Sp$r$djd"
+  },
+  {
+    "talk": "Sp$r$djD"
+  },
+  {
+    "talk": "Sp$r$dJd"
+  },
+  {
+    "talk": "Sp$r$dJD"
+  },
+  {
+    "talk": "Sp$R$djd"
+  },
+  {
+    "talk": "Sp$R$djD"
+  },
+  {
+    "talk": "Sp$R$dJd"
+  },
+  {
+    "talk": "Sp$R$dJD"
+  },
+  {
+    "talk": "sp$rdj$d"
+  },
+  {
+    "talk": "sp$rdJ$d"
+  },
+  {
+    "talk": "sp$rDj$d"
+  },
+  {
+    "talk": "sp$rDJ$d"
+  },
+  {
+    "talk": "sp$Rdj$d"
+  },
+  {
+    "talk": "sp$RdJ$d"
+  },
+  {
+    "talk": "sp$RDj$d"
+  },
+  {
+    "talk": "sp$RDJ$d"
+  },
+  {
+    "talk": "Sp$rdj$d"
+  },
+  {
+    "talk": "Sp$rdJ$d"
+  },
+  {
+    "talk": "Sp$rDj$d"
+  },
+  {
+    "talk": "Sp$rDJ$d"
+  },
+  {
+    "talk": "Sp$Rdj$d"
+  },
+  {
+    "talk": "Sp$RdJ$d"
+  },
+  {
+    "talk": "Sp$RDj$d"
+  },
+  {
+    "talk": "Sp$RDJ$d"
+  },
+  {
+    "talk": "spl$dj$d"
+  },
+  {
+    "talk": "spl$dJ$d"
+  },
+  {
+    "talk": "spL$dj$d"
+  },
+  {
+    "talk": "spL$dJ$d"
+  },
+  {
+    "talk": "Spl$dj$d"
+  },
+  {
+    "talk": "Spl$dJ$d"
+  },
+  {
+    "talk": "SpL$dj$d"
+  },
+  {
+    "talk": "SpL$dJ$d"
+  },
+  {
+    "talk": "spl$dj$t"
+  },
+  {
+    "talk": "spl$dJ$t"
+  },
+  {
+    "talk": "spL$dj$t"
+  },
+  {
+    "talk": "spL$dJ$t"
+  },
+  {
+    "talk": "Spl$dj$t"
+  },
+  {
+    "talk": "Spl$dJ$t"
+  },
+  {
+    "talk": "SpL$dj$t"
+  },
+  {
+    "talk": "SpL$dJ$t"
+  },
+  {
+    "talk": "spl$t$xp"
+  },
+  {
+    "talk": "spL$t$xp"
+  },
+  {
+    "talk": "Spl$t$xp"
+  },
+  {
+    "talk": "SpL$t$xp"
+  },
+  {
+    "talk": "spl$t$xt"
+  },
+  {
+    "talk": "spl$t$xT"
+  },
+  {
+    "talk": "spL$t$xt"
+  },
+  {
+    "talk": "spL$t$xT"
+  },
+  {
+    "talk": "Spl$t$xt"
+  },
+  {
+    "talk": "Spl$t$xT"
+  },
+  {
+    "talk": "SpL$t$xt"
+  },
+  {
+    "talk": "SpL$t$xT"
+  },
+  {
+    "talk": "spl$tx$t"
+  },
+  {
+    "talk": "spl$tX$t"
+  },
+  {
+    "talk": "spL$tx$t"
+  },
+  {
+    "talk": "spL$tX$t"
+  },
+  {
+    "talk": "Spl$tx$t"
+  },
+  {
+    "talk": "Spl$tX$t"
+  },
+  {
+    "talk": "SpL$tx$t"
+  },
+  {
+    "talk": "SpL$tX$t"
+  },
+  {
+    "talk": "splt$x$t"
+  },
+  {
+    "talk": "splT$x$t"
+  },
+  {
+    "talk": "spLt$x$t"
+  },
+  {
+    "talk": "spLT$x$t"
+  },
+  {
+    "talk": "Splt$x$t"
+  },
+  {
+    "talk": "SplT$x$t"
+  },
+  {
+    "talk": "SpLt$x$t"
+  },
+  {
+    "talk": "SpLT$x$t"
+  },
+  {
+    "talk": "spr$dj$d"
+  },
+  {
+    "talk": "spr$dJ$d"
+  },
+  {
+    "talk": "Spr$dj$d"
+  },
+  {
+    "talk": "Spr$dJ$d"
+  },
+  {
+    "talk": "$'l:$dj"
+  },
+  {
+    "talk": "$'l:$dJ"
+  },
+  {
+    "talk": "$'L:$dj"
+  },
+  {
+    "talk": "$'L:$dJ"
+  },
+  {
+    "talk": "$Sp$rdj"
+  },
+  {
+    "talk": "$Sp$rdJ"
+  },
+  {
+    "talk": "$Sp$rDj"
+  },
+  {
+    "talk": "$Sp$rDJ"
+  },
+  {
+    "talk": "$Sp$Rdj"
+  },
+  {
+    "talk": "$Sp$RdJ"
+  },
+  {
+    "talk": "$Sp$RDj"
+  },
+  {
+    "talk": "$Sp$RDJ"
+  },
+  {
+    "talk": "$Spl$dj"
+  },
+  {
+    "talk": "$Spl$dJ"
+  },
+  {
+    "talk": "$SpL$dj"
+  },
+  {
+    "talk": "$SpL$dJ"
+  },
+  {
+    "talk": "$Spldjd"
+  },
+  {
+    "talk": "$SpldjD"
+  },
+  {
+    "talk": "$SpldJd"
+  },
+  {
+    "talk": "$SpldJD"
+  },
+  {
+    "talk": "$SplDjd"
+  },
+  {
+    "talk": "$SplDjD"
+  },
+  {
+    "talk": "$SplDJd"
+  },
+  {
+    "talk": "$SplDJD"
+  },
+  {
+    "talk": "$SpLdjd"
+  },
+  {
+    "talk": "$SpLdjD"
+  },
+  {
+    "talk": "$SpLdJd"
+  },
+  {
+    "talk": "$SpLdJD"
+  },
+  {
+    "talk": "$SpLDjd"
+  },
+  {
+    "talk": "$SpLDjD"
+  },
+  {
+    "talk": "$SpLDJd"
+  },
+  {
+    "talk": "$SpLDJD"
+  },
+  {
+    "talk": "$Spldjt"
+  },
+  {
+    "talk": "$SpldjT"
+  },
+  {
+    "talk": "$SpldJt"
+  },
+  {
+    "talk": "$SpldJT"
+  },
+  {
+    "talk": "$SplDjt"
+  },
+  {
+    "talk": "$SplDjT"
+  },
+  {
+    "talk": "$SplDJt"
+  },
+  {
+    "talk": "$SplDJT"
+  },
+  {
+    "talk": "$SpLdjt"
+  },
+  {
+    "talk": "$SpLdjT"
+  },
+  {
+    "talk": "$SpLdJt"
+  },
+  {
+    "talk": "$SpLdJT"
+  },
+  {
+    "talk": "$SpLDjt"
+  },
+  {
+    "talk": "$SpLDjT"
+  },
+  {
+    "talk": "$SpLDJt"
+  },
+  {
+    "talk": "$SpLDJT"
+  },
+  {
+    "talk": "$Spltxp"
+  },
+  {
+    "talk": "$SpltXp"
+  },
+  {
+    "talk": "$SplTxp"
+  },
+  {
+    "talk": "$SplTXp"
+  },
+  {
+    "talk": "$SpLtxp"
+  },
+  {
+    "talk": "$SpLtXp"
+  },
+  {
+    "talk": "$SpLTxp"
+  },
+  {
+    "talk": "$SpLTXp"
+  },
+  {
+    "talk": "$Spltxt"
+  },
+  {
+    "talk": "$SpltxT"
+  },
+  {
+    "talk": "$SpltXt"
+  },
+  {
+    "talk": "$SpltXT"
+  },
+  {
+    "talk": "$SplTxt"
+  },
+  {
+    "talk": "$SplTxT"
+  },
+  {
+    "talk": "$SplTXt"
+  },
+  {
+    "talk": "$SplTXT"
+  },
+  {
+    "talk": "$SpLtxt"
+  },
+  {
+    "talk": "$SpLtxT"
+  },
+  {
+    "talk": "$SpLtXt"
+  },
+  {
+    "talk": "$SpLtXT"
+  },
+  {
+    "talk": "$SpLTxt"
+  },
+  {
+    "talk": "$SpLTxT"
+  },
+  {
+    "talk": "$SpLTXt"
+  },
+  {
+    "talk": "$SpLTXT"
+  },
+  {
+    "talk": "$Spr$dj"
+  },
+  {
+    "talk": "$Spr$dJ"
+  },
+  {
+    "talk": "$Sprdjd"
+  },
+  {
+    "talk": "$SprdjD"
+  },
+  {
+    "talk": "$SprdJd"
+  },
+  {
+    "talk": "$SprdJD"
+  },
+  {
+    "talk": "$SprDjd"
+  },
+  {
+    "talk": "$SprDjD"
+  },
+  {
+    "talk": "$SprDJd"
+  },
+  {
+    "talk": "$SprDJD"
+  },
+  {
+    "talk": "b$r$v$d"
+  },
+  {
+    "talk": "b$R$v$d"
+  },
+  {
+    "talk": "b$r$v$S"
+  },
+  {
+    "talk": "b$R$v$S"
+  },
+  {
+    "talk": "b$r$v$t"
+  },
+  {
+    "talk": "b$R$v$t"
+  },
+  {
+    "talk": "b$r$v$Z"
+  },
+  {
+    "talk": "b$R$v$Z"
+  },
+  {
+    "talk": "b$r$vsk"
+  },
+  {
+    "talk": "b$r$vsK"
+  },
+  {
+    "talk": "b$r$vSk"
+  },
+  {
+    "talk": "b$r$vSK"
+  },
+  {
+    "talk": "b$R$vsk"
+  },
+  {
+    "talk": "b$R$vsK"
+  },
+  {
+    "talk": "b$R$vSk"
+  },
+  {
+    "talk": "b$R$vSK"
+  },
+  {
+    "talk": "b$r$vst"
+  },
+  {
+    "talk": "b$r$vsT"
+  },
+  {
+    "talk": "b$r$vSt"
+  },
+  {
+    "talk": "b$r$vST"
+  },
+  {
+    "talk": "b$R$vst"
+  },
+  {
+    "talk": "b$R$vsT"
+  },
+  {
+    "talk": "b$R$vSt"
+  },
+  {
+    "talk": "b$R$vST"
+  },
+  {
+    "talk": "b$r$vzd"
+  },
+  {
+    "talk": "b$r$vzD"
+  },
+  {
+    "talk": "b$r$vZd"
+  },
+  {
+    "talk": "b$r$vZD"
+  },
+  {
+    "talk": "b$R$vzd"
+  },
+  {
+    "talk": "b$R$vzD"
+  },
+  {
+    "talk": "b$R$vZd"
+  },
+  {
+    "talk": "b$R$vZD"
+  },
+  {
+    "talk": "b$r$vzt"
+  },
+  {
+    "talk": "b$r$vzT"
+  },
+  {
+    "talk": "b$r$vZt"
+  },
+  {
+    "talk": "b$r$vZT"
+  },
+  {
+    "talk": "b$R$vzt"
+  },
+  {
+    "talk": "b$R$vzT"
+  },
+  {
+    "talk": "b$R$vZt"
+  },
+  {
+    "talk": "b$R$vZT"
+  },
+  {
+    "talk": "b$rv$Sk"
+  },
+  {
+    "talk": "b$rv$SK"
+  },
+  {
+    "talk": "b$rV$Sk"
+  },
+  {
+    "talk": "b$rV$SK"
+  },
+  {
+    "talk": "b$Rv$Sk"
+  },
+  {
+    "talk": "b$Rv$SK"
+  },
+  {
+    "talk": "b$RV$Sk"
+  },
+  {
+    "talk": "b$RV$SK"
+  },
+  {
+    "talk": "b$rv$St"
+  },
+  {
+    "talk": "b$rv$ST"
+  },
+  {
+    "talk": "b$rV$St"
+  },
+  {
+    "talk": "b$rV$ST"
+  },
+  {
+    "talk": "b$Rv$St"
+  },
+  {
+    "talk": "b$Rv$ST"
+  },
+  {
+    "talk": "b$RV$St"
+  },
+  {
+    "talk": "b$RV$ST"
+  },
+  {
+    "talk": "b$rv$Zd"
+  },
+  {
+    "talk": "b$rv$ZD"
+  },
+  {
+    "talk": "b$rV$Zd"
+  },
+  {
+    "talk": "b$rV$ZD"
+  },
+  {
+    "talk": "b$Rv$Zd"
+  },
+  {
+    "talk": "b$Rv$ZD"
+  },
+  {
+    "talk": "b$RV$Zd"
+  },
+  {
+    "talk": "b$RV$ZD"
+  },
+  {
+    "talk": "b$rv$Zt"
+  },
+  {
+    "talk": "b$rv$ZT"
+  },
+  {
+    "talk": "b$rV$Zt"
+  },
+  {
+    "talk": "b$rV$ZT"
+  },
+  {
+    "talk": "b$Rv$Zt"
+  },
+  {
+    "talk": "b$Rv$ZT"
+  },
+  {
+    "talk": "b$RV$Zt"
+  },
+  {
+    "talk": "b$RV$ZT"
+  },
+  {
+    "talk": "b$rvs$t"
+  },
+  {
+    "talk": "b$rvS$t"
+  },
+  {
+    "talk": "b$rVs$t"
+  },
+  {
+    "talk": "b$rVS$t"
+  },
+  {
+    "talk": "b$Rvs$t"
+  },
+  {
+    "talk": "b$RvS$t"
+  },
+  {
+    "talk": "b$RVs$t"
+  },
+  {
+    "talk": "b$RVS$t"
+  },
+  {
+    "talk": "b$rvsts"
+  },
+  {
+    "talk": "b$rvstS"
+  },
+  {
+    "talk": "b$rvsTs"
+  },
+  {
+    "talk": "b$rvsTS"
+  },
+  {
+    "talk": "b$rvSts"
+  },
+  {
+    "talk": "b$rvStS"
+  },
+  {
+    "talk": "b$rvSTs"
+  },
+  {
+    "talk": "b$rvSTS"
+  },
+  {
+    "talk": "b$rVsts"
+  },
+  {
+    "talk": "b$rVstS"
+  },
+  {
+    "talk": "b$rVsTs"
+  },
+  {
+    "talk": "b$rVsTS"
+  },
+  {
+    "talk": "b$rVSts"
+  },
+  {
+    "talk": "b$rVStS"
+  },
+  {
+    "talk": "b$rVSTs"
+  },
+  {
+    "talk": "b$rVSTS"
+  },
+  {
+    "talk": "b$Rvsts"
+  },
+  {
+    "talk": "b$RvstS"
+  },
+  {
+    "talk": "b$RvsTs"
+  },
+  {
+    "talk": "b$RvsTS"
+  },
+  {
+    "talk": "b$RvSts"
+  },
+  {
+    "talk": "b$RvStS"
+  },
+  {
+    "talk": "b$RvSTs"
+  },
+  {
+    "talk": "b$RvSTS"
+  },
+  {
+    "talk": "b$RVsts"
+  },
+  {
+    "talk": "b$RVstS"
+  },
+  {
+    "talk": "b$RVsTs"
+  },
+  {
+    "talk": "b$RVsTS"
+  },
+  {
+    "talk": "b$RVSts"
+  },
+  {
+    "talk": "b$RVStS"
+  },
+  {
+    "talk": "b$RVSTs"
+  },
+  {
+    "talk": "b$RVSTS"
+  },
+  {
+    "talk": "b$rvz$d"
+  },
+  {
+    "talk": "b$rvZ$d"
+  },
+  {
+    "talk": "b$rVz$d"
+  },
+  {
+    "talk": "b$rVZ$d"
+  },
+  {
+    "talk": "b$Rvz$d"
+  },
+  {
+    "talk": "b$RvZ$d"
+  },
+  {
+    "talk": "b$RVz$d"
+  },
+  {
+    "talk": "b$RVZ$d"
+  },
+  {
+    "talk": "b$rvz$t"
+  },
+  {
+    "talk": "b$rvZ$t"
+  },
+  {
+    "talk": "b$rVz$t"
+  },
+  {
+    "talk": "b$rVZ$t"
+  },
+  {
+    "talk": "b$Rvz$t"
+  },
+  {
+    "talk": "b$RvZ$t"
+  },
+  {
+    "talk": "b$RVz$t"
+  },
+  {
+    "talk": "b$RVZ$t"
+  },
+  {
+    "talk": "br$v$Sk"
+  },
+  {
+    "talk": "br$v$SK"
+  },
+  {
+    "talk": "br$v$St"
+  },
+  {
+    "talk": "br$v$ST"
+  },
+  {
+    "talk": "br$v$Zd"
+  },
+  {
+    "talk": "br$v$ZD"
+  },
+  {
+    "talk": "br$v$Zt"
+  },
+  {
+    "talk": "br$v$ZT"
+  },
+  {
+    "talk": "br$vs$t"
+  },
+  {
+    "talk": "br$vS$t"
+  },
+  {
+    "talk": "br$vsts"
+  },
+  {
+    "talk": "br$vstS"
+  },
+  {
+    "talk": "br$vsTs"
+  },
+  {
+    "talk": "br$vsTS"
+  },
+  {
+    "talk": "br$vSts"
+  },
+  {
+    "talk": "br$vStS"
+  },
+  {
+    "talk": "br$vSTs"
+  },
+  {
+    "talk": "br$vSTS"
+  },
+  {
+    "talk": "br$vz$d"
+  },
+  {
+    "talk": "br$vZ$d"
+  },
+  {
+    "talk": "br$vz$t"
+  },
+  {
+    "talk": "br$vZ$t"
+  },
+  {
+    "talk": "brv$S$t"
+  },
+  {
+    "talk": "brV$S$t"
+  },
+  {
+    "talk": "brv$Sts"
+  },
+  {
+    "talk": "brv$StS"
+  },
+  {
+    "talk": "brv$STs"
+  },
+  {
+    "talk": "brv$STS"
+  },
+  {
+    "talk": "brV$Sts"
+  },
+  {
+    "talk": "brV$StS"
+  },
+  {
+    "talk": "brV$STs"
+  },
+  {
+    "talk": "brV$STS"
+  },
+  {
+    "talk": "brv$Z$d"
+  },
+  {
+    "talk": "brV$Z$d"
+  },
+  {
+    "talk": "brv$Z$t"
+  },
+  {
+    "talk": "brV$Z$t"
+  },
+  {
+    "talk": "brvs$ts"
+  },
+  {
+    "talk": "brvs$tS"
+  },
+  {
+    "talk": "brvS$ts"
+  },
+  {
+    "talk": "brvS$tS"
+  },
+  {
+    "talk": "brVs$ts"
+  },
+  {
+    "talk": "brVs$tS"
+  },
+  {
+    "talk": "brVS$ts"
+  },
+  {
+    "talk": "brVS$tS"
+  },
+  {
+    "talk": "brvst$S"
+  },
+  {
+    "talk": "brvsT$S"
+  },
+  {
+    "talk": "brvSt$S"
+  },
+  {
+    "talk": "brvST$S"
+  },
+  {
+    "talk": "brVst$S"
+  },
+  {
+    "talk": "brVsT$S"
+  },
+  {
+    "talk": "brVSt$S"
+  },
+  {
+    "talk": "brVST$S"
+  },
+  {
+    "talk": "p$r$v$d"
+  },
+  {
+    "talk": "p$R$v$d"
+  },
+  {
+    "talk": "p$r$v$S"
+  },
+  {
+    "talk": "p$R$v$S"
+  },
+  {
+    "talk": "p$r$v$t"
+  },
+  {
+    "talk": "p$R$v$t"
+  },
+  {
+    "talk": "p$r$v$Z"
+  },
+  {
+    "talk": "p$R$v$Z"
+  },
+  {
+    "talk": "p$r$vsk"
+  },
+  {
+    "talk": "p$r$vsK"
+  },
+  {
+    "talk": "p$r$vSk"
+  },
+  {
+    "talk": "p$r$vSK"
+  },
+  {
+    "talk": "p$R$vsk"
+  },
+  {
+    "talk": "p$R$vsK"
+  },
+  {
+    "talk": "p$R$vSk"
+  },
+  {
+    "talk": "p$R$vSK"
+  },
+  {
+    "talk": "p$r$vst"
+  },
+  {
+    "talk": "p$r$vsT"
+  },
+  {
+    "talk": "p$r$vSt"
+  },
+  {
+    "talk": "p$r$vST"
+  },
+  {
+    "talk": "p$R$vst"
+  },
+  {
+    "talk": "p$R$vsT"
+  },
+  {
+    "talk": "p$R$vSt"
+  },
+  {
+    "talk": "p$R$vST"
+  },
+  {
+    "talk": "p$r$vzd"
+  },
+  {
+    "talk": "p$r$vzD"
+  },
+  {
+    "talk": "p$r$vZd"
+  },
+  {
+    "talk": "p$r$vZD"
+  },
+  {
+    "talk": "p$R$vzd"
+  },
+  {
+    "talk": "p$R$vzD"
+  },
+  {
+    "talk": "p$R$vZd"
+  },
+  {
+    "talk": "p$R$vZD"
+  },
+  {
+    "talk": "p$r$vzt"
+  },
+  {
+    "talk": "p$r$vzT"
+  },
+  {
+    "talk": "p$r$vZt"
+  },
+  {
+    "talk": "p$r$vZT"
+  },
+  {
+    "talk": "p$R$vzt"
+  },
+  {
+    "talk": "p$R$vzT"
+  },
+  {
+    "talk": "p$R$vZt"
+  },
+  {
+    "talk": "p$R$vZT"
+  },
+  {
+    "talk": "p$rv$Sk"
+  },
+  {
+    "talk": "p$rv$SK"
+  },
+  {
+    "talk": "p$rV$Sk"
+  },
+  {
+    "talk": "p$rV$SK"
+  },
+  {
+    "talk": "p$Rv$Sk"
+  },
+  {
+    "talk": "p$Rv$SK"
+  },
+  {
+    "talk": "p$RV$Sk"
+  },
+  {
+    "talk": "p$RV$SK"
+  },
+  {
+    "talk": "p$rv$St"
+  },
+  {
+    "talk": "p$rv$ST"
+  },
+  {
+    "talk": "p$rV$St"
+  },
+  {
+    "talk": "p$rV$ST"
+  },
+  {
+    "talk": "p$Rv$St"
+  },
+  {
+    "talk": "p$Rv$ST"
+  },
+  {
+    "talk": "p$RV$St"
+  },
+  {
+    "talk": "p$RV$ST"
+  },
+  {
+    "talk": "p$rv$Zd"
+  },
+  {
+    "talk": "p$rv$ZD"
+  },
+  {
+    "talk": "p$rV$Zd"
+  },
+  {
+    "talk": "p$rV$ZD"
+  },
+  {
+    "talk": "p$Rv$Zd"
+  },
+  {
+    "talk": "p$Rv$ZD"
+  },
+  {
+    "talk": "p$RV$Zd"
+  },
+  {
+    "talk": "p$RV$ZD"
+  },
+  {
+    "talk": "p$rv$Zt"
+  },
+  {
+    "talk": "p$rv$ZT"
+  },
+  {
+    "talk": "p$rV$Zt"
+  },
+  {
+    "talk": "p$rV$ZT"
+  },
+  {
+    "talk": "p$Rv$Zt"
+  },
+  {
+    "talk": "p$Rv$ZT"
+  },
+  {
+    "talk": "p$RV$Zt"
+  },
+  {
+    "talk": "p$RV$ZT"
+  },
+  {
+    "talk": "p$rvs$t"
+  },
+  {
+    "talk": "p$rvS$t"
+  },
+  {
+    "talk": "p$rVs$t"
+  },
+  {
+    "talk": "p$rVS$t"
+  },
+  {
+    "talk": "p$Rvs$t"
+  },
+  {
+    "talk": "p$RvS$t"
+  },
+  {
+    "talk": "p$RVs$t"
+  },
+  {
+    "talk": "p$RVS$t"
+  },
+  {
+    "talk": "p$rvsks"
+  },
+  {
+    "talk": "p$rvskS"
+  },
+  {
+    "talk": "p$rvsKs"
+  },
+  {
+    "talk": "p$rvsKS"
+  },
+  {
+    "talk": "p$rvSks"
+  },
+  {
+    "talk": "p$rvSkS"
+  },
+  {
+    "talk": "p$rvSKs"
+  },
+  {
+    "talk": "p$rvSKS"
+  },
+  {
+    "talk": "p$rVsks"
+  },
+  {
+    "talk": "p$rVskS"
+  },
+  {
+    "talk": "p$rVsKs"
+  },
+  {
+    "talk": "p$rVsKS"
+  },
+  {
+    "talk": "p$rVSks"
+  },
+  {
+    "talk": "p$rVSkS"
+  },
+  {
+    "talk": "p$rVSKs"
+  },
+  {
+    "talk": "p$rVSKS"
+  },
+  {
+    "talk": "p$Rvsks"
+  },
+  {
+    "talk": "p$RvskS"
+  },
+  {
+    "talk": "p$RvsKs"
+  },
+  {
+    "talk": "p$RvsKS"
+  },
+  {
+    "talk": "p$RvSks"
+  },
+  {
+    "talk": "p$RvSkS"
+  },
+  {
+    "talk": "p$RvSKs"
+  },
+  {
+    "talk": "p$RvSKS"
+  },
+  {
+    "talk": "p$RVsks"
+  },
+  {
+    "talk": "p$RVskS"
+  },
+  {
+    "talk": "p$RVsKs"
+  },
+  {
+    "talk": "p$RVsKS"
+  },
+  {
+    "talk": "p$RVSks"
+  },
+  {
+    "talk": "p$RVSkS"
+  },
+  {
+    "talk": "p$RVSKs"
+  },
+  {
+    "talk": "p$RVSKS"
+  },
+  {
+    "talk": "p$rvsts"
+  },
+  {
+    "talk": "p$rvstS"
+  },
+  {
+    "talk": "p$rvsTs"
+  },
+  {
+    "talk": "p$rvsTS"
+  },
+  {
+    "talk": "p$rvSts"
+  },
+  {
+    "talk": "p$rvStS"
+  },
+  {
+    "talk": "p$rvSTs"
+  },
+  {
+    "talk": "p$rvSTS"
+  },
+  {
+    "talk": "p$rVsts"
+  },
+  {
+    "talk": "p$rVstS"
+  },
+  {
+    "talk": "p$rVsTs"
+  },
+  {
+    "talk": "p$rVsTS"
+  },
+  {
+    "talk": "p$rVSts"
+  },
+  {
+    "talk": "p$rVStS"
+  },
+  {
+    "talk": "p$rVSTs"
+  },
+  {
+    "talk": "p$rVSTS"
+  },
+  {
+    "talk": "p$Rvsts"
+  },
+  {
+    "talk": "p$RvstS"
+  },
+  {
+    "talk": "p$RvsTs"
+  },
+  {
+    "talk": "p$RvsTS"
+  },
+  {
+    "talk": "p$RvSts"
+  },
+  {
+    "talk": "p$RvStS"
+  },
+  {
+    "talk": "p$RvSTs"
+  },
+  {
+    "talk": "p$RvSTS"
+  },
+  {
+    "talk": "p$RVsts"
+  },
+  {
+    "talk": "p$RVstS"
+  },
+  {
+    "talk": "p$RVsTs"
+  },
+  {
+    "talk": "p$RVsTS"
+  },
+  {
+    "talk": "p$RVSts"
+  },
+  {
+    "talk": "p$RVStS"
+  },
+  {
+    "talk": "p$RVSTs"
+  },
+  {
+    "talk": "p$RVSTS"
+  },
+  {
+    "talk": "p$rvz$d"
+  },
+  {
+    "talk": "p$rvZ$d"
+  },
+  {
+    "talk": "p$rVz$d"
+  },
+  {
+    "talk": "p$rVZ$d"
+  },
+  {
+    "talk": "p$Rvz$d"
+  },
+  {
+    "talk": "p$RvZ$d"
+  },
+  {
+    "talk": "p$RVz$d"
+  },
+  {
+    "talk": "p$RVZ$d"
+  },
+  {
+    "talk": "p$rvz$t"
+  },
+  {
+    "talk": "p$rvZ$t"
+  },
+  {
+    "talk": "p$rVz$t"
+  },
+  {
+    "talk": "p$rVZ$t"
+  },
+  {
+    "talk": "p$Rvz$t"
+  },
+  {
+    "talk": "p$RvZ$t"
+  },
+  {
+    "talk": "p$RVz$t"
+  },
+  {
+    "talk": "p$RVZ$t"
+  },
+  {
+    "talk": "pr$v$Sk"
+  },
+  {
+    "talk": "pr$v$SK"
+  },
+  {
+    "talk": "pr$v$St"
+  },
+  {
+    "talk": "pr$v$ST"
+  },
+  {
+    "talk": "pr$v$Zd"
+  },
+  {
+    "talk": "pr$v$ZD"
+  },
+  {
+    "talk": "pr$v$Zt"
+  },
+  {
+    "talk": "pr$v$ZT"
+  },
+  {
+    "talk": "pr$vs$t"
+  },
+  {
+    "talk": "pr$vS$t"
+  },
+  {
+    "talk": "pr$vsks"
+  },
+  {
+    "talk": "pr$vskS"
+  },
+  {
+    "talk": "pr$vsKs"
+  },
+  {
+    "talk": "pr$vsKS"
+  },
+  {
+    "talk": "pr$vSks"
+  },
+  {
+    "talk": "pr$vSkS"
+  },
+  {
+    "talk": "pr$vSKs"
+  },
+  {
+    "talk": "pr$vSKS"
+  },
+  {
+    "talk": "pr$vsts"
+  },
+  {
+    "talk": "pr$vstS"
+  },
+  {
+    "talk": "pr$vsTs"
+  },
+  {
+    "talk": "pr$vsTS"
+  },
+  {
+    "talk": "pr$vSts"
+  },
+  {
+    "talk": "pr$vStS"
+  },
+  {
+    "talk": "pr$vSTs"
+  },
+  {
+    "talk": "pr$vSTS"
+  },
+  {
+    "talk": "pr$vz$d"
+  },
+  {
+    "talk": "pr$vZ$d"
+  },
+  {
+    "talk": "pr$vz$t"
+  },
+  {
+    "talk": "pr$vZ$t"
+  },
+  {
+    "talk": "prv$S$t"
+  },
+  {
+    "talk": "prV$S$t"
+  },
+  {
+    "talk": "prv$Sks"
+  },
+  {
+    "talk": "prv$SkS"
+  },
+  {
+    "talk": "prv$SKs"
+  },
+  {
+    "talk": "prv$SKS"
+  },
+  {
+    "talk": "prV$Sks"
+  },
+  {
+    "talk": "prV$SkS"
+  },
+  {
+    "talk": "prV$SKs"
+  },
+  {
+    "talk": "prV$SKS"
+  },
+  {
+    "talk": "prv$Sts"
+  },
+  {
+    "talk": "prv$StS"
+  },
+  {
+    "talk": "prv$STs"
+  },
+  {
+    "talk": "prv$STS"
+  },
+  {
+    "talk": "prV$Sts"
+  },
+  {
+    "talk": "prV$StS"
+  },
+  {
+    "talk": "prV$STs"
+  },
+  {
+    "talk": "prV$STS"
+  },
+  {
+    "talk": "prv$Z$d"
+  },
+  {
+    "talk": "prV$Z$d"
+  },
+  {
+    "talk": "prv$Z$t"
+  },
+  {
+    "talk": "prV$Z$t"
+  },
+  {
+    "talk": "prvs$ts"
+  },
+  {
+    "talk": "prvs$tS"
+  },
+  {
+    "talk": "prvS$ts"
+  },
+  {
+    "talk": "prvS$tS"
+  },
+  {
+    "talk": "prVs$ts"
+  },
+  {
+    "talk": "prVs$tS"
+  },
+  {
+    "talk": "prVS$ts"
+  },
+  {
+    "talk": "prVS$tS"
+  },
+  {
+    "talk": "prvsk$S"
+  },
+  {
+    "talk": "prvsK$S"
+  },
+  {
+    "talk": "prvSk$S"
+  },
+  {
+    "talk": "prvSK$S"
+  },
+  {
+    "talk": "prVsk$S"
+  },
+  {
+    "talk": "prVsK$S"
+  },
+  {
+    "talk": "prVSk$S"
+  },
+  {
+    "talk": "prVSK$S"
+  },
+  {
+    "talk": "prvst$S"
+  },
+  {
+    "talk": "prvsT$S"
+  },
+  {
+    "talk": "prvSt$S"
+  },
+  {
+    "talk": "prvST$S"
+  },
+  {
+    "talk": "prVst$S"
+  },
+  {
+    "talk": "prVsT$S"
+  },
+  {
+    "talk": "prVSt$S"
+  },
+  {
+    "talk": "prVST$S"
+  },
+  {
+    "talk": "sp$r$dj"
+  },
+  {
+    "talk": "sp$r$dJ"
+  },
+  {
+    "talk": "sp$R$dj"
+  },
+  {
+    "talk": "sp$R$dJ"
+  },
+  {
+    "talk": "Sp$r$dj"
+  },
+  {
+    "talk": "Sp$r$dJ"
+  },
+  {
+    "talk": "Sp$R$dj"
+  },
+  {
+    "talk": "Sp$R$dJ"
+  },
+  {
+    "talk": "sp$rdjd"
+  },
+  {
+    "talk": "sp$rdjD"
+  },
+  {
+    "talk": "sp$rdJd"
+  },
+  {
+    "talk": "sp$rdJD"
+  },
+  {
+    "talk": "sp$rDjd"
+  },
+  {
+    "talk": "sp$rDjD"
+  },
+  {
+    "talk": "sp$rDJd"
+  },
+  {
+    "talk": "sp$rDJD"
+  },
+  {
+    "talk": "sp$Rdjd"
+  },
+  {
+    "talk": "sp$RdjD"
+  },
+  {
+    "talk": "sp$RdJd"
+  },
+  {
+    "talk": "sp$RdJD"
+  },
+  {
+    "talk": "sp$RDjd"
+  },
+  {
+    "talk": "sp$RDjD"
+  },
+  {
+    "talk": "sp$RDJd"
+  },
+  {
+    "talk": "sp$RDJD"
+  },
+  {
+    "talk": "Sp$rdjd"
+  },
+  {
+    "talk": "Sp$rdjD"
+  },
+  {
+    "talk": "Sp$rdJd"
+  },
+  {
+    "talk": "Sp$rdJD"
+  },
+  {
+    "talk": "Sp$rDjd"
+  },
+  {
+    "talk": "Sp$rDjD"
+  },
+  {
+    "talk": "Sp$rDJd"
+  },
+  {
+    "talk": "Sp$rDJD"
+  },
+  {
+    "talk": "Sp$Rdjd"
+  },
+  {
+    "talk": "Sp$RdjD"
+  },
+  {
+    "talk": "Sp$RdJd"
+  },
+  {
+    "talk": "Sp$RdJD"
+  },
+  {
+    "talk": "Sp$RDjd"
+  },
+  {
+    "talk": "Sp$RDjD"
+  },
+  {
+    "talk": "Sp$RDJd"
+  },
+  {
+    "talk": "Sp$RDJD"
+  },
+  {
+    "talk": "spl$djd"
+  },
+  {
+    "talk": "spl$djD"
+  },
+  {
+    "talk": "spl$dJd"
+  },
+  {
+    "talk": "spl$dJD"
+  },
+  {
+    "talk": "spL$djd"
+  },
+  {
+    "talk": "spL$djD"
+  },
+  {
+    "talk": "spL$dJd"
+  },
+  {
+    "talk": "spL$dJD"
+  },
+  {
+    "talk": "Spl$djd"
+  },
+  {
+    "talk": "Spl$djD"
+  },
+  {
+    "talk": "Spl$dJd"
+  },
+  {
+    "talk": "Spl$dJD"
+  },
+  {
+    "talk": "SpL$djd"
+  },
+  {
+    "talk": "SpL$djD"
+  },
+  {
+    "talk": "SpL$dJd"
+  },
+  {
+    "talk": "SpL$dJD"
+  },
+  {
+    "talk": "spl$djt"
+  },
+  {
+    "talk": "spl$djT"
+  },
+  {
+    "talk": "spl$dJt"
+  },
+  {
+    "talk": "spl$dJT"
+  },
+  {
+    "talk": "spL$djt"
+  },
+  {
+    "talk": "spL$djT"
+  },
+  {
+    "talk": "spL$dJt"
+  },
+  {
+    "talk": "spL$dJT"
+  },
+  {
+    "talk": "Spl$djt"
+  },
+  {
+    "talk": "Spl$djT"
+  },
+  {
+    "talk": "Spl$dJt"
+  },
+  {
+    "talk": "Spl$dJT"
+  },
+  {
+    "talk": "SpL$djt"
+  },
+  {
+    "talk": "SpL$djT"
+  },
+  {
+    "talk": "SpL$dJt"
+  },
+  {
+    "talk": "SpL$dJT"
+  },
+  {
+    "talk": "spl$txp"
+  },
+  {
+    "talk": "spl$tXp"
+  },
+  {
+    "talk": "spL$txp"
+  },
+  {
+    "talk": "spL$tXp"
+  },
+  {
+    "talk": "Spl$txp"
+  },
+  {
+    "talk": "Spl$tXp"
+  },
+  {
+    "talk": "SpL$txp"
+  },
+  {
+    "talk": "SpL$tXp"
+  },
+  {
+    "talk": "spl$txt"
+  },
+  {
+    "talk": "spl$txT"
+  },
+  {
+    "talk": "spl$tXt"
+  },
+  {
+    "talk": "spl$tXT"
+  },
+  {
+    "talk": "spL$txt"
+  },
+  {
+    "talk": "spL$txT"
+  },
+  {
+    "talk": "spL$tXt"
+  },
+  {
+    "talk": "spL$tXT"
+  },
+  {
+    "talk": "Spl$txt"
+  },
+  {
+    "talk": "Spl$txT"
+  },
+  {
+    "talk": "Spl$tXt"
+  },
+  {
+    "talk": "Spl$tXT"
+  },
+  {
+    "talk": "SpL$txt"
+  },
+  {
+    "talk": "SpL$txT"
+  },
+  {
+    "talk": "SpL$tXt"
+  },
+  {
+    "talk": "SpL$tXT"
+  },
+  {
+    "talk": "spldj$d"
+  },
+  {
+    "talk": "spldJ$d"
+  },
+  {
+    "talk": "splDj$d"
+  },
+  {
+    "talk": "splDJ$d"
+  },
+  {
+    "talk": "spLdj$d"
+  },
+  {
+    "talk": "spLdJ$d"
+  },
+  {
+    "talk": "spLDj$d"
+  },
+  {
+    "talk": "spLDJ$d"
+  },
+  {
+    "talk": "Spldj$d"
+  },
+  {
+    "talk": "SpldJ$d"
+  },
+  {
+    "talk": "SplDj$d"
+  },
+  {
+    "talk": "SplDJ$d"
+  },
+  {
+    "talk": "SpLdj$d"
+  },
+  {
+    "talk": "SpLdJ$d"
+  },
+  {
+    "talk": "SpLDj$d"
+  },
+  {
+    "talk": "SpLDJ$d"
+  },
+  {
+    "talk": "spldj$t"
+  },
+  {
+    "talk": "spldJ$t"
+  },
+  {
+    "talk": "splDj$t"
+  },
+  {
+    "talk": "splDJ$t"
+  },
+  {
+    "talk": "spLdj$t"
+  },
+  {
+    "talk": "spLdJ$t"
+  },
+  {
+    "talk": "spLDj$t"
+  },
+  {
+    "talk": "spLDJ$t"
+  },
+  {
+    "talk": "Spldj$t"
+  },
+  {
+    "talk": "SpldJ$t"
+  },
+  {
+    "talk": "SplDj$t"
+  },
+  {
+    "talk": "SplDJ$t"
+  },
+  {
+    "talk": "SpLdj$t"
+  },
+  {
+    "talk": "SpLdJ$t"
+  },
+  {
+    "talk": "SpLDj$t"
+  },
+  {
+    "talk": "SpLDJ$t"
+  },
+  {
+    "talk": "splt$xp"
+  },
+  {
+    "talk": "splT$xp"
+  },
+  {
+    "talk": "spLt$xp"
+  },
+  {
+    "talk": "spLT$xp"
+  },
+  {
+    "talk": "Splt$xp"
+  },
+  {
+    "talk": "SplT$xp"
+  },
+  {
+    "talk": "SpLt$xp"
+  },
+  {
+    "talk": "SpLT$xp"
+  },
+  {
+    "talk": "splt$xt"
+  },
+  {
+    "talk": "splt$xT"
+  },
+  {
+    "talk": "splT$xt"
+  },
+  {
+    "talk": "splT$xT"
+  },
+  {
+    "talk": "spLt$xt"
+  },
+  {
+    "talk": "spLt$xT"
+  },
+  {
+    "talk": "spLT$xt"
+  },
+  {
+    "talk": "spLT$xT"
+  },
+  {
+    "talk": "Splt$xt"
+  },
+  {
+    "talk": "Splt$xT"
+  },
+  {
+    "talk": "SplT$xt"
+  },
+  {
+    "talk": "SplT$xT"
+  },
+  {
+    "talk": "SpLt$xt"
+  },
+  {
+    "talk": "SpLt$xT"
+  },
+  {
+    "talk": "SpLT$xt"
+  },
+  {
+    "talk": "SpLT$xT"
+  },
+  {
+    "talk": "spltx$t"
+  },
+  {
+    "talk": "spltX$t"
+  },
+  {
+    "talk": "splTx$t"
+  },
+  {
+    "talk": "splTX$t"
+  },
+  {
+    "talk": "spLtx$t"
+  },
+  {
+    "talk": "spLtX$t"
+  },
+  {
+    "talk": "spLTx$t"
+  },
+  {
+    "talk": "spLTX$t"
+  },
+  {
+    "talk": "Spltx$t"
+  },
+  {
+    "talk": "SpltX$t"
+  },
+  {
+    "talk": "SplTx$t"
+  },
+  {
+    "talk": "SplTX$t"
+  },
+  {
+    "talk": "SpLtx$t"
+  },
+  {
+    "talk": "SpLtX$t"
+  },
+  {
+    "talk": "SpLTx$t"
+  },
+  {
+    "talk": "SpLTX$t"
+  },
+  {
+    "talk": "spr$djd"
+  },
+  {
+    "talk": "spr$djD"
+  },
+  {
+    "talk": "spr$dJd"
+  },
+  {
+    "talk": "spr$dJD"
+  },
+  {
+    "talk": "Spr$djd"
+  },
+  {
+    "talk": "Spr$djD"
+  },
+  {
+    "talk": "Spr$dJd"
+  },
+  {
+    "talk": "Spr$dJD"
+  },
+  {
+    "talk": "sprdj$d"
+  },
+  {
+    "talk": "sprdJ$d"
+  },
+  {
+    "talk": "sprDj$d"
+  },
+  {
+    "talk": "sprDJ$d"
+  },
+  {
+    "talk": "Sprdj$d"
+  },
+  {
+    "talk": "SprdJ$d"
+  },
+  {
+    "talk": "SprDj$d"
+  },
+  {
+    "talk": "SprDJ$d"
+  },
+  {
+    "talk": "'l:$dj"
+  },
+  {
+    "talk": "'l:$dJ"
+  },
+  {
+    "talk": "'L:$dj"
+  },
+  {
+    "talk": "'L:$dJ"
+  },
+  {
+    "talk": "$'$d$x"
+  },
+  {
+    "talk": "$'$t$x"
+  },
+  {
+    "talk": "$'l:$d"
+  },
+  {
+    "talk": "$'L:$d"
+  },
+  {
+    "talk": "$'l:$m"
+  },
+  {
+    "talk": "$'L:$m"
+  },
+  {
+    "talk": "$'l:$n"
+  },
+  {
+    "talk": "$'l:$N"
+  },
+  {
+    "talk": "$'L:$n"
+  },
+  {
+    "talk": "$'L:$N"
+  },
+  {
+    "talk": "$'l:$S"
+  },
+  {
+    "talk": "$'L:$S"
+  },
+  {
+    "talk": "$'l:$t"
+  },
+  {
+    "talk": "$'L:$t"
+  },
+  {
+    "talk": "$'l:$v"
+  },
+  {
+    "talk": "$'L:$v"
+  },
+  {
+    "talk": "$'l:$x"
+  },
+  {
+    "talk": "$'L:$x"
+  },
+  {
+    "talk": "$'l:$Z"
+  },
+  {
+    "talk": "$'L:$Z"
+  },
+  {
+    "talk": "$'l:dj"
+  },
+  {
+    "talk": "$'l:dJ"
+  },
+  {
+    "talk": "$'l:Dj"
+  },
+  {
+    "talk": "$'l:DJ"
+  },
+  {
+    "talk": "$'L:dj"
+  },
+  {
+    "talk": "$'L:dJ"
+  },
+  {
+    "talk": "$'L:Dj"
+  },
+  {
+    "talk": "$'L:DJ"
+  },
+  {
+    "talk": "$Spldj"
+  },
+  {
+    "talk": "$SpldJ"
+  },
+  {
+    "talk": "$SplDj"
+  },
+  {
+    "talk": "$SplDJ"
+  },
+  {
+    "talk": "$SpLdj"
+  },
+  {
+    "talk": "$SpLdJ"
+  },
+  {
+    "talk": "$SpLDj"
+  },
+  {
+    "talk": "$SpLDJ"
+  },
+  {
+    "talk": "$Sprdj"
+  },
+  {
+    "talk": "$SprdJ"
+  },
+  {
+    "talk": "$SprDj"
+  },
+  {
+    "talk": "$SprDJ"
+  },
+  {
+    "talk": "$t$r$m"
+  },
+  {
+    "talk": "$t$R$m"
+  },
+  {
+    "talk": "$t$r$n"
+  },
+  {
+    "talk": "$t$r$N"
+  },
+  {
+    "talk": "$t$R$n"
+  },
+  {
+    "talk": "$t$R$N"
+  },
+  {
+    "talk": "$t$x$m"
+  },
+  {
+    "talk": "$t$x$n"
+  },
+  {
+    "talk": "$t$x$N"
+  },
+  {
+    "talk": "b$r$vs"
+  },
+  {
+    "talk": "b$r$vS"
+  },
+  {
+    "talk": "b$R$vs"
+  },
+  {
+    "talk": "b$R$vS"
+  },
+  {
+    "talk": "b$r$vz"
+  },
+  {
+    "talk": "b$r$vZ"
+  },
+  {
+    "talk": "b$R$vz"
+  },
+  {
+    "talk": "b$R$vZ"
+  },
+  {
+    "talk": "b$rv$d"
+  },
+  {
+    "talk": "b$rV$d"
+  },
+  {
+    "talk": "b$Rv$d"
+  },
+  {
+    "talk": "b$RV$d"
+  },
+  {
+    "talk": "b$rv$S"
+  },
+  {
+    "talk": "b$rV$S"
+  },
+  {
+    "talk": "b$Rv$S"
+  },
+  {
+    "talk": "b$RV$S"
+  },
+  {
+    "talk": "b$rv$t"
+  },
+  {
+    "talk": "b$rV$t"
+  },
+  {
+    "talk": "b$Rv$t"
+  },
+  {
+    "talk": "b$RV$t"
+  },
+  {
+    "talk": "b$rv$Z"
+  },
+  {
+    "talk": "b$rV$Z"
+  },
+  {
+    "talk": "b$Rv$Z"
+  },
+  {
+    "talk": "b$RV$Z"
+  },
+  {
+    "talk": "b$rvsk"
+  },
+  {
+    "talk": "b$rvsK"
+  },
+  {
+    "talk": "b$rvSk"
+  },
+  {
+    "talk": "b$rvSK"
+  },
+  {
+    "talk": "b$rVsk"
+  },
+  {
+    "talk": "b$rVsK"
+  },
+  {
+    "talk": "b$rVSk"
+  },
+  {
+    "talk": "b$rVSK"
+  },
+  {
+    "talk": "b$Rvsk"
+  },
+  {
+    "talk": "b$RvsK"
+  },
+  {
+    "talk": "b$RvSk"
+  },
+  {
+    "talk": "b$RvSK"
+  },
+  {
+    "talk": "b$RVsk"
+  },
+  {
+    "talk": "b$RVsK"
+  },
+  {
+    "talk": "b$RVSk"
+  },
+  {
+    "talk": "b$RVSK"
+  },
+  {
+    "talk": "b$rvst"
+  },
+  {
+    "talk": "b$rvsT"
+  },
+  {
+    "talk": "b$rvSt"
+  },
+  {
+    "talk": "b$rvST"
+  },
+  {
+    "talk": "b$rVst"
+  },
+  {
+    "talk": "b$rVsT"
+  },
+  {
+    "talk": "b$rVSt"
+  },
+  {
+    "talk": "b$rVST"
+  },
+  {
+    "talk": "b$Rvst"
+  },
+  {
+    "talk": "b$RvsT"
+  },
+  {
+    "talk": "b$RvSt"
+  },
+  {
+    "talk": "b$RvST"
+  },
+  {
+    "talk": "b$RVst"
+  },
+  {
+    "talk": "b$RVsT"
+  },
+  {
+    "talk": "b$RVSt"
+  },
+  {
+    "talk": "b$RVST"
+  },
+  {
+    "talk": "b$rvzd"
+  },
+  {
+    "talk": "b$rvzD"
+  },
+  {
+    "talk": "b$rvZd"
+  },
+  {
+    "talk": "b$rvZD"
+  },
+  {
+    "talk": "b$rVzd"
+  },
+  {
+    "talk": "b$rVzD"
+  },
+  {
+    "talk": "b$rVZd"
+  },
+  {
+    "talk": "b$rVZD"
+  },
+  {
+    "talk": "b$Rvzd"
+  },
+  {
+    "talk": "b$RvzD"
+  },
+  {
+    "talk": "b$RvZd"
+  },
+  {
+    "talk": "b$RvZD"
+  },
+  {
+    "talk": "b$RVzd"
+  },
+  {
+    "talk": "b$RVzD"
+  },
+  {
+    "talk": "b$RVZd"
+  },
+  {
+    "talk": "b$RVZD"
+  },
+  {
+    "talk": "b$rvzt"
+  },
+  {
+    "talk": "b$rvzT"
+  },
+  {
+    "talk": "b$rvZt"
+  },
+  {
+    "talk": "b$rvZT"
+  },
+  {
+    "talk": "b$rVzt"
+  },
+  {
+    "talk": "b$rVzT"
+  },
+  {
+    "talk": "b$rVZt"
+  },
+  {
+    "talk": "b$rVZT"
+  },
+  {
+    "talk": "b$Rvzt"
+  },
+  {
+    "talk": "b$RvzT"
+  },
+  {
+    "talk": "b$RvZt"
+  },
+  {
+    "talk": "b$RvZT"
+  },
+  {
+    "talk": "b$RVzt"
+  },
+  {
+    "talk": "b$RVzT"
+  },
+  {
+    "talk": "b$RVZt"
+  },
+  {
+    "talk": "b$RVZT"
+  },
+  {
+    "talk": "br$v$d"
+  },
+  {
+    "talk": "br$v$S"
+  },
+  {
+    "talk": "br$v$t"
+  },
+  {
+    "talk": "br$v$Z"
+  },
+  {
+    "talk": "br$vsk"
+  },
+  {
+    "talk": "br$vsK"
+  },
+  {
+    "talk": "br$vSk"
+  },
+  {
+    "talk": "br$vSK"
+  },
+  {
+    "talk": "br$vst"
+  },
+  {
+    "talk": "br$vsT"
+  },
+  {
+    "talk": "br$vSt"
+  },
+  {
+    "talk": "br$vST"
+  },
+  {
+    "talk": "br$vzd"
+  },
+  {
+    "talk": "br$vzD"
+  },
+  {
+    "talk": "br$vZd"
+  },
+  {
+    "talk": "br$vZD"
+  },
+  {
+    "talk": "br$vzt"
+  },
+  {
+    "talk": "br$vzT"
+  },
+  {
+    "talk": "br$vZt"
+  },
+  {
+    "talk": "br$vZT"
+  },
+  {
+    "talk": "brv$Sk"
+  },
+  {
+    "talk": "brv$SK"
+  },
+  {
+    "talk": "brV$Sk"
+  },
+  {
+    "talk": "brV$SK"
+  },
+  {
+    "talk": "brv$St"
+  },
+  {
+    "talk": "brv$ST"
+  },
+  {
+    "talk": "brV$St"
+  },
+  {
+    "talk": "brV$ST"
+  },
+  {
+    "talk": "brv$Zd"
+  },
+  {
+    "talk": "brv$ZD"
+  },
+  {
+    "talk": "brV$Zd"
+  },
+  {
+    "talk": "brV$ZD"
+  },
+  {
+    "talk": "brv$Zt"
+  },
+  {
+    "talk": "brv$ZT"
+  },
+  {
+    "talk": "brV$Zt"
+  },
+  {
+    "talk": "brV$ZT"
+  },
+  {
+    "talk": "brvs$t"
+  },
+  {
+    "talk": "brvS$t"
+  },
+  {
+    "talk": "brVs$t"
+  },
+  {
+    "talk": "brVS$t"
+  },
+  {
     "talk": "brvsts"
+  },
+  {
+    "talk": "brvstS"
+  },
+  {
+    "talk": "brvsTs"
+  },
+  {
+    "talk": "brvsTS"
+  },
+  {
+    "talk": "brvSts"
+  },
+  {
+    "talk": "brvStS"
+  },
+  {
+    "talk": "brvSTs"
+  },
+  {
+    "talk": "brvSTS"
+  },
+  {
+    "talk": "brVsts"
+  },
+  {
+    "talk": "brVstS"
+  },
+  {
+    "talk": "brVsTs"
+  },
+  {
+    "talk": "brVsTS"
+  },
+  {
+    "talk": "brVSts"
+  },
+  {
+    "talk": "brVStS"
+  },
+  {
+    "talk": "brVSTs"
+  },
+  {
+    "talk": "brVSTS"
+  },
+  {
+    "talk": "brvz$d"
+  },
+  {
+    "talk": "brvZ$d"
+  },
+  {
+    "talk": "brVz$d"
+  },
+  {
+    "talk": "brVZ$d"
+  },
+  {
+    "talk": "brvz$t"
+  },
+  {
+    "talk": "brvZ$t"
+  },
+  {
+    "talk": "brVz$t"
+  },
+  {
+    "talk": "brVZ$t"
+  },
+  {
+    "talk": "p$r$vs"
+  },
+  {
+    "talk": "p$r$vS"
+  },
+  {
+    "talk": "p$R$vs"
+  },
+  {
+    "talk": "p$R$vS"
+  },
+  {
+    "talk": "p$r$vt"
+  },
+  {
+    "talk": "p$r$vT"
+  },
+  {
+    "talk": "p$R$vt"
+  },
+  {
+    "talk": "p$R$vT"
+  },
+  {
+    "talk": "p$r$vz"
+  },
+  {
+    "talk": "p$r$vZ"
+  },
+  {
+    "talk": "p$R$vz"
+  },
+  {
+    "talk": "p$R$vZ"
+  },
+  {
+    "talk": "p$rv$d"
+  },
+  {
+    "talk": "p$rV$d"
+  },
+  {
+    "talk": "p$Rv$d"
+  },
+  {
+    "talk": "p$RV$d"
+  },
+  {
+    "talk": "p$rv$S"
+  },
+  {
+    "talk": "p$rV$S"
+  },
+  {
+    "talk": "p$Rv$S"
+  },
+  {
+    "talk": "p$RV$S"
+  },
+  {
+    "talk": "p$rv$t"
+  },
+  {
+    "talk": "p$rV$t"
+  },
+  {
+    "talk": "p$Rv$t"
+  },
+  {
+    "talk": "p$RV$t"
+  },
+  {
+    "talk": "p$rv$Z"
+  },
+  {
+    "talk": "p$rV$Z"
+  },
+  {
+    "talk": "p$Rv$Z"
+  },
+  {
+    "talk": "p$RV$Z"
+  },
+  {
+    "talk": "p$rvsk"
+  },
+  {
+    "talk": "p$rvsK"
+  },
+  {
+    "talk": "p$rvSk"
+  },
+  {
+    "talk": "p$rvSK"
+  },
+  {
+    "talk": "p$rVsk"
+  },
+  {
+    "talk": "p$rVsK"
+  },
+  {
+    "talk": "p$rVSk"
+  },
+  {
+    "talk": "p$rVSK"
+  },
+  {
+    "talk": "p$Rvsk"
+  },
+  {
+    "talk": "p$RvsK"
+  },
+  {
+    "talk": "p$RvSk"
+  },
+  {
+    "talk": "p$RvSK"
+  },
+  {
+    "talk": "p$RVsk"
+  },
+  {
+    "talk": "p$RVsK"
+  },
+  {
+    "talk": "p$RVSk"
+  },
+  {
+    "talk": "p$RVSK"
+  },
+  {
+    "talk": "p$rvst"
+  },
+  {
+    "talk": "p$rvsT"
+  },
+  {
+    "talk": "p$rvSt"
+  },
+  {
+    "talk": "p$rvST"
+  },
+  {
+    "talk": "p$rVst"
+  },
+  {
+    "talk": "p$rVsT"
+  },
+  {
+    "talk": "p$rVSt"
+  },
+  {
+    "talk": "p$rVST"
+  },
+  {
+    "talk": "p$Rvst"
+  },
+  {
+    "talk": "p$RvsT"
+  },
+  {
+    "talk": "p$RvSt"
+  },
+  {
+    "talk": "p$RvST"
+  },
+  {
+    "talk": "p$RVst"
+  },
+  {
+    "talk": "p$RVsT"
+  },
+  {
+    "talk": "p$RVSt"
+  },
+  {
+    "talk": "p$RVST"
+  },
+  {
+    "talk": "p$rvzd"
+  },
+  {
+    "talk": "p$rvzD"
+  },
+  {
+    "talk": "p$rvZd"
+  },
+  {
+    "talk": "p$rvZD"
+  },
+  {
+    "talk": "p$rVzd"
+  },
+  {
+    "talk": "p$rVzD"
+  },
+  {
+    "talk": "p$rVZd"
+  },
+  {
+    "talk": "p$rVZD"
+  },
+  {
+    "talk": "p$Rvzd"
+  },
+  {
+    "talk": "p$RvzD"
+  },
+  {
+    "talk": "p$RvZd"
+  },
+  {
+    "talk": "p$RvZD"
+  },
+  {
+    "talk": "p$RVzd"
+  },
+  {
+    "talk": "p$RVzD"
+  },
+  {
+    "talk": "p$RVZd"
+  },
+  {
+    "talk": "p$RVZD"
+  },
+  {
+    "talk": "p$rvzt"
+  },
+  {
+    "talk": "p$rvzT"
+  },
+  {
+    "talk": "p$rvZt"
+  },
+  {
+    "talk": "p$rvZT"
+  },
+  {
+    "talk": "p$rVzt"
+  },
+  {
+    "talk": "p$rVzT"
+  },
+  {
+    "talk": "p$rVZt"
+  },
+  {
+    "talk": "p$rVZT"
+  },
+  {
+    "talk": "p$Rvzt"
+  },
+  {
+    "talk": "p$RvzT"
+  },
+  {
+    "talk": "p$RvZt"
+  },
+  {
+    "talk": "p$RvZT"
+  },
+  {
+    "talk": "p$RVzt"
+  },
+  {
+    "talk": "p$RVzT"
+  },
+  {
+    "talk": "p$RVZt"
+  },
+  {
+    "talk": "p$RVZT"
+  },
+  {
+    "talk": "pr$v$d"
+  },
+  {
+    "talk": "pr$v$S"
+  },
+  {
+    "talk": "pr$v$t"
+  },
+  {
+    "talk": "pr$v$Z"
+  },
+  {
+    "talk": "pr$vsk"
+  },
+  {
+    "talk": "pr$vsK"
+  },
+  {
+    "talk": "pr$vSk"
+  },
+  {
+    "talk": "pr$vSK"
+  },
+  {
+    "talk": "pr$vst"
+  },
+  {
+    "talk": "pr$vsT"
+  },
+  {
+    "talk": "pr$vSt"
+  },
+  {
+    "talk": "pr$vST"
+  },
+  {
+    "talk": "pr$vzd"
+  },
+  {
+    "talk": "pr$vzD"
+  },
+  {
+    "talk": "pr$vZd"
+  },
+  {
+    "talk": "pr$vZD"
+  },
+  {
+    "talk": "pr$vzt"
+  },
+  {
+    "talk": "pr$vzT"
+  },
+  {
+    "talk": "pr$vZt"
+  },
+  {
+    "talk": "pr$vZT"
+  },
+  {
+    "talk": "prv$Sk"
+  },
+  {
+    "talk": "prv$SK"
+  },
+  {
+    "talk": "prV$Sk"
+  },
+  {
+    "talk": "prV$SK"
+  },
+  {
+    "talk": "prv$St"
+  },
+  {
+    "talk": "prv$ST"
+  },
+  {
+    "talk": "prV$St"
+  },
+  {
+    "talk": "prV$ST"
+  },
+  {
+    "talk": "prv$Zd"
+  },
+  {
+    "talk": "prv$ZD"
+  },
+  {
+    "talk": "prV$Zd"
+  },
+  {
+    "talk": "prV$ZD"
+  },
+  {
+    "talk": "prv$Zt"
+  },
+  {
+    "talk": "prv$ZT"
+  },
+  {
+    "talk": "prV$Zt"
+  },
+  {
+    "talk": "prV$ZT"
+  },
+  {
+    "talk": "prvs$t"
+  },
+  {
+    "talk": "prvS$t"
+  },
+  {
+    "talk": "prVs$t"
+  },
+  {
+    "talk": "prVS$t"
   },
   {
     "talk": "prvsks"
   },
   {
+    "talk": "prvskS"
+  },
+  {
+    "talk": "prvsKs"
+  },
+  {
+    "talk": "prvsKS"
+  },
+  {
+    "talk": "prvSks"
+  },
+  {
+    "talk": "prvSkS"
+  },
+  {
+    "talk": "prvSKs"
+  },
+  {
+    "talk": "prvSKS"
+  },
+  {
+    "talk": "prVsks"
+  },
+  {
+    "talk": "prVskS"
+  },
+  {
+    "talk": "prVsKs"
+  },
+  {
+    "talk": "prVsKS"
+  },
+  {
+    "talk": "prVSks"
+  },
+  {
+    "talk": "prVSkS"
+  },
+  {
+    "talk": "prVSKs"
+  },
+  {
+    "talk": "prVSKS"
+  },
+  {
     "talk": "prvsts"
+  },
+  {
+    "talk": "prvstS"
+  },
+  {
+    "talk": "prvsTs"
+  },
+  {
+    "talk": "prvsTS"
+  },
+  {
+    "talk": "prvSts"
+  },
+  {
+    "talk": "prvStS"
+  },
+  {
+    "talk": "prvSTs"
+  },
+  {
+    "talk": "prvSTS"
+  },
+  {
+    "talk": "prVsts"
+  },
+  {
+    "talk": "prVstS"
+  },
+  {
+    "talk": "prVsTs"
+  },
+  {
+    "talk": "prVsTS"
+  },
+  {
+    "talk": "prVSts"
+  },
+  {
+    "talk": "prVStS"
+  },
+  {
+    "talk": "prVSTs"
+  },
+  {
+    "talk": "prVSTS"
+  },
+  {
+    "talk": "prvz$d"
+  },
+  {
+    "talk": "prvZ$d"
+  },
+  {
+    "talk": "prVz$d"
+  },
+  {
+    "talk": "prVZ$d"
+  },
+  {
+    "talk": "prvz$t"
+  },
+  {
+    "talk": "prvZ$t"
+  },
+  {
+    "talk": "prVz$t"
+  },
+  {
+    "talk": "prVZ$t"
+  },
+  {
+    "talk": "sp$rdj"
+  },
+  {
+    "talk": "sp$rdJ"
+  },
+  {
+    "talk": "sp$rDj"
+  },
+  {
+    "talk": "sp$rDJ"
+  },
+  {
+    "talk": "sp$Rdj"
+  },
+  {
+    "talk": "sp$RdJ"
+  },
+  {
+    "talk": "sp$RDj"
+  },
+  {
+    "talk": "sp$RDJ"
+  },
+  {
+    "talk": "Sp$rdj"
+  },
+  {
+    "talk": "Sp$rdJ"
+  },
+  {
+    "talk": "Sp$rDj"
+  },
+  {
+    "talk": "Sp$rDJ"
+  },
+  {
+    "talk": "Sp$Rdj"
+  },
+  {
+    "talk": "Sp$RdJ"
+  },
+  {
+    "talk": "Sp$RDj"
+  },
+  {
+    "talk": "Sp$RDJ"
+  },
+  {
+    "talk": "spl$dj"
+  },
+  {
+    "talk": "spl$dJ"
+  },
+  {
+    "talk": "spL$dj"
+  },
+  {
+    "talk": "spL$dJ"
+  },
+  {
+    "talk": "Spl$dj"
+  },
+  {
+    "talk": "Spl$dJ"
+  },
+  {
+    "talk": "SpL$dj"
+  },
+  {
+    "talk": "SpL$dJ"
   },
   {
     "talk": "spldjd"
   },
   {
+    "talk": "spldjD"
+  },
+  {
+    "talk": "spldJd"
+  },
+  {
+    "talk": "spldJD"
+  },
+  {
+    "talk": "splDjd"
+  },
+  {
+    "talk": "splDjD"
+  },
+  {
+    "talk": "splDJd"
+  },
+  {
+    "talk": "splDJD"
+  },
+  {
+    "talk": "spLdjd"
+  },
+  {
+    "talk": "spLdjD"
+  },
+  {
+    "talk": "spLdJd"
+  },
+  {
+    "talk": "spLdJD"
+  },
+  {
+    "talk": "spLDjd"
+  },
+  {
+    "talk": "spLDjD"
+  },
+  {
+    "talk": "spLDJd"
+  },
+  {
+    "talk": "spLDJD"
+  },
+  {
+    "talk": "Spldjd"
+  },
+  {
+    "talk": "SpldjD"
+  },
+  {
+    "talk": "SpldJd"
+  },
+  {
+    "talk": "SpldJD"
+  },
+  {
+    "talk": "SplDjd"
+  },
+  {
+    "talk": "SplDjD"
+  },
+  {
+    "talk": "SplDJd"
+  },
+  {
+    "talk": "SplDJD"
+  },
+  {
+    "talk": "SpLdjd"
+  },
+  {
+    "talk": "SpLdjD"
+  },
+  {
+    "talk": "SpLdJd"
+  },
+  {
+    "talk": "SpLdJD"
+  },
+  {
+    "talk": "SpLDjd"
+  },
+  {
+    "talk": "SpLDjD"
+  },
+  {
+    "talk": "SpLDJd"
+  },
+  {
+    "talk": "SpLDJD"
+  },
+  {
     "talk": "spldjt"
+  },
+  {
+    "talk": "spldjT"
+  },
+  {
+    "talk": "spldJt"
+  },
+  {
+    "talk": "spldJT"
+  },
+  {
+    "talk": "splDjt"
+  },
+  {
+    "talk": "splDjT"
+  },
+  {
+    "talk": "splDJt"
+  },
+  {
+    "talk": "splDJT"
+  },
+  {
+    "talk": "spLdjt"
+  },
+  {
+    "talk": "spLdjT"
+  },
+  {
+    "talk": "spLdJt"
+  },
+  {
+    "talk": "spLdJT"
+  },
+  {
+    "talk": "spLDjt"
+  },
+  {
+    "talk": "spLDjT"
+  },
+  {
+    "talk": "spLDJt"
+  },
+  {
+    "talk": "spLDJT"
+  },
+  {
+    "talk": "Spldjt"
+  },
+  {
+    "talk": "SpldjT"
+  },
+  {
+    "talk": "SpldJt"
+  },
+  {
+    "talk": "SpldJT"
+  },
+  {
+    "talk": "SplDjt"
+  },
+  {
+    "talk": "SplDjT"
+  },
+  {
+    "talk": "SplDJt"
+  },
+  {
+    "talk": "SplDJT"
+  },
+  {
+    "talk": "SpLdjt"
+  },
+  {
+    "talk": "SpLdjT"
+  },
+  {
+    "talk": "SpLdJt"
+  },
+  {
+    "talk": "SpLdJT"
+  },
+  {
+    "talk": "SpLDjt"
+  },
+  {
+    "talk": "SpLDjT"
+  },
+  {
+    "talk": "SpLDJt"
+  },
+  {
+    "talk": "SpLDJT"
   },
   {
     "talk": "spltxp"
   },
   {
+    "talk": "spltXp"
+  },
+  {
+    "talk": "splTxp"
+  },
+  {
+    "talk": "splTXp"
+  },
+  {
+    "talk": "spLtxp"
+  },
+  {
+    "talk": "spLtXp"
+  },
+  {
+    "talk": "spLTxp"
+  },
+  {
+    "talk": "spLTXp"
+  },
+  {
+    "talk": "Spltxp"
+  },
+  {
+    "talk": "SpltXp"
+  },
+  {
+    "talk": "SplTxp"
+  },
+  {
+    "talk": "SplTXp"
+  },
+  {
+    "talk": "SpLtxp"
+  },
+  {
+    "talk": "SpLtXp"
+  },
+  {
+    "talk": "SpLTxp"
+  },
+  {
+    "talk": "SpLTXp"
+  },
+  {
     "talk": "spltxt"
+  },
+  {
+    "talk": "spltxT"
+  },
+  {
+    "talk": "spltXt"
+  },
+  {
+    "talk": "spltXT"
+  },
+  {
+    "talk": "splTxt"
+  },
+  {
+    "talk": "splTxT"
+  },
+  {
+    "talk": "splTXt"
+  },
+  {
+    "talk": "splTXT"
+  },
+  {
+    "talk": "spLtxt"
+  },
+  {
+    "talk": "spLtxT"
+  },
+  {
+    "talk": "spLtXt"
+  },
+  {
+    "talk": "spLtXT"
+  },
+  {
+    "talk": "spLTxt"
+  },
+  {
+    "talk": "spLTxT"
+  },
+  {
+    "talk": "spLTXt"
+  },
+  {
+    "talk": "spLTXT"
+  },
+  {
+    "talk": "Spltxt"
+  },
+  {
+    "talk": "SpltxT"
+  },
+  {
+    "talk": "SpltXt"
+  },
+  {
+    "talk": "SpltXT"
+  },
+  {
+    "talk": "SplTxt"
+  },
+  {
+    "talk": "SplTxT"
+  },
+  {
+    "talk": "SplTXt"
+  },
+  {
+    "talk": "SplTXT"
+  },
+  {
+    "talk": "SpLtxt"
+  },
+  {
+    "talk": "SpLtxT"
+  },
+  {
+    "talk": "SpLtXt"
+  },
+  {
+    "talk": "SpLtXT"
+  },
+  {
+    "talk": "SpLTxt"
+  },
+  {
+    "talk": "SpLTxT"
+  },
+  {
+    "talk": "SpLTXt"
+  },
+  {
+    "talk": "SpLTXT"
+  },
+  {
+    "talk": "spr$dj"
+  },
+  {
+    "talk": "spr$dJ"
+  },
+  {
+    "talk": "Spr$dj"
+  },
+  {
+    "talk": "Spr$dJ"
   },
   {
     "talk": "sprdjd"
   },
   {
+    "talk": "sprdjD"
+  },
+  {
+    "talk": "sprdJd"
+  },
+  {
+    "talk": "sprdJD"
+  },
+  {
+    "talk": "sprDjd"
+  },
+  {
+    "talk": "sprDjD"
+  },
+  {
+    "talk": "sprDJd"
+  },
+  {
+    "talk": "sprDJD"
+  },
+  {
+    "talk": "Sprdjd"
+  },
+  {
+    "talk": "SprdjD"
+  },
+  {
+    "talk": "SprdJd"
+  },
+  {
+    "talk": "SprdJD"
+  },
+  {
+    "talk": "SprDjd"
+  },
+  {
+    "talk": "SprDjD"
+  },
+  {
+    "talk": "SprDJd"
+  },
+  {
+    "talk": "SprDJD"
+  },
+  {
+    "talk": "'$d$x"
+  },
+  {
+    "talk": "'$t$x"
+  },
+  {
     "talk": "'l:$d"
+  },
+  {
+    "talk": "'L:$d"
+  },
+  {
+    "talk": "'l:$m"
+  },
+  {
+    "talk": "'L:$m"
+  },
+  {
+    "talk": "'l:$n"
+  },
+  {
+    "talk": "'l:$N"
+  },
+  {
+    "talk": "'L:$n"
+  },
+  {
+    "talk": "'L:$N"
+  },
+  {
+    "talk": "'l:$S"
+  },
+  {
+    "talk": "'L:$S"
+  },
+  {
+    "talk": "'l:$t"
+  },
+  {
+    "talk": "'L:$t"
+  },
+  {
+    "talk": "'l:$v"
+  },
+  {
+    "talk": "'L:$v"
+  },
+  {
+    "talk": "'l:$x"
+  },
+  {
+    "talk": "'L:$x"
+  },
+  {
+    "talk": "'l:$Z"
+  },
+  {
+    "talk": "'L:$Z"
   },
   {
     "talk": "'l:dj"
   },
   {
+    "talk": "'l:dJ"
+  },
+  {
+    "talk": "'l:Dj"
+  },
+  {
+    "talk": "'l:DJ"
+  },
+  {
+    "talk": "'L:dj"
+  },
+  {
+    "talk": "'L:dJ"
+  },
+  {
+    "talk": "'L:Dj"
+  },
+  {
+    "talk": "'L:DJ"
+  },
+  {
+    "talk": "$'$dj"
+  },
+  {
+    "talk": "$'$dJ"
+  },
+  {
+    "talk": "$'$dx"
+  },
+  {
+    "talk": "$'$dX"
+  },
+  {
+    "talk": "$'$tx"
+  },
+  {
+    "talk": "$'$tX"
+  },
+  {
+    "talk": "$'d$x"
+  },
+  {
+    "talk": "$'D$x"
+  },
+  {
+    "talk": "$'l:d"
+  },
+  {
+    "talk": "$'l:D"
+  },
+  {
+    "talk": "$'L:d"
+  },
+  {
+    "talk": "$'L:D"
+  },
+  {
+    "talk": "$'l:f"
+  },
+  {
+    "talk": "$'l:F"
+  },
+  {
+    "talk": "$'L:f"
+  },
+  {
+    "talk": "$'L:F"
+  },
+  {
+    "talk": "$'l:m"
+  },
+  {
+    "talk": "$'L:m"
+  },
+  {
+    "talk": "$'l:n"
+  },
+  {
+    "talk": "$'l:N"
+  },
+  {
+    "talk": "$'L:n"
+  },
+  {
+    "talk": "$'L:N"
+  },
+  {
+    "talk": "$'l:p"
+  },
+  {
+    "talk": "$'L:p"
+  },
+  {
+    "talk": "$'l:s"
+  },
+  {
+    "talk": "$'l:S"
+  },
+  {
+    "talk": "$'L:s"
+  },
+  {
+    "talk": "$'L:S"
+  },
+  {
+    "talk": "$'l:t"
+  },
+  {
+    "talk": "$'l:T"
+  },
+  {
+    "talk": "$'L:t"
+  },
+  {
+    "talk": "$'L:T"
+  },
+  {
+    "talk": "$'l:v"
+  },
+  {
+    "talk": "$'l:V"
+  },
+  {
+    "talk": "$'L:v"
+  },
+  {
+    "talk": "$'L:V"
+  },
+  {
+    "talk": "$'l:x"
+  },
+  {
+    "talk": "$'l:X"
+  },
+  {
+    "talk": "$'L:x"
+  },
+  {
+    "talk": "$'L:X"
+  },
+  {
+    "talk": "$'l:z"
+  },
+  {
+    "talk": "$'l:Z"
+  },
+  {
+    "talk": "$'L:z"
+  },
+  {
+    "talk": "$'L:Z"
+  },
+  {
+    "talk": "$'t$x"
+  },
+  {
+    "talk": "$'T$x"
+  },
+  {
+    "talk": "$t$rm"
+  },
+  {
+    "talk": "$t$Rm"
+  },
+  {
+    "talk": "$t$rn"
+  },
+  {
+    "talk": "$t$rN"
+  },
+  {
+    "talk": "$t$Rn"
+  },
+  {
+    "talk": "$t$RN"
+  },
+  {
+    "talk": "$t$xm"
+  },
+  {
+    "talk": "$t$xn"
+  },
+  {
+    "talk": "$t$xN"
+  },
+  {
+    "talk": "$tr$m"
+  },
+  {
+    "talk": "$tr$n"
+  },
+  {
+    "talk": "$tr$N"
+  },
+  {
+    "talk": "$tx$m"
+  },
+  {
+    "talk": "$tX$m"
+  },
+  {
+    "talk": "$tx$n"
+  },
+  {
+    "talk": "$tx$N"
+  },
+  {
+    "talk": "$tX$n"
+  },
+  {
+    "talk": "$tX$N"
+  },
+  {
+    "talk": "b$r$m"
+  },
+  {
+    "talk": "b$R$m"
+  },
+  {
+    "talk": "b$r$n"
+  },
+  {
+    "talk": "b$r$N"
+  },
+  {
+    "talk": "b$R$n"
+  },
+  {
+    "talk": "b$R$N"
+  },
+  {
+    "talk": "b$r$v"
+  },
+  {
+    "talk": "b$R$v"
+  },
+  {
+    "talk": "b$rvs"
+  },
+  {
+    "talk": "b$rvS"
+  },
+  {
+    "talk": "b$rVs"
+  },
+  {
+    "talk": "b$rVS"
+  },
+  {
+    "talk": "b$Rvs"
+  },
+  {
+    "talk": "b$RvS"
+  },
+  {
+    "talk": "b$RVs"
+  },
+  {
+    "talk": "b$RVS"
+  },
+  {
+    "talk": "b$rvz"
+  },
+  {
+    "talk": "b$rvZ"
+  },
+  {
+    "talk": "b$rVz"
+  },
+  {
+    "talk": "b$rVZ"
+  },
+  {
+    "talk": "b$Rvz"
+  },
+  {
+    "talk": "b$RvZ"
+  },
+  {
+    "talk": "b$RVz"
+  },
+  {
+    "talk": "b$RVZ"
+  },
+  {
+    "talk": "br$vs"
+  },
+  {
+    "talk": "br$vS"
+  },
+  {
+    "talk": "br$vz"
+  },
+  {
+    "talk": "br$vZ"
+  },
+  {
     "talk": "brv$d"
+  },
+  {
+    "talk": "brV$d"
+  },
+  {
+    "talk": "brv$S"
+  },
+  {
+    "talk": "brV$S"
+  },
+  {
+    "talk": "brv$t"
+  },
+  {
+    "talk": "brV$t"
+  },
+  {
+    "talk": "brv$Z"
+  },
+  {
+    "talk": "brV$Z"
   },
   {
     "talk": "brvsk"
   },
   {
+    "talk": "brvsK"
+  },
+  {
+    "talk": "brvSk"
+  },
+  {
+    "talk": "brvSK"
+  },
+  {
+    "talk": "brVsk"
+  },
+  {
+    "talk": "brVsK"
+  },
+  {
+    "talk": "brVSk"
+  },
+  {
+    "talk": "brVSK"
+  },
+  {
     "talk": "brvst"
+  },
+  {
+    "talk": "brvsT"
+  },
+  {
+    "talk": "brvSt"
+  },
+  {
+    "talk": "brvST"
+  },
+  {
+    "talk": "brVst"
+  },
+  {
+    "talk": "brVsT"
+  },
+  {
+    "talk": "brVSt"
+  },
+  {
+    "talk": "brVST"
   },
   {
     "talk": "brvzd"
   },
   {
+    "talk": "brvzD"
+  },
+  {
+    "talk": "brvZd"
+  },
+  {
+    "talk": "brvZD"
+  },
+  {
+    "talk": "brVzd"
+  },
+  {
+    "talk": "brVzD"
+  },
+  {
+    "talk": "brVZd"
+  },
+  {
+    "talk": "brVZD"
+  },
+  {
     "talk": "brvzt"
+  },
+  {
+    "talk": "brvzT"
+  },
+  {
+    "talk": "brvZt"
+  },
+  {
+    "talk": "brvZT"
+  },
+  {
+    "talk": "brVzt"
+  },
+  {
+    "talk": "brVzT"
+  },
+  {
+    "talk": "brVZt"
+  },
+  {
+    "talk": "brVZT"
+  },
+  {
+    "talk": "k$r$m"
+  },
+  {
+    "talk": "k$R$m"
+  },
+  {
+    "talk": "K$r$m"
+  },
+  {
+    "talk": "K$R$m"
+  },
+  {
+    "talk": "k$r$n"
+  },
+  {
+    "talk": "k$r$N"
+  },
+  {
+    "talk": "k$R$n"
+  },
+  {
+    "talk": "k$R$N"
+  },
+  {
+    "talk": "K$r$n"
+  },
+  {
+    "talk": "K$r$N"
+  },
+  {
+    "talk": "K$R$n"
+  },
+  {
+    "talk": "K$R$N"
+  },
+  {
+    "talk": "p$r$m"
+  },
+  {
+    "talk": "p$R$m"
+  },
+  {
+    "talk": "p$r$n"
+  },
+  {
+    "talk": "p$r$N"
+  },
+  {
+    "talk": "p$R$n"
+  },
+  {
+    "talk": "p$R$N"
+  },
+  {
+    "talk": "p$r$v"
+  },
+  {
+    "talk": "p$R$v"
+  },
+  {
+    "talk": "p$rvs"
+  },
+  {
+    "talk": "p$rvS"
+  },
+  {
+    "talk": "p$rVs"
+  },
+  {
+    "talk": "p$rVS"
+  },
+  {
+    "talk": "p$Rvs"
+  },
+  {
+    "talk": "p$RvS"
+  },
+  {
+    "talk": "p$RVs"
+  },
+  {
+    "talk": "p$RVS"
+  },
+  {
+    "talk": "p$rvt"
+  },
+  {
+    "talk": "p$rvT"
+  },
+  {
+    "talk": "p$rVt"
+  },
+  {
+    "talk": "p$rVT"
+  },
+  {
+    "talk": "p$Rvt"
+  },
+  {
+    "talk": "p$RvT"
+  },
+  {
+    "talk": "p$RVt"
+  },
+  {
+    "talk": "p$RVT"
+  },
+  {
+    "talk": "p$rvz"
+  },
+  {
+    "talk": "p$rvZ"
+  },
+  {
+    "talk": "p$rVz"
+  },
+  {
+    "talk": "p$rVZ"
+  },
+  {
+    "talk": "p$Rvz"
+  },
+  {
+    "talk": "p$RvZ"
+  },
+  {
+    "talk": "p$RVz"
+  },
+  {
+    "talk": "p$RVZ"
+  },
+  {
+    "talk": "pr$vs"
+  },
+  {
+    "talk": "pr$vS"
+  },
+  {
+    "talk": "pr$vt"
+  },
+  {
+    "talk": "pr$vT"
+  },
+  {
+    "talk": "pr$vz"
+  },
+  {
+    "talk": "pr$vZ"
   },
   {
     "talk": "prv$d"
   },
   {
+    "talk": "prV$d"
+  },
+  {
+    "talk": "prv$S"
+  },
+  {
+    "talk": "prV$S"
+  },
+  {
+    "talk": "prv$t"
+  },
+  {
+    "talk": "prV$t"
+  },
+  {
+    "talk": "prv$Z"
+  },
+  {
+    "talk": "prV$Z"
+  },
+  {
     "talk": "prvsk"
+  },
+  {
+    "talk": "prvsK"
+  },
+  {
+    "talk": "prvSk"
+  },
+  {
+    "talk": "prvSK"
+  },
+  {
+    "talk": "prVsk"
+  },
+  {
+    "talk": "prVsK"
+  },
+  {
+    "talk": "prVSk"
+  },
+  {
+    "talk": "prVSK"
   },
   {
     "talk": "prvst"
   },
   {
+    "talk": "prvsT"
+  },
+  {
+    "talk": "prvSt"
+  },
+  {
+    "talk": "prvST"
+  },
+  {
+    "talk": "prVst"
+  },
+  {
+    "talk": "prVsT"
+  },
+  {
+    "talk": "prVSt"
+  },
+  {
+    "talk": "prVST"
+  },
+  {
     "talk": "prvzd"
+  },
+  {
+    "talk": "prvzD"
+  },
+  {
+    "talk": "prvZd"
+  },
+  {
+    "talk": "prvZD"
+  },
+  {
+    "talk": "prVzd"
+  },
+  {
+    "talk": "prVzD"
+  },
+  {
+    "talk": "prVZd"
+  },
+  {
+    "talk": "prVZD"
   },
   {
     "talk": "prvzt"
   },
   {
+    "talk": "prvzT"
+  },
+  {
+    "talk": "prvZt"
+  },
+  {
+    "talk": "prvZT"
+  },
+  {
+    "talk": "prVzt"
+  },
+  {
+    "talk": "prVzT"
+  },
+  {
+    "talk": "prVZt"
+  },
+  {
+    "talk": "prVZT"
+  },
+  {
     "talk": "spldj"
+  },
+  {
+    "talk": "spldJ"
+  },
+  {
+    "talk": "splDj"
+  },
+  {
+    "talk": "splDJ"
+  },
+  {
+    "talk": "spLdj"
+  },
+  {
+    "talk": "spLdJ"
+  },
+  {
+    "talk": "spLDj"
+  },
+  {
+    "talk": "spLDJ"
+  },
+  {
+    "talk": "Spldj"
+  },
+  {
+    "talk": "SpldJ"
+  },
+  {
+    "talk": "SplDj"
+  },
+  {
+    "talk": "SplDJ"
+  },
+  {
+    "talk": "SpLdj"
+  },
+  {
+    "talk": "SpLdJ"
+  },
+  {
+    "talk": "SpLDj"
+  },
+  {
+    "talk": "SpLDJ"
   },
   {
     "talk": "sprdj"
   },
   {
-    "talk": "'l:c"
+    "talk": "sprdJ"
+  },
+  {
+    "talk": "sprDj"
+  },
+  {
+    "talk": "sprDJ"
+  },
+  {
+    "talk": "Sprdj"
+  },
+  {
+    "talk": "SprdJ"
+  },
+  {
+    "talk": "SprDj"
+  },
+  {
+    "talk": "SprDJ"
+  },
+  {
+    "talk": "t$r$m"
+  },
+  {
+    "talk": "t$R$m"
+  },
+  {
+    "talk": "T$r$m"
+  },
+  {
+    "talk": "T$R$m"
+  },
+  {
+    "talk": "t$r$n"
+  },
+  {
+    "talk": "t$r$N"
+  },
+  {
+    "talk": "t$R$n"
+  },
+  {
+    "talk": "t$R$N"
+  },
+  {
+    "talk": "T$r$n"
+  },
+  {
+    "talk": "T$r$N"
+  },
+  {
+    "talk": "T$R$n"
+  },
+  {
+    "talk": "T$R$N"
+  },
+  {
+    "talk": "t$x$m"
+  },
+  {
+    "talk": "T$x$m"
+  },
+  {
+    "talk": "t$x$n"
+  },
+  {
+    "talk": "t$x$N"
+  },
+  {
+    "talk": "T$x$n"
+  },
+  {
+    "talk": "T$x$N"
+  },
+  {
+    "talk": "'$dj"
+  },
+  {
+    "talk": "'$dJ"
+  },
+  {
+    "talk": "'$dx"
+  },
+  {
+    "talk": "'$dX"
+  },
+  {
+    "talk": "'$tx"
+  },
+  {
+    "talk": "'$tX"
+  },
+  {
+    "talk": "'d$x"
+  },
+  {
+    "talk": "'D$x"
   },
   {
     "talk": "'l:d"
   },
   {
+    "talk": "'l:D"
+  },
+  {
+    "talk": "'L:d"
+  },
+  {
+    "talk": "'L:D"
+  },
+  {
     "talk": "'l:f"
+  },
+  {
+    "talk": "'l:F"
+  },
+  {
+    "talk": "'L:f"
+  },
+  {
+    "talk": "'L:F"
   },
   {
     "talk": "'l:m"
   },
   {
+    "talk": "'L:m"
+  },
+  {
     "talk": "'l:n"
+  },
+  {
+    "talk": "'l:N"
+  },
+  {
+    "talk": "'L:n"
+  },
+  {
+    "talk": "'L:N"
   },
   {
     "talk": "'l:p"
   },
   {
+    "talk": "'L:p"
+  },
+  {
     "talk": "'l:s"
+  },
+  {
+    "talk": "'l:S"
+  },
+  {
+    "talk": "'L:s"
+  },
+  {
+    "talk": "'L:S"
   },
   {
     "talk": "'l:t"
   },
   {
+    "talk": "'l:T"
+  },
+  {
+    "talk": "'L:t"
+  },
+  {
+    "talk": "'L:T"
+  },
+  {
     "talk": "'l:v"
+  },
+  {
+    "talk": "'l:V"
+  },
+  {
+    "talk": "'L:v"
+  },
+  {
+    "talk": "'L:V"
   },
   {
     "talk": "'l:x"
   },
   {
+    "talk": "'l:X"
+  },
+  {
+    "talk": "'L:x"
+  },
+  {
+    "talk": "'L:X"
+  },
+  {
     "talk": "'l:z"
   },
   {
-    "talk": "brvc"
+    "talk": "'l:Z"
+  },
+  {
+    "talk": "'L:z"
+  },
+  {
+    "talk": "'L:Z"
+  },
+  {
+    "talk": "'t$x"
+  },
+  {
+    "talk": "'T$x"
+  },
+  {
+    "talk": "$'$d"
+  },
+  {
+    "talk": "$'$g"
+  },
+  {
+    "talk": "$'$G"
+  },
+  {
+    "talk": "$'$h"
+  },
+  {
+    "talk": "$'$H"
+  },
+  {
+    "talk": "$'$m"
+  },
+  {
+    "talk": "$'$n"
+  },
+  {
+    "talk": "$'$N"
+  },
+  {
+    "talk": "$'$r"
+  },
+  {
+    "talk": "$'$R"
+  },
+  {
+    "talk": "$'$S"
+  },
+  {
+    "talk": "$'$t"
+  },
+  {
+    "talk": "$'$v"
+  },
+  {
+    "talk": "$'$x"
+  },
+  {
+    "talk": "$'$Z"
+  },
+  {
+    "talk": "$'dj"
+  },
+  {
+    "talk": "$'dJ"
+  },
+  {
+    "talk": "$'Dj"
+  },
+  {
+    "talk": "$'DJ"
+  },
+  {
+    "talk": "$'dx"
+  },
+  {
+    "talk": "$'dX"
+  },
+  {
+    "talk": "$'Dx"
+  },
+  {
+    "talk": "$'DX"
+  },
+  {
+    "talk": "$'tx"
+  },
+  {
+    "talk": "$'tX"
+  },
+  {
+    "talk": "$'Tx"
+  },
+  {
+    "talk": "$'TX"
+  },
+  {
+    "talk": "$trm"
+  },
+  {
+    "talk": "$trn"
+  },
+  {
+    "talk": "$trN"
+  },
+  {
+    "talk": "$txm"
+  },
+  {
+    "talk": "$tXm"
+  },
+  {
+    "talk": "$txn"
+  },
+  {
+    "talk": "$txN"
+  },
+  {
+    "talk": "$tXn"
+  },
+  {
+    "talk": "$tXN"
+  },
+  {
+    "talk": "b$rm"
+  },
+  {
+    "talk": "b$Rm"
+  },
+  {
+    "talk": "b$rn"
+  },
+  {
+    "talk": "b$rN"
+  },
+  {
+    "talk": "b$Rn"
+  },
+  {
+    "talk": "b$RN"
+  },
+  {
+    "talk": "b$rv"
+  },
+  {
+    "talk": "b$rV"
+  },
+  {
+    "talk": "b$Rv"
+  },
+  {
+    "talk": "b$RV"
+  },
+  {
+    "talk": "br$m"
+  },
+  {
+    "talk": "br$n"
+  },
+  {
+    "talk": "br$N"
+  },
+  {
+    "talk": "br$v"
   },
   {
     "talk": "brvs"
   },
   {
+    "talk": "brvS"
+  },
+  {
+    "talk": "brVs"
+  },
+  {
+    "talk": "brVS"
+  },
+  {
     "talk": "brvz"
   },
   {
-    "talk": "prvc"
+    "talk": "brvZ"
+  },
+  {
+    "talk": "brVz"
+  },
+  {
+    "talk": "brVZ"
+  },
+  {
+    "talk": "k$rm"
+  },
+  {
+    "talk": "k$Rm"
+  },
+  {
+    "talk": "K$rm"
+  },
+  {
+    "talk": "K$Rm"
+  },
+  {
+    "talk": "k$rn"
+  },
+  {
+    "talk": "k$rN"
+  },
+  {
+    "talk": "k$Rn"
+  },
+  {
+    "talk": "k$RN"
+  },
+  {
+    "talk": "K$rn"
+  },
+  {
+    "talk": "K$rN"
+  },
+  {
+    "talk": "K$Rn"
+  },
+  {
+    "talk": "K$RN"
+  },
+  {
+    "talk": "kr$m"
+  },
+  {
+    "talk": "Kr$m"
+  },
+  {
+    "talk": "kr$n"
+  },
+  {
+    "talk": "kr$N"
+  },
+  {
+    "talk": "Kr$n"
+  },
+  {
+    "talk": "Kr$N"
+  },
+  {
+    "talk": "p$rm"
+  },
+  {
+    "talk": "p$Rm"
+  },
+  {
+    "talk": "p$rn"
+  },
+  {
+    "talk": "p$rN"
+  },
+  {
+    "talk": "p$Rn"
+  },
+  {
+    "talk": "p$RN"
+  },
+  {
+    "talk": "p$rv"
+  },
+  {
+    "talk": "p$rV"
+  },
+  {
+    "talk": "p$Rv"
+  },
+  {
+    "talk": "p$RV"
+  },
+  {
+    "talk": "pr$m"
+  },
+  {
+    "talk": "pr$n"
+  },
+  {
+    "talk": "pr$N"
+  },
+  {
+    "talk": "pr$v"
   },
   {
     "talk": "prvs"
   },
   {
+    "talk": "prvS"
+  },
+  {
+    "talk": "prVs"
+  },
+  {
+    "talk": "prVS"
+  },
+  {
     "talk": "prvt"
+  },
+  {
+    "talk": "prvT"
+  },
+  {
+    "talk": "prVt"
+  },
+  {
+    "talk": "prVT"
   },
   {
     "talk": "prvz"
   },
   {
+    "talk": "prvZ"
+  },
+  {
+    "talk": "prVz"
+  },
+  {
+    "talk": "prVZ"
+  },
+  {
+    "talk": "t$rm"
+  },
+  {
+    "talk": "t$Rm"
+  },
+  {
+    "talk": "T$rm"
+  },
+  {
+    "talk": "T$Rm"
+  },
+  {
+    "talk": "t$rn"
+  },
+  {
+    "talk": "t$rN"
+  },
+  {
+    "talk": "t$Rn"
+  },
+  {
+    "talk": "t$RN"
+  },
+  {
+    "talk": "T$rn"
+  },
+  {
+    "talk": "T$rN"
+  },
+  {
+    "talk": "T$Rn"
+  },
+  {
+    "talk": "T$RN"
+  },
+  {
+    "talk": "t$xm"
+  },
+  {
+    "talk": "T$xm"
+  },
+  {
+    "talk": "t$xn"
+  },
+  {
+    "talk": "t$xN"
+  },
+  {
+    "talk": "T$xn"
+  },
+  {
+    "talk": "T$xN"
+  },
+  {
+    "talk": "tr$m"
+  },
+  {
+    "talk": "Tr$m"
+  },
+  {
+    "talk": "tr$n"
+  },
+  {
+    "talk": "tr$N"
+  },
+  {
+    "talk": "Tr$n"
+  },
+  {
+    "talk": "Tr$N"
+  },
+  {
+    "talk": "tx$m"
+  },
+  {
+    "talk": "tX$m"
+  },
+  {
+    "talk": "Tx$m"
+  },
+  {
+    "talk": "TX$m"
+  },
+  {
+    "talk": "tx$n"
+  },
+  {
+    "talk": "tx$N"
+  },
+  {
+    "talk": "tX$n"
+  },
+  {
+    "talk": "tX$N"
+  },
+  {
+    "talk": "Tx$n"
+  },
+  {
+    "talk": "Tx$N"
+  },
+  {
+    "talk": "TX$n"
+  },
+  {
+    "talk": "TX$N"
+  },
+  {
+    "talk": "'$d"
+  },
+  {
+    "talk": "'$g"
+  },
+  {
+    "talk": "'$G"
+  },
+  {
+    "talk": "'$h"
+  },
+  {
+    "talk": "'$H"
+  },
+  {
+    "talk": "'$m"
+  },
+  {
+    "talk": "'$n"
+  },
+  {
+    "talk": "'$N"
+  },
+  {
+    "talk": "'$r"
+  },
+  {
+    "talk": "'$R"
+  },
+  {
+    "talk": "'$S"
+  },
+  {
+    "talk": "'$t"
+  },
+  {
+    "talk": "'$v"
+  },
+  {
+    "talk": "'$x"
+  },
+  {
+    "talk": "'$Z"
+  },
+  {
     "talk": "'dj"
+  },
+  {
+    "talk": "'dJ"
+  },
+  {
+    "talk": "'Dj"
+  },
+  {
+    "talk": "'DJ"
   },
   {
     "talk": "'dx"
   },
   {
+    "talk": "'dX"
+  },
+  {
+    "talk": "'Dx"
+  },
+  {
+    "talk": "'DX"
+  },
+  {
     "talk": "'tx"
+  },
+  {
+    "talk": "'tX"
+  },
+  {
+    "talk": "'Tx"
+  },
+  {
+    "talk": "'TX"
+  },
+  {
+    "talk": "$'b"
+  },
+  {
+    "talk": "$'d"
+  },
+  {
+    "talk": "$'D"
+  },
+  {
+    "talk": "$'f"
+  },
+  {
+    "talk": "$'F"
+  },
+  {
+    "talk": "$'g"
+  },
+  {
+    "talk": "$'G"
+  },
+  {
+    "talk": "$'h"
+  },
+  {
+    "talk": "$'H"
+  },
+  {
+    "talk": "$'j"
+  },
+  {
+    "talk": "$'J"
+  },
+  {
+    "talk": "$'k"
+  },
+  {
+    "talk": "$'K"
+  },
+  {
+    "talk": "$'l"
+  },
+  {
+    "talk": "$'L"
+  },
+  {
+    "talk": "$'m"
+  },
+  {
+    "talk": "$'n"
+  },
+  {
+    "talk": "$'N"
+  },
+  {
+    "talk": "$'p"
+  },
+  {
+    "talk": "$'r"
+  },
+  {
+    "talk": "$'R"
+  },
+  {
+    "talk": "$'s"
+  },
+  {
+    "talk": "$'S"
+  },
+  {
+    "talk": "$'t"
+  },
+  {
+    "talk": "$'T"
+  },
+  {
+    "talk": "$'v"
+  },
+  {
+    "talk": "$'V"
+  },
+  {
+    "talk": "$'w"
+  },
+  {
+    "talk": "$'W"
+  },
+  {
+    "talk": "$'x"
+  },
+  {
+    "talk": "$'X"
+  },
+  {
+    "talk": "$'y"
+  },
+  {
+    "talk": "$'Y"
+  },
+  {
+    "talk": "$'z"
+  },
+  {
+    "talk": "$'Z"
   },
   {
     "talk": "brm"
@@ -135,19 +7497,31 @@
     "talk": "brn"
   },
   {
-    "talk": "brq"
+    "talk": "brN"
   },
   {
     "talk": "brv"
   },
   {
+    "talk": "brV"
+  },
+  {
     "talk": "krm"
+  },
+  {
+    "talk": "Krm"
   },
   {
     "talk": "krn"
   },
   {
-    "talk": "krq"
+    "talk": "krN"
+  },
+  {
+    "talk": "Krn"
+  },
+  {
+    "talk": "KrN"
   },
   {
     "talk": "prm"
@@ -156,40 +7530,70 @@
     "talk": "prn"
   },
   {
-    "talk": "prq"
+    "talk": "prN"
   },
   {
     "talk": "prv"
   },
   {
+    "talk": "prV"
+  },
+  {
     "talk": "trm"
+  },
+  {
+    "talk": "Trm"
   },
   {
     "talk": "trn"
   },
   {
-    "talk": "trq"
+    "talk": "trN"
+  },
+  {
+    "talk": "Trn"
+  },
+  {
+    "talk": "TrN"
   },
   {
     "talk": "txm"
   },
   {
+    "talk": "tXm"
+  },
+  {
+    "talk": "Txm"
+  },
+  {
+    "talk": "TXm"
+  },
+  {
     "talk": "txn"
   },
   {
-    "talk": "txq"
+    "talk": "txN"
+  },
+  {
+    "talk": "tXn"
+  },
+  {
+    "talk": "tXN"
+  },
+  {
+    "talk": "Txn"
+  },
+  {
+    "talk": "TxN"
+  },
+  {
+    "talk": "TXn"
+  },
+  {
+    "talk": "TXN"
   },
   {
     "talk": "'b"
-  },
-  {
-    "talk": "'B"
-  },
-  {
-    "talk": "'c"
-  },
-  {
-    "talk": "'C"
   },
   {
     "talk": "'d"
@@ -205,6 +7609,9 @@
   },
   {
     "talk": "'g"
+  },
+  {
+    "talk": "'G"
   },
   {
     "talk": "'h"
@@ -243,9 +7650,6 @@
     "talk": "'p"
   },
   {
-    "talk": "'q"
-  },
-  {
     "talk": "'r"
   },
   {
@@ -273,6 +7677,9 @@
     "talk": "'w"
   },
   {
+    "talk": "'W"
+  },
+  {
     "talk": "'x"
   },
   {
@@ -280,6 +7687,9 @@
   },
   {
     "talk": "'y"
+  },
+  {
+    "talk": "'Y"
   },
   {
     "talk": "'z"
