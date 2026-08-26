@@ -168,11 +168,43 @@ fn keeps_tone_runs_in_source_order() {
   assert_eq!(normalize_ipa("a\u{030f}\u{030b}"), "a\u{030f}\u{030b}");
 }
 
-/// An equal rank holds a tone run together. It does not stop the group from
-/// sorting against the other marks, which is what makes the output canonical.
+/// This used to assert `a˥ʰ` and `aʰ˥` were one string. They are not.
+///
+/// A tone letter is a point in time and a mark before it is not the same as a
+/// mark after it, which is the whole reason Vietnamese can write `˦ˀ˥` and
+/// mean a rise with a catch partway up.
 #[test]
-fn still_sorts_tone_against_other_marks() {
-  assert_eq!(normalize_ipa("a˥ʰ"), normalize_ipa("aʰ˥"));
+fn keeps_a_mark_on_the_side_of_the_tone_letter_it_was_written_on() {
+  assert_ne!(normalize_ipa("a˥ʰ"), normalize_ipa("aʰ˥"));
+  assert_eq!(normalize_ipa("a˥ʰ"), "a˥ʰ");
+  assert_eq!(normalize_ipa("aʰ˥"), "aʰ˥");
+}
+
+/// 2,838 rows. The Vietnamese ngã tone is a rise interrupted by
+/// glottalisation partway up, and sorting left a catch followed by a clean
+/// rise, which is a different tone.
+#[test]
+fn keeps_the_vietnamese_glottal_inside_its_contour() {
+  assert_eq!(normalize_ipa("ɣo˦ˀ˥"), "ɣo˦ˀ˥");
+  assert_eq!(normalize_ipa("maːŋ˦ˀ˥"), "maːŋ˦ˀ˥");
+  assert_eq!(normalize_ipa("ŋaː˦ˀ˥"), "ŋaː˦ˀ˥");
+}
+
+/// 3,707 rows across three languages. U+02D0 has combining class zero, so an
+/// accent pushed past it attaches to the length mark and renders on it.
+#[test]
+fn keeps_a_tone_accent_on_its_vowel() {
+  assert_eq!(normalize_ipa("t\u{02bc}o\u{0301}\u{02d0}"), "t\u{02bc}o\u{0301}\u{02d0}");
+}
+
+/// Neither the dental nor the voiceless mark is an anchor and both are true of
+/// the whole segment, so either input reaches the same string.
+#[test]
+fn still_canonicalises_the_marks_that_do_commute() {
+  assert_eq!(
+    normalize_ipa("n\u{032a}\u{0325}"),
+    normalize_ipa("n\u{0325}\u{032a}")
+  );
 }
 
 /// Applying it twice has to change nothing, or the export cannot apply it at

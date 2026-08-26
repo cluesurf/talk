@@ -226,82 +226,90 @@ const RING_BELOW = '̥'
  */
 
 /**
- * The canonical order for the marks that follow a base, by articulatory
- * axis, innermost first.
+ * The canonical order for the marks that follow a base, DERIVED FROM PHOIBLE
+ * rather than chosen.
  *
- * Combining marks that share a Unicode combining class keep their input
- * order under NFD, so `n̪̥` and `n̥̪` stay two different strings for one
- * sound. Worse, the parser matches greedily: one reads as the phone `n̪`
- * plus voiceless, the other as the phone `n̥` plus dental, giving `n$h!`
- * and `nh!$` for the same segment.
+ * Combining marks that share a Unicode combining class keep their input order
+ * under NFD, so `n̪̥` and `n̥̪` stay two different strings for one sound.
+ * Worse, the parser matches greedily: one reads as the phone `n̪` plus
+ * voiceless, the other as the phone `n̥` plus dental, giving `n$h!` and
+ * `nh!$` for the same segment. Sorting the run fixes both.
  *
- * Sorting the run fixes both. The order mirrors talk's modifier `order`
- * field so an IPA string and its talk spelling agree on sequence.
+ * WHICH ORDER TO SORT INTO HAS NO STANDARD. Unicode declines to decide: dental
+ * U+032A and voiceless U+0325 are both combining class 220, and NFD only
+ * reorders across different classes, so it leaves the two strings distinct and
+ * unequal. The IPA Handbook says what each diacritic means and never what
+ * sequence to write two of them in.
  *
- * A mark absent from this list sorts last, by codepoint, so the result is
- * still deterministic for input this table does not anticipate.
+ * So the order is recovered from the corpus this project already reads.
+ * `pnpm derive:mark-order` in mesh walks phoible's 3,142 distinct phoneme
+ * spellings, takes one vote per pair of marks stacked on a base, and
+ * topologically sorts the result. phoible turned out to be completely
+ * self-consistent: 135 pairs decided, NONE written both ways, no cycles.
+ *
+ * THE EVIDENCE IS UNEVEN AND THE TABLE SHOULD BE READ THAT WAY. `ː` rests on
+ * 367 stack observations and `ʰ` on 135, so their positions are solid. The no
+ * audible release mark U+031A was stacked ONCE, and its place here is the
+ * topological tie-break rather than a fact about phoible. Re-run the
+ * derivation rather than hand-editing this, so the two never drift.
+ *
+ * WHAT IT CHANGED, against the hand-written order it replaces: voiceless now
+ * precedes aspiration and syllabic precedes velarization, which is what
+ * phoible writes and the reverse of what was here. Welsh `r̥ʰ` and `l̩ˠ` used
+ * to come out `rʰ̥` and `lˠ̩`, moving a combining mark onto the modifier
+ * letter beside it, where it re-anchors and renders on the wrong glyph.
  */
 
 const MARK_ORDER = [
-  // Part of a base's own spelling rather than a mark on it, so it sorts
-  // innermost and stays next to the letter it belongs to. `ç` is one
-  // phone, and sorting any other mark inside it splits it into `c` plus a
-  // cedilla the tries have never heard of.
-  '\u{0327}', // cedilla
-  // Place detail, closest to the articulation itself.
-  '\u{032a}', // dental
-  '\u{033c}', // linguolabial
-  '\u{033a}', // apical
-  '\u{033b}', // laminal
-  '\u{031f}', // advanced
-  '\u{0320}', // retracted
-  '\u{031d}', // raised
-  '\u{031e}', // lowered
-  '\u{0308}', // centralized
-  '\u{033d}', // mid-centralized
-  '\u{0318}', // advanced tongue root
-  '\u{0319}', // retracted tongue root
-  // Secondary articulation.
-  'ʲ',
-  'ˠ',
-  'ˤ',
-  'ᶣ',
-  'ʷ',
-  '\u{0339}', // more rounded
-  '\u{031c}', // less rounded
-  // Laryngeal.
-  'ʰ',
-  'ʱ',
-  'ʼ',
-  'ˀ',
-  // Phonation.
-  '\u{0325}', // voiceless
-  '\u{032c}', // voiced
-  '\u{0324}', // breathy
-  '\u{0330}', // creaky
+  '\u{327}', // cedilla
+  '\u{32a}', // dental
+  '\u{33c}', // linguolabial
+  '\u{33a}', // apical
+  '\u{33b}', // laminal
+  '\u{31f}', // advanced
+  '\u{320}', // retracted
+  '\u{31d}', // raised
+  '\u{31e}', // lowered
+  '\u{33d}', // mid-centralized
+  '\u{318}', // advanced tongue root
+  '\u{319}', // retracted tongue root
+  'ᶣ', // labial-palatalized
+  '\u{339}', // more rounded
+  '\u{31c}', // less rounded
+  '\u{32c}', // voiced
+  '\u{324}', // breathy
+  'ʱ', // murmured
+  '\u{330}', // creaky
   'ᴱ', // sphincteric
-  // Manner detail and release.
-  '\u{0348}', // fortis
-  '\u{0349}', // lenis
-  '\u{0353}', // frictionalized
-  '\u{0347}', // non-sibilant
-  'ⁿ',
-  'ˡ',
-  '\u{031a}', // no audible release
-  '\u{02de}', // rhotic
-  // Nasality, then the suprasegmentals last.
-  '\u{0303}',
-  '\u{0329}', // syllabic
-  '\u{032f}', // non-syllabic
-  'ː',
-  'ˑ',
-  '\u{0306}', // extra-short
-  '˥',
-  '˦',
-  '˧',
-  '˨',
-  '˩',
-  '↓', // downstep, which lowers the register of everything after it
+  '\u{348}', // fortis
+  '\u{349}', // lenis
+  '\u{353}', // frictionalized
+  '\u{325}', // voiceless
+  '\u{347}', // non-sibilant
+  'ⁿ', // nasal release
+  'ˡ', // lateral release
+  '\u{31a}', // no audible release
+  '\u{329}', // syllabic
+  'ʷ', // labialized
+  'ʲ', // palatalized
+  'ˀ', // glottalized
+  '\u{32f}', // non-syllabic
+  'ˑ', // half-long
+  '\u{306}', // extra-short
+  '\u{303}', // nasalized
+  '\u{308}', // centralized
+  'ˠ', // velarized
+  '˞', // rhotic
+  'ˤ', // pharyngealized
+  '˥', // tone extra-high
+  '˦', // tone high
+  '˧', // tone mid
+  '˨', // tone low
+  '˩', // tone extra-low
+  '↓', // downstep
+  'ʰ', // aspirated
+  'ʼ', // ejective
+  'ː', // long
 ]
 
 const MARK_RANK = new Map(MARK_ORDER.map((mark, index) => [mark, index]))
@@ -367,11 +375,79 @@ const rankOf = (character: string): number =>
     : (MARK_RANK.get(character) ??
       MARK_ORDER.length + character.codePointAt(0)!)
 
+/**
+ * Marks whose place in a run says WHEN, not merely what.
+ *
+ * Sorting a run is right when the marks describe one moment from several
+ * angles. `n̪̥` and `n̥̪` are one sound written two ways, dental and
+ * voiceless, both true of the whole segment, so an order has to be picked
+ * and either will do.
+ *
+ * It is wrong the moment a run describes a sequence. These four establish
+ * points in time, and every mark between two of them is being timed against
+ * them:
+ *
+ *   `˥ ˦ ˧ ˨ ˩`   pitch targets, in the order the voice reaches them
+ *   `↓`           downstep, which lowers everything AFTER it
+ *   `ː ˑ`         length, which the marks before and after fall either side
+ *   `̆`            extra-short, likewise
+ *
+ * MEASURED, in the corpus this normalizer runs over. Vietnamese writes its
+ * ngã tone `˦ˀ˥`, a rise interrupted by glottalisation partway up. Sorting
+ * pulled the `ˀ` to the front of the run and produced `ˀ˦˥`, a catch and
+ * then a clean rise, in 2,838 rows. Navajo writes `óː`, the tone on the
+ * vowel, and sorting pushed the acute past the length mark to give `oː́`,
+ * where the accent now attaches to the `ː` and renders on it, in 3,707 rows
+ * across three languages. The two look unrelated and are the same defect.
+ *
+ * So the run is cut at each anchor and each piece sorted alone. Nothing
+ * crosses an anchor, the anchors stay where they were written, and marks
+ * that genuinely commute still canonicalise.
+ */
+
+const ANCHOR = new Set([
+  '˥',
+  '˦',
+  '˧',
+  '˨',
+  '˩',
+  '↓',
+  'ː',
+  'ˑ',
+  '\u{0306}', // extra-short
+])
+
 /** Whether a character attaches to a preceding base rather than standing alone. */
 const isAffix = (character: string): boolean =>
   /\p{Mn}|\p{Lm}|\p{Sk}/u.test(character)
 
 const isBase = (character: string): boolean => /\p{L}/u.test(character)
+
+/**
+ * One run, sorted between its anchors and never across them.
+ *
+ * The anchors keep their positions and each stretch between two of them is
+ * sorted on its own, so `˦ˀ˥` keeps the glottal where the voice makes it and
+ * `óː` keeps the accent on the vowel, while `n̥̪` still canonicalises because
+ * neither of its marks is an anchor.
+ */
+
+function ordered(run: string[]): string[] {
+  const out: string[] = []
+  let piece: string[] = []
+
+  for (const character of run) {
+    if (ANCHOR.has(character)) {
+      out.push(...piece.sort((a, b) => rankOf(a) - rankOf(b)), character)
+      piece = []
+      continue
+    }
+
+    piece.push(character)
+  }
+
+  return [...out, ...piece.sort((a, b) => rankOf(a) - rankOf(b))]
+}
 
 /**
  * Put the affixes following each base into canonical order.
@@ -387,7 +463,7 @@ function orderMarks(text: string): string {
 
   const flush = () => {
     if (!run.length) return
-    if (afterBase) run.sort((a, b) => rankOf(a) - rankOf(b))
+    if (afterBase) run = ordered(run)
     out.push(...run)
     run = []
   }

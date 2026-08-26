@@ -161,11 +161,39 @@ describe('tone is a sequence, not a set', () => {
     expect(normalizeIpa('a\u{030f}\u{030b}')).toBe('a\u{030f}\u{030b}')
   })
 
-  it('still sorts tone against the other marks', () => {
-    // Equal ranks hold a tone run together. They do not stop the group
-    // from sorting after aspiration, which is what makes the output
-    // canonical at all.
-    expect(normalized('a˥ʰ')).toBe(normalized('aʰ˥'))
+  it('keeps a mark on the side of the tone letter it was written on', () => {
+    // This used to assert `a˥ʰ` and `aʰ˥` were one string. They are not. A
+    // tone letter is a point in time and a mark before it is not the same
+    // as a mark after it, which is the whole reason Vietnamese can write
+    // `˦ˀ˥` and mean a rise with a catch partway up.
+    expect(normalized('a˥ʰ')).not.toBe(normalized('aʰ˥'))
+    expect(normalized('a˥ʰ')).toBe('a˥ʰ')
+    expect(normalized('aʰ˥')).toBe('aʰ˥')
+  })
+
+  it('keeps the vietnamese glottal inside its contour', () => {
+    // 2,838 rows. The ngã tone is a rise interrupted by glottalisation
+    // partway up. Sorting dragged the `ˀ` to the front and left a catch
+    // followed by a clean rise, which is a different tone.
+    expect(normalized('ɣo˦ˀ˥')).toBe('ɣo˦ˀ˥')
+    expect(normalized('maːŋ˦ˀ˥')).toBe('maːŋ˦ˀ˥')
+    expect(normalized('ŋaː˦ˀ˥')).toBe('ŋaː˦ˀ˥')
+  })
+
+  it('keeps a tone accent on its vowel rather than on the length mark', () => {
+    // 3,707 rows across three languages. `ː` has combining class zero, so
+    // an accent pushed past it attaches to the length mark and renders on
+    // it, and a reader asking which segment carries the tone is told `ː`.
+    expect(normalized('tʼóː')).toBe('tʼóː')
+    expect(normalized('péːhònɪ́sɪ̀n')).toBe('péːhònɪ́sɪ̀n')
+    expect(normalized('wóːʒt͡ʃʼĩ́ːt')).toBe('wóːʒt͡ʃʼĩ́ːt')
+  })
+
+  it('still canonicalises the marks that do commute', () => {
+    // Neither the dental nor the voiceless mark is an anchor, and both are
+    // true of the whole segment, so an order is picked and either input
+    // reaches it. This is what the sort is for and it still works.
+    expect(normalized('n̪̥')).toBe(normalized('n̥̪'))
   })
 })
 

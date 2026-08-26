@@ -150,23 +150,28 @@ RING_BELOW = "̥"
 # coarse by design and gives both the same code.
 
 
-# The canonical order for the marks that follow a base, by articulatory
-# axis, innermost first.
+# The canonical order for the marks that follow a base, DERIVED FROM PHOIBLE
+# rather than chosen.
 #
 # Combining marks sharing a Unicode combining class keep their input order
-# under NFD, so `n̪̥` and `n̥̪` stay two strings for one sound. Worse, the
-# parser matches greedily: one reads as the phone `n̪` plus voiceless, the
-# other as `n̥` plus dental, giving `n$h!` and `nh!$`.
+# under NFD, so `n̪̥` and `n̥̪` stay two strings for one sound, and the parser
+# matches greedily so the two read as different segments. Sorting fixes it.
 #
-# Mirrors talk's modifier `order` field so an IPA string and its tone
-# spelling agree on sequence. A mark absent here sorts last, by codepoint.
+# WHICH ORDER HAS NO STANDARD. Unicode declines to decide: dental U+032A and
+# voiceless U+0325 are both combining class 220, and NFD only reorders across
+# different classes. The IPA Handbook says what each diacritic means and never
+# what sequence to write two of them in.
+#
+# So it is recovered from the corpus. `pnpm derive:mark-order` in mesh walks
+# phoible's 3,142 distinct phoneme spellings, takes one vote per stacked pair
+# and topologically sorts them. phoible proved completely self-consistent:
+# 135 pairs decided, none written both ways, no cycles.
+#
+# THE EVIDENCE IS UNEVEN. `ː` rests on 367 stack observations and `ʰ` on 135,
+# so those positions are solid. U+031A was stacked ONCE and its place is the
+# tie-break rather than a fact. Re-run the derivation instead of editing here.
 MARK_ORDER = [
-    # Part of a base's own spelling rather than a mark on it, so it sorts
-    # innermost and stays next to the letter it belongs to. `ç` is one
-    # phone, and sorting any other mark inside it splits it into `c` plus a
-    # cedilla the tries have never heard of.
     "\u0327",  # cedilla
-    # Place detail, closest to the articulation itself.
     "\u032a",  # dental
     "\u033c",  # linguolabial
     "\u033a",  # apical
@@ -175,51 +180,46 @@ MARK_ORDER = [
     "\u0320",  # retracted
     "\u031d",  # raised
     "\u031e",  # lowered
-    "\u0308",  # centralized
     "\u033d",  # mid-centralized
     "\u0318",  # advanced tongue root
     "\u0319",  # retracted tongue root
-    # Secondary articulation.
-    "ʲ",
-    "ˠ",
-    "ˤ",
-    "ᶣ",
-    "ʷ",
+    "\u1da3",  # labial-palatalized
     "\u0339",  # more rounded
     "\u031c",  # less rounded
-    # Laryngeal.
-    "ʰ",
-    "ʱ",
-    "ʼ",
-    "ˀ",
-    # Phonation.
-    "\u0325",  # voiceless
     "\u032c",  # voiced
     "\u0324",  # breathy
+    "\u02b1",  # murmured
     "\u0330",  # creaky
-    "ᴱ",  # sphincteric
-    # Manner detail and release.
+    "\u1d31",  # sphincteric
     "\u0348",  # fortis
     "\u0349",  # lenis
     "\u0353",  # frictionalized
+    "\u0325",  # voiceless
     "\u0347",  # non-sibilant
-    "ⁿ",
-    "ˡ",
+    "\u207f",  # nasal release
+    "\u02e1",  # lateral release
     "\u031a",  # no audible release
-    "\u02de",  # rhotic
-    # Nasality, then the suprasegmentals last.
-    "\u0303",
     "\u0329",  # syllabic
+    "\u02b7",  # labialized
+    "\u02b2",  # palatalized
+    "\u02c0",  # glottalized
     "\u032f",  # non-syllabic
-    "ː",
-    "ˑ",
+    "\u02d1",  # half-long
     "\u0306",  # extra-short
-    "˥",
-    "˦",
-    "˧",
-    "˨",
-    "˩",
-    "↓",  # downstep, which lowers the register of everything after it
+    "\u0303",  # nasalized
+    "\u0308",  # centralized
+    "\u02e0",  # velarized
+    "\u02de",  # rhotic
+    "\u02e4",  # pharyngealized
+    "\u02e5",  # tone extra-high
+    "\u02e6",  # tone high
+    "\u02e7",  # tone mid
+    "\u02e8",  # tone low
+    "\u02e9",  # tone extra-low
+    "\u2193",  # downstep
+    "\u02b0",  # aspirated
+    "\u02bc",  # ejective
+    "\u02d0",  # long
 ]
 
 MARK_RANK = {mark: index for index, mark in enumerate(MARK_ORDER)}
@@ -288,6 +288,53 @@ def _is_base(character: str) -> bool:
     return unicodedata.category(character).startswith("L")
 
 
+# Marks whose place in a run says WHEN, not merely what.
+#
+# Sorting a run is right when the marks describe one moment from several
+# angles. `n̪̥` and `n̥̪` are one sound written two ways, dental and voiceless,
+# both true of the whole segment, so an order has to be picked and either will
+# do.
+#
+# It is wrong the moment a run describes a sequence. These establish points in
+# time, and every mark between two of them is timed against them: the Chao
+# pitch targets in the order the voice reaches them, downstep which lowers
+# everything after it, and the length marks.
+#
+# MEASURED. Vietnamese writes its ngã tone `˦ˀ˥`, a rise interrupted by
+# glottalisation partway up, and sorting produced `ˀ˦˥` in 2,838 rows. Navajo
+# writes `óː` and sorting pushed the acute past the length mark to `oː́`, where
+# it attaches to the `ː`, in 3,707 rows across three languages. The two look
+# unrelated and are the same defect.
+ANCHOR = frozenset(["˥", "˦", "˧", "˨", "˩", "↓", "ː", "ˑ", "\u0306"])
+
+
+def _ordered(run: list[str]) -> list[str]:
+    """One run, sorted between its anchors and never across them.
+
+    The anchors keep their positions and each stretch between two of them is
+    sorted alone, so `˦ˀ˥` keeps the glottal where the voice makes it and `óː`
+    keeps the accent on the vowel, while `n̥̪` still canonicalises because
+    neither of its marks is an anchor.
+    """
+    out: list[str] = []
+    piece: list[str] = []
+
+    for character in run:
+        if character in ANCHOR:
+            piece.sort(key=_rank_of)
+            out.extend(piece)
+            out.append(character)
+            piece = []
+            continue
+
+        piece.append(character)
+
+    piece.sort(key=_rank_of)
+    out.extend(piece)
+
+    return out
+
+
 def _order_marks(text: str) -> str:
     """Put the affixes following each base into canonical order.
 
@@ -305,7 +352,7 @@ def _order_marks(text: str) -> str:
         if not run:
             return
         if after_base:
-            run.sort(key=_rank_of)
+            run = _ordered(run)
         out.extend(run)
         run = []
 

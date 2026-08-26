@@ -131,11 +131,39 @@ def test_keeps_tone_runs_in_source_order():
     assert normalize_ipa("a\u030f\u030b") == "a\u030f\u030b"
 
 
-def test_still_sorts_tone_against_other_marks():
-    """An equal rank holds a tone run together without stopping the group from
-    sorting against the other marks, which is what makes the output canonical.
+def test_keeps_a_mark_on_the_side_of_the_tone_letter_it_was_written_on():
+    """This used to assert `a˥ʰ` and `aʰ˥` were one string. They are not.
+
+    A tone letter is a point in time and a mark before it is not the same as a
+    mark after it, which is the whole reason Vietnamese can write `˦ˀ˥` and
+    mean a rise with a catch partway up.
     """
-    assert normalize_ipa("a˥ʰ") == normalize_ipa("aʰ˥")
+    assert normalize_ipa("a˥ʰ") != normalize_ipa("aʰ˥")
+    assert normalize_ipa("a˥ʰ") == "a˥ʰ"
+    assert normalize_ipa("aʰ˥") == "aʰ˥"
+
+
+def test_keeps_the_vietnamese_glottal_inside_its_contour():
+    """2,838 rows. The ngã tone is a rise interrupted by glottalisation
+    partway up, and sorting left a catch followed by a clean rise."""
+    assert normalize_ipa("ɣo˦ˀ˥") == "ɣo˦ˀ˥"
+    assert normalize_ipa("maːŋ˦ˀ˥") == "maːŋ˦ˀ˥"
+    assert normalize_ipa("ŋaː˦ˀ˥") == "ŋaː˦ˀ˥"
+
+
+def test_keeps_a_tone_accent_on_its_vowel():
+    """3,707 rows across three languages. U+02D0 has combining class zero, so
+    an accent pushed past it attaches to the length mark and renders on it."""
+    import unicodedata
+
+    for one in ["tʼóː", "péːhònɪ́sɪ̀n", "wóːʒt͡ʃʼĩ́ːt"]:
+        assert normalize_ipa(one) == unicodedata.normalize("NFD", one)
+
+
+def test_still_canonicalises_the_marks_that_do_commute():
+    """Neither the dental nor the voiceless mark is an anchor and both are true
+    of the whole segment, so either input reaches the same string."""
+    assert normalize_ipa("n̪̥") == normalize_ipa("n̥̪")
 
 
 def test_tone_normalizing_is_idempotent():
