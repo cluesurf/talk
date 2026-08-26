@@ -29,7 +29,6 @@ export function buildSymbols(): SymbolEntry[] {
     // beside it and a fuller encoding would say so in the sound itself
     // instead of standing between them. Carrying it keeps the information
     // and round-trips, which is what was actually lost.
-    { talk: '\\=', ipa: '\u{0361}', simple: '\u{0361}' },
     { talk: '\\&', ipa: '\u{203f}', simple: '\u{203f}' },
   ]
 

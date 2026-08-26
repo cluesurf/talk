@@ -64,6 +64,11 @@ export type ParsedUnit =
   | { role: 'phone'; base: Phone; modifiers: Modifier[]; pre: Modifier[] }
   | { role: 'symbol'; symbol: SymbolEntry }
   | { role: 'unknown'; text: string }
+  /**
+   * Letters a tie joined into one segment. `parts` keeps each on its own,
+   * because the binding is a claim ABOUT them rather than a new sound.
+   */
+  | { role: 'bound'; parts: ParsedUnit[] }
 
 /**
  * The name `parseIpa` has always returned. Kept because callers import it.
@@ -157,6 +162,71 @@ function scanUnits(input: string, trie: Trie<Unit>): ParsedUnit[] {
 
   flush()
 
+  return bindTies(out)
+}
+
+/** The tie, which joins the letters on either side into one segment. */
+
+const TIE = '\u{0361}'
+
+/**
+ * Fold each tie into a binder on the units it joins.
+ *
+ * THE TIE IS NOT A CHARACTER TO CARRY. It says the letters either side of
+ * it are ONE segment, which is a claim about them rather than a thing
+ * standing between them, and carrying it through as a symbol left talk
+ * unable to say how far the binding reached.
+ *
+ * Read here, after the walk, because a tie is only meaningful once both
+ * sides exist. A run of them binds one group: `t͡s͡ʃ` is three letters tied
+ * twice, so it is one segment of three rather than two of two.
+ *
+ * A TIE WITH NOTHING TO JOIN IS KEPT AS IT WAS. A leading or trailing one
+ * is a source that wrote it loosely, and dropping it would be inventing a
+ * segment boundary the source did not give.
+ */
+
+function bindTies(units: ParsedUnit[]): ParsedUnit[] {
+  if (!units.some(one => one.role === 'unknown' && one.text === TIE)) {
+    return units
+  }
+
+  const out: ParsedUnit[] = []
+
+  for (let at = 0; at < units.length; at += 1) {
+    const one = units[at]!
+
+    if (one.role !== 'unknown' || one.text !== TIE) {
+      out.push(one)
+      continue
+    }
+
+    const before = out[out.length - 1]
+    const after = units[at + 1]
+
+    if (!before || !after || after.role === 'unknown') {
+      out.push(one)
+      continue
+    }
+
+    // Grow the group while ties keep coming, so `t͡s͡ʃ` binds all three.
+    const parts: ParsedUnit[] = [out.pop()!, after]
+    let next = at + 2
+
+    while (
+      units[next]?.role === 'unknown' &&
+      (units[next] as { text: string }).text === TIE &&
+      units[next + 1] &&
+      units[next + 1]!.role !== 'unknown'
+    ) {
+      parts.push(units[next + 1]!)
+      next += 2
+    }
+
+    out.push({ role: 'bound', parts })
+    at = next - 1
+  }
+
   return out
 }
 
@@ -172,6 +242,14 @@ export function unitsToTalk(units: ParsedUnit[]): string {
 
       if (unit.role === 'symbol') {
         return unit.symbol.talk
+      }
+
+      if (unit.role === 'bound') {
+        // The binder counts, so a reader knows how far it reaches without
+        // inferring it from where a character sits.
+        const reach = unit.parts.length
+
+        return `${unitsToTalk(unit.parts)}<B${reach > 2 ? reach : ''}>`
       }
 
       return unit.text
@@ -279,6 +357,12 @@ function renderUnits(
 
       if (unit.role === 'symbol') {
         return unit.symbol.ipa
+      }
+
+      if (unit.role === 'bound') {
+        // Written back the way a tie is written: between each pair of
+        // letters, with anything the parts carry left where it sits.
+        return unit.parts.map(one => unitsToIpa([one], key)).join('\u{0361}')
       }
 
       return unit.text

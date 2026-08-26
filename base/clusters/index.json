@@ -17844,14 +17844,6 @@
     "token": "備"
   },
   {
-    "talk": "$d!$h",
-    "token": "僢"
-  },
-  {
-    "talk": "$d!$H",
-    "token": "僣"
-  },
-  {
     "talk": "$d$dj",
     "token": "僤"
   },
@@ -33024,30 +33016,6 @@
     "token": "憪"
   },
   {
-    "talk": "$d!h",
-    "token": "憫"
-  },
-  {
-    "talk": "$d!H",
-    "token": "憬"
-  },
-  {
-    "talk": "$d!w",
-    "token": "憭"
-  },
-  {
-    "talk": "$d!W",
-    "token": "憮"
-  },
-  {
-    "talk": "$d!y",
-    "token": "憯"
-  },
-  {
-    "talk": "$d!Y",
-    "token": "憰"
-  },
-  {
     "talk": "$d$d",
     "token": "㬣"
   },
@@ -38888,14 +38856,6 @@
     "token": "枕"
   },
   {
-    "talk": "D!$h",
-    "token": "枖"
-  },
-  {
-    "talk": "D!$H",
-    "token": "林"
-  },
-  {
     "talk": "d$dj",
     "token": "枘"
   },
@@ -40294,14 +40254,6 @@
   {
     "talk": "l!$H",
     "token": "椕"
-  },
-  {
-    "talk": "L!$h",
-    "token": "椖"
-  },
-  {
-    "talk": "L!$H",
-    "token": "椗"
   },
   {
     "talk": "l$dd",
@@ -50660,10 +50612,6 @@
     "token": "猦"
   },
   {
-    "talk": "$d!",
-    "token": "猧"
-  },
-  {
     "talk": "$dd",
     "token": "猨"
   },
@@ -52648,14 +52596,6 @@
     "token": "瓸"
   },
   {
-    "talk": "D!h",
-    "token": "瓹"
-  },
-  {
-    "talk": "D!H",
-    "token": "瓺"
-  },
-  {
     "talk": "d!w",
     "token": "㪧"
   },
@@ -52664,28 +52604,12 @@
     "token": "瓻"
   },
   {
-    "talk": "D!w",
-    "token": "瓼"
-  },
-  {
-    "talk": "D!W",
-    "token": "瓽"
-  },
-  {
     "talk": "d!y",
     "token": "㪨"
   },
   {
     "talk": "d!Y",
     "token": "瓾"
-  },
-  {
-    "talk": "D!y",
-    "token": "瓿"
-  },
-  {
-    "talk": "D!Y",
-    "token": "甀"
   },
   {
     "talk": "d$d",
@@ -54988,14 +54912,6 @@
     "token": "盲"
   },
   {
-    "talk": "L!h",
-    "token": "盳"
-  },
-  {
-    "talk": "L!H",
-    "token": "直"
-  },
-  {
     "talk": "l!w",
     "token": "㪰"
   },
@@ -55004,28 +54920,12 @@
     "token": "盵"
   },
   {
-    "talk": "L!w",
-    "token": "盶"
-  },
-  {
-    "talk": "L!W",
-    "token": "盷"
-  },
-  {
     "talk": "l!y",
     "token": "㪱"
   },
   {
     "talk": "l!Y",
     "token": "相"
-  },
-  {
-    "talk": "L!y",
-    "token": "盹"
-  },
-  {
-    "talk": "L!Y",
-    "token": "盺"
   },
   {
     "talk": "l$d",
@@ -63616,10 +63516,6 @@
     "token": "㫍"
   },
   {
-    "talk": "D!",
-    "token": "絘"
-  },
-  {
     "talk": "dd",
     "token": "㡺"
   },
@@ -64834,10 +64730,6 @@
   {
     "talk": "l!",
     "token": "㫐"
-  },
-  {
-    "talk": "L!",
-    "token": "緽"
   },
   {
     "talk": "lb",

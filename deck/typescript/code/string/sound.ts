@@ -157,6 +157,80 @@ function runSpan(text: string, at: number): { body: string; end: number } | null
   return null
 }
 
+/**
+ * A binder: `<B>` ties the two graphemes before it into one segment, `<B3>`
+ * the three before it, and so on.
+ *
+ * WHY IT COUNTS BACKWARD. A tie in IPA sits BETWEEN the letters it joins,
+ * so `t͡ʃ` says nothing about how far the binding reaches: a reader infers
+ * two from the position. That works on paper and not in a string a machine
+ * segments, which is why the old spelling carried the tie as an opaque
+ * symbol standing between two sounds and could not say what it bound.
+ *
+ * Naming the count instead makes a doubly-articulated `k͡p` and a
+ * three-part cluster equally sayable, and it puts the binder after its
+ * material, where the modifier brackets already are.
+ *
+ * MODIFIERS COUNT AS PART OF THEIR SOUND. `t<h>x<B>` binds the aspirated
+ * `t` and the `x`, two graphemes, because a mark belongs to the letter it
+ * sits on rather than standing beside it.
+ */
+
+const BINDER = /^B(\d*)$/
+
+/** How many sounds a binder joins, or null when the run is not a binder. */
+
+function binderReach(run: string): number | null {
+  const found = BINDER.exec(run)
+
+  if (!found) {
+    return null
+  }
+
+  const reach = found[1] ? Number(found[1]) : 2
+
+  // Binding one sound to nothing is not a tie, and a count that runs past
+  // the start of the word cannot be honoured either. Both are left for the
+  // caller to reject rather than silently clamped.
+  return reach >= 2 ? reach : null
+}
+
+/**
+ * Several sounds joined into one, as a tie does.
+ *
+ * THE TIE BINDS THE BASES AND THE MARKS HOIST OUT. `t<h>x<B>` is an
+ * aspirated affricate and comes back `t͡ʃʰ`, not `tʰ͡ʃ`. A tie says two
+ * LETTERS are one segment, so anything between them breaks the very thing
+ * it is asserting, and the aspiration belongs to the whole affricate
+ * rather than to the stop half of it.
+ *
+ * `tʰ͡ʃ` still PARSES, because a source may well write it and refusing to
+ * read a source is worse than reading it and saying so canonically. It
+ * simply comes back in the other order.
+ *
+ * The result is raw rather than a phone: the parts keep their identities
+ * and the binding is a claim about them, not a new entry in the catalog.
+ */
+
+function bindSounds(parts: Sound[]): Sound {
+  const talk = parts.map(one => one.talk).join('')
+  const simple = parts.map(one => one.simple).join('')
+
+  // A part with no base is a passthrough, and its own spelling is all there
+  // is to bind; otherwise the base ties and the marks follow the group.
+  const bases = parts.map(one => one.base?.ipa ?? one.ipa)
+  const marks = parts.flatMap(one => one.modifiers.map(mark => mark.ipa))
+  const pre = parts.flatMap(one => one.pre.map(mark => mark.ipa))
+
+  const ipa = pre.join('') + bases.join('\u{0361}') + marks.join('')
+
+  return rawSound({
+    talk: `${talk}<B${parts.length > 2 ? parts.length : ''}>`,
+    ipa,
+    simple,
+  })
+}
+
 export function segment(text: string): Sound[] {
   const sounds: Sound[] = []
 
@@ -177,6 +251,21 @@ export function segment(text: string): Sound[] {
     // never sees a `<` or a `>`.
     if (startLength === 0) {
       const span = runSpan(text, i)
+
+      // A BINDER TIES WHAT CAME BEFORE IT, so it is read here rather than
+      // as a modifier on a following base: `tx<B>` is one affricate, and
+      // there is no base after the bracket to carry it.
+      if (span) {
+        const reach = binderReach(span.body)
+
+        if (reach !== null && sounds.length >= reach) {
+          const held = sounds.splice(sounds.length - reach, reach)
+
+          sounds.push(bindSounds(held))
+          i = span.end
+          continue
+        }
+      }
 
       if (span) {
         const next = R.talkStarter.matchAt(text, span.end)
