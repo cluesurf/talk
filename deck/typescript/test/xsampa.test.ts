@@ -197,8 +197,13 @@ describe('ipa and x-sampa are two spellings of one parse', () => {
     // both notations re-emit it there. The two paths must agree, which is
     // the property that matters; the mark's original position is not
     // recoverable from either.
-    expect(talkToIpa(ipaToTalk('ˈhɛloʊ'))).toBe('hˈɛloɯ')
-    expect(talkToXsampa(ipaToTalk('ˈhɛloʊ'))).toBe('h"EloM')
+    // `ʊ` USED TO COME BACK AS `ɯ`, and this test pinned the loss. The two
+    // vowels shared the talk spelling `O`, one of 42 spellings that each
+    // covered several sounds, so the conversion had to pick one and the
+    // other was unreachable. They are `O` and `$O` now, and the round trip
+    // returns what went in.
+    expect(talkToIpa(ipaToTalk('ˈhɛloʊ'))).toBe('hˈɛloʊ')
+    expect(talkToXsampa(ipaToTalk('ˈhɛloʊ'))).toBe('h"EloU')
     expect(ipaToXsampa('ˈhɛloʊ')).toBe('h"EloU')
   })
 })

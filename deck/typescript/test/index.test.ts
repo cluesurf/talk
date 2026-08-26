@@ -113,14 +113,14 @@ describe('round trips', () => {
 
 describe('api', () => {
   it('exposes the conversions on the default export', () => {
-    expect(talk.ipaToTalk('tʰ')).toBe('th~')
-    expect(talk.talkToIpa('th~')).toBe('tʰ')
-    expect(talk.readable('th~')).toBe('tʰ')
-    expect([...talk.machine({ text: 'th~', type: 'tone', system: 'mesh' })]).toHaveLength(1)
+    expect(talk.ipaToTalk('tʰ')).toBe('t<h>')
+    expect(talk.talkToIpa('t<h>')).toBe('tʰ')
+    expect(talk.readable('t<h>')).toBe('tʰ')
+    expect([...talk.machine({ text: 't<h>', type: 'tone', system: 'mesh' })]).toHaveLength(1)
   })
 
   it('tokenizes into sounds with features', () => {
-    const [first] = segment('th~a')
+    const [first] = segment('t<h>a')
 
     expect(first?.base?.talk).toBe('t')
     expect(first?.modifiers.map(m => m.feature)).toEqual(['aspirated'])

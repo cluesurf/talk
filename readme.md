@@ -91,306 +91,23 @@ character.
 
 ## Encoding
 
-Here are the modifiers on consonants, vowels, and symbols (like
-punctuation), and how they look in ASCII.
+A sound is a BASE plus, when it has any, one bracketed run of MODIFIERS.
+`kʷʰ` is `k<wh>`: one pair of brackets however many marks the run holds,
+and the marks in the order of the modifier table below, so a set of
+modifiers has exactly one spelling.
 
-### Modifiers
-
-There are a few affixes on consonants and vowels. There are 5 tone
-affixes (extra low, low, neutral, high, and extra high), which can be
-combined in standard ways.
-
-| category  | symbol  | meaning                                                                                                                              |
-| :-------- | :------ | :----------------------------------------------------------------------------------------------------------------------------------- |
-| consonant | h~      | Aspiration                                                                                                                           |
-| consonant | w~      | Labialization                                                                                                                        |
-| consonant | y~      | Palatalization                                                                                                                       |
-| consonant | G~      | Velarization                                                                                                                         |
-| consonant | Q~      | Pharyngealization                                                                                                                    |
-| consonant | y$~     | Labial-palatalization (ᶣ)                                                                                                            |
-| consonant | n~      | Nasal release (ⁿ)                                                                                                                    |
-| consonant | l~      | Lateral release (ˡ)                                                                                                                  |
-| consonant | g~      | Glottalization (ˀ)                                                                                                                   |
-| consonant | $       | Dental (`n$` is n̪, `t$` is t̪)                                                                                                        |
-| consonant | h!      | Voiceless (`n$h!` is n̪̥)                                                                                                              |
-| consonant | !       | Makes consonant ejective                                                                                                             |
-| consonant | ?       | Makes consonant implosive                                                                                                            |
-| consonant | @       | Syllabic (`n@` is n̩)                                                                                                                 |
-| consonant | .       | Makes consonant a stop consonant (korean, so when you end on `t.`, it is making the mouth shape of `t` but not really pronouncing it) |
-| consonant | \*      | Click consonant: `p*` (ʘ), `t*` (ǀ), `k*` (ǃ), `l*` (ǁ), `d*` (ǂ), `c*` (𝼊), `K*` (ʞ), `R*` (‼ retroflex)                             |
-| consonant | doubled | Rolled / trilled: `bb` (ʙ), `rr` (r), `RR` (ɽr), `GG` (ʀ), `rrh!` (r̥)                                                                |
-| consonant | capital | Consonant variant                                                                                                                    |
-| both      | ^       | Stress (after any vowel or consonant)                                                                                                |
-| both      | \_      | Long / geminated (after any vowel or consonant: `b_` is bː)                                                                          |
-| both      | \_!     | Half-long (ˑ)                                                                                                                        |
-| both      | !!      | Extra-short (̆)                                                                                                                       |
-| vowel     | \~      | Nasal vowel (`a~` is ã)                                                                                                              |
-| vowel     | @       | Non-syllabic vowel (`O@` is ʊ̯; `a@~` is a nasal non-syllabic a)                                                                      |
-| vowel     | capital | Vowel variant                                                                                                                        |
-| vowel     | $       | Vowel variant                                                                                                                        |
-| vowel     | +       | High tone (mandarin high)                                                                                                            |
-| vowel     | ++      | Extra high tone                                                                                                                      |
-| vowel     | \*      | Mid tone (˧)                                                                                                                         |
-| vowel     | -       | Low tone (mandarin low)                                                                                                              |
-| vowel     | --      | Extra low tone                                                                                                                       |
-| vowel     | /       | Rising tone (vietnamese sắc, mandarin rising)                                                                                        |
-| vowel     | //      | Rising tone 2 (vietnamese ngã)                                                                                                       |
-| vowel     | \\      | Falling tone (vietnamese huyền, mandarin falling)                                                                                    |
-| vowel     | \\\\    | Falling tone 2 (vietnamese nặng)                                                                                                     |
-| vowel     | /\\     | Rising falling tone                                                                                                                  |
-| vowel     | \\/     | Falling rising tone (vietnamese hỏi)                                                                                                 |
-| symbol    | \\       | When preceding, writes a literal symbol: `\\.` is a period, `\\+` is a plus                                                           |
-
-Two conventions are worth calling out.
-
-`~` FORMS A SUPERSCRIPT on a consonant. `n~` is ⁿ, `l~` is ˡ, `y~` is ʲ.
-On a vowel the same mark is nasality, `a~` being ã. Dental moved to `$`
-to free it.
-
-`@` IS SYLLABICITY read against the base's default. A vowel is syllabic
-unless marked and a consonant is not, so `@` means non-syllabic on `i@`
-and syllabic on `n@`.
-
-### Consonants
-
-This is the full set of IPA consonants we map, in tone and machine form.
-Every consonant, however modified, is a single machine code.
-
-_Note: GitHub markdown doesn't really render the diacritics that nicely,
-some are misaligned. We will have a font to remedy this for websites._
-
-| IPA | ascii   | machine |
-| :-- | :------ | :------ |
-| m̥ | mh! | 96 |
-| m | m | 0 |
-| ɱ̊ | m$h! | 672 |
-| ɱ | m$ | 576 |
-| n̼ | n | 1152 |
-| n̪̊ | n$h! | 3168 |
-| n̪ | n$ | 3072 |
-| n̥ | nh! | 1248 |
-| n | n | 1152 |
-| n̠̊ | nh! | 1248 |
-| n̠ | n | 1152 |
-| ɳ̊ | Nh! | 5088 |
-| ɳ | N | 4992 |
-| ɲ̊ | ny\~h! | 1632 |
-| ɲ | ny\~ | 1536 |
-| ŋ̊ | qh! | 6960 |
-| ŋ | q | 6864 |
-| ɴ̥ | qh! | 6960 |
-| ɴ | q | 6864 |
-| p | p | 8016 |
-| b | b | 8586 |
-| p̪ | p$ | |
-| b̪ | b$ | |
-| t̼ | t | 9018 |
-| d̼ | d | 12846 |
-| t̪ | t$ | 10932 |
-| d̪ | d$ | 14286 |
-| t | t | 9018 |
-| d | d | 12846 |
-| ʈ | T | 15726 |
-| ɖ | D | 16872 |
-| c | ky\~ | 17736 |
-| ɟ | gy\~ | 18498 |
-| k | k | 19074 |
-| ɡ | g | 20172 |
-| q | K | 21000 |
-| ɢ | g | 20172 |
-| ʔ | ' | 22338 |
-| s̪ | s$ | 23964 |
-| z̪ | z$ | 26358 |
-| s | s | 22530 |
-| z | z | 25398 |
-| ʃ | x | 27318 |
-| ʒ | j | 28176 |
-| ʂ | X | 28752 |
-| ʐ | J | 29610 |
-| ɕ | xy\~ | 27600 |
-| ʑ | jy\~ | 28368 |
-| ɸ | F | 31080 |
-| β | V | 31506 |
-| f | f | 31794 |
-| v | v | 32220 |
-| θ̼ | c | 32508 |
-| ð̼ | C | 35376 |
-| θ | c | 32508 |
-| ð | C | 35376 |
-| θ̠ | c | 32508 |
-| ð̠ | C | 35376 |
-| ɹ̠˔ | u$ | 37296 |
-| ɻ˔ | u$ | 37296 |
-| ç | hy\~ | 41136 |
-| ʝ | y | 41706 |
-| x | H | 42090 |
-| ɣ | G | 42948 |
-| χ | H | 42090 |
-| ʁ | G | 42948 |
-| ħ | Hh\~ | 43524 |
-| ʕ | Q | 22146 |
-| h | h | 43806 |
-| ɦ | hh\~ | 43998 |
-| β̞ | V | 31506 |
-| ʋ | V | 31506 |
-| ð̞ | C | 35376 |
-| ɹ | u$ | 37296 |
-| ɹ̠ | u$ | 37296 |
-| ɻ | u$ | 37296 |
-| j | y | 41706 |
-| ɰ | W | 44190 |
-| ⱱ̟ | V | 31506 |
-| ⱱ | V | 31506 |
-| ɾ̥ | rh! | 45438 |
-| ɾ | r | 45342 |
-| ɽ̊ | Rh! | 49278 |
-| ɽ | R | 49182 |
-| ɢ̆ | g | 20172 |
-| ʙ̥ | bbh! | 50430 |
-| ʙ | bb | 50334 |
-| r̥ | rrh! | 51006 |
-| r | rr | 50910 |
-| r̠ | rr | 50910 |
-| ɽ̊r̥ | RRh! | 54750 |
-| ɽr | RR | 55326 |
-| ʀ̥ | GGh! | 56573 |
-| ʀ | GG | 56477 |
-| ɬ̪ | S$ | 59063 |
-| ɬ | S | 57629 |
-| ɮ | Z | 60497 |
-| ʎ̝ | ly\~ | 62417 |
-| l̪ | l$ | 65057 |
-| l̥ | lh! | 63281 |
-| l | l | 63185 |
-| l̠ | l | 63185 |
-| ɭ̊ | Lh! | 67073 |
-| ɭ | L | 66977 |
-| ʎ̥ | ly\~h! | 62609 |
-| ʎ | ly\~ | 62417 |
-| ɺ̥ | lh! | 63281 |
-| ɺ | l | 63185 |
-| ʍ | wh! | 68129 |
-| w | w | 68705 |
-| ɥ | y$ | 69856 |
-| ɧ | H$ | 71008 |
-| ɫ | lQ\~ | 64289 |
-| ɓ | b? | 72136 |
-| ɗ | d? | 72712 |
-| ʄ | gy\~ | 18498 |
-| ɠ | g? | 73288 |
-| ʛ | g? | 73288 |
-| ɓ̥ | b?h\! | |
-| ɗ̥ | t? | 73864 |
-| ʄ̥ | gy\~h! | 74440 |
-| ɠ̊ | g?h\! | |
-| ʛ̥ | g?h\! | |
-| pʼ | p! | 8112 |
-| tʼ | t! | 9114 |
-| ʈʼ | T! | 15822 |
-| cʼ | ky\~! | 17928 |
-| kʼ | k! | 19170 |
-| qʼ | K! | 21096 |
-| fʼ | f! | 31842 |
-| sʼ | s! | 22578 |
-| ʂʼ | X! | 28800 |
-| ɕʼ | xy\~! | 27648 |
-| xʼ | H! | 42138 |
-| χʼ | H! | 42138 |
-| ɸʼ | F! | 31128 |
-| θʼ | c! | 32556 |
-| ʃʼ | x! | 27366 |
-| ʄ̊ | gy\~h! | 74440 |
-| ɬʼ | S! | 57677 |
-| ʘ | p\* | 75016 |
-| ǀ | t\* | 75592 |
-| ǃ | k\* | 76168 |
-| 𝼊 | c\* | 76744 |
-| ǂ | d\* | 77320 |
-| ʞ | K\* | 77896 |
-| ǁ | l\* | 78472 |
-### Vowels
-
-This is the full set of IPA vowels we map. Every vowel, with any tone,
-length, stress, or nasalization, is a single machine code.
-
-| IPA | tone | machine |
-| :-- | :---- | :------ |
-| i | i | 79048 |
-| y | i$ | 79240 |
-| ɨ | i$ | 79240 |
-| ʉ | u | 79432 |
-| ɯ | O | 79624 |
-| u | u | 79432 |
-| ɪ | I | 79816 |
-| ʏ | i$ | 79240 |
-| ʊ | O | 79624 |
-| e | e | 80008 |
-| ø | a$ | 80200 |
-| ɘ | I | 79816 |
-| ɵ | O | 79624 |
-| ɤ | O | 79624 |
-| o | o | 80392 |
-| e̞ | e | 80008 |
-| ø̞ | a$ | 80200 |
-| ə | U | 80584 |
-| ɤ̞ | O | 79624 |
-| o̞ | o | 80392 |
-| ɛ | E | 80776 |
-| œ | e$ | 80968 |
-| ɜ | O | 79624 |
-| ɞ | U | 80584 |
-| ʌ | U | 80584 |
-| ɔ | o$ | 81160 |
-| æ | A | 81352 |
-| ɐ | a | 81544 |
-| a | a | 81544 |
-| ɶ | e$ | 80968 |
-| ä | a | 81544 |
-| ɑ | a | 81544 |
-| ɒ | a | 81544 |
-Every vowel takes the same modifier set (stress, length, nasal, tone,
-etc.). Here are all the combos for the letter `a`, and the same pattern
-applies to all vowels.
-
-| IPA  | ascii | machine |
-| :--- | :---- | :------ |
-| æ | A | 81352 |
-| œ | e$ | 80968 |
-| ˈa | a^ | 81545 |
-| aː | a\_ | 81546 |
-| aʼ | a\! | |
-| a̰ | a | 81544 |
-| a͈ | a | 81544 |
-| a˦ | a+ | 81568 |
-| a˥ | a++ | 81576 |
-| a˨ | a- | 81560 |
-| a˩ | a-- | 81552 |
-| a˧˥ | a\+\+\* | |
-| a˩˥ | a\+\+\-\- | |
-| a˥˧ | a\+\+\* | |
-| a˥˩ | a\+\+\-\- | |
-| a˩˥˩ | a\+\+\-\-\-\- | |
-| a˥˩˥ | a\+\+\+\+\-\- | |
-_Note: Exact tone sequences can be represented with sequences like
-`a+a++a--`, where one vowel is spread across multiple tones. But common
-tones, across languages, can take advantage of the shortened
-syntax/encoding._
-
-## Sounds and modifiers
-
-Talk spells a sound as a BASE plus, when it has any, one bracketed run of
-MODIFIERS: `kʷʰ` is `k<wh>`. The run takes one pair of brackets however many
-marks it holds, and the marks are written in the order of the modifier table
-below, so a set of modifiers has exactly one spelling.
-
-Reading is looser than writing. The parser accepts the marks in any order
-inside the brackets, the same way it accepts `n̪̥` and `n̥̪` for one sound,
-and returns the canonical form.
+Reading is looser than writing. The parser takes the marks in any order
+inside the brackets, the same way it takes `n̪̥` and `n̥̪` for one sound,
+and gives back the canonical form.
 
 Two rules keep the notation usable elsewhere. Every spelling is ASCII and
 survives a URL unencoded, so a sound can be a path segment. And `(`, `)`,
-`[`, `]`, `{` and `}` never appear, leaving them free for the regular
-expressions the search surface uses.
+`[`, `]`, `{` and `}` never appear, which leaves them free for the regular
+expressions a search surface needs.
+
+A mark listed `before base` is a different sound from the same mark after
+it: `ʰk` is pre-aspirated and `kʰ` post-aspirated, so they never share a
+spelling.
 
 ### Consonants
 
@@ -530,8 +247,8 @@ expressions the search surface uses.
 | ʂʼ | `X<!>` | retroflex | sibilant-fricative | voiceless |
 | ɽ | `R<f>` | retroflex | tap-flap | voiced |
 | ɽ̥ | `R<fv->` | retroflex | tap-flap | voiceless |
-| ɽr | `R<fr>` | retroflex | trill | voiced |
-| ɽ̥r̥ | `R<frv->` | retroflex | trill | voiceless |
+| ɽr | `R<r>` | retroflex | trill | voiced |
+| ɽ̥r̥ | `R<rv->` | retroflex | trill | voiceless |
 | ʟ̠ | `l<$gP->` | uvular | lateral-approximant | voiced |
 | ɴ | `$N` | uvular | nasal | voiced |
 | ɴ̥ | `$N<v->` | uvular | nasal | voiceless |
@@ -603,10 +320,6 @@ expressions the search surface uses.
 | œ | `~e` | open-mid | front | rounded |
 
 ### Modifiers
-
-In the order they are written. A mark listed as `before base` is a different
-sound from the same mark after it: `ʰk` is pre-aspirated and `kʰ`
-post-aspirated, so they never share a spelling.
 
 | ipa | talk | feature | slot | position |
 | --- | --- | --- | --- | --- |

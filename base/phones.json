@@ -895,8 +895,8 @@
   },
   {
     "ipa": "ʡ̮",
-    "talk": "'<qf>",
-    "xsampa": ">\\",
+    "talk": "'<fq>",
+    "xsampa": ">\\_X2",
     "simple": "q̇",
     "form": "consonant",
     "place": "pharyngeal-epiglottal",
@@ -956,7 +956,7 @@
   },
   {
     "ipa": "ɽ̥r̥",
-    "talk": "R<frv->",
+    "talk": "R<rv->",
     "xsampa": "r`_0r_0",
     "simple": "ṛħṙħ",
     "form": "consonant",
@@ -966,7 +966,7 @@
   },
   {
     "ipa": "ɽr",
-    "talk": "R<fr>",
+    "talk": "R<r>",
     "xsampa": "r`r",
     "simple": "ṛṙ",
     "form": "consonant",
@@ -1269,7 +1269,7 @@
   {
     "ipa": "ʎ̮",
     "talk": "l<fy>",
-    "xsampa": "L",
+    "xsampa": "L_X2",
     "simple": "lẏ",
     "form": "consonant",
     "place": "palatal",

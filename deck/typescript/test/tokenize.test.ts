@@ -7,19 +7,19 @@ const chunks = (talk: string) => segment(talk).map(s => s.talk)
 
 describe('chunking keeps each base with its modifiers', () => {
   it('an aspirated consonant is one chunk', () => {
-    expect(chunks('th~a')).toEqual(['th~', 'a'])
+    expect(chunks('t<h>a')).toEqual(['t<h>', 'a'])
   })
 
   it('a labialized consonant is one chunk', () => {
-    expect(chunks('kw~a')).toEqual(['kw~', 'a'])
+    expect(chunks('k<w>a')).toEqual(['k<w>', 'a'])
   })
 
   it('a pharyngealized consonant is one chunk', () => {
-    expect(chunks('sQ~a')).toEqual(['sQ~', 'a'])
+    expect(chunks('s<q>a')).toEqual(['s<q>', 'a'])
   })
 
   it('a voiceless-marked sonorant is one chunk', () => {
-    expect(chunks('mh!im')).toEqual(['mh!', 'i', 'm'])
+    expect(chunks('m<v->im')).toEqual(['m<v->', 'i', 'm'])
   })
 
   it('an ejective is one chunk', () => {
@@ -27,15 +27,15 @@ describe('chunking keeps each base with its modifiers', () => {
   })
 
   it('stacked consonant modifiers stay in one chunk', () => {
-    expect(chunks('txy~h~im')).toEqual(['t', 'xy~h~', 'i', 'm'])
+    expect(chunks('tx<yh>im')).toEqual(['t', 'x<yh>', 'i', 'm'])
   })
 
   it('a vowel keeps its stress mark', () => {
-    expect(chunks('txando^')).toEqual(['t', 'x', 'a', 'n', 'd', 'o^'])
+    expect(chunks('txando<^>')).toEqual(['t', 'x', 'a', 'n', 'd', 'o<^>'])
   })
 
   it('a vowel keeps tone, length, and nasal marks in one chunk', () => {
-    expect(chunks('a~+_')).toEqual(['a~+_'])
+    expect(chunks('a<np4_>')).toEqual(['a<np4_>'])
     expect(chunks('txya@+a-a++u')).toEqual([
       't',
       'x',
@@ -50,7 +50,7 @@ describe('chunking keeps each base with its modifiers', () => {
 
 describe('clicks are single chunks', () => {
   it('does not split a click off its base letter', () => {
-    expect(chunks('p*at*')).toEqual(['p*', 'a', 't*'])
+    expect(chunks('p<p3>at<p3>')).toEqual(['p<p3>', 'a', 't<p3>'])
     expect(chunks('k*')).toEqual(['k*'])
     expect(chunks('c*a')).toEqual(['c*', 'a'])
   })
@@ -74,7 +74,7 @@ describe('real words', () => {
   const cases: [string, string[]][] = [
     ['siqk', ['s', 'i', 'q', 'k']],
     ['aiyuQaK', ['a', 'i', 'y', 'u', 'Q', 'a', 'K']],
-    ['HEth~Ah', ['H', 'E', 'th~', 'A', 'h']],
+    ['HEth~Ah', ['H', 'E', 't<h>', 'A', 'h']],
     ["s'oQya~te", ['s', "'", 'o', 'Q', 'y', 'a~', 't', 'e']],
     ["batO_'aH", ['b', 'a', 't', 'O_', "'", 'a', 'H']],
   ]
@@ -88,7 +88,7 @@ describe('real words', () => {
 
 describe('sound structure', () => {
   it('exposes the base and modifier features', () => {
-    const [sound] = segment('th~a')
+    const [sound] = segment('t<h>a')
 
     expect(sound?.base?.talk).toBe('t')
     expect(sound?.kind).toBe('consonant')
@@ -96,7 +96,7 @@ describe('sound structure', () => {
   })
 
   it('exposes vowel modifier features', () => {
-    const [sound] = segment('a~+_')
+    const [sound] = segment('a<np4_>')
 
     expect(sound?.kind).toBe('vowel')
     expect(sound?.base?.talk).toBe('a')
@@ -118,7 +118,7 @@ describe('sound structure', () => {
 
 describe('canonicalization', () => {
   it('tokenizing is idempotent on canonical talk', () => {
-    for (const word of ['th~a', 'kw~asQ~o', 'a~+_', 'p*at*', 'mh!im']) {
+    for (const word of ['t<h>a', 'kw~asQ~o', 'a<np4_>', 'p<p3>at<p3>', 'm<v->im']) {
       expect(chunks(word).join('')).toBe(word)
     }
   })
@@ -132,7 +132,7 @@ describe('canonicalization', () => {
   })
 
   it('tokenize is an alias for segment', () => {
-    expect(tokenize('th~a')).toEqual(segment('th~a'))
+    expect(tokenize('t<h>a')).toEqual(segment('t<h>a'))
   })
 })
 
@@ -158,11 +158,11 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
   })
 
   it('decomposes a consonant secondary articulation into base + feature', () => {
-    expect(shape('th~')).toEqual([
-      { talk: 'th~', kind: 'consonant', base: 't', features: ['aspirated'] },
+    expect(shape('t<h>')).toEqual([
+      { talk: 't<h>', kind: 'consonant', base: 't', features: ['aspirated'] },
     ])
-    expect(shape('kw~')).toEqual([
-      { talk: 'kw~', kind: 'consonant', base: 'k', features: ['labialized'] },
+    expect(shape('k<w>')).toEqual([
+      { talk: 'k<w>', kind: 'consonant', base: 'k', features: ['labialized'] },
     ])
     expect(shape('dQ~')).toEqual([
       {

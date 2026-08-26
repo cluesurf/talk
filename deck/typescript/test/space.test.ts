@@ -135,28 +135,37 @@ describe('reportSpace', () => {
 })
 
 describe('capacity', () => {
-  it('fits tone seed and band in their hangul groups, but not mesh', () => {
-    // Attachment rules on the last nine modifiers cut `tone` by roughly
-    // three quarters, which brought `band` back inside its character
-    // space. `mesh` is still six times too large.
-    expect(
-      countSpace({ type: 'tone', system: 'seed', space: 'producible' }),
-    ).toBeLessThan(CAPACITY.seed)
-    expect(
-      countSpace({ type: 'tone', system: 'band', space: 'producible' }),
-    ).toBeLessThan(CAPACITY.band)
-    expect(
-      countSpace({ type: 'tone', system: 'mesh', space: 'producible' }),
-    ).toBeGreaterThan(CAPACITY.mesh)
+  // THESE NO LONGER GATE ANYTHING. `CAPACITY` counts Hangul syllable
+  // groups, from when a machine code had to be one printable character.
+  // Machine coding is integers now, so nothing in `code/` reads the
+  // constant and a tier outgrowing it costs nothing: `bytesFor` simply
+  // returns a wider integer.
+  //
+  // The assertions used to pin each tier under its group, which turned
+  // every honest addition to the inventory into a failing test. Adding
+  // secondary stress, the tone diacritics and eight release marks pushed
+  // `band` from under 4,104 to 12,470, and the suite called that a
+  // regression when it was the library learning real IPA.
+  //
+  // What is worth pinning is the ORDER, which is a real property of the
+  // model: a coarser tier always holds fewer sounds than a finer one.
+  it('orders the tiers from coarsest to finest', () => {
+    const of = (system: 'seed' | 'band' | 'mesh') =>
+      countSpace({ type: 'tone', system, space: 'producible' })
+
+    expect(of('seed')).toBeLessThan(of('band'))
+    expect(of('band')).toBeLessThan(of('mesh'))
   })
 
-  it('never fits ipa band or mesh in a character space', () => {
-    for (const system of ['band', 'mesh'] as const) {
-      expect(
-        countSpace({ type: 'ipa', system, space: 'producible' }),
-      ).toBeGreaterThan(CAPACITY[system])
-    }
+  it('sizes an integer code to the tier it came from', () => {
+    // The replacement for the character-space limit: a code is as many
+    // bytes as its tier needs, and a bigger tier needs at least as many.
+    const seed = bytesFor(countSpace({ type: 'tone', system: 'seed', space: 'producible' }))
+    const mesh = bytesFor(countSpace({ type: 'tone', system: 'mesh', space: 'producible' }))
+
+    expect(seed).toBeLessThanOrEqual(mesh)
   })
+
 
   it('sizes bytes by the count', () => {
     expect(bytesFor(200)).toBe(1)
@@ -200,8 +209,8 @@ describe('pre-modifiers', () => {
   it('keeps pre-aspiration instead of dropping it', () => {
     // `ʰk` used to come back as plain `k`: a modifier before any base had
     // nowhere to go, so the distinction vanished silently.
-    expect(ipaToTalk('ʰk')).toBe('h~k')
-    expect(talkToIpa('h~k')).toBe('ʰk')
+    expect(ipaToTalk('ʰk')).toBe('<h>k')
+    expect(talkToIpa('<h>k')).toBe('ʰk')
   })
 
   it('distinguishes pre from post', () => {
@@ -238,6 +247,6 @@ describe('pre-modifiers', () => {
     // Nothing follows, so the mark modifies nothing and cannot be a
     // pre-modifier. It comes back as its own unit, which shows the input
     // was incomplete instead of losing it silently.
-    expect(segment('h~').map(sound => sound.talk).join('')).toBe('h~')
+    expect(segment('<h>').map(sound => sound.talk).join('')).toBe('<h>')
   })
 })
