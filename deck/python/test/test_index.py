@@ -99,3 +99,49 @@ def test_tokenizes_into_sounds_with_features():
 
 def test_carries_symbols_and_numerals_through():
     assert readable("\\. 7") == ". 7"
+
+
+def test_keeps_tone_runs_in_source_order():
+    """A tone contour is a SEQUENCE, and the run used to be sorted by pitch.
+
+    `˩˩˦` is a rise and `˦˩˩` is a fall, spelled with the same three letters.
+    Sorting them turned every rise into a fall across the corpus and the
+    original could not be recovered.
+    """
+    # Thai, rising.
+    assert normalize_ipa("la˦˥") == "la˦˥"
+    assert normalize_ipa("tʰaːn˩˩˦") == "tʰaːn˩˩˦"
+    assert normalize_ipa("muːn˧la˦˥tʰaːn˩˩˦") == "muːn˧la˦˥tʰaːn˩˩˦"
+
+    # Mandarin third tone, a dip to the bottom and back up. Sorted it read 421.
+    assert normalize_ipa("ma˨˩˦") == "ma˨˩˦"
+    assert normalize_ipa("ma˧˥") == "ma˧˥"
+
+    # Vietnamese hỏi, dipping-rising.
+    assert normalize_ipa("maː˧˩˧") == "maː˧˩˧"
+
+    # Downstep lowers the register of what follows, so which side of a tone
+    # letter it sits on is the difference between two readings.
+    assert normalize_ipa("a↓˥") == "a↓˥"
+    assert normalize_ipa("a˥↓") == "a˥↓"
+
+    # Two combining accents on one vowel spell a contour the same way two Chao
+    # letters do, and neither appears in `MARK_ORDER`.
+    assert normalize_ipa("a\u030b\u030f") == "a\u030b\u030f"
+    assert normalize_ipa("a\u030f\u030b") == "a\u030f\u030b"
+
+
+def test_still_sorts_tone_against_other_marks():
+    """An equal rank holds a tone run together without stopping the group from
+    sorting against the other marks, which is what makes the output canonical.
+    """
+    assert normalize_ipa("a˥ʰ") == normalize_ipa("aʰ˥")
+
+
+def test_tone_normalizing_is_idempotent():
+    """Applying it twice has to change nothing, or the export cannot apply it
+    at more than one stage.
+    """
+    for one in ["ma˨˩˦", "tʰaːn˩˩˦", "a↓˥", "maː˧˩˧"]:
+        once = normalize_ipa(one)
+        assert normalize_ipa(once) == once

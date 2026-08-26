@@ -182,7 +182,58 @@ const MARK_ORDER: &[char] = &[
   '˧', '˨', '˩', '\u{2193}',
 ];
 
+/// The tone marks, which all share ONE rank.
+///
+/// A CONTOUR IS A SEQUENCE, NOT A SET. `˩˩˦` is a rise and `˦˩˩` is a fall,
+/// and the two are spelled with the same three letters in a different order.
+/// Ranking the five Chao letters individually meant every run of them was
+/// sorted into descending pitch, so every rising tone became a falling one
+/// and the original was not recoverable.
+///
+/// MEASURED, in a corpus normalized by this function: 599,336 of
+/// Vietnamese's 599,339 tone-letter runs came out descending, and all 23,292
+/// of Thai's. Vietnamese `mả` is a dipping-rise and was stored `maː˦˨˩`.
+/// Neither language has a tone that only falls.
+///
+/// REMOVING THEM FROM `MARK_ORDER` DOES NOT FIX IT. `rank_of` would fall
+/// through to the codepoint, and U+02E5 through U+02E9 run high pitch to
+/// low, so the sort reaches the same descending order by another route.
+///
+/// An equal rank is the fix, because `sort_by_key` is stable: a run of tone
+/// marks keeps the order it arrived in, while still sorting as a group
+/// against every other kind of mark.
+///
+/// THE COMBINING TONE ACCENTS ARE HERE FOR THE SAME REASON. Acute, grave,
+/// circumflex, caron, macron and the doubled pair are how many sources write
+/// tone, two of them stacked make a contour, and none appears in
+/// `MARK_ORDER`, so they were ordered by codepoint against each other.
+const TONE: &[char] = &[
+  '˥',
+  '˦',
+  '˧',
+  '˨',
+  '˩',
+  '\u{2193}', // downstep, which lowers what follows and so is positional too
+  '\u{0300}', // grave, low
+  '\u{0301}', // acute, high
+  '\u{0302}', // circumflex, falling
+  '\u{0304}', // macron, mid
+  '\u{030b}', // double acute, extra high
+  '\u{030c}', // caron, rising
+  '\u{030f}', // double grave, extra low
+  '\u{0311}', // inverted breve, peaking
+];
+
 fn rank_of(character: char) -> usize {
+  if TONE.contains(&character) {
+    // Where the tone group sorts: exactly where the Chao letters already
+    // did, which is last among the suprasegmentals.
+    return MARK_ORDER
+      .iter()
+      .position(|mark| *mark == '˥')
+      .expect("MARK_ORDER holds the extra-high tone letter");
+  }
+
   MARK_ORDER
     .iter()
     .position(|mark| *mark == character)

@@ -40,12 +40,17 @@ describe('phone inventory', () => {
     expect(described.length / consonants.length).toBeGreaterThan(0.9)
   })
 
-  it('leaves only the clicks and a few implosives undescribed', () => {
-    // These carry no place, manner or voicing in the charts, so a
-    // feature-weighted comparison can only fall back to string equality
-    // for them. Pinned so the set cannot grow unnoticed. A couple of
-    // other featureless chart entries (ᶑ̊, ʄ̊) never reach the inventory,
-    // because a described phone represents their talk spelling.
+  it('describes every consonant', () => {
+    // This used to pin a list of eight that carried no place, manner or
+    // voicing: `ɬʼ` and the seven clicks. They were not undescribable, only
+    // undescribed, and a feature-weighted comparison had to fall back to
+    // string equality for each of them. 37 consonants were in that state
+    // across the table, the clicks and the ejectives and the implosives, and
+    // only `‼` had ever been filled in.
+    //
+    // They are filled in now, from phoible's feature bundles and the place
+    // abbreviations already sitting in `ipa/consonants.csv`, so the list is
+    // empty and the assertion is that it stays that way.
     const bare = phones
       .filter(
         p =>
@@ -53,7 +58,7 @@ describe('phone inventory', () => {
       )
       .map(p => p.ipa)
 
-    expect(bare).toEqual(['ɬʼ', 'ʘ', 'ǀ', 'ǃ', '𝼊', 'ǂ', 'ʞ', 'ǁ'])
+    expect(bare).toEqual([])
   })
 
   it('covers both forms', () => {

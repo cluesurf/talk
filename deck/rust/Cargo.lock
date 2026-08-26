@@ -4,7 +4,7 @@ version = 3
 
 [[package]]
 name = "cluesurf-talk"
-version = "3.0.0"
+version = "3.4.2"
 dependencies = [
  "serde",
  "serde_json",

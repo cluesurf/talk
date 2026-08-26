@@ -132,3 +132,55 @@ fn carries_symbols_and_numerals_through() {
   assert_eq!(readable("\\. 7"), ". 7");
   assert_eq!(segment("\\. 7")[0].kind, Kind::Symbol);
 }
+
+/// A tone contour is a SEQUENCE, and the run used to be sorted by pitch.
+///
+/// `˩˩˦` is a rise and `˦˩˩` is a fall, spelled with the same three letters.
+/// Sorting them turned every rise into a fall across the corpus and the
+/// original could not be recovered. Not covered by `test/parity.rs`, which
+/// exercises `segment`, `machine` and `enumerate_sounds` but never
+/// `normalize_ipa`, so the defect was invisible to every test here.
+#[test]
+fn keeps_tone_runs_in_source_order() {
+  // Thai, rising.
+  assert_eq!(normalize_ipa("la˦˥"), "la˦˥");
+  assert_eq!(normalize_ipa("tʰaːn˩˩˦"), "tʰaːn˩˩˦");
+  assert_eq!(
+    normalize_ipa("muːn˧la˦˥tʰaːn˩˩˦"),
+    "muːn˧la˦˥tʰaːn˩˩˦"
+  );
+
+  // Mandarin third tone, a dip to the bottom and back up. Sorted it read 421.
+  assert_eq!(normalize_ipa("ma˨˩˦"), "ma˨˩˦");
+  assert_eq!(normalize_ipa("ma˧˥"), "ma˧˥");
+
+  // Vietnamese hỏi, dipping-rising.
+  assert_eq!(normalize_ipa("maː˧˩˧"), "maː˧˩˧");
+
+  // Downstep lowers the register of what follows it, so which side of a tone
+  // letter it sits on is the difference between two readings.
+  assert_eq!(normalize_ipa("a↓˥"), "a↓˥");
+  assert_eq!(normalize_ipa("a˥↓"), "a˥↓");
+
+  // Two combining accents on one vowel spell a contour the same way two Chao
+  // letters do, and neither appears in `MARK_ORDER`.
+  assert_eq!(normalize_ipa("a\u{030b}\u{030f}"), "a\u{030b}\u{030f}");
+  assert_eq!(normalize_ipa("a\u{030f}\u{030b}"), "a\u{030f}\u{030b}");
+}
+
+/// An equal rank holds a tone run together. It does not stop the group from
+/// sorting against the other marks, which is what makes the output canonical.
+#[test]
+fn still_sorts_tone_against_other_marks() {
+  assert_eq!(normalize_ipa("a˥ʰ"), normalize_ipa("aʰ˥"));
+}
+
+/// Applying it twice has to change nothing, or the export cannot apply it at
+/// more than one stage.
+#[test]
+fn tone_normalizing_is_idempotent() {
+  for one in ["ma˨˩˦", "tʰaːn˩˩˦", "a↓˥", "maː˧˩˧"] {
+    let once = normalize_ipa(one);
+    assert_eq!(normalize_ipa(&once), once);
+  }
+}
