@@ -123,6 +123,52 @@ describe('archiphonemes', () => {
   })
 })
 
+describe('tone is a sequence, not a set', () => {
+  it('keeps the order of a chao tone run', () => {
+    // The run used to be sorted by pitch, which turned every rise into a
+    // fall and could not be undone: `˩˩˦` and `˦˩˩` are the same three
+    // letters and only their order says which tone was meant.
+    expect(normalized('la˦˥')).toBe('la˦˥')
+    expect(normalized('tʰaːn˩˩˦')).toBe('tʰaːn˩˩˦')
+    expect(normalized('muːn˧la˦˥tʰaːn˩˩˦')).toBe('muːn˧la˦˥tʰaːn˩˩˦')
+  })
+
+  it('keeps mandarin third tone dipping', () => {
+    // 214, a fall to the bottom and back up. Sorted it read 421.
+    expect(normalized('ma˨˩˦')).toBe('ma˨˩˦')
+    expect(normalized('ma˧˥')).toBe('ma˧˥')
+  })
+
+  it('keeps the vietnamese rises', () => {
+    // `mả` is the dipping-rising hỏi tone and `mã` the creaky-rising ngã.
+    // Both were stored as pure falls.
+    expect(normalized('maː˧˩˧')).toBe('maː˧˩˧')
+    expect(normalized('maˀ˧˥')).toBe('maˀ˧˥')
+  })
+
+  it('keeps downstep where it was written', () => {
+    // It lowers the register of everything after it, so which side of a
+    // tone letter it sits on is the difference between two readings.
+    expect(normalized('a↓˥')).toBe('a↓˥')
+    expect(normalized('a˥↓')).toBe('a˥↓')
+  })
+
+  it('keeps stacked tone accents in order', () => {
+    // Two combining accents on one vowel spell a contour the same way two
+    // Chao letters do. Neither is in the order table, so they used to sort
+    // against each other by codepoint.
+    expect(normalizeIpa('a\u{030b}\u{030f}')).toBe('a\u{030b}\u{030f}')
+    expect(normalizeIpa('a\u{030f}\u{030b}')).toBe('a\u{030f}\u{030b}')
+  })
+
+  it('still sorts tone against the other marks', () => {
+    // Equal ranks hold a tone run together. They do not stop the group
+    // from sorting after aspiration, which is what makes the output
+    // canonical at all.
+    expect(normalized('a˥ʰ')).toBe(normalized('aʰ˥'))
+  })
+})
+
 describe('idempotence', () => {
   it('normalizing twice changes nothing', () => {
     for (const one of [
@@ -135,6 +181,9 @@ describe('idempotence', () => {
       'b̤a',
       'ɡʱ',
       'ç̟',
+      'ma˨˩˦',
+      'tʰaːn˩˩˦',
+      'a↓˥',
     ]) {
       const once = normalizeIpa(one)
 

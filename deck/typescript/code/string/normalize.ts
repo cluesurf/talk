@@ -285,9 +285,66 @@ const MARK_ORDER = [
 
 const MARK_RANK = new Map(MARK_ORDER.map((mark, index) => [mark, index]))
 
+/**
+ * The tone marks, which all share ONE rank.
+ *
+ * A CONTOUR IS A SEQUENCE, NOT A SET. `˩˩˦` is a rise and `˦˩˩` is a fall,
+ * and the two are spelled with the same three letters in a different order.
+ * Ranking the five Chao letters individually meant every run of them was
+ * sorted into descending pitch, so every rising tone became a falling one
+ * and the original was not recoverable.
+ *
+ * MEASURED, in a corpus normalized by this function: 599,336 of
+ * Vietnamese's 599,339 tone-letter runs came out in descending order, and
+ * all 23,292 of Thai's. The three that escaped had a space in front of
+ * them, so no base preceded and the run was never sorted. Vietnamese `mả`
+ * is a dipping-rise and was stored `maː˦˨˩`; `mã` is a creaky rise and was
+ * stored `maˀː˥˦`. Neither language has a tone that only falls.
+ *
+ * DELETING THEM FROM `MARK_ORDER` DOES NOT FIX IT. `rankOf` would fall
+ * through to the codepoint, and U+02E5 through U+02E9 run high pitch to
+ * low, so the sort produces the same descending order by another route.
+ *
+ * An equal rank is the fix, because `Array.prototype.sort` is stable: a run
+ * of tone marks keeps the order it arrived in, while still sorting as a
+ * group against every other kind of mark.
+ *
+ * THE COMBINING TONE ACCENTS ARE HERE FOR THE SAME REASON. Acute, grave,
+ * circumflex, caron, macron and the doubled pair are how a great many
+ * sources write tone, two of them stacked make a contour, and none appears
+ * in `MARK_ORDER`, so they were being ordered by codepoint against each
+ * other. That is the same defect with a different alphabet.
+ */
+
+const TONE = new Set([
+  '˥',
+  '˦',
+  '˧',
+  '˨',
+  '˩',
+  '↓', // downstep, which lowers what follows and so is positional too
+  '\u{0300}', // grave, low
+  '\u{0301}', // acute, high
+  '\u{0302}', // circumflex, falling
+  '\u{0304}', // macron, mid
+  '\u{030b}', // double acute, extra high
+  '\u{030c}', // caron, rising
+  '\u{030f}', // double grave, extra low
+  '\u{0311}', // inverted breve, peaking
+])
+
+/**
+ * Where the tone group sorts: exactly where the Chao letters already did,
+ * which is last among the suprasegmentals.
+ */
+
+const TONE_RANK = MARK_RANK.get('˥')!
+
 const rankOf = (character: string): number =>
-  MARK_RANK.get(character) ??
-  MARK_ORDER.length + character.codePointAt(0)!
+  TONE.has(character)
+    ? TONE_RANK
+    : (MARK_RANK.get(character) ??
+      MARK_ORDER.length + character.codePointAt(0)!)
 
 /** Whether a character attaches to a preceding base rather than standing alone. */
 const isAffix = (character: string): boolean =>
