@@ -95,6 +95,25 @@ const escape = (one: string): string => one.replace(/\|/g, '\\|')
  */
 
 /**
+ * A spelling as a markdown code span.
+ *
+ * NOT `<code>`. Raw HTML renders on GitHub and is stripped by npm,
+ * crates.io and PyPI, which showed a bare `L</code>` in the table. Markdown
+ * has its own answer: a span may be opened with a longer run of backticks
+ * than the content holds, so a spelling CONTAINING a backtick, like the
+ * retroflex `` d` ``, is wrapped in two and padded with spaces.
+ *
+ * A pipe is escaped even inside the span, since the table cell is split
+ * before the span is read.
+ */
+
+const code = (one: string): string => {
+  const body = one.replace(/\|/g, '\\|')
+
+  return body.includes('`') ? `\`\` ${body} \`\`` : `\`${body}\``
+}
+
+/**
  * X-SAMPA is ASCII BY DEFINITION, so a spelling that is not ASCII is not
  * X-SAMPA. Eight of the chart symbols postdate the scheme and were never
  * given one: the labiodental flap, the retroflex and palatal lateral
@@ -107,18 +126,11 @@ const escape = (one: string): string => one.replace(/\|/g, '\\|')
 const sampa = (one: string): string =>
   /^[\x20-\x7e]+$/.test(one) ? code(one) : '—'
 
-const code = (one: string): string =>
-  `<code>${one
-    .replace(/&/g, '&amp;')
-    .replace(/</g, '&lt;')
-    .replace(/>/g, '&gt;')
-    .replace(/\|/g, '&#124;')}</code>`
-
 // ── consonants, in chart order ──────────────────────────────────────────
 
 const consonant: string[] = [
-  '| IPA | talk | X-SAMPA | name | place | manner | voice |',
-  '| --- | ---- | ------- | ---- | ----- | ------ | ----- |',
+  '| IPA | talk | X-SAMPA | place | manner | voice |',
+  '| --- | ---- | ------- | ----- | ------ | ----- |',
 ]
 
 for (const row of rows) {
@@ -129,7 +141,7 @@ for (const row of rows) {
   }
 
   consonant.push(
-    `| ${escape(row.symbol!)} | ${code(phone.talk)} | ${sampa(phone.xsampa)} | ${row.name} | ${row.place} | ${row.manner} | ${row.voice} |`,
+    `| ${escape(row.symbol!)} | ${code(phone.talk)} | ${sampa(phone.xsampa)} | ${row.place} | ${row.manner} | ${row.voice} |`,
   )
 }
 

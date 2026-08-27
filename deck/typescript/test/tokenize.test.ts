@@ -58,11 +58,11 @@ describe('clicks are single chunks', () => {
 
 describe('symbols, numerals, and space', () => {
   it('passes them through as their own chunks', () => {
-    expect(chunks('\\. 7')).toEqual(['\\.', ' ', '7'])
+    expect(chunks('. 7')).toEqual(['.', ' ', '7'])
   })
 
   it('marks them as symbol sounds', () => {
-    const [dot, space, seven] = segment('\\. 7')
+    const [dot, space, seven] = segment('. 7')
 
     expect(dot?.kind).toBe('symbol')
     expect(space?.kind).toBe('symbol')
@@ -245,9 +245,9 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
       'consonant',
       'vowel',
     ])
-    expect(segment('\\.')[0]?.kind).toBe('symbol')
+    expect(segment('.')[0]?.kind).toBe('symbol')
     expect(segment('3')[0]?.kind).toBe('symbol')
-    expect(shape('ma\\.3').map(s => s.kind)).toEqual([
+    expect(shape('ma.3').map(s => s.kind)).toEqual([
       'consonant',
       'vowel',
       'symbol',

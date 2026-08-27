@@ -5,7 +5,12 @@ import type { SymbolEntry } from './type'
 // character every other notation uses for the job.
 export function buildSymbols(): SymbolEntry[] {
   const symbols: SymbolEntry[] = [
-    { talk: '\\.', ipa: '.', simple: '.' },
+    // THE SYLLABLE BREAK, WRITTEN AS IPA WRITES IT. This was `\.`, escaped
+    // like the other punctuation, which made a break in talk look nothing
+    // like the `.` the source used. It needs no escape: `.` is a modifier
+    // spelling (unreleased) only INSIDE a bracketed run, so a bare one
+    // outside brackets can mean nothing else.
+    { talk: '.', ipa: '.', simple: '.' },
     { talk: '\\?', ipa: '?', simple: '?' },
     { talk: '\\!', ipa: '!', simple: '!' },
     { talk: '\\+', ipa: '+', simple: '+' },

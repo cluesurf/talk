@@ -1,0 +1,10 @@
+{
+  "name": "@cluesurf/talk-workspace",
+  "version": "4.0.0",
+  "private": true,
+  "description": "The talk repository. The published libraries live in deck/typescript, deck/python and deck/rust; this is only here so the repo-level tasks have a home.",
+  "scripts": {
+    "host": "./task/host.sh",
+    "molt": "./task/molt.sh"
+  }
+}

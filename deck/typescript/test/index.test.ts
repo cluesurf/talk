@@ -127,6 +127,6 @@ describe('api', () => {
   })
 
   it('carries symbols and numerals through', () => {
-    expect(readable('\\. 7')).toBe('. 7')
+    expect(readable('. 7')).toBe('. 7')
   })
 })

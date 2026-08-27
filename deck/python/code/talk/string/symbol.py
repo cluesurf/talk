@@ -8,7 +8,12 @@ def build_symbols() -> list[SymbolEntry]:
     literal symbol be written in talk (``\\.`` is a period), the same escape
     character every other notation uses for the job."""
     symbols = [
-        SymbolEntry("\\.", ".", "."),
+        # THE SYLLABLE BREAK, WRITTEN AS IPA WRITES IT. This was ``\\.``,
+        # escaped like the other punctuation, which made a break in talk
+        # look nothing like the ``.`` the source used. It needs no escape:
+        # ``.`` is a modifier spelling (unreleased) only INSIDE a bracketed
+        # run, so a bare one outside brackets can mean nothing else.
+        SymbolEntry(".", ".", "."),
         SymbolEntry("\\?", "?", "?"),
         SymbolEntry("\\!", "!", "!"),
         SymbolEntry("\\+", "+", "+"),

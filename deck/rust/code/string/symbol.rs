@@ -9,8 +9,13 @@ pub fn symbols() -> &'static [SymbolEntry] {
   static CELL: OnceLock<Vec<SymbolEntry>> = OnceLock::new();
 
   CELL.get_or_init(|| {
+    // THE SYLLABLE BREAK, WRITTEN AS IPA WRITES IT. `.` was escaped like the
+    // other punctuation, which made a break in talk look nothing like the
+    // `.` the source used. It needs no escape: `.` is a modifier spelling
+    // (unreleased) only INSIDE a bracketed run, so a bare one outside
+    // brackets can mean nothing else.
     let mut symbols: Vec<SymbolEntry> = [
-      "\\.", "\\?", "\\!", "\\+", "\\-", "\\*", "\\@", "\\$", "\\~", "\\_", "\\^",
+      ".", "\\?", "\\!", "\\+", "\\-", "\\*", "\\@", "\\$", "\\~", "\\_", "\\^",
       "\\\\", " ",
     ]
       .into_iter()

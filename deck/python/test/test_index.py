@@ -98,7 +98,7 @@ def test_tokenizes_into_sounds_with_features():
 
 
 def test_carries_symbols_and_numerals_through():
-    assert readable("\\. 7") == ". 7"
+    assert readable(". 7") == ". 7"
 
 
 def test_keeps_tone_runs_in_source_order():

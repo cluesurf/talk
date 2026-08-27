@@ -76,8 +76,8 @@ def test_does_not_split_a_click_off_its_base_letter():
 
 
 def test_passes_symbols_numerals_and_space_through():
-    assert chunks("\\. 7") == ["\\.", " ", "7"]
-    dot, space, seven = segment("\\. 7")
+    assert chunks(". 7") == [".", " ", "7"]
+    dot, space, seven = segment(". 7")
     assert dot.kind == "symbol"
     assert space.kind == "symbol"
     assert seven.kind == "symbol"
@@ -235,9 +235,9 @@ def test_parses_sequences_spaces_symbols_and_numerals():
         "consonant",
         "vowel",
     ]
-    assert segment("\\.")[0].kind == "symbol"
+    assert segment(".")[0].kind == "symbol"
     assert segment("3")[0].kind == "symbol"
-    assert [s.kind for s in segment("ma\\.3")] == [
+    assert [s.kind for s in segment("ma.3")] == [
         "consonant",
         "vowel",
         "symbol",
