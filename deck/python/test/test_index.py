@@ -85,14 +85,14 @@ def test_canonicalizes_modifier_order():
 
 
 def test_default_namespace_exposes_the_conversions():
-    assert talk.ipa_to_talk("tʰ") == "th~"
-    assert talk.talk_to_ipa("th~") == "tʰ"
-    assert talk.readable("th~") == "tʰ"
-    assert len(talk.machine(text="th~", type="tone", system="mesh")) == 1
+    assert talk.ipa_to_talk("tʰ") == "t<h>"
+    assert talk.talk_to_ipa("t<h>") == "tʰ"
+    assert talk.readable("t<h>") == "tʰ"
+    assert len(talk.machine(text="t<h>", type="tone", system="mesh")) == 1
 
 
 def test_tokenizes_into_sounds_with_features():
-    first = segment("th~a")[0]
+    first = segment("t<h>a")[0]
     assert first.base.talk == "t"
     assert [m.feature for m in first.modifiers] == ["aspirated"]
 

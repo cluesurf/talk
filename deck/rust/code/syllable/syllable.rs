@@ -79,6 +79,16 @@ impl Tone {
 /// One parsed mark: a base sound plus the features stacked onto it.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct Segment {
+  /// The exact talk this segment was read from.
+  ///
+  /// WHY IT IS CARRIED RATHER THAN REBUILT. `serialize` used to spell a
+  /// segment back out of its feature flags, which meant a cluster text was a
+  /// RECONSTRUCTION and not the input. Any modifier the flag table did not
+  /// name simply vanished, and the flags themselves still spelled in the old
+  /// bare-sigil notation, so `k<wh>` came back as `k`. Carrying the text
+  /// makes the split lossless by construction: the clusters run together are
+  /// always the word they came from.
+  pub talk: Option<String>,
   pub kind: Option<SegmentKind>,
   pub value: Option<String>,
   pub tone: Option<Tone>,
@@ -510,10 +520,23 @@ fn build_cluster_trie(list: &[String], vowel: bool) -> Trie<Vec<ClusterCount>> {
     } else {
       cluster.replace(':', "")
     };
+    // COUNTED IN SOUNDS, NOT CHARACTERS. `count` says how many chunks the
+    // cluster consumes, and a chunk is a sound. This was the character
+    // length, which held only while every sound was one letter. It is not:
+    // `$'` is the pharyngeal fricative written two characters, and counting
+    // it as two made the grouper ask for two chunks where the word had one,
+    // so no candidate ever matched and `aiyu$'aK` failed outright.
+    //
+    // `$`, `~` and `!` are variant markers on the letter that follows or
+    // precedes them, never sounds of their own, so they come out first.
     let count = if vowel {
       cluster.replace('$', "").chars().count()
     } else {
-      cluster.replace(':', "").chars().count()
+      cluster
+        .replace(':', "")
+        .replace(['$', '~', '!'], "")
+        .chars()
+        .count()
     };
 
     by_key
@@ -736,31 +759,127 @@ impl fmt::Display for Error {
 impl std::error::Error for Error {}
 
 /// Step 1: parse a string into marks (basic tokens).
+///
+/// TOKENIZED BY THE READER, NOT BY A TABLE OF SPELLINGS. This walked a trie
+/// of every mark spelling, which held while a mark was a bare sigil and broke
+/// the moment they moved inside brackets: `<` and `>` are in no entry, so a
+/// modified sound could not be matched at all. `segment` already knows how to
+/// read one, so the marks come from it and the table is gone.
 pub fn read_segments(text: &str) -> Result<Vec<Segment>, Error> {
-  let table = segment_table();
   let mut chunks: Vec<Segment> = Vec::new();
-  let mut i = 0;
 
-  while i < text.len() {
-    let Some((value, length)) = table.match_at(text, i) else {
-      return Err(Error::InvalidCharacters {
-        input: text.to_string(),
-        rest: text[i..].to_string(),
+  for sound in crate::string::sound::segment(text) {
+    let Some(base) = sound.base else {
+      // STRESS BELONGS TO THE SOUND BEFORE IT. `^` is a mark, not a sound,
+      // and the reader hands it back on its own because it has no base.
+      // Filed as punctuation it would break the nucleus in two and drop the
+      // mark from the cluster text, so it is folded onto the segment it
+      // modifies instead.
+      if sound.talk == "^" {
+        if let Some(last) = chunks.last_mut() {
+          if last.kind != Some(SegmentKind::Punctuation) {
+            last.emphasis = true;
+            last.talk = Some(format!(
+              "{}{}",
+              last.talk.clone().unwrap_or_default(),
+              sound.talk
+            ));
+            continue;
+          }
+        }
+      }
+
+      // A passthrough: punctuation, a space, a digit. Carried with its own
+      // text so nothing is dropped, and typed so the grouper skips it.
+      chunks.push(Segment {
+        talk: Some(sound.talk.clone()),
+        kind: Some(SegmentKind::Punctuation),
+        value: Some(sound.talk),
+        ..Segment::default()
       });
+
+      continue;
     };
 
-    if value.kind.is_some() {
-      chunks.push(value.clone());
-    } else if let Some(last) = chunks.last_mut() {
-      // A mark-only segment merges into the sound before it. With no
-      // sound before it there is nothing to merge onto, so it is dropped.
-      last.merge(value);
+    // A DERIVED PHONE CARRIES ITS MARKS IN ITS OWN SPELLING. `m̥` is one
+    // entry in the phone table spelled `m<v->`, so the reader hands it back
+    // as a base rather than as `m` plus voiceless. The grouper reasons about
+    // a LETTER and a set of flags, so the bracket is opened here and its
+    // marks join the ones the sound already carries.
+    let letter = match base.talk.find('<') {
+      Some(at) => base.talk[..at].to_string(),
+      None => base.talk.clone(),
+    };
+
+    let inside = match base.talk.find('<') {
+      Some(at) => base.talk[at + 1..base.talk.len() - 1].to_string(),
+      None => String::new(),
+    };
+
+    let mut seg = Segment {
+      talk: Some(sound.talk.clone()),
+      kind: Some(match base.form {
+        Form::Vowel => SegmentKind::Vowel,
+        _ => SegmentKind::Consonant,
+      }),
+      value: Some(letter),
+      ..Segment::default()
+    };
+
+    for one in sound.pre.iter().chain(sound.modifiers.iter()) {
+      set_flag(&mut seg, &one.feature);
     }
 
-    i += length;
+    // LONGEST FIRST, AND CONSUMED. `v-` is voiceless and `v` is voiced, so
+    // scanning short-first matches `v` inside `v-` and sets the opposite
+    // feature. Each match is removed from the body so one mark cannot be
+    // read twice, which is what put a stray `stress` on `m<v->`.
+    let mut rest = inside.clone();
+    let state = crate::string::runtime::runtime();
+    let mut known: Vec<&crate::string::types::Modifier> = state
+      .consonant_modifiers
+      .iter()
+      .chain(state.vowel_modifiers.iter())
+      .copied()
+      .collect();
+
+    known.sort_by_key(|one| std::cmp::Reverse(one.talk.len()));
+
+    for one in known {
+      if one.talk.is_empty() {
+        continue;
+      }
+
+      if let Some(at) = rest.find(one.talk.as_str()) {
+        set_flag(&mut seg, &one.feature);
+        rest.replace_range(at..at + one.talk.len(), "");
+      }
+    }
+
+    chunks.push(seg);
   }
 
   Ok(chunks)
+}
+
+/// Turn a feature name into the flag the grouper reads.
+///
+/// EXACTLY THE EIGHT THE TYPESCRIPT BUILD MAPS. Adding more looks harmless
+/// and is not: `stress` set `emphasis` here, which the reference build only
+/// ever sets from a folded `^`, so every voiceless nasal came back carrying a
+/// stress it was never written with.
+fn set_flag(seg: &mut Segment, feature: &str) {
+  match feature {
+    "aspirated" => seg.aspiration = true,
+    "ejective" => seg.ejection = true,
+    "dental" => seg.dentalization = true,
+    "labialized" => seg.labialization = true,
+    "palatalized" => seg.palatalization = true,
+    "pharyngealized" => seg.pharyngealization = true,
+    "velarized" => seg.velarization = true,
+    "voiceless" => seg.voicelessness = true,
+    _ => {}
+  }
 }
 
 #[derive(Debug, Clone)]
@@ -1117,6 +1236,13 @@ fn lean_colon_spans_onto_vowels(list: &mut [Vec<Span>]) {
 
 /// Spell a mark back out in talk.
 pub fn serialize(mark: &Segment) -> String {
+  // The text it was read from, when there is one. The flag-based spelling
+  // below is the fallback for a segment built by hand rather than by the
+  // tokenizer, and it still writes the old bare-sigil suffixes.
+  if let Some(talk) = &mark.talk {
+    return talk.clone();
+  }
+
   let mut text = String::new();
 
   text.push_str(mark.text());

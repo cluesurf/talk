@@ -21,14 +21,17 @@ def build_symbols() -> list[SymbolEntry]:
         SymbolEntry("\\^", "^", "^"),
         SymbolEntry("\\\\", "\\", "\\"),
         SymbolEntry(" ", " ", " "),
-        # THE TIE AND THE LINK, which ``normalize_ipa`` used to delete.
+        # THE LINK, which ``normalize_ipa`` used to delete. U+203F says two
+        # words were spoken as one, which the writer chose to state, so it
+        # survives the normalizer and needs a talk spelling to come back
+        # through.
         #
-        # ``t͡ʃ`` is one affricate where ``tʃ`` may be a stop meeting a
-        # fricative across a boundary, and U+203F says two words were spoken
-        # as one. Both state something the writer chose to state, so both
-        # survive the normalizer now and both need a talk spelling to come
-        # back through.
-        SymbolEntry("\\=", "\u0361", "\u0361"),
+        # THE TIE IS NOT HERE. U+0361 says the letters either side of it are
+        # ONE segment, which is a claim about them rather than a character
+        # standing between them. Carried as a symbol it round-tripped but
+        # could not say how far the binding reached, so it is folded into the
+        # ``<B>`` binder by ``_bind_ties`` instead. Leaving an entry here
+        # would match it first and that fold would never run.
         SymbolEntry("\\&", "\u203f", "\u203f"),
     ]
 

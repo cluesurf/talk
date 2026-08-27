@@ -192,7 +192,24 @@ fn tone_model() -> Model {
 
   marks.sort();
   marks.dedup();
-  units.extend(marks);
+
+  // A UNIT IS A SPELLING, so the roster holds each one once.
+  //
+  // The bases and the modifiers are spelled from the same small alphabet and
+  // overlap in ten places: `y` is the palatal approximant and also the
+  // palatalization mark, `h` the glottal fricative and also aspiration.
+  // Extending one list with the other gave each of those two codes, and the
+  // seed tier codes a spelling rather than a role, so the second one was
+  // unreachable: `encode_unit` finds the first and ten codes in the space
+  // decoded to something that encoded elsewhere.
+  //
+  // `ipa_model` already collects its atoms into a set for this reason. The
+  // dedup above is within the marks alone and does not catch the overlap.
+  for mark in marks {
+    if !units.contains(&mark) {
+      units.push(mark);
+    }
+  }
 
   Model { bases, axes, units }
 }

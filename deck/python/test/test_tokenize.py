@@ -23,19 +23,19 @@ def shape(talk_text):
 
 
 def test_an_aspirated_consonant_is_one_chunk():
-    assert chunks("th~a") == ["th~", "a"]
+    assert chunks("t<h>a") == ["t<h>", "a"]
 
 
 def test_a_labialized_consonant_is_one_chunk():
-    assert chunks("kw~a") == ["kw~", "a"]
+    assert chunks("k<w>a") == ["k<w>", "a"]
 
 
 def test_a_pharyngealized_consonant_is_one_chunk():
-    assert chunks("sQ~a") == ["sQ~", "a"]
+    assert chunks("s<q>a") == ["s<q>", "a"]
 
 
 def test_a_voiceless_marked_sonorant_is_one_chunk():
-    assert chunks("mh!im") == ["mh!", "i", "m"]
+    assert chunks("m<v->im") == ["m<v->", "i", "m"]
 
 
 def test_an_ejective_is_one_chunk():
@@ -43,25 +43,33 @@ def test_an_ejective_is_one_chunk():
 
 
 def test_stacked_consonant_modifiers_stay_in_one_chunk():
-    assert chunks("txy~h~im") == ["t", "xy~h~", "i", "m"]
+    assert chunks("tx<yh>im") == ["t", "x<yh>", "i", "m"]
 
 
 def test_a_vowel_keeps_its_stress_mark():
-    assert chunks("txando^") == ["t", "x", "a", "n", "d", "o^"]
+    assert chunks("txando<^>") == ["t", "x", "a", "n", "d", "o<^>"]
 
 
 def test_a_vowel_keeps_tone_length_and_nasal_marks_in_one_chunk():
-    assert chunks("a~+_") == ["a~+_"]
-    assert chunks("txya@+a-a++u") == ["t", "x", "y", "a@+", "a-", "a++", "u"]
+    assert chunks("a<np4_>") == ["a<np4_>"]
+    assert chunks("txya<s-p4>a<p2>a<p5>u") == [
+        "t",
+        "x",
+        "y",
+        "a<s-p4>",
+        "a<p2>",
+        "a<p5>",
+        "u",
+    ]
 
 
 # ─── clicks are single chunks ───────────────────────────────────────────
 
 
 def test_does_not_split_a_click_off_its_base_letter():
-    assert chunks("p*at*") == ["p*", "a", "t*"]
-    assert chunks("k*") == ["k*"]
-    assert chunks("c*a") == ["c*", "a"]
+    assert chunks("p!at!") == ["p!", "a", "t!"]
+    assert chunks("k!") == ["k!"]
+    assert chunks("l!a") == ["l!", "a"]
 
 
 # ─── symbols, numerals, and space ───────────────────────────────────────
@@ -81,11 +89,11 @@ def test_passes_symbols_numerals_and_space_through():
 @pytest.mark.parametrize(
     "word,expected",
     [
-        ("siqk", ["s", "i", "q", "k"]),
-        ("aiyuQaK", ["a", "i", "y", "u", "Q", "a", "K"]),
-        ("HEth~Ah", ["H", "E", "th~", "A", "h"]),
-        ("s'oQya~te", ["s", "'", "o", "Q", "y", "a~", "t", "e"]),
-        ("batO_'aH", ["b", "a", "t", "O_", "'", "a", "H"]),
+        ("si$nk", ["s", "i", "$n", "k"]),
+        ("aiyu$'aK", ["a", "i", "y", "u", "$'", "a", "K"]),
+        ("HEt<h>Ah", ["H", "E", "t<h>", "A", "h"]),
+        ("s'o$'y~ate", ["s", "'", "o", "$'", "y", "~a", "t", "e"]),
+        ("batO<_>'aH", ["b", "a", "t", "O<_>", "'", "a", "H"]),
     ],
 )
 def test_real_words(word, expected):
@@ -96,14 +104,14 @@ def test_real_words(word, expected):
 
 
 def test_exposes_the_base_and_modifier_features():
-    sound = segment("th~a")[0]
+    sound = segment("t<h>a")[0]
     assert sound.base.talk == "t"
     assert sound.kind == "consonant"
     assert [m.feature for m in sound.modifiers] == ["aspirated"]
 
 
 def test_exposes_vowel_modifier_features():
-    sound = segment("a~+_")[0]
+    sound = segment("a<np4_>")[0]
     assert sound.kind == "vowel"
     assert sound.base.talk == "a"
     assert {m.feature for m in sound.modifiers} == {
@@ -114,7 +122,7 @@ def test_exposes_vowel_modifier_features():
 
 
 def test_every_non_raw_chunk_equals_base_plus_modifiers():
-    for sound in segment("txya@+a-a++u th~a p*a"):
+    for sound in segment("txya<s-p4>a<p2>a<p5>u t<h>a p!a"):
         if not sound.raw and sound.base:
             assert sound.talk == combine(sound.base.talk, sound.modifiers)
 
@@ -123,7 +131,7 @@ def test_every_non_raw_chunk_equals_base_plus_modifiers():
 
 
 def test_tokenizing_is_idempotent_on_canonical_talk():
-    for word in ["th~a", "kw~asQ~o", "a~+_", "p*at*", "mh!im"]:
+    for word in ["t<h>a", "k<w>as<q>o", "a<np4_>", "p!at!", "m<v->im"]:
         assert "".join(chunks(word)) == word
 
 
@@ -134,7 +142,7 @@ def test_ipa_to_talk_output_tokenizes_back_to_the_same_chunks():
 
 
 def test_tokenize_is_an_alias_for_segment():
-    assert tokenize("th~a") == segment("th~a")
+    assert tokenize("t<h>a") == segment("t<h>a")
 
 
 # ─── detailed sound parsing (ported from the v1 tokenizer suite) ─────────
@@ -153,15 +161,15 @@ def test_parses_a_bare_consonant_vowel_and_glottal_stop():
 
 
 def test_decomposes_a_consonant_secondary_articulation():
-    assert shape("th~") == [
-        {"talk": "th~", "kind": "consonant", "base": "t", "features": ["aspirated"]}
+    assert shape("t<h>") == [
+        {"talk": "t<h>", "kind": "consonant", "base": "t", "features": ["aspirated"]}
     ]
-    assert shape("kw~") == [
-        {"talk": "kw~", "kind": "consonant", "base": "k", "features": ["labialized"]}
+    assert shape("k<w>") == [
+        {"talk": "k<w>", "kind": "consonant", "base": "k", "features": ["labialized"]}
     ]
-    assert shape("dQ~") == [
+    assert shape("d<q>") == [
         {
-            "talk": "dQ~",
+            "talk": "d<q>",
             "kind": "consonant",
             "base": "d",
             "features": ["pharyngealized"],
@@ -175,7 +183,7 @@ def test_reads_a_chart_phone_back_as_one_sound_with_the_same_spelling():
     # compositionally (`t!` is `t` plus the ejective affix), and those are
     # read as base plus modifier so the affix stays visible to a longer
     # string. Either way it is one sound and it spells the same.
-    for talk_text in ["t!", "ny~", "lQ~", "k*", "b?", "i$", "D"]:
+    for talk_text in ["t!", "n<y>", "l<q>", "k!", "b<@>", "~I", "D"]:
         sounds = segment(talk_text)
         assert len(sounds) == 1
         assert sounds[0].talk == talk_text
@@ -183,29 +191,32 @@ def test_reads_a_chart_phone_back_as_one_sound_with_the_same_spelling():
 
 
 def test_parses_vowel_suprasegmentals_as_base_plus_feature():
-    assert shape("a^") == [
-        {"talk": "a^", "kind": "vowel", "base": "a", "features": ["stress"]}
+    assert shape("a<^>") == [
+        {"talk": "a<^>", "kind": "vowel", "base": "a", "features": ["stress"]}
     ]
-    assert shape("a_") == [
-        {"talk": "a_", "kind": "vowel", "base": "a", "features": ["long"]}
+    assert shape("a<_>") == [
+        {"talk": "a<_>", "kind": "vowel", "base": "a", "features": ["long"]}
     ]
-    assert shape("a~") == [
-        {"talk": "a~", "kind": "vowel", "base": "a", "features": ["nasalized"]}
+    assert shape("a<n>") == [
+        {"talk": "a<n>", "kind": "vowel", "base": "a", "features": ["nasalized"]}
     ]
-    assert shape("i@") == [
-        {"talk": "i@", "kind": "vowel", "base": "i", "features": ["non-syllabic"]}
+    assert shape("~a") == [
+        {"talk": "~a", "kind": "vowel", "base": "~a", "features": []}
+    ]
+    assert shape("i<s->") == [
+        {"talk": "i<s->", "kind": "vowel", "base": "i", "features": ["non-syllabic"]}
     ]
 
 
 def test_parses_the_four_register_tones():
-    assert segment("a+")[0].modifiers[0].feature == "high-tone"
-    assert segment("a++")[0].modifiers[0].feature == "extra-high-tone"
-    assert segment("a-")[0].modifiers[0].feature == "low-tone"
-    assert segment("a--")[0].modifiers[0].feature == "extra-low-tone"
+    assert segment("a<t4>")[0].modifiers[0].feature == "high-tone"
+    assert segment("a<p5>")[0].modifiers[0].feature == "extra-high-tone"
+    assert segment("a<t2>")[0].modifiers[0].feature == "low-tone"
+    assert segment("a<t1>")[0].modifiers[0].feature == "extra-low-tone"
 
 
 def test_stacks_multiple_vowel_features_in_one_chunk():
-    sound = segment("a~^_+")[0]
+    sound = segment("a<n^_t4>")[0]
     assert sound.base.talk == "a"
     assert {m.feature for m in sound.modifiers} == {
         "nasalized",

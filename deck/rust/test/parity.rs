@@ -18,12 +18,22 @@ use talk::{Notation, Tier,
 
 #[derive(Deserialize)]
 struct Fixture {
+  /// The sample step the fixture was written with. The committed file is a
+  /// spread across the inventory rather than all of it, because the full set
+  /// is 161 MB, so the same rows are taken from this build's own enumeration
+  /// before comparing.
+  #[serde(default = "one")]
+  stride: usize,
   segment: Vec<SegmentCase>,
   convert: Vec<ConvertCase>,
   #[serde(rename = "ipaToTalk")]
   ipa_to_talk: Vec<IpaCase>,
   enumerate: Vec<SoundInfoShape>,
   syllables: Vec<SyllableCase>,
+}
+
+fn one() -> usize {
+  1
 }
 
 #[derive(Deserialize)]
@@ -205,10 +215,28 @@ fn only_astral_passthrough_is_marked_as_diverging() {
     + fixture.ipa_to_talk.iter().filter(|case| case.lossy).count()
     + fixture.syllables.iter().filter(|case| case.lossy).count();
 
-  assert_eq!(
-    lossy, 3,
-    "only the single astral talk input is expected to diverge, across the \
-         three talk-side call groups"
+  // WHY NOT A COUNT. This asserted the number 3, which was how many astral
+  // inputs the inventory held on the day it was written. The inventory has
+  // since grown and the number means nothing on its own.
+  //
+  // What the test is named for is the INVARIANT: a divergence is only ever
+  // allowed for a character outside the basic plane, which the reference
+  // build reads as two surrogate halves and this one reads whole. Anything
+  // else marked lossy is a real disagreement hiding behind the flag.
+  assert!(lossy > 0, "the astral cases should still be marked");
+
+  let stray: Vec<&str> = fixture
+    .ipa_to_talk
+    .iter()
+    .filter(|case| case.lossy)
+    .map(|case| case.input.as_str())
+    .filter(|input| input.chars().all(|one| (one as u32) <= 0xffff))
+    .take(5)
+    .collect();
+
+  assert!(
+    stray.is_empty(),
+    "only astral inputs may diverge, found {stray:?}"
   );
 }
 
@@ -228,9 +256,16 @@ fn astral_passthrough_returns_one_whole_character() {
   assert_eq!(readable(astral), astral);
   assert_eq!(machine(astral, Notation::Tone, Tier::Mesh), vec![talk::NO_CODE]);
 
+  // CARRIED, NOT REJECTED. This asserted an error, from when the syllable
+  // reader walked a table of spellings and had no entry for the character.
+  // It tokenizes through `segment` now, which passes an unknown character
+  // through raw, so the answer is an empty syllabification rather than a
+  // failure. The reference build does the same.
+  let split = syllables(astral).expect("an unknown character is carried");
+
   assert!(
-    syllables(astral).is_err(),
-    "no segment spelling covers it, so syllabification rejects it"
+    split.syllables.is_empty(),
+    "it holds no sounds, so it makes no syllables"
   );
 }
 
@@ -299,8 +334,10 @@ fn ipa_to_talk_matches_the_typescript_build() {
 
 #[test]
 fn the_sound_inventory_matches_the_typescript_build() {
+  let fixture = fixture();
   let got: Vec<SoundInfoShape> = enumerate_sounds()
     .into_iter()
+    .step_by(fixture.stride)
     .map(|sound| SoundInfoShape {
       talk: sound.talk,
       ipa: sound.ipa,
@@ -309,7 +346,7 @@ fn the_sound_inventory_matches_the_typescript_build() {
     })
     .collect();
 
-  assert_eq!(got, fixture().enumerate);
+  assert_eq!(got, fixture.enumerate);
 }
 
 #[test]

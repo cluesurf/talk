@@ -97,3 +97,25 @@ __all__ = [
     "SymbolEntry",
     "Unit",
 ]
+
+from .syllable import (  # noqa: E402
+    Cluster,
+    ClusterKey,
+    Syllable,
+    cluster,
+    group_clusters_into_syllables,
+    group_segments_into_clusters,
+    read_segments,
+    syllables,
+)
+
+__all__ += [
+    "Cluster",
+    "ClusterKey",
+    "Syllable",
+    "cluster",
+    "group_clusters_into_syllables",
+    "group_segments_into_clusters",
+    "read_segments",
+    "syllables",
+]

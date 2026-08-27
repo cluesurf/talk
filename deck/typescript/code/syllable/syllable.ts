@@ -1175,7 +1175,11 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
         while (i < clusters.length) {
           const next = clusters[i]
 
-          // Skip punctuation (spaces, etc)
+          // A WORD BREAK IS NOT A SYLLABLE BREAK. Spoken French runs a coda
+          // onto the next word: `ʃu də bʁy.sɛl` is `xu.dUb.$G$i.sEl`, with
+          // the `b` of Bruxelles closing the syllable that starts in `de`.
+          // That is enchaînement, and it is the right answer, so punctuation
+          // is stepped over here rather than ending the gather.
           if (next.form === ClusterKey.PUNCTUATION) {
             i++
             continue
@@ -1249,7 +1253,11 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
         ) {
           const next = clusters[i]
 
-          // Skip punctuation (spaces, etc)
+          // A WORD BREAK IS NOT A SYLLABLE BREAK. Spoken French runs a coda
+          // onto the next word: `ʃu də bʁy.sɛl` is `xu.dUb.$G$i.sEl`, with
+          // the `b` of Bruxelles closing the syllable that starts in `de`.
+          // That is enchaînement, and it is the right answer, so punctuation
+          // is stepped over here rather than ending the gather.
           if (next.form === ClusterKey.PUNCTUATION) {
             i++
             continue
@@ -1466,7 +1474,7 @@ export function groupClustersIntoSyllables(clusters: Cluster[]) {
           while (i < clusters.length) {
             const next = clusters[i]
 
-            // Skip punctuation (spaces, etc)
+            // Stepped over, not a break: see the note above on enchaînement.
             if (next.form === ClusterKey.PUNCTUATION) {
               i++
               continue

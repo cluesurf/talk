@@ -61,18 +61,20 @@ the cases where you need the last 5%.
 ## Libraries
 
 Implementations of Talk, one per language. Each converts between IPA,
-tone, and the machine (token) encoding, and each carries the tiered codec.
-The TypeScript and Rust libraries also split words into syllables.
+tone, and the machine (token) encoding, carries the tiered codec, and
+splits words into syllables.
 
-All three are verified against the same fixture: they agree on the talk
-spelling, machine codes and normalization of every one of Phoible's 3,422
-phonemes.
+All three are verified against ONE fixture, `deck/rust/test/fixture/parity.json`,
+which is the TypeScript build's own output over every enumerated sound. The
+ports read it directly, so agreement is checked against a shared answer
+rather than against hand-written cases each port could get wrong in the
+same way.
 
 | Language   | Library                             | Syllables | Tiers | Status |
 | :--------- | :---------------------------------- | :-------- | :---- | :----- |
 | TypeScript | [`@cluesurf/talk`](deck/typescript) | ✅        | ✅    | ✅     |
 | Rust       | [`cluesurf-talk`](deck/rust)        | ✅        | ✅    | ✅     |
-| Python     | [`cluesurf-talk`](deck/python)      |           | ✅    | ✅     |
+| Python     | [`cluesurf-talk`](deck/python)      | ✅        | ✅    | ✅     |
 
 ## Examples
 
@@ -81,13 +83,7 @@ one integer per sound, base plus all its modifiers, so a whole word
 becomes a compact array with one entry per sound rather than per
 character.
 
-| tone | machine |
-| :--- | :--- |
-| txando^ | 20504 24544 7592 14904 9032 16324 |
-| siqk | 19864 11800 16920 12376 |
-| mh!im | 14592 11800 14584 |
-| t!arEba | 20534 7592 17304 1120 7976 7592 |
-| s\'oQya\~te | 19864 0 16312 4000 24800 7616 20504 10664 |
+<!-- EXAMPLES -->
 
 ## Encoding
 
@@ -111,285 +107,235 @@ spelling.
 
 ### Consonants
 
-| ipa | talk | place | manner | voicing |
-| --- | --- | --- | --- | --- |
-| ɹ | `$r` | alveolar | approximant | voiced |
-| ǃ | `k!` | alveolar | click | voiceless |
-| l | `l` | alveolar | lateral-approximant | voiced |
-| ɫ | `l<q>` | alveolar | lateral-approximant | voiced |
-| l̥ | `l<v->` | alveolar | lateral-approximant | voiceless |
-| ǁ | `l!` | alveolar | lateral-click | voiceless |
-| ɮ | `Z` | alveolar | lateral-fricative | voiced |
-| ɬ | `S` | alveolar | lateral-fricative | voiceless |
-| ɬʼ | `S<!>` | alveolar | lateral-fricative | voiceless |
-| ɺ | `$r<r>` | alveolar | lateral-tap-flap | voiced |
-| ɺ̥ | `$r<rv->` | alveolar | lateral-tap-flap | voiceless |
-| n | `n` | alveolar | nasal | voiced |
-| n̥ | `n<v->` | alveolar | nasal | voiceless |
-| ð̠ | `$d<P->` | alveolar | non-sibilant-fricative | voiced |
-| θ̠ | `$t<P->` | alveolar | non-sibilant-fricative | voiceless |
-| d | `d` | alveolar | plosive | voiced |
-| ɗ | `d<@>` | alveolar | plosive | voiced |
-| t | `t` | alveolar | plosive | voiceless |
-| ɗ̥ | `d<@v->` | alveolar | plosive | voiceless |
-| tʼ | `t<!>` | alveolar | plosive | voiceless |
-| z | `z` | alveolar | sibilant-fricative | voiced |
-| s | `s` | alveolar | sibilant-fricative | voiceless |
-| sʼ | `s<!>` | alveolar | sibilant-fricative | voiceless |
-| ɾ | `r<f>` | alveolar | tap-flap | voiced |
-| ɾ̥ | `r<fv->` | alveolar | tap-flap | voiceless |
-| r | `r` | alveolar | trill | voiced |
-| r̥ | `r<v->` | alveolar | trill | voiceless |
-| β̞ | `$v<P_>` | bilabial | approximant | voiced |
-| ʘ | `p!` | bilabial | click | voiceless |
-| m | `m` | bilabial | nasal | voiced |
-| m̥ | `m<v->` | bilabial | nasal | voiceless |
-| β | `$v` | bilabial | non-sibilant-fricative | voiced |
-| ɸ | `F` | bilabial | non-sibilant-fricative | voiceless |
-| ɸʼ | `F<!>` | bilabial | non-sibilant-fricative | voiceless |
-| b | `b` | bilabial | plosive | voiced |
-| ɓ | `b<@>` | bilabial | plosive | voiced |
-| p | `p` | bilabial | plosive | voiceless |
-| ɓ̥ | `b<@v->` | bilabial | plosive | voiceless |
-| pʼ | `p<!>` | bilabial | plosive | voiceless |
-| ⱱ̟ | `v<fP+>` | bilabial | tap-flap | voiced |
-| ʙ | `b<r>` | bilabial | trill | voiced |
-| ʙ̥ | `b<rv->` | bilabial | trill | voiceless |
-| ð̞ | `$d<P_>` | dental | approximant | voiced |
-| ǀ | `t!` | dental | click | voiceless |
-| l̪ | `l<d>` | dental | lateral-approximant | voiced |
-| ɬ̪ | `S<d>` | dental | lateral-fricative | voiceless |
-| n̪ | `n<d>` | dental | nasal | voiced |
-| n̪̥ | `n<dv->` | dental | nasal | voiceless |
-| ð | `$d` | dental | non-sibilant-fricative | voiced |
-| θ | `$t` | dental | non-sibilant-fricative | voiceless |
-| θʼ | `$t<!>` | dental | non-sibilant-fricative | voiceless |
-| d̪ | `d<d>` | dental | plosive | voiced |
-| t̪ | `t<d>` | dental | plosive | voiceless |
-| z̪ | `z<d>` | dental | sibilant-fricative | voiced |
-| s̪ | `s<d>` | dental | sibilant-fricative | voiceless |
-| ˷ | `h<k>` | glottal | approximant | voiced |
-| ɦ | `h<v>` | glottal | non-sibilant-fricative | voiced |
-| h | `h` | glottal | non-sibilant-fricative | voiceless |
-| ʔ | `'` | glottal | plosive | voiced |
-| ɥ | `y<w>` | labial-palatal | fricative-approximant | voiced |
-| w | `w` | labial-velar | fricative-approximant | voiced |
-| ʍ | `w<v->` | labial-velar | fricative-approximant | voiceless |
-| ʋ | `V` | labiodental | approximant | voiced |
-| ɱ | `$m` | labiodental | nasal | voiced |
-| ɱ̥ | `$m<v->` | labiodental | nasal | voiceless |
-| v | `v` | labiodental | non-sibilant-fricative | voiced |
-| f | `f` | labiodental | non-sibilant-fricative | voiceless |
-| fʼ | `f<!>` | labiodental | non-sibilant-fricative | voiceless |
-| b̪ | `b<d>` | labiodental | plosive | voiced |
-| p̪ | `p<d>` | labiodental | plosive | voiceless |
-| ⱱ | `v<f>` | labiodental | tap-flap | voiced |
-| n̼ | `n<m>` | linguolabial | nasal | voiced |
-| ð̼ | `$d<m>` | linguolabial | non-sibilant-fricative | voiced |
-| θ̼ | `$t<m>` | linguolabial | non-sibilant-fricative | voiceless |
-| d̼ | `d<m>` | linguolabial | plosive | voiced |
-| t̼ | `t<m>` | linguolabial | plosive | voiceless |
-| j | `y` | palatal | approximant | voiced |
-| ǂ | `d!` | palatal | click | voiceless |
-| ʎ | `l<y>` | palatal | lateral-approximant | voiced |
-| ʎ̥ | `l<yv->` | palatal | lateral-approximant | voiceless |
-| 𝼆 | `S<y>` | palatal | lateral-fricative | voiced |
-| ʎ̝ | `l<yP^>` | palatal | lateral-fricative | voiced |
-| ʎ̮ | `l<fy>` | palatal | lateral-tap-flap | voiced |
-| ɲ | `n<y>` | palatal | nasal | voiced |
-| ɲ̥ | `n<yv->` | palatal | nasal | voiceless |
-| ʝ | `Y` | palatal | non-sibilant-fricative | voiced |
-| ç | `h<y>` | palatal | non-sibilant-fricative | voiceless |
-| ɟ | `g<y>` | palatal | plosive | voiced |
-| ʄ | `g<@y>` | palatal | plosive | voiced |
-| c | `k<y>` | palatal | plosive | voiceless |
-| ʄ̥ | `g<@yv->` | palatal | plosive | voiceless |
-| cʼ | `k<y!>` | palatal | plosive | voiceless |
-| ʑ | `j<y>` | palatal | sibilant-fricative | voiced |
-| ɕ | `x<y>` | palatal | sibilant-fricative | voiceless |
-| ɕʼ | `x<y!>` | palatal | sibilant-fricative | voiceless |
-| ʕ | `$'` | pharyngeal-epiglottal | non-sibilant-fricative | voiced |
-| ħ | `$h` | pharyngeal-epiglottal | non-sibilant-fricative | voiceless |
-| ʡ | `'<q>` | pharyngeal-epiglottal | plosive | voiceless |
-| ʡ̮ | `'<qf>` | pharyngeal-epiglottal | tap-flap | voiceless |
-| ʢ | `$G<gr>` | pharyngeal-epiglottal | trill | voiced |
-| ʜ | `$h<r>` | pharyngeal-epiglottal | trill | voiceless |
-| ɹ̠ | `$r<P->` | postalveolar | approximant | voiced |
-| l̠ | `l<P->` | postalveolar | lateral-approximant | voiced |
-| n̠ | `n<P->` | postalveolar | nasal | voiced |
-| n̠̥ | `n<P-v->` | postalveolar | nasal | voiceless |
-| ɹ̠˔ | `$r<P-S^>` | postalveolar | non-sibilant-fricative | voiced |
-| ɹ̠̥˔ | `$r<P-S^v->` | postalveolar | non-sibilant-fricative | voiceless |
-| ʒ | `j` | postalveolar | sibilant-fricative | voiced |
-| ʃ | `x` | postalveolar | sibilant-fricative | voiceless |
-| ʃʼ | `x<!>` | postalveolar | sibilant-fricative | voiceless |
-| r̠ | `r<P->` | postalveolar | trill | voiced |
-| ɧ | `$x` | postalveolar-velar | non-sibilant-fricative | voiceless |
-| ɻ | `$R` | retroflex | approximant | voiced |
-| 𝼊 | `T!` | retroflex | click | voiceless |
-| ɭ | `L` | retroflex | lateral-approximant | voiced |
-| ɭ̥ | `L<v->` | retroflex | lateral-approximant | voiceless |
-| ꞎ | `$S` | retroflex | lateral-fricative | voiced |
-| 𝼅 | `$Z` | retroflex | lateral-fricative | voiced |
-| 𝼈 | `$R<r>` | retroflex | lateral-tap-flap | voiced |
-| 𝼈̥ | `$R<rv->` | retroflex | lateral-tap-flap | voiceless |
-| ɳ | `N` | retroflex | nasal | voiced |
-| ɳ̥ | `N<v->` | retroflex | nasal | voiceless |
-| ɻ˔ | `$R<S^>` | retroflex | non-sibilant-fricative | voiced |
-| ɻ̥˔ | `$R<S^v->` | retroflex | non-sibilant-fricative | voiceless |
-| ɖ | `D` | retroflex | plosive | voiced |
-| ᶑ | `D<@>` | retroflex | plosive | voiced |
-| ʈ | `T` | retroflex | plosive | voiceless |
-| ᶑ̥ | `D<@v->` | retroflex | plosive | voiceless |
-| ʈʼ | `T<!>` | retroflex | plosive | voiceless |
-| ʐ | `J` | retroflex | sibilant-fricative | voiced |
-| ʂ | `X` | retroflex | sibilant-fricative | voiceless |
-| ʂʼ | `X<!>` | retroflex | sibilant-fricative | voiceless |
-| ɽ | `R<f>` | retroflex | tap-flap | voiced |
-| ɽ̥ | `R<fv->` | retroflex | tap-flap | voiceless |
-| ɽr | `R<r>` | retroflex | trill | voiced |
-| ɽ̥r̥ | `R<rv->` | retroflex | trill | voiceless |
-| ʟ̠ | `l<$gP->` | uvular | lateral-approximant | voiced |
-| ɴ | `$N` | uvular | nasal | voiced |
-| ɴ̥ | `$N<v->` | uvular | nasal | voiceless |
-| ʁ | `$G` | uvular | non-sibilant-fricative | voiced |
-| χ | `$H` | uvular | non-sibilant-fricative | voiceless |
-| χʼ | `$H<!>` | uvular | non-sibilant-fricative | voiceless |
-| ɢ | `G` | uvular | plosive | voiced |
-| ʛ | `G<@>` | uvular | plosive | voiced |
-| q | `K` | uvular | plosive | voiceless |
-| ʛ̥ | `G<@v->` | uvular | plosive | voiceless |
-| qʼ | `K<!>` | uvular | plosive | voiceless |
-| ɢ̆ | `G<_3>` | uvular | tap-flap | voiced |
-| ʀ | `$G<r>` | uvular | trill | voiced |
-| ʀ̥ | `$G<rv->` | uvular | trill | voiceless |
-| ɰ | `W` | velar | approximant | voiced |
-| ʞ | `K!` | velar | click |  |
-| ʟ | `l<$g>` | velar | lateral-approximant | voiced |
-| ʟ̥ | `l<$gv->` | velar | lateral-approximant | voiceless |
-| 𝼄 | `S<$g>` | velar | lateral-fricative | voiced |
-| ʟ̝ | `l<$gP^>` | velar | lateral-fricative | voiced |
-| ʟ̆ | `l<$g_3>` | velar | lateral-tap-flap | voiced |
-| ŋ | `$n` | velar | nasal | voiced |
-| ŋ̥ | `$n<v->` | velar | nasal | voiceless |
-| ɣ | `$g` | velar | non-sibilant-fricative | voiced |
-| x | `H` | velar | non-sibilant-fricative | voiceless |
-| xʼ | `H<!>` | velar | non-sibilant-fricative | voiceless |
-| ɡ | `g` | velar | plosive | voiced |
-| ɠ | `g<@>` | velar | plosive | voiced |
-| k | `k` | velar | plosive | voiceless |
-| ɠ̥ | `g<@v->` | velar | plosive | voiceless |
-| kʼ | `k<!>` | velar | plosive | voiceless |
+The IPA consonant chart, in chart order: by place across and manner down,
+the order the chart itself uses. Spellings come from `base/phones.json`;
+this table is generated by `pnpm exec tsx code/make/readme-tables.ts` and
+should not be edited by hand.
+
+| IPA | talk | X-SAMPA | name | place | manner | voice |
+| --- | ---- | ------- | ---- | ----- | ------ | ----- |
+| m | `m` | `m` | Voiced bilabial nasal | Bilabial | Nasal | voiced |
+| ɱ | `$m` | `F` | Voiced labiodental nasal | Labiodental | Nasal | voiced |
+| n | `n` | `n` | Voiced alveolar nasal | Alveolar | Nasal | voiced |
+| ɳ | `N` | `n`` | Voiced retroflex nasal | Retroflex | Nasal | voiced |
+| ɲ | `n<y>` | `J` | Voiced palatal nasal | (Alveolo-)palatal | Nasal | voiced |
+| ŋ | `$n` | `N` | Voiced velar nasal | Velar | Nasal | voiced |
+| ɴ | `$N` | `N\` | Voiced uvular nasal | Uvular | Nasal | voiced |
+| p | `p` | `p` | Voiceless bilabial plosive | Bilabial | Plosive | voiceless |
+| b | `b` | `b` | Voiced bilabial plosive | Bilabial | Plosive | voiced |
+| t | `t` | `t` | Voiceless alveolar plosive | Alveolar | Plosive | voiceless |
+| d | `d` | `d` | Voiced alveolar plosive | Alveolar | Plosive | voiced |
+| ʈ | `T` | `t`` | Voiceless retroflex plosive | Retroflex | Plosive | voiceless |
+| ɖ | `D` | `d`` | Voiced retroflex plosive | Retroflex | Plosive | voiced |
+| c | `k<y>` | `c` | Voiceless palatal plosive | (Alveolo-)palatal | Plosive | voiceless |
+| ɟ | `g<y>` | `J\` | Voiced palatal plosive | (Alveolo-)palatal | Plosive | voiced |
+| k | `k` | `k` | Voiceless velar plosive | Velar | Plosive | voiceless |
+| ɡ | `g` | `g` | Voiced velar plosive | Velar | Plosive | voiced |
+| q | `K` | `q` | Voiceless uvular plosive | Uvular | Plosive | voiceless |
+| ɢ | `G` | `G\` | Voiced uvular plosive | Uvular | Plosive | voiced |
+| ʡ | `'<q>` | `>\` | Epiglottal plosive | Pharyngeal/epiglottal | Plosive | voiceless |
+| ʔ | `'` | `?` | Glottal stop | Glottal | Plosive | voiceless |
+| s | `s` | `s` | Voiceless alveolar fricative | Alveolar | Sibilant fricative | voiceless |
+| z | `z` | `z` | Voiced alveolar fricative | Alveolar | Sibilant fricative | voiced |
+| ʃ | `x` | `S` | Voiceless postalveolar fricative | Postalveolar | Sibilant fricative | voiceless |
+| ʒ | `j` | `Z` | Voiced postalveolar fricative | Postalveolar | Sibilant fricative | voiced |
+| ʂ | `X` | `s`` | Voiceless retroflex fricative | Retroflex | Sibilant fricative | voiceless |
+| ʐ | `J` | `z`` | Voiced retroflex fricative | Retroflex | Sibilant fricative | voiced |
+| ɕ | `x<y>` | `s\` | Voiceless alveolo-palatal fricative | (Alveolo-)palatal | Sibilant fricative | voiceless |
+| ʑ | `j<y>` | `z\` | Voiced alveolo-palatal fricative | (Alveolo-)palatal | Sibilant fricative | voiced |
+| ɸ | `F` | `p\` | Voiceless bilabial fricative | Bilabial | Non-sibilant fricative | voiceless |
+| β | `$v` | `B` | Voiced bilabial fricative | Bilabial | Non-sibilant fricative | voiced |
+| f | `f` | `f` | Voiceless labiodental fricative | Labiodental | Non-sibilant fricative | voiceless |
+| v | `v` | `v` | Voiced labiodental fricative | Labiodental | Non-sibilant fricative | voiced |
+| θ | `$t` | `T` | Voiceless dental fricative | Dental | Non-sibilant fricative | voiceless |
+| ð | `$d` | `D` | Voiced dental fricative | Dental | Non-sibilant fricative | voiced |
+| ʝ | `Y` | `j\` | Voiced palatal fricative | (Alveolo-)palatal | Non-sibilant fricative | voiced |
+| x | `H` | `x` | Voiceless velar fricative | Velar | Non-sibilant fricative | voiceless |
+| ɣ | `$g` | `G` | Voiced velar fricative | Velar | Non-sibilant fricative | voiced |
+| χ | `$H` | `X` | Voiceless uvular fricative | Uvular | Non-sibilant fricative | voiceless |
+| ʁ | `$G` | `R` | Voiced uvular fricative | Uvular | Non-sibilant fricative | voiced |
+| ħ | `$h` | `X\` | Voiceless pharyngeal fricative | Pharyngeal/epiglottal | Non-sibilant fricative | voiceless |
+| ʕ | `$'` | `?\` | Voiced pharyngeal fricative | Pharyngeal/epiglottal | Non-sibilant fricative | voiced |
+| h | `h` | `h` | Voiceless glottal fricative | Glottal | Non-sibilant fricative | voiceless |
+| ɦ | `h<v>` | `h\` | Voiced glottal fricative | Glottal | Non-sibilant fricative | voiced |
+| ʋ | `V` | `P` | Voiced labiodental approximant | Labiodental | Approximant | voiced |
+| ɹ | `$r` | `r\` | Voiced alveolar approximant | Alveolar | Approximant | voiced |
+| ɻ | `$R` | `r\`` | Voiced retroflex approximant | Retroflex | Approximant | voiced |
+| j | `y` | `j` | Voiced palatal approximant | (Alveolo-)palatal | Approximant | voiced |
+| ɰ | `W` | `M\` | Voiced velar approximant | Velar | Approximant | voiced |
+| ⱱ | `v<f>` | `ⱱ` | Voiced labiodental flap | Labiodental | Tap/flap | voiced |
+| ɾ | `r<f>` | `4` | Voiced alveolar tap or flap | Alveolar | Tap/flap | voiced |
+| ɽ | `R` | `r`` | Voiced retroflex flap | Retroflex | Tap/flap | voiced |
+| ʙ | `b<r>` | `B\` | Voiced bilabial trill | Bilabial | Trill | voiced |
+| r | `r` | `r` | Voiced alveolar trill | Alveolar | Trill | voiced |
+| ʀ | `$G<r>` | `R\` | Voiced uvular trill | Uvular | Trill | voiced |
+| ʜ | `$h<r>` | `H\` | Voiceless epiglottal trill | Pharyngeal/epiglottal | Trill | voiceless |
+| ʢ | `$G<gr>` | `<\` | Voiced epiglottal trill | Pharyngeal/epiglottal | Trill | voiced |
+| ɬ | `S` | `K` | Voiceless alveolar lateral fricative | Alveolar | Lateral fricative | voiceless |
+| ɮ | `Z` | `K\` | Voiced alveolar lateral fricative | Alveolar | Lateral fricative | voiced |
+| ꞎ | `$S` | `ꞎ` | Voiceless retroflex lateral fricative | Retroflex | Lateral fricative | voiceless |
+| 𝼅 | `$Z` | `𝼅` | Voiced retroflex lateral fricative | Retroflex | Lateral fricative | voiced |
+| 𝼆 | `S<y>` | `𝼆` | Voiceless palatal lateral fricative | (Alveolo-)palatal | Lateral fricative | voiceless |
+| 𝼄 | `S<$g>` | `𝼄` | Voiceless velar lateral fricative | Velar | Lateral fricative | voiceless |
+| l | `l` | `l` | Voiced alveolar lateral approximant | Alveolar | Lateral approximant | voiced |
+| ɭ | `L` | `l`` | Voiced retroflex lateral approximant | Retroflex | Lateral approximant | voiced |
+| ʎ | `l<y>` | `L` | Voiced palatal lateral approximant | (Alveolo-)palatal | Lateral approximant | voiced |
+| ʟ | `l<$g>` | `L\` | Voiced velar lateral approximant | Velar | Lateral approximant | voiced |
+| ɺ | `$r<r>` | `l\` | Voiced alveolar lateral flap | Alveolar | Lateral tap/flap | voiced |
+| 𝼈 | `$R<r>` | `𝼈` | Voiced retroflex lateral flap | Retroflex | Lateral tap/flap | voiced |
+| ɓ | `b<@>` | `b_<` | Voiced bilabial implosive |  | Voiced |  |
+| ɗ | `d<@>` | `d_<` | Voiced alveolar implosive |  | Voiced |  |
+| ᶑ | `D<@>` | `ᶑ` | Voiced retroflex implosive |  | Voiced |  |
+| ʄ | `g<@y>` | `J\_<` | Voiced palatal implosive |  | Voiced |  |
+| ɠ | `g<@>` | `g_<` | Voiced velar implosive |  | Voiced |  |
+| ʛ | `G<@>` | `G\_<` | Voiced uvular implosive |  | Voiced |  |
+| ʍ | `w<v->` | `W` | Voiceless labial–velar fricative |  | Fricative/approximant |  |
+| w | `w` | `w` | Voiced labial–velar approximant |  | Fricative/approximant |  |
+| ɥ | `y<w>` | `H` | Voiced labial–palatal approximant |  | Fricative/approximant |  |
+| ɧ | `$x` | `x\` | Sj-sound |  | Fricative/approximant |  |
+| ɫ | `l<q>` | `5` | Velarized alveolar lateral approximant |  | Fricative/approximant |  |
+| ʘ | `p!` | `O\` | Tenuis bilabial click |  |  |  |
+| ǀ | `t!` | `\|\` | Tenuis dental click |  |  |  |
+| ǃ | `k!` | `!\` | Tenuis alveolar click |  |  |  |
+| ǁ | `l!` | `\|\\|\` | Tenuis alveolar lateral click |  |  |  |
+| 𝼊 | `T!` | `𝼊` | Tenuis retroflex click |  |  |  |
+| ǂ | `d!` | `=\` | Tenuis palatal click |  |  |  |
 
 ### Vowels
 
-| ipa | talk | height | backness | roundedness |
-| --- | --- | --- | --- | --- |
-| ɯ | `$O` | close | back | unrounded |
-| u | `u` | close | back | rounded |
-| ɨ | `~i` | close | central | unrounded |
-| ʉ | `~u` | close | central | rounded |
-| i | `i` | close | front | unrounded |
-| y | `$i` | close | front | rounded |
-| ɤ | `~O` | close-mid | back | unrounded |
-| o | `o` | close-mid | back | rounded |
-| ɘ | `$I` | close-mid | central | unrounded |
-| ɵ | `~o` | close-mid | central | rounded |
-| e | `e` | close-mid | front | unrounded |
-| ø | `$e` | close-mid | front | rounded |
-| ɤ̞ | `~O<P_>` | mid | back | unrounded |
-| o̞ | `o<P_>` | mid | back | rounded |
-| ə | `U` | mid | central | unrounded |
-| e̞ | `e<P_>` | mid | front | unrounded |
-| ø̞ | `$e<P_>` | mid | front | rounded |
-| ʊ | `O` | near-close | back | rounded |
-| ɪ | `I` | near-close | front | unrounded |
-| ʏ | `~I` | near-close | front | rounded |
-| ɐ | `$A` | near-open | central | unrounded |
-| æ | `A` | near-open | front | unrounded |
-| ɑ | `~a` | open | back | unrounded |
-| ɒ | `~U` | open | back | rounded |
-| ä | `$a` | open | central | unrounded |
-| a | `a` | open | front | unrounded |
-| ɶ | `~A` | open | front | rounded |
-| ʌ | `$U` | open-mid | back | unrounded |
-| ɔ | `$o` | open-mid | back | rounded |
-| ɜ | `$E` | open-mid | central | unrounded |
-| ɞ | `~E` | open-mid | central | rounded |
-| ɛ | `E` | open-mid | front | unrounded |
-| œ | `~e` | open-mid | front | rounded |
+Vowels are built from ten base letters, each with a `$` and a `~` variant.
+The letter says roughly where the vowel sits and the marker picks among the
+neighbours, so the whole inventory is ten rows rather than a chart to
+memorise.
+
+| base | plain | `$` variant | `~` variant |
+| ---- | ----- | ----------- | ----------- |
+| `i` | i `i` | y `$i` | ɨ `~i` |
+| `I` | ɪ `I` | ɘ `$I` | ʏ `~I` |
+| `E` | ɛ `E` | ɜ `$E` | ɞ `~E` |
+| `e` | e `e` | ø `$e` | œ `~e` |
+| `A` | æ `A` | ɐ `$A` | ɶ `~A` |
+| `a` | a `a` | ä `$a` | ɑ `~a` |
+| `O` | ʊ `O` | ɯ `$O` | ɤ `~O` |
+| `o` | o `o` | ɔ `$o` | ɵ `~o` |
+| `U` | ə `U` | ʌ `$U` | ɒ `~U` |
+| `u` | u `u` | — | ʉ `~u` |
+
+`u` has no `$` variant: the sound that would fill it is `~u` (ʉ).
 
 ### Modifiers
 
-| ipa | talk | feature | slot | position |
-| --- | --- | --- | --- | --- |
-| ɾ | `<f>` | tap | manner | after base |
-| ʙ | `<r>` | trill | manner | after base |
-| ̺ | `<t>` | apical | tongue-blade | after base |
-| ̪ | `<d>` | dental | articulation | after base |
-| ̻ | `<l>` | laminal | tongue-blade | after base |
-| ̼ | `<m>` | linguolabial | articulation | after base |
-| ̟ | `<P+>` | advanced | tongue-shape | after base |
-| ̘ | `<T+>` | advanced-tongue-root | tongue-root | after base |
-| ̈ | `<c>` | centralized | tongue-shape | after base |
-| ̞ | `<P_>` | lowered | tongue-shape | after base |
-| ˕ | `<S_>` | lowered-spacing | tongue-shape | after base |
-| ̽ | `<c~>` | mid-centralized | tongue-shape | after base |
-| ̝ | `<P^>` | raised | tongue-shape | after base |
-| ˔ | `<S^>` | raised-spacing | tongue-shape | after base |
-| ̠ | `<P->` | retracted | tongue-shape | after base |
-| ˗ | `<S->` | retracted-spacing | tongue-shape | after base |
-| ̙ | `<T->` | retracted-tongue-root | tongue-root | after base |
-| ̃ | `<n>` | nasalized | nasal | after base |
-| ᵐ | `<m~>` | prenasalized-labial | nasal | after base |
-| ᵑ | `<q~>` | prenasalized-velar | nasal | after base |
-| ᵊ | `<e~>` | epenthetic | release | after base |
-| ̯ | `<s->` | non-syllabic | syllabicity | after base |
-| ʸ | `<y~>` | palatal-release | release | after base |
-| ˢ | `<s~>` | sibilant-release | release | after base |
-| ̩ | `<s>` | syllabic | syllabicity | after base |
-| ↓ | `<p0>` | downstep | tone | after base |
-| ˥ | `<p5>` | extra-high-tone | tone | after base |
-| ̋ | `<t5>` | extra-high-tone | tone | after base |
-| ˩ | `<p1>` | extra-low-tone | tone | after base |
-| ̏ | `<t1>` | extra-low-tone | tone | after base |
-| ̂ | `<t->` | falling-tone | tone | after base |
-| ˦ | `<p4>` | high-tone | tone | after base |
-| ́ | `<t4>` | high-tone | tone | after base |
-| ˨ | `<p2>` | low-tone | tone | after base |
-| ̀ | `<t2>` | low-tone | tone | after base |
-| ˧ | `<p3>` | mid-tone | tone | after base |
-| ̄ | `<t3>` | mid-tone | tone | after base |
-| ̌ | `<t+>` | rising-tone | tone | after base |
-| ̆ | `<_3>` | extra-short | duration | after base |
-| ˑ | `<_2>` | half-long | duration | after base |
-| ː | `<_>` | long | duration | after base |
-| ᶣ | `<$w>` | labial-palatalized | tongue-body | after base |
-| ʲ | `<y>` | palatalized | tongue-body | after base |
-| ˤ | `<q>` | pharyngealized | tongue-body | after base |
-| ˠ | `<$g>` | velarized | tongue-body | after base |
-| ˌ | `<^2>` | secondary-stress | stress | before base |
-| ˈ | `<^>` | stress | stress | before base |
-| ʷ | `<w>` | labialized | labial | after base |
-| ̜ | `<o->` | less-rounded | rounding | after base |
-| ̹ | `<o+>` | more-rounded | rounding | after base |
-| ʰ | `<h>` | aspirated | laryngeal | after base |
-| ʼ | `<!>` | ejective | laryngeal | after base |
-| ˀ | `<g>` | glottalized | laryngeal | after base |
-| ʱ | `<h~>` | murmured | laryngeal | after base |
-| ˡ | `<l~>` | lateral-release | release | after base |
-| ⁿ | `<n~>` | nasal-release | release | after base |
-| ̚ | `<.>` | unreleased | release | after base |
-| ˞ | `<$u>` | rhotic | rhoticity | after base |
-| ͈ | `<f+>` | fortis | tension | after base |
-| ͓ | `<x+>` | frictionalized | frication | after base |
-| ͉ | `<f->` | lenis | tension | after base |
-| ͇ | `<x->` | non-sibilant | frication | after base |
-| ̤ | `<b>` | breathy | phonation | after base |
-| ̰ | `<k>` | creaky | phonation | after base |
-| ᴱ | `<z>` | sphincteric | phonation | after base |
-| ̬ | `<v>` | voiced | phonation | after base |
-| ̥ | `<v->` | voiceless | phonation | after base |
+A modifier goes inside angle brackets after the base it belongs to, and all
+of a sound's modifiers share ONE pair: `kʷʰ` is `k<wh>`, not `k<w><h>`. A
+modifier written BEFORE the base modifies what follows, in its own
+brackets, so `ʰk` is `<h>k` and `kʰ` is `k<h>`. Those are different sounds.
+
+Order is canonical on the way out and free on the way in. `combine` sorts by
+slot, so one set of modifiers has exactly one spelling, while `k<hw>` and
+`k<wh>` both parse.
+
+#### Tongue and lips
+
+Where the sound is made, and what the lips do.
+
+| IPA | talk | X-SAMPA | feature | applies to |
+| --- | ---- | ------- | ------- | ---------- |
+| ̪ | `<d>` | `_d` | dental | consonant |
+| ̻ | `<l>` | `_m` | laminal | consonant |
+| ̼ | `<m>` | `_N` | linguolabial | consonant |
+| ̺ | `<t>` | `_a` | apical | consonant |
+| ̈ | `<c>` | `_C\` | centralized | vowel |
+| ̽ | `<c~>` | `_x` | mid-centralized | vowel |
+| ̞ | `<P_>` | `_o` | lowered | any |
+| ̠ | `<P->` | `_-` | retracted | any |
+| ̝ | `<P^>` | `_r` | raised | any |
+| ̟ | `<P+>` | `_+` | advanced | any |
+| ˕ | `<S_>` | `_LL` | lowered-spacing | any |
+| ˗ | `<S->` | `_--` | retracted-spacing | any |
+| ˔ | `<S^>` | `_R` | raised-spacing | any |
+| ̙ | `<T->` | `_q` | retracted-tongue-root | vowel |
+| ̘ | `<T+>` | `_A` | advanced-tongue-root | vowel |
+| ˠ | `<$g>` | `_G` | velarized | consonant |
+| ᶣ | `<$w>` | `_jw` | labial-palatalized | consonant |
+| ˤ | `<q>` | `_?\` | pharyngealized | consonant |
+| ʲ | `<y>` | `_j` | palatalized | consonant |
+| ̜ | `<o->` | `_c` | less-rounded | any |
+| ̹ | `<o+>` | `_O` | more-rounded | any |
+| ʷ | `<w>` | `_w` | labialized | consonant |
+
+#### Manner
+
+How the air gets out.
+
+| IPA | talk | X-SAMPA | feature | applies to |
+| --- | ---- | ------- | ------- | ---------- |
+| ɾ | `<f>` | `_X2` | tap | consonant |
+| ʙ | `<r>` | `_X` | trill | consonant |
+| ᵐ | `<m~>` | `_mm` | prenasalized-labial | consonant |
+| ̃ | `<n>` | `_~` | nasalized | vowel |
+| ᵑ | `<q~>` | `_nn` | prenasalized-velar | consonant |
+| ᵊ | `<e~>` | `_e` | epenthetic | vowel |
+| ˢ | `<s~>` | `_s` | sibilant-release | consonant |
+| ʸ | `<y~>` | `_jj` | palatal-release | consonant |
+| ̚ | `<.>` | `_}` | unreleased | consonant |
+| ˡ | `<l~>` | `_l` | lateral-release | consonant |
+| ⁿ | `<n~>` | `_n` | nasal-release | consonant |
+| ˞ | `<$u>` | ``` | rhotic | any |
+| ͇ | `<x->` | `_s\` | non-sibilant | consonant |
+| ͓ | `<x+>` | `_v\` | frictionalized | consonant |
+
+#### Voice
+
+What the larynx does.
+
+| IPA | talk | X-SAMPA | feature | applies to |
+| --- | ---- | ------- | ------- | ---------- |
+| ʼ | `<!>` | `_>` | ejective | consonant |
+| ˀ | `<g>` | `_?` | glottalized | consonant |
+| ʰ | `<h>` | `_h` | aspirated | consonant |
+| ʱ | `<h~>` | `_h_t` | murmured | consonant |
+| ͉ | `<f->` | `_L\` | lenis | consonant |
+| ͈ | `<f+>` | `_F\` | fortis | consonant |
+| ̤ | `<b>` | `_t` | breathy | any |
+| ̰ | `<k>` | `_k` | creaky | any |
+| ̬ | `<v>` | `_v` | voiced | consonant |
+| ̥ | `<v->` | `_0` | voiceless | consonant |
+| ᴱ | `<z>` | `_E\` | sphincteric | any |
+
+#### Length and syllabicity
+
+How long it is held, and whether it carries a syllable.
+
+| IPA | talk | X-SAMPA | feature | applies to |
+| --- | ---- | ------- | ------- | ---------- |
+| ̩ | `<s>` | `=` | syllabic | consonant |
+| ̯ | `<s->` | `_^` | non-syllabic | vowel |
+| ː | `<_>` | `:` | long | any |
+| ˑ | `<_2>` | `:\` | half-long | any |
+| ̆ | `<_3>` | `_X` | extra-short | any |
+
+#### Tone and stress
+
+Pitch and prominence.
+
+| IPA | talk | X-SAMPA | feature | applies to |
+| --- | ---- | ------- | ------- | ---------- |
+| ↓ | `<p0>` | `!` | downstep | any |
+| ˩ | `<p1>` | `_B` | extra-low-tone | vowel |
+| ˨ | `<p2>` | `_L` | low-tone | vowel |
+| ˧ | `<p3>` | `_M` | mid-tone | vowel |
+| ˦ | `<p4>` | `_H` | high-tone | vowel |
+| ˥ | `<p5>` | `_T` | extra-high-tone | vowel |
+| ̂ | `<t->` | `_F_d` | falling-tone | vowel |
+| ̌ | `<t+>` | `_R_d` | rising-tone | vowel |
+| ̏ | `<t1>` | `_B_d` | extra-low-tone | vowel |
+| ̀ | `<t2>` | `_L_d` | low-tone | vowel |
+| ̄ | `<t3>` | `_M_d` | mid-tone | vowel |
+| ́ | `<t4>` | `_H_d` | high-tone | vowel |
+| ̋ | `<t5>` | `_T_d` | extra-high-tone | vowel |
+| ˈ | `<^>` | `"` | stress | any |
+| ˌ | `<^2>` | `%` | secondary-stress | any |
+
 
 ## Syllables
 
@@ -398,10 +344,17 @@ nucleus, and coda clusters. IPA and X-SAMPA give you symbols and stop
 there, so this comes built in, which the TTS, speech-recognition, and
 language-learning use cases all need.
 
-Some rarer sounds are not yet handled by the syllable system. The
-current gaps are listed in
-[`base/syllable/unsupported.csv`](base/syllable/unsupported.csv)
-(dentals, retroflex plosives, implosives, ejectives, and clicks).
+The splitter reads a word as sounds, matches them against the cluster
+whitelists in `base/clusters/`, and assembles the clusters into syllables.
+It is checked against every valid-IPA pronunciation in the ClueSurf export:
+2,916,542 of 2,916,548 split without loss, the six exceptions being strings
+like `˦˧` that hold no phones at all, where no syllables is the right
+answer.
+
+A word boundary is NOT a syllable boundary. Spoken French runs a coda onto
+the next word, so `ʃu də bʁy.sɛl` splits as `xu.dUb.$G$i.sEl`, with the `b`
+of Bruxelles closing the syllable that begins in `de`. That is enchaînement,
+and it is deliberate.
 
 ## Encodings
 

@@ -106,7 +106,7 @@ class IpaUnit:
     it.
     """
 
-    role: str  # "phone" | "symbol" | "unknown"
+    role: str  # "phone" | "symbol" | "unknown" | "bound"
     base: Phone | None = None
     modifiers: tuple[Modifier, ...] = ()
     #: Modifiers preceding the base: pre-aspiration, prenasalization and
@@ -114,6 +114,10 @@ class IpaUnit:
     pre: tuple[Modifier, ...] = ()
     symbol: SymbolEntry | None = None
     text: str | None = None
+    #: The units a tie joined into one segment. Set only when role is
+    #: "bound"; the parts keep their own identities and the binding is a
+    #: claim about them rather than a new entry in the catalog.
+    parts: tuple[IpaUnit, ...] | list[IpaUnit] = ()
 
 
 #: Stands in when the lookahead finds nothing, so the role test below has
@@ -215,6 +219,67 @@ def parse_ipa(
 
     flush()
 
+    return _bind_ties(out)
+
+
+#: The tie, which joins the letters on either side into one segment.
+_TIE = "\u0361"
+
+
+def _bind_ties(units: list[IpaUnit]) -> list[IpaUnit]:
+    """Fold each tie into a binder on the units it joins.
+
+    THE TIE IS NOT A CHARACTER TO CARRY. It says the letters either side of
+    it are ONE segment, which is a claim about them rather than a thing
+    standing between them, and carrying it through as a symbol left talk
+    unable to say how far the binding reached.
+
+    Read here, after the walk, because a tie is only meaningful once both
+    sides exist. A run of them binds one group: ``t͡s͡ʃ`` is three letters tied
+    twice, so it is one segment of three rather than two of two.
+
+    A TIE WITH NOTHING TO JOIN IS KEPT AS IT WAS. A leading or trailing one
+    is a source that wrote it loosely, and dropping it would be inventing a
+    segment boundary the source did not give.
+    """
+    if not any(one.role == "unknown" and one.text == _TIE for one in units):
+        return units
+
+    out: list[IpaUnit] = []
+    at = 0
+
+    while at < len(units):
+        one = units[at]
+
+        if one.role != "unknown" or one.text != _TIE:
+            out.append(one)
+            at += 1
+            continue
+
+        before = out[-1] if out else None
+        after = units[at + 1] if at + 1 < len(units) else None
+
+        if before is None or after is None or after.role == "unknown":
+            out.append(one)
+            at += 1
+            continue
+
+        # Grow the group while ties keep coming, so `t͡s͡ʃ` binds all three.
+        parts = [out.pop(), after]
+        nxt = at + 2
+
+        while (
+            nxt + 1 < len(units)
+            and units[nxt].role == "unknown"
+            and units[nxt].text == _TIE
+            and units[nxt + 1].role != "unknown"
+        ):
+            parts.append(units[nxt + 1])
+            nxt += 2
+
+        out.append(IpaUnit(role="bound", parts=parts))
+        at = nxt
+
     return out
 
 
@@ -224,23 +289,28 @@ def ipa_to_talk(text: str) -> str:
     The same walk as :func:`parse_ipa`, rendered. Kept as one scanner so
     the two cannot drift.
     """
-    out: list[str] = []
+    return "".join(_unit_to_talk(one) for one in parse_ipa(text))
 
-    for unit in parse_ipa(text):
-        if unit.role == "phone":
-            assert unit.base is not None
-            out.append(
-                combine(
-                    unit.base.talk,
-                    list(unit.modifiers),
-                    list(unit.pre),
-                )
-            )
-        elif unit.role == "symbol":
-            assert unit.symbol is not None
-            out.append(unit.symbol.talk)
-        else:
-            assert unit.text is not None
-            out.append(unit.text)
 
-    return "".join(out)
+def _unit_to_talk(unit: IpaUnit) -> str:
+    """One parsed unit, spelled in talk."""
+    if unit.role == "phone":
+        assert unit.base is not None
+        return combine(unit.base.talk, list(unit.modifiers), list(unit.pre))
+
+    if unit.role == "symbol":
+        assert unit.symbol is not None
+        return unit.symbol.talk
+
+    if unit.role == "bound":
+        # The binder counts, so a reader knows how far it reaches without
+        # inferring it from where a character sits.
+        reach = len(unit.parts)
+        inner = "".join(_unit_to_talk(one) for one in unit.parts)
+        count = reach if reach > 2 else ""
+
+        return f"{inner}<B{count}>"
+
+    assert unit.text is not None
+
+    return unit.text

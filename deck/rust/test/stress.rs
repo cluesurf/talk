@@ -4,8 +4,8 @@ use talk::{ipa_to_talk, segment, Kind};
 fn stress_lands_on_the_syllable_vowel_not_an_onset_consonant() {
   // IPA marks the stressed syllable with a leading tick. Talk puts the stress
   // on that syllable's vowel, past any onset consonants.
-  assert_eq!(ipa_to_talk("ʔeˈmet"), "'eme^t");
-  assert_eq!(ipa_to_talk("ˈmama"), "ma^ma");
+  assert_eq!(ipa_to_talk("ʔeˈmet"), "'eme<^>t");
+  assert_eq!(ipa_to_talk("ˈmama"), "ma<^>ma");
 }
 
 #[test]

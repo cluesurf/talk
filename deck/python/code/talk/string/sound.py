@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+import re
+
 from .combine import combine
 from ..space.codec import code_of
 from .runtime import R, modifier_attaches, pick_modifier
@@ -73,16 +75,141 @@ def _raw_sound(entry: SymbolEntry) -> Sound:
     )
 
 
+def _read_run(
+    run: str,
+    form: str,
+    base: Phone | None = None,
+    loose: bool = False,
+) -> list[Modifier] | None:
+    """The modifiers inside one pair of brackets, or None when the contents
+    are not a clean run of them.
+
+    ORDER IS FREE ON THE WAY IN. ``combine`` writes the canonical order, so a
+    stored sound has one spelling, but a person typing ``k<hw>`` and a person
+    typing ``k<wh>`` mean the same thing and both should parse.
+
+    ``base`` is the phone the run FOLLOWS, and is given only in that
+    position. A run written after a base is claiming those marks belong to
+    it, and a mark whose ``attaches`` rule rules that out means the claim is
+    wrong: the run is really the leading run of whatever comes next.
+
+    LOOSE IS THE LAST READING BEFORE GIVING UP. The encoder writes marks that
+    have no reading for their base's form: ``iʲ`` comes back as ``i<y^>`` and
+    palatalization is spelled for a consonant. Refusing left the bracket to
+    leak out one raw character at a time, which is strictly worse than
+    reading it as what it plainly says.
+    """
+    if not run:
+        return None
+
+    out: list[Modifier] = []
+    at = 0
+
+    while at < len(run):
+        options = R.talk_modifier.match_at(run, at)
+
+        if options is None:
+            return None
+
+        one = pick_modifier(options, form)
+
+        if one is None and loose:
+            one = options[0]
+
+        if one is None:
+            return None
+
+        if base is not None and not modifier_attaches(base, one):
+            return None
+
+        out.append(one)
+        at += R.talk_modifier.matched_length
+
+    return out or None
+
+
+def _run_span(text: str, at: int) -> tuple[str, int] | None:
+    """The body and end of a bracketed modifier run starting at ``at``.
+
+    A SCAN, NOT A SEARCH. Searching for the next ``>`` finds a closing
+    bracket anywhere ahead, so a stray ``<`` with its match far downstream
+    would swallow every sound between them. Walking forward stops at the
+    first character that cannot be inside a run, so an unclosed ``<`` fails
+    here and is carried through as an ordinary character.
+
+    Runs do not nest. A ``<`` inside one is malformed, not a sub-run.
+    """
+    if at >= len(text) or text[at] != "<":
+        return None
+
+    index = at + 1
+
+    while index < len(text):
+        one = text[index]
+
+        if one == ">":
+            if index == at + 1:
+                return None
+            return text[at + 1 : index], index + 1
+
+        if one == "<":
+            return None
+
+        index += 1
+
+    return None
+
+
+_BINDER = re.compile(r"^B(\d*)$")
+
+
+def _binder_reach(run: str) -> int | None:
+    """How many sounds a binder joins, or None when the run is not a binder.
+
+    WHY IT COUNTS BACKWARD. A tie in IPA sits BETWEEN the letters it joins,
+    so ``t͡ʃ`` says nothing about how far the binding reaches. Naming the
+    count instead makes a doubly-articulated ``k͡p`` and a three-part cluster
+    equally sayable, and puts the binder after its material.
+    """
+    found = _BINDER.match(run)
+
+    if not found:
+        return None
+
+    reach = int(found.group(1)) if found.group(1) else 2
+
+    return reach if reach >= 2 else None
+
+
+def _bind_sounds(parts: list[Sound]) -> Sound:
+    """Several sounds joined into one, as a tie does.
+
+    THE TIE BINDS THE BASES AND THE MARKS HOIST OUT. ``t<h>x<B>`` is an
+    aspirated affricate and comes back ``t͡ʃʰ``, not ``tʰ͡ʃ``. A tie says two
+    LETTERS are one segment, so a mark between them breaks the thing it is
+    asserting.
+    """
+    talk = "".join(one.talk for one in parts)
+    simple = "".join(one.simple for one in parts)
+
+    bases = [one.base.ipa if one.base else one.ipa for one in parts]
+    marks = [m.ipa for one in parts for m in one.modifiers]
+    pre = [m.ipa for one in parts for m in one.pre]
+
+    ipa = "".join(pre) + "\u0361".join(bases) + "".join(marks)
+    count = len(parts) if len(parts) > 2 else ""
+
+    return _raw_sound(SymbolEntry(f"{talk}<B{count}>", ipa, simple))
+
+
 def segment(text: str) -> list[Sound]:
     """Split a talk string into sounds. A single starter lookup gives the base
-    (or a symbol); a base then swallows the modifiers that follow it, and the
-    sound is re-emitted in canonical order."""
+    (or a symbol); a base then swallows the bracketed run that follows it, and
+    the sound is re-emitted in canonical order."""
     sounds: list[Sound] = []
 
-    # Modifiers seen before a base, which modify what FOLLOWS: `h~k` is
-    # pre-aspirated, `n~d` prenasalized. No affix spelling is also a
-    # starter spelling, so a modifier match here is unambiguous; where both
-    # match, the longer one wins, as everywhere else in the scan.
+    # Modifiers seen before a base, which modify what FOLLOWS: `<h>k` is
+    # pre-aspirated, `<n>d` prenasalized.
     leading: list[Modifier] = []
 
     i = 0
@@ -92,26 +219,40 @@ def segment(text: str) -> list[Sound]:
         start = R.talk_starter.match_at(text, i)
         start_length = 0 if start is None else R.talk_starter.matched_length
 
-        ahead = R.talk_modifier.match_at(text, i)
-        ahead_length = 0 if ahead is None else R.talk_modifier.matched_length
+        # A BRACKETED RUN BEFORE A BASE is the pre-modifiers, `<h>k` for
+        # pre-aspirated. Read whole, so the scan below never sees a bracket.
+        if start_length == 0:
+            span = _run_span(text, i)
 
-        if ahead is not None and ahead_length > start_length:
-            # Only a pre-modifier if a base actually follows AND can carry
-            # it. Without the first check the longer match wins too
-            # eagerly: `h!!` is `h` with extra-short, but `h!` is also the
-            # voiceless affix, and taking it would leave a stray `!`.
-            after = R.talk_starter.match_at(text, i + ahead_length)
+            # A BINDER TIES WHAT CAME BEFORE IT, so it is read here rather
+            # than as a modifier on a following base: `tx<B>` is one
+            # affricate, and there is no base after the bracket to carry it.
+            if span is not None:
+                body, end = span
+                reach = _binder_reach(body)
 
-            if after is not None and after.role == "phone":
-                assert after.phone is not None
-                modifier = pick_modifier(ahead, after.phone.form)
-
-                if modifier is not None and modifier_attaches(
-                    after.phone, modifier
-                ):
-                    leading.append(modifier)
-                    i += ahead_length
+                if reach is not None and len(sounds) >= reach:
+                    held_parts = sounds[len(sounds) - reach :]
+                    del sounds[len(sounds) - reach :]
+                    sounds.append(_bind_sounds(held_parts))
+                    i = end
                     continue
+
+            if span is not None:
+                body, end = span
+                after = R.talk_starter.match_at(text, end)
+
+                if after is not None and after.role == "phone":
+                    assert after.phone is not None
+                    held = _read_run(body, after.phone.form)
+
+                    if held is None:
+                        held = _read_run(body, after.phone.form, None, True)
+
+                    if held:
+                        leading.extend(held)
+                        i = end
+                        continue
 
         if start is None:
             # Unknown character: carry it through so nothing is silently
@@ -122,62 +263,62 @@ def segment(text: str) -> list[Sound]:
             continue
 
         # `start_length` was captured BEFORE the lookahead above, because
-        # `match_at` stores its result on the trie: probing for a base
-        # after a candidate pre-modifier overwrites `matched_length`, and
-        # reading it here would advance by the wrong amount, sometimes by
-        # zero.
+        # `match_at` stores its result on the trie.
         i += start_length
 
         if start.role == "phone":
             assert start.phone is not None
-            mods: list[Modifier] = []
+            span = _run_span(text, i)
 
-            while True:
-                options = R.talk_modifier.match_at(text, i)
+            if span is not None:
+                body, end = span
 
-                if options is None:
-                    break
+                # WHOSE MARK IS IT. A run after a base usually belongs to it,
+                # and `attaches` settles the cases where it might not. But the
+                # rule alone is too strong: the encoder spells b̥ as `b<v->`
+                # and kǃʰ as `k!<h>`, and neither mark attaches to those bases
+                # by rule, so refusing outright meant the tokenizer could not
+                # read back what its own encoder writes.
+                #
+                # A mark is only handed on when there is somewhere for it to
+                # GO: the next sound has to be a phone that accepts the whole
+                # run.
+                fits = _read_run(body, start.phone.form, start.phone)
+                held = fits
 
-                # A spelling can mean different things by base form (`@` is
-                # non-syllabic on a vowel, syllabic on a consonant), so the
-                # base decides which reading applies. A spelling with no
-                # reading for this form is not an affix here.
-                mod = pick_modifier(options, start.phone.form)
+                if held is None:
+                    held = _read_run(body, start.phone.form)
 
-                if mod is None:
-                    break
+                if held is None:
+                    held = _read_run(body, start.phone.form, None, True)
 
-                # Attachment breaks a TIE here; it does not reject. The
-                # rules keep the enumeration conservative, and a parser
-                # enforcing them would refuse valid input wherever a
-                # phone's features are incomplete. So a mark moves to the
-                # following base only when that base can carry it and this
-                # one cannot.
-                if not modifier_attaches(start.phone, mod):
-                    after = R.talk_starter.match_at(
-                        text, i + R.talk_modifier.matched_length
-                    )
+                hand_on = False
 
-                    if (
+                if held is not None and fits is None:
+                    after = R.talk_starter.match_at(text, end)
+
+                    hand_on = (
                         after is not None
                         and after.role == "phone"
                         and after.phone is not None
-                        and modifier_attaches(after.phone, mod)
-                    ):
-                        break
+                        and _read_run(body, after.phone.form, after.phone)
+                        is not None
+                    )
 
-                mods.append(mod)
-                i += R.talk_modifier.matched_length
+                if held is not None and not hand_on:
+                    sounds.append(make_sound(start.phone, held, leading))
+                    leading = []
+                    i = end
+                    continue
 
-            sounds.append(make_sound(start.phone, mods, leading))
+            sounds.append(make_sound(start.phone, [], leading))
             leading = []
         elif start.role == "symbol":
             assert start.symbol is not None
             sounds.append(_raw_sound(start.symbol))
 
     # A pre-modifier with nothing after it modifies nothing. Carry the
-    # spelling through rather than dropping it, so a caller sees the input
-    # was incomplete instead of losing it.
+    # spelling through rather than dropping it.
     for modifier in leading:
         sounds.append(
             _raw_sound(

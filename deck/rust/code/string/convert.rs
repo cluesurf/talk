@@ -127,6 +127,96 @@ pub enum IpaUnit {
   },
   Symbol(&'static SymbolEntry),
   Unknown(char),
+  /// The units a tie joined into one segment. The parts keep their own
+  /// identities and the binding is a claim about them, not a new entry in
+  /// the catalog.
+  Bound(Vec<IpaUnit>),
+}
+
+/// The tie, which joins the letters on either side into one segment.
+const TIE: char = '\u{0361}';
+
+/// Fold each tie into a binder on the units it joins.
+///
+/// THE TIE IS NOT A CHARACTER TO CARRY. It says the letters either side of it
+/// are ONE segment, which is a claim about them rather than a thing standing
+/// between them, and carrying it through as a symbol left talk unable to say
+/// how far the binding reached.
+///
+/// Read here, after the walk, because a tie is only meaningful once both sides
+/// exist. A run of them binds one group: `t͡s͡ʃ` is three letters tied twice, so
+/// it is one segment of three rather than two of two.
+///
+/// A TIE WITH NOTHING TO JOIN IS KEPT AS IT WAS. A leading or trailing one is a
+/// source that wrote it loosely, and dropping it would be inventing a segment
+/// boundary the source did not give.
+fn bind_ties(units: Vec<IpaUnit>) -> Vec<IpaUnit> {
+  if !units.iter().any(|one| matches!(one, IpaUnit::Unknown(c) if *c == TIE)) {
+    return units;
+  }
+
+  let mut out: Vec<IpaUnit> = Vec::new();
+  let mut at = 0;
+
+  while at < units.len() {
+    if !matches!(&units[at], IpaUnit::Unknown(c) if *c == TIE) {
+      out.push(units[at].clone());
+      at += 1;
+      continue;
+    }
+
+    let after = units.get(at + 1);
+
+    if out.is_empty()
+      || after.is_none()
+      || matches!(after, Some(IpaUnit::Unknown(_)))
+    {
+      out.push(units[at].clone());
+      at += 1;
+      continue;
+    }
+
+    // Grow the group while ties keep coming, so `t͡s͡ʃ` binds all three.
+    let mut parts = vec![out.pop().expect("checked non-empty")];
+
+    parts.push(after.expect("checked present").clone());
+
+    let mut next = at + 2;
+
+    while next + 1 < units.len()
+      && matches!(&units[next], IpaUnit::Unknown(c) if *c == TIE)
+      && !matches!(&units[next + 1], IpaUnit::Unknown(_))
+    {
+      parts.push(units[next + 1].clone());
+      next += 2;
+    }
+
+    out.push(IpaUnit::Bound(parts));
+    at = next;
+  }
+
+  out
+}
+
+/// One parsed unit, spelled in talk.
+fn unit_to_talk(unit: &IpaUnit) -> String {
+  match unit {
+    IpaUnit::Phone { base, modifiers, pre } => combine(&base.talk, modifiers, pre),
+    IpaUnit::Symbol(symbol) => symbol.talk.clone(),
+    IpaUnit::Unknown(character) => character.to_string(),
+    IpaUnit::Bound(parts) => {
+      // The binder counts, so a reader knows how far it reaches without
+      // inferring it from where a character sits.
+      let inner: String = parts.iter().map(unit_to_talk).collect();
+      let count = if parts.len() > 2 {
+        parts.len().to_string()
+      } else {
+        String::new()
+      };
+
+      format!("{inner}<B{count}>")
+    }
+  }
 }
 
 /// Parse IPA into base sounds and their modifiers.
@@ -214,7 +304,7 @@ pub fn parse_ipa(text: &str) -> Vec<IpaUnit> {
 
   flush_units(&mut out, &mut base, &mut mods, &mut pre);
 
-  out
+  bind_ties(out)
 }
 
 /// IPA to talk spelling.
@@ -222,19 +312,7 @@ pub fn parse_ipa(text: &str) -> Vec<IpaUnit> {
 /// The same walk as [`parse_ipa`], rendered. Kept as one scanner so the
 /// two cannot drift.
 pub fn ipa_to_talk(text: &str) -> String {
-  let mut out = String::new();
-
-  for unit in parse_ipa(text) {
-    match unit {
-      IpaUnit::Phone { base, modifiers, pre } => {
-        out.push_str(&combine(&base.talk, &modifiers, &pre));
-      }
-      IpaUnit::Symbol(symbol) => out.push_str(&symbol.talk),
-      IpaUnit::Unknown(character) => out.push(character),
-    }
-  }
-
-  out
+  parse_ipa(text).iter().map(unit_to_talk).collect()
 }
 
 fn flush_units(

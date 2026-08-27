@@ -5,7 +5,7 @@ copy is generated and gitignored.
 
 Only the files this port actually loads are copied, so the wheel stays lean
 (the TypeScript build likewise inlines just the imported JSON, never the
-CSV source data). Add to NEEDED when the syllable layer is ported.
+CSV source data).
 
     python code/make/copy_base.py
 """
@@ -21,6 +21,10 @@ TARGET = HERE.parent / "talk" / "base"  # code/make -> code -> code/talk/base
 
 NEEDED = ("phones.json", "modifiers.json")
 
+#: Directories copied whole. The syllable layer reads the cluster
+#: whitelists, which are a tree of category files rather than one blob.
+NEEDED_TREES = ("clusters",)
+
 if TARGET.exists():
     shutil.rmtree(TARGET)
 
@@ -29,4 +33,10 @@ TARGET.mkdir(parents=True)
 for name in NEEDED:
     shutil.copy2(SOURCE / name, TARGET / name)
 
-print(f"copied {len(NEEDED)} data files: {SOURCE} -> {TARGET}")
+for name in NEEDED_TREES:
+    shutil.copytree(SOURCE / name, TARGET / name)
+
+print(
+    f"copied {len(NEEDED)} data files and {len(NEEDED_TREES)} trees: "
+    f"{SOURCE} -> {TARGET}"
+)

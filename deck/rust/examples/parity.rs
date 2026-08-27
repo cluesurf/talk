@@ -1,27 +1,29 @@
+//! Convert the shared fixture so the result can be diffed against the
+//! TypeScript library, which is the reference for the new notation.
 use std::fs;
 
 fn main() {
-  let raw = fs::read_to_string("/tmp/ts-parity.json").expect("fixture");
-  let rows: Vec<Vec<String>> = serde_json::from_str(&raw).expect("json");
-  let mut bad = 0;
+  let raw = fs::read_to_string(
+    "../typescript/test/fixture/pronunciation-sample.json",
+  )
+  .expect("fixture");
+  let cases: serde_json::Value = serde_json::from_str(&raw).expect("json");
+  let mut out = serde_json::Map::new();
 
-  for row in &rows {
-    let talk_out = talk::ipa_to_talk(&row[0]);
-    let machine: Vec<String> = talk::machine(&talk_out, talk::Notation::Tone, talk::Tier::Mesh)
-      .iter()
-      .map(|code| code.to_string())
-      .collect();
+  for case in cases.as_array().expect("array") {
+    let ipa = case["ipa"].as_str().expect("ipa");
 
-    if talk_out != row[1]
-      || machine.join(" ") != row[2]
-      || talk::normalize_ipa(&row[0]) != row[3]
-    {
-      if bad < 3 {
-        println!("  {:?} ts {:?} rs {:?}", row[0], row[1], talk_out);
-      }
-      bad += 1;
-    }
+    out.insert(
+      ipa.to_string(),
+      serde_json::Value::String(talk::ipa_to_talk(ipa)),
+    );
   }
 
-  println!("rust mismatches: {} of {}", bad, rows.len());
+  fs::write(
+    "tmp_parity.json",
+    serde_json::to_string(&serde_json::Value::Object(out)).expect("write"),
+  )
+  .expect("write");
+
+  println!("{} converted", cases.as_array().expect("array").len());
 }

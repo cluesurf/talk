@@ -1,7 +1,7 @@
 [
   {
     "ipa": "̪",
-    "talk": "$",
+    "talk": "d",
     "xsampa": "_d",
     "simple": "",
     "base": "consonant",
@@ -17,7 +17,7 @@
   },
   {
     "ipa": "ʲ",
-    "talk": "y~",
+    "talk": "y",
     "xsampa": "_j",
     "simple": "ʲ",
     "base": "consonant",
@@ -34,7 +34,7 @@
   },
   {
     "ipa": "ˠ",
-    "talk": "G~",
+    "talk": "$g",
     "xsampa": "_G",
     "simple": "ˠ",
     "base": "consonant",
@@ -54,7 +54,7 @@
   },
   {
     "ipa": "ˤ",
-    "talk": "Q~",
+    "talk": "q",
     "xsampa": "_?\\",
     "simple": "ˤ",
     "base": "consonant",
@@ -74,7 +74,7 @@
   },
   {
     "ipa": "ʷ",
-    "talk": "w~",
+    "talk": "w",
     "xsampa": "_w",
     "simple": "ʷ",
     "base": "consonant",
@@ -92,7 +92,7 @@
   },
   {
     "ipa": "ʰ",
-    "talk": "h~",
+    "talk": "h",
     "xsampa": "_h",
     "simple": "ʰ",
     "base": "consonant",
@@ -140,7 +140,7 @@
   },
   {
     "ipa": "̥",
-    "talk": "h!",
+    "talk": "v-",
     "xsampa": "_0",
     "simple": "̥",
     "base": "consonant",
@@ -164,7 +164,7 @@
   },
   {
     "ipa": "̃",
-    "talk": "~",
+    "talk": "n",
     "xsampa": "_~",
     "simple": "̃",
     "base": "vowel",
@@ -174,7 +174,7 @@
   },
   {
     "ipa": "̯",
-    "talk": "@",
+    "talk": "s-",
     "xsampa": "_^",
     "simple": "̯",
     "base": "vowel",
@@ -184,7 +184,7 @@
   },
   {
     "ipa": "˩",
-    "talk": "--",
+    "talk": "p1",
     "xsampa": "_B",
     "simple": "˩",
     "base": "vowel",
@@ -194,7 +194,7 @@
   },
   {
     "ipa": "˨",
-    "talk": "-",
+    "talk": "p2",
     "xsampa": "_L",
     "simple": "˨",
     "base": "vowel",
@@ -204,7 +204,7 @@
   },
   {
     "ipa": "˦",
-    "talk": "+",
+    "talk": "p4",
     "xsampa": "_H",
     "simple": "˦",
     "base": "vowel",
@@ -214,7 +214,7 @@
   },
   {
     "ipa": "˥",
-    "talk": "++",
+    "talk": "p5",
     "xsampa": "_T",
     "simple": "˥",
     "base": "vowel",
@@ -245,7 +245,7 @@
   },
   {
     "ipa": "ˌ",
-    "talk": "^^",
+    "talk": "^2",
     "xsampa": "%",
     "simple": "ˌ",
     "base": "any",
@@ -292,7 +292,7 @@
   },
   {
     "ipa": "ᶣ",
-    "talk": "y$~",
+    "talk": "$w",
     "xsampa": "_jw",
     "simple": "ᶣ",
     "base": "consonant",
@@ -312,7 +312,7 @@
   },
   {
     "ipa": "ˀ",
-    "talk": "g~",
+    "talk": "g",
     "xsampa": "_?",
     "simple": "ˀ",
     "base": "consonant",
@@ -327,7 +327,7 @@
   },
   {
     "ipa": "̩",
-    "talk": "@@",
+    "talk": "s",
     "xsampa": "=",
     "simple": "̩",
     "base": "consonant",
@@ -348,7 +348,7 @@
   },
   {
     "ipa": "ˑ",
-    "talk": "_!",
+    "talk": "_2",
     "xsampa": ":\\",
     "simple": "ˑ",
     "base": "any",
@@ -358,7 +358,7 @@
   },
   {
     "ipa": "̆",
-    "talk": "!!",
+    "talk": "_3",
     "xsampa": "_X",
     "simple": "̆",
     "base": "any",
@@ -368,7 +368,7 @@
   },
   {
     "ipa": "˧",
-    "talk": "*",
+    "talk": "p3",
     "xsampa": "_M",
     "simple": "˧",
     "base": "vowel",
@@ -378,7 +378,7 @@
   },
   {
     "ipa": "̤",
-    "talk": "<b>",
+    "talk": "b",
     "xsampa": "_t",
     "simple": "̤",
     "base": "any",
@@ -389,7 +389,7 @@
   },
   {
     "ipa": "̰",
-    "talk": "<k>",
+    "talk": "k",
     "xsampa": "_k",
     "simple": "̰",
     "base": "any",
@@ -400,7 +400,7 @@
   },
   {
     "ipa": "̬",
-    "talk": "<v>",
+    "talk": "v",
     "xsampa": "_v",
     "simple": "̬",
     "base": "consonant",
@@ -416,7 +416,7 @@
   },
   {
     "ipa": "ᴱ",
-    "talk": "<s>",
+    "talk": "z",
     "xsampa": "_E\\",
     "simple": "ᴱ",
     "base": "any",
@@ -427,7 +427,7 @@
   },
   {
     "ipa": "ʱ",
-    "talk": "<h>",
+    "talk": "h~",
     "xsampa": "_h_t",
     "simple": "ʱ",
     "base": "consonant",
@@ -446,7 +446,7 @@
   },
   {
     "ipa": "͈",
-    "talk": "<f>",
+    "talk": "f+",
     "xsampa": "_F\\",
     "simple": "͈",
     "base": "consonant",
@@ -457,7 +457,7 @@
   },
   {
     "ipa": "͉",
-    "talk": "<l>",
+    "talk": "f-",
     "xsampa": "_L\\",
     "simple": "͉",
     "base": "consonant",
@@ -468,7 +468,7 @@
   },
   {
     "ipa": "̺",
-    "talk": "<a>",
+    "talk": "t",
     "xsampa": "_a",
     "simple": "̺",
     "base": "consonant",
@@ -487,7 +487,7 @@
   },
   {
     "ipa": "̻",
-    "talk": "<m>",
+    "talk": "l",
     "xsampa": "_m",
     "simple": "̻",
     "base": "consonant",
@@ -506,7 +506,7 @@
   },
   {
     "ipa": "̼",
-    "talk": "<n>",
+    "talk": "m",
     "xsampa": "_N",
     "simple": "̼",
     "base": "consonant",
@@ -517,7 +517,7 @@
   },
   {
     "ipa": "̟",
-    "talk": "<+>",
+    "talk": "P+",
     "xsampa": "_+",
     "simple": "̟",
     "base": "any",
@@ -528,7 +528,7 @@
   },
   {
     "ipa": "̠",
-    "talk": "<->",
+    "talk": "P-",
     "xsampa": "_-",
     "simple": "̠",
     "base": "any",
@@ -539,7 +539,7 @@
   },
   {
     "ipa": "̝",
-    "talk": "<^>",
+    "talk": "P^",
     "xsampa": "_r",
     "simple": "̝",
     "base": "any",
@@ -550,7 +550,7 @@
   },
   {
     "ipa": "̞",
-    "talk": "<_>",
+    "talk": "P_",
     "xsampa": "_o",
     "simple": "̞",
     "base": "any",
@@ -561,7 +561,7 @@
   },
   {
     "ipa": "̈",
-    "talk": "<\">",
+    "talk": "c",
     "xsampa": "_C\\",
     "simple": "̈",
     "base": "vowel",
@@ -572,7 +572,7 @@
   },
   {
     "ipa": "̽",
-    "talk": "<x>",
+    "talk": "c~",
     "xsampa": "_x",
     "simple": "̽",
     "base": "vowel",
@@ -583,7 +583,7 @@
   },
   {
     "ipa": "̘",
-    "talk": "<A>",
+    "talk": "T+",
     "xsampa": "_A",
     "simple": "̘",
     "base": "vowel",
@@ -594,7 +594,7 @@
   },
   {
     "ipa": "̙",
-    "talk": "<q>",
+    "talk": "T-",
     "xsampa": "_q",
     "simple": "̙",
     "base": "vowel",
@@ -605,7 +605,7 @@
   },
   {
     "ipa": "̹",
-    "talk": "<o>",
+    "talk": "o+",
     "xsampa": "_O",
     "simple": "̹",
     "base": "any",
@@ -616,7 +616,7 @@
   },
   {
     "ipa": "̜",
-    "talk": "<c>",
+    "talk": "o-",
     "xsampa": "_c",
     "simple": "̜",
     "base": "any",
@@ -627,7 +627,7 @@
   },
   {
     "ipa": "̚",
-    "talk": "<u>",
+    "talk": ".",
     "xsampa": "_}",
     "simple": "̚",
     "base": "consonant",
@@ -638,7 +638,7 @@
   },
   {
     "ipa": "˞",
-    "talk": "<r>",
+    "talk": "$u",
     "xsampa": "`",
     "simple": "˞",
     "base": "any",
@@ -649,7 +649,7 @@
   },
   {
     "ipa": "͓",
-    "talk": "<F>",
+    "talk": "x+",
     "xsampa": "_v\\",
     "simple": "͓",
     "base": "consonant",
@@ -660,7 +660,7 @@
   },
   {
     "ipa": "͇",
-    "talk": "<S>",
+    "talk": "x-",
     "xsampa": "_s\\",
     "simple": "͇",
     "base": "consonant",
@@ -671,7 +671,7 @@
   },
   {
     "ipa": "↓",
-    "talk": "<d>",
+    "talk": "p0",
     "xsampa": "!",
     "simple": "↓",
     "base": "any",
@@ -682,7 +682,7 @@
   },
   {
     "ipa": "ᵊ",
-    "talk": "<e>",
+    "talk": "e~",
     "xsampa": "_e",
     "simple": "ᵊ",
     "base": "vowel",
@@ -693,7 +693,7 @@
   },
   {
     "ipa": "ˢ",
-    "talk": "<ss>",
+    "talk": "s~",
     "xsampa": "_s",
     "simple": "ˢ",
     "base": "consonant",
@@ -704,7 +704,7 @@
   },
   {
     "ipa": "ʸ",
-    "talk": "<j>",
+    "talk": "y~",
     "xsampa": "_jj",
     "simple": "ʸ",
     "base": "consonant",
@@ -715,7 +715,7 @@
   },
   {
     "ipa": "ᵐ",
-    "talk": "<mm>",
+    "talk": "m~",
     "xsampa": "_mm",
     "simple": "ᵐ",
     "base": "consonant",
@@ -726,7 +726,7 @@
   },
   {
     "ipa": "ᵑ",
-    "talk": "<nn>",
+    "talk": "q~",
     "xsampa": "_nn",
     "simple": "ᵑ",
     "base": "consonant",
@@ -737,7 +737,7 @@
   },
   {
     "ipa": "˔",
-    "talk": "<^^>",
+    "talk": "S^",
     "xsampa": "_R",
     "simple": "˔",
     "base": "any",
@@ -748,7 +748,7 @@
   },
   {
     "ipa": "˕",
-    "talk": "<__>",
+    "talk": "S_",
     "xsampa": "_LL",
     "simple": "˕",
     "base": "any",
@@ -759,7 +759,7 @@
   },
   {
     "ipa": "˗",
-    "talk": "<-->",
+    "talk": "S-",
     "xsampa": "_--",
     "simple": "˗",
     "base": "any",
@@ -770,7 +770,7 @@
   },
   {
     "ipa": "́",
-    "talk": "<t+>",
+    "talk": "t4",
     "xsampa": "_H_d",
     "simple": "́",
     "base": "vowel",
@@ -780,7 +780,7 @@
   },
   {
     "ipa": "̀",
-    "talk": "<t->",
+    "talk": "t2",
     "xsampa": "_L_d",
     "simple": "̀",
     "base": "vowel",
@@ -790,7 +790,7 @@
   },
   {
     "ipa": "̄",
-    "talk": "<t=>",
+    "talk": "t3",
     "xsampa": "_M_d",
     "simple": "̄",
     "base": "vowel",
@@ -800,7 +800,7 @@
   },
   {
     "ipa": "̌",
-    "talk": "<tv>",
+    "talk": "t+",
     "xsampa": "_R_d",
     "simple": "̌",
     "base": "vowel",
@@ -810,7 +810,7 @@
   },
   {
     "ipa": "̂",
-    "talk": "<t^>",
+    "talk": "t-",
     "xsampa": "_F_d",
     "simple": "̂",
     "base": "vowel",
@@ -820,7 +820,7 @@
   },
   {
     "ipa": "̋",
-    "talk": "<t++>",
+    "talk": "t5",
     "xsampa": "_T_d",
     "simple": "̋",
     "base": "vowel",
@@ -830,12 +830,46 @@
   },
   {
     "ipa": "̏",
-    "talk": "<t-->",
+    "talk": "t1",
     "xsampa": "_B_d",
     "simple": "̏",
     "base": "vowel",
     "feature": "extra-low-tone",
     "slot": "tone",
     "order": 16
+  },
+  {
+    "ipa": "ʙ",
+    "talk": "r",
+    "xsampa": "_X",
+    "simple": "ʙ",
+    "base": "consonant",
+    "feature": "trill",
+    "slot": "manner",
+    "order": 9,
+    "attaches": {
+      "manner": [
+        "plosive",
+        "tap-flap",
+        "lateral-approximant"
+      ]
+    }
+  },
+  {
+    "ipa": "ɾ",
+    "talk": "f",
+    "xsampa": "_X2",
+    "simple": "ɾ",
+    "base": "consonant",
+    "feature": "tap",
+    "slot": "manner",
+    "order": 9,
+    "attaches": {
+      "manner": [
+        "plosive",
+        "approximant",
+        "lateral-approximant"
+      ]
+    }
   }
 ]

@@ -26,22 +26,22 @@ fn expect(got: Vec<String>, want: &[&str]) {
 
 #[test]
 fn an_aspirated_consonant_is_one_chunk() {
-  expect(chunks("th~a"), &["th~", "a"]);
+  expect(chunks("t<h>a"), &["t<h>", "a"]);
 }
 
 #[test]
 fn a_labialized_consonant_is_one_chunk() {
-  expect(chunks("kw~a"), &["kw~", "a"]);
+  expect(chunks("k<w>a"), &["k<w>", "a"]);
 }
 
 #[test]
 fn a_pharyngealized_consonant_is_one_chunk() {
-  expect(chunks("sQ~a"), &["sQ~", "a"]);
+  expect(chunks("s<q>a"), &["s<q>", "a"]);
 }
 
 #[test]
 fn a_voiceless_marked_sonorant_is_one_chunk() {
-  expect(chunks("mh!im"), &["mh!", "i", "m"]);
+  expect(chunks("m<v->im"), &["m<v->", "i", "m"]);
 }
 
 #[test]
@@ -51,20 +51,20 @@ fn an_ejective_is_one_chunk() {
 
 #[test]
 fn stacked_consonant_modifiers_stay_in_one_chunk() {
-  expect(chunks("txy~h~im"), &["t", "xy~h~", "i", "m"]);
+  expect(chunks("tx<yh>im"), &["t", "x<yh>", "i", "m"]);
 }
 
 #[test]
 fn a_vowel_keeps_its_stress_mark() {
-  expect(chunks("txando^"), &["t", "x", "a", "n", "d", "o^"]);
+  expect(chunks("txando<^>"), &["t", "x", "a", "n", "d", "o<^>"]);
 }
 
 #[test]
 fn a_vowel_keeps_tone_length_and_nasal_marks_in_one_chunk() {
-  expect(chunks("a~+_"), &["a~+_"]);
+  expect(chunks("a<np4_>"), &["a<np4_>"]);
   expect(
-    chunks("txya@+a-a++u"),
-    &["t", "x", "y", "a@+", "a-", "a++", "u"],
+    chunks("txya<s-p4>a<p2>a<p5>u"),
+    &["t", "x", "y", "a<s-p4>", "a<p2>", "a<p5>", "u"],
   );
 }
 
@@ -72,9 +72,9 @@ fn a_vowel_keeps_tone_length_and_nasal_marks_in_one_chunk() {
 
 #[test]
 fn does_not_split_a_click_off_its_base_letter() {
-  expect(chunks("p*at*"), &["p*", "a", "t*"]);
-  expect(chunks("k*"), &["k*"]);
-  expect(chunks("c*a"), &["c*", "a"]);
+  expect(chunks("p!at!"), &["p!", "a", "t!"]);
+  expect(chunks("k!"), &["k!"]);
+  expect(chunks("l!a"), &["l!", "a"]);
 }
 
 // ─── symbols, numerals, and space ────────────────────────────────────────────
@@ -96,11 +96,11 @@ fn marks_symbols_as_symbol_sounds() {
 #[test]
 fn chunks_real_words() {
   let cases: [(&str, &[&str]); 5] = [
-    ("siqk", &["s", "i", "q", "k"]),
-    ("aiyuQaK", &["a", "i", "y", "u", "Q", "a", "K"]),
-    ("HEth~Ah", &["H", "E", "th~", "A", "h"]),
-    ("s'oQya~te", &["s", "'", "o", "Q", "y", "a~", "t", "e"]),
-    ("batO_'aH", &["b", "a", "t", "O_", "'", "a", "H"]),
+    ("si$nk", &["s", "i", "$n", "k"]),
+    ("aiyu$'aK", &["a", "i", "y", "u", "$'", "a", "K"]),
+    ("HEt<h>Ah", &["H", "E", "t<h>", "A", "h"]),
+    ("s'o$'y~ate", &["s", "'", "o", "$'", "y", "~a", "t", "e"]),
+    ("batO<_>'aH", &["b", "a", "t", "O<_>", "'", "a", "H"]),
   ];
 
   for (word, want) in cases {
@@ -112,23 +112,23 @@ fn chunks_real_words() {
 
 #[test]
 fn exposes_the_base_and_modifier_features() {
-  let sounds = segment("th~a");
+  let sounds = segment("t<h>a");
   let first = &sounds[0];
 
   assert_eq!(first.base.map(|phone| phone.talk.as_str()), Some("t"));
   assert_eq!(first.kind, Kind::Consonant);
-  assert_eq!(features("th~a")[0], vec!["aspirated"]);
+  assert_eq!(features("t<h>a")[0], vec!["aspirated"]);
 }
 
 #[test]
 fn exposes_vowel_modifier_features() {
-  let sounds = segment("a~+_");
+  let sounds = segment("a<np4_>");
   let first = &sounds[0];
 
   assert_eq!(first.kind, Kind::Vowel);
   assert_eq!(first.base.map(|phone| phone.talk.as_str()), Some("a"));
 
-  let mut got = features("a~+_")[0].clone();
+  let mut got = features("a<np4_>")[0].clone();
 
   got.sort();
 
@@ -137,7 +137,7 @@ fn exposes_vowel_modifier_features() {
 
 #[test]
 fn every_non_raw_chunk_equals_its_base_plus_modifiers_in_canonical_order() {
-  for sound in segment("txya@+a-a++u th~a p*a") {
+  for sound in segment("txya<s-p4>a<p2>a<p5>u t<h>a p!a") {
     if let (false, Some(base)) = (sound.raw, sound.base) {
       assert_eq!(sound.talk, combine(&base.talk, &sound.modifiers, &sound.pre));
     }
@@ -148,7 +148,7 @@ fn every_non_raw_chunk_equals_its_base_plus_modifiers_in_canonical_order() {
 
 #[test]
 fn tokenizing_is_idempotent_on_canonical_talk() {
-  for word in ["th~a", "kw~asQ~o", "a~+_", "p*at*", "mh!im"] {
+  for word in ["t<h>a", "k<w>as<q>o", "a<np4_>", "p!at!", "m<v->im"] {
     assert_eq!(chunks(word).concat(), word);
   }
 }
@@ -164,7 +164,7 @@ fn ipa_to_talk_output_tokenizes_back_to_the_same_chunks() {
 
 #[test]
 fn tokenize_is_an_alias_for_segment() {
-  assert_eq!(tokenize("th~a"), segment("th~a"));
+  assert_eq!(tokenize("t<h>a"), segment("t<h>a"));
 }
 
 // ─── detailed sound parsing (ported from the v1 tokenizer suite) ─────────────
@@ -212,16 +212,16 @@ fn parses_a_bare_consonant_vowel_and_glottal_stop() {
 #[test]
 fn decomposes_a_consonant_secondary_articulation_into_base_and_feature() {
   assert_eq!(
-    shape("th~"),
-    one("th~", Kind::Consonant, "t", &["aspirated"])
+    shape("t<h>"),
+    one("t<h>", Kind::Consonant, "t", &["aspirated"])
   );
   assert_eq!(
-    shape("kw~"),
-    one("kw~", Kind::Consonant, "k", &["labialized"])
+    shape("k<w>"),
+    one("k<w>", Kind::Consonant, "k", &["labialized"])
   );
   assert_eq!(
-    shape("dQ~"),
-    one("dQ~", Kind::Consonant, "d", &["pharyngealized"])
+    shape("d<q>"),
+    one("d<q>", Kind::Consonant, "d", &["pharyngealized"])
   );
 }
 
@@ -232,7 +232,7 @@ fn reads_a_chart_phone_back_as_one_sound_with_the_same_spelling() {
   // compositionally (`t!` is `t` plus the ejective affix), and those are read
   // as base plus modifier so the affix stays visible to a longer string.
   // Either way it is one sound and it spells the same.
-  for talk in ["t!", "ny~", "lQ~", "k*", "b?", "i$", "D"] {
+  for talk in ["t!", "n<y>", "l<q>", "k!", "b<@>", "~I", "D"] {
     let sounds = segment(talk);
 
     assert_eq!(sounds.len(), 1, "segment({talk})");
@@ -243,19 +243,19 @@ fn reads_a_chart_phone_back_as_one_sound_with_the_same_spelling() {
 
 #[test]
 fn parses_vowel_suprasegmentals_as_base_plus_feature() {
-  assert_eq!(shape("a^"), one("a^", Kind::Vowel, "a", &["stress"]));
-  assert_eq!(shape("a_"), one("a_", Kind::Vowel, "a", &["long"]));
-  assert_eq!(shape("a~"), one("a~", Kind::Vowel, "a", &["nasalized"]));
-  assert_eq!(shape("i@"), one("i@", Kind::Vowel, "i", &["non-syllabic"]));
+  assert_eq!(shape("a<^>"), one("a<^>", Kind::Vowel, "a", &["stress"]));
+  assert_eq!(shape("a<_>"), one("a<_>", Kind::Vowel, "a", &["long"]));
+  assert_eq!(shape("a<n>"), one("a<n>", Kind::Vowel, "a", &["nasalized"]));
+  assert_eq!(shape("i<s->"), one("i<s->", Kind::Vowel, "i", &["non-syllabic"]));
 }
 
 #[test]
 fn parses_the_four_register_tones() {
   for (talk, feature) in [
-    ("a+", "high-tone"),
-    ("a++", "extra-high-tone"),
-    ("a-", "low-tone"),
-    ("a--", "extra-low-tone"),
+    ("a<t4>", "high-tone"),
+    ("a<p5>", "extra-high-tone"),
+    ("a<t2>", "low-tone"),
+    ("a<t1>", "extra-low-tone"),
   ] {
     assert_eq!(features(talk)[0], vec![feature]);
   }
@@ -263,11 +263,11 @@ fn parses_the_four_register_tones() {
 
 #[test]
 fn stacks_multiple_vowel_features_in_one_chunk() {
-  let sounds = segment("a~^_+");
+  let sounds = segment("a<n^_t4>");
 
   assert_eq!(sounds[0].base.map(|phone| phone.talk.as_str()), Some("a"));
 
-  let mut got = features("a~^_+")[0].clone();
+  let mut got = features("a<n^_t4>")[0].clone();
 
   got.sort();
 

@@ -135,12 +135,26 @@ def _tone_model() -> Model:
         for name, mods in sorted(by_slot.items())
     ]
 
-    return Model(
-        bases=bases,
-        axes=axes,
-        units=[base.key for base in bases]
-        + sorted({mod.talk for mod in coded}),
-    )
+    # A UNIT IS A SPELLING, so the roster holds each one once.
+    #
+    # The bases and the modifiers are spelled from the same small alphabet
+    # and overlap in ten places: `y` is the palatal approximant and also the
+    # palatalization mark, `h` the glottal fricative and also aspiration.
+    # Concatenating the two lists gave each of those two codes, and the seed
+    # tier codes a spelling rather than a role, so the second one was
+    # unreachable: `encode_unit` finds the first and ten codes in the space
+    # decoded to something that encoded elsewhere.
+    #
+    # `_ipa_model` already collects its atoms into a set for this reason.
+    roster: list[str] = []
+
+    for one in [base.key for base in bases] + sorted(
+        {mod.talk for mod in coded}
+    ):
+        if one not in roster:
+            roster.append(one)
+
+    return Model(bases=bases, axes=axes, units=roster)
 
 
 def _ipa_model() -> Model:

@@ -105,15 +105,15 @@ fn canonicalizes_modifier_order() {
 
 #[test]
 fn exposes_the_conversions_at_the_crate_root() {
-  assert_eq!(ipa_to_talk("tʰ"), "th~");
-  assert_eq!(talk_to_ipa("th~"), "tʰ");
-  assert_eq!(readable("th~"), "tʰ");
-  assert_eq!(machine("th~", Notation::Tone, Tier::Mesh).len(), 1);
+  assert_eq!(ipa_to_talk("tʰ"), "t<h>");
+  assert_eq!(talk_to_ipa("t<h>"), "tʰ");
+  assert_eq!(readable("t<h>"), "tʰ");
+  assert_eq!(machine("t<h>", Notation::Tone, Tier::Mesh).len(), 1);
 }
 
 #[test]
 fn tokenizes_into_sounds_with_features() {
-  let sounds = segment("th~a");
+  let sounds = segment("t<h>a");
   let first = &sounds[0];
 
   assert_eq!(first.base.map(|phone| phone.talk.as_str()), Some("t"));

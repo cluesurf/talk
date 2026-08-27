@@ -27,17 +27,21 @@ pub fn symbols() -> &'static [SymbolEntry] {
       })
       .collect();
 
-    // THE TIE AND THE LINK, which `normalize_ipa` used to delete.
+    // THE LINK, which `normalize_ipa` used to delete. `‿` says two words
+    // were spoken as one, which the writer chose to state, so it survives
+    // the normalizer and needs a talk spelling to come back through.
     //
-    // `t͡ʃ` is one affricate where `tʃ` may be a stop meeting a fricative
-    // across a boundary, and `‿` says two words were spoken as one. Both
-    // state something the writer chose to state, so both survive the
-    // normalizer now and both need a talk spelling to come back through.
+    // THE TIE IS NOT HERE. `t͡ʃ` says the letters either side of it are ONE
+    // segment, which is a claim about them rather than a character standing
+    // between them. Carried as a symbol it round-tripped but could not say
+    // how far the binding reached, so it is folded into the `<B>` binder by
+    // `bind_ties` instead. Leaving an entry here would match it first and
+    // that fold would never run.
     //
     // Spelled out rather than derived, because the loop above builds each
-    // entry by stripping the backslash off its own escape and neither of
-    // these spells the character it escapes.
-    for (talk, ipa) in [("\\=", '\u{0361}'), ("\\&", '\u{203f}')] {
+    // entry by stripping the backslash off its own escape and this does not
+    // spell the character it escapes.
+    for (talk, ipa) in [("\\&", '\u{203f}')] {
       symbols.push(SymbolEntry {
         talk: talk.to_string(),
         ipa: ipa.to_string(),

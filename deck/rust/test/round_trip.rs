@@ -40,8 +40,8 @@ fn every_canonical_talk_letter_round_trips() {
 
 #[test]
 fn the_rounded_front_vowel_pair_is_consistent_both_directions() {
-  assert_eq!(talk_to_ipa("a$"), "ø");
-  assert_eq!(ipa_to_talk("ø"), "a$");
-  assert_eq!(talk_to_ipa("e$"), "œ");
-  assert_eq!(ipa_to_talk("œ"), "e$");
+  assert_eq!(talk_to_ipa("$e"), "ø");
+  assert_eq!(ipa_to_talk("ø"), "$e");
+  assert_eq!(talk_to_ipa("~e"), "œ");
+  assert_eq!(ipa_to_talk("œ"), "~e");
 }

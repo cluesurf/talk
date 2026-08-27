@@ -25,10 +25,10 @@ def test_every_canonical_talk_letter_round_trips():
 
 
 def test_a_dollar_round_trips_with_o_slash():
-    assert talk_to_ipa("a$") == "ø"
-    assert ipa_to_talk("ø") == "a$"
+    assert talk_to_ipa("$e") == "ø"
+    assert ipa_to_talk("ø") == "$e"
 
 
 def test_e_dollar_round_trips_with_oe_ligature():
-    assert talk_to_ipa("e$") == "œ"
-    assert ipa_to_talk("œ") == "e$"
+    assert talk_to_ipa("~e") == "œ"
+    assert ipa_to_talk("œ") == "~e"

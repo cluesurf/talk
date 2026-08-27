@@ -94,22 +94,21 @@ def test_count_attested_counts_distinct_units():
 # ─── capacity ────────────────────────────────────────────────────────────
 
 
-def test_tone_seed_and_band_fit_their_hangul_groups():
-    # Attachment rules on the last nine modifiers cut `tone` by roughly
-    # three quarters, which brought `band` back inside its character space.
-    # `mesh` is still six times too large.
-    assert (
-        talk.count_space(type="tone", system="seed", space="producible")
-        < talk.CAPACITY["seed"]
-    )
-    assert (
-        talk.count_space(type="tone", system="band", space="producible")
-        < talk.CAPACITY["band"]
-    )
-    assert (
-        talk.count_space(type="tone", system="mesh", space="producible")
-        > talk.CAPACITY["mesh"]
-    )
+def test_tone_space_grows_with_the_tier():
+    # WHY NOT A HANGUL CAPACITY. This asserted each tier fit inside a block
+    # of Hangul syllables, from when a code was rendered as a character.
+    # Machine coding is integers now, so the capacities are not a bound on
+    # anything and the test only restated the inventory size on the day it
+    # was typed.
+    #
+    # What has to hold is that the tiers are ordered: a wider system offers
+    # strictly more codes than a narrower one.
+    seed = talk.count_space(type="tone", system="seed", space="producible")
+    band = talk.count_space(type="tone", system="band", space="producible")
+    mesh = talk.count_space(type="tone", system="mesh", space="producible")
+
+    assert seed < band
+    assert band < mesh
 
 
 def test_ipa_never_fits_a_character_space():
@@ -128,7 +127,7 @@ def test_byte_width_is_sized_per_tier():
     # `ipa mesh` is four, so a single width would waste three quarters.
     assert talk.byte_width(type="tone", system="seed") == 1
     assert talk.byte_width(type="tone", system="band") == 2
-    assert talk.byte_width(type="tone", system="mesh") == 2
+    assert talk.byte_width(type="tone", system="mesh") == 3
     assert talk.byte_width(type="ipa", system="seed") == 1
     assert talk.byte_width(type="ipa", system="band") == 3
     assert talk.byte_width(type="ipa", system="mesh") == 4
@@ -323,8 +322,8 @@ def test_normalize_is_idempotent():
 def test_keeps_pre_aspiration():
     # `ʰk` used to come back as plain `k`: a modifier before any base had
     # nowhere to go, so the distinction vanished silently.
-    assert talk.ipa_to_talk("ʰk") == "h~k"
-    assert talk.talk_to_ipa("h~k") == "ʰk"
+    assert talk.ipa_to_talk("ʰk") == "<h>k"
+    assert talk.talk_to_ipa("<h>k") == "ʰk"
 
 
 def test_distinguishes_pre_from_post():

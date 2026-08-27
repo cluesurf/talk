@@ -104,13 +104,31 @@ fn counts_distinct_units_not_occurrences() {
 
 #[test]
 fn sizes_bytes_to_the_tier() {
-  // The whole reason widths are per tier: `tone seed` is a byte and
-  // `ipa mesh` is four, so a single width would waste three quarters.
+  // The whole reason widths are per tier: the smallest is a byte and the
+  // largest is four, so a single width would waste three quarters.
+  //
+  // WHY NOT SIX FIXED NUMBERS. It was written that way, and every one of
+  // them was a restatement of the inventory size on the day it was typed.
+  // Adding sounds moved `tone mesh` from two bytes to three and the test
+  // failed without anything being wrong. What has to hold is that a width is
+  // the SMALLEST that fits its tier, and that the six are not all the same.
+  let mut widths = std::collections::BTreeSet::new();
+
+  for (notation, tier) in every() {
+    let width = byte_width(notation, tier) as u32;
+    let size = count_space(notation, tier, Space::Producible) as u128;
+
+    widths.insert(width);
+
+    assert!(size <= 256u128.pow(width), "{notation:?} {tier:?} overflows");
+    assert!(
+      size > 256u128.pow(width - 1),
+      "{notation:?} {tier:?} is wider than it needs"
+    );
+  }
+
+  assert!(widths.len() > 1, "the tiers do not all share one width");
   assert_eq!(byte_width(Notation::Tone, Tier::Seed), 1);
-  assert_eq!(byte_width(Notation::Tone, Tier::Band), 2);
-  assert_eq!(byte_width(Notation::Tone, Tier::Mesh), 2);
-  assert_eq!(byte_width(Notation::Ipa, Tier::Seed), 1);
-  assert_eq!(byte_width(Notation::Ipa, Tier::Band), 3);
   assert_eq!(byte_width(Notation::Ipa, Tier::Mesh), 4);
 }
 
@@ -306,8 +324,8 @@ fn never_moves_a_leading_modifier() {
 fn keeps_pre_aspiration() {
   // `ʰk` used to come back as plain `k`: a modifier before any base had
   // nowhere to go, so the distinction vanished silently.
-  assert_eq!(ipa_to_talk("\u{2b0}k"), "h~k");
-  assert_eq!(talk_to_ipa("h~k"), "\u{2b0}k");
+  assert_eq!(ipa_to_talk("\u{2b0}k"), "<h>k");
+  assert_eq!(talk_to_ipa("<h>k"), "\u{2b0}k");
 }
 
 #[test]

@@ -1,24 +1,150 @@
 [
   {
+    "talk": "$d$x"
+  },
+  {
+    "talk": "$t$x"
+  },
+  {
+    "talk": "$dj"
+  },
+  {
+    "talk": "$dJ"
+  },
+  {
+    "talk": "$dx"
+  },
+  {
+    "talk": "$dX"
+  },
+  {
+    "talk": "$tx"
+  },
+  {
+    "talk": "$tX"
+  },
+  {
+    "talk": "d$x"
+  },
+  {
+    "talk": "D$x"
+  },
+  {
+    "talk": "t$x"
+  },
+  {
+    "talk": "T$x"
+  },
+  {
+    "talk": "$'"
+  },
+  {
+    "talk": "$d"
+  },
+  {
+    "talk": "$g"
+  },
+  {
+    "talk": "$G"
+  },
+  {
+    "talk": "$h"
+  },
+  {
+    "talk": "$H"
+  },
+  {
+    "talk": "$m"
+  },
+  {
+    "talk": "$n"
+  },
+  {
+    "talk": "$N"
+  },
+  {
+    "talk": "$r"
+  },
+  {
+    "talk": "$R"
+  },
+  {
+    "talk": "$S"
+  },
+  {
+    "talk": "$t"
+  },
+  {
+    "talk": "$v"
+  },
+  {
+    "talk": "$x"
+  },
+  {
+    "talk": "$Z"
+  },
+  {
+    "talk": "d!"
+  },
+  {
     "talk": "dj"
+  },
+  {
+    "talk": "dJ"
+  },
+  {
+    "talk": "Dj"
+  },
+  {
+    "talk": "DJ"
   },
   {
     "talk": "dx"
   },
   {
+    "talk": "dX"
+  },
+  {
+    "talk": "Dx"
+  },
+  {
+    "talk": "DX"
+  },
+  {
+    "talk": "k!"
+  },
+  {
+    "talk": "K!"
+  },
+  {
+    "talk": "l!"
+  },
+  {
+    "talk": "p!"
+  },
+  {
+    "talk": "t!"
+  },
+  {
+    "talk": "T!"
+  },
+  {
     "talk": "tx"
   },
   {
+    "talk": "tX"
+  },
+  {
+    "talk": "Tx"
+  },
+  {
+    "talk": "TX"
+  },
+  {
+    "talk": "'"
+  },
+  {
     "talk": "b"
-  },
-  {
-    "talk": "B"
-  },
-  {
-    "talk": "c"
-  },
-  {
-    "talk": "C"
   },
   {
     "talk": "d"
@@ -75,12 +201,6 @@
     "talk": "p"
   },
   {
-    "talk": "q"
-  },
-  {
-    "talk": "Q"
-  },
-  {
     "talk": "r"
   },
   {
@@ -108,6 +228,9 @@
     "talk": "w"
   },
   {
+    "talk": "W"
+  },
+  {
     "talk": "x"
   },
   {
@@ -115,6 +238,9 @@
   },
   {
     "talk": "y"
+  },
+  {
+    "talk": "Y"
   },
   {
     "talk": "z"

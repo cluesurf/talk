@@ -5,11 +5,11 @@
 //! trie scan.
 //!
 //! ```
-//! assert_eq!(talk::ipa_to_talk("tʰa"), "th~a");
-//! assert_eq!(talk::talk_to_ipa("th~a"), "tʰa");
-//! assert_eq!(talk::readable("th~a"), "tʰa");
+//! assert_eq!(talk::ipa_to_talk("tʰa"), "t<h>a");
+//! assert_eq!(talk::talk_to_ipa("t<h>a"), "tʰa");
+//! assert_eq!(talk::readable("t<h>a"), "tʰa");
 //! assert_eq!(
-//!   talk::machine("th~a", talk::Notation::Tone, talk::Tier::Mesh).len(),
+//!   talk::machine("t<h>a", talk::Notation::Tone, talk::Tier::Mesh).len(),
 //!   2
 //! );
 //! ```

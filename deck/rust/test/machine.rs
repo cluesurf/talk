@@ -11,16 +11,16 @@ fn encodes_each_sound_as_one_hangul_code_point() {
   let cases: [(&str, usize); 7] = [
     ("g", 1),
     // Voiceless m (m̥), one sound.
-    ("mh!", 1),
+    ("m<v->", 1),
     // Palatal nasal (ɲ), one sound.
-    ("ny~", 1),
+    ("n<y>", 1),
     // Voiceless bilabial trill (ʙ̥), one sound.
-    ("bbh!", 1),
-    ("u$", 1),
+    ("b<rv->", 1),
+    ("$e", 1),
     // t + a + k.
     ("tak", 3),
-    // m + a + ny~ + a.
-    ("many~a", 4),
+    // m + a + n<y> + a.
+    ("man<y>a", 4),
   ];
 
   for (talk, want) in cases {

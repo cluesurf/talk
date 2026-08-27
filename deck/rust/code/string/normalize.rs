@@ -197,7 +197,12 @@ fn unwrap_delimiters(text: &str) -> &str {
     {
       characters.as_str()
     }
-    _ => trimmed,
+    // UNTRIMMED WHEN NOTHING WRAPPED. The trim above is how the delimiters
+    // are FOUND, not something to keep: returning it stripped a lone space
+    // to nothing, and a space is a real symbol that separates two words.
+    // The reference build trims only to test for the delimiters and hands
+    // back the string it was given.
+    _ => text,
   }
 }
 
@@ -351,7 +356,18 @@ fn is_affix(character: char) -> bool {
 }
 
 fn is_base(character: char) -> bool {
-  character.is_alphabetic() && !is_affix(character)
+  // A LETTER IS A BASE EVEN WHEN IT IS ALSO AN AFFIX. The reference build
+  // asks only whether the general category starts with `L`, and the modifier
+  // letters are `Lm`, so `ˈ` and `ʰ` are bases there as well as affixes. The
+  // `&& !is_affix` here excluded exactly those, so a run opened by one was
+  // never sorted: `ˈ˷̩` kept its input order while the reference moved the
+  // syllabic mark ahead of the phone, and the mark then read as trailing
+  // rather than leading.
+  //
+  // Ordering the two tests this way is safe because `order_marks` checks
+  // the affix branch FIRST, so a modifier letter with nothing before it
+  // still falls through and opens a run rather than joining one.
+  character.is_alphabetic()
 }
 
 /// Marks whose place in a run says WHEN, not merely what.
