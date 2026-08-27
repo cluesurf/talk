@@ -110,7 +110,11 @@ const escape = (one: string): string => one.replace(/\|/g, '\\|')
 const code = (one: string): string => {
   const body = one.replace(/\|/g, '\\|')
 
-  return body.includes('`') ? `\`\` ${body} \`\`` : `\`${body}\``
+  // PADDED WHENEVER A BACKTICK OR BACKSLASH IS INSIDE. A backtick would
+  // close the span early, and a trailing backslash sitting against the
+  // closing backtick escapes it. The alveolar lateral click is `|\|\`,
+  // which has both problems at once and broke the whole table.
+  return /[`\\]/.test(body) ? `\`\` ${body} \`\`` : `\`${body}\``
 }
 
 /**
