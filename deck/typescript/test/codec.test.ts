@@ -32,13 +32,27 @@ describe('code space', () => {
   })
 
   it('sizes bytes to the system rather than to one global width', () => {
-    // The whole reason widths are per system: `tone seed` is a byte and
-    // `ipa mesh` is four, so a single width would waste three quarters.
+    // The whole reason widths are per system: the smallest is a byte and
+    // the largest is four, so a single width would waste three quarters.
+    //
+    // WHY NOT SIX FIXED NUMBERS. It was written that way, and every one of
+    // them was a restatement of the inventory size on the day it was
+    // typed. Adding sounds moved `tone mesh` from two bytes to three and
+    // the test failed without anything being wrong. What has to hold is
+    // that a width is the SMALLEST that fits its system, and that the six
+    // are not all the same number.
+    for (const [type, system] of ALL) {
+      const width = byteWidth({ type, system })
+      const size = sizeOf({ type, system })
+
+      expect(size, `${type} ${system}`).toBeLessThanOrEqual(256 ** width)
+      expect(size, `${type} ${system}`).toBeGreaterThan(256 ** (width - 1))
+    }
+
+    const widths = new Set(ALL.map(([type, system]) => byteWidth({ type, system })))
+
+    expect(widths.size).toBeGreaterThan(1)
     expect(byteWidth({ type: 'tone', system: 'seed' })).toBe(1)
-    expect(byteWidth({ type: 'tone', system: 'band' })).toBe(2)
-    expect(byteWidth({ type: 'tone', system: 'mesh' })).toBe(2)
-    expect(byteWidth({ type: 'ipa', system: 'seed' })).toBe(1)
-    expect(byteWidth({ type: 'ipa', system: 'band' })).toBe(3)
     expect(byteWidth({ type: 'ipa', system: 'mesh' })).toBe(4)
   })
 

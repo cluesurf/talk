@@ -8585,11 +8585,11 @@
   },
   {
     "talk": "$d$x$h",
-    "token": "䓵"
+    "token": "㖋"
   },
   {
     "talk": "$d$x$H",
-    "token": "䓶"
+    "token": "㖎"
   },
   {
     "talk": "$dj$dj",
@@ -12573,11 +12573,11 @@
   },
   {
     "talk": "$t$x$h",
-    "token": "䧘"
+    "token": "㖐"
   },
   {
     "talk": "$t$x$H",
-    "token": "䧙"
+    "token": "㖒"
   },
   {
     "talk": "$t$x$m",
@@ -17853,11 +17853,11 @@
   },
   {
     "talk": "$d$xh",
-    "token": "僦"
+    "token": "㞱"
   },
   {
     "talk": "$d$xH",
-    "token": "僧"
+    "token": "㞷"
   },
   {
     "talk": "$d$xw",
@@ -17869,27 +17869,27 @@
   },
   {
     "talk": "$d$xy",
-    "token": "僪"
+    "token": "㡜"
   },
   {
     "talk": "$d$xY",
-    "token": "僫"
+    "token": "㡼"
   },
   {
     "talk": "$dj$h",
-    "token": "僬"
+    "token": "㡽"
   },
   {
     "talk": "$dj$H",
-    "token": "僭"
+    "token": "㢗"
   },
   {
     "talk": "$dJ$h",
-    "token": "僮"
+    "token": "㢘"
   },
   {
     "talk": "$dJ$H",
-    "token": "僯"
+    "token": "㢵"
   },
   {
     "talk": "$dj$r",
@@ -17949,19 +17949,19 @@
   },
   {
     "talk": "$dx$h",
-    "token": "僾"
+    "token": "㢷"
   },
   {
     "talk": "$dx$H",
-    "token": "僿"
+    "token": "㣡"
   },
   {
     "talk": "$dX$h",
-    "token": "儀"
+    "token": "㣢"
   },
   {
     "talk": "$dX$H",
-    "token": "儁"
+    "token": "㣮"
   },
   {
     "talk": "$g$xk",
@@ -22897,11 +22897,11 @@
   },
   {
     "talk": "$t$xh",
-    "token": "嘵"
+    "token": "㣯"
   },
   {
     "talk": "$t$xH",
-    "token": "嘶"
+    "token": "㣴"
   },
   {
     "talk": "$t$xm",
@@ -22933,11 +22933,11 @@
   },
   {
     "talk": "$t$xy",
-    "token": "嘾"
+    "token": "㣶"
   },
   {
     "talk": "$t$xY",
-    "token": "嘿"
+    "token": "㤐"
   },
   {
     "talk": "$t$Zw",
@@ -22969,19 +22969,19 @@
   },
   {
     "talk": "$tx$h",
-    "token": "噇"
+    "token": "㤑"
   },
   {
     "talk": "$tx$H",
-    "token": "噈"
+    "token": "㤣"
   },
   {
     "talk": "$tX$h",
-    "token": "噉"
+    "token": "㤤"
   },
   {
     "talk": "$tX$H",
-    "token": "噊"
+    "token": "㤬"
   },
   {
     "talk": "$tx$m",
@@ -24161,19 +24161,19 @@
   },
   {
     "talk": "d$x$h",
-    "token": "垎"
+    "token": "㥇"
   },
   {
     "talk": "d$x$H",
-    "token": "垏"
+    "token": "㥈"
   },
   {
     "talk": "D$x$h",
-    "token": "垐"
+    "token": "㥫"
   },
   {
     "talk": "D$x$H",
-    "token": "垑"
+    "token": "㦌"
   },
   {
     "talk": "dj$dj",
@@ -31233,19 +31233,19 @@
   },
   {
     "talk": "t$x$h",
-    "token": "德"
+    "token": "㦍"
   },
   {
     "talk": "t$x$H",
-    "token": "徸"
+    "token": "㦞"
   },
   {
     "talk": "T$x$h",
-    "token": "徹"
+    "token": "㦟"
   },
   {
     "talk": "T$x$H",
-    "token": "徺"
+    "token": "㦨"
   },
   {
     "talk": "t$x$m",
@@ -33021,11 +33021,11 @@
   },
   {
     "talk": "$d$h",
-    "token": "憴"
+    "token": "㦩"
   },
   {
     "talk": "$d$H",
-    "token": "憵"
+    "token": "㦶"
   },
   {
     "talk": "$d$r",
@@ -33061,19 +33061,19 @@
   },
   {
     "talk": "$djh",
-    "token": "懂"
+    "token": "㦷"
   },
   {
     "talk": "$djH",
-    "token": "懃"
+    "token": "㦸"
   },
   {
     "talk": "$dJh",
-    "token": "懄"
+    "token": "㦹"
   },
   {
     "talk": "$dJH",
-    "token": "懅"
+    "token": "㧃"
   },
   {
     "talk": "$djr",
@@ -33101,19 +33101,19 @@
   },
   {
     "talk": "$djy",
-    "token": "懌"
+    "token": "㧄"
   },
   {
     "talk": "$djY",
-    "token": "懍"
+    "token": "㧕"
   },
   {
     "talk": "$dJy",
-    "token": "懎"
+    "token": "㧖"
   },
   {
     "talk": "$dJY",
-    "token": "懏"
+    "token": "㧰"
   },
   {
     "talk": "$djz",
@@ -33133,19 +33133,19 @@
   },
   {
     "talk": "$dxh",
-    "token": "懔"
+    "token": "㧻"
   },
   {
     "talk": "$dxH",
-    "token": "懕"
+    "token": "㨃"
   },
   {
     "talk": "$dXh",
-    "token": "懖"
+    "token": "㨄"
   },
   {
     "talk": "$dXH",
-    "token": "懗"
+    "token": "㨑"
   },
   {
     "talk": "$dxw",
@@ -33165,19 +33165,19 @@
   },
   {
     "talk": "$dxy",
-    "token": "懜"
+    "token": "㨒"
   },
   {
     "talk": "$dxY",
-    "token": "懝"
+    "token": "㨘"
   },
   {
     "talk": "$dXy",
-    "token": "懞"
+    "token": "㨩"
   },
   {
     "talk": "$dXY",
-    "token": "懟"
+    "token": "㨪"
   },
   {
     "talk": "$e~a",
@@ -33309,19 +33309,19 @@
   },
   {
     "talk": "$g$h",
-    "token": "戄"
+    "token": "㨷"
   },
   {
     "talk": "$g$H",
-    "token": "戅"
+    "token": "㨸"
   },
   {
     "talk": "$G$h",
-    "token": "戆"
+    "token": "㩹"
   },
   {
     "talk": "$G$H",
-    "token": "戇"
+    "token": "㩼"
   },
   {
     "talk": "$g$r",
@@ -33697,11 +33697,11 @@
   },
   {
     "talk": "$m$h",
-    "token": "扦"
+    "token": "㩽"
   },
   {
     "talk": "$m$H",
-    "token": "执"
+    "token": "㪈"
   },
   {
     "talk": "$m$m",
@@ -34133,19 +34133,19 @@
   },
   {
     "talk": "$n$h",
-    "token": "拖"
+    "token": "㪋"
   },
   {
     "talk": "$n$H",
-    "token": "拗"
+    "token": "㪌"
   },
   {
     "talk": "$N$h",
-    "token": "拘"
+    "token": "㪑"
   },
   {
     "talk": "$N$H",
-    "token": "拙"
+    "token": "㪒"
   },
   {
     "talk": "$n$n",
@@ -35053,19 +35053,19 @@
   },
   {
     "talk": "$r$h",
-    "token": "掲"
+    "token": "㪕"
   },
   {
     "talk": "$r$H",
-    "token": "掳"
+    "token": "㪖"
   },
   {
     "talk": "$R$h",
-    "token": "掴"
+    "token": "㪗"
   },
   {
     "talk": "$R$H",
-    "token": "掵"
+    "token": "㪙"
   },
   {
     "talk": "$r$i",
@@ -36933,11 +36933,11 @@
   },
   {
     "talk": "$S$h",
-    "token": "斅"
+    "token": "㪚"
   },
   {
     "talk": "$S$H",
-    "token": "斆"
+    "token": "㪝"
   },
   {
     "talk": "$S$m",
@@ -37405,11 +37405,11 @@
   },
   {
     "talk": "$t$h",
-    "token": "旼"
+    "token": "㪠"
   },
   {
     "talk": "$t$H",
-    "token": "旽"
+    "token": "㪢"
   },
   {
     "talk": "$t$r",
@@ -37449,19 +37449,19 @@
   },
   {
     "talk": "$txh",
-    "token": "明"
+    "token": "㪣"
   },
   {
     "talk": "$txH",
-    "token": "昏"
+    "token": "㪥"
   },
   {
     "talk": "$tXh",
-    "token": "昐"
+    "token": "㪦"
   },
   {
     "talk": "$tXH",
-    "token": "昑"
+    "token": "㪨"
   },
   {
     "talk": "$txm",
@@ -37521,19 +37521,19 @@
   },
   {
     "talk": "$txy",
-    "token": "映"
+    "token": "㪩"
   },
   {
     "talk": "$txY",
-    "token": "昡"
+    "token": "㪪"
   },
   {
     "talk": "$tXy",
-    "token": "昢"
+    "token": "㪭"
   },
   {
     "talk": "$tXY",
-    "token": "昣"
+    "token": "㪮"
   },
   {
     "talk": "$tzw",
@@ -37637,11 +37637,11 @@
   },
   {
     "talk": "$v$h",
-    "token": "晘"
+    "token": "㪯"
   },
   {
     "talk": "$v$H",
-    "token": "晙"
+    "token": "㪱"
   },
   {
     "talk": "$v$r",
@@ -37861,11 +37861,11 @@
   },
   {
     "talk": "$x$h",
-    "token": "暓"
+    "token": "㪴"
   },
   {
     "talk": "$x$H",
-    "token": "暔"
+    "token": "㪶"
   },
   {
     "talk": "$x$m",
@@ -38297,11 +38297,11 @@
   },
   {
     "talk": "$Z$h",
-    "token": "會"
+    "token": "㪷"
   },
   {
     "talk": "$Z$H",
-    "token": "朄"
+    "token": "㪸"
   },
   {
     "talk": "$Z$m",
@@ -38849,11 +38849,11 @@
   },
   {
     "talk": "d!$h",
-    "token": "枔"
+    "token": "㪻"
   },
   {
     "talk": "d!$H",
-    "token": "枕"
+    "token": "㪼"
   },
   {
     "talk": "d$dj",
@@ -38873,19 +38873,19 @@
   },
   {
     "talk": "d$xh",
-    "token": "果"
+    "token": "㫔"
   },
   {
     "talk": "d$xH",
-    "token": "枝"
+    "token": "㫖"
   },
   {
     "talk": "D$xh",
-    "token": "枞"
+    "token": "㫗"
   },
   {
     "talk": "D$xH",
-    "token": "枟"
+    "token": "䉂"
   },
   {
     "talk": "d$xw",
@@ -38905,51 +38905,51 @@
   },
   {
     "talk": "d$xy",
-    "token": "枤"
+    "token": "䉅"
   },
   {
     "talk": "d$xY",
-    "token": "枥"
+    "token": "䉆"
   },
   {
     "talk": "D$xy",
-    "token": "枦"
+    "token": "䉉"
   },
   {
     "talk": "D$xY",
-    "token": "枧"
+    "token": "䉊"
   },
   {
     "talk": "dj$h",
-    "token": "枨"
+    "token": "䉍"
   },
   {
     "talk": "dj$H",
-    "token": "枩"
+    "token": "䉎"
   },
   {
     "talk": "dJ$h",
-    "token": "枪"
+    "token": "䉑"
   },
   {
     "talk": "dJ$H",
-    "token": "枫"
+    "token": "䉒"
   },
   {
     "talk": "Dj$h",
-    "token": "枬"
+    "token": "䉕"
   },
   {
     "talk": "Dj$H",
-    "token": "枭"
+    "token": "䉖"
   },
   {
     "talk": "DJ$h",
-    "token": "枮"
+    "token": "䉘"
   },
   {
     "talk": "DJ$H",
-    "token": "枯"
+    "token": "䉚"
   },
   {
     "talk": "dj$r",
@@ -39065,35 +39065,35 @@
   },
   {
     "talk": "dx$h",
-    "token": "柊"
+    "token": "䉜"
   },
   {
     "talk": "dx$H",
-    "token": "柋"
+    "token": "䉞"
   },
   {
     "talk": "dX$h",
-    "token": "柌"
+    "token": "䉠"
   },
   {
     "talk": "dX$H",
-    "token": "柍"
+    "token": "䉢"
   },
   {
     "talk": "Dx$h",
-    "token": "柎"
+    "token": "䉤"
   },
   {
     "talk": "Dx$H",
-    "token": "柏"
+    "token": "䉦"
   },
   {
     "talk": "DX$h",
-    "token": "某"
+    "token": "䉩"
   },
   {
     "talk": "DX$H",
-    "token": "柑"
+    "token": "䉪"
   },
   {
     "talk": "f$dd",
@@ -40113,19 +40113,19 @@
   },
   {
     "talk": "k!$h",
-    "token": "棲"
+    "token": "䉭"
   },
   {
     "talk": "k!$H",
-    "token": "棳"
+    "token": "䉮"
   },
   {
     "talk": "K!$h",
-    "token": "棴"
+    "token": "䉱"
   },
   {
     "talk": "K!$H",
-    "token": "棵"
+    "token": "䉲"
   },
   {
     "talk": "k$rm",
@@ -40249,11 +40249,11 @@
   },
   {
     "talk": "l!$h",
-    "token": "椔"
+    "token": "䉵"
   },
   {
     "talk": "l!$H",
-    "token": "椕"
+    "token": "䉶"
   },
   {
     "talk": "l$dd",
@@ -45169,11 +45169,11 @@
   },
   {
     "talk": "p!$h",
-    "token": "淎"
+    "token": "䉹"
   },
   {
     "talk": "p!$H",
-    "token": "淏"
+    "token": "䉺"
   },
   {
     "talk": "p$dd",
@@ -47845,19 +47845,19 @@
   },
   {
     "talk": "t!$h",
-    "token": "灁"
+    "token": "䉽"
   },
   {
     "talk": "t!$H",
-    "token": "灂"
+    "token": "䉾"
   },
   {
     "talk": "T!$h",
-    "token": "灃"
+    "token": "䊁"
   },
   {
     "talk": "T!$H",
-    "token": "灄"
+    "token": "䊂"
   },
   {
     "talk": "t$rm",
@@ -47909,19 +47909,19 @@
   },
   {
     "talk": "t$xh",
-    "token": "灑"
+    "token": "䊅"
   },
   {
     "talk": "t$xH",
-    "token": "灒"
+    "token": "䊆"
   },
   {
     "talk": "T$xh",
-    "token": "灓"
+    "token": "䊉"
   },
   {
     "talk": "T$xH",
-    "token": "灔"
+    "token": "䊊"
   },
   {
     "talk": "t$xm",
@@ -47981,19 +47981,19 @@
   },
   {
     "talk": "t$xy",
-    "token": "灣"
+    "token": "䊍"
   },
   {
     "talk": "t$xY",
-    "token": "灤"
+    "token": "䊎"
   },
   {
     "talk": "T$xy",
-    "token": "灥"
+    "token": "䊑"
   },
   {
     "talk": "T$xY",
-    "token": "灦"
+    "token": "䊒"
   },
   {
     "talk": "t$Zw",
@@ -48053,35 +48053,35 @@
   },
   {
     "talk": "tx$h",
-    "token": "灵"
+    "token": "䊕"
   },
   {
     "talk": "tx$H",
-    "token": "灶"
+    "token": "䊖"
   },
   {
     "talk": "tX$h",
-    "token": "灷"
+    "token": "䊙"
   },
   {
     "talk": "tX$H",
-    "token": "灸"
+    "token": "䊚"
   },
   {
     "talk": "Tx$h",
-    "token": "灹"
+    "token": "䊝"
   },
   {
     "talk": "Tx$H",
-    "token": "灺"
+    "token": "䊞"
   },
   {
     "talk": "TX$h",
-    "token": "灻"
+    "token": "䊡"
   },
   {
     "talk": "TX$H",
-    "token": "灼"
+    "token": "䊢"
   },
   {
     "talk": "tx$m",
@@ -50348,14 +50348,6 @@
     "token": "狕"
   },
   {
-    "talk": "~u$",
-    "token": "狖"
-  },
-  {
-    "talk": "~U$",
-    "token": "狗"
-  },
-  {
     "talk": "~ua",
     "token": "狘"
   },
@@ -50621,11 +50613,11 @@
   },
   {
     "talk": "$dh",
-    "token": "㩹"
+    "token": "䊥"
   },
   {
     "talk": "$dH",
-    "token": "猪"
+    "token": "䊦"
   },
   {
     "talk": "$dj",
@@ -50793,7 +50785,7 @@
   },
   {
     "talk": "$gh",
-    "token": "㩼"
+    "token": "䊪"
   },
   {
     "talk": "$gH",
@@ -50801,7 +50793,7 @@
   },
   {
     "talk": "$Gh",
-    "token": "㩽"
+    "token": "䊬"
   },
   {
     "talk": "$GH",
@@ -51109,7 +51101,7 @@
   },
   {
     "talk": "$mh",
-    "token": "㪈"
+    "token": "䊮"
   },
   {
     "talk": "$mH",
@@ -51265,19 +51257,19 @@
   },
   {
     "talk": "$nh",
-    "token": "㪋"
+    "token": "䊰"
   },
   {
     "talk": "$nH",
-    "token": "玿"
+    "token": "䊴"
   },
   {
     "talk": "$Nh",
-    "token": "㪌"
+    "token": "䊶"
   },
   {
     "talk": "$NH",
-    "token": "珀"
+    "token": "䊼"
   },
   {
     "talk": "$nj",
@@ -51589,19 +51581,19 @@
   },
   {
     "talk": "$rh",
-    "token": "㪑"
+    "token": "䊾"
   },
   {
     "talk": "$rH",
-    "token": "球"
+    "token": "䋀"
   },
   {
     "talk": "$Rh",
-    "token": "㪒"
+    "token": "䋂"
   },
   {
     "talk": "$RH",
-    "token": "琄"
+    "token": "䋄"
   },
   {
     "talk": "$ri",
@@ -51765,19 +51757,19 @@
   },
   {
     "talk": "$ry",
-    "token": "㪕"
+    "token": "䋆"
   },
   {
     "talk": "$rY",
-    "token": "琥"
+    "token": "䋈"
   },
   {
     "talk": "$Ry",
-    "token": "㪖"
+    "token": "䋊"
   },
   {
     "talk": "$RY",
-    "token": "琦"
+    "token": "䋌"
   },
   {
     "talk": "$rz",
@@ -51825,11 +51817,11 @@
   },
   {
     "talk": "$Sh",
-    "token": "㪗"
+    "token": "䋎"
   },
   {
     "talk": "$SH",
-    "token": "琲"
+    "token": "䋐"
   },
   {
     "talk": "$Sj",
@@ -51901,19 +51893,19 @@
   },
   {
     "talk": "$Sy",
-    "token": "㪙"
+    "token": "䋒"
   },
   {
     "talk": "$SY",
-    "token": "瑃"
+    "token": "䋔"
   },
   {
     "talk": "$th",
-    "token": "㪚"
+    "token": "䋖"
   },
   {
     "talk": "$tH",
-    "token": "瑄"
+    "token": "䋘"
   },
   {
     "talk": "$tj",
@@ -51984,10 +51976,6 @@
     "token": "瑜"
   },
   {
-    "talk": "$U$",
-    "token": "瑝"
-  },
-  {
     "talk": "$Ua",
     "token": "瑞"
   },
@@ -52045,11 +52033,11 @@
   },
   {
     "talk": "$vh",
-    "token": "㪝"
+    "token": "䋚"
   },
   {
     "talk": "$vH",
-    "token": "瑯"
+    "token": "䋜"
   },
   {
     "talk": "$vj",
@@ -52169,11 +52157,11 @@
   },
   {
     "talk": "$xh",
-    "token": "㪠"
+    "token": "䋟"
   },
   {
     "talk": "$xH",
-    "token": "璑"
+    "token": "䋥"
   },
   {
     "talk": "$xj",
@@ -52245,11 +52233,11 @@
   },
   {
     "talk": "$xy",
-    "token": "㪢"
+    "token": "䋧"
   },
   {
     "talk": "$xY",
-    "token": "璦"
+    "token": "䋫"
   },
   {
     "talk": "$Zb",
@@ -52281,11 +52269,11 @@
   },
   {
     "talk": "$Zh",
-    "token": "㪣"
+    "token": "䋭"
   },
   {
     "talk": "$ZH",
-    "token": "環"
+    "token": "䏗"
   },
   {
     "talk": "$Zj",
@@ -52365,11 +52353,11 @@
   },
   {
     "talk": "$Zy",
-    "token": "㪥"
+    "token": "䏙"
   },
   {
     "talk": "$ZY",
-    "token": "瓃"
+    "token": "䏜"
   },
   {
     "talk": "$Zz",
@@ -52533,11 +52521,11 @@
   },
   {
     "talk": "b$h",
-    "token": "瓪"
+    "token": "䏝"
   },
   {
     "talk": "b$H",
-    "token": "瓫"
+    "token": "䏠"
   },
   {
     "talk": "b$r",
@@ -52589,11 +52577,11 @@
   },
   {
     "talk": "d!h",
-    "token": "㪦"
+    "token": "䏡"
   },
   {
     "talk": "d!H",
-    "token": "瓸"
+    "token": "䏤"
   },
   {
     "talk": "d!w",
@@ -52605,11 +52593,11 @@
   },
   {
     "talk": "d!y",
-    "token": "㪨"
+    "token": "䏥"
   },
   {
     "talk": "d!Y",
-    "token": "瓾"
+    "token": "䏨"
   },
   {
     "talk": "d$d",
@@ -52621,19 +52609,19 @@
   },
   {
     "talk": "d$h",
-    "token": "甃"
+    "token": "䏩"
   },
   {
     "talk": "d$H",
-    "token": "甄"
+    "token": "䏫"
   },
   {
     "talk": "D$h",
-    "token": "甅"
+    "token": "䏭"
   },
   {
     "talk": "D$H",
-    "token": "甆"
+    "token": "䏯"
   },
   {
     "talk": "d$r",
@@ -52701,35 +52689,35 @@
   },
   {
     "talk": "djh",
-    "token": "㖋"
+    "token": "䏱"
   },
   {
     "talk": "djH",
-    "token": "甕"
+    "token": "䏴"
   },
   {
     "talk": "dJh",
-    "token": "甖"
+    "token": "䏵"
   },
   {
     "talk": "dJH",
-    "token": "甗"
+    "token": "䏸"
   },
   {
     "talk": "Djh",
-    "token": "甘"
+    "token": "䏹"
   },
   {
     "talk": "DjH",
-    "token": "甙"
+    "token": "䏼"
   },
   {
     "talk": "DJh",
-    "token": "甚"
+    "token": "䏽"
   },
   {
     "talk": "DJH",
-    "token": "甛"
+    "token": "䐀"
   },
   {
     "talk": "djr",
@@ -52781,35 +52769,35 @@
   },
   {
     "talk": "djy",
-    "token": "㖎"
+    "token": "䐁"
   },
   {
     "talk": "djY",
-    "token": "甦"
+    "token": "䐄"
   },
   {
     "talk": "dJy",
-    "token": "甧"
+    "token": "䐅"
   },
   {
     "talk": "dJY",
-    "token": "用"
+    "token": "䐈"
   },
   {
     "talk": "Djy",
-    "token": "甩"
+    "token": "䐉"
   },
   {
     "talk": "DjY",
-    "token": "甪"
+    "token": "䐌"
   },
   {
     "talk": "DJy",
-    "token": "甫"
+    "token": "䐍"
   },
   {
     "talk": "DJY",
-    "token": "甬"
+    "token": "䐐"
   },
   {
     "talk": "djz",
@@ -52845,35 +52833,35 @@
   },
   {
     "talk": "dxh",
-    "token": "㖐"
+    "token": "䐑"
   },
   {
     "talk": "dxH",
-    "token": "甴"
+    "token": "䐓"
   },
   {
     "talk": "dXh",
-    "token": "电"
+    "token": "䐖"
   },
   {
     "talk": "dXH",
-    "token": "甶"
+    "token": "䐚"
   },
   {
     "talk": "Dxh",
-    "token": "男"
+    "token": "䐜"
   },
   {
     "talk": "DxH",
-    "token": "甸"
+    "token": "䐞"
   },
   {
     "talk": "DXh",
-    "token": "甹"
+    "token": "䐠"
   },
   {
     "talk": "DXH",
-    "token": "町"
+    "token": "䐢"
   },
   {
     "talk": "dxw",
@@ -52909,35 +52897,35 @@
   },
   {
     "talk": "dxy",
-    "token": "㖒"
+    "token": "䐤"
   },
   {
     "talk": "dxY",
-    "token": "畂"
+    "token": "䐦"
   },
   {
     "talk": "dXy",
-    "token": "畃"
+    "token": "䐨"
   },
   {
     "talk": "dXY",
-    "token": "畄"
+    "token": "䐪"
   },
   {
     "talk": "Dxy",
-    "token": "畅"
+    "token": "䓵"
   },
   {
     "talk": "DxY",
-    "token": "畆"
+    "token": "䓶"
   },
   {
     "talk": "DXy",
-    "token": "畇"
+    "token": "䓾"
   },
   {
     "talk": "DXY",
-    "token": "畈"
+    "token": "䔁"
   },
   {
     "talk": "e~a",
@@ -53089,19 +53077,19 @@
   },
   {
     "talk": "f$h",
-    "token": "畮"
+    "token": "䔇"
   },
   {
     "talk": "f$H",
-    "token": "畯"
+    "token": "䔈"
   },
   {
     "talk": "F$h",
-    "token": "異"
+    "token": "䔋"
   },
   {
     "talk": "F$H",
-    "token": "畱"
+    "token": "䔌"
   },
   {
     "talk": "f$m",
@@ -53465,19 +53453,19 @@
   },
   {
     "talk": "g$h",
-    "token": "痆"
+    "token": "䔏"
   },
   {
     "talk": "g$H",
-    "token": "症"
+    "token": "䔐"
   },
   {
     "talk": "G$h",
-    "token": "痈"
+    "token": "䔓"
   },
   {
     "talk": "G$H",
-    "token": "痉"
+    "token": "䔔"
   },
   {
     "talk": "g$r",
@@ -53889,19 +53877,19 @@
   },
   {
     "talk": "j$h",
-    "token": "瘠"
+    "token": "䔪"
   },
   {
     "talk": "j$H",
-    "token": "瘡"
+    "token": "䔬"
   },
   {
     "talk": "J$h",
-    "token": "瘢"
+    "token": "䕆"
   },
   {
     "talk": "J$H",
-    "token": "瘣"
+    "token": "䕈"
   },
   {
     "talk": "j$m",
@@ -54697,19 +54685,19 @@
   },
   {
     "talk": "k!h",
-    "token": "㪩"
+    "token": "䕏"
   },
   {
     "talk": "k!H",
-    "token": "盋"
+    "token": "䕐"
   },
   {
     "talk": "K!h",
-    "token": "㪪"
+    "token": "䕓"
   },
   {
     "talk": "K!H",
-    "token": "盌"
+    "token": "䕔"
   },
   {
     "talk": "k!w",
@@ -54729,19 +54717,19 @@
   },
   {
     "talk": "k!y",
-    "token": "㪭"
+    "token": "䕗"
   },
   {
     "talk": "k!Y",
-    "token": "盏"
+    "token": "䕘"
   },
   {
     "talk": "K!y",
-    "token": "㪮"
+    "token": "䕛"
   },
   {
     "talk": "K!Y",
-    "token": "盐"
+    "token": "䕜"
   },
   {
     "talk": "k$d",
@@ -54753,19 +54741,19 @@
   },
   {
     "talk": "k$h",
-    "token": "盔"
+    "token": "䕟"
   },
   {
     "talk": "k$H",
-    "token": "盕"
+    "token": "䕠"
   },
   {
     "talk": "K$h",
-    "token": "盖"
+    "token": "䕣"
   },
   {
     "talk": "K$H",
-    "token": "盗"
+    "token": "䕤"
   },
   {
     "talk": "k$r",
@@ -54905,11 +54893,11 @@
   },
   {
     "talk": "l!h",
-    "token": "㪯"
+    "token": "䕧"
   },
   {
     "talk": "l!H",
-    "token": "盲"
+    "token": "䕨"
   },
   {
     "talk": "l!w",
@@ -54921,11 +54909,11 @@
   },
   {
     "talk": "l!y",
-    "token": "㪱"
+    "token": "䕫"
   },
   {
     "talk": "l!Y",
-    "token": "相"
+    "token": "䕬"
   },
   {
     "talk": "l$d",
@@ -54953,19 +54941,19 @@
   },
   {
     "talk": "l$h",
-    "token": "眂"
+    "token": "䖖"
   },
   {
     "talk": "l$H",
-    "token": "眃"
+    "token": "䖘"
   },
   {
     "talk": "L$h",
-    "token": "眄"
+    "token": "䘔"
   },
   {
     "talk": "L$H",
-    "token": "眅"
+    "token": "䘖"
   },
   {
     "talk": "l$m",
@@ -56941,11 +56929,11 @@
   },
   {
     "talk": "m$h",
-    "token": "硷"
+    "token": "䘚"
   },
   {
     "talk": "m$H",
-    "token": "硸"
+    "token": "䘜"
   },
   {
     "talk": "m$m",
@@ -57377,19 +57365,19 @@
   },
   {
     "talk": "n$h",
-    "token": "碽"
+    "token": "䘼"
   },
   {
     "talk": "n$H",
-    "token": "碾"
+    "token": "䘾"
   },
   {
     "talk": "N$h",
-    "token": "碿"
+    "token": "䙀"
   },
   {
     "talk": "N$H",
-    "token": "磀"
+    "token": "䙂"
   },
   {
     "talk": "n$n",
@@ -58217,11 +58205,11 @@
   },
   {
     "talk": "p!h",
-    "token": "㪴"
+    "token": "䙈"
   },
   {
     "talk": "p!H",
-    "token": "祬"
+    "token": "䙊"
   },
   {
     "talk": "p!w",
@@ -58233,11 +58221,11 @@
   },
   {
     "talk": "p!y",
-    "token": "㪶"
+    "token": "䙌"
   },
   {
     "talk": "p!Y",
-    "token": "祮"
+    "token": "䙎"
   },
   {
     "talk": "p$'",
@@ -58249,11 +58237,11 @@
   },
   {
     "talk": "p$h",
-    "token": "祱"
+    "token": "䚌"
   },
   {
     "talk": "p$H",
-    "token": "祲"
+    "token": "䚎"
   },
   {
     "talk": "p$r",
@@ -58317,19 +58305,19 @@
   },
   {
     "talk": "r$h",
-    "token": "禀"
+    "token": "䚒"
   },
   {
     "talk": "r$H",
-    "token": "禁"
+    "token": "䚔"
   },
   {
     "talk": "R$h",
-    "token": "禂"
+    "token": "䚜"
   },
   {
     "talk": "R$H",
-    "token": "禃"
+    "token": "䚞"
   },
   {
     "talk": "r$m",
@@ -59273,19 +59261,19 @@
   },
   {
     "talk": "s$h",
-    "token": "秷"
+    "token": "䛷"
   },
   {
     "talk": "s$H",
-    "token": "秸"
+    "token": "䛸"
   },
   {
     "talk": "S$h",
-    "token": "秹"
+    "token": "䛻"
   },
   {
     "talk": "S$H",
-    "token": "秺"
+    "token": "䛼"
   },
   {
     "talk": "s$m",
@@ -60217,19 +60205,19 @@
   },
   {
     "talk": "t!h",
-    "token": "㪷"
+    "token": "䛿"
   },
   {
     "talk": "t!H",
-    "token": "竀"
+    "token": "䜀"
   },
   {
     "talk": "T!h",
-    "token": "㪸"
+    "token": "䜃"
   },
   {
     "talk": "T!H",
-    "token": "竁"
+    "token": "䜄"
   },
   {
     "talk": "t!w",
@@ -60249,35 +60237,35 @@
   },
   {
     "talk": "t!y",
-    "token": "㪻"
+    "token": "䜇"
   },
   {
     "talk": "t!Y",
-    "token": "竄"
+    "token": "䜈"
   },
   {
     "talk": "T!y",
-    "token": "㪼"
+    "token": "䜋"
   },
   {
     "talk": "T!Y",
-    "token": "竅"
+    "token": "䜌"
   },
   {
     "talk": "t$h",
-    "token": "竆"
+    "token": "䜏"
   },
   {
     "talk": "t$H",
-    "token": "竇"
+    "token": "䜐"
   },
   {
     "talk": "T$h",
-    "token": "竈"
+    "token": "䜓"
   },
   {
     "talk": "T$H",
-    "token": "竉"
+    "token": "䜔"
   },
   {
     "talk": "t$r",
@@ -60353,35 +60341,35 @@
   },
   {
     "talk": "txh",
-    "token": "㞱"
+    "token": "䜗"
   },
   {
     "talk": "txH",
-    "token": "竚"
+    "token": "䜘"
   },
   {
     "talk": "tXh",
-    "token": "竛"
+    "token": "䜛"
   },
   {
     "talk": "tXH",
-    "token": "竜"
+    "token": "䜜"
   },
   {
     "talk": "Txh",
-    "token": "竝"
+    "token": "䜟"
   },
   {
     "talk": "TxH",
-    "token": "竞"
+    "token": "䜠"
   },
   {
     "talk": "TXh",
-    "token": "竟"
+    "token": "䜣"
   },
   {
     "talk": "TXH",
-    "token": "章"
+    "token": "䜤"
   },
   {
     "talk": "txm",
@@ -60497,35 +60485,35 @@
   },
   {
     "talk": "txy",
-    "token": "㞷"
+    "token": "䜧"
   },
   {
     "talk": "txY",
-    "token": "竹"
+    "token": "䜨"
   },
   {
     "talk": "tXy",
-    "token": "竺"
+    "token": "䜫"
   },
   {
     "talk": "tXY",
-    "token": "竻"
+    "token": "䜬"
   },
   {
     "talk": "Txy",
-    "token": "竼"
+    "token": "䜯"
   },
   {
     "talk": "TxY",
-    "token": "竽"
+    "token": "䜰"
   },
   {
     "talk": "TXy",
-    "token": "竾"
+    "token": "䜳"
   },
   {
     "talk": "TXY",
-    "token": "竿"
+    "token": "䜴"
   },
   {
     "talk": "tzw",
@@ -60729,19 +60717,19 @@
   },
   {
     "talk": "v$h",
-    "token": "笱"
+    "token": "䝇"
   },
   {
     "talk": "v$H",
-    "token": "笲"
+    "token": "䝈"
   },
   {
     "talk": "V$h",
-    "token": "笳"
+    "token": "䝋"
   },
   {
     "talk": "V$H",
-    "token": "笴"
+    "token": "䝌"
   },
   {
     "talk": "v$r",
@@ -61177,19 +61165,19 @@
   },
   {
     "talk": "w$h",
-    "token": "箘"
+    "token": "䝏"
   },
   {
     "talk": "w$H",
-    "token": "箙"
+    "token": "䝐"
   },
   {
     "talk": "W$h",
-    "token": "箚"
+    "token": "䝓"
   },
   {
     "talk": "W$H",
-    "token": "箛"
+    "token": "䝔"
   },
   {
     "talk": "w$r",
@@ -61265,19 +61253,19 @@
   },
   {
     "talk": "x$h",
-    "token": "箰"
+    "token": "䝗"
   },
   {
     "talk": "x$H",
-    "token": "箱"
+    "token": "䝘"
   },
   {
     "talk": "X$h",
-    "token": "箲"
+    "token": "䝛"
   },
   {
     "talk": "X$H",
-    "token": "箳"
+    "token": "䝜"
   },
   {
     "talk": "x$m",
@@ -62137,19 +62125,19 @@
   },
   {
     "talk": "y$h",
-    "token": "籫"
+    "token": "䝟"
   },
   {
     "talk": "y$H",
-    "token": "籬"
+    "token": "䝠"
   },
   {
     "talk": "Y$h",
-    "token": "籭"
+    "token": "䝣"
   },
   {
     "talk": "Y$H",
-    "token": "籮"
+    "token": "䝤"
   },
   {
     "talk": "y$S",
@@ -62209,19 +62197,19 @@
   },
   {
     "talk": "z$h",
-    "token": "籿"
+    "token": "䝧"
   },
   {
     "talk": "z$H",
-    "token": "粀"
+    "token": "䝨"
   },
   {
     "talk": "Z$h",
-    "token": "粁"
+    "token": "䝫"
   },
   {
     "talk": "Z$H",
-    "token": "粂"
+    "token": "䝬"
   },
   {
     "talk": "z$m",
@@ -63437,11 +63425,11 @@
   },
   {
     "talk": "bh",
-    "token": "㡜"
+    "token": "䝯"
   },
   {
     "talk": "bH",
-    "token": "絑"
+    "token": "䝰"
   },
   {
     "talk": "bj",
@@ -63533,19 +63521,19 @@
   },
   {
     "talk": "dh",
-    "token": "㡼"
+    "token": "䝳"
   },
   {
     "talk": "dH",
-    "token": "絛"
+    "token": "䝴"
   },
   {
     "talk": "Dh",
-    "token": "㡽"
+    "token": "䝷"
   },
   {
     "talk": "DH",
-    "token": "絜"
+    "token": "䝸"
   },
   {
     "talk": "dj",
@@ -63741,19 +63729,19 @@
   },
   {
     "talk": "fh",
-    "token": "㢗"
+    "token": "䝻"
   },
   {
     "talk": "fH",
-    "token": "絶"
+    "token": "䝼"
   },
   {
     "talk": "Fh",
-    "token": "㢘"
+    "token": "䝿"
   },
   {
     "talk": "FH",
-    "token": "絷"
+    "token": "䞀"
   },
   {
     "talk": "fj",
@@ -64013,7 +64001,7 @@
   },
   {
     "talk": "gh",
-    "token": "㢵"
+    "token": "䞃"
   },
   {
     "talk": "gH",
@@ -64021,7 +64009,7 @@
   },
   {
     "talk": "Gh",
-    "token": "㢷"
+    "token": "䞄"
   },
   {
     "talk": "GH",
@@ -64377,19 +64365,19 @@
   },
   {
     "talk": "jh",
-    "token": "㣡"
+    "token": "䠇"
   },
   {
     "talk": "jH",
-    "token": "緍"
+    "token": "䠈"
   },
   {
     "talk": "Jh",
-    "token": "㣢"
+    "token": "䠋"
   },
   {
     "talk": "JH",
-    "token": "緎"
+    "token": "䠌"
   },
   {
     "talk": "jj",
@@ -64513,19 +64501,19 @@
   },
   {
     "talk": "jy",
-    "token": "㣮"
+    "token": "䠏"
   },
   {
     "talk": "jY",
-    "token": "緢"
+    "token": "䠐"
   },
   {
     "talk": "Jy",
-    "token": "㣯"
+    "token": "䠓"
   },
   {
     "talk": "JY",
-    "token": "緣"
+    "token": "䠔"
   },
   {
     "talk": "k!",
@@ -64553,7 +64541,7 @@
   },
   {
     "talk": "kh",
-    "token": "㣴"
+    "token": "䠗"
   },
   {
     "talk": "kH",
@@ -64561,7 +64549,7 @@
   },
   {
     "talk": "Kh",
-    "token": "㣶"
+    "token": "䠘"
   },
   {
     "talk": "KH",
@@ -64789,19 +64777,19 @@
   },
   {
     "talk": "lh",
-    "token": "㤐"
+    "token": "䠛"
   },
   {
     "talk": "lH",
-    "token": "縇"
+    "token": "䠜"
   },
   {
     "talk": "Lh",
-    "token": "㤑"
+    "token": "䠟"
   },
   {
     "talk": "LH",
-    "token": "縈"
+    "token": "䠠"
   },
   {
     "talk": "lj",
@@ -64965,19 +64953,19 @@
   },
   {
     "talk": "ly",
-    "token": "㤣"
+    "token": "䠣"
   },
   {
     "talk": "lY",
-    "token": "縠"
+    "token": "䠤"
   },
   {
     "talk": "Ly",
-    "token": "㤤"
+    "token": "䠦"
   },
   {
     "talk": "LY",
-    "token": "縡"
+    "token": "䠨"
   },
   {
     "talk": "lz",
@@ -65009,7 +64997,7 @@
   },
   {
     "talk": "mh",
-    "token": "㤬"
+    "token": "䠬"
   },
   {
     "talk": "mH",
@@ -65165,19 +65153,19 @@
   },
   {
     "talk": "nh",
-    "token": "㥇"
+    "token": "䠮"
   },
   {
     "talk": "nH",
-    "token": "縲"
+    "token": "䠷"
   },
   {
     "talk": "Nh",
-    "token": "㥈"
+    "token": "䠸"
   },
   {
     "talk": "NH",
-    "token": "縳"
+    "token": "䠻"
   },
   {
     "talk": "nj",
@@ -65449,11 +65437,11 @@
   },
   {
     "talk": "ph",
-    "token": "㥫"
+    "token": "䠼"
   },
   {
     "talk": "pH",
-    "token": "織"
+    "token": "䠿"
   },
   {
     "talk": "pj",
@@ -65549,19 +65537,19 @@
   },
   {
     "talk": "rh",
-    "token": "㦌"
+    "token": "䡀"
   },
   {
     "talk": "rH",
-    "token": "繙"
+    "token": "䡃"
   },
   {
     "talk": "Rh",
-    "token": "㦍"
+    "token": "䡄"
   },
   {
     "talk": "RH",
-    "token": "繚"
+    "token": "䡇"
   },
   {
     "talk": "rj",
@@ -65645,19 +65633,19 @@
   },
   {
     "talk": "ry",
-    "token": "㦞"
+    "token": "䡈"
   },
   {
     "talk": "rY",
-    "token": "繟"
+    "token": "䡋"
   },
   {
     "talk": "Ry",
-    "token": "㦟"
+    "token": "䡌"
   },
   {
     "talk": "RY",
-    "token": "繠"
+    "token": "䡏"
   },
   {
     "talk": "rz",
@@ -65725,19 +65713,19 @@
   },
   {
     "talk": "sh",
-    "token": "㦨"
+    "token": "䡐"
   },
   {
     "talk": "sH",
-    "token": "繪"
+    "token": "䡓"
   },
   {
     "talk": "Sh",
-    "token": "㦩"
+    "token": "䡔"
   },
   {
     "talk": "SH",
-    "token": "繫"
+    "token": "䡗"
   },
   {
     "talk": "sj",
@@ -65877,19 +65865,19 @@
   },
   {
     "talk": "sy",
-    "token": "㦶"
+    "token": "䡘"
   },
   {
     "talk": "sY",
-    "token": "纂"
+    "token": "䡛"
   },
   {
     "talk": "Sy",
-    "token": "㦷"
+    "token": "䡜"
   },
   {
     "talk": "SY",
-    "token": "纃"
+    "token": "䡟"
   },
   {
     "talk": "t!",
@@ -65901,19 +65889,19 @@
   },
   {
     "talk": "th",
-    "token": "㦸"
+    "token": "䡠"
   },
   {
     "talk": "tH",
-    "token": "纄"
+    "token": "䡣"
   },
   {
     "talk": "Th",
-    "token": "㦹"
+    "token": "䡤"
   },
   {
     "talk": "TH",
-    "token": "纅"
+    "token": "䡧"
   },
   {
     "talk": "tj",
@@ -66021,19 +66009,19 @@
   },
   {
     "talk": "ty",
-    "token": "㧃"
+    "token": "䡨"
   },
   {
     "talk": "tY",
-    "token": "纗"
+    "token": "䡫"
   },
   {
     "talk": "Ty",
-    "token": "㧄"
+    "token": "䡬"
   },
   {
     "talk": "TY",
-    "token": "纘"
+    "token": "䡯"
   },
   {
     "talk": "tz",
@@ -66050,14 +66038,6 @@
   {
     "talk": "TZ",
     "token": "纛"
-  },
-  {
-    "talk": "u$",
-    "token": "㧆"
-  },
-  {
-    "talk": "U$",
-    "token": "纜"
   },
   {
     "talk": "ua",
@@ -66181,19 +66161,19 @@
   },
   {
     "talk": "vh",
-    "token": "㧕"
+    "token": "䡰"
   },
   {
     "talk": "vH",
-    "token": "纮"
+    "token": "䡳"
   },
   {
     "talk": "Vh",
-    "token": "㧖"
+    "token": "䡴"
   },
   {
     "talk": "VH",
-    "token": "纯"
+    "token": "䡶"
   },
   {
     "talk": "vj",
@@ -66413,19 +66393,19 @@
   },
   {
     "talk": "wh",
-    "token": "㧰"
+    "token": "䡸"
   },
   {
     "talk": "wH",
-    "token": "经"
+    "token": "䡺"
   },
   {
     "talk": "Wh",
-    "token": "㫔"
+    "token": "䡼"
   },
   {
     "talk": "WH",
-    "token": "绐"
+    "token": "䢂"
   },
   {
     "talk": "wj",
@@ -66557,19 +66537,19 @@
   },
   {
     "talk": "wy",
-    "token": "㧻"
+    "token": "䢄"
   },
   {
     "talk": "wY",
-    "token": "绦"
+    "token": "䢆"
   },
   {
     "talk": "Wy",
-    "token": "㫖"
+    "token": "䢈"
   },
   {
     "talk": "WY",
-    "token": "继"
+    "token": "䢗"
   },
   {
     "talk": "wz",
@@ -66645,19 +66625,19 @@
   },
   {
     "talk": "xh",
-    "token": "㨃"
+    "token": "䢘"
   },
   {
     "talk": "xH",
-    "token": "维"
+    "token": "䢛"
   },
   {
     "talk": "Xh",
-    "token": "㨄"
+    "token": "䢜"
   },
   {
     "talk": "XH",
-    "token": "绵"
+    "token": "䢟"
   },
   {
     "talk": "xj",
@@ -66797,19 +66777,19 @@
   },
   {
     "talk": "xy",
-    "token": "㨑"
+    "token": "䢠"
   },
   {
     "talk": "xY",
-    "token": "缌"
+    "token": "䢣"
   },
   {
     "talk": "Xy",
-    "token": "㨒"
+    "token": "䢤"
   },
   {
     "talk": "XY",
-    "token": "缍"
+    "token": "䢧"
   },
   {
     "talk": "yb",
@@ -66853,19 +66833,19 @@
   },
   {
     "talk": "yh",
-    "token": "㨘"
+    "token": "䢨"
   },
   {
     "talk": "yH",
-    "token": "缕"
+    "token": "䢫"
   },
   {
     "talk": "Yh",
-    "token": "㫗"
+    "token": "䢬"
   },
   {
     "talk": "YH",
-    "token": "编"
+    "token": "䢯"
   },
   {
     "talk": "yj",
@@ -67061,19 +67041,19 @@
   },
   {
     "talk": "zh",
-    "token": "㨩"
+    "token": "䢰"
   },
   {
     "talk": "zH",
-    "token": "缶"
+    "token": "䢳"
   },
   {
     "talk": "Zh",
-    "token": "㨪"
+    "token": "䢴"
   },
   {
     "talk": "ZH",
-    "token": "缷"
+    "token": "䢷"
   },
   {
     "talk": "zj",
@@ -67229,19 +67209,19 @@
   },
   {
     "talk": "zy",
-    "token": "㨷"
+    "token": "䢸"
   },
   {
     "talk": "zY",
-    "token": "罒"
+    "token": "䢻"
   },
   {
     "talk": "Zy",
-    "token": "㨸"
+    "token": "䢼"
   },
   {
     "talk": "ZY",
-    "token": "罓"
+    "token": "䢿"
   },
   {
     "talk": "zz",

@@ -50,9 +50,9 @@ describe('chunking keeps each base with its modifiers', () => {
 
 describe('clicks are single chunks', () => {
   it('does not split a click off its base letter', () => {
-    expect(chunks('p<p3>at<p3>')).toEqual(['p<p3>', 'a', 't<p3>'])
-    expect(chunks('k*')).toEqual(['k*'])
-    expect(chunks('c*a')).toEqual(['c*', 'a'])
+    expect(chunks('p!at!')).toEqual(['p!', 'a', 't!'])
+    expect(chunks('k!')).toEqual(['k!'])
+    expect(chunks('l!a')).toEqual(['l!', 'a'])
   })
 })
 
@@ -72,10 +72,10 @@ describe('symbols, numerals, and space', () => {
 
 describe('real words', () => {
   const cases: [string, string[]][] = [
-    ['siqk', ['s', 'i', 'q', 'k']],
-    ['aiyuQaK', ['a', 'i', 'y', 'u', 'Q', 'a', 'K']],
+    ['si$nk', ['s', 'i', '$n', 'k']],
+    ["aiyu$'aK", ['a', 'i', 'y', 'u', "$'", 'a', 'K']],
     ['HEt<h>Ah', ['H', 'E', 't<h>', 'A', 'h']],
-    ["s'oQya~te", ['s', "'", 'o', 'Q', 'y', 'a~', 't', 'e']],
+    ["s'o$'y~ate", ['s', "'", 'o', "$'", 'y', '~a', 't', 'e']],
     ["batO<_>'aH", ['b', 'a', 't', 'O<_>', "'", 'a', 'H']],
   ]
 
@@ -106,7 +106,7 @@ describe('sound structure', () => {
   })
 
   it('every non-raw chunk equals its base plus modifiers, in canonical order', () => {
-    for (const sound of segment('txya<s-p4>a<p2>a<p5>u t<h>a p<p3>a')) {
+    for (const sound of segment('txya<s-p4>a<p2>a<p5>u t<h>a p!a')) {
       if (!sound.raw && sound.base) {
         expect(sound.talk).toBe(
           combine(sound.base.talk, sound.modifiers),
@@ -180,7 +180,7 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
     // compositionally (`t!` is `t` plus the ejective affix), and those are
     // read as base plus modifier so that the affix stays visible to a
     // longer string. Either way it is one sound and it spells the same.
-    for (const talk of ['t!', 'ny~', 'lQ~', 'k*', 'b?', 'i$', 'D']) {
+    for (const talk of ['t!', 'n<y>', 'l<q>', 'k!', 'b<@>', '~I', 'D']) {
       const sounds = segment(talk)
 
       expect(sounds).toHaveLength(1)
@@ -196,27 +196,43 @@ describe('detailed sound parsing (ported from the v1 tokenizer suite)', () => {
     expect(shape('a<_>')).toEqual([
       { talk: 'a<_>', kind: 'vowel', base: 'a', features: ['long'] },
     ])
-    expect(shape('a~')).toEqual([
-      { talk: 'a~', kind: 'vowel', base: 'a', features: ['nasalized'] },
+    // v1 wrote nasalization `a&`. `~` was never nasalization: it marked a
+    // VARIANT of the vowel, and `a~` is the sound now spelled `~a`, which
+    // is a base in its own right and carries no feature at all.
+    expect(shape('a<n>')).toEqual([
+      { talk: 'a<n>', kind: 'vowel', base: 'a', features: ['nasalized'] },
     ])
-    expect(shape('i@')).toEqual([
-      { talk: 'i@', kind: 'vowel', base: 'i', features: ['non-syllabic'] },
+    expect(shape('~a')).toEqual([
+      { talk: '~a', kind: 'vowel', base: '~a', features: [] },
+    ])
+    expect(shape('i<s->')).toEqual([
+      { talk: 'i<s->', kind: 'vowel', base: 'i', features: ['non-syllabic'] },
     ])
   })
 
   it('parses the four register tones', () => {
-    expect(segment('a+')[0]?.modifiers[0]?.feature).toBe('high-tone')
+    expect(segment('a<t4>')[0]?.modifiers[0]?.feature).toBe('high-tone')
     expect(segment('a<p5>')[0]?.modifiers[0]?.feature).toBe('extra-high-tone')
     expect(segment('a<p2>')[0]?.modifiers[0]?.feature).toBe('low-tone')
-    expect(segment('a--')[0]?.modifiers[0]?.feature).toBe('extra-low-tone')
+    expect(segment('a<t1>')[0]?.modifiers[0]?.feature).toBe('extra-low-tone')
   })
 
   it('stacks multiple vowel features in one chunk', () => {
-    const [sound] = segment('a~^_+')
+    const [sound] = segment('a<n^_t4>')
 
     expect(sound?.base?.talk).toBe('a')
     expect(new Set(sound?.modifiers.map(m => m.feature))).toEqual(
       new Set(['nasalized', 'stress', 'long', 'high-tone']),
+    )
+
+    // A VARIANT BASE takes the same stack. `~a` is one base spelled two
+    // characters, so the run after it has to be read against the whole
+    // spelling rather than against the `a` at its end.
+    const [variant] = segment('~a<^_t4>')
+
+    expect(variant?.base?.talk).toBe('~a')
+    expect(new Set(variant?.modifiers.map(m => m.feature))).toEqual(
+      new Set(['stress', 'long', 'high-tone']),
     )
   })
 

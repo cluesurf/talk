@@ -1,6 +1,8 @@
+import { segment as segmentTalk } from '../string/sound'
 import { Trie, TrieBuilder } from '../trie'
 import { CLUSTERS } from './clusters'
 import PHONES from '../../base/phones.json'
+import MODIFIERS from '../../base/modifiers.json'
 import FEATURE_DATA from '../../base/talk/features.json'
 import PUNCTUATION_DATA from '../../base/talk/punctuation.json'
 
@@ -33,6 +35,18 @@ export type Syllable = {
 }
 
 type Segment = {
+  /**
+   * The exact talk this segment was read from.
+   *
+   * WHY IT IS CARRIED RATHER THAN REBUILT. `serialize` used to spell a
+   * segment back out of its feature flags, which meant a cluster text was a
+   * RECONSTRUCTION and not the input. Any modifier the flag table did not
+   * name simply vanished, and the flags themselves still spelled in v1's
+   * suffixes, so `k<wh>` came back as `k`. Carrying the text makes the
+   * split lossless by construction: the clusters run together are always
+   * the word they came from.
+   */
+  talk?: string
   aspiration?: boolean
   click?: boolean
   dentalization?: boolean
@@ -101,7 +115,21 @@ function baseLetters(want: 'consonant' | 'vowel'): string[] {
     const glyph =
       want === 'vowel' ? phone.talk.replace('$', '') : phone.talk
 
-    if (phone.form !== want || glyph.length !== 1 || glyph === 'D') {
+    // A LETTER IS ONE SOUND, NOT ONE CHARACTER. The test was
+    // `glyph.length !== 1`, which held while every base was a single
+    // letter and silently dropped every one spelled with a marker the
+    // moment they arrived: `$n` is the velar nasal written two characters,
+    // and leaving it out meant the chunker could not read `si$nk` at all.
+    //
+    // A modified sound is still excluded, since those are built from a
+    // base plus a bracketed run rather than being bases themselves.
+    if (phone.form !== want || glyph.includes('<') || glyph === 'D') {
+      continue
+    }
+
+    // One sound: a letter, optionally carrying a `$` or `~` variant marker
+    // and a `!` click marker. Anything longer is a cluster.
+    if (!/^[$~]?.[!]?$/u.test(glyph)) {
       continue
     }
 
@@ -437,52 +465,104 @@ export type Cluster = {
 // For backward compatibility
 export const chunkClusters = readSegments
 
-// Step 1: Parse string into marks (basic tokens)
-export function readSegments(string: string) {
-  let x = string
+/**
+ * The feature a modifier carries, as the flag this file reasons with.
+ *
+ * The syllabifier asks whether a segment is aspirated or clicked, not which
+ * characters spell it, so the tokenizer's feature names are translated once
+ * here and nothing downstream looks at a letter again.
+ */
 
+/** Modifiers by talk spelling, longest first so `v-` is read before `v`. */
+
+const MODIFIER_BY_TALK = [...MODIFIERS].sort(
+  (a, b) => b.talk.length - a.talk.length,
+)
+
+const FLAG_OF_FEATURE: Record<string, FlagKey> = {
+  aspirated: 'aspiration',
+  ejective: 'ejection',
+  dental: 'dentalization',
+  labialized: 'labialization',
+  palatalized: 'palatalization',
+  pharyngealized: 'pharyngealization',
+  velarized: 'velarization',
+  voiceless: 'voicelessness',
+}
+
+// Step 1: Read the string as sounds.
+//
+// TOKENIZED, NOT PATTERN-MATCHED. This walked a `SEGMENT` table built by
+// crossing every base letter with every mark, which produced spellings no
+// phone table ever held: `$` was joined to a vowel as a SUFFIX, so the
+// table contained `i$`, and `si$nk` matched it greedily and came out
+// `s | i$ | n | k` rather than `s | i | $n | k`. A generated alphabet can
+// invent a letter; a tokenizer over real sounds cannot.
+//
+// `segment` is the same scanner the rest of the library reads talk with, so
+// there is now one alphabet rather than two that have to agree.
+export function readSegments(string: string) {
   const chunks: Segment[] = []
 
-  let i = 0
+  for (const sound of segmentTalk(string)) {
+    const base = sound.base
 
-  while (x.length) {
-    let matched = false
+    if (!base) {
+      // STRESS BELONGS TO THE SOUND BEFORE IT. `^` is a mark, not a sound,
+      // and the tokenizer hands it back on its own because it has no base.
+      // Filed as punctuation it would break the nucleus in two and drop the
+      // mark from the cluster text, so it is folded onto the segment it
+      // modifies instead.
+      if (sound.talk === '^') {
+        const last = chunks[chunks.length - 1]
 
-    symbol: for (const key in SEGMENT) {
-      if (x.startsWith(key)) {
-        const val = SEGMENT[key]
-
-        if (val?.type) {
-          chunks.push({ ...val })
-        } else {
-          // merge with previous....
-          chunks[chunks.length - 1] = {
-            ...chunks[chunks.length - 1],
-            ...val,
-          }
+        if (last && last.type !== 'punctuation') {
+          last.emphasis = true
+          last.talk = (last.talk ?? '') + sound.talk
+          continue
         }
+      }
 
-        x = x.slice(key.length)
-        i += key.length
-        matched = true
-        break symbol
+      // A passthrough: punctuation, a space, a digit. Carried with its own
+      // text so nothing is dropped, and typed so the grouper skips it.
+      chunks.push({ type: 'punctuation', value: sound.talk, talk: sound.talk })
+      continue
+    }
+
+    // A DERIVED PHONE CARRIES ITS MARKS IN ITS OWN SPELLING. `m̥` is one
+    // entry in the phone table spelled `m<v->`, so the tokenizer hands it
+    // back as a base rather than as `m` plus voiceless. The grouper reasons
+    // about a LETTER and a set of flags, so the bracket is opened here and
+    // its marks join the ones the sound already carries.
+    const at = base.talk.indexOf('<')
+    const letter = at === -1 ? base.talk : base.talk.slice(0, at)
+    const inside = at === -1 ? '' : base.talk.slice(at + 1, -1)
+
+    const seg: Segment = {
+      type: base.form as 'consonant' | 'vowel',
+      value: letter,
+      talk: sound.talk,
+    }
+
+    for (const one of [...sound.pre, ...sound.modifiers]) {
+      const flag = FLAG_OF_FEATURE[one.feature]
+
+      if (flag) {
+        seg[flag] = true
       }
     }
 
-    if (!matched) {
-      // The detail belongs in the error, not on stderr. Printing it
-      // first meant a caller that catches this (a caller probing
-      // whether a token is syllable-parseable at all, which is a
-      // reasonable thing to do) still spewed a line per failure, while
-      // a caller that did not catch got `Invalid characters found` with
-      // no clue which characters. Carrying the input and the unmatched
-      // remainder on the message serves both.
-      throw new Error(
-        `Invalid characters found in "${string}" at index ${i}: "${string.slice(
-          i,
-        )}"`,
-      )
+    for (const one of MODIFIER_BY_TALK) {
+      if (inside.includes(one.talk)) {
+        const flag = FLAG_OF_FEATURE[one.feature]
+
+        if (flag) {
+          seg[flag] = true
+        }
+      }
     }
+
+    chunks.push(seg)
   }
 
   return chunks
@@ -932,6 +1012,13 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
 }
 
 export function serialize(mark: Segment) {
+  // The text it was read from, when there is one. The flag-based spelling
+  // below is the fallback for a segment built by hand rather than by the
+  // tokenizer, and it still writes v1's suffixes.
+  if (mark.talk !== undefined) {
+    return mark.talk
+  }
+
   const text: string[] = []
 
   if (mark.value) {

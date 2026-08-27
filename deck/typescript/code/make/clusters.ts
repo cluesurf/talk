@@ -63,6 +63,10 @@ const noDuplicateSounds = (s: string) => {
 // for its neighbours. Listing every combination by hand is how the arrays
 // below drifted out of date in the first place.
 const VARIANTS: Record<string, string[]> = {
+  // `'` is ʔ and `$'` is ʕ, the same plosive/fricative pairing the `$`
+  // series makes everywhere else, so they share their clusters. This does
+  // put `$'` among the start consonants, which v1 never listed it as: a
+  // fricative onset is ordinary, so that is a gain rather than a drift.
   "'": ["$'", "'"],
   a: ['$A', '$a', 'A', 'a', '~A', '~a'],
   e: ['$E', '$e', 'E', 'e', '~E', '~e'],
@@ -667,7 +671,28 @@ X
 Z
 dj
 dx
-tx`)
+tx
+$H
+$N
+$R
+$S
+$Z
+$h
+$m
+$r
+$v
+$x
+'
+G
+K!
+T!
+W
+Y
+d!
+k!
+l!
+p!
+t!`)
   .split(/\n+/)
   .sort(sortLength)
 

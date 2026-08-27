@@ -107,9 +107,22 @@ function toneModel(): Model {
   return {
     bases,
     axes,
+    // A UNIT IS A SPELLING, so the roster holds each one once.
+    //
+    // The bases and the modifiers are spelled from the same small alphabet
+    // and overlap in ten places: `y` is the palatal approximant and also
+    // the palatalization mark, `h` the glottal fricative and also
+    // aspiration. Concatenating the two lists gave each of those two codes,
+    // and the seed tier codes a spelling rather than a role, so the second
+    // one was unreachable: `encodeUnit` finds the first with `indexOf` and
+    // ten codes in the space decoded to something that encoded elsewhere.
+    //
+    // `ipaModel` already collects its atoms into a set for this reason.
     units: [
-      ...bases.map(base => base.key),
-      ...[...new Set(coded.map(mod => mod.talk))].sort(),
+      ...new Set([
+        ...bases.map(base => base.key),
+        ...[...new Set(coded.map(mod => mod.talk))].sort(),
+      ]),
     ],
   }
 }

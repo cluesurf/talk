@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest'
+import { modifierAttaches } from '../code/string/runtime'
 
 import {
   ipaToTalk,
@@ -11,26 +12,17 @@ import {
 } from '../code'
 import PHONES from '../base/phones.json'
 import MODIFIERS from '../base/modifiers.json'
+import type { Modifier, Phone } from '../code/string/type'
 
 // X-SAMPA is the ASCII transliteration of IPA, so it is derived from the
 // same phone and modifier tables rather than from a separate mapping.
 // These tests hold it to the same guarantees the IPA conversions have:
 // talk is the canonical normal form, and every base and modifier in the
 // inventory must survive a round trip.
-const phones = PHONES as {
-  ipa: string
-  talk: string
-  xsampa: string
-  provisional?: boolean
-}[]
-
-const modifiers = MODIFIERS as {
-  ipa: string
-  talk: string
-  xsampa: string
-  base: 'consonant' | 'vowel'
-  feature: string
-}[]
+// The library's own types rather than a restatement of them here, so a
+// field added to a phone or a modifier is visible to this test too.
+const phones = PHONES as Phone[]
+const modifiers = MODIFIERS as Modifier[]
 
 describe('x-sampa to talk', () => {
   it('reads a plain word', () => {
@@ -141,11 +133,23 @@ describe('every modifier round-trips through x-sampa', () => {
     for (const modifier of modifiers) {
       // Pick a base the modifier is written for, so the composed sound is
       // one the encoding actually admits.
-      const base = phones.find(
+      //
+      // `a` and `k` are the preferred bases because they are the plainest
+      // of each form, but a modifier states which bases it attaches to and
+      // not every one takes a plosive: the trill and the flap are written
+      // for a rhotic, the dental mark for a coronal. Falling back to the
+      // first base the rule admits keeps every modifier covered instead of
+      // pinning the test to two letters.
+      const wants = modifier.base === 'vowel' ? 'vowel' : 'consonant'
+      const usable = phones.filter(
         p =>
           !p.provisional &&
-          p.talk === (modifier.base === 'vowel' ? 'a' : 'k'),
+          p.form === wants &&
+          !p.talk.includes('<') &&
+          modifierAttaches(p, modifier),
       )
+      const plain = wants === 'vowel' ? 'a' : 'k'
+      const base = usable.find(p => p.talk === plain) ?? usable[0]
 
       if (!base) {
         continue

@@ -696,7 +696,7 @@
       [
         "consonant:s",
         "vowel:i",
-        "end-consonant:qk"
+        "end-consonant:$nk"
       ]
     ]
   },
@@ -747,7 +747,7 @@
         "vowel:u"
       ],
       [
-        "consonant:Q",
+        "consonant:$'",
         "vowel:a",
         "consonant:K"
       ]
@@ -759,7 +759,7 @@
       [
         "consonant:s",
         "vowel:o",
-        "end-consonant:Q"
+        "end-consonant:$'"
       ],
       [
         "consonant:y",
@@ -851,10 +851,10 @@
     ]
   },
   {
-    "word": "th~ima",
+    "word": "t<h>ima",
     "syllables": [
       [
-        "consonant:th~",
+        "consonant:t<h>",
         "vowel:i"
       ],
       [
@@ -864,10 +864,10 @@
     ]
   },
   {
-    "word": "kw~asa",
+    "word": "k<w>asa",
     "syllables": [
       [
-        "consonant:kw~",
+        "consonant:k<w>",
         "vowel:a"
       ],
       [
@@ -877,7 +877,7 @@
     ]
   },
   {
-    "word": "mh!ima",
+    "word": "m<v->ima",
     "syllables": [
       [
         "consonant:m",
@@ -890,10 +890,10 @@
     ]
   },
   {
-    "word": "p*ata",
+    "word": "p!ata",
     "syllables": [
       [
-        "consonant:p*",
+        "consonant:p!",
         "vowel:a"
       ],
       [
@@ -903,24 +903,24 @@
     ]
   },
   {
-    "word": "t*ak*a",
+    "word": "t!ak!a",
     "syllables": [
       [
-        "consonant:t*",
+        "consonant:t!",
         "vowel:a"
       ],
       [
-        "consonant:k*",
+        "consonant:k!",
         "vowel:a"
       ]
     ]
   },
   {
-    "word": "say~ta",
+    "word": "sa<y>ta",
     "syllables": [
       [
         "consonant:s",
-        "vowel:ay~"
+        "vowel:a<y>"
       ],
       [
         "consonant:t",
@@ -929,11 +929,11 @@
     ]
   },
   {
-    "word": "naG~a",
+    "word": "n<$g>aa",
     "syllables": [
       [
-        "consonant:n",
-        "vowel:aG~"
+        "consonant:n<$g>",
+        "vowel:a"
       ],
       [
         "vowel:a"

@@ -86,9 +86,27 @@ function rawSound(entry: SymbolEntry): Sound {
  * through untouched instead of keeping the half it understood.
  */
 
+/**
+ * Read a bracketed modifier run.
+ *
+ * `base` is the phone the run FOLLOWS, and is given only in that position.
+ * A run written after a base is claiming those marks belong to it, and a
+ * mark whose `attaches` rule rules that out means the claim is wrong: the
+ * run is really the leading run of whatever comes next. Returning null says
+ * so, and the caller falls through to the leading reading.
+ *
+ * `aʰk` and `mʰk` both spell as `X<h>k`, so the spelling alone cannot say
+ * which sound the mark belongs to. Aspiration attaches to a plosive and not
+ * to a vowel or a nasal, which is what decides it. In the LEADING position
+ * there is nothing to decide, so no base is passed and the rule is not
+ * applied.
+ */
+
 function readRun(
   run: string,
   form: 'consonant' | 'vowel',
+  base?: Phone,
+  loose = false,
 ): Modifier[] | null {
   if (!run) {
     return null
@@ -104,9 +122,21 @@ function readRun(
       return null
     }
 
-    const one = pickModifier(options, form)
+    // LOOSE IS THE LAST READING BEFORE GIVING UP. A modifier is normally
+    // read against the form of its base, but the encoder writes marks that
+    // have no reading for that form: `iʲ` comes back as `i<y^>`, and
+    // palatalization is spelled for a consonant. Refusing left the bracket
+    // to leak out of the tokenizer one raw character at a time, which is
+    // strictly worse than reading it as what it plainly says.
+    const one = loose
+      ? (pickModifier(options, form) ?? options[0])
+      : pickModifier(options, form)
 
     if (one === undefined) {
+      return null
+    }
+
+    if (base && !modifierAttaches(base, one)) {
       return null
     }
 
@@ -271,7 +301,9 @@ export function segment(text: string): Sound[] {
         const next = R.talkStarter.matchAt(text, span.end)
 
         if (next !== undefined && next.role === 'phone') {
-          const held = readRun(span.body, next.phone.form)
+          const held =
+            readRun(span.body, next.phone.form) ??
+            readRun(span.body, next.phone.form, undefined, true)
 
           if (held) {
             leading.push(...held)
@@ -305,9 +337,38 @@ export function segment(text: string): Sound[] {
       const span = runSpan(text, i)
 
       if (span) {
-        const held = readRun(span.body, start.phone.form)
+        // WHOSE MARK IS IT. A run written after a base usually belongs to
+        // it, and the `attaches` rule is what settles the cases where it
+        // might not: aspiration goes to a plosive, not to a vowel.
+        //
+        // But the rule alone is too strong. `ipaToTalk` spells b̥ as
+        // `b<v->` and kǃʰ as `k!<h>`, and neither voicelessness nor
+        // aspiration attaches to those bases by rule, so refusing outright
+        // meant the tokenizer could not read back what its own encoder
+        // writes and the brackets spilled out as raw characters.
+        //
+        // A mark is only handed on when there is somewhere for it to GO:
+        // the next sound has to be a phone that accepts the whole run. If
+        // nothing ahead will take it, it stays where it was written, which
+        // is also the reading that loses nothing.
+        const fits = readRun(span.body, start.phone.form, start.phone)
+        const held =
+          fits ??
+          readRun(span.body, start.phone.form) ??
+          readRun(span.body, start.phone.form, undefined, true)
 
-        if (held) {
+        let handOn = false
+
+        if (held && !fits) {
+          const next = R.talkStarter.matchAt(text, span.end)
+
+          handOn =
+            next !== undefined &&
+            next.role === 'phone' &&
+            readRun(span.body, next.phone.form, next.phone) !== null
+        }
+
+        if (held && !handOn) {
           sounds.push(makeSound(start.phone, held, leading))
           leading = []
           i = span.end
