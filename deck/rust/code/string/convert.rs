@@ -214,7 +214,13 @@ fn unit_to_talk(unit: &IpaUnit) -> String {
         String::new()
       };
 
-      format!("{inner}<B{count}>")
+      // ONE PAIR OF BRACKETS PER BASE: the binder joins the run already
+      // there rather than opening a second, so `tx<hB>` not `tx<h><B>`.
+      if inner.ends_with('>') {
+        format!("{}B{count}>", &inner[..inner.len() - 1])
+      } else {
+        format!("{inner}<B{count}>")
+      }
     }
   }
 }

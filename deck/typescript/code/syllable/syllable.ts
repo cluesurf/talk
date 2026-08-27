@@ -36,6 +36,11 @@ export type Syllable = {
 
 type Segment = {
   /**
+   * Joined to the segment after it by a tie, so no cluster boundary may
+   * fall between them.
+   */
+  bound?: boolean
+  /**
    * The exact talk this segment was read from.
    *
    * WHY IT IS CARRIED RATHER THAN REBUILT. `serialize` used to spell a
@@ -408,7 +413,12 @@ function clusterMatches(
         .map(c => c.value ?? '')
         .join('')
 
-      if (joined === key) {
+      // A MATCH MAY NOT END INSIDE A TIE. The last sound it takes must not
+      // be joined to the one after it, or the cluster boundary would fall
+      // in the middle of a segment the writer said was one.
+      const cut = chunks[i + count - 1]?.bound === true
+
+      if (joined === key && !cut) {
         out.push({ cluster, count })
       }
     }
@@ -508,6 +518,40 @@ export function readSegments(string: string) {
     const base = sound.base
 
     if (!base) {
+      // A BOUND SOUND IS A SOUND, NOT PUNCTUATION. A tie makes `t͡ʃ` one
+      // segment, and the tokenizer returns it raw because the binding is a
+      // claim about its parts rather than a new entry in the phone table.
+      // Filed as punctuation it was SKIPPED by the assembler, so every tied
+      // affricate vanished from the syllables. It groups as the consonant
+      // it is, spelled by its letters with the bracket run left off.
+      const tie = /^(.*?)(<[^>]*B\d*>)$/.exec(sound.talk)
+
+      if (tie) {
+        // READ AS ITS PARTS, SPELLED AS ONE. The cluster tables count in
+        // sounds, and `tx` is two of them, so handing the grouper a single
+        // chunk valued `tx` matched nothing. Each letter becomes its own
+        // segment and the bracket run rides on the last, so the clusters
+        // still join back to `tx<B>` exactly.
+        const parts = segmentTalk(tie[1] ?? '')
+
+        parts.forEach((part, at) => {
+          const last = at === parts.length - 1
+
+          chunks.push({
+            type: (part.base?.form ?? 'consonant') as 'consonant' | 'vowel',
+            value: part.base?.talk ?? part.talk,
+            talk: last ? part.talk + (tie[2] ?? '') : part.talk,
+            // A TIE MAY NOT BE CUT. Every part but the last is marked as
+            // joined to the one after it, so the grouper cannot put a
+            // cluster boundary inside the group: `at͡sa` is `a.ts<B>a`, not
+            // `at.s<B>a`, which would break the very thing the tie asserts.
+            bound: !last,
+          })
+        })
+
+        continue
+      }
+
       // STRESS BELONGS TO THE SOUND BEFORE IT. `^` is a mark, not a sound,
       // and the tokenizer hands it back on its own because it has no base.
       // Filed as punctuation it would break the nucleus in two and drop the
@@ -896,6 +940,13 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
             k++
           }
 
+          // A COLON MAY NOT CUT A TIE. `t:s` says the cluster may break
+          // between `t` and `s`, but when those two are the halves of one
+          // affricate the break would split a segment the writer bound.
+          if (right.length && left[left.length - 1]?.bound) {
+            right.length = 0
+          }
+
           if (right.length) {
             // Replace the original span with two new spans
             node.splice(
@@ -966,11 +1017,15 @@ export function groupSegmentsIntoClusters(chunks: Segment[]) {
         j++
       }
 
-      if (right.length) {
-        nodeSpan.chunk.unshift(...right)
+      // Same rule across rows: a tie is not a place to break.
+      if (right.length && left[left.length - 1]?.bound) {
+        right.length = 0
       }
 
-      lastSpan.chunk = left
+      if (right.length) {
+        nodeSpan.chunk.unshift(...right)
+        lastSpan.chunk = left
+      }
     }
   }
 

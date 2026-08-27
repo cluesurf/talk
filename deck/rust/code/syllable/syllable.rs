@@ -79,6 +79,9 @@ impl Tone {
 /// One parsed mark: a base sound plus the features stacked onto it.
 #[derive(Debug, Clone, Default, PartialEq, Eq)]
 pub struct Segment {
+  /// Joined to the segment after it by a tie, so no cluster boundary may
+  /// fall between them.
+  pub bound: bool,
   /// The exact talk this segment was read from.
   ///
   /// WHY IT IS CARRIED RATHER THAN REBUILT. `serialize` used to spell a
@@ -654,7 +657,14 @@ fn cluster_matches(
     let key = &frame.text[offset..offset + length];
 
     for candidate in group {
-      if joined(chunks, i, candidate.count) == key {
+      // A MATCH MAY NOT END INSIDE A TIE. The last sound it takes must not
+      // be joined to the one after it, or the cluster boundary would fall
+      // in the middle of a segment the writer said was one.
+      let cut = chunks
+        .get(i + candidate.count - 1)
+        .is_some_and(|one| one.bound);
+
+      if !cut && joined(chunks, i, candidate.count) == key {
         out.push(ClusterMatch {
           cluster: candidate.cluster.clone(),
           count: candidate.count,
@@ -770,6 +780,43 @@ pub fn read_segments(text: &str) -> Result<Vec<Segment>, Error> {
 
   for sound in crate::string::sound::segment(text) {
     let Some(base) = sound.base else {
+      // A BOUND SOUND IS A SOUND, NOT PUNCTUATION. A tie makes `t͡ʃ` one
+      // segment, and the reader returns it raw because the binding is a
+      // claim about its parts rather than a new phone. Filed as punctuation
+      // it was SKIPPED by the assembler, so every tied affricate vanished.
+      //
+      // READ AS ITS PARTS, SPELLED AS ONE. The cluster tables count in
+      // sounds, and `tx` is two, so one chunk valued `tx` matched nothing.
+      // Each letter becomes a segment and the bracket run rides on the last.
+      if let Some((letters, run)) = split_tie(&sound.talk) {
+        let parts = crate::string::sound::segment(letters);
+        let total = parts.len();
+
+        for (at, part) in parts.iter().enumerate() {
+          let last = at + 1 == total;
+
+          chunks.push(Segment {
+            talk: Some(if last {
+              format!("{}{}", part.talk, run)
+            } else {
+              part.talk.clone()
+            }),
+            bound: !last,
+            kind: Some(match part.base.map(|one| one.form) {
+              Some(Form::Vowel) => SegmentKind::Vowel,
+              _ => SegmentKind::Consonant,
+            }),
+            value: Some(match part.base {
+              Some(one) => one.talk.clone(),
+              None => part.talk.clone(),
+            }),
+            ..Segment::default()
+          });
+        }
+
+        continue;
+      }
+
       // STRESS BELONGS TO THE SOUND BEFORE IT. `^` is a mark, not a sound,
       // and the reader hands it back on its own because it has no base.
       // Filed as punctuation it would break the nucleus in two and drop the
@@ -860,6 +907,25 @@ pub fn read_segments(text: &str) -> Result<Vec<Segment>, Error> {
   }
 
   Ok(chunks)
+}
+
+/// A bound sound split into its letters and the bracket run holding the
+/// binder, or `None` when the talk is not a bound sound.
+fn split_tie(talk: &str) -> Option<(&str, &str)> {
+  let open = talk.rfind('<')?;
+
+  if !talk.ends_with('>') {
+    return None;
+  }
+
+  let body = &talk[open + 1..talk.len() - 1];
+  let at = body.rfind('B')?;
+
+  if !body[at + 1..].chars().all(|one| one.is_ascii_digit()) {
+    return None;
+  }
+
+  Some((&talk[..open], &talk[open..]))
 }
 
 /// Turn a feature name into the flag the grouper reads.
@@ -1119,6 +1185,10 @@ pub fn group_segments_into_clusters(chunks: &[Segment]) -> Result<Vec<Cluster>, 
 
 /// Divide `chunk` at the point where its sounds spell `left`, so the colon in a
 /// cluster spelling becomes a real boundary.
+///
+/// A COLON MAY NOT CUT A TIE. `t:s` says the cluster may break between `t` and
+/// `s`, but when those two are the halves of one affricate the break would
+/// split a segment the writer bound together, so the chunk comes back whole.
 fn divide(chunk: &[Segment], left: &str) -> (Vec<Segment>, Vec<Segment>) {
   let mut before: Vec<Segment> = Vec::new();
   let mut after: Vec<Segment> = Vec::new();
@@ -1137,6 +1207,10 @@ fn divide(chunk: &[Segment], left: &str) -> (Vec<Segment>, Vec<Segment>) {
     if text == left && after.is_empty() {
       past = true;
     }
+  }
+
+  if !after.is_empty() && before.last().is_some_and(|one| one.bound) {
+    return (chunk.to_vec(), Vec::new());
   }
 
   (before, after)

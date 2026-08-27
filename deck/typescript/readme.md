@@ -20,11 +20,11 @@ npm install @cluesurf/talk
 ```ts
 import talk from '@cluesurf/talk'
 
-talk.ipaToTalk('tʰa') // => 'th~a'
-talk.talkToIpa('th~a') // => 'tʰa'
-talk.readable('th~a') // => 'tʰa'   (simplified, human-readable)
+talk.ipaToTalk('tʰa') // => 't<h>a'
+talk.talkToIpa('t<h>a') // => 'tʰa'
+talk.readable('t<h>a') // => 'tʰa'   (simplified, human-readable)
 talk.normalizeIpa('ʆ') // => 'ʃʲ'   (folds the many ways IPA is written)
-talk.machine({ text: 'th~a', type: 'tone', system: 'mesh' }) // => [20594, 7592]
+talk.machine({ text: 't<h>a', type: 'tone', system: 'mesh' }) // => [20594, 7592]
 talk.syllables('txando') // => the word split into syllables
 ```
 
@@ -76,11 +76,11 @@ import { machine, machineBytes, byteWidth, sizeOf } from '@cluesurf/talk'
 
 // Same call shape, all six encodings.
 machine({ text: 'tʰa', type: 'ipa', system: 'seed' }) // [18, 104, 0]
-machine({ text: 'tʰa', type: 'ipa', system: 'mesh' }) // [49710672, 0]
-machine({ text: 'th~a', type: 'tone', system: 'band' }) // [1778, 683]
-machine({ text: 'th~a', type: 'tone', system: 'mesh' }) // [20594, 7592]
+machine({ text: 'tʰa', type: 'ipa', system: 'mesh' })
+machine({ text: 't<h>a', type: 'tone', system: 'band' })
+machine({ text: 't<h>a', type: 'tone', system: 'mesh' })
 
-machineBytes({ text: 'th~a', type: 'tone', system: 'mesh' }) // 4 bytes
+machineBytes({ text: 't<h>a', type: 'tone', system: 'mesh' }) // 4 bytes
 byteWidth({ type: 'ipa', system: 'mesh' }) // 4
 sizeOf({ type: 'tone', system: 'mesh' }) // 25584
 ```

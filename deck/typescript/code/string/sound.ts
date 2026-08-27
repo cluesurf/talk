@@ -206,7 +206,23 @@ function runSpan(text: string, at: number): { body: string; end: number } | null
  * sits on rather than standing beside it.
  */
 
-const BINDER = /^B(\d*)$/
+/**
+ * A binder, alone or at the end of a run it shares with modifiers.
+ *
+ * `tx<B>` is a bare affricate and `ts<hB>` an aspirated one, where the `h`
+ * belongs to the whole group. The binder is written last because it acts on
+ * everything before it.
+ */
+
+const BINDER = /^(.*?)B(\d*)$/
+
+/** The marks a binder run carries before its `B`, empty when it carries none. */
+
+function binderMarks(run: string): string {
+  const found = BINDER.exec(run)
+
+  return found ? (found[1] ?? '') : ''
+}
 
 /** How many sounds a binder joins, or null when the run is not a binder. */
 
@@ -217,7 +233,7 @@ function binderReach(run: string): number | null {
     return null
   }
 
-  const reach = found[1] ? Number(found[1]) : 2
+  const reach = found[2] ? Number(found[2]) : 2
 
   // Binding one sound to nothing is not a tie, and a count that runs past
   // the start of the word cannot be honoured either. Both are left for the
@@ -254,11 +270,17 @@ function bindSounds(parts: Sound[]): Sound {
 
   const ipa = pre.join('') + bases.join('\u{0361}') + marks.join('')
 
-  return rawSound({
-    talk: `${talk}<B${parts.length > 2 ? parts.length : ''}>`,
-    ipa,
-    simple,
-  })
+  const count = parts.length > 2 ? String(parts.length) : ''
+
+  // ONE PAIR OF BRACKETS PER BASE, the same rule the modifiers follow. The
+  // binder used to open its own pair, so an aspirated affricate came back
+  // `ts<h><B>` with two runs on one sound. It joins the run that is already
+  // there instead: `ts<hB>`.
+  const bound = talk.endsWith('>')
+    ? `${talk.slice(0, -1)}B${count}>`
+    : `${talk}<B${count}>`
+
+  return rawSound({ talk: bound, ipa, simple })
 }
 
 export function segment(text: string): Sound[] {
@@ -335,6 +357,36 @@ export function segment(text: string): Sound[] {
       // pair. `k<wh>` is labialized and aspirated. The contents are
       // uniquely decodable, so no separator is needed inside.
       const span = runSpan(text, i)
+
+      // A BINDER SHARING THE RUN. `ts<hB>` is an aspirated affricate: the
+      // marks belong to the base they follow and the `B` ties it to what
+      // came before. `bindSounds` hoists the marks onto the group, so
+      // reading them here and binding after gives the same sound.
+      if (span) {
+        const reach = binderReach(span.body)
+
+        if (reach !== null) {
+          const marks = binderMarks(span.body)
+          const held = marks
+            ? (readRun(marks, start.phone.form) ??
+              readRun(marks, start.phone.form, undefined, true))
+            : []
+
+          if (held) {
+            sounds.push(makeSound(start.phone, held, leading))
+            leading = []
+
+            if (sounds.length >= reach) {
+              const parts = sounds.splice(sounds.length - reach, reach)
+
+              sounds.push(bindSounds(parts))
+            }
+
+            i = span.end
+            continue
+          }
+        }
+      }
 
       if (span) {
         // WHOSE MARK IS IT. A run written after a base usually belongs to

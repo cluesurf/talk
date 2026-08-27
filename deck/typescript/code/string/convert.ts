@@ -248,8 +248,16 @@ export function unitsToTalk(units: ParsedUnit[]): string {
         // The binder counts, so a reader knows how far it reaches without
         // inferring it from where a character sits.
         const reach = unit.parts.length
+        const count = reach > 2 ? String(reach) : ''
+        const inner = unitsToTalk(unit.parts)
 
-        return `${unitsToTalk(unit.parts)}<B${reach > 2 ? reach : ''}>`
+        // ONE PAIR OF BRACKETS PER BASE, the same rule the modifiers follow.
+        // The binder used to open its own pair, so an aspirated affricate
+        // came back `tx<h><B>` with two runs on one sound. It joins the run
+        // that is already there instead: `tx<hB>`.
+        return inner.endsWith('>')
+          ? `${inner.slice(0, -1)}B${count}>`
+          : `${inner}<B${count}>`
       }
 
       return unit.text

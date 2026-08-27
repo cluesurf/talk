@@ -178,7 +178,7 @@ fn run_span(text: &str, at: usize) -> Option<(String, usize)> {
 /// instead makes a doubly-articulated `k͡p` and a three-part cluster equally
 /// sayable, and puts the binder after its material.
 fn binder_reach(run: &str) -> Option<usize> {
-  let rest = run.strip_prefix('B')?;
+  let (_, rest) = binder_split(run)?;
 
   let reach = if rest.is_empty() {
     2
@@ -187,6 +187,27 @@ fn binder_reach(run: &str) -> Option<usize> {
   };
 
   if reach >= 2 { Some(reach) } else { None }
+}
+
+/// A binder run split into the marks before its `B` and the count after it.
+///
+/// `tx<B>` is a bare affricate and `ts<hB>` an aspirated one, where the `h`
+/// belongs to the whole group. The binder is written last because it acts on
+/// everything before it.
+fn binder_split(run: &str) -> Option<(&str, &str)> {
+  let at = run.rfind('B')?;
+  let count = &run[at + 1..];
+
+  if !count.chars().all(|one| one.is_ascii_digit()) {
+    return None;
+  }
+
+  Some((&run[..at], count))
+}
+
+/// The marks a binder run carries before its `B`.
+fn binder_marks(run: &str) -> &str {
+  binder_split(run).map(|(marks, _)| marks).unwrap_or("")
 }
 
 /// Several sounds joined into one, as a tie does.
@@ -223,8 +244,18 @@ fn bind_sounds(parts: &[Sound]) -> Sound {
     String::new()
   };
 
+  // ONE PAIR OF BRACKETS PER BASE, the same rule the modifiers follow. The
+  // binder used to open its own pair, so an aspirated affricate came back
+  // `ts<h><B>` with two runs on one sound. It joins the run that is already
+  // there instead: `ts<hB>`.
+  let bound = if talk.ends_with('>') {
+    format!("{}B{count}>", &talk[..talk.len() - 1])
+  } else {
+    format!("{talk}<B{count}>")
+  };
+
   raw_sound(&SymbolEntry {
-    talk: format!("{talk}<B{count}>"),
+    talk: bound,
     ipa,
     simple,
   })
@@ -302,6 +333,35 @@ pub fn segment(text: &str) -> Vec<Sound> {
 
     match start {
       Unit::Phone(phone) => {
+        // A BINDER SHARING THE RUN. `ts<hB>` is an aspirated affricate: the
+        // marks belong to the base they follow and the `B` ties it to what
+        // came before. `bind_sounds` hoists the marks onto the group, so
+        // reading them here and binding after gives the same sound.
+        if let Some((body, end)) = run_span(text, i) {
+          if let Some(reach) = binder_reach(&body) {
+            let marks = binder_marks(&body);
+            let held = if marks.is_empty() {
+              Some(Vec::new())
+            } else {
+              read_run(marks, phone.form, None, false)
+                .or_else(|| read_run(marks, phone.form, None, true))
+            };
+
+            if let Some(held) = held {
+              sounds.push(make_sound(phone, held, std::mem::take(&mut leading)));
+
+              if sounds.len() >= reach {
+                let parts: Vec<Sound> = sounds.split_off(sounds.len() - reach);
+
+                sounds.push(bind_sounds(&parts));
+              }
+
+              i = end;
+              continue;
+            }
+          }
+        }
+
         // A BRACKETED RUN AFTER A BASE carries every modifier on it, in one
         // pair. `k<wh>` is labialized and aspirated. The contents are
         // uniquely decodable, so no separator is needed inside.

@@ -67,7 +67,13 @@ describe('modifiers and the tie', () => {
   })
 
   it('round-trips a mark written after the tie', () => {
-    expect(ipaToTalk(`t${TIE}ʃʰ`)).toBe('tx<h><B>')
+    // ONE PAIR OF BRACKETS PER BASE, the same rule the modifiers follow, so
+    // the binder joins the run already there rather than opening a second.
+    expect(ipaToTalk(`t${TIE}ʃʰ`)).toBe('tx<hB>')
+    expect(talkToIpa('tx<hB>')).toBe(`t${TIE}ʃʰ`)
+
+    // The older two-run spelling still READS, since refusing a source is
+    // worse than reading it and returning the canonical form.
     expect(talkToIpa('tx<h><B>')).toBe(`t${TIE}ʃʰ`)
   })
 })

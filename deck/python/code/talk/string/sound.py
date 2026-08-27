@@ -160,7 +160,11 @@ def _run_span(text: str, at: int) -> tuple[str, int] | None:
     return None
 
 
-_BINDER = re.compile(r"^B(\d*)$")
+#: A binder, alone or at the end of a run it shares with modifiers.
+#: ``tx<B>`` is a bare affricate and ``ts<hB>`` an aspirated one, where the
+#: ``h`` belongs to the whole group. The binder is written last because it
+#: acts on everything before it.
+_BINDER = re.compile(r"^(.*?)B(\d*)$")
 
 
 def _binder_reach(run: str) -> int | None:
@@ -176,9 +180,16 @@ def _binder_reach(run: str) -> int | None:
     if not found:
         return None
 
-    reach = int(found.group(1)) if found.group(1) else 2
+    reach = int(found.group(2)) if found.group(2) else 2
 
     return reach if reach >= 2 else None
+
+
+def _binder_marks(run: str) -> str:
+    """The marks a binder run carries before its ``B``."""
+    found = _BINDER.match(run)
+
+    return found.group(1) if found else ""
 
 
 def _bind_sounds(parts: list[Sound]) -> Sound:
@@ -199,7 +210,15 @@ def _bind_sounds(parts: list[Sound]) -> Sound:
     ipa = "".join(pre) + "\u0361".join(bases) + "".join(marks)
     count = len(parts) if len(parts) > 2 else ""
 
-    return _raw_sound(SymbolEntry(f"{talk}<B{count}>", ipa, simple))
+    # ONE PAIR OF BRACKETS PER BASE, the same rule the modifiers follow. The
+    # binder used to open its own pair, so an aspirated affricate came back
+    # ``ts<h><B>`` with two runs on one sound. It joins the run that is
+    # already there instead: ``ts<hB>``.
+    bound = (
+        f"{talk[:-1]}B{count}>" if talk.endswith(">") else f"{talk}<B{count}>"
+    )
+
+    return _raw_sound(SymbolEntry(bound, ipa, simple))
 
 
 def segment(text: str) -> list[Sound]:
@@ -269,6 +288,36 @@ def segment(text: str) -> list[Sound]:
         if start.role == "phone":
             assert start.phone is not None
             span = _run_span(text, i)
+
+            # A BINDER SHARING THE RUN. `ts<hB>` is an aspirated affricate:
+            # the marks belong to the base they follow and the `B` ties it to
+            # what came before. `_bind_sounds` hoists the marks onto the
+            # group, so reading them here and binding after is the same.
+            if span is not None:
+                body, end = span
+                reach = _binder_reach(body)
+
+                if reach is not None:
+                    marks = _binder_marks(body)
+                    held: list[Modifier] | None = []
+
+                    if marks:
+                        held = _read_run(marks, start.phone.form)
+
+                        if held is None:
+                            held = _read_run(marks, start.phone.form, None, True)
+
+                    if held is not None:
+                        sounds.append(make_sound(start.phone, held, leading))
+                        leading = []
+
+                        if len(sounds) >= reach:
+                            parts = sounds[len(sounds) - reach :]
+                            del sounds[len(sounds) - reach :]
+                            sounds.append(_bind_sounds(parts))
+
+                        i = end
+                        continue
 
             if span is not None:
                 body, end = span

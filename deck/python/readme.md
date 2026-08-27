@@ -20,12 +20,13 @@ pip install cluesurf-talk
 ```python
 import talk
 
-talk.ipa_to_talk("tʰa")        # 'th~a'
-talk.talk_to_ipa("th~a")       # 'tʰa'
-talk.readable("th~a")          # 'tʰa'   simplified, human-readable
-talk.normalize_ipa("ʆ")        # 'ʃʲ'    folds the many ways IPA is written
-talk.machine(text="th~a", type="tone", system="mesh")  # [20594, 7592]
-talk.segment("th~a")           # Sounds, each a base plus its modifiers
+talk.ipa_to_talk("tʰa")         # 't<h>a'
+talk.talk_to_ipa("t<h>a")       # 'tʰa'
+talk.readable("t<h>a")          # 'tʰa'   simplified, human-readable
+talk.normalize_ipa("ʆ")         # 'ʃʲ'    folds the many ways IPA is written
+talk.machine(text="t<h>a", type="tone", system="mesh")
+talk.segment("t<h>a")           # Sounds, each a base plus its modifiers
+talk.syllables("si$nk")         # syllables, each onset + nucleus + coda
 ```
 
 ## API
@@ -42,6 +43,9 @@ talk.segment("th~a")           # Sounds, each a base plus its modifiers
 | `parse_ipa(ipa)` | IPA to bases with their modifiers |
 | `segment(tone)` | tone to `Sound`s |
 | `enumerate_sounds()` | every canonical sound |
+| `syllables(tone)` | tone to syllables, each a run of clusters |
+| `read_segments(tone)` | tone to the sounds the syllabifier reasons about |
+| `group_segments_into_clusters(marks)` | sounds to clusters |
 
 ## Encodings
 
@@ -69,11 +73,11 @@ from talk import machine, machine_bytes, byte_width, size_of
 
 # Same call shape, all six encodings.
 machine(text="tʰa", type="ipa", system="seed")    # [18, 104, 0]
-machine(text="tʰa", type="ipa", system="mesh")    # [49710672, 0]
-machine(text="th~a", type="tone", system="band")  # [1778, 683]
-machine(text="th~a", type="tone", system="mesh")  # [20594, 7592]
+machine(text="tʰa", type="ipa", system="mesh")
+machine(text="t<h>a", type="tone", system="band")
+machine(text="t<h>a", type="tone", system="mesh")
 
-machine_bytes(text="th~a", type="tone", system="mesh")  # 4 bytes
+machine_bytes(text="t<h>a", type="tone", system="mesh")  # 4 bytes
 byte_width(type="ipa", system="mesh")   # 4
 size_of(type="tone", system="mesh")     # 25584
 ```
@@ -115,13 +119,20 @@ tier setting recovers that. If a merged contrast would be a bug, use
 
 ## How it works
 
-Everything derives from two data files in `code/talk/base/` and a
+Everything derives from the data files in `code/talk/base/` and a
 double-array trie scan, with no runtime dependencies.
 
 - `phones.json` is the base inventory, one row per IPA symbol with its
   place, manner and voicing.
 - `modifiers.json` is the affixes, each with the axis it varies and the
   rule saying where it can attach.
+- `clusters/` is the syllable whitelists: which consonant runs may open a
+  syllable, close one, or stand alone.
+
+This port is checked against the TypeScript build rather than against cases
+written here. `test_syllable_parity.py` reads
+`deck/rust/test/fixture/parity.json`, which is TypeScript's own output, so
+all three libraries are held to one answer.
 
 Attachment rules are what keep the space honest. Aspiration needs a
 plosive or a fricative and refuses the glottal place, so `hʰ` is never

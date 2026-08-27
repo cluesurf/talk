@@ -22,16 +22,16 @@ The crate is published as `cluesurf-talk` and imported as `talk`.
 ```rust
 use talk::{Notation, Tier, ipa_to_talk, machine, normalize_ipa, readable, talk_to_ipa};
 
-assert_eq!(ipa_to_talk("tʰa"), "th~a");
-assert_eq!(talk_to_ipa("th~a"), "tʰa");
-assert_eq!(readable("th~a"), "tʰa");
+assert_eq!(ipa_to_talk("tʰa"), "t<h>a");
+assert_eq!(talk_to_ipa("t<h>a"), "tʰa");
+assert_eq!(readable("t<h>a"), "tʰa");
 
 // Folds the many ways IPA gets written into the one form the parser reads.
 assert_eq!(normalize_ipa("ʆ"), "ʃʲ");
 
 // One integer per sound, at the notation and tier you ask for.
 assert_eq!(
-    machine("th~a", Notation::Tone, Tier::Mesh),
+    machine("t<h>a", Notation::Tone, Tier::Mesh),
     vec![20594, 7592]
 );
 ```
@@ -78,11 +78,11 @@ use talk::{Notation, Tier, byte_width, machine, machine_bytes, size_of};
 
 // Same call shape, all six encodings.
 machine("tʰa", Notation::Ipa, Tier::Seed);   // [18, 104, 0]
-machine("tʰa", Notation::Ipa, Tier::Mesh);   // [49710672, 0]
-machine("th~a", Notation::Tone, Tier::Band); // [1778, 683]
-machine("th~a", Notation::Tone, Tier::Mesh); // [20594, 7592]
+machine("tʰa", Notation::Ipa, Tier::Mesh);
+machine("t<h>a", Notation::Tone, Tier::Band);
+machine("t<h>a", Notation::Tone, Tier::Mesh);
 
-machine_bytes("th~a", Notation::Tone, Tier::Mesh); // 4 bytes
+machine_bytes("t<h>a", Notation::Tone, Tier::Mesh); // 4 bytes
 assert_eq!(byte_width(Notation::Ipa, Tier::Mesh), 4);
 assert_eq!(size_of(Notation::Tone, Tier::Mesh), 25584);
 ```

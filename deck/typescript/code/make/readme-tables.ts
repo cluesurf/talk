@@ -85,6 +85,22 @@ const rows = lines.slice(1).map(line => {
 
 const escape = (one: string): string => one.replace(/\|/g, '\\|')
 
+/**
+ * A spelling in a `<code>` element rather than a backtick span.
+ *
+ * Several X-SAMPA spellings CONTAIN a backtick: the retroflex plosive is
+ * `` d` `` and the uvular trill `` R\ ``. A markdown code span ends at the
+ * first backtick it meets, so those rendered as broken markup. An element
+ * has no such problem, so the markup characters are escaped instead.
+ */
+
+const code = (one: string): string =>
+  `<code>${one
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\|/g, '&#124;')}</code>`
+
 // ── consonants, in chart order ──────────────────────────────────────────
 
 const consonant: string[] = [
@@ -100,7 +116,7 @@ for (const row of rows) {
   }
 
   consonant.push(
-    `| ${escape(row.symbol!)} | \`${escape(phone.talk)}\` | \`${escape(phone.xsampa)}\` | ${row.name} | ${row.place} | ${row.manner} | ${row.voice} |`,
+    `| ${escape(row.symbol!)} | ${code(phone.talk)} | ${code(phone.xsampa)} | ${row.name} | ${row.place} | ${row.manner} | ${row.voice} |`,
   )
 }
 
@@ -188,7 +204,7 @@ for (const group of GROUPS) {
   for (const one of held) {
     seen.add(one.talk + one.feature)
     grouped.push(
-      `| ${escape(one.ipa)} | \`<${escape(one.talk)}>\` | \`${escape(one.xsampa)}\` | ${one.feature} | ${one.base} |`,
+      `| ${escape(one.ipa)} | ${code('<' + one.talk + '>')} | ${code(one.xsampa)} | ${one.feature} | ${one.base} |`,
     )
   }
 }
@@ -206,7 +222,7 @@ if (rest.length) {
 
   for (const one of rest) {
     grouped.push(
-      `| ${escape(one.ipa)} | \`<${escape(one.talk)}>\` | \`${escape(one.xsampa)}\` | ${one.feature} | ${one.base} |`,
+      `| ${escape(one.ipa)} | ${code('<' + one.talk + '>')} | ${code(one.xsampa)} | ${one.feature} | ${one.base} |`,
     )
   }
 }

@@ -309,6 +309,11 @@ def _unit_to_talk(unit: IpaUnit) -> str:
         inner = "".join(_unit_to_talk(one) for one in unit.parts)
         count = reach if reach > 2 else ""
 
+        # ONE PAIR OF BRACKETS PER BASE: the binder joins the run already
+        # there rather than opening a second, so `tx<hB>` not `tx<h><B>`.
+        if inner.endswith(">"):
+            return f"{inner[:-1]}B{count}>"
+
         return f"{inner}<B{count}>"
 
     assert unit.text is not None
