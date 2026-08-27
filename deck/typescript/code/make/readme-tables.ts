@@ -94,6 +94,19 @@ const escape = (one: string): string => one.replace(/\|/g, '\\|')
  * has no such problem, so the markup characters are escaped instead.
  */
 
+/**
+ * X-SAMPA is ASCII BY DEFINITION, so a spelling that is not ASCII is not
+ * X-SAMPA. Eight of the chart symbols postdate the scheme and were never
+ * given one: the labiodental flap, the retroflex and palatal lateral
+ * fricatives, the retroflex lateral flap, the retroflex implosive and the
+ * retroflex click. The phone table carries the IPA character in the field
+ * as a placeholder, which reads in a table as though X-SAMPA spelled it
+ * that way. It does not, so the cell is left empty instead.
+ */
+
+const sampa = (one: string): string =>
+  /^[\x20-\x7e]+$/.test(one) ? code(one) : '—'
+
 const code = (one: string): string =>
   `<code>${one
     .replace(/&/g, '&amp;')
@@ -116,7 +129,7 @@ for (const row of rows) {
   }
 
   consonant.push(
-    `| ${escape(row.symbol!)} | ${code(phone.talk)} | ${code(phone.xsampa)} | ${row.name} | ${row.place} | ${row.manner} | ${row.voice} |`,
+    `| ${escape(row.symbol!)} | ${code(phone.talk)} | ${sampa(phone.xsampa)} | ${row.name} | ${row.place} | ${row.manner} | ${row.voice} |`,
   )
 }
 
@@ -204,7 +217,7 @@ for (const group of GROUPS) {
   for (const one of held) {
     seen.add(one.talk + one.feature)
     grouped.push(
-      `| ${escape(one.ipa)} | ${code('<' + one.talk + '>')} | ${code(one.xsampa)} | ${one.feature} | ${one.base} |`,
+      `| ${escape(one.ipa)} | ${code('<' + one.talk + '>')} | ${sampa(one.xsampa)} | ${one.feature} | ${one.base} |`,
     )
   }
 }
@@ -222,7 +235,7 @@ if (rest.length) {
 
   for (const one of rest) {
     grouped.push(
-      `| ${escape(one.ipa)} | ${code('<' + one.talk + '>')} | ${code(one.xsampa)} | ${one.feature} | ${one.base} |`,
+      `| ${escape(one.ipa)} | ${code('<' + one.talk + '>')} | ${sampa(one.xsampa)} | ${one.feature} | ${one.base} |`,
     )
   }
 }
