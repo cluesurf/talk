@@ -1,6 +1,6 @@
 [package]
 name = "cluesurf-talk"
-version = "4.0.0"
+version = "4.0.2"
 edition = "2021"
 rust-version = "1.70"
 description = "Tokenized IPA for AI and NLP, a keyboard-friendly ASCII phonetic encoding that converts to and from IPA with one token per effective sound."
