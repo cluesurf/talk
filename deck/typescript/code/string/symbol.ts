@@ -14,7 +14,12 @@ export function buildSymbols(): SymbolEntry[] {
     { talk: '\\?', ipa: '?', simple: '?' },
     { talk: '\\!', ipa: '!', simple: '!' },
     { talk: '\\+', ipa: '+', simple: '+' },
-    { talk: '\\-', ipa: '-', simple: '-' },
+    // THE HYPHEN, UNESCAPED. Hyphenated words and the dashes a dictionary
+    // puts between morphemes are ordinary text, and writing them `\-` made
+    // every one of them unreadable. Like `.`, a dash is a modifier spelling
+    // only INSIDE a bracketed run (`v-` is voiceless, `s-` non-syllabic),
+    // so a bare one outside brackets can mean nothing else.
+    { talk: '-', ipa: '-', simple: '-' },
     { talk: '\\*', ipa: '*', simple: '*' },
     { talk: '\\@', ipa: '@', simple: '@' },
     { talk: '\\$', ipa: '$', simple: '$' },

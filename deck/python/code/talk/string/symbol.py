@@ -17,7 +17,12 @@ def build_symbols() -> list[SymbolEntry]:
         SymbolEntry("\\?", "?", "?"),
         SymbolEntry("\\!", "!", "!"),
         SymbolEntry("\\+", "+", "+"),
-        SymbolEntry("\\-", "-", "-"),
+        # THE HYPHEN, UNESCAPED. Hyphenated words and the dashes a
+        # dictionary puts between morphemes are ordinary text, and writing
+        # them ``\\-`` made every one of them unreadable. Like ``.``, a dash
+        # is a modifier spelling only INSIDE a bracketed run (``v-`` is
+        # voiceless), so a bare one outside brackets can mean nothing else.
+        SymbolEntry("-", "-", "-"),
         SymbolEntry("\\*", "*", "*"),
         SymbolEntry("\\@", "@", "@"),
         SymbolEntry("\\$", "$", "$"),

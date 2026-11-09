@@ -129,8 +129,8 @@ fn tokenizes_into_sounds_with_features() {
 
 #[test]
 fn carries_symbols_and_numerals_through() {
-  assert_eq!(readable("\\. 7"), ". 7");
-  assert_eq!(segment("\\. 7")[0].kind, Kind::Symbol);
+  assert_eq!(readable(". 7"), ". 7");
+  assert_eq!(segment(". 7")[0].kind, Kind::Symbol);
 }
 
 /// A tone contour is a SEQUENCE, and the run used to be sorted by pitch.

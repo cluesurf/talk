@@ -81,12 +81,12 @@ fn does_not_split_a_click_off_its_base_letter() {
 
 #[test]
 fn passes_symbols_through_as_their_own_chunks() {
-  expect(chunks("\\. 7"), &["\\.", " ", "7"]);
+  expect(chunks(". 7"), &[".", " ", "7"]);
 }
 
 #[test]
 fn marks_symbols_as_symbol_sounds() {
-  let sounds = segment("\\. 7");
+  let sounds = segment(". 7");
 
   assert!(sounds.iter().all(|sound| sound.kind == Kind::Symbol));
 }
@@ -293,10 +293,10 @@ fn parses_sequences_spaces_symbols_and_numerals() {
       Kind::Vowel
     ]
   );
-  assert_eq!(segment("\\.")[0].kind, Kind::Symbol);
+  assert_eq!(segment(".")[0].kind, Kind::Symbol);
   assert_eq!(segment("3")[0].kind, Kind::Symbol);
   assert_eq!(
-    segment("ma\\.3").iter().map(|s| s.kind).collect::<Vec<_>>(),
+    segment("ma.3").iter().map(|s| s.kind).collect::<Vec<_>>(),
     vec![Kind::Consonant, Kind::Vowel, Kind::Symbol, Kind::Symbol]
   );
 }

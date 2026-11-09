@@ -15,7 +15,7 @@ pub fn symbols() -> &'static [SymbolEntry] {
     // (unreleased) only INSIDE a bracketed run, so a bare one outside
     // brackets can mean nothing else.
     let mut symbols: Vec<SymbolEntry> = [
-      ".", "\\?", "\\!", "\\+", "\\-", "\\*", "\\@", "\\$", "\\~", "\\_", "\\^",
+      ".", "-", "\\?", "\\!", "\\+", "\\*", "\\@", "\\$", "\\~", "\\_", "\\^",
       "\\\\", " ",
     ]
       .into_iter()

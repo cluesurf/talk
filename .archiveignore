@@ -1,0 +1,53 @@
+# What NOT to publish to the Internet Archive. gitignore syntax.
+# Everything else in this folder goes into the published zip.
+# `.git/` and `.env*` are always left out.
+
+# build output, dependencies, scratch (as in .gitignore)
+node_modules/
+tmp/
+host/
+target/
+.venv/
+__pycache__/
+.pytest_cache/
+dist/
+
+# copies of base/ each library's build writes for itself (nested .gitignore)
+deck/python/code/talk/base/
+deck/typescript/base/
+
+# scratch examples git ignores (deck/rust/.gitignore). The tracked ones stay.
+deck/rust/examples/dbgnorm.rs
+deck/rust/examples/dbgspace.rs
+deck/rust/examples/hyph.rs
+deck/rust/examples/m.rs
+deck/rust/examples/tie.rs
+.github/
+PR.md
+
+# LaTeX byproducts (the built .pdf is kept)
+text/**/*.aux
+text/**/*.log
+text/**/*.out
+text/**/*.toc
+text/**/*.lof
+text/**/*.lot
+text/**/*.bbl
+text/**/*.blg
+text/**/*.thm
+text/**/*.fls
+text/**/*.fdb_latexmk
+text/**/*.synctex.gz
+text/**/arxiv-submission/
+text/**/arxiv-submission.zip
+
+# editor and agent settings
+.vscode/
+.claude/
+.DS_Store
+*.bak
+
+# credentials
+.npmrc
+*.pem
+*.key
