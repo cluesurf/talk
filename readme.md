@@ -14,7 +14,7 @@
   talk
 </h3>
 <p align='center'>
-  Tokenized Alphabet for Linguistic Knowledge
+  <b>T</b>okenized <b>A</b>lphabet for <b>L</b>inguistic <b>K</b>nowledge
 </p>
 
 <br/>
