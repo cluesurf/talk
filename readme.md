@@ -14,7 +14,7 @@
   talk
 </h3>
 <p align='center'>
-  A phonetic sequence encoding Θ
+  Tokenized Alphabet for Linguistic Knowledge
 </p>
 
 <br/>
@@ -23,7 +23,7 @@
 
 ## Overview
 
-**Talk** is a phonetic front end and tokenization layer for speech and
+**Talk** (**T**okenized **A**lphabet for **L**inguistic **K**nowledge) is a phonetic front end and tokenization layer for speech and
 language models. Its **machine** encoding turns text or IPA into one
 integer per sound, so a model gets a finite, normalized phone vocabulary
 instead of raw IPA or byte-pair fragments that split a pronunciation

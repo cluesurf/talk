@@ -722,7 +722,12 @@
     "feature": "prenasalized-labial",
     "slot": "nasal",
     "order": 12,
-    "detail": true
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ]
+    }
   },
   {
     "ipa": "ᵑ",
@@ -733,7 +738,12 @@
     "feature": "prenasalized-velar",
     "slot": "nasal",
     "order": 12,
-    "detail": true
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ]
+    }
   },
   {
     "ipa": "˔",
@@ -871,5 +881,426 @@
         "lateral-approximant"
       ]
     }
+  },
+  {
+    "ipa": "ᶬ",
+    "talk": "$m~",
+    "xsampa": "_FF",
+    "simple": "ᶬ",
+    "base": "consonant",
+    "feature": "prenasalized-labiodental",
+    "slot": "nasal",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ]
+    }
+  },
+  {
+    "ipa": "ᶮ",
+    "talk": "ny~",
+    "xsampa": "_JJ",
+    "simple": "ᶮ",
+    "base": "consonant",
+    "feature": "prenasalized-palatal",
+    "slot": "nasal",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ]
+    }
+  },
+  {
+    "ipa": "ᶯ",
+    "talk": "N~",
+    "xsampa": "_n`n`",
+    "simple": "ᶯ",
+    "base": "consonant",
+    "feature": "prenasalized-retroflex",
+    "slot": "nasal",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ]
+    }
+  },
+  {
+    "ipa": "ᶰ",
+    "talk": "$N~",
+    "xsampa": "_N\\N\\",
+    "simple": "ᶰ",
+    "base": "consonant",
+    "feature": "prenasalized-uvular",
+    "slot": "nasal",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "plosive"
+      ]
+    }
+  },
+  {
+    "ipa": "ᵏ",
+    "talk": "k~",
+    "xsampa": "_kk",
+    "simple": "ᵏ",
+    "base": "consonant",
+    "feature": "velar-onset",
+    "slot": "onset",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "click",
+        "lateral-click"
+      ]
+    }
+  },
+  {
+    "ipa": "ᶢ",
+    "talk": "g~",
+    "xsampa": "_gg",
+    "simple": "ᶢ",
+    "base": "consonant",
+    "feature": "voiced-velar-onset",
+    "slot": "onset",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "click",
+        "lateral-click"
+      ]
+    }
+  },
+  {
+    "ipa": "ᵇ",
+    "talk": "b~",
+    "xsampa": "_bb",
+    "simple": "ᵇ",
+    "base": "consonant",
+    "feature": "prestopped-labial",
+    "slot": "onset",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "nasal",
+        "fricative",
+        "sibilant-fricative",
+        "non-sibilant-fricative",
+        "lateral-fricative",
+        "affricate",
+        "approximant",
+        "lateral-approximant"
+      ]
+    }
+  },
+  {
+    "ipa": "ᵈ",
+    "talk": "d~",
+    "xsampa": "_dd",
+    "simple": "ᵈ",
+    "base": "consonant",
+    "feature": "prestopped-alveolar",
+    "slot": "onset",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "nasal",
+        "fricative",
+        "sibilant-fricative",
+        "non-sibilant-fricative",
+        "lateral-fricative",
+        "affricate",
+        "approximant",
+        "lateral-approximant"
+      ]
+    }
+  },
+  {
+    "ipa": "ᵗ",
+    "talk": "t~",
+    "xsampa": "_tt",
+    "simple": "ᵗ",
+    "base": "consonant",
+    "feature": "prestopped-voiceless-alveolar",
+    "slot": "onset",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "nasal",
+        "fricative",
+        "sibilant-fricative",
+        "non-sibilant-fricative",
+        "lateral-fricative",
+        "affricate",
+        "approximant",
+        "lateral-approximant"
+      ]
+    }
+  },
+  {
+    "ipa": "ᶜ",
+    "talk": "ky~",
+    "xsampa": "_cc",
+    "simple": "ᶜ",
+    "base": "consonant",
+    "feature": "prestopped-palatal",
+    "slot": "onset",
+    "order": 12,
+    "detail": true,
+    "attaches": {
+      "manner": [
+        "nasal",
+        "fricative",
+        "sibilant-fricative",
+        "non-sibilant-fricative",
+        "lateral-fricative",
+        "affricate",
+        "approximant",
+        "lateral-approximant"
+      ]
+    }
+  },
+  {
+    "ipa": "ˣ",
+    "talk": "H~",
+    "xsampa": "_xx",
+    "simple": "ˣ",
+    "base": "consonant",
+    "feature": "velar-fricative-release",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶲ",
+    "talk": "F~",
+    "xsampa": "_p\\p\\",
+    "simple": "ᶲ",
+    "base": "consonant",
+    "feature": "bilabial-fricative-release",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᵝ",
+    "talk": "$v~",
+    "xsampa": "_BB",
+    "simple": "ᵝ",
+    "base": "consonant",
+    "feature": "voiced-bilabial-fricative-release",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "͎",
+    "talk": "w+",
+    "xsampa": "_W",
+    "simple": "͎",
+    "base": "consonant",
+    "feature": "whistled",
+    "slot": "frication",
+    "order": 11,
+    "detail": true
+  },
+  {
+    "ipa": "̴",
+    "talk": "$q",
+    "xsampa": "_GQ",
+    "simple": "̴",
+    "base": "consonant",
+    "feature": "velarized-or-pharyngealized",
+    "slot": "tongue-body",
+    "order": 20,
+    "detail": true
+  },
+  {
+    "ipa": "ᵄ",
+    "talk": "$A~",
+    "xsampa": "_66",
+    "simple": "ᵄ",
+    "base": "any",
+    "feature": "near-open-central-unrounded-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᵅ",
+    "talk": "~a~",
+    "xsampa": "_AA",
+    "simple": "ᵅ",
+    "base": "any",
+    "feature": "open-back-unrounded-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶛ",
+    "talk": "~U~",
+    "xsampa": "_QQ",
+    "simple": "ᶛ",
+    "base": "any",
+    "feature": "open-back-rounded-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶟ",
+    "talk": "$E~",
+    "xsampa": "_33",
+    "simple": "ᶟ",
+    "base": "any",
+    "feature": "open-mid-central-unrounded-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶶ",
+    "talk": "~u~",
+    "xsampa": "_}}",
+    "simple": "ᶶ",
+    "base": "any",
+    "feature": "close-central-rounded-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶝ",
+    "talk": "xy~",
+    "xsampa": "_s\\s\\",
+    "simple": "ᶝ",
+    "base": "consonant",
+    "feature": "palatal-voiceless-sibilant-fricative-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶡ",
+    "talk": "gy~",
+    "xsampa": "_J\\J\\",
+    "simple": "ᶡ",
+    "base": "consonant",
+    "feature": "palatal-voiced-plosive-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶫ",
+    "talk": "l$g~",
+    "xsampa": "_L\\L\\",
+    "simple": "ᶫ",
+    "base": "consonant",
+    "feature": "velar-voiced-lateral-approximant-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶩ",
+    "talk": "L~",
+    "xsampa": "_l`l`",
+    "simple": "ᶩ",
+    "base": "consonant",
+    "feature": "retroflex-voiced-lateral-approximant-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ʴ",
+    "talk": "$r~",
+    "xsampa": "_r\\r\\",
+    "simple": "ʴ",
+    "base": "consonant",
+    "feature": "alveolar-voiced-approximant-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ʵ",
+    "talk": "$R~",
+    "xsampa": "_r\\`r\\`",
+    "simple": "ʵ",
+    "base": "consonant",
+    "feature": "retroflex-voiced-approximant-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ʶ",
+    "talk": "$G~",
+    "xsampa": "_RR",
+    "simple": "ʶ",
+    "base": "consonant",
+    "feature": "uvular-voiced-non-sibilant-fricative-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶴ",
+    "talk": "x~",
+    "xsampa": "_SS",
+    "simple": "ᶴ",
+    "base": "consonant",
+    "feature": "postalveolar-voiceless-sibilant-fricative-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶭ",
+    "talk": "W~",
+    "xsampa": "_M\\M\\",
+    "simple": "ᶭ",
+    "base": "consonant",
+    "feature": "velar-voiced-approximant-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶼ",
+    "talk": "J~",
+    "xsampa": "_z`z`",
+    "simple": "ᶼ",
+    "base": "consonant",
+    "feature": "retroflex-voiced-sibilant-fricative-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
+  },
+  {
+    "ipa": "ᶽ",
+    "talk": "jy~",
+    "xsampa": "_z\\z\\",
+    "simple": "ᶽ",
+    "base": "consonant",
+    "feature": "palatal-voiced-sibilant-fricative-transition",
+    "slot": "release",
+    "order": 51,
+    "detail": true
   }
 ]
